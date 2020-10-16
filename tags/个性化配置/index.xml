@@ -1,0 +1,40 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>个性化配置 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/</link><description>个性化配置 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 10 Oct 2020 16:08:58 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/" rel="self" type="application/rss+xml"/><item><title>Hugo系列(3) - 通过配置文件来定制个人站点</title><link>https://lewky.cn/posts/hugo-3.html/</link><pubDate>Sat, 10 Oct 2020 16:08:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>本文基于<code>LoveIt</code>主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cmd" data-lang="cmd"><span class="p">&gt;</span>hugo version
+Hugo Static Site Generator v0.74.2-48565DE6 windows/amd64 BuildDate: 2020-07-17T17:22:50Z
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Hexo搭建博客教程(2) - 博客的简单个性化配置</title><link>https://lewky.cn/posts/38619.html/</link><pubDate>Tue, 24 Apr 2018 22:07:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/38619.html/</guid><description><![CDATA[<blockquote>
+<p>本章主要讲博客的个性化，譬如站点的基本配置（语言、头像、站点图标等）、安装新的Hexo主题（NexT主题）以及主题的配置。</p>
+</blockquote>
+<h2 id="一修改站点配置">一、修改站点配置</h2>
+<p>打开站点配置文件 ，找到：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"># Site
+title: Hexo
+subtitle:
+description:
+keywords:
+author: John Doe
+language:
+timezone:
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

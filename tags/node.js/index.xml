@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>node.js - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/node.js/</link><description>node.js - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 26 Feb 2019 23:45:56 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/node.js/" rel="self" type="application/rss+xml"/><item><title>Windows下完全卸载node.js并安装node.js的多版本管理工具nvm-windows</title><link>https://lewky.cn/posts/1908545a.html/</link><pubDate>Tue, 26 Feb 2019 23:45:56 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1908545a.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>由于高版本的node.js导致gulp执行build命令失败，我需要在Windows下卸载掉已有的node.js并安装一个多版本管理工具<code>nvm-windows</code>，方便切换不同版本的node.js。</p>
+<p>nvm是Linux下常用的一个node.js多版本管理工具，但是nvm不能在Windows下使用，在GitHub上有个项目叫<code>nvm-windows</code>，可以让我们在Windows下对node.js进行多版本管理。</p>]]></description></item><item><title>执行gulp build报错</title><link>https://lewky.cn/posts/9af9bb6b.html/</link><pubDate>Tue, 26 Feb 2019 23:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9af9bb6b.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>在执行<code>gulp build</code>报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">D:\coding\Resume\Resumes&gt;gulp build
+gulp build[5628]: src\node_contextify.cc:628: Assertion `args[1]-&gt;IsString()&#39; failed.
+
+D:\coding\Resume\Resumes&gt;gulp -v
+[22:00:13] CLI version 2.0.1
+[22:00:13] Local version 3.9.1
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

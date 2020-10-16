@@ -1,0 +1,6 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Google hosts - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/google-hosts/</link><description>Google hosts - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 08 Aug 2018 23:16:35 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/google-hosts/" rel="self" type="application/rss+xml"/><item><title>Google hosts - 简单介绍与使用方法</title><link>https://lewky.cn/posts/9cdb4f66.html/</link><pubDate>Wed, 08 Aug 2018 23:16:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9cdb4f66.html/</guid><description><![CDATA[<h2 id="什么是hosts">什么是Hosts</h2>
+<p>百度百科：</p>
+<blockquote>
+<p>Hosts是一个没有扩展名的系统文件，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。</p>
+<p>需要注意的是，Hosts文件配置的映射是静态的，如果网络上的计算机更改了请及时更新IP地址，否则将不能访问。</p>
+</blockquote>]]></description></item></channel></rss>

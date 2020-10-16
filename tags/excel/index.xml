@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Excel - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/excel/</link><description>Excel - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 22 Nov 2018 21:51:34 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/excel/" rel="self" type="application/rss+xml"/><item><title>Excel - 使用公式将秒转换为分+秒</title><link>https://lewky.cn/posts/5be6b2f2.html/</link><pubDate>Thu, 22 Nov 2018 21:51:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/5be6b2f2.html/</guid><description><![CDATA[<h2 id="场景">场景</h2>
+<p>现在有个需求：将Excel里的时间转换为分+秒的格式，如下：</p>
+<table>
+<thead>
+<tr>
+<th>time(second)</th>
+<th>time(min+second)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>482.712</td>
+<td>XXmin,XXs</td>
+</tr>
+<tr>
+<td>480.737</td>
+<td>XXmin,XXs</td>
+</tr>
+</tbody>
+</table>
+<p>对于这种场景，可以通过Excel的公式来实现。</p>]]></description></item></channel></rss>

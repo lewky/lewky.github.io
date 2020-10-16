@@ -1,0 +1,28 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>常用软件 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/</link><description>常用软件 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Jan 2019 22:22:14 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/" rel="self" type="application/rss+xml"/><item><title>IDE工具、文本编辑器的列块编辑模式</title><link>https://lewky.cn/posts/f0ce18c5.html/</link><pubDate>Thu, 17 Jan 2019 22:22:14 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f0ce18c5.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>有时候需要对若干列进行一样的操作，比如在前一百行数据的最前边加上一样的字符，这时候可以通过列块编辑模式来快捷地实现这个效果。在列块编辑模式下，被选定的区域内的所有字符会被替换成你之后输入的字符。&lt;/p></description></item><item><title>Excel - 使用公式将秒转换为分+秒</title><link>https://lewky.cn/posts/5be6b2f2.html/</link><pubDate>Thu, 22 Nov 2018 21:51:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/5be6b2f2.html/</guid><description><![CDATA[<h2 id="场景">场景</h2>
+<p>现在有个需求：将Excel里的时间转换为分+秒的格式，如下：</p>
+<table>
+<thead>
+<tr>
+<th>time(second)</th>
+<th>time(min+second)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>482.712</td>
+<td>XXmin,XXs</td>
+</tr>
+<tr>
+<td>480.737</td>
+<td>XXmin,XXs</td>
+</tr>
+</tbody>
+</table>
+<p>对于这种场景，可以通过Excel的公式来实现。</p>]]></description></item><item><title>MarkdownPad - win10环境下无法渲染HTML问题</title><link>https://lewky.cn/posts/511045a6.html/</link><pubDate>Sat, 17 Nov 2018 22:58:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/511045a6.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>在win10平台安装了MarkdownPad 2之后，发现在渲染md文件时报错，在预览页面无法正常渲染HTML：
+
+<figure><a class="lightgallery" href="/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
+        
+    </a><figcaption class="image-caption">markdownpad_error.jpg</figcaption>
+    </figure></p>]]></description></item></channel></rss>

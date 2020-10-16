@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MySQL - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/mysql/</link><description>MySQL - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Jan 2019 23:21:20 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/mysql/" rel="self" type="application/rss+xml"/><item><title>Windows下MySQL8.0.13解压版安装教程</title><link>https://lewky.cn/posts/a28e251d.html/</link><pubDate>Thu, 17 Jan 2019 23:21:20 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a28e251d.html/</guid><description><![CDATA[<h2 id="下载">下载</h2>
+<p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener noreffer">MySQL8.0.13-64位下载地址</a></p>
+<p>在下载页面的底部，有三种安装包，第一种是MySQL的安装程序，下载完点击安装即可。
+第二种是普通的压缩版，体积较小。
+第三种是自带debug和测试的压缩版，体积较大。这种压缩包在网上暂时没有找到对应的安装文档说明，所以建议下载第二种压缩包，也就是普通版本的MySQL压缩包。</p>]]></description></item><item><title>MySQL - 执行sql报错USING BTREE</title><link>https://lewky.cn/posts/a6b9a623.html/</link><pubDate>Fri, 07 Dec 2018 00:12:13 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a6b9a623.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>在执行sql文件时发现报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ‘USING BTREE....
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>MySQL - 8小时连接闲置超时</title><link>https://lewky.cn/posts/1a76cb2d.html/</link><pubDate>Sun, 22 Oct 2017 22:10:40 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1a76cb2d.html/</guid><description>&lt;h2 id="问题与分析">问题与分析&lt;/h2>
+&lt;p>最近发现之前部署在阿里云的一个web项目，每过一段时间就会报错，但是刷新下页面就会显示正常；在过了比较长的一段时间后，又会报同样的错误，如下：&lt;/p></description></item></channel></rss>

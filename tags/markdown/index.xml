@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Markdown - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/markdown/</link><description>Markdown - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 12 Dec 2018 22:15:05 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/markdown/" rel="self" type="application/rss+xml"/><item><title>Markdown - 常用语法指南</title><link>https://lewky.cn/posts/ff65a37e.html/</link><pubDate>Wed, 12 Dec 2018 22:15:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ff65a37e.html/</guid><description><![CDATA[<h2 id="如何使用上标下标">如何使用上标、下标</h2>
+<p>Markdown可以和HTML的语法兼容，可以通过HTML的上标和下标标签来实现效果：</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>写法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上标</td>
+<td><code>2&lt;sup&gt;10&lt;/sup&gt;</code></td>
+<td>2<sup>10</sup></td>
+</tr>
+<tr>
+<td>下标</td>
+<td><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></td>
+<td>H<sub>2</sub>O</td>
+</tr>
+</tbody>
+</table>]]></description></item></channel></rss>

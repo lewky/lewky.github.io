@@ -1,0 +1,28 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>cmd - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/cmd/</link><description>cmd - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Dec 2018 00:38:08 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/cmd/" rel="self" type="application/rss+xml"/><item><title>解读ping -n 4 127.1 >nul 2>nul</title><link>https://lewky.cn/posts/cf676a21.html/</link><pubDate>Thu, 06 Dec 2018 00:38:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cf676a21.html/</guid><description><![CDATA[<h2 id="命令解读">命令解读</h2>
+<p>ping是Windows、Unix和Linux系统下的一个命令。ping也属于一个通信协议，是TCP/IP协议的一部分。利用“ping”命令可以检查网络是否连通，可以很好地帮助我们分析和判定网络故障。应用格式是ping空格ip地址，可以附带参数，可以直接在cmd中输入<code>ping</code>然后回车来得到具体的帮助信息。</p>
+<p>127.1是127.0.0.1，通常被称为本地回环地址(Loop back address)，不属于任何一个有类别地址类。它代表设备的本地虚拟接口，所以默认被看作是永远不会宕掉的接口。在windows操作系统中也有相似的定义，所以通常在安装网卡前就可以ping通这个本地回环地址。一般都会用来检查本地网络协议、基本数据接口等是否正常的。</p>]]></description></item><item><title>cmd,bat和dos的区别</title><link>https://lewky.cn/posts/97f9f429.html/</link><pubDate>Thu, 06 Dec 2018 00:35:25 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/97f9f429.html/</guid><description><![CDATA[<h2 id="区别">区别</h2>
+<p>dos是磁盘操作系统(Disk Operating System)，是个人计算机上的一类操作系统。</p>
+<p>bat是DOS命令，在任何dos环境下都可以使用。
+bat文件是dos下的批处理文件，批处理文件是无格式的文本文件，它包含一条或多条命令，后缀为.cmd或.bat，在Windows NT系统中，两者没有任何区别。</p>]]></description></item><item><title>cmd - 使用curl命令的注意点</title><link>https://lewky.cn/posts/2ed0604f.html/</link><pubDate>Wed, 14 Nov 2018 23:54:51 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/2ed0604f.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>最近在cmd中使用curl命令来测试rest api，发现有不少问题，这里记录一下。&lt;/p></description></item><item><title>cmd - 命令行窗口中文乱码</title><link>https://lewky.cn/posts/761efa7.html/</link><pubDate>Thu, 11 Oct 2018 22:44:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/761efa7.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>在cmd窗口中输入<code>curl www.baidu.com</code>可以看到有中文乱码的现象，这是因为默认使用的是GBK编码。另外，curl是利用URL语法在命令行方式下工作的开源文件传输工具。它被广泛应用在Unix、多种Linux发行版中，并且有DOS和Win32、Win64下的移植版本，在win10的cmd中有内嵌curl。</p>]]></description></item><item><title>cmd - 批量重命名文件</title><link>https://lewky.cn/posts/79682f1b.html/</link><pubDate>Mon, 28 May 2018 23:23:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/79682f1b.html/</guid><description>&lt;p>相信大家或多或少都遇到过类似的情况：从网上下载了好多图片(或者其他的文件)，这些图片的名字往往都是些乱七八糟的字母数字的组合，我们想要一次性修改几十张上百张的图片的名字应该怎么办呢？&lt;/p>
+&lt;p>这里有两种方法，最简单的就是直接使用Windows自带的批量重命名方法；但是这种方法有缺陷，只能以固定的命名规律来命名。另一种方法就是通过dos命令来批量修改文件名。&lt;/p></description></item><item><title>cmd - 如何在bat文件中调用另一个bat文件</title><link>https://lewky.cn/posts/39f5b6b2.html/</link><pubDate>Tue, 14 Nov 2017 23:11:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/39f5b6b2.html/</guid><description><![CDATA[<h2 id="情景一两个bat文件在同一个目录下"><strong>情景一：两个bat文件在同一个目录下</strong></h2>
+<p>有时候我们需要在一个bat文件中调用另一个bat文件，比如我们想在a.bat中调用b.bat，如下。</p>
+<p><strong>a.bat</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">@echo off
+echo I am a.bat...
+echo now run the b.bat
+call b.bat
+echo over
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

@@ -1,0 +1,51 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>三天两题 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E4%B8%89%E5%A4%A9%E4%B8%A4%E9%A2%98/</link><description>三天两题 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 11 May 2019 00:25:58 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E4%B8%89%E5%A4%A9%E4%B8%A4%E9%A2%98/" rel="self" type="application/rss+xml"/><item><title>Java - 一道关于整型和字符类型相加的题目</title><link>https://lewky.cn/posts/a34ffc44.html/</link><pubDate>Sat, 11 May 2019 00:25:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a34ffc44.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">10</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">20</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="sc">&#39;+&#39;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="sc">&#39;=&#39;</span> <span class="o">+</span> <span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Java - 一道关于Arrays.asList的题目</title><link>https://lewky.cn/posts/507b2cbc.html/</link><pubDate>Sat, 27 Apr 2019 20:34:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/507b2cbc.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
+<p>有这样一道有趣的题目：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">test</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">};</span>
+<span class="kd">final</span> <span class="n">Integer</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[]{</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">};</span>
+<span class="kd">final</span> <span class="n">List</span> <span class="n">list1</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">test</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">List</span> <span class="n">list2</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">test2</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">List</span> <span class="n">list3</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list2</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list3</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>不占用任何额外空间的情况下交换两个数的值</title><link>https://lewky.cn/posts/9136af.html/</link><pubDate>Sat, 22 Dec 2018 23:07:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9136af.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
+<p>假如有x、y两个数，如何在不占用任何额外空间的情况下交换两个数的值？</p>
+<h2 id="思路">思路</h2>
+<p>平时我们在交换两个数的值时，往往会用一个中间数temp来实现效果，现在需要不占用任何额外空间，自然就不能使用这种寻常的方法了；这里可以有两种方法来实现。</p>]]></description></item></channel></rss>

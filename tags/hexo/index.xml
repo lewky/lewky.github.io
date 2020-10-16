@@ -1,0 +1,91 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Hexo - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/hexo/</link><description>Hexo - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 26 May 2019 12:36:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/hexo/" rel="self" type="application/rss+xml"/><item><title>Hexo瞎折腾系列(9) - 网页标题崩溃特效</title><link>https://lewky.cn/posts/bdceb0a1.html/</link><pubDate>Sun, 26 May 2019 12:36:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bdceb0a1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本系列的所有修改均基于本系列第一篇中的新增文件(譬如<code>custom.js</code>)，请先自行阅读<a href="https://lewky.cn/posts/ef301a4d.html" target="_blank" rel="noopener noreffer">Hexo瞎折腾系列(1) - 准备工作与简单美化</a>；并按照文章所说自行修改代码或文件。</p>
+<h2 id="为网页添加标题崩溃特效">为网页添加标题崩溃特效</h2>
+<p>该特效为：当用户离开站点相关的页面时，网页的标题会变成“已崩溃”，网站图标也会改变；当用户重新回到站点页面时才会恢复正常。</p>]]></description></item><item><title>Hexo - 记录一次Pages服务部署失败的原因</title><link>https://lewky.cn/posts/a5a02c64.html/</link><pubDate>Fri, 26 Apr 2019 22:24:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a5a02c64.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>某天忽然发现，一直运行得好好的Pages服务部署失败了，GitHub Pages报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Your site is having problems building: The tag cq on line 3 in source/high/index.md is not a recognized Liquid tag.
+For more information, see https://help.github.com/articles/page-build-failed-unknown-tag-error/. 
+</code></pre></td></tr></table>
+</div>
+</div><p>与此同时，Coding Pages同样也报错了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> Starting jekyll build.
+&gt; jekyll build --safe
+Configuration file: /usr/src/app/_config.yml
+jekyll 3.6.2 | Error:  The next theme could not be found.
+Jekyll build exit with code 1.
+Fail to build jekyll site.
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Hexo - CNAME文件在每次部署后就没了</title><link>https://lewky.cn/posts/39e3ca60.html/</link><pubDate>Wed, 19 Dec 2018 22:37:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/39e3ca60.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>一般我们会将Hexo博客搭建到Github上，如果在Github上为其配置一个自定义的域名时，会自动在项目仓库根目录下新添加一个<code>CNAME</code>文件。但是这里有个问题，如果将Hexo博客重新部署一遍后，Github仓库里的这个<code>CNAME</code>文件就会消失掉，又需要重新配置一遍。</p>
+<h2 id="解决方法">解决方法</h2>
+<p>其实这里有个技巧，我们可以将需要上传部署到Github的文件都放在<code>source</code>文件夹里，例如<code>CNAME</code>文件、<code>favicon.ico</code>、或者其他的图片等等，这样在执行<code>hexo d</code>这个命令之后，这些文件就不会被删除了。</p>
+<p>Hexo在执行命令时是不会删除掉<code>source</code>目录下的文件的，我们可以在该目录下随意增加其他文件或者文件夹，建议在该目录下添加子文件夹，然后在子文件夹里添加文件，这样便于文件分档归类。</p>]]></description></item><item><title>Hexo - Template render error unexpected token</title><link>https://lewky.cn/posts/2a5ffb7e.html/</link><pubDate>Tue, 23 Oct 2018 23:02:10 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/2a5ffb7e.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>今天发现在使用<code>hexo g</code>时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
+Template render error: unexpected token: }}
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Hexo瞎折腾系列(8) - 添加评论系统</title><link>https://lewky.cn/posts/ec12c039.html/</link><pubDate>Wed, 05 Sep 2018 22:24:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ec12c039.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>Hexo的NexT主题本身就集成了一些评论系统，多说啊之类的已经关闭服务的略过不提，目前比较多人用的有畅言、来必力livere、Gitment、Gitalk、Disqus等。</p>
+<p>我刚用的评论系统的时候，网易云跟贴和多说已经gg了，畅言需要备案，Disqus需要FQ，Gitment和Gitalk类似，都需要GitHub账号。经过搜集资料和考虑，我最终还是决定使用Gitment。只是在用了一段时间后，终于还是放弃了Gitment，转而使用来必力livere。</p>]]></description></item><item><title>Hexo瞎折腾系列(7) - Coding Pages申请SSL/TLS证书错误</title><link>https://lewky.cn/posts/7ac531d2.html/</link><pubDate>Mon, 03 Sep 2018 23:33:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/7ac531d2.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>今天我的个人站点SSL/TLS证书到期，我的证书是由Coding Pages提供的，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击申请证书时，竟然报错了！！</p>
+<p>我重新点了申请，几秒后依然报错，并提示我半小时只能申请一次。我查看了下报错的提示信息，如下：</p>]]></description></item><item><title>Hexo瞎折腾系列(6) - 将博客同时部署到Github和Coding</title><link>https://lewky.cn/posts/369cf01c.html/</link><pubDate>Mon, 27 Aug 2018 23:29:21 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/369cf01c.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>由于本人只是将Hexo博客同时部署到 Github 和 Coding.net ，所以这里只介绍怎么同时部署到这两个网站的pages。<br>
+之所以选择这两个网站，是因为国外用户可以访问 Github，而国内用户可以访问 Coding.net。另外，Coding.net可以拥有自己的私人仓库。</p>
+<h2 id="修改站点配置文件">修改站点配置文件</h2>
+<p>在站点根目录下找到 <code>_config.yml</code>文件，将里边的deploy节点修改成下边的形式：</p>]]></description></item><item><title>Hexo瞎折腾系列(5) - 使用hexo-neat插件压缩页面静态资源</title><link>https://lewky.cn/posts/f90c8f1a.html/</link><pubDate>Sat, 25 Aug 2018 00:37:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f90c8f1a.html/</guid><description><![CDATA[<h2 id="为什么要压缩页面静态资源">为什么要压缩页面静态资源</h2>
+<p>对于个人博客来说，优化页面的访问速度是很有必要的，如果打开你的个人站点，加载个首页就要十几秒，页面长时间处于空白状态，想必没什么人能够忍受得了吧。我个人觉得，如果能把页面的加载时间控制在三四秒内，就很不错了。</p>
+<p>那么怎么提高hexo这个静态博客的页面加载速度呢？可以从以下的几个方面去入手：</p>]]></description></item><item><title>Hexo瞎折腾系列(4) - 站点首页不显示文章全文</title><link>https://lewky.cn/posts/62111.html/</link><pubDate>Fri, 20 Jul 2018 23:13:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/62111.html/</guid><description><![CDATA[<h2 id="文章摘要设置">文章摘要设置</h2>
+<p>打开主题配置文件 _config.yml 文件，找到如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"># Automatically Excerpt. Not recommend.
+# Please use <span class="c">&lt;!-- more --&gt;</span> in the post to control excerpt accurately.
+auto_excerpt:
+  enable: false
+  length: 150
+</code></pre></td></tr></table>
+</div>
+</div><p>把这里的false改为true就可以了在首页启动显示文章预览了，length是显示预览的长度。</p>
+<p>这里我们可以通过在文章使用<code>&lt;!-- more --&gt;</code>标志来精确控制文章的摘要预览，比如这篇文章就是在这个段落的末尾添加了该标志，所以本文在首页的预览就会显示到这个段落为止。</p>]]></description></item><item><title>Hexo瞎折腾系列(3) - 添加GitHub彩带和GitHub Corner</title><link>https://lewky.cn/posts/844109c2.html/</link><pubDate>Thu, 19 Jul 2018 23:09:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/844109c2.html/</guid><description><![CDATA[<h2 id="页面右上角添加github彩带">页面右上角添加GitHub彩带</h2>
+<p>你可以在<a href="https://github.com/blog/273-github-ribbons" target="_blank">这里</a>找到一共12种样式的GitHub彩带，复制其中的超链代码。</p>
+<p>在<code>themes\next\layout\_layout.swig</code>目录下找到头部彩带相关的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;headband&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

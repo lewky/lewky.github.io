@@ -1,0 +1,243 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hexo搭建博客教程(2) - 博客的简单个性化配置 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Hexo搭建博客教程(2) - 博客的简单个性化配置"><meta property="og:description" content="本章主要讲博客的个性化，譬如站点的基本配置（语言、头像、站点图标等）、安装新的Hexo主题（NexT主题）以及主题的配置。
+
+一、修改站点配置
+打开站点配置文件 ，找到：
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+# Site
+title: Hexo
+subtitle:
+description:
+keywords:
+author: John Doe
+language:
+timezone:"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/38619.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2018-04-24T22:07:44+08:00"><meta property="article:modified_time" content="2018-04-24T22:07:44+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hexo搭建博客教程(2) - 博客的简单个性化配置"><meta name=twitter:description content="本章主要讲博客的个性化，譬如站点的基本配置（语言、头像、站点图标等）、安装新的Hexo主题（NexT主题）以及主题的配置。
+
+一、修改站点配置
+打开站点配置文件 ，找到：
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+# Site
+title: Hexo
+subtitle:
+description:
+keywords:
+author: John Doe
+language:
+timezone:"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://lewky.cn/posts/38619.html/><link rel=prev href=https://lewky.cn/posts/22143.html/><link rel=next href=https://lewky.cn/posts/1657.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/css/custom.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hexo搭建博客教程(2) - 博客的简单个性化配置","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/38619.html\/"},"genre":"posts","keywords":"Hexo, 个性化配置","wordcount":2476,"url":"https:\/\/lewky.cn\/posts\/38619.html\/","datePublished":"2018-04-24T22:07:44+08:00","dateModified":"2018-04-24T22:07:44+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub </a><a class=menu-item href=/posts/e62c38c45.html><i class="fas fa-cog fa-spin"></i>建站日志 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub</a><a class=menu-item href=/posts/e62c38c45.html><i class="fas fa-cog fa-spin"></i>建站日志</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><article class="page single"><h1 class="single-title animated flipInX">Hexo搭建博客教程(2) - 博客的简单个性化配置</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/><i class="far fa-folder fa-fw"></i>Hexo搭建博客教程</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2018-04-24>2018-04-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2476 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id=/posts/38619.html/ class=leancloud_visitors data-flag-title="Hexo搭建博客教程(2) - 博客的简单个性化配置">
+<i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+</span>&nbsp;</div></div><div class=content id=content><blockquote><p>本章主要讲博客的个性化，譬如站点的基本配置（语言、头像、站点图标等）、安装新的Hexo主题（NexT主题）以及主题的配置。</p></blockquote><h2 id=一修改站点配置>一、修改站点配置</h2><p>打开站点配置文件 ，找到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Site
+title: Hexo
+subtitle:
+description:
+keywords:
+author: John Doe
+language:
+timezone:
+</code></pre></td></tr></table></div></div><p>根据自己的需要去修改上边的配置，这些配置的注释如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Site
+# 站点标题
+title: Hexo
+# 站点副标题
+subtitle:
+# 站点描述
+description:
+# 站点关键词
+keywords:
+# 站点主人
+author: John Doe
+# 站点语言
+language:
+# 站点时区
+timezone:
+</code></pre></td></tr></table></div></div><h3 id=11-language>1.1 language</h3><p>目前 NexT 支持的语言如下：</p><table><thead><tr><th>语言</th><th>language</th></tr></thead><tbody><tr><td>English</td><td>en</td></tr><tr><td>简体中文</td><td>zh-Hans</td></tr><tr><td>Français</td><td>fr-FR</td></tr><tr><td>Português</td><td>pt或者pt-BR</td></tr><tr><td>繁體中文</td><td>zh-hk或者zh-tw</td></tr><tr><td>Русский язык</td><td>ru</td></tr><tr><td>Deutsch</td><td>de</td></tr><tr><td>日本語</td><td>ja</td></tr><tr><td>Indonesian</td><td>id</td></tr><tr><td>Korean</td><td>ko</td></tr></tbody></table><h3 id=12-timezone>1.2 timezone</h3><p>Hexo 默认使用电脑的时区，也可以自己配置，比如：</p><pre><code>UTC+8
+</code></pre><h2 id=二安装新主题>二、安装新主题</h2><p>Hexo有很多大佬开发的主题，很多人使用的是NexT主题，该主题也确实挺简洁好看的，新版本的NexT主题还可以选择四个主题。</p><p>那么怎么安装新的Hexo主题呢？</p><p>在我们的Hexo项目路径下，可以看到有个 themes 文件夹，这个文件夹就是用于存放主题文件的。</p><h3 id=21-下载-next-主题>2.1 下载 NexT 主题</h3><p>首先在Hexo项目的路径下打开命令窗口，如果你没有配置好Git的环境变量，请使用Git Bash。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>git clone https://github.com/iissnan/hexo-theme-NexT themes/NexT
+</code></pre></td></tr></table></div></div><p>注意，当前路径是你的Hexo项目根目录，使用上边的命令才能正确地将 NexT 主题clone到themes文件夹下的NexT文件夹里。</p><p>接下来你会看到 themes 下多了个 NexT 文件夹，点进去你会看到个<code>.git</code>文件夹，将该文件夹删掉，否则到时候你无法将整个完整的Hexo项目push到GitHub上。</p><h3 id=22-启用-next-主题>2.2 启用 NexT 主题</h3><p>在Hexo项目中，有两个重要的配置文件 <code>_config.yml</code>；这两个配置文件一个在项目根目录下，一个在主题目录下。</p><p>前者是站点配置文件，后者是主题配置文件，顾名思义，一个是Hexo项目的配置选项，一个是主题文件的配置选项。</p><p>打开站点配置文件，用Windows自带的笔记本是无法打开该文件的，请使用其他的编辑器来打开，常见的编辑器有Notepad++，UltraEdit，EditPlus等。</p><p>在站点配置文件中，找到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: landscape
+</code></pre></td></tr></table></div></div><p>默认的博客主题就是这个，我们将其修改为NexT；这里的主题是指在 themes 文件夹下的对应主题的文件夹名字。</p><p><font color=red>**注意</font>，在配置文件中所有的属性的值，都必须和前边的 <code>:</code> 之间留一个空格。**比如下边的写法就是错误的，不加上空格的话会出错。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>theme:landscape
+</code></pre></td></tr></table></div></div><h3 id=23-选择对应主题的外观-scheme>2.3 选择对应主题的外观 Scheme</h3><p>打开主题配置文件，找到下边的选项：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># ---------------------------------------------------------------
+# Scheme Settings
+# ---------------------------------------------------------------
+
+# Schemes
+scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+#scheme: Gemini
+</code></pre></td></tr></table></div></div><p>默认会使用Muse作为NexT主题的外观，通过将某个scheme前边的<code>#</code>去掉来启动某个外观，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># ---------------------------------------------------------------
+# Scheme Settings
+# ---------------------------------------------------------------
+
+# Schemes
+#scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+scheme: Gemini
+</code></pre></td></tr></table></div></div><h3 id=24-验证新主题>2.4 验证新主题</h3><p>依然是老操作——启动调试模式服务器：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Bash data-lang=Bash>hexo s --debug
+</code></pre></td></tr></table></div></div><p>启动成功后，使用浏览器访问<a href=http://localhost:4000/ target=_blank rel="noopener noreffer"><code>http://localhost:4000/</code></a>，看看博客能否访问成功。</p><h2 id=三修改-next-主题配置>三、修改 NexT 主题配置</h2><p>主题配置文件 <code>_config.yml</code> 位于 <code>themes\NexT</code> 之下。</p><h3 id=31-头像设置>3.1 头像设置</h3><p>打开主题配置文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># 侧边栏头像
+# Sidebar Avatar
+# in theme directory(source/images): /images/avatar.gif
+# in site  directory(source/uploads): /uploads/avatar.gif
+# 头像的路径可以放在主题对应文件夹的source里，也可以放在站点根目录的source里，建议放在站点路径上
+#avatar: /images/avatar.gif
+</code></pre></td></tr></table></div></div><p>将avatar前边的#去掉，接着配置图片的路径即可。</p><h3 id=32-网站图标>3.2 网站图标</h3><p>打开主题配置文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># 将你的网站图标放到`{站点根目录}/source/` (推荐）或者`hexo-site/themes/NexT/source/images/`目录下
+# 默认的NexT主题的网站图标放在`{站点根目录}/themes/NexT/source/images/`目录下
+# 如果你想将自己的网站图标放到`{站点根目录}/source/`根目录下，必须将`/images`从路径中去掉
+# 如果你将网站图标放到了`{站点根目录}/source/images`路径下，需要令网站图标的名字和`{站点根目录}/themes/NexT/source/images/`路径下的网站图标不同，否则网站图标会使用后者的同名图标
+favicon:
+  small: /images/favicon-16x16-NexT.png
+  medium: /images/favicon-32x32-NexT.png
+  apple_touch_icon: /images/apple-touch-icon-NexT.png
+  safari_pinned_tab: /images/logo.svg
+  #android_manifest: /images/manifest.json
+  #ms_browserconfig: /images/browserconfig.xml
+</code></pre></td></tr></table></div></div><p>这里需要注意的是，网站图标一般是.ico或者.gif的类型，而且图标的大小一般只有几k而已，可以使用下边的网站制作个人的网站图标，建议先将原本的图标弄成正方形的。</p><blockquote><p><a href=http://www.bitbug.net/ target=_blank rel="noopener noreffer">在线制作ico图标</a></p></blockquote><h3 id=33-菜单设置>3.3 菜单设置</h3><p>打开主题配置文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># 如果该站点是运行在子目录之下（比如：domain.tld/blog；这里的blog就是指我们的博客，前边的是上一级的域名），需要将路径前的斜杠去掉（/archives -&gt; archives；即是将原本的绝对路径改成了相对路径）。
+# 用法：`Key：/link/ || 菜单图标`
+# Key就是菜单名，如果对该菜单名进行了国际化，即将其翻译放到对应的languages文件夹中，将会根据你设置的语言进行加载对应的菜单名翻译；如果没有设置翻译，则会使用这里的Key作为菜单名。这里的Key是大小写敏感的。
+# 在`||`分隔符之前的值是该菜单对应的路径
+# 在`||`分隔符之后的值是FontAwesome的图标（不懂的请百度什么是FontAwesome以及其用法），如果不指定图标，将会自动使用question这个图标。
+
+menu:
+  home: / || home
+  #about: /about/ || user
+  #tags: /tags/ || tags
+  #categories: /categories/ || th
+  archives: /archives/ || archive
+  #schedule: /schedule/ || calendar
+  #sitemap: /sitemap.xml || sitemap
+  #commonweal: /404/ || heartbeat
+</code></pre></td></tr></table></div></div><p>使用方法很简单，依然是将需要展示的菜单的前边的#去掉就行，更加具体的操作信息我已经在上边的注释中给出了。</p><h3 id=34-标签分类>3.4 标签分类</h3><p>首先我们需要新建页面，在站点根目录打开命令窗口，分别输入命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo n page <span class=s2>&#34;categories&#34;</span>
+hexo n page <span class=s2>&#34;tags&#34;</span>
+hexo n page <span class=s2>&#34;about&#34;</span>
+</code></pre></td></tr></table></div></div><p>接着你会发现在根目录的 source 目录下多出了上边的三个文件夹，里面各自有一个 index.md 文件。如果之前我们将menu里的categories，tags，about三个菜单解开了封印，那么在创建好这三个页面后就可以成功访问到，否则会报404请求错误。</p><h3 id=35-社交链接>3.5 社交链接</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># 如果不指定图标，会默认使用globe图标
+#social:
+  #GitHub: https://github.com/yourname || github
+  #E-Mail: mailto:yourname@gmail.com || envelope
+  #Google: https://plus.google.com/yourname || google
+  #Twitter: https://twitter.com/yourname || twitter
+  #FB Page: https://www.facebook.com/yourname || facebook
+  #VK Group: https://vk.com/yourname || vk
+  #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
+  #YouTube: https://youtube.com/yourname || youtube
+  #Instagram: https://instagram.com/yourname || instagram
+  #Skype: skype:yourname?call|chat || skype
+</code></pre></td></tr></table></div></div><p>老规矩，去掉#注释就可以启动。</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2018-04-24</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/38619.html/ data-title="Hexo搭建博客教程(2) - 博客的简单个性化配置" data-hashtags=Hexo,个性化配置><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/38619.html/ data-hashtag=Hexo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/38619.html/ data-title="Hexo搭建博客教程(2) - 博客的简单个性化配置"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/38619.html/ data-title="Hexo搭建博客教程(2) - 博客的简单个性化配置"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/38619.html/ data-title="Hexo搭建博客教程(2) - 博客的简单个性化配置"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hexo/>Hexo</a>,&nbsp;<a href=/tags/%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/>个性化配置</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/22143.html/ class=prev rel=prev title="Hexo搭建博客教程(1) - 安装环境与本地搭建"><i class="fas fa-angle-left fa-fw"></i>Hexo搭建博客教程(1) - 安装环境与本地搭建</a>
+<a href=/posts/1657.html/ class=next rel=next title="Hexo搭建博客教程(3) - 远程部署到GitHub Pages">Hexo搭建博客教程(3) - 远程部署到GitHub Pages<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=/js/Valine.min.js></script><script type=text/javascript>new Valine({el:'#valine',appId:'1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz',appKey:'nfafLPsFBNTdO9Sb5suuGdpG',notify:'',verify:'',avatar:'retro',placeholder:'说点什么吧...',visitor:'true'});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src="/js/jquery/index.js?v=2.1.3"></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js></script><script type=text/javascript src=/js/custom.js></script></body></html>

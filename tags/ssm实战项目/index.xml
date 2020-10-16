@@ -1,0 +1,37 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SSM实战项目 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/ssm%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/</link><description>SSM实战项目 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Oct 2017 17:07:54 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/ssm%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" rel="self" type="application/rss+xml"/><item><title>Java高并发秒杀API(四)之高并发优化</title><link>https://lewky.cn/posts/43941.html/</link><pubDate>Fri, 06 Oct 2017 17:07:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/43941.html/</guid><description><![CDATA[<h2 id="1-高并发优化分析"><strong>1. 高并发优化分析</strong></h2>
+<blockquote>
+<p><strong>关于并发</strong></p>
+</blockquote>
+<p>并发性上不去是因为当多个线程同时访问一行数据时，产生了事务，因此产生写锁，每当一个获取了事务的线程把锁释放，另一个排队线程才能拿到写锁，QPS(Query Per Second每秒查询率)和事务执行的时间有密切关系，事务执行时间越短，并发性越高，这也是要将费时的I/O操作移出事务的原因。</p>]]></description></item><item><title>Java高并发秒杀API(三)之Web层</title><link>https://lewky.cn/posts/33818.html/</link><pubDate>Thu, 05 Oct 2017 18:03:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/33818.html/</guid><description><![CDATA[<h2 id="1-设计前的分析"><strong>1. 设计前的分析</strong></h2>
+<blockquote>
+<p><strong>Web层内容相关</strong></p>
+</blockquote>
+<ul>
+<li>前端交互设计</li>
+<li>Restful规范</li>
+<li>SpringMVC</li>
+</ul>]]></description></item><item><title>Java高并发秒杀API(二)之Service层</title><link>https://lewky.cn/posts/18357.html/</link><pubDate>Thu, 05 Oct 2017 18:02:28 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/18357.html/</guid><description><![CDATA[<h2 id="1-设计前的分析"><strong>1. 设计前的分析</strong></h2>
+<blockquote>
+<p><strong>分层的必要性</strong></p>
+</blockquote>
+<ul>
+<li>DAO层工作演变为:接口设计+SQL编写（不需要其他杂七杂八的功能）</li>
+<li>代码和SQL的分离,方便review（浏览）</li>
+<li>DAO拼接等逻辑在Service层完成（DAO只需负责SQL语句，其他都由Service层完成）</li>
+</ul>]]></description></item><item><title>Java高并发秒杀API(一)之业务分析与DAO层</title><link>https://lewky.cn/posts/56225.html/</link><pubDate>Wed, 04 Oct 2017 23:57:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/56225.html/</guid><description><![CDATA[<blockquote>
+<p>本SSM实战项目使用了Maven进行依赖管理，如果有不清楚Maven是什么的可以参考<a href="http://blog.csdn.net/lewky_liu/article/details/78138381" target="_blank" rel="noopener noreffer">这篇文章</a></p>
+</blockquote>
+<h2 id="1-创建maven项目和依赖">1. 创建Maven项目和依赖</h2>
+<h3 id="11-创建项目前需要先安装maven并设置好环境变量">1.1 创建项目前需要先安装Maven，并设置好环境变量</h3>
+<ul>
+<li><a href="http://download.csdn.net/download/lewky_liu/10000144" target="_blank" rel="noopener noreffer">Maven下载</a></li>
+<li>设置环境变量</li>
+</ul>]]></description></item><item><title>SSM实战项目 - Java高并发秒杀API</title><link>https://lewky.cn/posts/65067.html/</link><pubDate>Tue, 03 Oct 2017 13:25:43 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/65067.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文包括了项目的完整流程+开发过程中遇到的各种坑的总结+学习笔记和问题扩展</p>
+<h2 id="项目截图">项目截图</h2>
+<h3 id="秒杀列表">秒杀列表</h3>
+<p>
+<figure><a class="lightgallery" href="/images/posts/project/seckill/%e7%a7%92%e6%9d%80%e5%88%97%e8%a1%a8.jpg" title="秒杀列表" data-thumbnail="/images/posts/project/seckill/秒杀列表.jpg" data-sub-html="<h2> </h2><p>秒杀列表</p>">
+        
+    </a><figcaption class="image-caption">秒杀列表</figcaption>
+    </figure></p>]]></description></item></channel></rss>

@@ -1,0 +1,160 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Java - 一道关于Arrays.asList的题目 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Java - 一道关于Arrays.asList的题目"><meta property="og:description" content="题目
+有这样一道有趣的题目：
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+final int[] test = new int[]{1,2,3,4};
+final Integer[] test2 = new Integer[]{1,2,3,4};
+final List list1 = Arrays.asList(test);
+final List list2 = Arrays.asList(test2);
+final List list3 = Arrays.asList(1,2,3,4);
+System.out.println(list1.size());
+System.out.println(list2.size());
+System.out.println(list3.size());"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/507b2cbc.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2019-04-27T20:34:22+08:00"><meta property="article:modified_time" content="2019-04-27T20:34:22+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Java - 一道关于Arrays.asList的题目"><meta name=twitter:description content="题目
+有这样一道有趣的题目：
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+
+
+final int[] test = new int[]{1,2,3,4};
+final Integer[] test2 = new Integer[]{1,2,3,4};
+final List list1 = Arrays.asList(test);
+final List list2 = Arrays.asList(test2);
+final List list3 = Arrays.asList(1,2,3,4);
+System.out.println(list1.size());
+System.out.println(list2.size());
+System.out.println(list3.size());"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://lewky.cn/posts/507b2cbc.html/><link rel=prev href=https://lewky.cn/posts/a5a02c64.html/><link rel=next href=https://lewky.cn/posts/b8e136a1.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/css/custom.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Java - 一道关于Arrays.asList的题目","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/507b2cbc.html\/"},"genre":"posts","keywords":"Java, 笔试面试算法题","wordcount":1861,"url":"https:\/\/lewky.cn\/posts\/507b2cbc.html\/","datePublished":"2019-04-27T20:34:22+08:00","dateModified":"2019-04-27T20:34:22+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub </a><a class=menu-item href=/posts/e62c38c45.html><i class="fas fa-cog fa-spin"></i>建站日志 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub</a><a class=menu-item href=/posts/e62c38c45.html><i class="fas fa-cog fa-spin"></i>建站日志</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Java - 一道关于Arrays.asList的题目</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E4%B8%89%E5%A4%A9%E4%B8%A4%E9%A2%98/><i class="far fa-folder fa-fw"></i>三天两题</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2019-04-27>2019-04-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1861 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id=/posts/507b2cbc.html/ class=leancloud_visitors data-flag-title="Java - 一道关于Arrays.asList的题目">
+<i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+</span>&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#题目>题目</a></li><li><a href=#分析>分析</a></li><li><a href=#arraysaslist的其他知识点>Arrays.asList的其他知识点</a><ol><li><a href=#方法一>方法一</a></li><li><a href=#方法二>方法二</a></li><li><a href=#方法三>方法三</a></li><li><a href=#方法四>方法四</a></li></ol></li><li><a href=#泛型generics的知识点>泛型(Generics)的知识点</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=题目>题目</h2><p>有这样一道有趣的题目：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>final</span> <span class=kt>int</span><span class=o>[]</span> <span class=n>test</span> <span class=o>=</span> <span class=k>new</span> <span class=kt>int</span><span class=o>[]{</span><span class=n>1</span><span class=o>,</span><span class=n>2</span><span class=o>,</span><span class=n>3</span><span class=o>,</span><span class=n>4</span><span class=o>};</span>
+<span class=kd>final</span> <span class=n>Integer</span><span class=o>[]</span> <span class=n>test2</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Integer</span><span class=o>[]{</span><span class=n>1</span><span class=o>,</span><span class=n>2</span><span class=o>,</span><span class=n>3</span><span class=o>,</span><span class=n>4</span><span class=o>};</span>
+<span class=kd>final</span> <span class=n>List</span> <span class=n>list1</span> <span class=o>=</span> <span class=n>Arrays</span><span class=o>.</span><span class=na>asList</span><span class=o>(</span><span class=n>test</span><span class=o>);</span>
+<span class=kd>final</span> <span class=n>List</span> <span class=n>list2</span> <span class=o>=</span> <span class=n>Arrays</span><span class=o>.</span><span class=na>asList</span><span class=o>(</span><span class=n>test2</span><span class=o>);</span>
+<span class=kd>final</span> <span class=n>List</span> <span class=n>list3</span> <span class=o>=</span> <span class=n>Arrays</span><span class=o>.</span><span class=na>asList</span><span class=o>(</span><span class=n>1</span><span class=o>,</span><span class=n>2</span><span class=o>,</span><span class=n>3</span><span class=o>,</span><span class=n>4</span><span class=o>);</span>
+<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>list1</span><span class=o>.</span><span class=na>size</span><span class=o>());</span>
+<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>list2</span><span class=o>.</span><span class=na>size</span><span class=o>());</span>
+<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>list3</span><span class=o>.</span><span class=na>size</span><span class=o>());</span>
+</code></pre></td></tr></table></div></div><p>对于上边的3个size()，输出的结果如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=n>1</span>
+<span class=n>4</span>
+<span class=n>4</span>
+</code></pre></td></tr></table></div></div><p>这道题考察的是<code>Arrays.asList()</code>这个api以及泛型的知识点，工作时用到该api的情景也挺多的。下面分析下，为什么是这个答案。</p><h2 id=分析>分析</h2><p>对于list1，为什么size是1？
+这是因为Arrays.asList如果传入的数组是基础数据类型的数组时，会将整个数组作为一个对象来构建ArrayList，所以size是1。在源码实现中：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>static</span> <span class=o>&lt;</span><span class=n>T</span><span class=o>&gt;</span> <span class=n>List</span><span class=o>&lt;</span><span class=n>T</span><span class=o>&gt;</span> <span class=nf>asList</span><span class=o>(</span><span class=n>T</span><span class=o>...</span> <span class=n>a</span><span class=o>)</span> <span class=o>{</span>
+    <span class=k>return</span> <span class=k>new</span> <span class=n>ArrayList</span><span class=o>&lt;&gt;(</span><span class=n>a</span><span class=o>);</span>
+<span class=o>}</span>
+
+<span class=kd>private</span> <span class=kd>static</span> <span class=kd>class</span> <span class=nc>ArrayList</span><span class=o>&lt;</span><span class=n>E</span><span class=o>&gt;</span> <span class=kd>extends</span> <span class=n>AbstractList</span><span class=o>&lt;</span><span class=n>E</span><span class=o>&gt;</span>
+    <span class=kd>implements</span> <span class=n>RandomAccess</span><span class=o>,</span> <span class=n>java</span><span class=o>.</span><span class=na>io</span><span class=o>.</span><span class=na>Serializable</span>
+<span class=o>{</span>
+    <span class=kd>private</span> <span class=kd>static</span> <span class=kd>final</span> <span class=kt>long</span> <span class=n>serialVersionUID</span> <span class=o>=</span> <span class=o>-</span><span class=n>2764017481108945198L</span><span class=o>;</span>
+    <span class=kd>private</span> <span class=kd>final</span> <span class=n>E</span><span class=o>[]</span> <span class=n>a</span><span class=o>;</span>
+
+    <span class=n>ArrayList</span><span class=o>(</span><span class=n>E</span><span class=o>[]</span> <span class=n>array</span><span class=o>)</span> <span class=o>{</span>
+        <span class=n>a</span> <span class=o>=</span> <span class=n>Objects</span><span class=o>.</span><span class=na>requireNonNull</span><span class=o>(</span><span class=n>array</span><span class=o>);</span>
+    <span class=o>}</span>
+
+    <span class=nd>@Override</span>
+    <span class=kd>public</span> <span class=kt>int</span> <span class=nf>size</span><span class=o>()</span> <span class=o>{</span>
+        <span class=k>return</span> <span class=n>a</span><span class=o>.</span><span class=na>length</span><span class=o>;</span>
+    <span class=o>}</span>
+    <span class=err>……</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><p>可以看到，Arrays.asList的形参是可变参数<code>T... a</code>，等同于一个数组参数<code>T[]</code>。这里的<code>T</code>是泛型。在调用该api时，会直接用传入的参数来构建一个ArrayList。</p><p>这个<code>ArrayList&lt;E></code>是Arrays的静态内部类，同样使用了泛型，而泛型是不支持基础数据类型的。</p><p>当传入的参数是一个基础数据类型的数组时，就把整个数组对象解析为泛型T；如果传入的参数是一个对象类型的数组，就把数组中的对象类型解析为泛型T。如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>传入的参数是int[]时：
+int[] -&gt; T[]中的T，此时Arrays.asList()返回的是一个size为1的ArrayList&lt;int[]&gt;
+
+
+传入的参数是Integer[]时：
+Integer[] -&gt; T[]，此时Arrays.asList()返回的是一个ArrayList&lt;Integer&gt;，其size的值与Integer[]的length一样
+</code></pre></td></tr></table></div></div><p>因此，题目里的list1和list2的size会不一样。那为什么直接传入<code>1,2,3,4</code>这四个int参数所得到的结果又是4呢？</p><p>这是因为当直接传入参数为基础数据类型时，由于方法形参是泛型数组，于是就通过自动装箱把基础数据类型的参数包装为对应的包装类。比如传入的是int，就自动装箱成Integer，这样就能被泛型所接收了。</p><p>也就是说，虽然传入参数是<code>1,2,3,4</code>，其实会通过自动装箱变成一个<code>Integer[]</code>参数，然后传递给<code>T[]</code>，最后返回的就是一个<code>ArrayList&lt;Integer></code>。</p><p>下面是一个可以证明该过程的例子：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=kd>final</span> <span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+    <span class=kd>final</span> <span class=kt>int</span><span class=o>[]</span> <span class=n>array1</span> <span class=o>=</span> <span class=k>new</span> <span class=kt>int</span><span class=o>[]{</span><span class=n>1</span><span class=o>,</span><span class=n>2</span><span class=o>,</span><span class=n>3</span><span class=o>,</span><span class=n>4</span><span class=o>};</span>
+    <span class=kd>final</span> <span class=n>Integer</span><span class=o>[]</span> <span class=n>array2</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Integer</span><span class=o>[]{</span><span class=n>1</span><span class=o>,</span><span class=n>2</span><span class=o>,</span><span class=n>3</span><span class=o>,</span><span class=n>4</span><span class=o>};</span>
+
+    <span class=n>test</span><span class=o>(</span><span class=n>array1</span><span class=o>);</span>
+    <span class=n>test</span><span class=o>(</span><span class=n>array2</span><span class=o>);</span>
+    <span class=n>test</span><span class=o>(</span><span class=n>1</span><span class=o>,</span><span class=n>2</span><span class=o>,</span><span class=n>3</span><span class=o>,</span><span class=n>4</span><span class=o>);</span>
+<span class=o>}</span>
+
+<span class=kd>public</span> <span class=kd>static</span> <span class=o>&lt;</span><span class=n>T</span><span class=o>&gt;</span> <span class=kt>void</span> <span class=nf>test</span><span class=o>(</span><span class=kd>final</span> <span class=n>T</span><span class=o>...</span> <span class=n>a</span><span class=o>)</span> <span class=o>{</span>
+    <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>a</span><span class=o>.</span><span class=na>length</span><span class=o>);</span>
+<span class=o>}</span>
+</code></pre></td></tr></table></div></div><p>其结果如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=n>1</span>
+<span class=n>4</span>
+<span class=n>4</span>
+</code></pre></td></tr></table></div></div><h2 id=arraysaslist的其他知识点>Arrays.asList的其他知识点</h2><p>由于Arrays.asList返回的是Arrays的静态内部类<code>ArrayList</code>，这个ArrayList并没有重写add和remove方法的。也就是说，这个ArrayList一旦new出来了，其大小就固定下来了，不能再调用add或者remove方法了，否则就会报错如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-java data-lang=java><span class=n>Exception</span> <span class=n>in</span> <span class=n>thread</span> <span class=s>&#34;main&#34;</span> <span class=n>java</span><span class=o>.</span><span class=na>lang</span><span class=o>.</span><span class=na>UnsupportedOperationException</span>
+	<span class=n>at</span> <span class=n>java</span><span class=o>.</span><span class=na>util</span><span class=o>.</span><span class=na>AbstractList</span><span class=o>.</span><span class=na>add</span><span class=o>(</span><span class=n>AbstractList</span><span class=o>.</span><span class=na>java</span><span class=o>:</span><span class=n>148</span><span class=o>)</span>
+	<span class=n>at</span> <span class=n>java</span><span class=o>.</span><span class=na>util</span><span class=o>.</span><span class=na>AbstractList</span><span class=o>.</span><span class=na>add</span><span class=o>(</span><span class=n>AbstractList</span><span class=o>.</span><span class=na>java</span><span class=o>:</span><span class=n>108</span><span class=o>)</span>
+</code></pre></td></tr></table></div></div><p>虽然不能调用add或者remove，但可以调用set、contains、sort等其他的方法，也可以进行遍历。</p><p>如果我们确实需要调用add或者remove方法，可以有以下方法：</p><h3 id=方法一>方法一</h3><p>遍历Arrays.asList返回的集合，然后一个个添加到我们常用的集合里，比如<code>java.util.ArrayList</code>。</p><h3 id=方法二>方法二</h3><p>使用<code>list.addAll(Arrays.asList(a))</code>，直接把Arrays.asList返回的集合给整个添加到新的集合里。</p><h3 id=方法三>方法三</h3><p>可以直接通过<code>new ArrayList&lt;>(Arrays.asList(a))</code>的方法来构建一个有着完善功能的集合。</p><h3 id=方法四>方法四</h3><p>使用<code>Collections.addAll()</code>来替代<code>Arrays.asList()</code>，这样得到的就是一个有着完善功能的集合。</p><h2 id=泛型generics的知识点>泛型(Generics)的知识点</h2><blockquote><p>泛型的定义：在程序中我们将一个对象放入集合中，但是集合不会记住对象的类型，当我们在次使用对象的时候，对象变为Object类型，而程序中还是原来的类型，我们必须要自己转换其类型，为了解决这个问题，则提出泛型。</p></blockquote><p>泛型要求包容的是对象类型，而八种基础数据类型不属于对象类型，但是它们有对应的封装类/包装类。并且在调用函数时，会根据参数类型来进行自动装箱或者自动拆箱(Autoboxing and unboxing)。对自动装箱/拆箱有兴趣的可以参考下边的链接。</p><h2 id=参考链接>参考链接</h2><ul><li><a href=https://blog.csdn.net/qq_34115899/article/details/80513271 target=_blank rel="noopener noreffer">将数组转换成集合Arrays.asList，不可进行add和remove操作的原因</a></li><li><a href=https://blog.csdn.net/likun1239656678/article/details/84294606 target=_blank rel="noopener noreffer">为什么泛型类的类型不能是基本数据类型</a></li><li><a href=https://www.cnblogs.com/jaysir/p/5399086.html target=_blank rel="noopener noreffer">Java 自动装箱与拆箱(Autoboxing and unboxing)</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2019-04-27</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/507b2cbc.html/ data-title="Java - 一道关于Arrays.asList的题目" data-hashtags=Java,笔试面试算法题><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/507b2cbc.html/ data-hashtag=Java><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/507b2cbc.html/ data-title="Java - 一道关于Arrays.asList的题目"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/507b2cbc.html/ data-title="Java - 一道关于Arrays.asList的题目"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/507b2cbc.html/ data-title="Java - 一道关于Arrays.asList的题目"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/java/>Java</a>,&nbsp;<a href=/tags/%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95%E9%A2%98/>笔试面试算法题</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/a5a02c64.html/ class=prev rel=prev title="Hexo - 记录一次Pages服务部署失败的原因"><i class="fas fa-angle-left fa-fw"></i>Hexo - 记录一次Pages服务部署失败的原因</a>
+<a href=/posts/b8e136a1.html/ class=next rel=next title="Maven - StackOverflowError">Maven - StackOverflowError<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=/js/Valine.min.js></script><script type=text/javascript>new Valine({el:'#valine',appId:'1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz',appKey:'nfafLPsFBNTdO9Sb5suuGdpG',notify:'',verify:'',avatar:'retro',placeholder:'说点什么吧...',visitor:'true'});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src="/js/jquery/index.js?v=2.1.3"></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js></script><script type=text/javascript src=/js/custom.js></script></body></html>

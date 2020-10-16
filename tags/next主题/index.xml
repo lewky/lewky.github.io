@@ -1,0 +1,19 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>NexT主题 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/next%E4%B8%BB%E9%A2%98/</link><description>NexT主题 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 04 May 2019 00:28:16 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/next%E4%B8%BB%E9%A2%98/" rel="self" type="application/rss+xml"/><item><title>Hexo写作系列(3) - 文章标题含有双引号"导致页面渲染失败无法打开</title><link>https://lewky.cn/posts/31deca5f.html/</link><pubDate>Sat, 04 May 2019 00:28:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/31deca5f.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>在用Hexo写文章时，如果文章标题含有双引号<code>&quot;</code>，也就是说如果在文件头里的<code>title</code>出现双引号，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">---<span class="w">
+</span><span class="w"></span><span class="k">title</span><span class="p">:</span><span class="w"> </span>Hexo<span class="w"> </span>- 文章标题含有双引号&#34;导致页面渲染失败无法打开<span class="w">
+</span><span class="w"></span>---<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>由于这里的写法属于yml语法，双引号属于特殊符号，上述的title的写法就会在执行<code>hexo g</code>时报错，当我们在浏览器里打开这篇文章的页面时就会渲染失败无法打开。</p>]]></description></item><item><title>Hexo写作系列(2) - 如何令文章目录显示序号</title><link>https://lewky.cn/posts/99e0f22b.html/</link><pubDate>Thu, 06 Sep 2018 23:14:09 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/99e0f22b.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>NexT主题会自动为每一篇文章生成目录，这个目录可以通过配置来控制是否生成对应的序号。毕竟有时候我们会给文章的小标题写上序号，有时候又会懒得去写，这个时候这个配置就很重要了。</p>
+<p>有两种方法来实现这个效果，一种是全局生效，一种是对具体某篇文章生效。</p>]]></description></item><item><title>Hexo写作系列(1) - NexT主题自带的样式</title><link>https://lewky.cn/posts/38eb04fa.html/</link><pubDate>Wed, 05 Sep 2018 23:14:09 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/38eb04fa.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本系列主要介绍和hexo-NexT主题相关的一些写作技巧，可能会涉及到部分前端知识(不了解也没关系，能用就行)。我之所以选择hexo-NexT来搭建个人网站，一个很重要的原因就是因为简单、方便、快捷！不需要服务器，直接通过Markdown来进行写作，不仅文章布局美观，还可以节省大量的时间。</p>
+<p>我一般不会在文章中手动加入各种html标签，因为太麻烦了&ndash;而NexT主题就很贴心地自带了一些样式，让你可以不需要自己写一大堆html标签就能得到美观的页面效果。</p>]]></description></item></channel></rss>

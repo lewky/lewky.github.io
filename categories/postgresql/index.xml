@@ -1,0 +1,53 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>PostgreSQL - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/postgresql/</link><description>PostgreSQL - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 14 Nov 2019 23:24:29 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/postgresql/" rel="self" type="application/rss+xml"/><item><title>PostgreSQL - 如何杀死被锁死的进程</title><link>https://lewky.cn/posts/1514292e.html/</link><pubDate>Thu, 14 Nov 2019 23:24:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1514292e.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>在一次系统迭代后用户投诉说无法成功登陆系统，经过测试重现和日志定位，最后发现是由于用户在ui上进行了某些操作后，触发了堆栈溢出异常，导致数据库里的用户登陆信息表的数据被锁住，无法释放。这个表里存放的是用户的session信息。</p>
+<p>虽然后来解决了问题，但是数据库里这个用户登录信息表里被lock住的数据始终无法释放，这导致用户永远无法登陆成功，需要手动跑SQL把锁去掉才行。</p>]]></description></item><item><title>PostgreSQL - raise函数打印字符串</title><link>https://lewky.cn/posts/20180240.html/</link><pubDate>Wed, 01 May 2019 15:50:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/20180240.html/</guid><description><![CDATA[<h2 id="raise函数">raise函数</h2>
+<p>在PostgreSQL中，该函数用于打印字符串，类似于Java中的<code>System.out.println()</code>，Oracle中的<code>dbms_output.put_line()</code>。</p>
+<p>用法如下：</p>]]></description></item><item><title>PostgreSQL - invalid input syntax for type timestamp with time zone</title><link>https://lewky.cn/posts/b1fd04b3.html/</link><pubDate>Thu, 25 Apr 2019 23:19:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/b1fd04b3.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>在执行以下sql时报错：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">COALESCE</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="k">null</span><span class="p">,</span><span class="n">now</span><span class="p">(),</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PostgreSQL - 模糊查询</title><link>https://lewky.cn/posts/8fd6368.html/</link><pubDate>Thu, 28 Feb 2019 21:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8fd6368.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>like、not like在SQL中用于模糊查询，<code>%</code>表示任意个字符，<code>_</code>表示单个任意字符，如果需要在模糊查询中查询这两个通配符，需要用<code>ESCAPE</code>进行转义，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="k">table</span> <span class="k">where</span> <span class="n">name</span> <span class="k">like</span> <span class="s1">&#39;张/_小%&#39;</span> <span class="k">escape</span> <span class="s1">&#39;/&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PostgreSQL - 怎么将时间转换成秒</title><link>https://lewky.cn/posts/8470760a.html/</link><pubDate>Wed, 19 Dec 2018 22:34:12 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8470760a.html/</guid><description><![CDATA[<h2 id="保留原来的毫秒值">保留原来的毫秒值</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">epoch</span> <span class="k">from</span> <span class="s1">&#39;03:21:06.678&#39;</span><span class="p">::</span><span class="n">time</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PostgreSQL - 怎么转换数据类型</title><link>https://lewky.cn/posts/f20deee6.html/</link><pubDate>Tue, 18 Dec 2018 23:55:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f20deee6.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>对于<code>select 233;</code>这个sql，得到的结果是<code>int4</code>类型，如果我们希望将结果转换成其他的数据类型，有以下方法(下边的<code>{数据类型}</code>表示占位符，要替换成数据库中的某一种数据类型)：</p>
+<h2 id="方法一使用数据类型">方法一：使用<code>::{数据类型}</code></h2>]]></description></item><item><title>PostgreSQL - 用psql 运行SQL文件</title><link>https://lewky.cn/posts/108d47a0.html/</link><pubDate>Tue, 18 Dec 2018 23:52:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/108d47a0.html/</guid><description><![CDATA[<p>对于预先写好的SQL文件，比如<code>/home/user1/updateMyData.sql</code>， 可以有两种方式来运行这个SQL文件。</p>
+<h2 id="方式一连接db后执行sql文件">方式一：连接db后执行SQL文件</h2>
+<p>首先通过psql连接到对应的db：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">psql -d db1 -U userA
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PostgreSQL - update语句怎么关联多个表</title><link>https://lewky.cn/posts/8423a9d4.html/</link><pubDate>Mon, 10 Dec 2018 00:22:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8423a9d4.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>对于select语句，我们可以通过join/outer join来关联多个表；但是对于update语句，是不能直接通过join/outer join来关联多表数据的，这里仅针对PostgreSQL。</p>
+<p>或者说，在PostgreSQL中，就算使用update+join不会报错，但join的那部分其实是没任何效果的，如下所示：</p>]]></description></item><item><title>PostgreSQL - pgAdmin4远程连接数据库</title><link>https://lewky.cn/posts/9f87c20d.html/</link><pubDate>Thu, 06 Dec 2018 23:56:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9f87c20d.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>PostgreSQL在安装的时候自带的pgAdmin这个可视化工具，自从将PostgreSQL9升级到了10版本后，自带的pgAdmin也从3升级到了4版本。pgAdmin4的变化非常巨大，刚接触时一脸懵逼，这里记录下怎么用pgAdmin4进行远程连接数据库并执行SQL语句。&lt;/p></description></item><item><title>PostgreSQL - 查询表结构和索引信息</title><link>https://lewky.cn/posts/42ffcbd5.html/</link><pubDate>Mon, 19 Nov 2018 23:43:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/42ffcbd5.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>PostgreSQL的表一般都是建立在public这个schema下的，假如现在有个数据表<code>t_student</code>，可以用以下几种方式来查询表结构和索引信息。</p>
+<h2 id="使用d元命令查看表字段信息和索引信息">使用\d元命令查看表字段信息和索引信息</h2>
+<p>在cmd界面使用psql连接db后，输入\d加上表名即可：</p>]]></description></item></channel></rss>

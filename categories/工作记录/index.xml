@@ -1,0 +1,32 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 09 Oct 2019 20:11:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>由Java正则表达式的灾难性回溯引发的高CPU异常：java.util.regex.Pattern$Loop.match</title><link>https://lewky.cn/posts/af92ed86.html/</link><pubDate>Wed, 09 Oct 2019 20:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/af92ed86.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>某天领导report了一个问题：线上的CPU自从上一个版本迭代后就一直处于居高不下的状况，领导看着这段时间的曲线图判断是有两条线程在不停的死循环。</p>
+<p>接到任务后去查看了AWS的CloudWatch，发现线上CPU确实一直居高不下，使用率基本是之前的两倍；另外发现线程使用率以比之前频繁很多。后来公司的大佬拿到dump后经过分析发现，是由正则表达式造成的CPU持续高使用率的问题。</p>]]></description></item><item><title>升级Log4j到Log4j2报错：cannot access org.apache.http.annotation.NotThreadSafe</title><link>https://lewky.cn/posts/55fa957a.html/</link><pubDate>Fri, 28 Dec 2018 01:16:21 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/55fa957a.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>今天把项目的log4j的依赖改成了log4j2的依赖后，发现使用Maven打包时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project cbx-core: Compilation failure
+[ERROR] cannot access org.apache.http.annotation.NotThreadSafe
+[ERROR] class file for org.apache.http.annotation.NotThreadSafe not found
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>JIRA中的标记语言的语法参考</title><link>https://lewky.cn/posts/3c228edd.html/</link><pubDate>Tue, 18 Dec 2018 00:50:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/3c228edd.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>看到网上有的文章说JIRA是使用Textile这门标记语言，有些语法和Wikitext和Markdown相像。JIRA在2017年进行了一次大更新，某些语法可能和以前不大一样，这里纪录一下常用的一些语法。&lt;/p></description></item><item><title>iReport - 无法正常启动的解决方法</title><link>https://lewky.cn/posts/1d2503d5.html/</link><pubDate>Tue, 11 Dec 2018 23:47:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1d2503d5.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>最近需要用到iReport报表工具，但是在启动客户端时却发现只出现了启动界面，很快就界面消失没反应了。反复打开了好几次客户端，都无法正常打开。问了下同事，说是因为jdk升级的原因，以前项目使用的是jdk1.7就可以正常使用，后来升级到1.8就无法打开iReport客户端了。</p>
+<p>百度了下，确实如此。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。不过现在我就需要使用到iReport，也不可能等到下个版本出来再使用，项目已经使用了jdk 1.8，也不可能将版本降下来。</p>
+<p>一番百度后，解决办法就是单独为iReport指定低于1.8版本的jdk，这样就可以正常启动了。</p>]]></description></item><item><title>怎么快速对DB里的所有email进行校验</title><link>https://lewky.cn/posts/4a555132.html/</link><pubDate>Fri, 07 Dec 2018 00:01:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4a555132.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>由于业务上的需求，重新改写了校验email的正则表达式，同时DB里又迁移了其他数据库的数据，现在需要重新对DB里的所有email再校验一次，以排除掉不合法的email。</p>
+<p>DB里的数据很多，手动去一个个校验的做法显然是不靠谱的，这种机械的重复性操作，自然是要用程序来解决才是最简易的。</p>]]></description></item><item><title>嵌套循环的优化</title><link>https://lewky.cn/posts/fe753197.html/</link><pubDate>Sat, 13 Oct 2018 22:59:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fe753197.html/</guid><description><![CDATA[<h2 id="需求背景">需求背景</h2>
+<p>今天拿到这样一个需求：有Map A和Map B，这两个Map都持有着一个同样的key——id，其对应的value可能相同，也可能不相同。现在需要对两个Map中该key对应的value相同的键值对做些特殊的操作。</p>
+<p>这是个很简单的需求，代码很简单，我直接一个循环里嵌套另一个循环去实现这个功能需求：</p>]]></description></item><item><title>通过split命令分割大文件</title><link>https://lewky.cn/posts/54434588.html/</link><pubDate>Sun, 02 Sep 2018 21:23:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/54434588.html/</guid><description><![CDATA[<h2 id="场景">场景</h2>
+<p>线上出了问题，我需要去查找log来定位问题，但是由于线上数据量庞大，这些log文件每过一个小时就会自动回滚一次，尽管如此，有的log文件依然达到了五六g以上的大小。</p>
+<p>对于这种巨大的log文件，常用的一些文本编辑器诸如EditPlus、Notepad++就不用说了，打开几百m的文件都会很卡，上g的直接程序崩溃。虽然UltraEdit对于大文件的读取会友好一些，但打开这种五六g的文件时也会陷入长时间的无响应状态。</p>
+<p>后来我又得知了一个看log神器——glogg，打开五六g的大文件速度很快，但是有个问题，就是只能读取文件，不能编辑文件。毕竟我不只是要查看log，有时候还要对这些有用的log信息进行编辑。最后还是决定先把大文件分割成数个小文件，再用UltraEdit来查看这些文件。</p>]]></description></item><item><title>服务器时间和数据库时间的校验</title><link>https://lewky.cn/posts/663a514f.html/</link><pubDate>Wed, 22 Aug 2018 00:15:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/663a514f.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>今天在公司进行Sanity Test(可用性测试)时发现服务器启动失败，查找log后发现在启动时发生了异常导致了服务器启动失败。</p>
+<p>由于公司的服务器和数据库分别部署在不同的主机，所以会在启动时进行时间上的校验，如果两台主机的时间差超过600s就会抛出异常、启动失败。这个设定的时间差被存储在数据库中，以方便日后修改。</p>]]></description></item><item><title>log日志中不打印异常栈的具体信息</title><link>https://lewky.cn/posts/a3da2383.html/</link><pubDate>Tue, 24 Jul 2018 00:02:19 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a3da2383.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>最近在查项目的log时发现报了大量的NPE(NullPointerException)，诡异的是只log了Exception的类名，却没有具体的堆栈信息，以致于无法对该NPE异常进行准确定位。</p>
+<p>这是因为jvm自身存在着优化机制，但一个同样的异常重复出现并被打印到log后，jvm可以不提供具体的堆栈信息来提高性能。关于这个的具体信息我们可以从官网上查到相关的资料：</p>]]></description></item><item><title>验证邮件地址的Java正则表达式</title><link>https://lewky.cn/posts/6c2d7772.html/</link><pubDate>Tue, 03 Apr 2018 22:53:24 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/6c2d7772.html/</guid><description>&lt;p>最近写了个Java正则表达式来验证RFC 5322规范的邮件地址，这个邮件地址比较复杂，对于这样一个地址：&lt;code>userName@domainName&lt;/code>，它满足以下条件：&lt;/p></description></item></channel></rss>

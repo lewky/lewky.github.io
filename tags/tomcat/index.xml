@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Tomcat - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/tomcat/</link><description>Tomcat - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 12 Dec 2018 22:08:44 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/tomcat/" rel="self" type="application/rss+xml"/><item><title>如何使用Tomcat自带的日志实现tomcat-juli.jar</title><link>https://lewky.cn/posts/7e9025c2.html/</link><pubDate>Wed, 12 Dec 2018 22:08:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/7e9025c2.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>Tomcat自带的日志实现是<code>tomcat-juli.jar</code>，它是对默认的JDK日志java.util.logging进行一定的封装，和标准JDK日志支持相同的配置，但是和log4j等常用的日志框架比起来功能要较为简陋。但是tomcat-juli可以针对不同的classloader来使用不同的配置文件，使得tomcat下不同的Web应用程序可以使用各自独立的日志文件。</p>
+<p>如果我们想在代码中使用Tomcat自带的日志实现，也很简单，首先拿到tomcat-juli.jar。该jar包存在于Tomcat安装目录下的lib下，或者你可以直接在<a href="https://mvnrepository.com/" target="_blank" rel="noopener noreffer">Maven仓库</a>里选择你想要的版本去下载。</p>
+<p>接着新建一个java项目，导入该jar包，然后在根目录下新建一个配置文件<code>logging.properties</code>。</p>]]></description></item><item><title>Tomcat - 怎么控制某个类或者包下的日志打印级别</title><link>https://lewky.cn/posts/e6575e68.html/</link><pubDate>Wed, 12 Dec 2018 21:52:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/e6575e68.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>Tomcat是使用自己的日志实现<code>tomcat-juli.jar</code>来打印日志信息的，日志会被打印到catalina.out里，除去你在项目里自己使用的日志框架外，由<code>System.out</code>，<code>System.err</code>或者<code>printStackTrace()</code>打印出来的信息则是会被输入到catalina.out里，如果引用的jar包里也有这些语句也会一起输入到catalina.out里。</p>]]></description></item><item><title>Tomcat - ClassFormatException的解决方法</title><link>https://lewky.cn/posts/e5b9143e.html/</link><pubDate>Tue, 13 Nov 2018 23:41:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/e5b9143e.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>在使用Tomcat7运行web项目时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">严重: Compilation error
+org.eclipse.jdt.internal.compiler.classfmt.ClassFormatException
+at ....
+</code></pre></td></tr></table>
+</div>
+</div><p>仔细查看了报错的堆栈信息，发现基本说的都是无法编译jsp的错误。百度了一番，才明白原来是因为Tomcat7和jdk8存在着不兼容的情况。Tomcat通过ecj.jar来编译jsp，这个ecj是Eclipse自己开发和使用的针对Java的编译器。</p>]]></description></item><item><title>Tomcat日志文件的输出在Linux和Windows下的差异</title><link>https://lewky.cn/posts/5ee24a02.html/</link><pubDate>Wed, 07 Nov 2018 23:41:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/5ee24a02.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>最近老大发现Tomcat的日志文件catalina.out里存在着大量的和公司项目相关的log信息，因为一般都是会使用日志框架并另外将log信息输出到另外的文件里的，catalina.out文件里就不需要这些多余的log信息了。</p>
+<p>不过我在测试的时候发现，Linux和Windows下catalina.out文件的输出是有区别的。</p>]]></description></item></channel></rss>

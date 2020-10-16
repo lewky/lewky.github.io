@@ -1,0 +1,71 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Maven - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/maven/</link><description>Maven - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Mar 2020 11:35:40 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/maven/" rel="self" type="application/rss+xml"/><item><title>Maven无法下载2.1.7.js7版本的itext依赖</title><link>https://lewky.cn/posts/d94da554.html/</link><pubDate>Mon, 16 Mar 2020 11:35:40 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/d94da554.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>某日忽然发现用Maven编译项目报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Failed</span> <span class="n">to</span> <span class="n">collect</span> <span class="n">dependencies</span> <span class="n">at</span> <span class="n">net</span><span class="o">.</span><span class="na">sf</span><span class="o">.</span><span class="na">jasperreports</span><span class="o">:</span><span class="n">jasperreports</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">6</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">0</span>
+<span class="o">-&gt;</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span><span class="o">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">read</span> <span class="n">artifact</span> <span class="n">descriptor</span> <span class="k">for</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span><span class="o">:</span> 
+<span class="n">Could</span> <span class="n">not</span> <span class="n">transfer</span> <span class="n">artifact</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">pom</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Maven - StackOverflowError</title><link>https://lewky.cn/posts/b8e136a1.html/</link><pubDate>Sat, 27 Apr 2019 20:46:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/b8e136a1.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>今天发现服务器上的Jenkins在集成项目时报错，报错原因如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">error compiling: java.lang.StackOverflowError -&gt; [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Maven - settings.xml简易配置Demo</title><link>https://lewky.cn/posts/1433f1c.html/</link><pubDate>Fri, 18 Jan 2019 23:22:06 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1433f1c.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>这里贴一下settings.xml的一个简易配置demo，就是简单配置了：本地的仓库地址、阿里云镜像、指定使用jdk1.8进行编译。</p>
+<p>这里使用的Maven是3.5.0版本的。</p>]]></description></item><item><title>MyBatis逆向工程中domainObjectRenamingRule报错或无效</title><link>https://lewky.cn/posts/3f71ea8b.html/</link><pubDate>Tue, 11 Dec 2018 23:44:40 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/3f71ea8b.html/</guid><description><![CDATA[<h2 id="使用domainobjectrenamingrule报错">使用domainObjectRenamingRule报错</h2>
+<p>在使用MyBatis逆向工程时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">org.mybatis.generator.exception.XMLParserException: XML Parser Error on line 43: 必须声明元素类型 &#34;domainObjectRenamingRule&#34;。
+    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:121)
+    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:82)
+    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:74)
+    at GeneratorSqlmap.generator(GeneratorSqlmap.java:22)
+    at GeneratorSqlmap.main(GeneratorSqlmap.java:32)
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Maven聚合工程怎么变回普通的Maven工程</title><link>https://lewky.cn/posts/29066504.html/</link><pubDate>Tue, 11 Dec 2018 00:26:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/29066504.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>Maven聚合工程的父工程的packaging是pom，如果我们将其改为jar，会立刻报错：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Project build error: &#39;packaging&#39; with value &#39;jar&#39; is invalid. Aggregator projects require &#39;pom&#39; as packaging.
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Maven - settings.xml里的offline节点的作用</title><link>https://lewky.cn/posts/c6f35a05.html/</link><pubDate>Fri, 09 Nov 2018 23:27:21 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/c6f35a05.html/</guid><description><![CDATA[<h2 id="场景">场景</h2>
+<p>某天我在本地修改了某个子项目的代码，并进行了打包：<code>mvn clean install -DskipTests</code>，接着我运行父项目却发现自己刚刚的改动并没有生效，或者说，我刚刚打包好的子项目变回了打包前的代码。</p>
+<p>通过cmd的输出我发现在运行父项目的时候，自动下载更新了远程依赖库的子项目，因此将我本地打包修改好的子项目依赖给更新成了远程库的，这就是为什么我明明打包了本地修改好的子项目代码却没有在父项目生效的原因。</p>]]></description></item><item><title>Maven - 关于编码GBK的不可映射字符的问题</title><link>https://lewky.cn/posts/86689e1.html/</link><pubDate>Fri, 13 Oct 2017 15:00:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/86689e1.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>之前都是用的Eclipse的Maven插件执行命令，后来偶然在最近完成的一个小项目的根目录里打开cmd，执行<code>mvn clean package</code>报<code>编码GBK的不可映射字符</code>的问题。</p>
+<p>明明之前在Eclipse上打成war包没问题，为什么用cmd执行package命令就会报错？在网上查了下资料，是因为没有在pom.xml文件中添加编译插件的编码字符集，如下：</p>]]></description></item><item><title>Maven - 依赖范围和传递性依赖</title><link>https://lewky.cn/posts/a658ba27.html/</link><pubDate>Sat, 30 Sep 2017 20:45:19 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a658ba27.html/</guid><description><![CDATA[<h2 id="maven的依赖范围">Maven的依赖范围</h2>
+<p>在pom.xml文件中，有个节点是scope，用来表示依赖的范围。之所以会有依赖范围，是因为Maven在编译、测试和运行项目时会各自使用一套classpath，依赖范围就是用来控制这三种classpath的。</p>
+<p>简单来说，就是通过scope节点来控制项目的依赖是在编译时导入，还是在测试或运行项目时才导入。</p>]]></description></item><item><title>Maven - 使用阿里云国内镜像提高jar包下载速度</title><link>https://lewky.cn/posts/83b08349.html/</link><pubDate>Tue, 05 Sep 2017 14:17:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/83b08349.html/</guid><description><![CDATA[<p>转载自：<a href="https://blog.csdn.net/wangb_java/article/details/55653122" target="_blank" rel="noopener noreffer">maven(八)，阿里云国内镜像，提高jar包下载速度</a></p>
+<h2 id="镜像">镜像</h2>
+<p>由于Maven默认是从中央仓库去下载的jar包，该仓库在国外，且全世界都从该仓库下载，所以下载速度会很慢。镜像就相当于中央仓库的一个副本，内容和中央仓库完全一样，目前有不少国内镜像，其中阿里云算是比较稳定的，同时也能保证下载速度。</p>]]></description></item></channel></rss>

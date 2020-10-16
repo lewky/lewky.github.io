@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>CSS - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/css/</link><description>CSS - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 02 Sep 2018 22:49:52 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/css/" rel="self" type="application/rss+xml"/><item><title>css - 单词的自动换行问题</title><link>https://lewky.cn/posts/4d6b513d.html/</link><pubDate>Sun, 02 Sep 2018 22:49:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4d6b513d.html/</guid><description><![CDATA[<p>转载自：<a href="https://blog.csdn.net/u011565547/article/details/77198026" target="_blank" rel="noopener noreffer">解决文档中有url链接时被强制换行的问题</a></p>
+<h2 id="问题">问题</h2>
+<p>当行内出现很长的英文单词或者url的时候，会出现自动换行的问题，为了美化页面，往往会希望这些很长的英文单词或者url能够断开来，超出的部分换行到下一行。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>可以通过使用两个属性来实现该需求：</p>]]></description></item><item><title>js、css外部文件的相对路径问题</title><link>https://lewky.cn/posts/29169.html/</link><pubDate>Wed, 02 May 2018 10:21:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/29169.html/</guid><description><![CDATA[<p>如果js、css外部文件有使用到相对路径时，需要注意其相对路径的基准是不一样的。</p>
+<p>比如说，在index.html中引用到了外部的js和css文件，这两个文件都通过相对路径引用了某一张图片；这些文件所在的目录如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">.
+├── js
+|   └── index.js
+├── css
+|   └── index.css
+├── images
+|   └── bg.jpg
+└── index.html
+
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

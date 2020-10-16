@@ -1,0 +1,6 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Github - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/github/</link><description>Github - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 02 Dec 2018 23:49:58 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/github/" rel="self" type="application/rss+xml"/><item><title>GitHub - 怎么为仓库添加协议</title><link>https://lewky.cn/posts/7eb15a2d.html/</link><pubDate>Sun, 02 Dec 2018 23:49:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/7eb15a2d.html/</guid><description><![CDATA[<h2 id="怎么为github仓库添加协议">怎么为GitHub仓库添加协议</h2>
+<p>如果一开始在GitHub上创建仓库时没有添加协议，可以用以下方式来重新添加相关的协议：</p>
+<ol>
+<li>打开GitHub上的某个仓库，点击<code>Create new file</code>；</li>
+<li>在新建文件的页面上，输入文件名<code>LICENSE</code>，这时候你会发现在标题的右边多出来一个按钮<code>Choose a license template</code>，点击该按钮；</li>
+</ol>]]></description></item></channel></rss>

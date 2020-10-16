@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SQL - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/sql/</link><description>SQL - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 12 Nov 2019 23:39:42 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/sql/" rel="self" type="application/rss+xml"/><item><title>SQL - where条件里的!=会过滤值为null的数据</title><link>https://lewky.cn/posts/949c02c.html/</link><pubDate>Tue, 12 Nov 2019 23:39:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/949c02c.html/</guid><description><![CDATA[<h2 id="会过滤值为null的数据">!=会过滤值为null的数据</h2>
+<p>在测试数据时忽然发现，使用如下的SQL是无法查询到对应column为null的数据的：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">test</span> <span class="k">where</span> <span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;Lewis&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>SQL - 单引号和双引号的区别</title><link>https://lewky.cn/posts/8600baa4.html/</link><pubDate>Wed, 01 Aug 2018 22:21:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8600baa4.html/</guid><description><![CDATA[<p>原文转载至：<a href="https://segmentfault.com/q/1010000000236690" target="_blank" rel="noopener noreffer">SQL中的单引号和双引号有区别吗？</a></p>
+<blockquote>
+<p>在标准 SQL 中，字符串使用的是单引号。</p>
+<p>如果字符串本身也包括单引号，则使用两个单引号（注意，不是双引号，字符串中的双引号不需要另外转义）。</p>
+</blockquote>]]></description></item><item><title>SQL - nulls值排序问题</title><link>https://lewky.cn/posts/419004ef.html/</link><pubDate>Thu, 26 Jul 2018 00:37:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/419004ef.html/</guid><description><![CDATA[<h2 id="给字段排序时遇到的null值问题">给字段排序时遇到的null值问题</h2>
+<p>当我们使用<code>order by</code>来为指定的字段进行排序时，如果db中该字段的值存在着null值，那么在排序时这些null值会不会参与排序呢？如果参与排序的话，又是以怎样的标准来排序？</p>
+<p>在不同的DB中，对于null值的默认值不同。</p>]]></description></item><item><title>SQL - ROW_NUMBER() OVER()函数</title><link>https://lewky.cn/posts/d8914798.html/</link><pubDate>Mon, 22 Jan 2018 23:34:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/d8914798.html/</guid><description>&lt;p>ROW_NUMBER() OVER()函数用来为每条记录返回一个行号，可以用来对记录进行排序并返回该序号，序号从1开始排序。&lt;/p>
+&lt;p>这里的over()是聚集函数，可以给记录进行分组、排序；row_number()不能单独使用，必须搭配over()才能使用，否则会报错。&lt;/p></description></item></channel></rss>

@@ -1,0 +1,154 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hugo系列(1) - 简单入门与搭建 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Hugo系列(1) - 简单入门与搭建"><meta property="og:description" content="背景
+使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。
+在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话："><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/hugo-1.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2020-09-06T21:10:47+08:00"><meta property="article:modified_time" content="2020-09-06T21:10:47+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hugo系列(1) - 简单入门与搭建"><meta name=twitter:description content="背景
+使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。
+在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话："><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://lewky.cn/posts/hugo-1.html/><link rel=prev href=https://lewky.cn/posts/d94da554.html/><link rel=next href=https://lewky.cn/posts/hugo-3.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/css/custom.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo系列(1) - 简单入门与搭建","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hugo-1.html\/"},"genre":"posts","keywords":"Hugo, 简单入门","wordcount":2498,"url":"https:\/\/lewky.cn\/posts\/hugo-1.html\/","datePublished":"2020-09-06T21:10:47+08:00","dateModified":"2020-09-06T21:10:47+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub </a><a class=menu-item href=/posts/e62c38c45.html><i class="fas fa-cog fa-spin"></i>建站日志 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub</a><a class=menu-item href=/posts/e62c38c45.html><i class="fas fa-cog fa-spin"></i>建站日志</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hugo系列(1) - 简单入门与搭建</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hugo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hugo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-09-06>2020-09-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2498 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id=/posts/hugo-1.html/ class=leancloud_visitors data-flag-title="Hugo系列(1) - 简单入门与搭建">
+<i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+</span>&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#背景>背景</a></li><li><a href=#安装>安装</a></li><li><a href=#创建站点>创建站点</a></li><li><a href=#添加主题>添加主题</a></li><li><a href=#新建文章>新建文章</a><ol><li><a href=#toml-example>TOML Example</a></li><li><a href=#yaml-example>YAML Example</a></li><li><a href=#json-example>JSON Example</a></li></ol></li><li><a href=#启动hugo服务>启动Hugo服务</a></li><li><a href=#生成静态页面>生成静态页面</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=背景>背景</h2><p>使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。</p><p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p><blockquote><p><strong>The world’s fastest framework for building websites</strong></p><p>Hugo is one of the most popular open-source static site generators. With its amazing speed and flexibility, Hugo makes building websites fun again.</p></blockquote><h2 id=安装>安装</h2><p>和Hexo不同，Hugo安装非常简单，只需要去<a href=https://github.com/gohugoio/hugo/releases target=_blank rel="noopener noreffer">Hugo Release</a>下载操作系统对应的二进制文件即可（<code>hugo</code>或者<code>hugo.exe</code>)。</p><p>对于Windows平台，一般是一个zip文件，解压后里面有个<code>hugo.exe</code>文件。将该文件所在目录添加到环境变量<code>path</code>里，即可在cmd里通过<code>hugo version</code>检测是否能正常运行hugo命令。</p><p>如下是我安装的hugo版本：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd><span class=p>&gt;</span>hugo version
+Hugo Static Site Generator v0.74.2-48565DE6 windows/amd64 BuildDate: 2020-07-17T17:22:50Z
+</code></pre></td></tr></table></div></div><p>其他平台的安装方法可以参考官方文档：<a href=https://gohugo.io/getting-started/installing/ target=_blank rel="noopener noreffer">Install Hugo</a></p><h2 id=创建站点>创建站点</h2><p>首先需要创建一个新的个人站点：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd>hugo new site blog
+</code></pre></td></tr></table></div></div><p><code>blog</code>就是你的博客站点所在的目录，也是这个站点的根目录，创建站点后目录结构如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>archetypes/
+content/
+data/
+layouts/
+static/
+themes/
+config.toml
+</code></pre></td></tr></table></div></div><p>下面简单介绍下Hugo根目录下的各个文件目录的作用：</p><ul><li><code>archetypes</code>存放创建文件时使用的模板，可以自定义<code>front matter</code>属性。</li><li><code>assets</code>存放需要被<code>Hugo Pipes</code>处理的文件，且只有使用了<code>.Permalink</code>或者<code>.RelPermalink</code>的文件才能被发布到<code>public</code>目录。
+<strong>注意，默认不会创建<code>assets</code>目录。</strong></li><li><code>config</code>是配置文件，可以有<code>JSON</code>、 <code>YAML</code>或者<code>TOML</code>三种格式，默认使用根目录下的<code>config.toml</code>、<code>config.yaml</code>或<code>config.json</code>中的某一个。可以通过<code>--config</code>来配置读取一个或多个配置文件，如：<code>hugo --config a.toml,b.toml,c.toml</code>。
+<strong>注意，默认不会创建<code>config</code>目录。</strong></li><li><code>content</code>存放的各种md文件用于部署站点，该目录下可以自行创建若干个子目录来便于对文章进行分类，这些子目录被称为<code>section</code>。</li><li><code>data</code>目录存放的是用于定义变量的模板文件，相当于Java里的常量类，这些文件有<code>JSON</code>、 <code>YAML</code>或者<code>TOML</code>三种格式，会在生成站点时被使用到。一般用不到该功能，具体用法可以参考：<a href=https://gohugo.io/templates/data-templates/ target=_blank rel="noopener noreffer">data templates</a></li><li><code>layouts</code>目录存放的模板文件用于渲染html页面，模板里可以定义不同页面的html代码。</li><li><code>static</code>目录存放的是静态内容：图片、CSS、JavaScript等。</li><li><code>resources</code>目录用于缓存某些文件来提高生成效率。
+<strong>注意，默认不会创建<code>resources</code>目录。</strong></li></ul><h2 id=添加主题>添加主题</h2><p>为新站点添加一个主题，以我使用的<code>LoveIt</code>主题为例，先将主题代码放置到<code>themes</code>目录下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd><span class=k>cd</span> blog
+git init
+git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+</code></pre></td></tr></table></div></div><p>接着修改<code>config.toml</code>：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>theme = &#34;LoveIt&#34;
+</code></pre></td></tr></table></div></div><p>这里的<code>LoveIt</code>对应<code>themes</code>目录下的主题的文件夹名字。</p><h2 id=新建文章>新建文章</h2><p>新建一篇文章：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd>hugo new posts/first.md
+</code></pre></td></tr></table></div></div><p>该命令会在<code>content/posts</code>目录下生成<code>first.md</code>文件，打开进行编辑：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>---
+title: &#34;First&#34;
+date: 2020-09-08T21:57:28+08:00
+draft: true
+---
+## First
+
+First blog.
+</code></pre></td></tr></table></div></div><p>两行<code>---</code>里的属性是<code>front matter</code>，用来设置当前文章的属性配置。<code>front matter</code>的内容可以使用3种不同的格式来定义，两行<code>---</code>之间对应的是<code>YAML</code>格式，两行<code>+++</code>之间对应的是<code>TOML</code>格式，<code>{</code>和<code>}</code>之间对应的是<code>JSON</code>格式。</p><p>建议用<code>YAML</code>格式来定义，这样从Hexo迁移到Hugo的成本会更低。</p><p>下面是官方文档提供的3种不同格式的front matter的样例，有兴趣的可以了解下。</p><h3 id=toml-example>TOML Example</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>+++
+title = &#34;spf13-vim 3.0 release and new website&#34;
+description = &#34;spf13-vim is a cross platform distribution of vim plugins and resources for Vim.&#34;
+tags = [ &#34;.vimrc&#34;, &#34;plugins&#34;, &#34;spf13-vim&#34;, &#34;vim&#34; ]
+date = &#34;2012-04-06&#34;
+categories = [
+  &#34;Development&#34;,
+  &#34;VIM&#34;
+]
+slug = &#34;spf13-vim-3-0-release-and-new-website&#34;
++++
+Content of the file goes Here
+</code></pre></td></tr></table></div></div><h3 id=yaml-example>YAML Example</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>---
+title: &#34;spf13-vim 3.0 release and new website&#34;
+description: &#34;spf13-vim is a cross platform distribution of vim plugins and resources for Vim.&#34;
+tags: [ &#34;.vimrc&#34;, &#34;plugins&#34;, &#34;spf13-vim&#34;, &#34;vim&#34; ]
+lastmod: 2015-12-23
+date: &#34;2012-04-06&#34;
+categories:
+  - &#34;Development&#34;
+  - &#34;VIM&#34;
+slug: &#34;spf13-vim-3-0-release-and-new-website&#34;
+---
+
+Content of the file goes Here
+</code></pre></td></tr></table></div></div><h3 id=json-example>JSON Example</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>{
+    &#34;title&#34;: &#34;spf13-vim 3.0 release and new website&#34;,
+    &#34;description&#34;: &#34;spf13-vim is a cross platform distribution of vim plugins and resources for Vim.&#34;,
+    &#34;tags&#34;: [ &#34;.vimrc&#34;, &#34;plugins&#34;, &#34;spf13-vim&#34;, &#34;vim&#34; ],
+    &#34;date&#34;: &#34;2012-04-06&#34;,
+    &#34;categories&#34;: [
+        &#34;Development&#34;,
+        &#34;VIM&#34;
+    ],
+    &#34;slug&#34;: &#34;spf13-vim-3-0-release-and-new-website&#34;,
+}
+
+Content of the file goes Here
+</code></pre></td></tr></table></div></div><h2 id=启动hugo服务>启动Hugo服务</h2><p>输入命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd>hugo server -D
+</code></pre></td></tr></table></div></div><p>在本地启动服务后可以在 http://localhost:1313/ 访问个人站点。该命令仅用于本地调试，支持热修改，也就是说在启动服务时修改文章会实时生效，但是该命令不会真正生成静态文件。</p><h2 id=生成静态页面>生成静态页面</h2><p>输入命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd>hugo -D
+</code></pre></td></tr></table></div></div><p>默认会在站点根目录的<code>public/</code>目录下生成对应的静态页面，可以通过在命令行指定<code>-d</code>或者<code>--destination</code>参数来改变静态页面的存放路径，也可以通过在配置文件中设置<code>publishDir</code>来指定。</p><p>该命令生成的静态页面文件是用来部署到pages服务的，比如GitHub pages或者Coding pages等。</p><p>另外，hugo允许对生成的静态页面设置特殊的参数，比如在文章的<code>front matter</code>里设置参数：<code>draft</code>, <code>publishdate</code>和<code>expirydate</code>。如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>---
+title: &#34;First&#34;
+date: 2020-09-08T21:57:28+08:00
+draft: true
+publishdate: 2020-09-18T21:57:28+08:00
+expirydate: 2020-09-28T21:57:28+08:00
+---
+</code></pre></td></tr></table></div></div><p><code>draft: true</code>表明该文章是草稿，如果在启用服务时不指定参数<code>-D</code>或<code>--buildDrafts</code>，或者在配置文件<code>config.toml</code>中配置<code>buildDrafts = true</code>，则会在生成文章时忽略草稿。如果不想指定该参数就生成文章，需要改为<code>draft: false</code>或者将其删去。</p><p><code>publishdate: 2020-09-18T21:57:28+08:00</code>表示将来发布的时间，如果不指定参数<code>-F</code>或<code>--buildFuture</code>，或者在配置文件<code>config.toml</code>中配置<code>buildFuture = true</code>，则无法在规定的日期之前生成该文章。</p><p><code>expirydate: 2020-09-28T21:57:28+08:00</code>表示过期时间，如果不指定参数<code>-E</code>或<code>--buildExpired</code>，或者在配置文件<code>config.toml</code>中配置<code>buildExpired = true</code>，则无法在规定的日期之后生成该文章。</p><h2 id=参考链接>参考链接</h2><ul><li><a href=https://www.gohugo.org/doc/content/front-matter/ target=_blank rel="noopener noreffer">Hugo Front Matter</a></li><li><a href=https://gohugo.io/getting-started/quick-start/ target=_blank rel="noopener noreffer">Hugo Quick Start</a></li><li><a href=https://gohugo.io/getting-started/installing/ target=_blank rel="noopener noreffer">Install Hugo</a></li><li><a href=https://gohugo.io/getting-started/directory-structure/ target=_blank rel="noopener noreffer">Directory Structure Explained</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2020-09-06</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/hugo-1.html/ data-title="Hugo系列(1) - 简单入门与搭建" data-hashtags=Hugo,简单入门><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/hugo-1.html/ data-hashtag=Hugo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/hugo-1.html/ data-title="Hugo系列(1) - 简单入门与搭建"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/hugo-1.html/ data-title="Hugo系列(1) - 简单入门与搭建"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/hugo-1.html/ data-title="Hugo系列(1) - 简单入门与搭建"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hugo/>Hugo</a>,&nbsp;<a href=/tags/%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/>简单入门</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/d94da554.html/ class=prev rel=prev title=Maven无法下载2.1.7.js7版本的itext依赖><i class="fas fa-angle-left fa-fw"></i>Maven无法下载2.1.7.js7版本的itext依赖</a>
+<a href=/posts/hugo-3.html/ class=next rel=next title="Hugo系列(3) - 通过配置文件来定制个人站点">Hugo系列(3) - 通过配置文件来定制个人站点<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=/js/Valine.min.js></script><script type=text/javascript>new Valine({el:'#valine',appId:'1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz',appKey:'nfafLPsFBNTdO9Sb5suuGdpG',notify:'',verify:'',avatar:'retro',placeholder:'说点什么吧...',visitor:'true'});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src="/js/jquery/index.js?v=2.1.3"></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js></script><script type=text/javascript src=/js/custom.js></script></body></html>

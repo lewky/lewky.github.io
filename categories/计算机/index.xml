@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>计算机 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/</link><description>计算机 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 28 Nov 2018 23:28:28 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="self" type="application/rss+xml"/><item><title>win10无法写入删改c盘文件的解决方法</title><link>https://lewky.cn/posts/1d8592b7.html/</link><pubDate>Wed, 28 Nov 2018 23:28:28 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1d8592b7.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>最近使用了win10系统，结果发现无法对c盘的文件进行写入删改，在网上到处搜集资料，终于找到了解决方法，这里总结一下。</p>
+<p>首先，本文针对的是win10家庭版，家庭版默认是不提供组策略功能，而我们需要给家庭版添加组策略功能来获取修改c盘文件的权限。</p>]]></description></item><item><title>Windows类标识符及其妙用</title><link>https://lewky.cn/posts/a7d10acb.html/</link><pubDate>Wed, 21 Nov 2018 23:27:51 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a7d10acb.html/</guid><description><![CDATA[<h2 id="windows类标识符">Windows类标识符</h2>
+<p>百度百科这样解释：</p>
+<blockquote>
+<p>Windows的类标识符class identifier也称为CLASSID或CLSID，是与某一个类对象相联系的唯一标记(UUID)。一个准备创建多个对象的类对象应将其CLSID注册到系统注册数据库的任务表中，以使客户能够定位并装载与该对象有关的可执行代码。</p>
+</blockquote>]]></description></item><item><title>网络适配器、网卡和网卡驱动</title><link>https://lewky.cn/posts/b66922.html/</link><pubDate>Mon, 13 Aug 2018 23:08:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/b66922.html/</guid><description><![CDATA[<h2 id="网络适配器网卡">网络适配器（网卡）</h2>
+<p>网络适配器其实就是计算机内部的网络连接设备，也就是俗称的网卡。网卡分为有线网卡和无线网卡，有线网卡能够支持宽带有线网络的连接和网络访问，而无线网卡则支持无线wifi局域网的网络连接和访问。</p>
+<p>台式电脑一般默认都不带无线卡，所以是无法接收wifi进行上网的。</p>
+<p>如果想要台式机接收无线网使用wifi，电脑必须安装一块无线网卡，可以选择USB接口无线网卡。</p>]]></description></item></channel></rss>

@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>不间断空格 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E4%B8%8D%E9%97%B4%E6%96%AD%E7%A9%BA%E6%A0%BC/</link><description>不间断空格 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 23 Feb 2018 14:07:35 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E4%B8%8D%E9%97%B4%E6%96%AD%E7%A9%BA%E6%A0%BC/" rel="self" type="application/rss+xml"/><item><title>特殊的空格-ASCII码值160</title><link>https://lewky.cn/posts/b226c16f.html/</link><pubDate>Fri, 23 Feb 2018 14:07:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/b226c16f.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>最近遇到个问题，在页面的搜索框输入带有空格的字符串时，总是无法从db中搜索出来对应的数据，于是将db里的空格复制出来，发现其ASCII码值为160，这才知道，原来ASCII码中除了32之外还有160这个特殊的空格。下边是查看字符对应ASCII值的逻辑：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kt">char</span> <span class="n">c1</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="o">;</span> <span class="c1">//db里的空格
+</span><span class="c1"></span><span class="kd">final</span> <span class="kt">char</span> <span class="n">c2</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="o">;</span> <span class="c1">//手动输入的空格
+</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span><span class="n">c1</span><span class="o">);</span> <span class="c1">//160
+</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span><span class="n">c2</span><span class="o">);</span> <span class="c1">//32
+</span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

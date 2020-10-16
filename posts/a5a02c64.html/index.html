@@ -1,0 +1,83 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hexo - 记录一次Pages服务部署失败的原因 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Hexo - 记录一次Pages服务部署失败的原因"><meta property="og:description" content="问题与分析
+某天忽然发现，一直运行得好好的Pages服务部署失败了，GitHub Pages报错如下：
+
+
+1
+2
+
+
+Your site is having problems building: The tag cq on line 3 in source/high/index.md is not a recognized Liquid tag.
+For more information, see https://help.github.com/articles/page-build-failed-unknown-tag-error/. 
+
+
+与此同时，Coding Pages同样也报错了：
+
+
+1
+2
+3
+4
+5
+6
+
+
+ Starting jekyll build.
+> jekyll build --safe
+Configuration file: /usr/src/app/_config.yml
+jekyll 3.6.2 | Error:  The next theme could not be found.
+Jekyll build exit with code 1.
+Fail to build jekyll site."><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/a5a02c64.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2019-04-26T22:24:36+08:00"><meta property="article:modified_time" content="2019-04-26T22:24:36+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hexo - 记录一次Pages服务部署失败的原因"><meta name=twitter:description content="问题与分析
+某天忽然发现，一直运行得好好的Pages服务部署失败了，GitHub Pages报错如下：
+
+
+1
+2
+
+
+Your site is having problems building: The tag cq on line 3 in source/high/index.md is not a recognized Liquid tag.
+For more information, see https://help.github.com/articles/page-build-failed-unknown-tag-error/. 
+
+
+与此同时，Coding Pages同样也报错了：
+
+
+1
+2
+3
+4
+5
+6
+
+
+ Starting jekyll build.
+> jekyll build --safe
+Configuration file: /usr/src/app/_config.yml
+jekyll 3.6.2 | Error:  The next theme could not be found.
+Jekyll build exit with code 1.
+Fail to build jekyll site."><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://lewky.cn/posts/a5a02c64.html/><link rel=prev href=https://lewky.cn/posts/b1fd04b3.html/><link rel=next href=https://lewky.cn/posts/507b2cbc.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/css/custom.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hexo - 记录一次Pages服务部署失败的原因","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/a5a02c64.html\/"},"genre":"posts","keywords":"Hexo","wordcount":1033,"url":"https:\/\/lewky.cn\/posts\/a5a02c64.html\/","datePublished":"2019-04-26T22:24:36+08:00","dateModified":"2019-04-26T22:24:36+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub </a><a class=menu-item href=/posts/e62c38c45.html><i class="fas fa-cog fa-spin"></i>建站日志 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub</a><a class=menu-item href=/posts/e62c38c45.html><i class="fas fa-cog fa-spin"></i>建站日志</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hexo - 记录一次Pages服务部署失败的原因</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hexo/><i class="far fa-folder fa-fw"></i>Hexo</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2019-04-26>2019-04-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1033 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id=/posts/a5a02c64.html/ class=leancloud_visitors data-flag-title="Hexo - 记录一次Pages服务部署失败的原因">
+<i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+</span>&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#问题与分析>问题与分析</a></li><li><a href=#发现线索>发现线索</a></li><li><a href=#解决方法>解决方法</a></li></ol></nav></div></div><div class=content id=content><h2 id=问题与分析>问题与分析</h2><p>某天忽然发现，一直运行得好好的Pages服务部署失败了，GitHub Pages报错如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>Your site is having problems building: The tag cq on line 3 in source/high/index.md is not a recognized Liquid tag.
+For more information, see https://help.github.com/articles/page-build-failed-unknown-tag-error/. 
+</code></pre></td></tr></table></div></div><p>与此同时，Coding Pages同样也报错了：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback> Starting jekyll build.
+&gt; jekyll build --safe
+Configuration file: /usr/src/app/_config.yml
+jekyll 3.6.2 | Error:  The next theme could not be found.
+Jekyll build exit with code 1.
+Fail to build jekyll site.
+</code></pre></td></tr></table></div></div><p>首先我使用的是Hexo的next主题，而根据GitHub Pages的报错信息来看，是说在<code>source/high/index.md</code>里使用到了一个不认识的<code>cq</code>标签。</p><p>这个标签是next主题自带的，使用该标签快一年了，还是第一次遇到报这个错。接着根据Coding Pages的报错来看，则是说<code>/usr/src/app/_config.yml</code>里找不到jekyll的主题。</p><p>这就很奇怪了，我使用的明明是hexo，怎么忽然就变成jekyll了？一阵瞎折腾过后，一直部署失败。我忽然想起来一个事情，我之前曾经拿本地的博客仓库的git配置练过手，难道和这个有关？</p><p>我开始查找本地博客仓库的git配置，我是使用<code>hexo-deployer-git</code>这个插件来将本地生成的静态博客发送到远程仓库的。</p><p>当我在本地在执行<code>hexo g</code>后，会在博客根目录下生成一个<code>public</code>文件夹，这个文件夹里的文件组合起来就是一个完整的静态博客。</p><p>接着如果执行<code>hexo d</code>，就会把这个<code>public</code>文件夹的东西完完整整拷贝到<code>.deploy_git</code>文件夹里，然后会把该文件夹里的所有文件全部推送push到远程库。之后会触发Pages服务的钩子去build项目，然后部署到网站上。</p><h2 id=发现线索>发现线索</h2><p>我打开<code>public</code>文件夹，发现生成出来的文件很正常，接着打开<code>.deploy_git</code>文件夹，发现也很正常，接着查看远程库里的文件，终于发现了问题。</p><p>在远程库的分支里，根本就没有hexo相关的文件，至此算是找到原因了。</p><p>很显然，我在执行<code>hexo d</code>时出了问题，没能正常将文件push到远程库，于是部署就失败了。之前该命令是没问题的，可之前我曾经动过手脚，修改过博客项目里的git配置，手动修改了<code>.git</code>里的文件，莫非这就是问题的根源？</p><h2 id=解决方法>解决方法</h2><p>基于以上的猜想，我直接删掉了本地博客项目的<code>.deploy_git</code>文件夹，重新执行命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>hexo cl
+hexo g -d
+</code></pre></td></tr></table></div></div><p>等待片刻后，我终于看到远程部署成功，我的个人站点再次运转成功！</p><p>皇天不负有心人啊！原因终于明了，是<code>.deploy_git</code>文件夹出现问题，删掉该文件夹，重新运行<code>hexo d</code>即可。</p><p>记录下这次的遭遇，遇到问题应该静下心来，仔细分析，才不容易瞎折腾~</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2019-04-26</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/a5a02c64.html/ data-title="Hexo - 记录一次Pages服务部署失败的原因" data-hashtags=Hexo><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/a5a02c64.html/ data-hashtag=Hexo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/a5a02c64.html/ data-title="Hexo - 记录一次Pages服务部署失败的原因"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/a5a02c64.html/ data-title="Hexo - 记录一次Pages服务部署失败的原因"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/a5a02c64.html/ data-title="Hexo - 记录一次Pages服务部署失败的原因"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hexo/>Hexo</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/b1fd04b3.html/ class=prev rel=prev title="PostgreSQL - invalid input syntax for type timestamp with time zone"><i class="fas fa-angle-left fa-fw"></i>PostgreSQL - invalid input syntax for type timestamp with time zone</a>
+<a href=/posts/507b2cbc.html/ class=next rel=next title="Java - 一道关于Arrays.asList的题目">Java - 一道关于Arrays.asList的题目<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=/js/Valine.min.js></script><script type=text/javascript>new Valine({el:'#valine',appId:'1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz',appKey:'nfafLPsFBNTdO9Sb5suuGdpG',notify:'',verify:'',avatar:'retro',placeholder:'说点什么吧...',visitor:'true'});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src="/js/jquery/index.js?v=2.1.3"></script><script src=https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js></script><script type=text/javascript src=/js/custom.js></script></body></html>

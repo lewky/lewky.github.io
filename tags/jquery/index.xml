@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>jQuery - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/jquery/</link><description>jQuery - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 03 May 2019 00:03:27 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/jquery/" rel="self" type="application/rss+xml"/><item><title>$("body").animate({"scrollTop":top})无效的问题</title><link>https://lewky.cn/posts/fb7443fc.html/</link><pubDate>Fri, 03 May 2019 00:03:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fb7443fc.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>我在<a href="https://lewky.cn" target="_blank" rel="noopener noreffer">个人站点的左下角和右下角</a>各自使用了如下代码来将页面滚动到顶部和底部：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&#34;body&#34;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="nx">scrollTop</span><span class="o">:</span><span class="mi">0</span><span class="p">},</span><span class="mi">800</span><span class="p">);</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s2">&#34;body&#34;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="nx">scrollTop</span><span class="o">:</span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">height</span><span class="p">()},</span><span class="mi">800</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

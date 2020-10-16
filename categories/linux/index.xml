@@ -1,0 +1,28 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Linux - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/linux/</link><description>Linux - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 08 Aug 2019 21:11:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/linux/" rel="self" type="application/rss+xml"/><item><title>Linux - /bin/sh^M: bad interpreter: No such file or directory</title><link>https://lewky.cn/posts/d5221ccd.html/</link><pubDate>Thu, 08 Aug 2019 21:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/d5221ccd.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">/bin/sh^M: bad interpreter: No such file or directory
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Linux - 查看并修改当前的系统时间</title><link>https://lewky.cn/posts/bbc6dab6.html/</link><pubDate>Thu, 13 Dec 2018 23:06:33 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bbc6dab6.html/</guid><description><![CDATA[<p>转载自<a href="https://blog.csdn.net/evilcry2012/article/details/54315170" target="_blank" rel="noopener noreffer">Linux系统查看当前时间的命令</a></p>
+<h2 id="查看和修改linux的时区">查看和修改Linux的时区</h2>
+<h3 id="查看当前时区">查看当前时区</h3>
+<p>命令 ： <code>date -R</code></p>]]></description></item><item><title>vi/vim打开文件提示Found a swap file by the name</title><link>https://lewky.cn/posts/c3c6b3d8.html/</link><pubDate>Tue, 04 Dec 2018 23:05:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/c3c6b3d8.html/</guid><description><![CDATA[<h2 id="问题分析">问题分析</h2>
+<p>有一次在远程连接主机时，用vi打开文件<code>my.ini</code>却提示：<code>Found a swap file by the name &quot;.my.ini.swp&quot;</code>。百度了下才知道，原来在使用vi或vim命令打开一个文件后，就会产生一个.(filename).swp的文件。如果编辑完成之后，正常退出，那么这个swp文件就会被自动删除。</p>
+<p>而之前我在使用vi操作该文件时发生了异常中断(非正常退出)，于是就在当前目录下生成了一个<code>.my.ini.swp</code>文件。在Linux中，以<code>.</code>开头的文件都是隐藏文件，可以通过使用<code>ll -a</code>或者<code>ls -a</code>来查看。</p>]]></description></item><item><title>Linux命令英文全称</title><link>https://lewky.cn/posts/84a6a4d.html/</link><pubDate>Wed, 29 Aug 2018 01:04:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/84a6a4d.html/</guid><description><![CDATA[<p>转载自：<a href="https://blog.csdn.net/alex_sym/article/details/7409566" target="_blank" rel="noopener noreffer">Linux命令英文全称</a></p>
+<h2 id="linux命令英文全称">Linux命令英文全称</h2>
+<p>su：Swith user  切换用户，切换到root用户
+cat: Concatenate  串联
+uname: Unix name  系统名称
+df: Disk free  空余硬盘
+du: Disk usage 硬盘使用率
+chown: Change owner 改变所有者
+chgrp: Change group 改变用户组
+ps：Process Status  进程状态
+tar：Tape archive 解压文件
+chmod: Change mode 改变模式
+umount: Unmount 卸载</p>]]></description></item></channel></rss>

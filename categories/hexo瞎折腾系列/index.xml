@@ -1,0 +1,51 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Hexo瞎折腾系列 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/hexo%E7%9E%8E%E6%8A%98%E8%85%BE%E7%B3%BB%E5%88%97/</link><description>Hexo瞎折腾系列 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 26 May 2019 12:36:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/hexo%E7%9E%8E%E6%8A%98%E8%85%BE%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml"/><item><title>Hexo瞎折腾系列(9) - 网页标题崩溃特效</title><link>https://lewky.cn/posts/bdceb0a1.html/</link><pubDate>Sun, 26 May 2019 12:36:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bdceb0a1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本系列的所有修改均基于本系列第一篇中的新增文件(譬如<code>custom.js</code>)，请先自行阅读<a href="https://lewky.cn/posts/ef301a4d.html" target="_blank" rel="noopener noreffer">Hexo瞎折腾系列(1) - 准备工作与简单美化</a>；并按照文章所说自行修改代码或文件。</p>
+<h2 id="为网页添加标题崩溃特效">为网页添加标题崩溃特效</h2>
+<p>该特效为：当用户离开站点相关的页面时，网页的标题会变成“已崩溃”，网站图标也会改变；当用户重新回到站点页面时才会恢复正常。</p>]]></description></item><item><title>Hexo瞎折腾系列(8) - 添加评论系统</title><link>https://lewky.cn/posts/ec12c039.html/</link><pubDate>Wed, 05 Sep 2018 22:24:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ec12c039.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>Hexo的NexT主题本身就集成了一些评论系统，多说啊之类的已经关闭服务的略过不提，目前比较多人用的有畅言、来必力livere、Gitment、Gitalk、Disqus等。</p>
+<p>我刚用的评论系统的时候，网易云跟贴和多说已经gg了，畅言需要备案，Disqus需要FQ，Gitment和Gitalk类似，都需要GitHub账号。经过搜集资料和考虑，我最终还是决定使用Gitment。只是在用了一段时间后，终于还是放弃了Gitment，转而使用来必力livere。</p>]]></description></item><item><title>Hexo瞎折腾系列(7) - Coding Pages申请SSL/TLS证书错误</title><link>https://lewky.cn/posts/7ac531d2.html/</link><pubDate>Mon, 03 Sep 2018 23:33:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/7ac531d2.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>今天我的个人站点SSL/TLS证书到期，我的证书是由Coding Pages提供的，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击申请证书时，竟然报错了！！</p>
+<p>我重新点了申请，几秒后依然报错，并提示我半小时只能申请一次。我查看了下报错的提示信息，如下：</p>]]></description></item><item><title>Hexo瞎折腾系列(6) - 将博客同时部署到Github和Coding</title><link>https://lewky.cn/posts/369cf01c.html/</link><pubDate>Mon, 27 Aug 2018 23:29:21 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/369cf01c.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>由于本人只是将Hexo博客同时部署到 Github 和 Coding.net ，所以这里只介绍怎么同时部署到这两个网站的pages。<br>
+之所以选择这两个网站，是因为国外用户可以访问 Github，而国内用户可以访问 Coding.net。另外，Coding.net可以拥有自己的私人仓库。</p>
+<h2 id="修改站点配置文件">修改站点配置文件</h2>
+<p>在站点根目录下找到 <code>_config.yml</code>文件，将里边的deploy节点修改成下边的形式：</p>]]></description></item><item><title>Hexo瞎折腾系列(5) - 使用hexo-neat插件压缩页面静态资源</title><link>https://lewky.cn/posts/f90c8f1a.html/</link><pubDate>Sat, 25 Aug 2018 00:37:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f90c8f1a.html/</guid><description><![CDATA[<h2 id="为什么要压缩页面静态资源">为什么要压缩页面静态资源</h2>
+<p>对于个人博客来说，优化页面的访问速度是很有必要的，如果打开你的个人站点，加载个首页就要十几秒，页面长时间处于空白状态，想必没什么人能够忍受得了吧。我个人觉得，如果能把页面的加载时间控制在三四秒内，就很不错了。</p>
+<p>那么怎么提高hexo这个静态博客的页面加载速度呢？可以从以下的几个方面去入手：</p>]]></description></item><item><title>Hexo瞎折腾系列(4) - 站点首页不显示文章全文</title><link>https://lewky.cn/posts/62111.html/</link><pubDate>Fri, 20 Jul 2018 23:13:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/62111.html/</guid><description><![CDATA[<h2 id="文章摘要设置">文章摘要设置</h2>
+<p>打开主题配置文件 _config.yml 文件，找到如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"># Automatically Excerpt. Not recommend.
+# Please use <span class="c">&lt;!-- more --&gt;</span> in the post to control excerpt accurately.
+auto_excerpt:
+  enable: false
+  length: 150
+</code></pre></td></tr></table>
+</div>
+</div><p>把这里的false改为true就可以了在首页启动显示文章预览了，length是显示预览的长度。</p>
+<p>这里我们可以通过在文章使用<code>&lt;!-- more --&gt;</code>标志来精确控制文章的摘要预览，比如这篇文章就是在这个段落的末尾添加了该标志，所以本文在首页的预览就会显示到这个段落为止。</p>]]></description></item><item><title>Hexo瞎折腾系列(3) - 添加GitHub彩带和GitHub Corner</title><link>https://lewky.cn/posts/844109c2.html/</link><pubDate>Thu, 19 Jul 2018 23:09:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/844109c2.html/</guid><description><![CDATA[<h2 id="页面右上角添加github彩带">页面右上角添加GitHub彩带</h2>
+<p>你可以在<a href="https://github.com/blog/273-github-ribbons" target="_blank">这里</a>找到一共12种样式的GitHub彩带，复制其中的超链代码。</p>
+<p>在<code>themes\next\layout\_layout.swig</code>目录下找到头部彩带相关的代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;headband&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Hexo瞎折腾系列(2) - 添加背景图片轮播</title><link>https://lewky.cn/posts/576ee548.html/</link><pubDate>Thu, 19 Jul 2018 23:00:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/576ee548.html/</guid><description><![CDATA[<h2 id="动态背景图片插件jquery-backstretch">动态背景图片插件<code>jquery-backstretch</code></h2>
+<p><code>jquery-backstretch</code>是一款简单的jQuery插件，可以用来设置动态的背景图片，以下是官方网站的介绍。</p>
+<blockquote>
+<p>A simple jQuery plugin that allows you to add a dynamically-resized, slideshow-capable background image to any page or element.</p>
+</blockquote>
+<p>可以直接在页面中引入该插件的cdn来调用函数，也可以直接下载下来使用，这是<a href="https://www.bootcdn.cn/jquery-backstretch/">官方地址</a>。</p>]]></description></item><item><title>Hexo瞎折腾系列(1) - 准备工作与简单美化</title><link>https://lewky.cn/posts/ef301a4d.html/</link><pubDate>Wed, 11 Jul 2018 23:37:24 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ef301a4d.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>网上有不少相关的帖子，不过版本会比较旧，而不同版本可能存在代码不同的问题，不过大部分还是大同小异，本系列就不啰嗦重复了，基本只会按照本人所使用的版本以及个人所使用到的内容来进行介绍。</p>
+<p>该系列是对我所使用的Next主题进行个性化定制，涉及到js和css等的修改，还有各种插件的使用；另一个系列是针对Next主题进行一些写作技巧的介绍与运用，希望能对大家有所帮助。有疑问的朋友可以给我留言，我会尽可能回复<code>O(∩_∩)O</code>。</p>]]></description></item></channel></rss>

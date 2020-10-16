@@ -1,0 +1,92 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>前端 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%89%8D%E7%AB%AF/</link><description>前端 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 03 May 2019 00:03:27 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%89%8D%E7%AB%AF/" rel="self" type="application/rss+xml"/><item><title>$("body").animate({"scrollTop":top})无效的问题</title><link>https://lewky.cn/posts/fb7443fc.html/</link><pubDate>Fri, 03 May 2019 00:03:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fb7443fc.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>我在<a href="https://lewky.cn" target="_blank" rel="noopener noreffer">个人站点的左下角和右下角</a>各自使用了如下代码来将页面滚动到顶部和底部：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="s2">&#34;body&#34;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="nx">scrollTop</span><span class="o">:</span><span class="mi">0</span><span class="p">},</span><span class="mi">800</span><span class="p">);</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s2">&#34;body&#34;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="nx">scrollTop</span><span class="o">:</span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">height</span><span class="p">()},</span><span class="mi">800</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>快速删除node_modules文件夹</title><link>https://lewky.cn/posts/e873a12.html/</link><pubDate>Wed, 27 Feb 2019 00:30:46 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/e873a12.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>当安装了较多模块后，node_modules目录下的文件会很多，直接删除整个目录会很慢，下面介绍些快速删除node_modules目录的方法。</p>
+<h2 id="方法一使用rimraf模块的命令">方法一：使用rimraf模块的命令</h2>]]></description></item><item><title>Windows下完全卸载node.js并安装node.js的多版本管理工具nvm-windows</title><link>https://lewky.cn/posts/1908545a.html/</link><pubDate>Tue, 26 Feb 2019 23:45:56 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1908545a.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>由于高版本的node.js导致gulp执行build命令失败，我需要在Windows下卸载掉已有的node.js并安装一个多版本管理工具<code>nvm-windows</code>，方便切换不同版本的node.js。</p>
+<p>nvm是Linux下常用的一个node.js多版本管理工具，但是nvm不能在Windows下使用，在GitHub上有个项目叫<code>nvm-windows</code>，可以让我们在Windows下对node.js进行多版本管理。</p>]]></description></item><item><title>执行gulp build报错</title><link>https://lewky.cn/posts/9af9bb6b.html/</link><pubDate>Tue, 26 Feb 2019 23:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9af9bb6b.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>在执行<code>gulp build</code>报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">D:\coding\Resume\Resumes&gt;gulp build
+gulp build[5628]: src\node_contextify.cc:628: Assertion `args[1]-&gt;IsString()&#39; failed.
+
+D:\coding\Resume\Resumes&gt;gulp -v
+[22:00:13] CLI version 2.0.1
+[22:00:13] Local version 3.9.1
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>页面的背景音乐加载很慢</title><link>https://lewky.cn/posts/eee6409f.html/</link><pubDate>Wed, 19 Dec 2018 22:35:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eee6409f.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>由于我在页面中使用了<code>&lt;audio&gt;</code>标签来播放一首背景音乐，该音频是一首大小为2.7MB的MP3文件。在第一次加载该页面时，需要花费相当长的一段时间去加载音频。</p>]]></description></item><item><title>Markdown - 常用语法指南</title><link>https://lewky.cn/posts/ff65a37e.html/</link><pubDate>Wed, 12 Dec 2018 22:15:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ff65a37e.html/</guid><description><![CDATA[<h2 id="如何使用上标下标">如何使用上标、下标</h2>
+<p>Markdown可以和HTML的语法兼容，可以通过HTML的上标和下标标签来实现效果：</p>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>写法</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上标</td>
+<td><code>2&lt;sup&gt;10&lt;/sup&gt;</code></td>
+<td>2<sup>10</sup></td>
+</tr>
+<tr>
+<td>下标</td>
+<td><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></td>
+<td>H<sub>2</sub>O</td>
+</tr>
+</tbody>
+</table>]]></description></item><item><title>css - 单词的自动换行问题</title><link>https://lewky.cn/posts/4d6b513d.html/</link><pubDate>Sun, 02 Sep 2018 22:49:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4d6b513d.html/</guid><description><![CDATA[<p>转载自：<a href="https://blog.csdn.net/u011565547/article/details/77198026" target="_blank" rel="noopener noreffer">解决文档中有url链接时被强制换行的问题</a></p>
+<h2 id="问题">问题</h2>
+<p>当行内出现很长的英文单词或者url的时候，会出现自动换行的问题，为了美化页面，往往会希望这些很长的英文单词或者url能够断开来，超出的部分换行到下一行。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>可以通过使用两个属性来实现该需求：</p>]]></description></item><item><title>js、css外部文件的相对路径问题</title><link>https://lewky.cn/posts/29169.html/</link><pubDate>Wed, 02 May 2018 10:21:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/29169.html/</guid><description><![CDATA[<p>如果js、css外部文件有使用到相对路径时，需要注意其相对路径的基准是不一样的。</p>
+<p>比如说，在index.html中引用到了外部的js和css文件，这两个文件都通过相对路径引用了某一张图片；这些文件所在的目录如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html">.
+├── js
+|   └── index.js
+├── css
+|   └── index.css
+├── images
+|   └── bg.jpg
+└── index.html
+
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

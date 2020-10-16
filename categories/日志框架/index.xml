@@ -1,0 +1,98 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>日志框架 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/</link><description>日志框架 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 10 Aug 2019 11:11:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/" rel="self" type="application/rss+xml"/><item><title>Log4j2 - 日志框架中isDebugEnabled()的作用</title><link>https://lewky.cn/posts/8b26a454.html/</link><pubDate>Sat, 10 Aug 2019 11:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8b26a454.html/</guid><description><![CDATA[<h2 id="为什么要使用isdebugenabled">为什么要使用isDebugEnabled()</h2>
+<p>之前在系统的代码中发现有时候会在打印日志的时候先进行一次判断，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">LOGGER</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">LOGGER</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Search parameters: &#34;</span> <span class="o">+</span> <span class="n">searchParams</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Log4j2 - 动态生成Appender</title><link>https://lewky.cn/posts/8dc44b45.html/</link><pubDate>Thu, 03 Jan 2019 21:39:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8dc44b45.html/</guid><description><![CDATA[<h2 id="功能需求">功能需求</h2>
+<p>项目里将User分成了各个区域(domain)，这些domain有个标志domainId，现在要求在打印日志的时候，不仅将所有User的日志都打印到日志文件<code>logs/CNTCore.log</code>中，还需要另外再打印到对应domain的日志文件<code>logs/{domainId}/CNTCore.log</code>。</p>
+<p>比如User A的domainId是<code>RD2</code>，那么除了<code>logs/CNTCore.log</code>外，还需要将该User A的日志额外打印到<code>logs/RD2/CNTCore.log</code>中。</p>
+<h2 id="实现思路">实现思路</h2>
+<p>将所有User的日志都打印到日志文件<code>logs/CNTCore.log</code>中，这个可以直接使用配置文件<code>log4j2.xml</code>来解决，一个简单的配置如下：</p>]]></description></item><item><title>Log4j2异常 - IllegalStateException: No factory method found for class</title><link>https://lewky.cn/posts/d8320ac8.html/</link><pubDate>Wed, 02 Jan 2019 22:05:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/d8320ac8.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>在使用Log4j2时，虽然可以正确读取配置文件并生成log文件，但偶然发现控制台打印了异常信息如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">2018</span><span class="o">-</span><span class="n">12</span><span class="o">-</span><span class="n">31</span> <span class="n">17</span><span class="o">:</span><span class="n">28</span><span class="o">:</span><span class="n">14</span><span class="o">,</span><span class="n">282</span> <span class="n">Log4j2</span><span class="o">-</span><span class="n">TF</span><span class="o">-</span><span class="n">19</span><span class="o">-</span><span class="n">ConfiguratonFileWatcher</span><span class="o">-</span><span class="n">6</span> <span class="n">ERROR</span> <span class="n">Unable</span> <span class="n">to</span> <span class="n">invoke</span> <span class="n">factory</span> <span class="n">method</span> <span class="n">in</span> <span class="kd">class</span> <span class="nc">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">appender</span><span class="o">.</span><span class="na">RollingFileAppender</span> <span class="k">for</span> <span class="n">element</span> <span class="n">RollingFile</span><span class="o">:</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">No</span> <span class="n">factory</span> <span class="n">method</span> <span class="n">found</span> <span class="k">for</span> <span class="kd">class</span> <span class="nc">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">appender</span><span class="o">.</span><span class="na">RollingFileAppender</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">No</span> <span class="n">factory</span> <span class="n">method</span> <span class="n">found</span> <span class="k">for</span> <span class="kd">class</span> <span class="nc">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">appender</span><span class="o">.</span><span class="na">RollingFileAppender</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">config</span><span class="o">.</span><span class="na">plugins</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">PluginBuilder</span><span class="o">.</span><span class="na">findFactoryMethod</span><span class="o">(</span><span class="n">PluginBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">235</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">config</span><span class="o">.</span><span class="na">plugins</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">PluginBuilder</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">PluginBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">135</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">config</span><span class="o">.</span><span class="na">AbstractConfiguration</span><span class="o">.</span><span class="na">createPluginObject</span><span class="o">(</span><span class="n">AbstractConfiguration</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">959</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">config</span><span class="o">.</span><span class="na">AbstractConfiguration</span><span class="o">.</span><span class="na">createConfiguration</span><span class="o">(</span><span class="n">AbstractConfiguration</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">899</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">config</span><span class="o">.</span><span class="na">AbstractConfiguration</span><span class="o">.</span><span class="na">createConfiguration</span><span class="o">(</span><span class="n">AbstractConfiguration</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">891</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">config</span><span class="o">.</span><span class="na">AbstractConfiguration</span><span class="o">.</span><span class="na">doConfigure</span><span class="o">(</span><span class="n">AbstractConfiguration</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">514</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">config</span><span class="o">.</span><span class="na">AbstractConfiguration</span><span class="o">.</span><span class="na">initialize</span><span class="o">(</span><span class="n">AbstractConfiguration</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">238</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">config</span><span class="o">.</span><span class="na">AbstractConfiguration</span><span class="o">.</span><span class="na">start</span><span class="o">(</span><span class="n">AbstractConfiguration</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">250</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">LoggerContext</span><span class="o">.</span><span class="na">setConfiguration</span><span class="o">(</span><span class="n">LoggerContext</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">547</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">LoggerContext</span><span class="o">.</span><span class="na">onChange</span><span class="o">(</span><span class="n">LoggerContext</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">670</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">logging</span><span class="o">.</span><span class="na">log4j</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">config</span><span class="o">.</span><span class="na">ConfiguratonFileWatcher$ReconfigurationRunnable</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ConfiguratonFileWatcher</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">68</span><span class="o">)</span>
+        <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Thread</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">748</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Log4j2异常 - NoSuchMethodError: com.lmax.disruptor.dsl.Disruptor</title><link>https://lewky.cn/posts/a5cad454.html/</link><pubDate>Wed, 02 Jan 2019 21:59:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a5cad454.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>项目使用了log4j2，由于使用了全局异步打印日志的方式，还需要引入disruptor的依赖，最后使用的log4j2和disruptor的版本依赖如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>log4j-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.11.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="c">&lt;!-- log4j2 AsyncLogger need disruptor--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.lmax<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>disruptor<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.2.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Log4j和Log4j2怎么动态加载配置文件</title><link>https://lewky.cn/posts/2c65baa3.html/</link><pubDate>Fri, 28 Dec 2018 00:34:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/2c65baa3.html/</guid><description>&lt;h2 id="应用场景与问题">应用场景与问题&lt;/h2>
+&lt;p>当项目在运行时，我们如果需要修改log4j 1.X或者log4j2的配置文件，一般来说我们是不能直接将项目停止运行再来修改文件重新部署的。于是就有这样一个问题：如何在不停止当前项目的运行的情况下，让系统能够自动地监控配置文件的修改状况，从而实现动态加载配置文件的功能？而log4j 1.X和log4j2的差别略大，各自应该怎么实现这个功能？&lt;/p></description></item><item><title>Log4j2中LevelRangeFilter的注意点</title><link>https://lewky.cn/posts/f53d27da.html/</link><pubDate>Sat, 22 Dec 2018 23:11:12 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f53d27da.html/</guid><description><![CDATA[<h2 id="levelrangefilter的注意点">LevelRangeFilter的注意点</h2>
+<p>在log4j2中，LevelRangeFilter的minLevel，maxLevel的配置是和log4j 1.x相反的；minLevel需要配置的是高级别，maxLevel配置的是低级别，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;LevelRangeFilter</span> <span class="na">minLevel=</span><span class="s">&#34;fatal&#34;</span> <span class="na">maxLevel=</span><span class="s">&#34;info&#34;</span> <span class="na">onMatch=</span><span class="s">&#34;ACCEPT&#34;</span> <span class="na">onMismatch=</span><span class="s">&#34;DENY&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如上边的配置，是打印info到fatal级别的log，<strong>如果配置反过来，则不会输出任何log。</strong></p>
+<p>如果不配置minLevel、maxLevel、onMatch和onMismatch的值，则会为其设置默认值，在LevelRangeFilter中的源码实现如下：</p>]]></description></item><item><title>Log4j.xml中Filter的用法</title><link>https://lewky.cn/posts/ec168d9b.html/</link><pubDate>Thu, 20 Dec 2018 22:33:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ec168d9b.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>log4j中常用的Filter分为四种：DenyAllFilter、LevelMatchFilter、LevelRangeFilter、StringMatchFilter。
+当appender匹配了某个Filter的时候，就不会继续匹配下一个filter，所以当需要配置多个filter时需要注意先后顺序，这样才能实现需要的效果。
+这些filter有个共同的属性<code>AcceptOnMatch</code>，用来控制匹配到的appender是否打印日志。</p>]]></description></item></channel></rss>
