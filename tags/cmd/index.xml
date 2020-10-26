@@ -25,4 +25,8 @@ call b.bat
 echo over
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item></channel></rss>
+</div>]]></description></item><item><title>cmd - bat文件如何关闭回显</title><link>https://lewky.cn/posts/cmd-echo.html/</link><pubDate>Fri, 10 Nov 2017 20:37:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-echo.html/</guid><description><![CDATA[<h2 id="echo命令">echo命令</h2>
+<blockquote>
+<p>bat文件是dos下的批处理文件，可以一次性执行多条dos命令，其扩展名为.bat或.cmd，通过双击该文件或者在cmd窗口中输入该文件名可以在cmd窗口中按文件中的顺序执行多条dos命令。</p>
+</blockquote>
+<p><code>echo</code>是回显命令，会将echo后的内容输出到cmd窗口中，比如在一个<code>Test.bat</code>文件中输入如下命令：</p>]]></description></item></channel></rss>

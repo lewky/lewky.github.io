@@ -14,7 +14,7 @@
 <pre class="chroma"><code class="language-java" data-lang="java"><span class="n">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;sun.io.serialization.extendedDebugInfo&#34;</span><span class="o">,</span> <span class="s">&#34;true&#34;</span><span class="o">);</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Java - 怎么通过环境变量来切换jdk版本</title><link>https://lewky.cn/posts/java-%E6%80%8E%E4%B9%88%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%9D%A5%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC.html/</link><pubDate>Sat, 17 Nov 2018 00:10:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-%E6%80%8E%E4%B9%88%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%9D%A5%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC.html/</guid><description>问题与分析 我在本地安装了1.7和1.8两个版本的jdk，此时我的JAVA_HOME环境变量配置的是jdk1.8，在cmd窗口输入java -v</description></item><item><title>Java - 安装jdk并设置环境变量</title><link>https://lewky.cn/posts/4c4c677.html/</link><pubDate>Sat, 17 Nov 2018 00:09:31 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4c4c677.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+</div>]]></description></item><item><title>Java - 怎么通过环境变量来切换jdk版本</title><link>https://lewky.cn/posts/java-%E6%80%8E%E4%B9%88%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%9D%A5%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC.html/</link><pubDate>Sat, 17 Nov 2018 00:10:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-%E6%80%8E%E4%B9%88%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%9D%A5%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC.html/</guid><description><![CDATA[问题与分析 我在本地安装了1.7和1.8两个版本的jdk，此时我的JAVA_HOME环境变量配置的是jdk1.8，在cmd窗口输入java -version发现报错如下： 1 2 3 4 5 C:\Users\Lewis&gt;java -version Error: Registry key &#39;Software\JavaSoft\Java Runtime Environment&#39;\CurrentVersion&#39; has value &#39;1.8&#39;, but &#39;1.7&#39; is required. Error: could not find java.dll Error: Could not find Java SE Runtime Environment. 接着输入javac -version则是正常： 1 2 C:\Users\Lewis&gt;javac -version javac 1.8.0_191 javac命令能正常执行， 说明我配置的CLASSPATH变量和JAVA_]]></description></item><item><title>Java - 安装jdk并设置环境变量</title><link>https://lewky.cn/posts/4c4c677.html/</link><pubDate>Sat, 17 Nov 2018 00:09:31 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4c4c677.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>双十一买了台新的笔记本，需要重新安装下Java，这里记录下安装的过程，毕竟万事开头难，就算是老手也不一定能一次就把Java安装成功。</p>
 <h2 id="安装jdk">安装jdk</h2>
 <p>作为一名Java开发，当然是要安装jdk了，如果只是需要Java的运行环境，那么安装jre就足够了。另外说下，jdk里以及包含了jre了。</p>
@@ -27,4 +27,17 @@
 <p>在Eclipse中，如果一个类实现了Serializable接口，且没有给这个类设置一个serialVersionUID，就会有一个警告标志：</p>
 <blockquote>
 <p>The serializable class BaseEntity does not declare a static final serialVersionUID field of type long</p>
-</blockquote>]]></description></item></channel></rss>
+</blockquote>]]></description></item><item><title>Java - 静态代码块、构造代码块和代码块</title><link>https://lewky.cn/posts/java-code-block.html/</link><pubDate>Mon, 30 Oct 2017 23:43:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-code-block.html/</guid><description><![CDATA[<h2 id="静态代码块"><strong>静态代码块</strong></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">static</span><span class="o">{</span>
+	<span class="c1">//do something
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

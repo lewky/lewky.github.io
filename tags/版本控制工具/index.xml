@@ -9,4 +9,22 @@
 <p>也就是说，如果文件已经存在于远程仓库中，是无法通过<code>.gitignore</code>文件来忽略的。</p>
 <p><code>.gitignore</code>文件存放于git仓库的根目录下。</p>]]></description></item><item><title>Git - Merge: refusing to merge unrelated histories</title><link>https://lewky.cn/posts/f25652af.html/</link><pubDate>Sun, 28 Oct 2018 16:23:43 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f25652af.html/</guid><description><![CDATA[<h2 id="场景">场景</h2>
 <p>我在本地有个代码仓库local-A，本地仓库local-A已经和一个远程仓库remote-A关联了。</p>
-<p>接着我又在GitHub上新建了一个仓库remote-B，我希望将本地仓库local-A的本地dev分支push到这个新建的远程库remote-B。我的想法是这样的：</p>]]></description></item></channel></rss>
+<p>接着我又在GitHub上新建了一个仓库remote-B，我希望将本地仓库local-A的本地dev分支push到这个新建的远程库remote-B。我的想法是这样的：</p>]]></description></item><item><title>Git - 配置、修改用户名和邮箱</title><link>https://lewky.cn/posts/git-username-email.html/</link><pubDate>Mon, 04 Dec 2017 13:10:31 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/git-username-email.html/</guid><description><![CDATA[<p>Git在push时需要使用到user.name和user.email，一般通过命令来进行配置或修改。</p>
+<h2 id="查看usernameuseremail">查看user.name/user.email</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//查看user.name
+git config user.name
+
+//查看user.email
+git config user.email
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

@@ -1,4 +1,41 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Hugo系列 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/hugo%E7%B3%BB%E5%88%97/</link><description>Hugo系列 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 10 Oct 2020 16:08:58 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/hugo%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml"/><item><title>Hugo系列(3) - 通过配置文件来定制个人站点</title><link>https://lewky.cn/posts/hugo-3.html/</link><pubDate>Sat, 10 Oct 2020 16:08:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Hugo系列 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/hugo%E7%B3%BB%E5%88%97/</link><description>Hugo系列 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 22 Oct 2020 13:11:16 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/hugo%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml"/><item><title>Hugo系列(6) - LoveIt主题美化：添加自定义CSS和JavaScript</title><link>https://lewky.cn/posts/hugo-6.html/</link><pubDate>Thu, 22 Oct 2020 13:11:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-6.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hexo: 3.8.0
+
+hugo: v0.74.2-48565DE6 windows/amd64 BuildDate: 2020-07-17T17:22:50Z
+
+LoveIt: v0.2.10
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Hugo系列(5) - 添加搜索功能</title><link>https://lewky.cn/posts/hugo-5.html/</link><pubDate>Wed, 21 Oct 2020 17:01:23 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-5.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>由于本人使用的是<code>LoveIt</code>主题，该主题自带的搜索插件是<code>lunr</code>和<code>algolia</code>，这两个的使用都比较麻烦，后者甚至还想要去注册账号，虽然可以免费使用搜索服务，但是抓取收录时间好像是一小时一次，并且还有每月使用量的限制，太不便利了。</p>]]></description></item><item><title>Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录</title><link>https://lewky.cn/posts/hugo-4.html/</link><pubDate>Mon, 12 Oct 2020 23:28:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-4.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文主要记录从Hexo迁移至Hugo所遇到的一些坑，以及Hugo的LoveIt主题的一些bug之类的应对方案。下面是涉及到的Hexo、Hugo以及LoveIt各自的版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hexo: 3.8.0
+
+hugo: v0.74.2-48565DE6 windows/amd64 BuildDate: 2020-07-17T17:22:50Z
+
+LoveIt: v0.2.10
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Hugo系列(3) - 通过配置文件来定制个人站点</title><link>https://lewky.cn/posts/hugo-3.html/</link><pubDate>Sat, 10 Oct 2020 16:08:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
 <p>本文基于<code>LoveIt</code>主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -10,6 +47,10 @@
 Hugo Static Site Generator v0.74.2-48565DE6 windows/amd64 BuildDate: 2020-07-17T17:22:50Z
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Hugo系列(1) - 简单入门与搭建</title><link>https://lewky.cn/posts/hugo-1.html/</link><pubDate>Sun, 06 Sep 2020 21:10:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-1.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+</div>]]></description></item><item><title>Hugo系列(2) - 远程部署到Pages服务</title><link>https://lewky.cn/posts/hugo-2.html/</link><pubDate>Fri, 25 Sep 2020 23:16:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-2.html/</guid><description><![CDATA[<h2 id="远程部署到pages服务">远程部署到Pages服务</h2>
+<p>Hugo和Hexo一样是静态站点生成工具，不需要服务器即可进行部署运行，为了可以在网络上也访问到我们的博客，需要将静态博客部署到某些网站的pages服务上，借用人家的服务器进行托管。</p>
+<p>常用的Pages服务有GitHub pages、Coding pages等，由于暂时没有找到好用的Hugo的远程部署插件，所以这里使用Git命令来进行远程部署。</p>
+<p><strong>注意，所谓的远程部署，其实就是把<code>hugo</code>命令生成的<code>public</code>目录里的所有文件push到远程库，然后启用Pages服务进行静态网站的部署。这样，当有人访问静态站点的主页时，Pages服务就会去读取根目录下的<code>index.html</code>。</strong></p>
+<p>本文以部署到GitHub Pages为例。</p>]]></description></item><item><title>Hugo系列(1) - 简单入门与搭建</title><link>https://lewky.cn/posts/hugo-1.html/</link><pubDate>Sun, 06 Sep 2020 21:10:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-1.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
 <p>使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。</p>
 <p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item></channel></rss>
