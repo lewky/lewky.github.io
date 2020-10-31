@@ -1,0 +1,5 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>intern - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/intern/</link><description>intern - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 28 Oct 2020 23:42:55 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/intern/" rel="self" type="application/rss+xml"/><item><title>Java - String的intern方法</title><link>https://lewky.cn/posts/java-intern.html/</link><pubDate>Wed, 28 Oct 2020 23:42:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-intern.html/</guid><description><![CDATA[<h2 id="stringintern">String#intern()</h2>
+<p>String#intern()是一个本地方法，用来将字符串放入常量池，在不同的jdk有不同的实现区别：</p>
+<ul>
+<li>在jdk1.6及以前：当字符串在常量池存在时，则返回常量池中的字符串；当字符串在常量池不存在时，则<strong>在常量池中拷贝一份</strong>，然后再返回常量池中的字符串。</li>
+</ul>]]></description></item></channel></rss>

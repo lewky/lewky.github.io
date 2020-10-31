@@ -1,4 +1,13 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Java - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/java/</link><description>Java - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 09 Oct 2019 20:11:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/java/" rel="self" type="application/rss+xml"/><item><title>由Java正则表达式的灾难性回溯引发的高CPU异常：java.util.regex.Pattern$Loop.match</title><link>https://lewky.cn/posts/af92ed86.html/</link><pubDate>Wed, 09 Oct 2019 20:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/af92ed86.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Java - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/java/</link><description>Java - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 28 Oct 2020 23:42:55 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/java/" rel="self" type="application/rss+xml"/><item><title>Java - String的intern方法</title><link>https://lewky.cn/posts/java-intern.html/</link><pubDate>Wed, 28 Oct 2020 23:42:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-intern.html/</guid><description><![CDATA[<h2 id="stringintern">String#intern()</h2>
+<p>String#intern()是一个本地方法，用来将字符串放入常量池，在不同的jdk有不同的实现区别：</p>
+<ul>
+<li>在jdk1.6及以前：当字符串在常量池存在时，则返回常量池中的字符串；当字符串在常量池不存在时，则<strong>在常量池中拷贝一份</strong>，然后再返回常量池中的字符串。</li>
+</ul>]]></description></item><item><title>[转载]Java - 为什么不能根据返回类型来区分重载</title><link>https://lewky.cn/posts/java-overload.html/</link><pubDate>Wed, 28 Oct 2020 15:52:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-overload.html/</guid><description><![CDATA[<h2 id="什么是方法重载为什么不能根据返回类型来区分重载">什么是方法重载？为什么不能根据返回类型来区分重载？</h2>
+<p>方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。</p>
+<p>重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载。为什么这里不包括返回类型呢？很简单，如果只是返回类型不同，是无法区分开来的，如下：</p>]]></description></item><item><title>[转载]Java - 为什么switch不支持long</title><link>https://lewky.cn/posts/java-switch.html/</link><pubDate>Tue, 27 Oct 2020 23:18:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-switch.html/</guid><description><![CDATA[<h2 id="switch-支持的类型">switch 支持的类型</h2>
+<p>在 Java 语言规范里中，有说明 switch 支持的类型有：char、byte、short、int、Character、Byte、Short、Integer、String、enum。</p>
+<h2 id="为什么不支持-long-">为什么不支持 long ？</h2>
+<p>为什么只支持上面几种？int、String 都可以，为什么不支持 long ？</p>]]></description></item><item><title>由Java正则表达式的灾难性回溯引发的高CPU异常：java.util.regex.Pattern$Loop.match</title><link>https://lewky.cn/posts/af92ed86.html/</link><pubDate>Wed, 09 Oct 2019 20:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/af92ed86.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
 <p>某天领导report了一个问题：线上的CPU自从上一个版本迭代后就一直处于居高不下的状况，领导看着这段时间的曲线图判断是有两条线程在不停的死循环。</p>
 <p>接到任务后去查看了AWS的CloudWatch，发现线上CPU确实一直居高不下，使用率基本是之前的两倍；另外发现线程使用率以比之前频繁很多。后来公司的大佬拿到dump后经过分析发现，是由正则表达式造成的CPU持续高使用率的问题。</p>]]></description></item><item><title>LeetCode - 412. Fizz Buzz</title><link>https://lewky.cn/posts/37034d37.html/</link><pubDate>Fri, 07 Jun 2019 16:20:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/37034d37.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
 <p>Write a program that outputs the string representation of numbers from 1 to n.</p>
@@ -34,33 +43,4 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Java - 一道关于Arrays.asList的题目</title><link>https://lewky.cn/posts/507b2cbc.html/</link><pubDate>Sat, 27 Apr 2019 20:34:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/507b2cbc.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
-<p>有这样一道有趣的题目：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">test</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">};</span>
-<span class="kd">final</span> <span class="n">Integer</span><span class="o">[]</span> <span class="n">test2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">[]{</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">};</span>
-<span class="kd">final</span> <span class="n">List</span> <span class="n">list1</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">test</span><span class="o">);</span>
-<span class="kd">final</span> <span class="n">List</span> <span class="n">list2</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">test2</span><span class="o">);</span>
-<span class="kd">final</span> <span class="n">List</span> <span class="n">list3</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list1</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list2</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list3</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>StringUtils.split()和string.split()的区别</title><link>https://lewky.cn/posts/44d23f55.html/</link><pubDate>Tue, 09 Apr 2019 23:22:13 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/44d23f55.html/</guid><description><![CDATA[<h2 id="场景">场景</h2>
-<p>出于业务考虑，将多个字符串拼接起来时，使用的分隔符是<code>;,;</code>。如果要将这样一个拼接来的字符串分割成原本的多个字符串时，就需要使用到jdk自带的split()方法。不过因为公司的编程规范，改为使用了Apache工具类的StringUtils.split()。</p>
-<p>之后就发现，当被拼接的字符串里含有<code>;</code>或<code>,</code>时，就会出现分割不正确的问题。</p>]]></description></item><item><title>不占用任何额外空间的情况下交换两个数的值</title><link>https://lewky.cn/posts/9136af.html/</link><pubDate>Sat, 22 Dec 2018 23:07:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9136af.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
-<p>假如有x、y两个数，如何在不占用任何额外空间的情况下交换两个数的值？</p>
-<h2 id="思路">思路</h2>
-<p>平时我们在交换两个数的值时，往往会用一个中间数temp来实现效果，现在需要不占用任何额外空间，自然就不能使用这种寻常的方法了；这里可以有两种方法来实现。</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>
