@@ -26,7 +26,5 @@
 <figure><a class="lightgallery" href="/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
         
     </a><figcaption class="image-caption">markdownpad_error.jpg</figcaption>
-    </figure></p>]]></description></item><item><title>UltraEdit - 怎么显示文件标签栏和侧边栏</title><link>https://lewky.cn/posts/a39d8a42.html/</link><pubDate>Sun, 02 Sep 2018 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a39d8a42.html/</guid><description><![CDATA[<h2 id="显示文件标签栏">显示文件标签栏</h2>
-<p>view -&gt; views/lists -&gt; open Files Tabs</p>
-<h2 id="显示侧边栏">显示侧边栏</h2>
-<p>view -&gt; views/lists -&gt; File Tree View</p>]]></description></item></channel></rss>
+    </figure></p>]]></description></item><item><title>文本编辑器问题汇总</title><link>https://lewky.cn/posts/a39d8a42.html/</link><pubDate>Sun, 02 Sep 2018 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a39d8a42.html/</guid><description><![CDATA[<h2 id="notepad怎么设置tab替换为4个空格">Notepad++怎么设置tab替换为4个空格</h2>
+<p><code>设置</code> -&gt; <code>首选项...</code> -&gt; <code>语言菜单</code> -&gt; <code>制表符设置</code> -&gt; 勾选上<code>转换为空格</code></p>]]></description></item></channel></rss>

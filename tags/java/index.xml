@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Java - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/java/</link><description>Java - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 28 Oct 2020 23:42:55 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/java/" rel="self" type="application/rss+xml"/><item><title>Java - String的intern方法</title><link>https://lewky.cn/posts/java-intern.html/</link><pubDate>Wed, 28 Oct 2020 23:42:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-intern.html/</guid><description><![CDATA[<h2 id="stringintern">String#intern()</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Java - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/java/</link><description>Java - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Dec 2020 22:52:09 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/java/" rel="self" type="application/rss+xml"/><item><title>Java - 三元运算符隐含的坑</title><link>https://lewky.cn/posts/java-tertiary-operator.html/</link><pubDate>Tue, 15 Dec 2020 22:52:09 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-tertiary-operator.html/</guid><description>背景 某天发现系统报空指针异常，追踪异常栈后发现源头处是一个非常简单的三元表达式，如下： 1 Integer age = user != null ? user.getAge() : 0; 咋看上去好像看不出什么问题，然而当user对象里的age变量为null时，就会触发NPE。原因是三元表达式的其中一条表达式的返回值为基础数据类型时，如果另一个表达式的返回值是包装类，则会自动拆箱。 比如这里的user.getAge()返回的是Intege</description></item><item><title>Java - String的intern方法</title><link>https://lewky.cn/posts/java-intern.html/</link><pubDate>Wed, 28 Oct 2020 23:42:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-intern.html/</guid><description><![CDATA[<h2 id="stringintern">String#intern()</h2>
 <p>String#intern()是一个本地方法，用来将字符串放入常量池，在不同的jdk有不同的实现区别：</p>
 <ul>
 <li>在jdk1.6及以前：当字符串在常量池存在时，则返回常量池中的字符串；当字符串在常量池不存在时，则<strong>在常量池中拷贝一份</strong>，然后再返回常量池中的字符串。</li>
@@ -20,27 +20,4 @@
 <p>Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.</p>
 <p><strong>Example 1:</strong></p>]]></description></item><item><title>LeetCode - 771. Jewels and Stones</title><link>https://lewky.cn/posts/a6737c60.html/</link><pubDate>Fri, 07 Jun 2019 15:17:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a6737c60.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
 <p>You&rsquo;re given strings <code>J</code> representing the types of stones that are jewels, and <code>S </code> representing the stones you have.  Each character in S is a type of stone you have.  You want to know how many of the stones you have are also jewels.</p>
-<p>The letters in <code>J</code> are guaranteed distinct, and all characters in <code>J</code> and <code>S</code> are letters. Letters are case sensitive, so <code>&quot;a&quot;</code> is considered a different type of stone from <code>&quot;A&quot;</code>.</p>]]></description></item><item><title>Java - 一道关于整型和字符类型相加的题目</title><link>https://lewky.cn/posts/a34ffc44.html/</link><pubDate>Sat, 11 May 2019 00:25:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a34ffc44.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
-
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">10</span><span class="o">;</span>
-        <span class="kd">final</span> <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">20</span><span class="o">;</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="sc">&#39;+&#39;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="sc">&#39;=&#39;</span> <span class="o">+</span> <span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">));</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p>The letters in <code>J</code> are guaranteed distinct, and all characters in <code>J</code> and <code>S</code> are letters. Letters are case sensitive, so <code>&quot;a&quot;</code> is considered a different type of stone from <code>&quot;A&quot;</code>.</p>]]></description></item></channel></rss>
