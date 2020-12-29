@@ -1,26 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Pages服务 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/pages%E6%9C%8D%E5%8A%A1/</link><description>Pages服务 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 12 Oct 2020 23:28:15 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/pages%E6%9C%8D%E5%8A%A1/" rel="self" type="application/rss+xml"/><item><title>Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录</title><link>https://lewky.cn/posts/hugo-4.html/</link><pubDate>Mon, 12 Oct 2020 23:28:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-4.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文主要记录从Hexo迁移至Hugo所遇到的一些坑，以及Hugo的LoveIt主题的一些bug之类的应对方案。下面是涉及到的Hexo、Hugo以及LoveIt各自的版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">hexo: 3.8.0
-
-hugo: v0.74.2-48565DE6 windows/amd64 BuildDate: 2020-07-17T17:22:50Z
-
-LoveIt: v0.2.10
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>Hugo系列(2) - 远程部署到Pages服务</title><link>https://lewky.cn/posts/hugo-2.html/</link><pubDate>Fri, 25 Sep 2020 23:16:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-2.html/</guid><description><![CDATA[<h2 id="远程部署到pages服务">远程部署到Pages服务</h2>
-<p>Hugo和Hexo一样是静态站点生成工具，不需要服务器即可进行部署运行，为了可以在网络上也访问到我们的博客，需要将静态博客部署到某些网站的pages服务上，借用人家的服务器进行托管。</p>
-<p>常用的Pages服务有GitHub pages、Coding pages等，由于暂时没有找到好用的Hugo的远程部署插件，所以这里使用Git命令来进行远程部署。</p>
-<p><strong>注意，所谓的远程部署，其实就是把<code>hugo</code>命令生成的<code>public</code>目录里的所有文件push到远程库，然后启用Pages服务进行静态网站的部署。这样，当有人访问静态站点的主页时，Pages服务就会去读取根目录下的<code>index.html</code>。</strong></p>
-<p>本文以部署到GitHub Pages为例。</p>]]></description></item><item><title>Hexo搭建博客教程(3) - 远程部署到GitHub Pages</title><link>https://lewky.cn/posts/1657.html/</link><pubDate>Tue, 24 Apr 2018 22:08:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1657.html/</guid><description><![CDATA[<blockquote>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Pages服务 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/pages%E6%9C%8D%E5%8A%A1/</link><description>Pages服务 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Apr 2018 22:08:44 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/pages%E6%9C%8D%E5%8A%A1/" rel="self" type="application/rss+xml"/><item><title>Hexo搭建博客教程(3) - 远程部署到GitHub Pages</title><link>https://lewky.cn/posts/1657.html/</link><pubDate>Tue, 24 Apr 2018 22:08:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1657.html/</guid><description><![CDATA[<blockquote>
 <p>本章讲的是如何将本地的个人项目远程部署到 GitHub Pages，涉及到GitHub的项目仓库、Git的使用，以及Hexo的远程部署等。</p>
 </blockquote>
 <h2 id="一安装-hexo-deployer-git-插件">一、安装 <code>hexo-deployer-git</code> 插件</h2>

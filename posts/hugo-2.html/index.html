@@ -1,29 +1,95 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hugo系列(2) - 远程部署到Pages服务 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Hugo系列(2) - 远程部署到Pages服务"><meta property="og:description" content="远程部署到Pages服务
-Hugo和Hexo一样是静态站点生成工具，不需要服务器即可进行部署运行，为了可以在网络上也访问到我们的博客，需要将静态博客部署到某些网站的pages服务上，借用人家的服务器进行托管。
-常用的Pages服务有GitHub pages、Coding pages等，由于暂时没有找到好用的Hugo的远程部署插件，所以这里使用Git命令来进行远程部署。
-注意，所谓的远程部署，其实就是把hugo命令生成的public目录里的所有文件push到远程库，然后启用Pages服务进行静态网站的部署。这样，当有人访问静态站点的主页时，Pages服务就会去读取根目录下的index.html。
-本文以部署到GitHub Pages为例。"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/hugo-2.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2020-09-25T23:16:34+08:00"><meta property="article:modified_time" content="2020-09-25T23:16:34+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hugo系列(2) - 远程部署到Pages服务"><meta name=twitter:description content="远程部署到Pages服务
-Hugo和Hexo一样是静态站点生成工具，不需要服务器即可进行部署运行，为了可以在网络上也访问到我们的博客，需要将静态博客部署到某些网站的pages服务上，借用人家的服务器进行托管。
-常用的Pages服务有GitHub pages、Coding pages等，由于暂时没有找到好用的Hugo的远程部署插件，所以这里使用Git命令来进行远程部署。
-注意，所谓的远程部署，其实就是把hugo命令生成的public目录里的所有文件push到远程库，然后启用Pages服务进行静态网站的部署。这样，当有人访问静态站点的主页时，Pages服务就会去读取根目录下的index.html。
-本文以部署到GitHub Pages为例。"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://lewky.cn/posts/hugo-2.html/><link rel=prev href=https://lewky.cn/posts/hugo-1.html/><link rel=next href=https://lewky.cn/posts/hugo-3.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo系列(2) - 远程部署到Pages服务","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hugo-2.html\/"},"genre":"posts","keywords":"Hugo, Pages服务","wordcount":2148,"url":"https:\/\/lewky.cn\/posts\/hugo-2.html\/","datePublished":"2020-09-25T23:16:34+08:00","dateModified":"2020-09-25T23:16:34+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub </a><a class=menu-item href=/posts/e62c38c4.html><i class="fas fa-cog fa-spin"></i>建站日志 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub</a><a class=menu-item href=/posts/e62c38c4.html><i class="fas fa-cog fa-spin"></i>建站日志</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hugo系列(2) - 远程部署到Pages服务</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hugo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hugo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-09-25>2020-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2148 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id=/posts/hugo-2.html/ class=leancloud_visitors data-flag-title="Hugo系列(2) - 远程部署到Pages服务">
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hugo系列(2) - 通过配置文件来定制个人站点 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Hugo系列(2) - 通过配置文件来定制个人站点"><meta property="og:description" content="前言
+Hugo本身可以通过修改站点配置文件来完成页面的部分定制，如按钮、多语言等功能。本文基于LoveIt主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：
+
+
+1
+2
+
+
+>hugo version
+Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/hugo-2.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2020-10-10T16:08:58+08:00"><meta property="article:modified_time" content="2020-10-10T16:08:58+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hugo系列(2) - 通过配置文件来定制个人站点"><meta name=twitter:description content="前言
+Hugo本身可以通过修改站点配置文件来完成页面的部分定制，如按钮、多语言等功能。本文基于LoveIt主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：
+
+
+1
+2
+
+
+>hugo version
+Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://lewky.cn/posts/hugo-2.html/><link rel=prev href=https://lewky.cn/posts/hugo-1.html/><link rel=next href=https://lewky.cn/posts/hugo-4.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo系列(2) - 通过配置文件来定制个人站点","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hugo-2.html\/"},"genre":"posts","keywords":"Hugo, 个性化配置","wordcount":3742,"url":"https:\/\/lewky.cn\/posts\/hugo-2.html\/","datePublished":"2020-10-10T16:08:58+08:00","dateModified":"2020-10-10T16:08:58+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub </a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub</a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hugo系列(2) - 通过配置文件来定制个人站点</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hugo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hugo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-10-10>2020-10-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3742 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id=/posts/hugo-2.html/ class=leancloud_visitors data-flag-title="Hugo系列(2) - 通过配置文件来定制个人站点">
 <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
 </span>&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#远程部署到pages服务>远程部署到Pages服务</a></li><li><a href=#安装git>安装Git</a></li><li><a href=#在github上创建一个仓库>在GitHub上创建一个仓库</a></li><li><a href=#ssh-key的创建与配置>SSH key的创建与配置</a></li><li><a href=#在本地关联github的站点仓库>在本地关联GitHub的站点仓库</a></li><li><a href=#启用github-pages服务>启用GitHub Pages服务</a><ol><li><a href=#通过master分支来启用github-pages>通过master分支来启用GitHub Pages</a></li><li><a href=#通过gh-pages分支来启用github-pages>通过<code>gh-pages</code>分支来启用GitHub Pages</a></li></ol></li><li><a href=#怎么同时部署到两个不同的pages服务>怎么同时部署到两个不同的Pages服务</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=远程部署到pages服务>远程部署到Pages服务</h2><p>Hugo和Hexo一样是静态站点生成工具，不需要服务器即可进行部署运行，为了可以在网络上也访问到我们的博客，需要将静态博客部署到某些网站的pages服务上，借用人家的服务器进行托管。</p><p>常用的Pages服务有GitHub pages、Coding pages等，由于暂时没有找到好用的Hugo的远程部署插件，所以这里使用Git命令来进行远程部署。</p><p><strong>注意，所谓的远程部署，其实就是把<code>hugo</code>命令生成的<code>public</code>目录里的所有文件push到远程库，然后启用Pages服务进行静态网站的部署。这样，当有人访问静态站点的主页时，Pages服务就会去读取根目录下的<code>index.html</code>。</strong></p><p>本文以部署到GitHub Pages为例。</p><h2 id=安装git>安装Git</h2><p>首先要安装Git，Git是一个版本控制工具，可以用来帮忙管理我们的博客，直接前往官网下载安装包即可。</p><blockquote><p><a href=https://git-scm.com/ target=_blank rel="noopener noreffer">下载链接</a></p></blockquote><p>在安装的时候会问你是否安装git的cmd工具，把这个也一起安装了后就可以不需要配置环境变量了。这样就可以直接在cmd窗口里运行Git命令，如<code>git version</code>。</p><p>当然也可以直接使用安装时自带的Git Bash，个人更喜欢用Git Bash。</p><h2 id=在github上创建一个仓库>在GitHub上创建一个仓库</h2><p>首先在GitHub上创建一个仓库，仓库的名字格式为<code>&lt;username>.github.io</code>。比如我的GitHub用户名是lewky，那么这个仓库就命名为<code>lewky.github.io</code>。</p><p>之所以这样规定命名，是因为GitHub默认会把<code>&lt;username>.github.io</code>的master分支的内容部署到GitHub Pages站点上。</p><h2 id=ssh-key的创建与配置>SSH key的创建与配置</h2><p>因为要使用SSH的方式来和GitHub仓库进行交互，我们需要生成一对密钥对，然后将公钥配置到GitHub账号上。关于SSH key的创建与配置到GitHub，可以看我的另一篇文章的一个小章节：<a href=https://lewky.cn/posts/1657.html/#%e5%9b%9bssh-key%e7%9a%84%e5%88%9b%e5%bb%ba%e4%b8%8e%e9%85%8d%e7%bd%ae target=_blank rel="noopener noreffer">#四、SSH key的创建与配置</a> 的4.1 ~ 4.3的部分。</p><h2 id=在本地关联github的站点仓库>在本地关联GitHub的站点仓库</h2><p>在本地创建一个新的文件夹，比如名为<code>hugo-deploy</code>。首先是初始化该文件夹为Git项目，命令如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>git init
-</code></pre></td></tr></table></div></div><p>然后把本地的Hugo博客通过<code>hugo</code>命令生成的<code>public</code>目录下的所有文件都复制到这个新建的文件夹<code>hugo-deploy</code>里，然后用Git命令把这些复制过来的文件添加到本地仓库：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>git add .
-</code></pre></td></tr></table></div></div><p>接着是提交修改，命令如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>git commit -m &#34;第一次提交&#34;
-</code></pre></td></tr></table></div></div><p><code>-m</code>参数代表提交信息，用于说明本次提交的目的，比如你发布了什么文章、修改了什么样式之类的信息说明。该参数不可以省略，不然会报错，另外要注意这里的双引号是<strong>英文的双引号</strong>。</p><p>接着把刚刚在GitHub上创建的仓库的SSH地址复制下来：点击GitHub仓库的<code>Code</code>绿色按钮，点击<code>SSH</code>就可以看到该仓库的SSH地址，然后点击地址后面的复制按钮即可。</p><p>用Git命令把这个SSH地址添加到我们的本地仓库，这样这个GitHub仓库就将作为我们的远程仓库，然后就可以通过Git命令把站点文件部署到GitHub上：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>git remote add origin git@github.com:lewky/lewky.github.io.git
-</code></pre></td></tr></table></div></div><p>这里的<code>origin</code>是远程库的别名，后面是要关联的远程库SSH地址。</p><p>然后就是最后一步了，把我们刚刚提交到本地库的文件给推送到远程库。由于远程库刚刚创建，还不存在本地的分支（默认是master分支），所以第一次提交的命令要加是一个<code>-u</code>参数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>git push -u origin master
-</code></pre></td></tr></table></div></div><p>这样GitHub远程库上会创建出对应的<code>master</code>分支，以后推送文件的时候，就不需要再加上该参数了：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>git push origin master
-</code></pre></td></tr></table></div></div><h2 id=启用github-pages服务>启用GitHub Pages服务</h2><h3 id=通过master分支来启用github-pages>通过master分支来启用GitHub Pages</h3><p>现在我们的GitHub仓库里已经有站点的文件了，接下来点击<code>Settings</code>进入该仓库的设置页面，找到<code>Github Pages</code>这一项，选择以<code>master</code>分支作为<code>Source</code>，然后保存；接下来这个仓库就会被部署到<code>https://{username}.github.io/{仓库名}</code>。</p><p>你会发现这里的url里多了子路径，但是如果仓库名是<code>{username}.github.io</code>的格式，那该url就会被简化为<code>https://{username}.github.io/</code>，这样就不需要在url后边添加上仓库名来访问个人站点了。</p><h3 id=通过gh-pages分支来启用github-pages>通过<code>gh-pages</code>分支来启用GitHub Pages</h3><p>还有一种启用的方式是给仓库创建一个名为<code>gh-pages</code>的分支，然后把该分支设置为<code>Source</code>，同样可以让该仓库使用到GitHub Pages服务。</p><p>这种启用方式是只有当存在多个项目都要使用GitHub Pages才使用的，因为目前GitHub只允许一个仓库可以通过master分支来启用GitHub Pages。如果其他仓库也要使用GitHub Pages，就需要创建<code>gh-pages</code>分支来部署。</p><h2 id=怎么同时部署到两个不同的pages服务>怎么同时部署到两个不同的Pages服务</h2><p>进入本地仓库的目录，打开隐藏文件夹<code>.git</code>下的<code>config</code>文件，多添加一行<code>url = xxx</code>，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#配置文件>配置文件</a></li><li><a href=#配置文件的目录>配置文件的目录</a></li><li><a href=#theme主题属性>theme主题属性</a></li><li><a href=#网站路径相关的属性>网站路径相关的属性</a><ol><li><a href=#baseurl>baseURL</a></li><li><a href=#disablepathtolower>disablePathToLower</a></li><li><a href=#permalinks>permalinks</a></li><li><a href=#uglyurls>uglyurls</a></li></ol></li><li><a href=#markup标记属性>markup标记属性</a><ol><li><a href=#markdown解析器>markdown解析器</a></li><li><a href=#highlight代码高亮>Highlight代码高亮</a></li><li><a href=#table-of-contents文章目录>Table Of Contents文章目录</a></li><li><a href=#补充一个完整的toml格式的markup配置>补充一个完整的toml格式的markup配置</a></li></ol></li><li><a href=#menu菜单属性>menu菜单属性</a></li><li><a href=#languages语言属性>languages语言属性</a></li><li><a href=#minify压缩属性>minify压缩属性</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=前言>前言</h2><p>Hugo本身可以通过修改站点配置文件来完成页面的部分定制，如按钮、多语言等功能。本文基于<code>LoveIt</code>主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd><span class=p>&gt;</span>hugo version
+Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
+</code></pre></td></tr></table></div></div><h2 id=配置文件>配置文件</h2><p>Hugo默认使用根目录下的<code>config.toml</code>、<code>config.yaml</code>或<code>config.json</code>中的某一个作为站点的配置文件，可以通过<code>--config</code>来配置读取一个或多个配置文件，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>hugo --config debugconfig.toml
+hugo --config a.toml,b.toml,c.toml
+</code></pre></td></tr></table></div></div><h2 id=配置文件的目录>配置文件的目录</h2><p>除了使用单一的站点配置文件，还可以通过使用<code>configDir</code>变量（默认值为<code>config/</code>）来维护不同环境下的各组件的配置文件：</p><ul><li>每个文件各自对应配置文件的根对象，比如<code>Params</code>, <code>Menus</code>, <code>Languages</code>等。</li><li>每个子目录对应不同的环境配置，类似于Maven的Profile功能。</li><li>这些文件可以应用国际化功能，即区分不同的语言版本。</li></ul><p>下面是一个简单的例子：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd>├── config
+│   ├── _default
+│   │   ├── config.toml
+│   │   ├── languages.toml
+│   │   ├── menus.en.toml
+│   │   ├── menus.zh.toml
+│   │   └── params.toml
+│   ├── production
+│   │   ├── config.toml
+│   │   └── params.toml
+│   └── staging
+│       ├── config.toml
+│       └── params.toml
+</code></pre></td></tr></table></div></div><p>可以发现上述的结构中，存在着三种不同的环境配置：<code>_default</code>默认环境、<code>production</code>生成环境、<code>staging</code>演示环境。<code>_default</code>下的配置是通用配置，Hugo每次生成站点时都会读取。如果运行<code>hugo --environment staging</code>，则还会额外合并<code>staging</code>的配置（会替换<code>_default</code>下冲突的配置）。</p><p>一般情况下我们用不到多环境的功能，只需要在站点根目录下存放一个<code>config.toml</code>文件，直接在该配置文件中指定各种属性，就可以实现相当程度的个性化了。下面是一些常用的配置文件的属性的用法，<strong>这些属性都是配置在站点配置文件里的。</strong></p><h2 id=theme主题属性>theme主题属性</h2><p>配置你的Hugo主题款式，本文基于<a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer">LoveIt</a>主题【v0.2.10】，所以配置是：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>theme = &#34;LoveIt&#34;
+</code></pre></td></tr></table></div></div><h2 id=网站路径相关的属性>网站路径相关的属性</h2><h3 id=baseurl>baseURL</h3><p>网站的根路径，用法如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>baseURL = &#34;https://mySite.com/&#34;
+</code></pre></td></tr></table></div></div><h3 id=disablepathtolower>disablePathToLower</h3><p>是否禁止将网站路径转换成小写，建议设置成true：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>disablePathToLower = true
+</code></pre></td></tr></table></div></div><h3 id=permalinks>permalinks</h3><p>生成的文章的路径，默认配置如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[permalinks]
+  posts = &#34;/:year/:month/:title/&#34;
+</code></pre></td></tr></table></div></div><p>这里可以使用的变量如下：
+<code>:year</code>：4位数的年份
+<code>:month</code>：2位数的月份
+<code>:monthname</code>：月份名字
+<code>:day</code>：2位数的日期
+<code>:weekday</code>：1位数，每周的第几天，星期日对应0
+<code>:weekdayname</code>：星期几
+<code>:yearday</code>：1到3位数，每年的第几天
+<code>:section</code>：当前文章对应的section分类
+<code>:sections</code>：当前文章对应的完整的section分类层次
+<code>:title</code>：文章的标题
+<code>:slug</code>：文章的slug，和title一样是定义在文件头里的属性，当没有定义slug时会使用title作为url
+<code>:filename</code>：文章的文件名，不包括文件扩展名。</p><p>出于seo考虑，不建议在url里加上年月日之类的，由于标题大多有中文或者特殊字符，所以也不建议直接使用标题作为url的一部分。这里建议使用slug的方式，自己手动给每篇文章提取若干个关键词作为slug，以此作为url的一部分，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[permalinks]
+  posts = &#34;/posts/:slug.html&#34;
+</code></pre></td></tr></table></div></div><p>然后文章的slug可以这样配置**（<code>permalinks</code>是配置在站点配置文件里的，<code>slug</code>是配置在每篇文章的文件头里的）**：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>---
+title: 建站日志
+slug: e62c38c45
+---
+</code></pre></td></tr></table></div></div><p>我这里是因为文章是从hexo迁移过来的，hexo那边使用了abbrlink插件来生成随机且不重复的名字，为了和之前的文章url对齐就这样配置了。而hugo没有找到类似的插件，所以选择了slug来自定义url，这个功能倒是和博客园的自定义博文的url类似。</p><p>另外值得一提的是，默认用的是pretty Url的配置，所有url的末尾都有个<code>/</code>，而Hexo那边url末尾是没有这个<code>/</code>的，算是一点小小的不同。</p><h3 id=uglyurls>uglyurls</h3><p>这个属性针对默认的pretty Url，比如有个url是<code>/posts/e62c38c45/</code>。如果设置了<code>uglyurls = true</code>，则会把末尾的<code>/</code>改成<code>.html</code>，新的url就变成了<code>/posts/e62c38c45.html</code>。但是这个属性有个问题，它会把文章以外的url也变成这种“丑陋”的格式，比如分类、标签等url，这样就不美观了。</p><p>所以不推荐使用该属性，如果希望文章的url不是纯目录格式的，可以像上文的<code>permalinks</code>那样配置。</p><h2 id=markup标记属性>markup标记属性</h2><p>配置markdown解析器、代码块高亮、文章目录等。</p><h3 id=markdown解析器>markdown解析器</h3><p>Hugo提供了<code>asciidocExt</code>、<code>blackFriday</code>和<code>goldmark</code>三种markdown解析器，默认使用<code>goldmark</code>来解析markdown，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -39,21 +105,381 @@ Hugo和Hexo一样是静态站点生成工具，不需要服务器即可进行部
 </span><span class=lnt>14
 </span><span class=lnt>15
 </span><span class=lnt>16
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[core]
-	repositoryformatversion = 0
-	filemode = false
-	bare = false
-	logallrefupdates = true
-	symlinks = false
-	ignorecase = true
-[remote &#34;origin&#34;]
-	url = git@github.com:lewky/lewky.github.io.git
-	url = git@e.coding.net:lewky/hugo-deploy/hugo-deploy.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
-[pull]
-	rebase = true
-[branch &#34;master&#34;]
-	remote = origin
-	merge = refs/heads/master
-</code></pre></td></tr></table></div></div><p>此后只需要<code>git push origin master</code>就可以同时推送到多个远程库。</p><h2 id=参考链接>参考链接</h2><ul><li><a href=https://blog.csdn.net/zamamiro/article/details/70172900 target=_blank rel="noopener noreffer">Git的使用&ndash;如何将本地项目上传到Github</a></li><li><a href=https://www.jianshu.com/p/edc85a20ada9 target=_blank rel="noopener noreffer">git push同时推送到两个远程仓库</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2020-09-25</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/hugo-2.html/ data-title="Hugo系列(2) - 远程部署到Pages服务" data-hashtags=Hugo,Pages服务><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/hugo-2.html/ data-hashtag=Hugo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/hugo-2.html/ data-title="Hugo系列(2) - 远程部署到Pages服务"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/hugo-2.html/ data-title="Hugo系列(2) - 远程部署到Pages服务"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/hugo-2.html/ data-title="Hugo系列(2) - 远程部署到Pages服务"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hugo/>Hugo</a>,&nbsp;<a href=/tags/pages%E6%9C%8D%E5%8A%A1/>Pages服务</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/hugo-1.html/ class=prev rel=prev title="Hugo系列(1) - 简单入门与搭建"><i class="fas fa-angle-left fa-fw"></i>Hugo系列(1) - 简单入门与搭建</a>
-<a href=/posts/hugo-3.html/ class=next rel=next title="Hugo系列(3) - 通过配置文件来定制个人站点">Hugo系列(3) - 通过配置文件来定制个人站点<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=/js/Valine.min.js></script><script type=text/javascript>new Valine({el:'#valine',appId:'1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz',appKey:'nfafLPsFBNTdO9Sb5suuGdpG',notify:'',verify:'',avatar:'retro',placeholder:'说点什么吧...（请填写正确的邮件地址以便于收到回复通知）',visitor:'true'});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src="/js/jquery/index.js?v=2.1.3"></script><script type=text/javascript src=/js/jquery.backstretch.min.js></script><script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script></body></html>
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>markup:
+  asciidocExt:
+    attributes: {}
+    backend: html5
+    extensions: []
+    failureLevel: fatal
+    noHeaderOrFooter: true
+    safeMode: unsafe
+    sectionNumbers: false
+    trace: false
+    verbose: false
+    workingFolderCurrent: false
+  blackFriday:
+    angledQuotes: false
+    extensions: null
+    extensionsMask: null
+    footnoteAnchorPrefix: &#34;&#34;
+    footnoteReturnLinkContents: &#34;&#34;
+    fractions: true
+    hrefTargetBlank: false
+    latexDashes: true
+    nofollowLinks: false
+    noreferrerLinks: false
+    plainIDAnchors: true
+    skipHTML: false
+    smartDashes: true
+    smartypants: true
+    smartypantsQuotesNBSP: false
+    taskLists: true
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    parser:
+      attribute: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+    renderer:
+      hardWraps: false
+      unsafe: false
+      xhtml: false
+</code></pre></td></tr></table></div></div><h3 id=highlight代码高亮>Highlight代码高亮</h3><p>hugo默认的配置如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: &#34;&#34;
+    lineAnchors: &#34;&#34;
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: monokai
+    tabWidth: 4
+</code></pre></td></tr></table></div></div><p><code>guessSyntax</code>：自动推断代码属于某种语言。
+<code>hl_Lines</code>：仅在使用<code>goldmark</code>解析器时该属性才起效，表示对某几行代码进行高亮处理，比如：
+    <code>lineAnchors: "2"</code>表示第二行代码高亮；
+    <code>lineAnchors: "1-8"</code>表示第一到八行代码高亮；
+    <code>lineAnchors: "1 3"</code>表示第一行和第三行代码高亮。
+<code>lineNoStart</code>：表示行数从多少开始计数。
+<code>lineNos</code>：配置行数，<code>false</code>表示不显示行数。
+<code>lineNumbersInTable</code>：值为<code>true</code>时可以在显示行数时提供友好的代码块复制黏贴功能。</p><h3 id=table-of-contents文章目录>Table Of Contents文章目录</h3><p>配置如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>markup:
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2
+</code></pre></td></tr></table></div></div><p><code>startLevel</code>：从几级标题开始生成目录，值为2表示从<code>h2</code>开始生成目录。
+<code>endLevel</code>：到几级标题为止生成目录，值为3表示大于<code>h3</code>的标题就不再生成目录。
+<code>ordered</code>：是否生成排序目录，建议启用该功能，生成的目录会更为美观。</p><h3 id=补充一个完整的toml格式的markup配置>补充一个完整的toml格式的markup配置</h3><p>上面分别给出了yaml格式的3种配置，下面是对应toml格式的完整配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[markup]
+  defaultMarkdownHandler = &#34;goldmark&#34;
+  [markup.asciidocExt]
+    backend = &#34;html5&#34;
+    extensions = []
+    failureLevel = &#34;fatal&#34;
+    noHeaderOrFooter = true
+    safeMode = &#34;unsafe&#34;
+    sectionNumbers = false
+    trace = false
+    verbose = false
+    workingFolderCurrent = false
+    [markup.asciidocExt.attributes]
+  [markup.blackFriday]
+    angledQuotes = false
+    footnoteAnchorPrefix = &#34;&#34;
+    footnoteReturnLinkContents = &#34;&#34;
+    fractions = true
+    hrefTargetBlank = false
+    latexDashes = true
+    nofollowLinks = false
+    noreferrerLinks = false
+    plainIDAnchors = true
+    skipHTML = false
+    smartDashes = true
+    smartypants = true
+    smartypantsQuotesNBSP = false
+    taskLists = true
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+      autoHeadingIDType = &#34;github&#34;
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = false
+      xhtml = false
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = &#34;&#34;
+    lineAnchors = &#34;&#34;
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = &#34;monokai&#34;
+    tabWidth = 4
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+</code></pre></td></tr></table></div></div><h2 id=menu菜单属性>menu菜单属性</h2><p>侧边栏菜单是在配置文件里配置的，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[menu]
+
+  [[menu.main]]
+    identifier = &#34;about&#34;
+    name = &#34;&lt;i class=&#39;fa fa-heart&#39;&gt;&lt;/i&gt;about hugo&#34;
+    url = &#34;/about/&#34;
+    weight = -110
+
+  [[menu.main]]
+    identifier = &#34;start&#34;
+    name = &#34;getting started&#34;
+    post = &#34;&lt;span class=&#39;alert&#39;&gt;New!&lt;/span&gt;&#34;
+    pre = &#34;&lt;i class=&#39;fa fa-road&#39;&gt;&lt;/i&gt;&#34;
+    url = &#34;/getting-started/&#34;
+    weight = -100
+</code></pre></td></tr></table></div></div><p><code>identifier</code>的值不能重复。
+<code>weight</code>是比重，值越小则该菜单的位置越靠上面。
+<code>name</code>是菜单名字。
+<code>pre</code>和<code>post</code>分别对应当前菜单的前缀和后缀，可以定义fontawesome等图标。</p><h2 id=languages语言属性>languages语言属性</h2><p>该属性可以提高站点的国际化功能，即区分多语言版本的站点，比如若设定了en、zh两个语言，设定默认语言是zh；则默认的站点url的根目录后会加上<code>/zh/</code>，并可以通过站点首页的切换语言下拉框来切换到其他语音，如：<code>/en/</code>。</p><p><code>languages</code>一般用来跟上面的<code>menu</code>一起配合使用，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[Languages]
+[Languages.en]
+title = &#34;Yulin Lewis&#39; Blog&#34;
+weight = 1
+languageName = &#34;English&#34;
+
+[[Languages.en.menu.main]]
+name = &#34;&lt;i class=&#39;fab fa-fw fa-github&#39;&gt;&lt;/i&gt; GitHub&#34;
+identifier = &#34;github&#34;
+url = &#34;https://github.com/lewky&#34;
+weight = 1
+
+[Languages.zh]
+title = &#34;雨临Lewis的博客&#34;
+weight = 2
+languageName = &#34;简体中文&#34;
+
+[[Languages.zh.menu.main]]
+name = &#34;&lt;i class=&#39;fab fa-fw fa-github&#39;&gt;&lt;/i&gt; GitHub&#34;
+identifier = &#34;github&#34;
+url = &#34;https://github.com/lewky&#34;
+weight = 1
+</code></pre></td></tr></table></div></div><p>此外，也可以将<code>languages</code>和<code>params</code>搭配使用，用法和上面类似，其实就是在这些属性的前面加上<code>languages</code>前缀而已。<strong>但是不知道为什么，在本文背景里提及的hugo和LoveIt版本下，站点无法正常读取到多语言参数，比如<code>[languages.zh-cn.params]</code>这种属性会读取不了。</strong></p><h2 id=minify压缩属性>minify压缩属性</h2><p>该属性用于压缩站点的各种静态资源，比如html、css、json、xml等，官方的默认配置如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = false
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      decimals = -1
+      keepCSS2 = true
+    [minify.tdewolff.html]
+      keepConditionalComments = true
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = false
+      keepWhitespace = false
+    [minify.tdewolff.js]
+    [minify.tdewolff.json]
+    [minify.tdewolff.svg]
+      decimals = -1
+    [minify.tdewolff.xml]
+      keepWhitespace = false
+</code></pre></td></tr></table></div></div><p>但实际上在配置文件中加入上述的配置并没有效果，也无法进行修改，这可能是个bug，因为和启用压缩的命令参数冲突了。不过从上面的配置可以看出，hugo自带的压缩功能是默认会压缩CSS、HTML、JS、JSON、SVG、XML；并且在压缩HTML的时候会保留注释、属性、文档标签和闭合标签，但是会去掉引号和空格。</p><p>如果想启用压缩功能，可以运行如下命令（记得运行前要先删掉<code>public</code>目录）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd>hugo --minify
+</code></pre></td></tr></table></div></div><p>也可以直接把这个参数配置到配置文件中，这样就可以不在运行命令时指定压缩参数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>minify = true
+</code></pre></td></tr></table></div></div><h2 id=参考链接>参考链接</h2><ul><li><a href=https://gohugo.io/getting-started/configuration/ target=_blank rel="noopener noreffer">Configure Hugo</a></li><li><a href=https://gohugo.io/content-management/syntax-highlighting/#generate-syntax-highlighter-css target=_blank rel="noopener noreffer">Syntax Highlighting</a></li><li><a href=https://gohugo.io/content-management/menus/#add-non-content-entries-to-a-menu target=_blank rel="noopener noreffer">Menus</a></li><li><a href=https://gohugo.io/content-management/multilingual/#configure-languages target=_blank rel="noopener noreffer">Multilingual Mode</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2020-10-10</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/hugo-2.html/ data-title="Hugo系列(2) - 通过配置文件来定制个人站点" data-hashtags=Hugo,个性化配置><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/hugo-2.html/ data-hashtag=Hugo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/hugo-2.html/ data-title="Hugo系列(2) - 通过配置文件来定制个人站点"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/hugo-2.html/ data-title="Hugo系列(2) - 通过配置文件来定制个人站点"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/hugo-2.html/ data-title="Hugo系列(2) - 通过配置文件来定制个人站点"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hugo/>Hugo</a>,&nbsp;<a href=/tags/%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/>个性化配置</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/hugo-1.html/ class=prev rel=prev title="Hugo系列(1) - 简单搭建教程与远程部署"><i class="fas fa-angle-left fa-fw"></i>Hugo系列(1) - 简单搭建教程与远程部署</a>
+<a href=/posts/hugo-4.html/ class=next rel=next title="Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录">Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=/js/Valine.min.js></script><script type=text/javascript>new Valine({el:'#valine',appId:'1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz',appKey:'nfafLPsFBNTdO9Sb5suuGdpG',notify:'',verify:'',avatar:'retro',placeholder:'说点什么吧...（请填写正确的邮件地址以便于收到回复通知）',visitor:'true'});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src="/js/jquery/index.js?v=2.1.3"></script><script type=text/javascript src=/js/jquery.backstretch.min.js></script><script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script></body></html>

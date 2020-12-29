@@ -1,234 +1,207 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hugo系列(3) - 通过配置文件来定制个人站点 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Hugo系列(3) - 通过配置文件来定制个人站点"><meta property="og:description" content="背景
-本文基于LoveIt主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hugo系列(3) - LoveIt主题美化与博客功能增强 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Hugo系列(3) - LoveIt主题美化与博客功能增强"><meta property="og:description" content="前言
+本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：
 
 
 1
 2
+3
+4
+5
 
 
->hugo version
-Hugo Static Site Generator v0.74.2-48565DE6 windows/amd64 BuildDate: 2020-07-17T17:22:50Z"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/hugo-3.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2020-10-10T16:08:58+08:00"><meta property="article:modified_time" content="2020-10-10T16:08:58+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hugo系列(3) - 通过配置文件来定制个人站点"><meta name=twitter:description content="背景
-本文基于LoveIt主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：
+hexo: 3.8.0
+
+hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/hugo-3.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2020-10-22T13:11:16+08:00"><meta property="article:modified_time" content="2020-10-22T13:11:16+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hugo系列(3) - LoveIt主题美化与博客功能增强"><meta name=twitter:description content="前言
+本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：
 
 
 1
 2
+3
+4
+5
 
 
->hugo version
-Hugo Static Site Generator v0.74.2-48565DE6 windows/amd64 BuildDate: 2020-07-17T17:22:50Z"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://lewky.cn/posts/hugo-3.html/><link rel=prev href=https://lewky.cn/posts/hugo-2.html/><link rel=next href=https://lewky.cn/posts/hugo-4.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo系列(3) - 通过配置文件来定制个人站点","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hugo-3.html\/"},"genre":"posts","keywords":"Hugo, 个性化配置","wordcount":3702,"url":"https:\/\/lewky.cn\/posts\/hugo-3.html\/","datePublished":"2020-10-10T16:08:58+08:00","dateModified":"2020-10-10T16:08:58+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub </a><a class=menu-item href=/posts/e62c38c4.html><i class="fas fa-cog fa-spin"></i>建站日志 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub</a><a class=menu-item href=/posts/e62c38c4.html><i class="fas fa-cog fa-spin"></i>建站日志</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hugo系列(3) - 通过配置文件来定制个人站点</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hugo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hugo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-10-10>2020-10-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3702 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id=/posts/hugo-3.html/ class=leancloud_visitors data-flag-title="Hugo系列(3) - 通过配置文件来定制个人站点">
+hexo: 3.8.0
+
+hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://lewky.cn/posts/hugo-3.html/><link rel=prev href=https://lewky.cn/posts/hugo-4.html/><link rel=next href=https://lewky.cn/posts/java-switch.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo系列(3) - LoveIt主题美化与博客功能增强","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hugo-3.html\/"},"genre":"posts","keywords":"Hugo, LoveIt主题美化, 功能增强","wordcount":2281,"url":"https:\/\/lewky.cn\/posts\/hugo-3.html\/","datePublished":"2020-10-22T13:11:16+08:00","dateModified":"2020-10-22T13:11:16+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub </a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub</a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hugo系列(3) - LoveIt主题美化与博客功能增强</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hugo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hugo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-10-22>2020-10-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2281 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;<span id=/posts/hugo-3.html/ class=leancloud_visitors data-flag-title="Hugo系列(3) - LoveIt主题美化与博客功能增强">
 <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
 </span>&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#背景>背景</a></li><li><a href=#配置文件>配置文件</a></li><li><a href=#配置文件的目录>配置文件的目录</a></li><li><a href=#theme主题属性>theme主题属性</a></li><li><a href=#网站路径相关的属性>网站路径相关的属性</a><ol><li><a href=#baseurl>baseURL</a></li><li><a href=#disablepathtolower>disablePathToLower</a></li><li><a href=#permalinks>permalinks</a></li><li><a href=#uglyurls>uglyurls</a></li></ol></li><li><a href=#markup标记属性>markup标记属性</a><ol><li><a href=#markdown解析器>markdown解析器</a></li><li><a href=#highlight代码高亮>Highlight代码高亮</a></li><li><a href=#table-of-contents文章目录>Table Of Contents文章目录</a></li><li><a href=#补充一个完整的toml格式的markup配置>补充一个完整的toml格式的markup配置</a></li></ol></li><li><a href=#menu菜单属性>menu菜单属性</a></li><li><a href=#languages语言属性>languages语言属性</a></li><li><a href=#minify压缩属性>minify压缩属性</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=背景>背景</h2><p>本文基于<code>LoveIt</code>主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd><span class=p>&gt;</span>hugo version
-Hugo Static Site Generator v0.74.2-48565DE6 windows/amd64 BuildDate: 2020-07-17T17:22:50Z
-</code></pre></td></tr></table></div></div><h2 id=配置文件>配置文件</h2><p>Hugo默认使用根目录下的<code>config.toml</code>、<code>config.yaml</code>或<code>config.json</code>中的某一个作为站点的配置文件，可以通过<code>--config</code>来配置读取一个或多个配置文件，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>hugo --config debugconfig.toml
-hugo --config a.toml,b.toml,c.toml
-</code></pre></td></tr></table></div></div><h2 id=配置文件的目录>配置文件的目录</h2><p>除了使用单一的站点配置文件，还可以通过使用<code>configDir</code>变量（默认值为<code>config/</code>）来维护不同环境下的各组件的配置文件：</p><ul><li>每个文件各自对应配置文件的根对象，比如<code>Params</code>, <code>Menus</code>, <code>Languages</code>等。</li><li>每个子目录对应不同的环境配置，类似于Maven的Profile功能。</li><li>这些文件可以应用国际化功能，即区分不同的语言版本。</li></ul><p>下面是一个简单的例子：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd>├── config
-│   ├── _default
-│   │   ├── config.toml
-│   │   ├── languages.toml
-│   │   ├── menus.en.toml
-│   │   ├── menus.zh.toml
-│   │   └── params.toml
-│   ├── production
-│   │   ├── config.toml
-│   │   └── params.toml
-│   └── staging
-│       ├── config.toml
-│       └── params.toml
-</code></pre></td></tr></table></div></div><p>可以发现上述的结构中，存在着三种不同的环境配置：<code>_default</code>默认环境、<code>production</code>生成环境、<code>staging</code>演示环境。<code>_default</code>下的配置是通用配置，Hugo每次生成站点时都会读取。如果运行<code>hugo --environment staging</code>，则还会额外合并<code>staging</code>的配置（会替换<code>_default</code>下冲突的配置）。</p><p>一般情况下我们用不到多环境的功能，只需要在站点根目录下存放一个<code>config.toml</code>文件，直接在该配置文件中指定各种属性，就可以实现相当程度的个性化了。下面是一些常用的配置文件的属性的用法，<strong>这些属性都是配置在站点配置文件里的。</strong></p><h2 id=theme主题属性>theme主题属性</h2><p>配置你的Hugo主题款式，本文基于<a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer">LoveIt</a>主题【v0.2.10】，所以配置是：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>theme = &#34;LoveIt&#34;
-</code></pre></td></tr></table></div></div><h2 id=网站路径相关的属性>网站路径相关的属性</h2><h3 id=baseurl>baseURL</h3><p>网站的根路径，用法如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>baseURL = &#34;https://mySite.com/&#34;
-</code></pre></td></tr></table></div></div><h3 id=disablepathtolower>disablePathToLower</h3><p>是否禁止将网站路径转换成小写，建议设置成true：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>disablePathToLower = true
-</code></pre></td></tr></table></div></div><h3 id=permalinks>permalinks</h3><p>生成的文章的路径，默认配置如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[permalinks]
-  posts = &#34;/:year/:month/:title/&#34;
-</code></pre></td></tr></table></div></div><p>这里可以使用的变量如下：
-<code>:year</code>：4位数的年份
-<code>:month</code>：2位数的月份
-<code>:monthname</code>：月份名字
-<code>:day</code>：2位数的日期
-<code>:weekday</code>：1位数，每周的第几天，星期日对应0
-<code>:weekdayname</code>：星期几
-<code>:yearday</code>：1到3位数，每年的第几天
-<code>:section</code>：当前文章对应的section分类
-<code>:sections</code>：当前文章对应的完整的section分类层次
-<code>:title</code>：文章的标题
-<code>:slug</code>：文章的slug，和title一样是定义在文件头里的属性，当没有定义slug时会使用title作为url
-<code>:filename</code>：文章的文件名，不包括文件扩展名。</p><p>出于seo考虑，不建议在url里加上年月日之类的，由于标题大多有中文或者特殊字符，所以也不建议直接使用标题作为url的一部分。这里建议使用slug的方式，自己手动给每篇文章提取若干个关键词作为slug，以此作为url的一部分，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[permalinks]
-  posts = &#34;/posts/:slug.html&#34;
-</code></pre></td></tr></table></div></div><p>然后文章的slug可以这样配置**（<code>permalinks</code>是配置在站点配置文件里的，<code>slug</code>是配置在每篇文章的文件头里的）**：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>---
-title: 建站日志
-slug: e62c38c45
----
-</code></pre></td></tr></table></div></div><p>我这里是因为文章是从hexo迁移过来的，hexo那边使用了abbrlink插件来生成随机且不重复的名字，为了和之前的文章url对齐就这样配置了。而hugo没有找到类似的插件，所以选择了slug来自定义url，这个功能倒是和博客园的自定义博文的url类似。</p><p>另外值得一提的是，默认用的是pretty Url的配置，所有url的末尾都有个<code>/</code>，而Hexo那边url末尾是没有这个<code>/</code>的，算是一点小小的不同。</p><h3 id=uglyurls>uglyurls</h3><p>这个属性针对默认的pretty Url，比如有个url是<code>/posts/e62c38c45/</code>。如果设置了<code>uglyurls = true</code>，则会把末尾的<code>/</code>改成<code>.html</code>，新的url就变成了<code>/posts/e62c38c45.html</code>。但是这个属性有个问题，它会把文章以外的url也变成这种“丑陋”的格式，比如分类、标签等url，这样就不美观了。</p><p>所以不推荐使用该属性，如果希望文章的url不是纯目录格式的，可以像上文的<code>permalinks</code>那样配置。</p><h2 id=markup标记属性>markup标记属性</h2><p>配置markdown解析器、代码块高亮、文章目录等。</p><h3 id=markdown解析器>markdown解析器</h3><p>Hugo提供了<code>asciidocExt</code>、<code>blackFriday</code>和<code>goldmark</code>三种markdown解析器，默认使用<code>goldmark</code>来解析markdown，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>markup:
-  asciidocExt:
-    attributes: {}
-    backend: html5
-    extensions: []
-    failureLevel: fatal
-    noHeaderOrFooter: true
-    safeMode: unsafe
-    sectionNumbers: false
-    trace: false
-    verbose: false
-    workingFolderCurrent: false
-  blackFriday:
-    angledQuotes: false
-    extensions: null
-    extensionsMask: null
-    footnoteAnchorPrefix: &#34;&#34;
-    footnoteReturnLinkContents: &#34;&#34;
-    fractions: true
-    hrefTargetBlank: false
-    latexDashes: true
-    nofollowLinks: false
-    noreferrerLinks: false
-    plainIDAnchors: true
-    skipHTML: false
-    smartDashes: true
-    smartypants: true
-    smartypantsQuotesNBSP: false
-    taskLists: true
-  defaultMarkdownHandler: goldmark
-  goldmark:
-    extensions:
-      definitionList: true
-      footnote: true
-      linkify: true
-      strikethrough: true
-      table: true
-      taskList: true
-      typographer: true
-    parser:
-      attribute: true
-      autoHeadingID: true
-      autoHeadingIDType: github
-    renderer:
-      hardWraps: false
-      unsafe: false
-      xhtml: false
-</code></pre></td></tr></table></div></div><h3 id=highlight代码高亮>Highlight代码高亮</h3><p>hugo默认的配置如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>markup:
-  highlight:
-    anchorLineNos: false
-    codeFences: true
-    guessSyntax: false
-    hl_Lines: &#34;&#34;
-    lineAnchors: &#34;&#34;
-    lineNoStart: 1
-    lineNos: false
-    lineNumbersInTable: true
-    noClasses: true
-    style: monokai
-    tabWidth: 4
-</code></pre></td></tr></table></div></div><p><code>guessSyntax</code>：自动推断代码属于某种语言。
-<code>hl_Lines</code>：仅在使用<code>goldmark</code>解析器时该属性才起效，表示对某几行代码进行高亮处理，比如：
-    <code>lineAnchors: "2"</code>表示第二行代码高亮；
-    <code>lineAnchors: "1-8"</code>表示第一到八行代码高亮；
-    <code>lineAnchors: "1 3"</code>表示第一行和第三行代码高亮。
-<code>lineNoStart</code>：表示行数从多少开始计数。
-<code>lineNos</code>：配置行数，<code>false</code>表示不显示行数。
-<code>lineNumbersInTable</code>：值为<code>true</code>时可以在显示行数时提供友好的代码块复制黏贴功能。</p><h3 id=table-of-contents文章目录>Table Of Contents文章目录</h3><p>配置如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#添加自定义css和javascript>添加自定义CSS和JavaScript</a><ol><li><a href=#添加自定义的customcss>添加自定义的custom.css</a></li><li><a href=#添加自定义的customjs>添加自定义的custom.js</a></li></ol></li><li><a href=#添加搜索功能>添加搜索功能</a><ol><li><a href=#安装搜索插件hugo-search-fuse-js到本地>安装搜索插件hugo-search-fuse-js到本地</a></li><li><a href=#修改页面模板文件baseofhtml>修改页面模板文件baseof.html</a></li><li><a href=#添加搜索按钮>添加搜索按钮</a></li><li><a href=#关闭loveit主题默认的搜索插件>关闭LoveIt主题默认的搜索插件</a></li><li><a href=#修改搜索页面的样式>修改搜索页面的样式</a></li></ol></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=前言>前言</h2><p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>markup:
-  tableOfContents:
-    endLevel: 3
-    ordered: false
-    startLevel: 2
-</code></pre></td></tr></table></div></div><p><code>startLevel</code>：从几级标题开始生成目录，值为2表示从<code>h2</code>开始生成目录。
-<code>endLevel</code>：到几级标题为止生成目录，值为3表示大于<code>h3</code>的标题就不再生成目录。
-<code>ordered</code>：是否生成排序目录，建议启用该功能，生成的目录会更为美观。</p><h3 id=补充一个完整的toml格式的markup配置>补充一个完整的toml格式的markup配置</h3><p>上面分别给出了yaml格式的3种配置，下面是对应toml格式的完整配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>hexo: 3.8.0
+
+hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10
+</code></pre></td></tr></table></div></div><h2 id=添加自定义css和javascript>添加自定义CSS和JavaScript</h2><p>首先在站点根目录下创建一个自定义的CSS文件：<code>\static\css\custom.css</code>，然后创建一个自定义的JavaScript文件：<code>\static\js\custom.js</code>。</p><p>接着把自定义的文件链接添加到主题的渲染模板文件里，不同的主题渲染模板文件可能不一样，不过这两个自定义文件的添加位置如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+    ...
+    <span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;/css/custom.css&#34;</span><span class=p>&gt;</span>
+  <span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+    ...
+    <span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/javascript&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/js/custom.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+  <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>自定义的CSS文件要尽量添加在head标签的最后面，自定义的JavaScript文件则是添加在body标签的最后面，这样可以防止样式被其他文件覆盖，并且不会因为JavaScript文件假装太久导致页面长时间的空白。</p><p>另外值得一提的是，主题的页面渲染文件是存放在<code>themes</code>目录下的<code>layouts</code>里的，而在站点根目录下同样存在<code>layouts</code>目录。Hugo在渲染页面时优先读取根目录下的<code>layouts</code>里的模板，所以可以利用这个特点来美化主题。只需要把想修改的主题模板文件拷贝到根目录下的<code>layouts</code>目录并进行修改，这样就可以不改动原本的主题文件。</p><h3 id=添加自定义的customcss>添加自定义的custom.css</h3><p>对于LoveIt主题，<code>custom.css</code>添加在<code>\themes\LoveIt\layouts\partials\head\link.html</code>里。首先把该文件拷贝到根目录下的<code>\layouts\partials\head\link.html</code>，然后把自定义的CSS文件的路径添加在自带的主题样式文件<code>style.min.css</code>下面：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>{{- /* normalize.css */ -}}
+{{- $source := $cdn.normalizeCSS | default &#34;lib/normalize/normalize.min.css&#34; -}}
+{{- $style := dict &#34;Source&#34; $source &#34;Fingerprint&#34; $fingerprint -}}
+{{- partial &#34;plugin/style.html&#34; $style -}}
+
+{{- /* style.min.css */ -}}
+{{- $style := dict &#34;Source&#34; &#34;css/style.scss&#34; &#34;Fingerprint&#34; $fingerprint -}}
+{{- $options := dict &#34;targetPath&#34; &#34;css/style.min.css&#34; &#34;enableSourceMap&#34; true -}}
+{{- $style = dict &#34;Context&#34; . &#34;ToCSS&#34; $options | merge $style -}}
+{{- partial &#34;plugin/style.html&#34; $style -}}
+
+{{- /* custom css */ -}}
+<span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;/css/custom.css&#34;</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>这是我的<a href=https://lewky.cn/css/custom.css target=_blank rel="noopener noreffer">custom.css文件</a>，有兴趣的可以看看。</p><h3 id=添加自定义的customjs>添加自定义的custom.js</h3><p>对于LoveIt主题，<code>custom.js</code>添加在<code>\themes\LoveIt\layouts\_default\baseof.html</code>里。首先把该文件拷贝到根目录下的<code>\layouts\_default\baseof.html</code>，然后把自定义的JavaScript文件添加在body标签的最后面：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+        ...
+		{{- /* 自定义的js文件 */ -}}
+		<span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/javascript&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/js/custom.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>如果有其他的JavaScript文件要引入，加在一样的地方就行，但是要放在自定义的<code>custom.js</code>之前。这是我的<a href=https://lewky.cn/js/custom.js target=_blank rel="noopener noreffer">custom.js文件</a>，有兴趣的可以看看。</p><h2 id=添加搜索功能>添加搜索功能</h2><p><code>LoveIt</code>主题自带的搜索插件是<code>lunr</code>和<code>algolia</code>，这两个的使用都比较麻烦，后者甚至还想要去注册账号，虽然可以免费使用搜索服务，但是抓取收录时间好像是一小时一次，并且还有每月使用量的限制，太不便利了。</p><p>之前在Hexo那边用的是自带的搜索插件，是每次部署时自动为所有文章生成索引到一个文件里，然后直接搜索该文件来实现本地搜索功能。这个还是比较方便个人站点使用的，于是在网上找到了类似的一个Hugo专用的搜索插件<a href=https://github.com/kaushalmodi/hugo-search-fuse-js target=_blank rel="noopener noreffer">hugo-search-fuse-js</a>。</p><h3 id=安装搜索插件hugo-search-fuse-js到本地>安装搜索插件hugo-search-fuse-js到本地</h3><p><code>hugo-search-fuse-js</code>并不是一个单独的主题，而是Hugo主题的一个组件：</p><ol><li>下载<a href=https://github.com/kaushalmodi/hugo-search-fuse-js target=_blank rel="noopener noreffer">hugo-search-fuse-js</a>到站点的主题目录<code>/themes/hugo-search-fuse-js</code>下，<strong>注意，目录名必须是<code>hugo-search-fuse-js</code></strong></li><li>把该主题组件名字添加到站点配置文件里，<strong>注意，搜索组件名字要在最前面，后面跟着的是你的主题的文件夹名字</strong>：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>theme = [&#34;hugo-search-fuse-js&#34;, &#34;my-theme&#34;]
+</code></pre></td></tr></table></div></div><ol start=3><li>新建一个<code>content/search.md</code>文件，内容如下：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>+++
+title = &#34;Search&#34;
+layout = &#34;search&#34;
+outputs = [&#34;html&#34;, &#34;json&#34;]
+[sitemap]
+  priority = 0.1
++++
+</code></pre></td></tr></table></div></div><h3 id=修改页面模板文件baseofhtml>修改页面模板文件baseof.html</h3><ol><li>把主题目录下的<code>\themes\even\layouts\_default\baseof.html</code>拷贝到站点根目录下的<code>\layouts\_default\baseof.html</code></li><li>在拷贝后的<code>baseof.html</code>的适当位置插入两段代码：<code>{{ block "main" . }}{{ end }}</code>和<code>{{ block "footer" . }}{{ end }}</code>，下面是一个修改后的样例：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;wrapper&#34;</span><span class=p>&gt;</span>
+    {{- partial &#34;header.html&#34; . -}}
+    <span class=p>&lt;</span><span class=nt>main</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;main&#34;</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;container&#34;</span><span class=p>&gt;</span>
+			{{ block &#34;main&#34; . }}{{ end }}
+            {{- block &#34;content&#34; . }}{{ end -}}
+        <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>main</span><span class=p>&gt;</span>
+    {{- partial &#34;footer.html&#34; . -}}
+	{{ block &#34;footer&#34; . }}{{ end }}
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><h3 id=添加搜索按钮>添加搜索按钮</h3><p>在站点配置文件里添加一个新的按钮给搜索功能使用，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[menu]
+  [[menu.main]]
+    pre = &#34;&lt;i class=&#39;fas fa-fw fa-search&#39;&gt;&lt;/i&gt;&#34;
+    name = &#34;搜索&#34;
+    weight = 7
+    identifier = &#34;search&#34;
+    url = &#34;/search/&#34;
+</code></pre></td></tr></table></div></div><p>如果你的配置文件里的菜单属性是多语言的，样例如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[languages]
+  [languages.en]
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+	    pre = &#34;&lt;i class=&#39;fas fa-fw fa-search&#39;&gt;&lt;/i&gt;&#34;
+	    name = &#34;Search&#34;
+	    weight = 7
+	    identifier = &#34;search&#34;
+	    url = &#34;/search/&#34;
+</code></pre></td></tr></table></div></div><h3 id=关闭loveit主题默认的搜索插件>关闭LoveIt主题默认的搜索插件</h3><p>在站点配置文件里把默认的搜索插件关闭，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[params]
+  [params.app]
+    [params.search]
+      enable = false
+</code></pre></td></tr></table></div></div><p>如果你使用的是多语言的配置，则应该把每个语言的搜索插件都关闭，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[languages]
+  [languages.en]
+    [languages.en.params]
+      [languages.en.params.search]
+        enable = false
+
+  [languages.zh-cn]
+    [languages.zh-cn.params]
+      [languages.zh-cn.params.search]
+        enable = false
+</code></pre></td></tr></table></div></div><h3 id=修改搜索页面的样式>修改搜索页面的样式</h3><p>如果对该插件生成的搜索页面样式不满意，可以自行修改，下面是我的样式代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -286,200 +259,63 @@ slug: e62c38c45
 </span><span class=lnt>56
 </span><span class=lnt>57
 </span><span class=lnt>58
-</span><span class=lnt>59
-</span><span class=lnt>60
-</span><span class=lnt>61
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[markup]
-  defaultMarkdownHandler = &#34;goldmark&#34;
-  [markup.asciidocExt]
-    backend = &#34;html5&#34;
-    extensions = []
-    failureLevel = &#34;fatal&#34;
-    noHeaderOrFooter = true
-    safeMode = &#34;unsafe&#34;
-    sectionNumbers = false
-    trace = false
-    verbose = false
-    workingFolderCurrent = false
-    [markup.asciidocExt.attributes]
-  [markup.blackFriday]
-    angledQuotes = false
-    footnoteAnchorPrefix = &#34;&#34;
-    footnoteReturnLinkContents = &#34;&#34;
-    fractions = true
-    hrefTargetBlank = false
-    latexDashes = true
-    nofollowLinks = false
-    noreferrerLinks = false
-    plainIDAnchors = true
-    skipHTML = false
-    smartDashes = true
-    smartypants = true
-    smartypantsQuotesNBSP = false
-    taskLists = true
-  [markup.goldmark]
-    [markup.goldmark.extensions]
-      definitionList = true
-      footnote = true
-      linkify = true
-      strikethrough = true
-      table = true
-      taskList = true
-      typographer = true
-    [markup.goldmark.parser]
-      attribute = true
-      autoHeadingID = true
-      autoHeadingIDType = &#34;github&#34;
-    [markup.goldmark.renderer]
-      hardWraps = false
-      unsafe = false
-      xhtml = false
-  [markup.highlight]
-    anchorLineNos = false
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = &#34;&#34;
-    lineAnchors = &#34;&#34;
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    style = &#34;monokai&#34;
-    tabWidth = 4
-  [markup.tableOfContents]
-    endLevel = 3
-    ordered = false
-    startLevel = 2
-</code></pre></td></tr></table></div></div><h2 id=menu菜单属性>menu菜单属性</h2><p>侧边栏菜单是在配置文件里配置的，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[menu]
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-css data-lang=css><span class=c>/* 搜索页面 */</span>
+<span class=p>.</span><span class=nc>search</span> <span class=p>{</span>
+    <span class=k>position</span><span class=p>:</span> <span class=kc>relative</span><span class=p>;</span>
+    <span class=k>padding-top</span><span class=p>:</span> <span class=mf>3.5</span><span class=kt>rem</span><span class=p>;</span>
+    <span class=k>padding-bottom</span><span class=p>:</span> <span class=mi>1</span><span class=kt>rem</span><span class=p>;</span>
+    <span class=k>max-width</span><span class=p>:</span> <span class=mi>800</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>width</span><span class=p>:</span> <span class=mi>60</span><span class=kt>%</span><span class=p>;</span>
+    <span class=k>margin</span><span class=p>:</span> <span class=mi>0</span> <span class=kc>auto</span><span class=p>;</span>
+    <span class=k>background</span><span class=p>:</span> <span class=kc>white</span><span class=p>;</span>
+    <span class=k>opacity</span><span class=p>:</span> <span class=mf>.95</span><span class=p>;</span>
+<span class=p>}</span>
 
-  [[menu.main]]
-    identifier = &#34;about&#34;
-    name = &#34;&lt;i class=&#39;fa fa-heart&#39;&gt;&lt;/i&gt;about hugo&#34;
-    url = &#34;/about/&#34;
-    weight = -110
+<span class=o>[</span><span class=nt>theme</span><span class=o>=</span><span class=nt>dark</span><span class=o>]</span> <span class=p>.</span><span class=nc>search</span> <span class=nt>header</span><span class=o>,</span>
+<span class=p>.</span><span class=nc>search</span> <span class=nt>header</span> <span class=p>{</span>
+    <span class=k>background-color</span><span class=p>:</span> <span class=mh>#f8f8f8</span><span class=p>;</span>
+<span class=p>}</span>
 
-  [[menu.main]]
-    identifier = &#34;start&#34;
-    name = &#34;getting started&#34;
-    post = &#34;&lt;span class=&#39;alert&#39;&gt;New!&lt;/span&gt;&#34;
-    pre = &#34;&lt;i class=&#39;fa fa-road&#39;&gt;&lt;/i&gt;&#34;
-    url = &#34;/getting-started/&#34;
-    weight = -100
-</code></pre></td></tr></table></div></div><p><code>identifier</code>的值不能重复。
-<code>weight</code>是比重，值越小则该菜单的位置越靠上面。
-<code>name</code>是菜单名字。
-<code>pre</code>和<code>post</code>分别对应当前菜单的前缀和后缀，可以定义fontawesome等图标。</p><h2 id=languages语言属性>languages语言属性</h2><p>该属性可以提高站点的国际化功能，即区分多语言版本的站点，比如若设定了en、zh两个语言，设定默认语言是zh；则默认的站点url的根目录后会加上<code>/zh/</code>，并可以通过站点首页的切换语言下拉框来切换到其他语音，如：<code>/en/</code>。</p><p><code>languages</code>一般用来跟上面的<code>menu</code>一起配合使用，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[Languages]
-[Languages.en]
-title = &#34;Yulin Lewis&#39; Blog&#34;
-weight = 1
-languageName = &#34;English&#34;
+<span class=o>[</span><span class=nt>theme</span><span class=o>=</span><span class=nt>dark</span><span class=o>]</span> <span class=p>.</span><span class=nc>search</span> <span class=nt>header</span><span class=p>:</span><span class=nd>hover</span><span class=o>,</span>
+<span class=p>.</span><span class=nc>search</span> <span class=nt>header</span><span class=p>:</span><span class=nd>hover</span> <span class=p>{</span>
+    <span class=kp>-webkit-</span><span class=k>box-shadow</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+    <span class=k>box-shadow</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+<span class=p>}</span>
 
-[[Languages.en.menu.main]]
-name = &#34;&lt;i class=&#39;fab fa-fw fa-github&#39;&gt;&lt;/i&gt; GitHub&#34;
-identifier = &#34;github&#34;
-url = &#34;https://github.com/lewky&#34;
-weight = 1
+<span class=p>.</span><span class=nc>search</span> <span class=nt>header</span> <span class=nt>h1</span> <span class=p>{</span>
+    <span class=k>padding-left</span><span class=p>:</span> <span class=mi>1</span><span class=kt>rem</span><span class=p>;</span>
+    <span class=k>background</span><span class=p>:</span> <span class=kc>white</span><span class=p>;</span>
+    <span class=k>opacity</span><span class=p>:</span> <span class=mf>.95</span><span class=p>;</span>
+<span class=p>}</span>
 
-[Languages.zh]
-title = &#34;雨临Lewis的博客&#34;
-weight = 2
-languageName = &#34;简体中文&#34;
+<span class=o>[</span><span class=nt>theme</span><span class=o>=</span><span class=nt>dark</span><span class=o>]</span> <span class=p>.</span><span class=nc>search</span> <span class=nt>input</span><span class=o>,</span>
+<span class=p>.</span><span class=nc>search</span> <span class=nt>input</span> <span class=p>{</span>
+	<span class=k>height</span><span class=p>:</span> <span class=kc>initial</span><span class=p>;</span>
+    <span class=k>width</span><span class=p>:</span> <span class=kc>initial</span><span class=p>;</span>
+    <span class=k>color</span><span class=p>:</span> <span class=kc>initial</span><span class=p>;</span>
+	<span class=k>background-color</span><span class=p>:</span> <span class=kc>white</span><span class=p>;</span>
+	<span class=k>margin</span><span class=p>:</span> <span class=mi>0</span> <span class=mi>0</span> <span class=mi>0</span> <span class=mi>1</span><span class=kt>rem</span><span class=p>;</span>
+	<span class=k>border-width</span><span class=p>:</span> <span class=mi>2</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>border-style</span><span class=p>:</span> <span class=kc>inset</span><span class=p>;</span>
+    <span class=k>border-color</span><span class=p>:</span> <span class=kc>initial</span><span class=p>;</span>
+    <span class=k>border-image</span><span class=p>:</span> <span class=kc>initial</span><span class=p>;</span>
+	<span class=kp>-webkit-</span><span class=k>border-radius</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=kp>-moz-</span><span class=k>border-radius</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+    <span class=k>border-radius</span><span class=p>:</span> <span class=mi>0</span><span class=p>;</span>
+<span class=p>}</span>
 
-[[Languages.zh.menu.main]]
-name = &#34;&lt;i class=&#39;fab fa-fw fa-github&#39;&gt;&lt;/i&gt; GitHub&#34;
-identifier = &#34;github&#34;
-url = &#34;https://github.com/lewky&#34;
-weight = 1
-</code></pre></td></tr></table></div></div><p>此外，也可以将<code>languages</code>和<code>params</code>搭配使用，用法和上面类似，其实就是在这些属性的前面加上<code>languages</code>前缀而已。<strong>但是不知道为什么，在本文背景里提及的hugo和LoveIt版本下，站点无法正常读取到多语言参数，比如<code>[languages.zh-cn.params]</code>这种属性会读取不了。</strong></p><h2 id=minify压缩属性>minify压缩属性</h2><p>该属性用于压缩站点的各种静态资源，比如html、css、json、xml等，官方的默认配置如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>[minify]
-  disableCSS = false
-  disableHTML = false
-  disableJS = false
-  disableJSON = false
-  disableSVG = false
-  disableXML = false
-  minifyOutput = false
-  [minify.tdewolff]
-    [minify.tdewolff.css]
-      decimals = -1
-      keepCSS2 = true
-    [minify.tdewolff.html]
-      keepConditionalComments = true
-      keepDefaultAttrVals = true
-      keepDocumentTags = true
-      keepEndTags = true
-      keepQuotes = false
-      keepWhitespace = false
-    [minify.tdewolff.js]
-    [minify.tdewolff.json]
-    [minify.tdewolff.svg]
-      decimals = -1
-    [minify.tdewolff.xml]
-      keepWhitespace = false
-</code></pre></td></tr></table></div></div><p>但实际上在配置文件中加入上述的配置并没有效果，也无法进行修改，这可能是个bug，因为和启用压缩的命令参数冲突了。不过从上面的配置可以看出，hugo自带的压缩功能是默认会压缩CSS、HTML、JS、JSON、SVG、XML；并且在压缩HTML的时候会保留注释、属性、文档标签和闭合标签，但是会去掉引号和空格。</p><p>如果想启用压缩功能，可以运行如下命令（记得运行前要先删掉<code>public</code>目录）：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-cmd data-lang=cmd>hugo --minify
-</code></pre></td></tr></table></div></div><p>也可以直接把这个参数配置到配置文件中，这样就可以不在运行命令时指定压缩参数：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>minify = true
-</code></pre></td></tr></table></div></div><h2 id=参考链接>参考链接</h2><ul><li><a href=https://gohugo.io/getting-started/configuration/ target=_blank rel="noopener noreffer">Configure Hugo</a></li><li><a href=https://gohugo.io/content-management/syntax-highlighting/#generate-syntax-highlighter-css target=_blank rel="noopener noreffer">Syntax Highlighting</a></li><li><a href=https://gohugo.io/content-management/menus/#add-non-content-entries-to-a-menu target=_blank rel="noopener noreffer">Menus</a></li><li><a href=https://gohugo.io/content-management/multilingual/#configure-languages target=_blank rel="noopener noreffer">Multilingual Mode</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2020-10-10</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/hugo-3.html/ data-title="Hugo系列(3) - 通过配置文件来定制个人站点" data-hashtags=Hugo,个性化配置><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/hugo-3.html/ data-hashtag=Hugo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/hugo-3.html/ data-title="Hugo系列(3) - 通过配置文件来定制个人站点"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/hugo-3.html/ data-title="Hugo系列(3) - 通过配置文件来定制个人站点"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/hugo-3.html/ data-title="Hugo系列(3) - 通过配置文件来定制个人站点"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hugo/>Hugo</a>,&nbsp;<a href=/tags/%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE/>个性化配置</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/hugo-2.html/ class=prev rel=prev title="Hugo系列(2) - 远程部署到Pages服务"><i class="fas fa-angle-left fa-fw"></i>Hugo系列(2) - 远程部署到Pages服务</a>
-<a href=/posts/hugo-4.html/ class=next rel=next title="Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录">Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=/js/Valine.min.js></script><script type=text/javascript>new Valine({el:'#valine',appId:'1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz',appKey:'nfafLPsFBNTdO9Sb5suuGdpG',notify:'',verify:'',avatar:'retro',placeholder:'说点什么吧...（请填写正确的邮件地址以便于收到回复通知）',visitor:'true'});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src="/js/jquery/index.js?v=2.1.3"></script><script type=text/javascript src=/js/jquery.backstretch.min.js></script><script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script></body></html>
+<span class=p>.</span><span class=nc>search</span> <span class=p>#</span><span class=nn>search-results</span> <span class=p>{</span>
+    <span class=k>padding-left</span><span class=p>:</span> <span class=mi>1</span><span class=kt>rem</span><span class=p>;</span>
+    <span class=k>padding-right</span><span class=p>:</span> <span class=mi>1</span><span class=kt>rem</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=o>[</span><span class=nt>theme</span><span class=o>=</span><span class=nt>dark</span><span class=o>]</span> <span class=nt>a</span><span class=p>:</span><span class=nd>active</span><span class=o>,</span> <span class=o>[</span><span class=nt>theme</span><span class=o>=</span><span class=nt>dark</span><span class=o>]</span> <span class=nt>a</span><span class=p>:</span><span class=nd>hover</span> <span class=p>{</span>
+    <span class=k>color</span><span class=p>:</span> <span class=mh>#2d96bd</span><span class=p>;</span>
+<span class=p>}</span>
+
+<span class=p>.</span><span class=nc>search</span> <span class=nt>hr</span> <span class=p>{</span>
+    <span class=k>margin-left</span><span class=p>:</span> <span class=mi>1</span><span class=kt>rem</span><span class=p>;</span>
+    <span class=k>margin-right</span><span class=p>:</span> <span class=mi>1</span><span class=kt>rem</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=参考链接>参考链接</h2><ul><li><a href=https://sr-c.github.io/2020/07/21/Hugo-custom/ target=_blank rel="noopener noreffer">自定义Hugo主题样式</a></li><li><a href=https://github.com/kaushalmodi/hugo-search-fuse-js target=_blank rel="noopener noreffer">kaushalmodi / hugo-search-fuse-js</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2020-10-22</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/hugo-3.html/ data-title="Hugo系列(3) - LoveIt主题美化与博客功能增强" data-hashtags=Hugo,LoveIt主题美化,功能增强><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/hugo-3.html/ data-hashtag=Hugo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/hugo-3.html/ data-title="Hugo系列(3) - LoveIt主题美化与博客功能增强"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/hugo-3.html/ data-title="Hugo系列(3) - LoveIt主题美化与博客功能增强"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/hugo-3.html/ data-title="Hugo系列(3) - LoveIt主题美化与博客功能增强"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hugo/>Hugo</a>,&nbsp;<a href=/tags/loveit%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/>LoveIt主题美化</a>,&nbsp;<a href=/tags/%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA/>功能增强</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/hugo-4.html/ class=prev rel=prev title="Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录"><i class="fas fa-angle-left fa-fw"></i>Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录</a>
+<a href=/posts/java-switch.html/ class=next rel=next title="[转载]Java - 为什么switch不支持long">[转载]Java - 为什么switch不支持long<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=/js/Valine.min.js></script><script type=text/javascript>new Valine({el:'#valine',appId:'1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz',appKey:'nfafLPsFBNTdO9Sb5suuGdpG',notify:'',verify:'',avatar:'retro',placeholder:'说点什么吧...（请填写正确的邮件地址以便于收到回复通知）',visitor:'true'});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2020</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src="/js/jquery/index.js?v=2.1.3"></script><script type=text/javascript src=/js/jquery.backstretch.min.js></script><script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script></body></html>
