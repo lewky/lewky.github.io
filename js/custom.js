@@ -1,3 +1,6 @@
+/* cdn for image */
+var $cdnPrefix = "https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master";
+
 /* 控制台输出 */
 if(window.console) {
 	var cons = console; 
@@ -76,7 +79,7 @@ jQuery(document).ready(function($) {
 	$(".site-author-image-bilibili").click(function(e) {
 		if (a_click % frequency === 0) {
 			avatar_plug ++;
-			$(".site-avatar-plug-bilibili").attr("src","/images/avatar-plug/bilibili_" + avatar_plug + ".png");
+			$(".site-avatar-plug-bilibili").attr("src", $cdnPrefix + "/images/avatar-plug/bilibili_" + avatar_plug + ".png");
 		}		
 		if (avatar_plug === plug_count) {
 			avatar_plug = 0;
@@ -89,9 +92,9 @@ jQuery(document).ready(function($) {
 /* 轮播背景图片 */
 $(function () {
 	$.backstretch([
-		  "/images/background/saber1.jpg",
-		  "/images/background/saber2.jpg",
-		  "/images/background/wlop.jpg"
+		  $cdnPrefix + "/images/background/saber1.jpg",
+		  $cdnPrefix + "/images/background/saber2.jpg",
+		  $cdnPrefix + "/images/background/wlop.jpg"
 	], { duration: 60000, fade: 1500 });
 });
 
@@ -105,6 +108,11 @@ $(function() {
 		$("html,body").animate({scrollTop:0},800);
 		return false;
 	});
+});
+
+/* 首页头像div加载GitHub Chart作为背景图片 */
+$(function() {
+	$("div.home-avatar").attr('style', "background: url(https://ghchart.rshah.org/FFA500/lewky?t=" + Math.random() + ");background-repeat: no-repeat;background-position: center;background-size: auto 7.5rem;");
 });
 
 /* 离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */

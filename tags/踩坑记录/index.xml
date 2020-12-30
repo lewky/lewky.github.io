@@ -16,4 +16,4 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item></channel></rss>
+</div>]]></description></item><item><title>Hexo系列(3) - NexT主题踩坑记录</title><link>https://lewky.cn/posts/844109c2.html/</link><pubDate>Thu, 19 Jul 2018 23:09:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/844109c2.html/</guid><description>hexo-neat插件踩坑记录 由于在使用hexo-neat插件时，可以在命令窗口中看到各个文件的压缩率，于是我就开始捣鼓跳过哪些文件可以让效率更高。在鼓捣了一段时间之后，记录下使用该插件的一些注意事项，避免日后重蹈覆辙，也希望能对各位看官有所帮助。 跳过压缩文件的正确配置方式 如果按照官方插件的文档说明来配置exclude，你会发现完全不起作用。这是因为配置的文</description></item></channel></rss>
