@@ -48,15 +48,36 @@ Fail to build jekyll site.
 Template render error: unexpected token: }}
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Hexo瞎折腾系列(8) - 添加评论系统</title><link>https://lewky.cn/posts/ec12c039.html/</link><pubDate>Wed, 05 Sep 2018 22:24:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ec12c039.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>Hexo的NexT主题本身就集成了一些评论系统，多说啊之类的已经关闭服务的略过不提，目前比较多人用的有畅言、来必力livere、Gitment、Gitalk、Disqus等。</p>
-<p>我刚用的评论系统的时候，网易云跟贴和多说已经gg了，畅言需要备案，Disqus需要FQ，Gitment和Gitalk类似，都需要GitHub账号。经过搜集资料和考虑，我最终还是决定使用Gitment。只是在用了一段时间后，终于还是放弃了Gitment，转而使用来必力livere。</p>]]></description></item><item><title>Hexo瞎折腾系列(7) - Coding Pages申请SSL/TLS证书错误</title><link>https://lewky.cn/posts/7ac531d2.html/</link><pubDate>Mon, 03 Sep 2018 23:33:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/7ac531d2.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>今天我的个人站点SSL/TLS证书到期，我的证书是由Coding Pages提供的，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击申请证书时，竟然报错了！！</p>
-<p>我重新点了申请，几秒后依然报错，并提示我半小时只能申请一次。我查看了下报错的提示信息，如下：</p>]]></description></item><item><title>Hexo系列(3) - NexT主题踩坑记录</title><link>https://lewky.cn/posts/844109c2.html/</link><pubDate>Thu, 19 Jul 2018 23:09:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/844109c2.html/</guid><description>hexo-neat插件踩坑记录 由于在使用hexo-neat插件时，可以在命令窗口中看到各个文件的压缩率，于是我就开始捣鼓跳过哪些文件可以让效率更高。在鼓捣了一段时间之后，记录下使用该插件的一些注意事项，避免日后重蹈覆辙，也希望能对各位看官有所帮助。 跳过压缩文件的正确配置方式 如果按照官方插件的文档说明来配置exclude，你会发现完全不起作用。这是因为配置的文</description></item><item><title>Hexo系列(2) - NexT主题写作技巧</title><link>https://lewky.cn/posts/576ee548.html/</link><pubDate>Thu, 19 Jul 2018 23:00:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/576ee548.html/</guid><description></description></item><item><title>Hexo系列(1) - NexT主题美化与博客功能增强</title><link>https://lewky.cn/posts/ef301a4d.html/</link><pubDate>Wed, 11 Jul 2018 23:37:24 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ef301a4d.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+</div>]]></description></item><item><title>Hexo系列(3) - NexT主题踩坑记录</title><link>https://lewky.cn/posts/844109c2.html/</link><pubDate>Thu, 19 Jul 2018 23:09:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/844109c2.html/</guid><description><![CDATA[<h2 id="coding-pages申请ssltls证书错误">Coding Pages申请SSL/TLS证书错误</h2>
+<p>某天发现我的个人站点SSL/TLS证书到期，我的证书是由Coding Pages提供的，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击申请证书时，竟然报错了！！</p>
+<p>我重新点了申请，几秒后依然报错，并提示我半小时只能申请一次。我查看了下报错的提示信息，如下：</p>]]></description></item><item><title>Hexo系列(2) - NexT主题写作技巧</title><link>https://lewky.cn/posts/576ee548.html/</link><pubDate>Thu, 19 Jul 2018 23:00:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/576ee548.html/</guid><description></description></item><item><title>Hexo系列(1) - NexT主题美化与博客功能增强</title><link>https://lewky.cn/posts/ef301a4d.html/</link><pubDate>Wed, 11 Jul 2018 23:37:24 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ef301a4d.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>网上有不少相关的帖子，不过版本会比较旧，而不同版本可能存在代码不同的问题，不过大部分还是大同小异，本系列就不啰嗦重复了，基本只会按照本人所使用的版本以及个人所使用到的内容来进行介绍。</p>
 <p>该系列是对我所使用的Next主题进行个性化定制，涉及到js和css等的修改，还有各种插件的使用，包括使用过程中的一些踩坑记录；另外也会对Next主题进行一些写作技巧的介绍与运用，希望能对大家有所帮助。有疑问的朋友可以给我留言，我会尽可能回复<code>O(∩_∩)O</code>。</p>]]></description></item><item><title>Hexo - 3.X.X版本无法生成baidusitemap</title><link>https://lewky.cn/posts/49fbb32a.html/</link><pubDate>Tue, 12 Jun 2018 00:52:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/49fbb32a.html/</guid><description><![CDATA[<p>今天安装了<code>hexo-generator-baidu-sitemap</code>后，运行<code>hexo g</code>报错如下：</p>
 <p>
 <figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/error.jpg" title="error.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/error.jpg" data-sub-html="<h2> </h2><p>error.jpg</p>">
         
     </a><figcaption class="image-caption">error.jpg</figcaption>
-    </figure></p>]]></description></item></channel></rss>
+    </figure></p>]]></description></item><item><title>NexT主题个性化 - 添加文章置顶功能</title><link>https://lewky.cn/posts/6ed0d627.html/</link><pubDate>Sun, 13 May 2018 23:33:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/6ed0d627.html/</guid><description><![CDATA[<h2 id="安装插件及其使用方法">安装插件及其使用方法</h2>
+<p>在站点根目录执行命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm uninstall hexo-generator-index --save
+npm install hexo-generator-index-pin-top --save
+</code></pre></td></tr></table>
+</div>
+</div><p>接下来在需要置顶的文章头部添加 <code>top: true</code> 或者 <code>top: n</code>，这里的n是数字，数字越大表示置顶等级越高。</p>]]></description></item><item><title>NexT主题个性化 - 启用搜索功能</title><link>https://lewky.cn/posts/3e5e6b79.html/</link><pubDate>Sun, 13 May 2018 21:59:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/3e5e6b79.html/</guid><description><![CDATA[<h2 id="安装搜索插件">安装搜索插件</h2>
+<p>在站点根目录使用 <code>git bash</code> 执行命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">npm install hexo-generator-searchdb --save
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="启用搜索功能">启用搜索功能</h2>
+<p>打开主题配置文件 <code>_config.yml</code>，修改如下配置：</p>]]></description></item></channel></rss>

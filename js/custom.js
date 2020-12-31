@@ -1,6 +1,3 @@
-/* cdn for image */
-var $cdnPrefix = "https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master";
-
 /* 控制台输出 */
 if(window.console) {
 	var cons = console; 
