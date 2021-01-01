@@ -28,7 +28,8 @@ npm install hexo-generator-index-pin-top --save
 <p>效果图</p>
 </blockquote>
 <p>
-<figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/code-block.jpg" title="code-block.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/code-block.jpg" data-sub-html="<h2> </h2><p>code-block.jpg</p>">
+<figure>
+<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/next/code-block.jpg" title="code-block.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/next/code-block.jpg" data-sub-html="<h2> </h2><p>code-block.jpg</p>">
         
     </a><figcaption class="image-caption">code-block.jpg</figcaption>
     </figure></p>
@@ -36,7 +37,8 @@ npm install hexo-generator-index-pin-top --save
 <p><code>a:link</code> 效果图</p>
 </blockquote>
 <p>
-<figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/link.jpg" title="link.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/link.jpg" data-sub-html="<h2> </h2><p>link.jpg</p>">
+<figure>
+<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/next/link.jpg" title="link.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/next/link.jpg" data-sub-html="<h2> </h2><p>link.jpg</p>">
         
     </a><figcaption class="image-caption">link.jpg</figcaption>
     </figure></p>
@@ -44,7 +46,8 @@ npm install hexo-generator-index-pin-top --save
 <p><code>a:hover</code> 效果图</p>
 </blockquote>
 <p>
-<figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/hover.jpg" title="hover.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/hover.jpg" data-sub-html="<h2> </h2><p>hover.jpg</p>">
+<figure>
+<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/next/hover.jpg" title="hover.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/next/hover.jpg" data-sub-html="<h2> </h2><p>hover.jpg</p>">
         
     </a><figcaption class="image-caption">hover.jpg</figcaption>
     </figure></p>

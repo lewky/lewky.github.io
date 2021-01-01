@@ -1,7 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MarkdownPad2 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/markdownpad2/</link><description>MarkdownPad2 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 Nov 2018 22:58:41 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/markdownpad2/" rel="self" type="application/rss+xml"/><item><title>MarkdownPad - win10环境下无法渲染HTML问题</title><link>https://lewky.cn/posts/511045a6.html/</link><pubDate>Sat, 17 Nov 2018 22:58:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/511045a6.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
 <p>在win10平台安装了MarkdownPad 2之后，发现在渲染md文件时报错，在预览页面无法正常渲染HTML：
 
-<figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
+<figure>
+<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
         
     </a><figcaption class="image-caption">markdownpad_error.jpg</figcaption>
     </figure></p>]]></description></item></channel></rss>

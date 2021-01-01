@@ -1,7 +1,0 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Pages服务 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/pages%E6%9C%8D%E5%8A%A1/</link><description>Pages服务 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Apr 2018 22:08:44 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/pages%E6%9C%8D%E5%8A%A1/" rel="self" type="application/rss+xml"/><item><title>Hexo搭建博客教程(3) - 远程部署到GitHub Pages</title><link>https://lewky.cn/posts/1657.html/</link><pubDate>Tue, 24 Apr 2018 22:08:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1657.html/</guid><description><![CDATA[<blockquote>
-<p>本章讲的是如何将本地的个人项目远程部署到 GitHub Pages，涉及到GitHub的项目仓库、Git的使用，以及Hexo的远程部署等。</p>
-</blockquote>
-<h2 id="一安装-hexo-deployer-git-插件">一、安装 <code>hexo-deployer-git</code> 插件</h2>
-<p>想要将Hexo项目部署到 GitHub上，需要先安装一个插件。在Hexo项目的根目录打开命令窗口，输入：</p>
-<pre><code>npm install hexo-deployer-git --save
-</code></pre>]]></description></item></channel></rss>

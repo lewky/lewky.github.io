@@ -4,8 +4,4 @@
 <p>AngularJS分为几个模块，需要使用哪个模块的功能，就直接引入对应的模块，这种模块化设计具备高内聚、低耦合的特点。
 官方提供的模块有：ng、ngRoute、ngAnimate
 用户也可以自定义模块：angular.module(&lsquo;模块名&rsquo;, [])
-这里的ng是引擎engine的缩写，类似于Nginx的Ngin也是engine的缩写(谐音？)</p>]]></description></item><item><title>Hexo搭建博客教程(1) - 安装环境与本地搭建</title><link>https://lewky.cn/posts/22143.html/</link><pubDate>Tue, 24 Apr 2018 22:06:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/22143.html/</guid><description><![CDATA[<blockquote>
-<p>前言</p>
-</blockquote>
-<p>搭建个人博客一般有两种选择，一个是使用WordPress，但是需要将博客搭建在服务器上，不过搭建好后写文章方便，适合没有程序基础的人使用。另一个是使用Hexo，相对简洁高效，不需要服务器，既可以部署在本地，也可以将博客部署到GitHub Pages上，支持Markdown语法，缺点是需要有Git基础，写文章比WordPress麻烦点。</p>
-<p>初次使用Hexo来搭建个人博客，确实比较手忙脚乱，这里记录一下流程，希望对大家能有所帮助。</p>]]></description></item></channel></rss>
+这里的ng是引擎engine的缩写，类似于Nginx的Ngin也是engine的缩写(谐音？)</p>]]></description></item></channel></rss>

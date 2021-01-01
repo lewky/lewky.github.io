@@ -23,7 +23,8 @@
 <p>对于这种场景，可以通过Excel的公式来实现。</p>]]></description></item><item><title>MarkdownPad - win10环境下无法渲染HTML问题</title><link>https://lewky.cn/posts/511045a6.html/</link><pubDate>Sat, 17 Nov 2018 22:58:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/511045a6.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
 <p>在win10平台安装了MarkdownPad 2之后，发现在渲染md文件时报错，在预览页面无法正常渲染HTML：
 
-<figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
+<figure>
+<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
         
     </a><figcaption class="image-caption">markdownpad_error.jpg</figcaption>
     </figure></p>]]></description></item><item><title>文本编辑器问题汇总</title><link>https://lewky.cn/posts/a39d8a42.html/</link><pubDate>Sun, 02 Sep 2018 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a39d8a42.html/</guid><description><![CDATA[<h2 id="notepad怎么设置tab替换为4个空格">Notepad++怎么设置tab替换为4个空格</h2>

@@ -10,31 +10,4 @@
 Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Hexo搭建博客教程(2) - 博客的简单个性化配置</title><link>https://lewky.cn/posts/38619.html/</link><pubDate>Tue, 24 Apr 2018 22:07:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/38619.html/</guid><description><![CDATA[<blockquote>
-<p>本章主要讲博客的个性化，譬如站点的基本配置（语言、头像、站点图标等）、安装新的Hexo主题（NexT主题）以及主题的配置。</p>
-</blockquote>
-<h2 id="一修改站点配置">一、修改站点配置</h2>
-<p>打开站点配置文件 ，找到：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"># Site
-title: Hexo
-subtitle:
-description:
-keywords:
-author: John Doe
-language:
-timezone:
-</code></pre></td></tr></table>
-</div>
 </div>]]></description></item></channel></rss>

@@ -109,8 +109,16 @@ $(function() {
 
 /* 首页头像div加载GitHub Chart作为背景图片 */
 $(function() {
-	$("div.home-avatar").attr('style', "background: url(https://ghchart.rshah.org/FFA500/lewky?t=" + Math.random() + ");background-repeat: no-repeat;background-position: center;background-size: auto 7.5rem;");
+	$("div.home-avatar").attr('style', "background: url(https://ghchart.rshah.org/FFA500/lewky?t=" + getCurrentDateString() + ");background-repeat: no-repeat;background-position: center;background-size: auto 7.5rem;");
 });
+
+function getCurrentDateString() {
+	var now = new Date();
+	var month = now.getMonth() + 1;
+	var day = now.getDate();
+	var hour = now.getHours();
+	return "" + now.getFullYear() + (month < 10 ? "0" + month : month) + (day < 10 ? "0" + day : day) + (hour < 10 ? "0" + hour : hour);
+}
 
 /* 离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */
 window.onload = function() {

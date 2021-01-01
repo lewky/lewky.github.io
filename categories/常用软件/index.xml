@@ -23,7 +23,8 @@
 <p>对于这种场景，可以通过Excel的公式来实现。</p>]]></description></item><item><title>MarkdownPad - win10环境下无法渲染HTML问题</title><link>https://lewky.cn/posts/511045a6.html/</link><pubDate>Sat, 17 Nov 2018 22:58:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/511045a6.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
 <p>在win10平台安装了MarkdownPad 2之后，发现在渲染md文件时报错，在预览页面无法正常渲染HTML：
 
-<figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
+<figure>
+<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
         
     </a><figcaption class="image-caption">markdownpad_error.jpg</figcaption>
     </figure></p>]]></description></item><item><title>Putty的ppk文件转成Xshell使用的key文件</title><link>https://lewky.cn/posts/ppk-to-ssh-key.html/</link><pubDate>Thu, 12 Oct 2017 14:26:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ppk-to-ssh-key.html/</guid><description>&lt;h2 id="问题与解决方案">问题与解决方案&lt;/h2>
