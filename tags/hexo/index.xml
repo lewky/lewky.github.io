@@ -57,7 +57,7 @@ Template render error: unexpected token: }}
 <p>该系列是对我所使用的Next主题进行个性化定制，涉及到js和css等的修改，还有各种插件的使用，包括使用过程中的一些踩坑记录；另外也会对Next主题进行一些写作技巧的介绍与运用，希望能对大家有所帮助。有疑问的朋友可以给我留言，我会尽可能回复<code>O(∩_∩)O</code>。</p>]]></description></item><item><title>Hexo - 3.X.X版本无法生成baidusitemap</title><link>https://lewky.cn/posts/49fbb32a.html/</link><pubDate>Tue, 12 Jun 2018 00:52:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/49fbb32a.html/</guid><description><![CDATA[<p>今天安装了<code>hexo-generator-baidu-sitemap</code>后，运行<code>hexo g</code>报错如下：</p>
 <p>
 <figure>
-<a class="lightgallery" href="//cdn.lewky.cn/images/posts/hexo/error.jpg" title="error.jpg" data-thumbnail="//cdn.lewky.cn/images/posts/hexo/error.jpg" data-sub-html="<h2> </h2><p>error.jpg</p>">
+<a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/error.jpg" title="error.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/error.jpg" data-sub-html="<h2> </h2><p>error.jpg</p>">
         
     </a><figcaption class="image-caption">error.jpg</figcaption>
     </figure></p>]]></description></item><item><title>NexT主题个性化 - 添加文章置顶功能</title><link>https://lewky.cn/posts/6ed0d627.html/</link><pubDate>Sun, 13 May 2018 23:33:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/6ed0d627.html/</guid><description><![CDATA[<h2 id="安装插件及其使用方法">安装插件及其使用方法</h2>
