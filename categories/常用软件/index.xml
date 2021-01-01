@@ -24,7 +24,7 @@
 <p>在win10平台安装了MarkdownPad 2之后，发现在渲染md文件时报错，在预览页面无法正常渲染HTML：
 
 <figure>
-<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
+<a class="lightgallery" href="//cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="//cdn.lewky.cn/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
         
     </a><figcaption class="image-caption">markdownpad_error.jpg</figcaption>
     </figure></p>]]></description></item><item><title>Putty的ppk文件转成Xshell使用的key文件</title><link>https://lewky.cn/posts/ppk-to-ssh-key.html/</link><pubDate>Thu, 12 Oct 2017 14:26:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ppk-to-ssh-key.html/</guid><description>&lt;h2 id="问题与解决方案">问题与解决方案&lt;/h2>

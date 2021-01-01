@@ -29,7 +29,7 @@ npm install hexo-generator-index-pin-top --save
 </blockquote>
 <p>
 <figure>
-<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/next/code-block.jpg" title="code-block.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/next/code-block.jpg" data-sub-html="<h2> </h2><p>code-block.jpg</p>">
+<a class="lightgallery" href="//cdn.lewky.cn/images/posts/next/code-block.jpg" title="code-block.jpg" data-thumbnail="//cdn.lewky.cn/images/posts/next/code-block.jpg" data-sub-html="<h2> </h2><p>code-block.jpg</p>">
         
     </a><figcaption class="image-caption">code-block.jpg</figcaption>
     </figure></p>
@@ -38,7 +38,7 @@ npm install hexo-generator-index-pin-top --save
 </blockquote>
 <p>
 <figure>
-<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/next/link.jpg" title="link.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/next/link.jpg" data-sub-html="<h2> </h2><p>link.jpg</p>">
+<a class="lightgallery" href="//cdn.lewky.cn/images/posts/next/link.jpg" title="link.jpg" data-thumbnail="//cdn.lewky.cn/images/posts/next/link.jpg" data-sub-html="<h2> </h2><p>link.jpg</p>">
         
     </a><figcaption class="image-caption">link.jpg</figcaption>
     </figure></p>
@@ -47,7 +47,7 @@ npm install hexo-generator-index-pin-top --save
 </blockquote>
 <p>
 <figure>
-<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/next/hover.jpg" title="hover.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/next/hover.jpg" data-sub-html="<h2> </h2><p>hover.jpg</p>">
+<a class="lightgallery" href="//cdn.lewky.cn/images/posts/next/hover.jpg" title="hover.jpg" data-thumbnail="//cdn.lewky.cn/images/posts/next/hover.jpg" data-sub-html="<h2> </h2><p>hover.jpg</p>">
         
     </a><figcaption class="image-caption">hover.jpg</figcaption>
     </figure></p>

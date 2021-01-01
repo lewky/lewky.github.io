@@ -48,7 +48,7 @@ Template render error: unexpected token: }}
 </div>]]></description></item><item><title>Hexo - 3.X.X版本无法生成baidusitemap</title><link>https://lewky.cn/posts/49fbb32a.html/</link><pubDate>Tue, 12 Jun 2018 00:52:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/49fbb32a.html/</guid><description><![CDATA[<p>今天安装了<code>hexo-generator-baidu-sitemap</code>后，运行<code>hexo g</code>报错如下：</p>
 <p>
 <figure>
-<a class="lightgallery" href="http://cdn.lewky.cn/images/posts/hexo/error.jpg" title="error.jpg" data-thumbnail="http://cdn.lewky.cn/images/posts/hexo/error.jpg" data-sub-html="<h2> </h2><p>error.jpg</p>">
+<a class="lightgallery" href="//cdn.lewky.cn/images/posts/hexo/error.jpg" title="error.jpg" data-thumbnail="//cdn.lewky.cn/images/posts/hexo/error.jpg" data-sub-html="<h2> </h2><p>error.jpg</p>">
         
     </a><figcaption class="image-caption">error.jpg</figcaption>
     </figure></p>]]></description></item><item><title>Hexo - 修改永久链接的默认格式</title><link>https://lewky.cn/posts/ff4321d8.html/</link><pubDate>Sun, 13 May 2018 17:08:50 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ff4321d8.html/</guid><description><![CDATA[<p>Hexo的永久链接的默认格式是 <code>:year/:month/:day/:title/</code>，比如访问站点下某一篇文章时，其路径是 <code>2018/04/12/xxxx/</code>，如果我们的文章标题是中文的，那么该路径就会出现中文字符。在路径中出现了中文字符很容易引发各种问题，而且也不利于seo，因为路径包含了年月日三个层级，层级太深不利于百度蜘蛛抓取。</p>
