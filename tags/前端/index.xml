@@ -37,29 +37,7 @@ D:\coding\Resume\Resumes&gt;gulp -v
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>页面的背景音乐加载很慢</title><link>https://lewky.cn/posts/eee6409f.html/</link><pubDate>Wed, 19 Dec 2018 22:35:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eee6409f.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>由于我在页面中使用了<code>&lt;audio&gt;</code>标签来播放一首背景音乐，该音频是一首大小为2.7MB的MP3文件。在第一次加载该页面时，需要花费相当长的一段时间去加载音频。</p>]]></description></item><item><title>Markdown - 常用语法指南</title><link>https://lewky.cn/posts/ff65a37e.html/</link><pubDate>Wed, 12 Dec 2018 22:15:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ff65a37e.html/</guid><description><![CDATA[<h2 id="如何使用上标下标">如何使用上标、下标</h2>
-<p>Markdown可以和HTML的语法兼容，可以通过HTML的上标和下标标签来实现效果：</p>
-<table>
-<thead>
-<tr>
-<th>标签</th>
-<th>写法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>上标</td>
-<td><code>2&lt;sup&gt;10&lt;/sup&gt;</code></td>
-<td>2<sup>10</sup></td>
-</tr>
-<tr>
-<td>下标</td>
-<td><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></td>
-<td>H<sub>2</sub>O</td>
-</tr>
-</tbody>
-</table>]]></description></item><item><title>css - 单词的自动换行问题</title><link>https://lewky.cn/posts/4d6b513d.html/</link><pubDate>Sun, 02 Sep 2018 22:49:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4d6b513d.html/</guid><description><![CDATA[<p>转载自：<a href="https://blog.csdn.net/u011565547/article/details/77198026" target="_blank" rel="noopener noreffer">解决文档中有url链接时被强制换行的问题</a></p>
+<p>由于我在页面中使用了<code>&lt;audio&gt;</code>标签来播放一首背景音乐，该音频是一首大小为2.7MB的MP3文件。在第一次加载该页面时，需要花费相当长的一段时间去加载音频。</p>]]></description></item><item><title>css - 单词的自动换行问题</title><link>https://lewky.cn/posts/4d6b513d.html/</link><pubDate>Sun, 02 Sep 2018 22:49:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4d6b513d.html/</guid><description><![CDATA[<p>转载自：<a href="https://blog.csdn.net/u011565547/article/details/77198026" target="_blank" rel="noopener noreffer">解决文档中有url链接时被强制换行的问题</a></p>
 <h2 id="问题">问题</h2>
 <p>当行内出现很长的英文单词或者url的时候，会出现自动换行的问题，为了美化页面，往往会希望这些很长的英文单词或者url能够断开来，超出的部分换行到下一行。</p>
 <h2 id="解决方案">解决方案</h2>

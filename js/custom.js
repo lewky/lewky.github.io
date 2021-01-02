@@ -109,7 +109,7 @@ $(function() {
 
 /* 首页头像div加载GitHub Chart作为背景图片 */
 $(function() {
-	$("div.home-avatar").attr('style', "background: url(https://ghchart.rshah.org/FFA500/lewky?t=" + getCurrentDateString() + ");background-repeat: no-repeat;background-position: center;background-size: auto 7.5rem;");
+	$("div.home-avatar").attr('style', "background: url(https://ghchart.rshah.org/FFA500/lewky);background-repeat: no-repeat;background-position: center;background-size: auto 7.5rem;");
 });
 
 function getCurrentDateString() {

@@ -1,0 +1,1109 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hexo系列(2) - NexT主题美化与博客功能增强 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Hexo系列(2) - NexT主题美化与博客功能增强"><meta property="og:description" content="前言
+网上有不少相关的帖子，不过版本会比较旧，而不同版本可能存在代码不同的问题，不过大部分还是大同小异，本系列就不啰嗦重复了，基本只会按照本人所使用的版本以及个人所使用到的内容来进行介绍。
+该系列是对我所使用的Next主题进行个性化定制，涉及到js和css等的修改，还有各种插件的使用，包括使用过程中的一些踩坑记录；另外也会对Next主题进行一些写作技巧的介绍与运用，希望能对大家有所帮助。有疑问的朋友可以给我留言，我会尽可能回复O(∩_∩)O。"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/hexo-2.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2018-07-11T23:37:24+08:00"><meta property="article:modified_time" content="2018-07-11T23:37:24+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hexo系列(2) - NexT主题美化与博客功能增强"><meta name=twitter:description content="前言
+网上有不少相关的帖子，不过版本会比较旧，而不同版本可能存在代码不同的问题，不过大部分还是大同小异，本系列就不啰嗦重复了，基本只会按照本人所使用的版本以及个人所使用到的内容来进行介绍。
+该系列是对我所使用的Next主题进行个性化定制，涉及到js和css等的修改，还有各种插件的使用，包括使用过程中的一些踩坑记录；另外也会对Next主题进行一些写作技巧的介绍与运用，希望能对大家有所帮助。有疑问的朋友可以给我留言，我会尽可能回复O(∩_∩)O。"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=https://lewky.cn/posts/hexo-2.html/><link rel=prev href=https://lewky.cn/posts/71bd19d3.html/><link rel=next href=https://lewky.cn/posts/hexo-3.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hexo系列(2) - NexT主题美化与博客功能增强","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hexo-2.html\/"},"genre":"posts","keywords":"Hexo, NexT主题, 主题美化, 功能增强","wordcount":14041,"url":"https:\/\/lewky.cn\/posts\/hexo-2.html\/","datePublished":"2018-07-11T23:37:24+08:00","dateModified":"2018-07-11T23:37:24+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub </a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=https://github.com/lewky rel="noopener noreffer" target=_blank><i class="fab fa-fw fa-github"></i>GitHub</a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hexo系列(2) - NexT主题美化与博客功能增强</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hexo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hexo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2018-07-11>2018-07-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 14041 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 29 分钟&nbsp;<span id=/posts/hexo-2.html/ class=leancloud_visitors data-flag-title="Hexo系列(2) - NexT主题美化与博客功能增强">
+<i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+</span>&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#关于配置文件>关于配置文件</a></li><li><a href=#准备工作添加美化博客的相关文件>准备工作：添加美化博客的相关文件</a><ol><li><a href=#添加-custom-footswig-文件>添加 custom-foot.swig 文件</a></li><li><a href=#添加-customjs-文件>添加 custom.js 文件</a></li></ol></li><li><a href=#改变页面的字体大小>改变页面的字体大小</a></li><li><a href=#文章启用tags和categories>文章启用tags和categories</a></li><li><a href=#去掉图片边框>去掉图片边框</a></li><li><a href=#修改语法高亮的主题>修改语法高亮的主题</a></li><li><a href=#指定markdown的解析器>指定<code>Markdown</code>的解析器</a></li><li><a href=#添加背景图片轮播>添加背景图片轮播</a><ol><li><a href=#动态背景图片插件jquery-backstretch>动态背景图片插件<code>jquery-backstretch</code></a></li><li><a href=#引入该插件的cdn>引入该插件的cdn</a></li><li><a href=#调用backstretch函数>调用<code>backstretch</code>函数</a></li><li><a href=#为背景图片设置样式>为背景图片设置样式</a></li></ol></li><li><a href=#添加github彩带和github-corner>添加GitHub彩带和GitHub Corner</a><ol><li><a href=#页面右上角添加github彩带>页面右上角添加GitHub彩带</a></li><li><a href=#页面右上角添加github-corner>页面右上角添加GitHub Corner</a></li></ol></li><li><a href=#站点首页不显示文章全文>站点首页不显示文章全文</a><ol><li><a href=#文章摘要设置>文章摘要设置</a></li><li><a href=#其他的文章配置>其他的文章配置</a></li></ol></li><li><a href=#使用hexo-neat插件压缩页面静态资源>使用hexo-neat插件压缩页面静态资源</a><ol><li><a href=#为什么要压缩页面静态资源>为什么要压缩页面静态资源</a></li><li><a href=#hexo的压缩静态资源插件>hexo的压缩静态资源插件</a></li><li><a href=#如何使用hexo-neat>如何使用hexo-neat</a></li></ol></li><li><a href=#将博客同时部署到github和coding>将博客同时部署到Github和Coding</a><ol><li><a href=#修改站点配置文件>修改站点配置文件</a></li><li><a href=#在-github-和-codingnet-上各自创建一个仓库>在 Github 和 Coding.net 上各自创建一个仓库</a></li><li><a href=#创建rsa密钥对>创建RSA密钥对</a></li><li><a href=#github-配置-ssh-key>Github 配置 SSH key</a></li><li><a href=#codingnet-配置-ssh-key>Coding.net 配置 SSH key</a></li><li><a href=#验证-ssh-连接>验证 SSH 连接</a></li></ol></li><li><a href=#添加评论系统>添加评论系统</a><ol><li><a href=#gitment的优缺点>Gitment的优缺点</a></li><li><a href=#安装模块>安装模块</a></li><li><a href=#申请应用id与密钥>申请应用ID与密钥</a></li><li><a href=#在主题配置文件中启用>在主题配置文件中启用</a></li><li><a href=#初始化gitment>初始化Gitment</a></li><li><a href=#gitment踩坑记录>Gitment踩坑记录</a></li><li><a href=#另一个评论系统来必力livere的使用>另一个评论系统：来必力livere的使用</a></li></ol></li><li><a href=#如何令文章目录显示序号>如何令文章目录显示序号</a><ol><li><a href=#全局生效>全局生效</a></li><li><a href=#对具体某篇文章生效>对具体某篇文章生效</a></li></ol></li><li><a href=#网页标题崩溃特效>网页标题崩溃特效</a></li><li><a href=#对文章进行加密>对文章进行加密</a><ol><li><a href=#添加javascript代码>添加JavaScript代码</a></li><li><a href=#给某篇文章设置密码>给某篇文章设置密码</a></li></ol></li><li><a href=#启用搜索功能>启用搜索功能</a><ol><li><a href=#安装搜索插件>安装搜索插件</a></li><li><a href=#修改配置文件>修改配置文件</a></li></ol></li><li><a href=#让所有的文章链接在新窗口打开>让所有的文章链接在新窗口打开</a></li><li><a href=#使用fontawesome-5>使用FontAwesome 5</a><ol><li><a href=#方式一直接修改主题配置文件>方式一：直接修改主题配置文件</a></li><li><a href=#方式二修改页面头文件的模板>方式二：修改页面头文件的模板</a></li></ol></li><li><a href=#添加文章置顶功能>添加文章置顶功能</a><ol><li><a href=#安装插件及其使用方法>安装插件及其使用方法</a></li><li><a href=#在文章标题下方添加置顶样式>在文章标题下方添加置顶样式</a></li></ol></li><li><a href=#文章启用字数统计阅读时长>文章启用字数统计、阅读时长</a><ol><li><a href=#安装-wordcount-插件>安装 wordcount 插件</a></li><li><a href=#在主题配置文件启用该插件>在主题配置文件启用该插件</a></li><li><a href=#自定义字数计数的显示样式>自定义字数计数的显示样式</a></li></ol></li><li><a href=#修改行内代码块的样式>修改行内代码块的样式</a></li><li><a href=#修改文章内的超链样式>修改文章内的超链样式</a></li><li><a href=#修改永久链接的默认格式>修改永久链接的默认格式</a><ol><li><a href=#安装插件>安装插件</a></li><li><a href=#修改站点配置文件-1>修改站点配置文件</a></li></ol></li><li><a href=#参考链接以及一些写得很齐全的文章推荐>参考链接以及一些写得很齐全的文章推荐</a></li></ol></nav></div></div><div class=content id=content><h2 id=前言>前言</h2><p>网上有不少相关的帖子，不过版本会比较旧，而不同版本可能存在代码不同的问题，不过大部分还是大同小异，本系列就不啰嗦重复了，基本只会按照本人所使用的版本以及个人所使用到的内容来进行介绍。</p><p>该系列是对我所使用的Next主题进行个性化定制，涉及到js和css等的修改，还有各种插件的使用，包括使用过程中的一些踩坑记录；另外也会对Next主题进行一些写作技巧的介绍与运用，希望能对大家有所帮助。有疑问的朋友可以给我留言，我会尽可能回复<code>O(∩_∩)O</code>。</p><p>我所使用的Hexo和NexT的版本如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo: 3.7.1
+next: 5.1.4
+</code></pre></td></tr></table></div></div><h2 id=关于配置文件>关于配置文件</h2><p>对于使用了Next主题的Hexo静态博客，存在着两个至关重要的配置文件<code>_config.yml</code>。在本系列中，统一将位于站点根目录下的该文件称为<code>站点配置文件</code>，将位于<code>themes\next</code>目录下的该文件称为<code>主题配置文件</code>。</p><h2 id=准备工作添加美化博客的相关文件>准备工作：添加美化博客的相关文件</h2><p>本系列会使用到大量的css与JavaScript的相关内容，为了更有效率与可观赏性的美化博客，我们将这些美化相关的东西都尽可能地写到一类文件中，方便日后查询与修改。譬如下边的几个文件里，就存放了博客的大部分美化内容：</p><ol><li>themes/next/source/css/_custom/custom.styl</li><li>themes/next/source/js/src/custom.js</li><li>themes/next/layout/_partials/head/custom-head.swig</li><li>themes/next/layout/_custom/custom-foot.swig</li></ol><p>除了第一个文件<code>custom.styl</code>保存的是css代码，另外三个文件都是保存的js代码。这几个文件分别会在页面的以下位置中被引入：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+    ....
+    {{ custom.styl }}  //css
+    ....
+    {{ custom-head.swig }}  //js
+    ....
+  <span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+    ....
+    ....
+    {{ custom-foot.swig }}  //js
+    {{ custom.js }}  //js
+  <span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>这里的<code>custom.styl</code>，<code>custom-head.swig</code>是原本的NexT主题自带的，另外两个是我自己添加的，之所以又添加了另外两个js文件，是因为在页面的不同地方引入js文件会对页面产生不一样的效果与影响。</p><h3 id=添加-custom-footswig-文件>添加 custom-foot.swig 文件</h3><p>在<code>themes/next/layout/_custom/</code>目录下添加<code>custom-foot.swig</code>文件，该文件内容如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>{#
+Custom foot in body, Can add script here.
+#}
+<span class=c>&lt;!-- 自定义的js文件 --&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/javascript&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/js/src/custom.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>接着修改<code>themes\next\layout\_layout.swig</code>，在body标签的闭合标签前添加一行代码，表示将我们新添加的<code>custom-foot.swig</code>文件包括进去：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+  ....
+
+  {% include &#39;_custom/custom-foot.swig&#39; %}
+<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>这个文件的作用是负责引入我们想要的js文件，比如其他第三方js的cdn等等。因为页面在引入js文件时是阻塞式的，如果我们在页面的最开始就引入这些js文件，而这些文件又比较大，会造成页面在渲染时长时间处于白屏状态。</p><h3 id=添加-customjs-文件>添加 custom.js 文件</h3><p>在<code>themes/next/source/js/src</code>目录下添加<code>custom.js</code>文件，该文件用来存放我们自己写的js函数等等，需要注意的是，我们之前是在<code>custom-foot.swig</code>文件中的script标签里引入了该文件，也就是说，在该文件里，我们不能再自己添加script标签了，直接书写js函数就行了，如下所示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>/* 返回随机颜色 */
+function randomColor() {
+	return &#34;rgb(&#34;+~~(255*Math.random())+&#34;,&#34;+~~(255*Math.random())+&#34;,&#34;+~~(255*Math.random())+&#34;)&#34;;
+}
+</code></pre></td></tr></table></div></div><h2 id=改变页面的字体大小>改变页面的字体大小</h2><p>打开 <code>themes\next\source\css\_variables\base.styl</code>，该文件保存了一些基础变量的值，我们找到<code>$font-size-base</code>，将值改为<code>16px</code>。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>// Font size
+$font-size-base           = 16px
+</code></pre></td></tr></table></div></div><p>这个文件里定义了很多常量，有兴趣的可以自己去琢磨琢磨，修改一些其他的变量。</p><h2 id=文章启用tags和categories>文章启用tags和categories</h2><p>可能是该版本的NexT主题的关系，在我第一次使用NexT主题时，折腾了很久都没办法让菜单栏里的tags和categories的页面生效，一直显示白屏。后来终于在知乎找到答案，首先我们需要将某篇文章设置tags和categories，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>---
+title: Test
+tags:
+  - MyTag
+categories:
+  - MyCategory
+date: 20xx-xx-xx xx:xx:xx
+---
+</code></pre></td></tr></table></div></div><p>接下来是重点了，首先确定是否已经在主题配置文件中启用了tags和categories这两个菜单，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>menu:
+  home: / || fas fa-home
+  archives: /archives/ || fas fa-archive
+  categories: /categories/ || fas fa-th
+  tags: /tags/ || fas fa-tags
+</code></pre></td></tr></table></div></div><p>接着确定是否在source目录下是否已经存在tags和categories这两个文件夹，如果不存在需要运行下边的命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo n page tags
+hexo n page categories
+</code></pre></td></tr></table></div></div><p>运行之后会在source目录下生成对应的两个文件夹，在文件夹下会存在一个index.md文件，打开这两个index.md文件，分别添加<code>type: tags</code>和<code>type: categories</code>，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>---
+title: 标签
+date: 20xx-xx-xx xx:xx:xx
+type: tags
+---
+</code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>---
+title: 分类
+date: 20xx-xx-xx xx:xx:xx
+type: categories
+---
+</code></pre></td></tr></table></div></div><p>接下来重新使用本地调试三连，就可以看到tags和categories这两个菜单的页面显示正常了。</p><h2 id=去掉图片边框>去掉图片边框</h2><p>NexT主题默认会有图片边框，不太好看，我们可以把边框去掉。打开 <code>themes\next\source\css\_custom\custom.styl</code>，添加如下CSS代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-css data-lang=css><span class=c>/* 去掉图片边框 */</span>
+<span class=p>.</span><span class=nc>posts-expand</span> <span class=p>.</span><span class=nc>post-body</span> <span class=nt>img</span> <span class=p>{</span>
+    <span class=k>border</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>0</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>.</span><span class=nc>post-gallery</span> <span class=p>.</span><span class=nc>post-gallery-img</span> <span class=nt>img</span> <span class=p>{</span>
+    <span class=k>padding</span><span class=p>:</span> <span class=mi>3</span><span class=kt>px</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=修改语法高亮的主题>修改语法高亮的主题</h2><p>语法高亮就是在引入代码时让代码呈现特定的样式，而在Markdown文件中语法高亮的使用方法是在引入代码的前一行添加三个反引号加上使用的语言名字，然后在引入代码的下一行使用三个反引号结尾。</p><p>如下所示的格式，就表示html代码的语法高亮：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>h2</span><span class=p>&gt;</span>Hello World!<span class=p>&lt;/</span><span class=nt>h2</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>其源码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>h2</span><span class=p>&gt;</span>Hello World!<span class=p>&lt;/</span><span class=nt>h2</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>由于NexT默认的语法高亮的主题比较一般，我们可以换成其他的主题，比如我所使用的就是黑色的主题。</p><p>打开主题配置文件，修改如下配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># 语法高亮主题
+# Code Highlight theme
+# Available value:
+#    normal | night | night eighties | night blue | night bright
+# https://github.com/chriskempson/tomorrow-theme
+highlight_theme: night eighties
+</code></pre></td></tr></table></div></div><h2 id=指定markdown的解析器>指定<code>Markdown</code>的解析器</h2><p>上边我们设置了语法高亮后，虽然在本地调试没有问题，然而当我们将博客部署到<code>GitHub Pages</code>和 <code>Coding Pages</code>后却发现，前者的页面不支持语法高亮，而后者支持。百度后才知道原来是因为 GitHub 默认使用的 Markdown 解析器不支持语法高亮，解决方法如下：</p><p>打开站点配置文件<code>_config.yml</code>，在末尾添加如下内容：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>markdown: redcarpet
+redcarpet:
+    extensions: [&#34;fenced_code_blocks&#34;, &#34;autolink&#34;, &#34;tables&#34;, &#34;strikethrough&#34;]
+</code></pre></td></tr></table></div></div><p>接下来重新执行部署三连命令，就会发现 <code>GitHub Pages</code> 上部署的页面语法高亮显示成功了。</p><h2 id=添加背景图片轮播>添加背景图片轮播</h2><h3 id=动态背景图片插件jquery-backstretch>动态背景图片插件<code>jquery-backstretch</code></h3><p><code>jquery-backstretch</code>是一款简单的jQuery插件，可以用来设置动态的背景图片，以下是官方网站的介绍。</p><blockquote><p>A simple jQuery plugin that allows you to add a dynamically-resized, slideshow-capable background image to any page or element.</p></blockquote><p>可以直接在页面中引入该插件的cdn来调用函数，也可以直接下载下来使用，这是<a href=https://www.bootcdn.cn/jquery-backstretch/>官方地址</a>。</p><p>鉴于cdn的地址偶尔发发生改变，这里提供该插件的GitHub仓库地址：https://github.com/jquery-backstretch/jquery-backstretch</p><p>如果本文提及的cdn地址不正确，可能是发生了迁移，建议自行百度最新的cdn地址。</p><p>下面是jquery-backstretch的使用方法。</p><h3 id=引入该插件的cdn>引入该插件的cdn</h3><p>打开<code>themes\next\layout\_custom\custom-foot.swig</code>，引入该背景图片插件的cdn：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>{#
+Custom foot in body, Can add script here.
+#}
+<span class=c>&lt;!-- 图片轮播js文件cdn --&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+
+<span class=c>&lt;!-- 自定义的js文件 --&gt;</span>
+<span class=p>&lt;</span><span class=nt>script</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/javascript&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/js/src/custom.js&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>需要注意的是，我们要引入的插件cdn，都需要在自定义的js文件<code>custom.js</code>之前引入才行！否则，插件会在访问页面时无法生效，可以在浏览器的控制台看到报错。</p><h3 id=调用backstretch函数>调用<code>backstretch</code>函数</h3><p>在<code>themes\next\source\js\src\custom.js</code>中添加如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>/* 轮播背景图片 */
+$(function () {
+	$.backstretch([  
+		  &#34;/images/background/saber1.jpg&#34;,
+		  &#34;/images/background/saber2.jpg&#34;,
+		  &#34;/images/background/bg1.jpg&#34;
+	], { duration: 60000, fade: 1500 });  
+});
+</code></pre></td></tr></table></div></div><p>这里可以随意添加你想要轮播的图片，但要确保图片路径是正确的，比如我的背景图片就存放在站点根目录下的<code>images/background/</code>目录下。</p><p>然后<code>duration</code>指的是轮换图片的时间，单位是毫秒，也就是说这里的代码表示一分钟就轮换到下一张图片；</p><p><code>fade</code>指的是轮换图片时会有个渐进渐出的动作，而这个过程需要花费的时间单位也是毫秒，如果不加上这个参数，就表示离开轮换成下一张图片。</p><p>注意这里的<code>$.backstretch</code>指的是对整个页面设置背景图片，我们也可以专门给某个元素设置背景图片，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>$(function () {
+	$(&#34;.saber1&#34;).backstretch([&#34;/images/background/saber1.jpg&#34;]);  
+	$(&#34;.saber2&#34;).backstretch([&#34;/images/background/saber2.jpg&#34;]);  
+});
+</code></pre></td></tr></table></div></div><p>如果只有一张图片，就没必要设置<code>duration</code>和<code>fade</code>参数了。</p><h3 id=为背景图片设置样式>为背景图片设置样式</h3><p>虽然我们设置好了背景图片，但如果页面的许多元素是不透明的，背景图片可能并不能很好地被看见，所以我们可以对背景图片和其他的页面元素进行设置样式。</p><p>首先为背景图片设置透明度，因为有的图片颜色比较深厚，而页面多为白色，然后造成喧宾夺主的感觉。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-css data-lang=css><span class=c>/* 背景图片透明度 */</span>
+<span class=p>.</span><span class=nc>backstretch</span> <span class=p>{</span>
+    <span class=k>opacity</span><span class=p>:</span> <span class=mf>.75</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>接下来设置页面元素透明度，需要注意的是，如果我们在主题配置文件中启用了搜索功能，那么就不能简单粗暴地直接将整个页面都设置透明度，这会导致搜索框失效，无法正常使用。原因是因为搜索框是通过jQuery临时添加的，如果整个页面都设置了透明度，会导致搜索框的<code>z-index</code>失效而无法触发点击事件。</p><p>我在折腾了一段时间后，终于想到了个取巧的方法，那就是将搜索框的父元素设置为白色透明的，而其他页面元素则直接设置透明度，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-css data-lang=css><span class=c>/* 页面透明度 */</span>
+<span class=p>.</span><span class=nc>content-wrap</span><span class=o>,</span> <span class=p>.</span><span class=nc>sidebar</span> <span class=p>{</span>
+    <span class=k>opacity</span><span class=p>:</span> <span class=mf>.9</span> <span class=cp>!important</span><span class=p>;</span>
+<span class=p>}</span>
+<span class=p>.</span><span class=nc>header-inner</span> <span class=p>{</span>
+    <span class=k>background</span><span class=p>:</span> <span class=nb>rgba</span><span class=p>(</span><span class=mi>255</span><span class=p>,</span> <span class=mi>255</span><span class=p>,</span> <span class=mi>255</span><span class=p>,</span> <span class=mf>0.9</span><span class=p>)</span> <span class=cp>!important</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=添加github彩带和github-corner>添加GitHub彩带和GitHub Corner</h2><h3 id=页面右上角添加github彩带>页面右上角添加GitHub彩带</h3><p>你可以在<a href=https://github.com/blog/273-github-ribbons target=_blank>这里</a>找到一共12种样式的GitHub彩带，复制其中的超链代码。</p><p>在<code>themes\next\layout\_layout.swig</code>目录下找到头部彩带相关的代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;headband&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>在这里的div标签内部添加我们刚刚复制的超链代码，并修改超链指向你的GitHub地址：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;headband&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://github.com/lewky&#34;</span><span class=p>&gt;&lt;</span><span class=nt>img</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;position: absolute; top: 0; right: 0; border: 0;&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png&#34;</span> <span class=na>alt</span><span class=o>=</span><span class=s>&#34;Fork me on GitHub&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>当然我本人并不是很推荐用这种方法，因为这个超链使用的图片有时候会加载很久，最后图片还是挂掉了，我是直接将图片保存到站点的images目录下，然后直接使用自己站点的图片，这样可以避免加载过久甚至图片挂掉的情况。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;headband&#34;</span><span class=p>&gt;</span>
+	<span class=p>&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://github.com/lewky&#34;</span> <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span><span class=p>&gt;&lt;</span><span class=nt>img</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;position: absolute; top: 0; right: 0; border: 0;&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>&#34;/images/headband/forkme_right_red.png&#34;</span> <span class=na>alt</span><span class=o>=</span><span class=s>&#34;Fork me on GitHub&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>我只找到了10张彩带图片，可以直接在我的<a href=https://github.com/lewky/lewky.github.io/tree/dev/source/images/headband target=_blank>GitHub项目</a>中找到这些图片并复制到自己的站点上。</p><h3 id=页面右上角添加github-corner>页面右上角添加GitHub Corner</h3><p>这是我后来在其他博客中见到的，可能是6.x.x版本的NexT主题自带的，由于我使用的主题版本较低，只能自己添加了。</p><p>还是在<code>themes\next\layout\_layout.swig</code>目录下，找到如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>header</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;header&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;header&#34;</span> <span class=na>itemscope</span> <span class=na>itemtype</span><span class=o>=</span><span class=s>&#34;http://schema.org/WPHeader&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;header-inner&#34;</span><span class=p>&gt;</span> {%- include &#39;_partials/header.swig&#39; %} <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>header</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>我们在这个header标签的下边，添加一个超链代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://github.com/lewky&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;github-corner&#34;</span> <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span> <span class=na>title</span><span class=o>=</span><span class=s>&#34;Follow me on GitHub&#34;</span> <span class=na>aria-label</span><span class=o>=</span><span class=s>&#34;Follow me on GitHub&#34;</span><span class=p>&gt;</span>
+      <span class=p>&lt;</span><span class=nt>svg</span> <span class=na>width</span><span class=o>=</span><span class=s>&#34;80&#34;</span> <span class=na>height</span><span class=o>=</span><span class=s>&#34;80&#34;</span> <span class=na>viewBox</span><span class=o>=</span><span class=s>&#34;0 0 250 250&#34;</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;&#34;</span> <span class=na>aria-hidden</span><span class=o>=</span><span class=s>&#34;true&#34;</span><span class=p>&gt;</span>
+        <span class=p>&lt;</span><span class=nt>path</span> <span class=na>d</span><span class=o>=</span><span class=s>&#34;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>path</span><span class=p>&gt;&lt;</span><span class=nt>path</span> <span class=na>d</span><span class=o>=</span><span class=s>&#34;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&#34;</span> <span class=na>fill</span><span class=o>=</span><span class=s>&#34;currentColor&#34;</span> <span class=na>style</span><span class=o>=</span><span class=s>&#34;transform-origin: 130px 106px;&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;octo-arm&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>path</span><span class=p>&gt;</span>
+	<span class=p>&lt;</span><span class=nt>path</span> <span class=na>d</span><span class=o>=</span><span class=s>&#34;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&#34;</span> <span class=na>fill</span><span class=o>=</span><span class=s>&#34;currentColor&#34;</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;octo-body&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>path</span><span class=p>&gt;</span>
+      <span class=p>&lt;/</span><span class=nt>svg</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>将上边的超链的href改为自己的GitHub地址，然后我们需要修改这个超链的样式，在上文中提及的<code>themes/next/source/css/_custom/custom.styl</code>里添加如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>/* GitHub Cornor */
+.github-corner :hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+@media (max-width: 991px) {
+  .github-corner &gt;svg {
+    fill: #fff !important;
+    color: #222 !important;
+  }
+  .github-corner .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+@-moz-keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+@-webkit-keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+@-o-keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  20%, 60% {
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    -ms-transform: rotate(10deg);
+    -o-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+</code></pre></td></tr></table></div></div><p>这段长长的css代码是令这个GitHub Corner能够呈现出响应式的效果，当你缩放页面的时候，你会发现页面右上角的GitHub的吉祥物——章鱼猫(Octocat)会随着页面的大小变化而变化！</p><p>此外，当我们将鼠标移动到GitHub Corner的上方时，章鱼猫的手臂还会摆动一下哦~</p><p>下边是GitHub Corner的项目地址，一共有10种颜色样式，任君选择！</p><ul><li><a href=http://tholman.com/github-corners/ target=_blank rel="noopener noreffer">GitHub Corners项目地址</a></li></ul><h2 id=站点首页不显示文章全文>站点首页不显示文章全文</h2><h3 id=文章摘要设置>文章摘要设置</h3><p>打开主题配置文件 _config.yml 文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Automatically Excerpt. Not recommend.
+# Please use <span class=c>&lt;!-- more --&gt;</span> in the post to control excerpt accurately.
+auto_excerpt:
+  enable: false
+  length: 150
+</code></pre></td></tr></table></div></div><p>把这里的false改为true就可以了在首页启动显示文章预览了，length是显示预览的长度。</p><p>这里我们可以通过在文章使用<code>&lt;!-- more --></code>标志来精确控制文章的摘要预览，比如这篇文章就是在这个段落的末尾添加了该标志，所以本文在首页的预览就会显示到这个段落为止。</p><p>强烈推荐使用该<code>&lt;!-- more --></code>标志来控制文章的摘要预览，因为这种方式可以让摘要也按照css文件中的样式来渲染。如果使用了自动摘要的功能，你会发现文章摘要是一大团没有样式的文本，很是难看。</p><h3 id=其他的文章配置>其他的文章配置</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># ---------------------------------------------------------------
+# Post Settings
+# ---------------------------------------------------------------
+
+# Automatically scroll page to section which is under <span class=c>&lt;!-- more --&gt;</span> mark.
+# 自动将页面滚动到<span class=c>&lt;!-- more --&gt;</span>标记下的地方。
+scroll_to_more: false
+
+# Automatically saving scroll position on each post/page in cookies.
+# 自动保存每篇文章或页面上一次滚动的地方。
+save_scroll: false
+
+# Automatically excerpt description in homepage as preamble text.
+# 自动在首页对文章进行摘要描述作为前言文本。
+excerpt_description: true
+
+# Automatically Excerpt. Not recommend.
+# Please use <span class=c>&lt;!-- more --&gt;</span> in the post to control excerpt accurately.
+# 不推荐使用自动摘要。
+# 请在文章中使用<span class=c>&lt;!-- more --&gt;</span>标志来精确控制摘要长度。
+auto_excerpt:
+  enable: true
+  length: 200
+
+# Post meta display settings
+# 文章元数据展示设置
+post_meta:
+  # 文本显示
+  item_text: true
+  # 创建时间
+  created_at: true
+  # 更新时间
+  # 这个更新时间有点问题，因为每次重新生成文章/部署时都会刷新更新时间，不建议使用
+  updated_at: false
+  # 目录分类
+  categories: true
+
+# Post wordcount display settings
+# Dependencies: https://github.com/willin/hexo-wordcount
+# 文章字数展示设置
+post_wordcount:
+  # 文本显示
+  item_text: true
+  # 文章字数统计
+  wordcount: true
+  # 阅读时长
+  min2read: true
+  # 站点总字数统计
+  totalcount: true
+  # 该post_wordcount的所有设置另起一行显示
+  separated_meta: true
+</code></pre></td></tr></table></div></div><h2 id=使用hexo-neat插件压缩页面静态资源>使用hexo-neat插件压缩页面静态资源</h2><h3 id=为什么要压缩页面静态资源>为什么要压缩页面静态资源</h3><p>对于个人博客来说，优化页面的访问速度是很有必要的，如果打开你的个人站点，加载个首页就要十几秒，页面长时间处于空白状态，想必没什么人能够忍受得了吧。我个人觉得，如果能把页面的加载时间控制在三四秒内，就很不错了。</p><p>那么怎么提高hexo这个静态博客的页面加载速度呢？可以从以下的几个方面去入手：</p><ol><li>将js文件尽可能放置到body的闭合标签之前，因为在加载或者引入js文件时是阻塞式的，如果我们在页面的最开始就引入这些js文件，而这些文件又比较大，会造成页面在渲染时长时间处于白屏状态。</li><li>尽量避免去引用访问速度非常低下的cdn或者图片，可以改用访问速度更快的cdn，或者将难以迅速加载的图片保存到自己的站点目录下，以免在加载图片时耗费了大量的时间，最后还加载不出来。</li><li>对页面的静态资源进行压缩，包括css、js和html等文件。我们自己添加的css和js文件为了可读性，往往会有很多换行和空格，这些对于浏览器来说并没什么卵用，甚至还会降低渲染页面的速度。至于html文件，由于Markdown转成html的bug，会导致页面存在大量的空白，如果你查看下页面的源代码，就会发现这些大量的空白符，十分难看。这也会造成页面渲染的性能问题。</li></ol><h3 id=hexo的压缩静态资源插件>hexo的压缩静态资源插件</h3><p>网上有很多相关的博文，常规的做法是使用<code>gulp</code>来进行压缩，<code>gulp</code>是<code>Node.js</code>下的自动构建工具，通过一列的task执行步骤进行自动流程化处理。</p><p>使用这种方法会比较麻烦，每次压缩时还需要输入额外的命令，比较繁琐，个人不是很喜欢，有兴趣的可以去自己了解下<a href=https://segmentfault.com/a/1190000009544924#articleHeader8 target=_blank rel="noopener noreffer">相关的东西</a>。这篇教程里很多详细的说明，里边有说到gulp的使用，绝对的精品文章。</p><p>这里我选择的是由rozbo大佬开发的<code>hexo-neat</code>压缩插件，配置简单，无需额外命令，你只要使用原本的调试三连或者部署三连就可以自动帮你完成静态资源的压缩！</p><h3 id=如何使用hexo-neat>如何使用hexo-neat</h3><p>首先在站点根目录下安装hexo-neat，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>npm install hexo-neat --save
+</code></pre></td></tr></table></div></div><p>接着为站点配置文件添加相关配置，下边是我自己站点的相关配置，直接添加到站点配置文件<code>_config.yml</code>的末尾就可以。可以安装自己的需求去自定义配置，不过有些注意事项，可以参考我后文的踩坑记录。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># hexo-neat
+# 博文压缩
+neat_enable: true
+# 压缩html
+neat_html:
+  enable: true
+  exclude:
+# 压缩css  
+neat_css:
+  enable: true
+  exclude:
+    - &#39;**/*.min.css&#39;
+# 压缩js
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - &#39;**/*.min.js&#39;
+    - &#39;**/jquery.fancybox.pack.js&#39;
+    - &#39;**/index.js&#39;  
+</code></pre></td></tr></table></div></div><h2 id=将博客同时部署到github和coding>将博客同时部署到Github和Coding</h2><p>由于本人只是将Hexo博客同时部署到 Github 和 Coding.net ，所以这里只介绍怎么同时部署到这两个网站的pages。<br>之所以选择这两个网站，是因为国外用户可以访问 Github，而国内用户可以访问 Coding.net。另外，Coding.net可以拥有自己的私人仓库。</p><h3 id=修改站点配置文件>修改站点配置文件</h3><p>在站点根目录下找到 <code>_config.yml</code>文件，将里边的deploy节点修改成下边的形式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo:
+    github: git@github.com:{username}/{repository}.git,master
+    coding: git@git.coding.net:{username}/{repository}.git,master
+</code></pre></td></tr></table></div></div><p>将上边的仓库url的{username}/{repository}改成自己的项目地址，这里使用的是SSH协议的Git仓库地址，即：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>git@{domain}:{username}/{repository}.git
+</code></pre></td></tr></table></div></div><p>还有一种是HTTPS协议的Git仓库地址，即：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>https://{domain}/{username}/{repository}.git
+</code></pre></td></tr></table></div></div><p>一般推荐使用SSH协议的地址，因为可以免去每次push都要输入账号密码的繁琐，而且也够安全。</p><h3 id=在-github-和-codingnet-上各自创建一个仓库>在 Github 和 Coding.net 上各自创建一个仓库</h3><p>如果我们只是将项目部署到某一个代码托管站点而已，那么该项目仓库的名字可以随便起；但是现在我们需要将项目同时部署到 Github 和 Coding.net 上，那就不能随意命名了。</p><p>我们需要采用特定的命名方式，才能正确将Hexo博客同时部署到这两个站点上；否则很可能会导致只有博客的主页能访问到，而其他的路径全部失效。</p><p>不同Pages服务对仓库的命名要求可能不同。对于 Coding.net，你可以选择建立一个私人仓库来部署自己的Hexo博客，不过和 Github 不同的地方在于：</p><p>Github 的仓库名要命名为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>{username}.github.io
+</code></pre></td></tr></table></div></div><p>而 Coding.net 的仓库名要命名为：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>{username}
+</code></pre></td></tr></table></div></div><p>这里的 username 指的是你在这两个网站上的用户名，只有以这种命名形式的仓库，才能够不通过子域名的形式来访问我们的博客。</p><p>比如说，我的 Github 和Coding.net 的账号都是lewky，那么在部署博客成功后，我就可以通过下边的url来访问我的Hexo博客：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>https://lewky.github.io/
+https://lewky.coding.me/
+</code></pre></td></tr></table></div></div><p>如果将仓库名命名为其他的形式，比如：hexo-blog，那么要访问该博客，就需要输入下边的url：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>https://lewky.github.io/hexo-blog
+https://lewky.coding.me/hexo-blog
+</code></pre></td></tr></table></div></div><p>这里的仓库名hexo-blog就变成了子域名，于是问题就来了，对于存在子域名的Hexo博客，需要在站点配置文件里配置url节点：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># URL
+## If your site is put in a subdirectory, set url as &#39;http://yoursite.com/child&#39; and root as &#39;/child/&#39;
+url: http://yoursite.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+</code></pre></td></tr></table></div></div><p>如果不配置这里的url节点，会导致除了首页以外的所有页面都请求404；但是我们由于是同时部署在两个网站上，其父域名是不一样的，那么这里的url节点也就只能配置一个而牺牲另一个了；但是如果你有自己的域名，就可以解决这个问题了：直接在这里配置自己的域名就行了。</p><h3 id=创建rsa密钥对>创建RSA密钥对</h3><p>使用 Git Bash 生成RSA密钥对：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
+</code></pre></td></tr></table></div></div><p>看到提示就按一次回车，在连续三次回车后，就表示创建成功了。</p><p>接着将 ~/.ssh 目录下将里边的 id_rsa.pub 文件里的内容复制到剪切板。</p><h3 id=github-配置-ssh-key>Github 配置 SSH key</h3><p>登陆 Github 的账号：</p><ul><li>进入 Settings 页面</li><li>选择 SSH and GPG keys</li><li>点击 New SSH key</li><li>填写 Title（用来给公钥起一个名字，以便和其他的公钥区分开来）</li><li>然后在 Key 里将我们刚刚复制的公钥复制进去</li><li>最后点击 Add SSH key，这时候 GitHub 会要你输入账号密码进行确认。</li></ul><h3 id=codingnet-配置-ssh-key>Coding.net 配置 SSH key</h3><p>Coding.net 和 Github 有些不一样，Coding.net存在账户公钥和部署公钥；</p><ul><li>账户公钥配置后拥有账户下所有项目的读写权限</li><li>部署公钥配置后默认拥有该项目的只读权限，如果需要获取推送权限，需要勾选部署公钥设置里的『授予推送权限』</li></ul><p>登陆 Coding.net 的账号：</p><ul><li>进入个人设置</li><li>选择 SSH 公钥</li><li>选择新增公钥</li><li>填写公钥名称和内容</li><li>添加后输入输入账号密码进行确认</li></ul><h3 id=验证-ssh-连接>验证 SSH 连接</h3><p>使用 Git Bash 输入：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>ssh -T git@github.com
+</code></pre></td></tr></table></div></div><p>第一次连接时会问你是否继续连接，输入 yes 即可；接下来验证 Coding.net 的ssh连接：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>ssh -T git@git.coding.net
+</code></pre></td></tr></table></div></div><p>同样输入 yes 即可。</p><p>如果按照前边说的来配置，这里的 SSH 验证应该都是没问题的。</p><p>接下来只要撰写博文，然后使用命令进行部署就行了：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo clean
+hexo g -d
+</code></pre></td></tr></table></div></div><h2 id=添加评论系统>添加评论系统</h2><p>Hexo的NexT主题本身就集成了一些评论系统，多说啊之类的已经关闭服务的略过不提，目前比较多人用的有畅言、来必力livere、Gitment、Gitalk、Disqus等。</p><p>我刚用的评论系统的时候，网易云跟贴和多说已经gg了，畅言需要备案，Disqus需要FQ，Gitment和Gitalk类似，都需要GitHub账号。经过搜集资料和考虑，我最终还是决定使用Gitment。只是在用了一段时间后，终于还是放弃了Gitment，转而使用来必力livere。</p><h3 id=gitment的优缺点>Gitment的优缺点</h3><p>最初我选择使用Gitment的原因如下：</p><ol><li>Gitment是一个基于GitHub的issue来开发的评论插件，本身很有创意，对于我这种没事看看GitHub的也很有吸引力。</li><li>使用Gitment进行评论需要有GitHub账号，这无形中过滤掉了一些评论者，毕竟不是谁都有GitHub账号的，也不是谁都能登陆上GitHub的。</li><li>GitHub的评论数据存放在GitHub的issue里，基本不用担心数据丢失或者GitHub关闭服务，毕竟GitHub可是全球最大同性交友社区(滑稽)。</li></ol><p>当我美滋滋地享受了Gitment一段时间后，开始发现一些问题：</p><ol><li>GitHub是个神奇的网站，有时候会登陆不上去，这导致我的个人站点加载页面时无法把Gitment加载出来，这使得我的页面长时间处于一片空白的状态，用户体验极差，而且最后页面加载出来了，Gitment评论模块依然没有加载出来。</li><li>我希望我的站点可以不分国界，所以我将站点分别部署到了Coding.net和GitHub上，这样可以国内外都快速访问到站点(这个需要域名才能实现)。由于国内有些地区在有些时段是无法访问到GitHub的，这将导致我的页面长时间假死。</li><li>Gitment的使用太繁琐，每一篇文章都必须先初始化一遍，才能使用评论系统，如果你有一百篇文章，你就需要手动初始化一百次！虽然后来有脚本一键初始化，但还是很麻烦。</li><li>issue的滥用。因为Gitment是建立的issue之上的，当你的文章越来越多，你会发现你的站点仓库里的issue会越来越多，这就不太友好了。</li></ol><p>综上所述，我还是放弃了Gitment，转投了来必力的怀抱。虽然现在没有使用Gitment了，但这里还是记录下使用流程和当初遇到的问题，方便回顾或者大家解决类似的困难。</p><h3 id=安装模块>安装模块</h3><p>使用Gitment需要安装模块：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>npm i --save gitment
+</code></pre></td></tr></table></div></div><h3 id=申请应用id与密钥>申请应用ID与密钥</h3><p>因为Gitment需要GitHub的授权，所以需要先去<a href=https://github.com/settings/applications/new target=_blank rel="noopener noreffer">New OAuth App</a>申请一个密钥，需要填写的内容如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>Application name:随便写
+Homepage URL:这个也可以随意写,就写你的博客地址就行
+Application description:描述,也可以随意写
+Authorization callback URL:这个必须写你的博客地址
+</code></pre></td></tr></table></div></div><p>这里只有最后一个callback必须写准确，申请成功后你可以看到<code>ClientID</code>和<code>Client Secret</code>，这个会被使用到，另外注意不要把这个ID和密钥告诉别人&ndash;</p><h3 id=在主题配置文件中启用>在主题配置文件中启用</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yml data-lang=yml><span class=c># Gitment</span><span class=w>
+</span><span class=w></span><span class=c># Introduction: https://imsun.net/posts/gitment-introduction/</span><span class=w>
+</span><span class=w></span><span class=k>gitment</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=k>enable</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span><span class=w>  </span><span class=k>mint</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w> </span><span class=c># RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway</span><span class=w>
+</span><span class=w>  </span><span class=k>count</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w> </span><span class=c># Show comments count in post meta area</span><span class=w>
+</span><span class=w>  </span><span class=k>lazy</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w> </span><span class=c># Comments lazy loading with a button</span><span class=w>
+</span><span class=w>  </span><span class=k>cleanly</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w> </span><span class=c># Hide &#39;Powered by ...&#39; on footer, and more</span><span class=w>
+</span><span class=w>  </span><span class=k>language</span><span class=p>:</span><span class=w> </span><span class=c># Force language, or auto switch by theme</span><span class=w>
+</span><span class=w>  </span><span class=k>github_user</span><span class=p>:</span><span class=w> </span>{you<span class=w> </span>github<span class=w> </span>user<span class=w> </span>id}<span class=w>
+</span><span class=w>  </span><span class=k>github_repo</span><span class=p>:</span><span class=w> </span>随便写一个你的公开的git仓库就行<span class=p>,</span>到时候评论会作为那个项目的issue<span class=w>
+</span><span class=w>  </span><span class=k>client_id</span><span class=p>:</span><span class=w> </span>{刚才申请的ClientID}<span class=w>
+</span><span class=w>  </span><span class=k>client_secret</span><span class=p>:</span><span class=w> </span>{刚才申请的Client<span class=w> </span>Secret}<span class=w>
+</span><span class=w>  </span><span class=k>proxy_gateway: # Address of api proxy, See</span><span class=p>:</span><span class=w> </span>https<span class=p>:</span>//github.com/aimingoo/intersect<span class=w>
+</span><span class=w>  </span><span class=k>redirect_protocol</span><span class=p>:</span><span class=w> </span><span class=c># Protocol of redirect_uri with force_redirect_protocol when mint enabled</span><span class=w>
+</span></code></pre></td></tr></table></div></div><p>这里的配置，只有<code>github_user</code>，<code>github_repo</code>，<code>client_id</code>，<code>client_secret</code>是必须填准确的，其他的可以不使用。</p><h3 id=初始化gitment>初始化Gitment</h3><p>到这里为止已经全部配置完毕，接下来只需要登陆你的个人站点，然后手动给每篇文章初始化Gitment就行了。初始化也很简单，打开每篇文章，在下方的评论模块那里点一下初始化就行，以后就可以直接评论了。据说由一键初始化所有文章的脚本，我没用过，不清楚。</p><h3 id=gitment踩坑记录>Gitment踩坑记录</h3><p>这里说一下当初折腾了我很久的一个地方，在主题配置文件里有个<code>github_user</code>，这个由于注释写的是<code>Your Github ID</code>，我误以为是要填写的不是用户昵称，而是一串数字id。于是就去了GitHub的api里查看了自己的id，然后填了一串数字进去，之后花费了我几个小时的时间，始终有授权失败的错误，最后终于发现，这个ID其实是要填的用户昵称&mldr;orz</p><p>GitHub的api地址：https://api.github.com/users/xxx
+把这里的xxx随便改成某个用户名，可以拿到对方的json数据，里边有各种用户首页上的数据信息。</p><p>更多Gitment踩坑相关的文章可以参考：<a href=https://www.jianshu.com/p/57afa4844aaa target=_blank rel="noopener noreffer">Gitment评论功能接入踩坑教程</a></p><h3 id=另一个评论系统来必力livere的使用>另一个评论系统：来必力livere的使用</h3><p>来必力的使用就简单多了，直接去官网注册个账号，拿到来必力City版安装代码里的<code>data-uid</code>，把这个uid填写到主题配置文件里的<code>livere_uid</code>后就行，记得id要和前边的冒号之间有一个空格，否则在启用hexo服务的时候会解析出错。</p><p>这样我们的来必力就使用成功了，平时可以去来必力的后台系统查看站点的评论数据等。</p><p>如果不会注册安装来必力的，可以看看<a href=https://www.jianshu.com/p/61abc6c43220 target=_blank rel="noopener noreffer">这篇文章</a></p><h2 id=如何令文章目录显示序号>如何令文章目录显示序号</h2><p>NexT主题会自动为每一篇文章生成目录，这个目录可以通过配置来控制是否生成对应的序号。毕竟有时候我们会给文章的小标题写上序号，有时候又会懒得去写，这个时候这个配置就很重要了。</p><p>有两种方法来实现这个效果，一种是全局生效，一种是对具体某篇文章生效。</p><h3 id=全局生效>全局生效</h3><p>在NexT的主题配置文件 <code>_config.yml</code>中启用如下配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Table Of Contents in the Sidebar
+# 侧栏文章目录设置
+toc:
+  enable: true
+
+  # Automatically add list number to toc.
+  # 自动为文章目录添加行号
+  number: true
+</code></pre></td></tr></table></div></div><p>设置为true后就可以对站点下所有文章自动添加序号，如果想取消这个功能，再设置为false即可。</p><h3 id=对具体某篇文章生效>对具体某篇文章生效</h3><p>如果你在文章的小标题中已经使用了序号，那么自动为文章目录添加序号的功能会导致你的文章目录出现了赘余的序号，解决方法很简单，在你的文章的文件头添加一行代码即可，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>---
+title: XXX
+date: XXX
+toc_number: false
+---
+</code></pre></td></tr></table></div></div><p>这样这篇文章就不会被自动添加序号到文章目录里了。</p><h2 id=网页标题崩溃特效>网页标题崩溃特效</h2><p>该特效为：当用户离开站点相关的页面时，网页的标题会变成“已崩溃”，网站图标也会改变；当用户重新回到站点页面时才会恢复正常。</p><p>实现方式如下：</p><p>在<code>themes/next/source/js/src/custom.js</code>里加入如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-js data-lang=js><span class=cm>/* 离开当前页面时修改网页标题，回到当前页面时恢复原来标题 */</span>
+<span class=nb>window</span><span class=p>.</span><span class=nx>onload</span> <span class=o>=</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+  <span class=kd>var</span> <span class=nx>OriginTitile</span> <span class=o>=</span> <span class=nb>document</span><span class=p>.</span><span class=nx>title</span><span class=p>;</span>
+  <span class=kd>var</span> <span class=nx>titleTime</span><span class=p>;</span>
+  <span class=nb>document</span><span class=p>.</span><span class=nx>addEventListener</span><span class=p>(</span><span class=s1>&#39;visibilitychange&#39;</span><span class=p>,</span> <span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+    <span class=k>if</span><span class=p>(</span><span class=nb>document</span><span class=p>.</span><span class=nx>hidden</span><span class=p>)</span> <span class=p>{</span>
+      <span class=nx>$</span><span class=p>(</span><span class=s1>&#39;[rel=&#34;icon&#34;]&#39;</span><span class=p>).</span><span class=nx>attr</span><span class=p>(</span><span class=s1>&#39;href&#39;</span><span class=p>,</span> <span class=s2>&#34;/failure.ico&#34;</span><span class=p>);</span>
+      <span class=nx>$</span><span class=p>(</span><span class=s1>&#39;[rel=&#34;shortcut icon&#34;]&#39;</span><span class=p>).</span><span class=nx>attr</span><span class=p>(</span><span class=s1>&#39;href&#39;</span><span class=p>,</span> <span class=s2>&#34;/failure.ico&#34;</span><span class=p>);</span>
+      <span class=nb>document</span><span class=p>.</span><span class=nx>title</span> <span class=o>=</span> <span class=s1>&#39;喔唷，崩溃啦！&#39;</span><span class=p>;</span>
+      <span class=nx>clearTimeout</span><span class=p>(</span><span class=nx>titleTime</span><span class=p>);</span>
+    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+      <span class=nx>$</span><span class=p>(</span><span class=s1>&#39;[rel=&#34;icon&#34;]&#39;</span><span class=p>).</span><span class=nx>attr</span><span class=p>(</span><span class=s1>&#39;href&#39;</span><span class=p>,</span> <span class=s2>&#34;/favicon-32x32.ico&#34;</span><span class=p>);</span>
+      <span class=nx>$</span><span class=p>(</span><span class=s1>&#39;[rel=&#34;shortcut icon&#34;]&#39;</span><span class=p>).</span><span class=nx>attr</span><span class=p>(</span><span class=s1>&#39;href&#39;</span><span class=p>,</span> <span class=s2>&#34;/favicon-32x32.ico&#34;</span><span class=p>);</span>
+      <span class=nb>document</span><span class=p>.</span><span class=nx>title</span> <span class=o>=</span> <span class=s1>&#39;咦，页面又好了！&#39;</span><span class=p>;</span>
+      <span class=nx>titleTime</span> <span class=o>=</span> <span class=nx>setTimeout</span><span class=p>(</span><span class=kd>function</span><span class=p>()</span> <span class=p>{</span>
+        <span class=nb>document</span><span class=p>.</span><span class=nx>title</span> <span class=o>=</span> <span class=nx>OriginTitile</span><span class=p>;</span>
+      <span class=p>},</span> <span class=mi>2000</span><span class=p>);</span>
+	<span class=p>}</span>
+  <span class=p>});</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><p>然后在站点根目录的<code>/source</code>目录下添加<code>failure.ico</code>，作为网站崩溃时显示的图标；如下：</p><p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/failure.ico title=failure.ico data-thumbnail=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/failure.ico data-sub-html="<h2> </h2><p>failure.ico</p>"><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/failure.ico data-srcset="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/failure.ico, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/failure.ico 1.5x, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/failure.ico 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/failure.ico></a><figcaption class=image-caption>failure.ico</figcaption></figure></p><p>这里的<code>favicon-32x32.ico</code>是你个人站点的图标，改成你自己的图标就好。</p><h2 id=对文章进行加密>对文章进行加密</h2><h3 id=添加javascript代码>添加JavaScript代码</h3><p>打开 <code>themes\next\layout\_partials\head.swig</code>，在文件的开头位置找到如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>meta</span> <span class=na>charset</span><span class=o>=</span><span class=s>&#34;UTF-8&#34;</span><span class=p>/&gt;</span>
+<span class=p>&lt;</span><span class=nt>meta</span> <span class=na>http-equiv</span><span class=o>=</span><span class=s>&#34;X-UA-Compatible&#34;</span> <span class=na>content</span><span class=o>=</span><span class=s>&#34;IE=edge&#34;</span> <span class=p>/&gt;</span>
+<span class=p>&lt;</span><span class=nt>meta</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;viewport&#34;</span> <span class=na>content</span><span class=o>=</span><span class=s>&#34;width=device-width, initial-scale=1, maximum-scale=1&#34;</span><span class=p>/&gt;</span>
+<span class=p>&lt;</span><span class=nt>meta</span> <span class=na>name</span><span class=o>=</span><span class=s>&#34;theme-color&#34;</span> <span class=na>content</span><span class=o>=</span><span class=s>&#34;{{ theme.android_chrome_color }}&#34;</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>在上边代码的末尾添加如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=p>(</span><span class=kd>function</span><span class=p>(){</span>
+        <span class=k>if</span><span class=p>(</span><span class=s1>&#39;{{ page.password }}&#39;</span><span class=p>){</span>
+            <span class=k>if</span> <span class=p>(</span><span class=nx>prompt</span><span class=p>(</span><span class=s1>&#39;请输入文章密码&#39;</span><span class=p>)</span> <span class=o>!==</span> <span class=s1>&#39;{{ page.password }}&#39;</span><span class=p>){</span>
+                <span class=nx>alert</span><span class=p>(</span><span class=s1>&#39;密码错误！&#39;</span><span class=p>);</span>
+				<span class=k>if</span> <span class=p>(</span><span class=nx>history</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+				    <span class=nb>window</span><span class=p>.</span><span class=nx>opener</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
+				    <span class=nb>window</span><span class=p>.</span><span class=nx>open</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=s1>&#39;_self&#39;</span><span class=p>);</span>
+				    <span class=nb>window</span><span class=p>.</span><span class=nx>close</span><span class=p>();</span>
+                <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+                    <span class=nx>history</span><span class=p>.</span><span class=nx>back</span><span class=p>();</span>
+                <span class=p>}</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>})();</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>注意：网上其他的帖子是在这里选择输入密码错误后进行回退历史的操作，代码如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>script</span><span class=p>&gt;</span>
+    <span class=p>(</span><span class=kd>function</span><span class=p>(){</span>
+        <span class=k>if</span><span class=p>(</span><span class=s1>&#39;{{ page.password }}&#39;</span><span class=p>){</span>
+            <span class=k>if</span> <span class=p>(</span><span class=nx>prompt</span><span class=p>(</span><span class=s1>&#39;请输入文章密码&#39;</span><span class=p>)</span> <span class=o>!==</span> <span class=s1>&#39;{{ page.password }}&#39;</span><span class=p>){</span>
+                <span class=nx>alert</span><span class=p>(</span><span class=s1>&#39;密码错误！&#39;</span><span class=p>);</span>
+                <span class=nx>history</span><span class=p>.</span><span class=nx>back</span><span class=p>();</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>})();</span>
+<span class=p>&lt;/</span><span class=nt>script</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>我经过测试发现，这段代码有问题：如果当前页面是新打开的窗口，其历史页面只有一个，也就是<code>history.length === 1</code>时，就算不输入密码或者输入错误的密码，也会在提示密码错误之后成功进入文章页面！！！</p><p>所以我们使用改良后的JS代码。</p><h3 id=给某篇文章设置密码>给某篇文章设置密码</h3><p>添加完脚本代码，接下来在想要加密的文章的文件头加上 <code>password</code> 属性就行了，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>---
+title: XXX
+date: XXX
+tags:
+  - XXX
+categories:
+  - XXX
+password: 123
+---
+</code></pre></td></tr></table></div></div><p>这样在打开这篇文章时只有输入了123这个密码才可以打开成功。</p><h2 id=启用搜索功能>启用搜索功能</h2><h3 id=安装搜索插件>安装搜索插件</h3><p>在站点根目录使用 <code>git bash</code> 执行命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>npm install hexo-generator-searchdb --save
+</code></pre></td></tr></table></div></div><h3 id=修改配置文件>修改配置文件</h3><p>打开主题配置文件 <code>_config.yml</code>，修改如下配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Local search
+# Dependencies: https://github.com/flashlab/hexo-generator-search
+# 本地搜索，需要安装 hexo-generator-search
+# 站点根目录执行：npm install hexo-generator-searchdb --save
+local_search:
+  enable: true
+  # if auto, trigger search by changing input
+  # if manual, trigger search by pressing enter key or search button
+  # auto表示改变输入就自动触发搜索
+  # manual表示按下回车键或搜索按钮才触发搜索
+  trigger: auto
+  # show top n results per article, show all results by setting to -1
+  # 这里的数字n表示显示每篇文章搜索到的n个结果
+  # -1表示显示每篇文章搜索到的全部结果(不建议)
+  top_n_per_article: 1
+</code></pre></td></tr></table></div></div><h2 id=让所有的文章链接在新窗口打开>让所有的文章链接在新窗口打开</h2><p>打开 <code>themes\next\layout\_macro\post-collapse.swig</code>，修改这里的超链的target：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>a</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;post-title-link&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;{{ url_for(post.path) }}&#34;</span> <span class=na>itemprop</span><span class=o>=</span><span class=s>&#34;url&#34;</span><span class=p>&gt;</span>
+  {% if post.type === &#39;picture&#39; %}
+    {{ post.content }}
+  {% else %}
+    <span class=p>&lt;</span><span class=nt>span</span> <span class=na>itemprop</span><span class=o>=</span><span class=s>&#34;name&#34;</span><span class=p>&gt;</span>{{ post.title | default(__(&#39;post.untitled&#39;)) }}<span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+  {% endif %}
+<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>接着打开 <code>themes\next\layout\_macro\post.swig</code>，修改这里的超链的target：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>	<span class=p>&lt;</span><span class=nt>a</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;post-title-link&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;{{ url_for(post.path) }}&#34;</span> <span class=na>itemprop</span><span class=o>=</span><span class=s>&#34;url&#34;</span><span class=p>&gt;</span>{#
+    #}{{ post.title | default(__(&#39;post.untitled&#39;))}}{#
+  #}<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>在这两个超链里添加 <code>target="_blank"</code> ，最终修改如下：</p><p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/target_blank.jpg title=target_blank.jpg data-thumbnail=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/target_blank.jpg data-sub-html="<h2> </h2><p>target_blank.jpg</p>"><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/target_blank.jpg data-srcset="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/target_blank.jpg, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/target_blank.jpg 1.5x, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/target_blank.jpg 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/target_blank.jpg></a><figcaption class=image-caption>target_blank.jpg</figcaption></figure></p><h2 id=使用fontawesome-5>使用FontAwesome 5</h2><p>NexT主题集成的是4.6.2版本的fontawesome，现在已经出了更高版本的了，修改fontawesome的版本有两种方式。</p><h3 id=方式一直接修改主题配置文件>方式一：直接修改主题配置文件</h3><p>打开主题配置文件 <code>_config.yml</code>，修改如下配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>  # Internal version: 4.6.2
+  # See: http://fontawesome.io/
+  fontawesome:
+</code></pre></td></tr></table></div></div><p>在这里的 <code>fontawesome:</code> 后面直接添加上 fontawesome 的 CDN 就行了；不过不推荐这种改法，因为版本5的 fontawesome 改变了不少，直接在这里添加 fontawesome 5的 CDN 会导致原本的图标全部显示不出来。</p><p>推荐方式二的改法。</p><h3 id=方式二修改页面头文件的模板>方式二：修改页面头文件的模板</h3><p>打开 <code>themes\next\layout\_partials\head.swig</code>，找到如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>{% if theme.vendors.fontawesome %}
+  {% set font_awesome_uri = theme.vendors.fontawesome %}
+{% endif %}
+<span class=p>&lt;</span><span class=nt>link</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;{{ font_awesome_uri }}&#34;</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>type</span><span class=o>=</span><span class=s>&#34;text/css&#34;</span> <span class=p>/&gt;</span>
+</code></pre></td></tr></table></div></div><p>在上边的代码后插入 fontawesome 5 的 CDN：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html><span class=p>&lt;</span><span class=nt>link</span> <span class=na>rel</span><span class=o>=</span><span class=s>&#34;stylesheet&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;https://use.fontawesome.com/releases/v5.0.13/css/all.css&#34;</span> <span class=na>integrity</span><span class=o>=</span><span class=s>&#34;sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp&#34;</span> <span class=na>crossorigin</span><span class=o>=</span><span class=s>&#34;anonymous&#34;</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>如果这里的CDN链接无效，请去官网复制CDN链接：https://fontawesome.com/get-started</p><p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/fontawesome-CDN.jpg title=fontawesome-CDN data-thumbnail=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/fontawesome-CDN.jpg data-sub-html="<h2> </h2><p>fontawesome-CDN</p>"><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/fontawesome-CDN.jpg data-srcset="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/fontawesome-CDN.jpg, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/fontawesome-CDN.jpg 1.5x, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/fontawesome-CDN.jpg 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/fontawesome-CDN.jpg></a><figcaption class=image-caption>fontawesome-CDN</figcaption></figure></p><h2 id=添加文章置顶功能>添加文章置顶功能</h2><h3 id=安装插件及其使用方法>安装插件及其使用方法</h3><p>在站点根目录执行命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>npm uninstall hexo-generator-index --save
+npm install hexo-generator-index-pin-top --save
+</code></pre></td></tr></table></div></div><p>接下来在需要置顶的文章头部添加 <code>top: true</code> 或者 <code>top: n</code>，这里的n是数字，数字越大表示置顶等级越高。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>title: XXX
+tags:
+  - XXX
+categories:
+  - XXX
+date: XXX
+top: 100
+</code></pre></td></tr></table></div></div><h3 id=在文章标题下方添加置顶样式>在文章标题下方添加置顶样式</h3><p>打开 <code>themes/next/layout/_macro/post.swig</code>，在 <code>&lt;div class="post-meta"></code> 下方添加如下代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-css data-lang=css><span class=p>{</span><span class=err>%</span> <span class=err>if</span> <span class=err>post.top</span> <span class=err>%</span><span class=p>}</span>
+	<span class=o>&lt;</span><span class=nt>span</span> <span class=nt>class</span><span class=o>=</span><span class=s2>&#34;post-meta-item-icon&#34;</span><span class=o>&gt;</span>
+	    <span class=o>&lt;</span><span class=nt>i</span> <span class=nt>class</span><span class=o>=</span><span class=s2>&#34;fa fa-thumb-tack&#34;</span><span class=o>&gt;&lt;/</span><span class=nt>i</span><span class=o>&gt;</span>
+	<span class=o>&lt;/</span><span class=nt>span</span><span class=o>&gt;</span>
+	<span class=o>&lt;</span><span class=nt>font</span> <span class=nt>color</span><span class=o>=</span><span class=s2>&#34;red&#34;</span><span class=o>&gt;</span><span class=nt>置顶</span><span class=o>&lt;/</span><span class=nt>font</span><span class=o>&gt;</span>
+	<span class=o>&lt;</span><span class=nt>span</span> <span class=nt>class</span><span class=o>=</span><span class=s2>&#34;post-meta-divider&#34;</span><span class=o>&gt;|&lt;/</span><span class=nt>span</span><span class=o>&gt;</span>
+<span class=p>{</span><span class=err>%</span> <span class=err>endif</span> <span class=err>%</span><span class=p>}</span>
+</code></pre></td></tr></table></div></div><p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/encrypt.jpg title=encrypt.jpg data-thumbnail=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/encrypt.jpg data-sub-html="<h2> </h2><p>encrypt.jpg</p>"><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/encrypt.jpg data-srcset="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/encrypt.jpg, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/encrypt.jpg 1.5x, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/encrypt.jpg 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/encrypt.jpg></a><figcaption class=image-caption>encrypt.jpg</figcaption></figure></p><h2 id=文章启用字数统计阅读时长>文章启用字数统计、阅读时长</h2><h3 id=安装-wordcount-插件>安装 wordcount 插件</h3><p>在站点根目录打开 git bash，输入：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>npm i --save hexo-wordcount
+</code></pre></td></tr></table></div></div><p>该插件的具体使用方法可以参考 GitHub 上的仓库：https://github.com/willin/hexo-wordcount</p><h3 id=在主题配置文件启用该插件>在主题配置文件启用该插件</h3><p>NexT主题本身就集成了该插件，在安装了该插件后直接启用就行了。
+进入主题配置文件 <code>_config.yml</code>，修改如下配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Post wordcount display settings
+# Dependencies: https://github.com/willin/hexo-wordcount
+# 文章字数展示设置
+post_wordcount:
+  # 文本显示
+  item_text: true
+  # 文章字数统计
+  wordcount: true
+  # 阅读时长
+  min2read: true
+  # 站点总字数统计
+  totalcount: false
+  # 该post_wordcount的所有设置另起一行显示
+  separated_meta: true
+</code></pre></td></tr></table></div></div><h3 id=自定义字数计数的显示样式>自定义字数计数的显示样式</h3><p>启用了该插件后的显示样式也是可以自己修改的，进入 <code>themes\next\layout\post.swig</code>，找到如下代码，这里可以修改字数统计的样式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>{% if not theme.post_wordcount.separated_meta %}
+  <span class=p>&lt;</span><span class=nt>span</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;post-meta-divider&#34;</span><span class=p>&gt;</span>|<span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+{% endif %}
+<span class=p>&lt;</span><span class=nt>span</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;post-meta-item-icon&#34;</span><span class=p>&gt;</span>
+  <span class=p>&lt;</span><span class=nt>i</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;fa fa-file-word-o&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>i</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+{% if theme.post_wordcount.item_text %}
+  <span class=p>&lt;</span><span class=nt>span</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;post-meta-item-text&#34;</span><span class=p>&gt;</span>{{ __(&#39;post.wordcount&#39;) }}<span class=ni>&amp;#58;</span><span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+{% endif %}
+<span class=p>&lt;</span><span class=nt>span</span> <span class=na>title</span><span class=o>=</span><span class=s>&#34;{{ __(&#39;post.wordcount&#39;) }}&#34;</span><span class=p>&gt;</span>
+  {{ wordcount(post.content) }}
+<span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+</code></pre></td></tr></table></div></div><p>下边是阅读时长的代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>{% if theme.post_wordcount.min2read %}
+  <span class=p>&lt;</span><span class=nt>span</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;post-meta-item-icon&#34;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>i</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;fa fa-clock-o&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>i</span><span class=p>&gt;</span>
+  <span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+  {% if theme.post_wordcount.item_text %}
+    <span class=p>&lt;</span><span class=nt>span</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;post-meta-item-text&#34;</span><span class=p>&gt;</span>{{ __(&#39;post.min2read&#39;) }} <span class=ni>&amp;asymp;</span><span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+  {% endif %}
+  <span class=p>&lt;</span><span class=nt>span</span> <span class=na>title</span><span class=o>=</span><span class=s>&#34;{{ __(&#39;post.min2read&#39;) }}&#34;</span><span class=p>&gt;</span>
+    {{ min2read(post.content) }}
+  <span class=p>&lt;/</span><span class=nt>span</span><span class=p>&gt;</span>
+{% endif %}
+</code></pre></td></tr></table></div></div><p>改完样式后，再去 <code>themes\next\languages</code> 目录下找到你所使用的语言对应的 <code>yml</code> 文件，修改要显示的文本。比如我使用的语言是 <code>zh-Hans</code>，就修改 <code>zh-Hans.yml</code>里的文本：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>post:
+  wordcount: 本文共计
+  min2read: 阅文耗时
+  totalcount: Site words total count
+</code></pre></td></tr></table></div></div><h2 id=修改行内代码块的样式>修改行内代码块的样式</h2><p>打开 <code>themes\next\source\css\_custom\custom.styl</code>，添加如下样式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-css data-lang=css><span class=c>/* 行内代码块的自定义样式 */</span>
+<span class=nt>code</span> <span class=p>{</span>
+    <span class=k>color</span><span class=p>:</span> <span class=mh>#d500fc</span><span class=p>;</span>
+    <span class=k>background</span><span class=p>:</span> <span class=nb>rgba</span><span class=p>(</span><span class=mi>78</span><span class=p>,</span> <span class=mi>240</span><span class=p>,</span> <span class=mi>233</span><span class=p>,</span> <span class=mf>0.42</span><span class=p>);</span>
+    <span class=k>margin</span><span class=p>:</span> <span class=mi>2</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>border</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=kc>solid</span> <span class=mh>#d6d6d6</span><span class=p>;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><blockquote><p>效果图</p></blockquote><p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/code-block.jpg title=code-block.jpg data-thumbnail=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/code-block.jpg data-sub-html="<h2> </h2><p>code-block.jpg</p>"><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/code-block.jpg data-srcset="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/code-block.jpg, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/code-block.jpg 1.5x, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/code-block.jpg 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/code-block.jpg></a><figcaption class=image-caption>code-block.jpg</figcaption></figure></p><h2 id=修改文章内的超链样式>修改文章内的超链样式</h2><p>打开 <code>themes\next\source\css\_custom\custom.styl</code>，添加如下样式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-css data-lang=css><span class=c>/* 文章内链接文本样式 */</span>
+<span class=p>.</span><span class=nc>post-body</span> <span class=nt>p</span> <span class=nt>a</span><span class=o>,</span>
+<span class=p>.</span><span class=nc>post-body</span> <span class=nt>li</span> <span class=nt>a</span> <span class=p>{</span>
+  <span class=k>color</span><span class=p>:</span> <span class=mh>#0593d3</span><span class=p>;</span>
+  <span class=k>border-bottom</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+  <span class=k>border-bottom</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=kc>solid</span> <span class=mh>#0593d3</span><span class=p>;</span>
+  <span class=err>&amp;:hover</span> <span class=err>{</span>
+    <span class=k>color</span><span class=p>:</span> <span class=mh>#fc6423</span><span class=p>;</span>
+    <span class=k>border-bottom</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
+    <span class=k>border-bottom</span><span class=p>:</span> <span class=mi>1</span><span class=kt>px</span> <span class=kc>solid</span> <span class=mh>#fc6423</span><span class=p>;</span>
+  <span class=p>}</span>
+<span class=err>}</span>
+</code></pre></td></tr></table></div></div><p>这里选择 <code>.post-body p a</code> 是为了不影响文章标题和首页 <code>阅读全文》</code> 的样式，选择 <code>.post-body li a</code> 是为了对列表内的超链也有效果。</p><p>总之，我们可以随意定义这里的具体样式。</p><blockquote><p><code>a:link</code> 效果图</p></blockquote><p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/link.jpg title=link.jpg data-thumbnail=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/link.jpg data-sub-html="<h2> </h2><p>link.jpg</p>"><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/link.jpg data-srcset="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/link.jpg, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/link.jpg 1.5x, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/link.jpg 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/link.jpg></a><figcaption class=image-caption>link.jpg</figcaption></figure></p><blockquote><p><code>a:hover</code> 效果图</p></blockquote><p><figure><a class=lightgallery href=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/hover.jpg title=hover.jpg data-thumbnail=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/hover.jpg data-sub-html="<h2> </h2><p>hover.jpg</p>"><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/hover.jpg data-srcset="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/hover.jpg, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/hover.jpg 1.5x, https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/hover.jpg 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/next/hover.jpg></a><figcaption class=image-caption>hover.jpg</figcaption></figure></p><h2 id=修改永久链接的默认格式>修改永久链接的默认格式</h2><p>Hexo的永久链接的默认格式是 <code>:year/:month/:day/:title/</code>，比如访问站点下某一篇文章时，其路径是 <code>2018/04/12/xxxx/</code>，如果我们的文章标题是中文的，那么该路径就会出现中文字符。在路径中出现了中文字符很容易引发各种问题，而且也不利于seo，因为路径包含了年月日三个层级，层级太深不利于百度蜘蛛抓取。</p><p>解决办法就是利用其它的插件来生成唯一的路径，这样就算我们的文件标题随意修改，而不会导致原本的链接失效而造成站点下存在大量的死链。</p><h3 id=安装插件>安装插件</h3><p>在站点根目录使用 <code>git bash</code> 执行命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>npm install hexo-abbrlink --save
+</code></pre></td></tr></table></div></div><h3 id=修改站点配置文件-1>修改站点配置文件</h3><p>打开根目录下的 <code>_config.yml</code> 文件，修改如下配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># permalink: :year/:month/:day/:title/
+# permalink_defaults:
+permalink: posts/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
+</code></pre></td></tr></table></div></div><p>这里将页面都添加了 <code>.html</code> 的后缀，用来伪装成静态页面(虽说Hexo的页面本身就是静态页面)，这样可以直接从路径就知道这是个静态页面，方便seo。</p><p>接下来重新部署三连，可以看到我们的文章路径变成了 <code>/posts/xxxxx.html</code>，接下来就算我们将文字标题命名为中文也没问题了。</p><h2 id=参考链接以及一些写得很齐全的文章推荐>参考链接以及一些写得很齐全的文章推荐</h2><ul><li><a href=https://segmentfault.com/a/1190000009544924 target=_blank rel="noopener noreffer">hexo的next主题个性化配置教程</a></li><li><a href=https://reuixiy.github.io/technology/computer/computer-aided-art/2017/06/09/hexo-next-optimization.html target=_blank rel="noopener noreffer">打造个性超赞博客Hexo+NexT+GithubPages的超深度优化</a></li><li><a href=https://github.com/rozbo/hexo-neat target=_blank rel="noopener noreffer">hexo-neat项目地址</a></li><li><a href=https://segmentfault.com/a/1190000008082288 target=_blank rel="noopener noreffer">hexo博客压缩优化</a></li><li><a href=https://segmentfault.com/a/1190000005799759 target=_blank rel="noopener noreffer">Hexo-Neat介绍</a></li><li><a href=https://sjq597.github.io/2018/05/18/Hexo-%E4%BD%BF%E7%94%A8Gitment%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/ target=_blank rel="noopener noreffer">Hexo 使用Gitment评论功能</a></li><li><a href=https://www.v2ex.com/t/378728 target=_blank rel="noopener noreffer">Gitalk：一个基于 Github Issue 和 Preact 开发的评论插件</a></li><li><a href=https://segmentfault.com/a/1190000009544924#articleHeader20 target=_blank rel="noopener noreffer">添加网易云跟帖(跟帖关闭，已失效，改为来必力)</a></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2018-07-11</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/hexo-2.html/ data-title="Hexo系列(2) - NexT主题美化与博客功能增强" data-hashtags=Hexo,NexT主题,主题美化,功能增强><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/hexo-2.html/ data-hashtag=Hexo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/hexo-2.html/ data-title="Hexo系列(2) - NexT主题美化与博客功能增强"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/hexo-2.html/ data-title="Hexo系列(2) - NexT主题美化与博客功能增强"><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/hexo-2.html/ data-title="Hexo系列(2) - NexT主题美化与博客功能增强"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hexo/>Hexo</a>,&nbsp;<a href=/tags/next%E4%B8%BB%E9%A2%98/>NexT主题</a>,&nbsp;<a href=/tags/%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/>主题美化</a>,&nbsp;<a href=/tags/%E5%8A%9F%E8%83%BD%E5%A2%9E%E5%BC%BA/>功能增强</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/71bd19d3.html/ class=prev rel=prev title="Java - 序列化的注意点"><i class="fas fa-angle-left fa-fw"></i>Java - 序列化的注意点</a>
+<a href=/posts/hexo-3.html/ class=next rel=next title="Hexo系列(3) - NexT主题和Markdown的写作技巧">Hexo系列(3) - NexT主题和Markdown的写作技巧<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=valine class=comment></div><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=/js/Valine.min.js></script><script type=text/javascript>new Valine({el:'#valine',appId:'1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz',appKey:'nfafLPsFBNTdO9Sb5suuGdpG',notify:'',verify:'',avatar:'retro',placeholder:'说点什么吧...（请填写正确的邮件地址以便于收到回复通知）',visitor:'true'});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/js/jquery/index.js?v=2.1.3"></script><script type=text/javascript src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/js/jquery.backstretch.min.js></script><script>var $cdnPrefix="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master";</script><script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script></body></html>

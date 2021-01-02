@@ -1,86 +1,9 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Hexo - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/hexo/</link><description>Hexo - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 26 May 2019 12:36:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/hexo/" rel="self" type="application/rss+xml"/><item><title>Hexo瞎折腾系列(9) - 网页标题崩溃特效</title><link>https://lewky.cn/posts/bdceb0a1.html/</link><pubDate>Sun, 26 May 2019 12:36:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bdceb0a1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本系列的所有修改均基于本系列第一篇中的新增文件(譬如<code>custom.js</code>)，请先自行阅读<a href="https://lewky.cn/posts/ef301a4d.html" target="_blank" rel="noopener noreffer">Hexo瞎折腾系列(1) - 准备工作与简单美化</a>；并按照文章所说自行修改代码或文件。</p>
-<h2 id="为网页添加标题崩溃特效">为网页添加标题崩溃特效</h2>
-<p>该特效为：当用户离开站点相关的页面时，网页的标题会变成“已崩溃”，网站图标也会改变；当用户重新回到站点页面时才会恢复正常。</p>]]></description></item><item><title>Hexo - 记录一次Pages服务部署失败的原因</title><link>https://lewky.cn/posts/a5a02c64.html/</link><pubDate>Fri, 26 Apr 2019 22:24:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a5a02c64.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
-<p>某天忽然发现，一直运行得好好的Pages服务部署失败了，GitHub Pages报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Your site is having problems building: The tag cq on line 3 in source/high/index.md is not a recognized Liquid tag.
-For more information, see https://help.github.com/articles/page-build-failed-unknown-tag-error/. 
-</code></pre></td></tr></table>
-</div>
-</div><p>与此同时，Coding Pages同样也报错了：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> Starting jekyll build.
-&gt; jekyll build --safe
-Configuration file: /usr/src/app/_config.yml
-jekyll 3.6.2 | Error:  The next theme could not be found.
-Jekyll build exit with code 1.
-Fail to build jekyll site.
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>Hexo - CNAME文件在每次部署后就没了</title><link>https://lewky.cn/posts/39e3ca60.html/</link><pubDate>Wed, 19 Dec 2018 22:37:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/39e3ca60.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>一般我们会将Hexo博客搭建到Github上，如果在Github上为其配置一个自定义的域名时，会自动在项目仓库根目录下新添加一个<code>CNAME</code>文件。但是这里有个问题，如果将Hexo博客重新部署一遍后，Github仓库里的这个<code>CNAME</code>文件就会消失掉，又需要重新配置一遍。</p>
-<h2 id="解决方法">解决方法</h2>
-<p>其实这里有个技巧，我们可以将需要上传部署到Github的文件都放在<code>source</code>文件夹里，例如<code>CNAME</code>文件、<code>favicon.ico</code>、或者其他的图片等等，这样在执行<code>hexo d</code>这个命令之后，这些文件就不会被删除了。</p>
-<p>Hexo在执行命令时是不会删除掉<code>source</code>目录下的文件的，我们可以在该目录下随意增加其他文件或者文件夹，建议在该目录下添加子文件夹，然后在子文件夹里添加文件，这样便于文件分档归类。</p>]]></description></item><item><title>Hexo - Template render error unexpected token</title><link>https://lewky.cn/posts/2a5ffb7e.html/</link><pubDate>Tue, 23 Oct 2018 23:02:10 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/2a5ffb7e.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
-<p>今天发现在使用<code>hexo g</code>时报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">FATAL Something&#39;s wrong. Maybe you can find the solution here: http://hexo.io/docs/troubleshooting.html
-Template render error: unexpected token: }}
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>Hexo系列(3) - NexT主题踩坑记录</title><link>https://lewky.cn/posts/844109c2.html/</link><pubDate>Thu, 19 Jul 2018 23:09:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/844109c2.html/</guid><description><![CDATA[<h2 id="coding-pages申请ssltls证书错误">Coding Pages申请SSL/TLS证书错误</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Hexo - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/hexo/</link><description>Hexo - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 19 Jul 2018 23:09:04 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/hexo/" rel="self" type="application/rss+xml"/><item><title>Hexo系列(4) - NexT主题踩坑记录</title><link>https://lewky.cn/posts/hexo-4.html/</link><pubDate>Thu, 19 Jul 2018 23:09:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hexo-4.html/</guid><description><![CDATA[<h2 id="coding-pages申请ssltls证书错误">Coding Pages申请SSL/TLS证书错误</h2>
 <p>某天发现我的个人站点SSL/TLS证书到期，我的证书是由Coding Pages提供的，每次申请成功后有效期是三个月，证书到期后可以继续免费申请。但是当我登陆进入Coding Pages服务的后台并点击申请证书时，竟然报错了！！</p>
-<p>我重新点了申请，几秒后依然报错，并提示我半小时只能申请一次。我查看了下报错的提示信息，如下：</p>]]></description></item><item><title>Hexo系列(2) - NexT主题写作技巧</title><link>https://lewky.cn/posts/576ee548.html/</link><pubDate>Thu, 19 Jul 2018 23:00:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/576ee548.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>我重新点了申请，几秒后依然报错，并提示我半小时只能申请一次。我查看了下报错的提示信息，如下：</p>]]></description></item><item><title>Hexo系列(3) - NexT主题和Markdown的写作技巧</title><link>https://lewky.cn/posts/hexo-3.html/</link><pubDate>Thu, 19 Jul 2018 23:00:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hexo-3.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本系列主要介绍和hexo-NexT主题相关的一些写作技巧，可能会涉及到部分前端知识(不了解也没关系，能用就行)。我之所以选择hexo-NexT来搭建个人网站，一个很重要的原因就是因为简单、方便、快捷！不需要服务器，直接通过Markdown来进行写作，不仅文章布局美观，还可以节省大量的时间。</p>
-<p>我一般不会在文章中手动加入各种html标签，因为太麻烦了&ndash;而NexT主题就很贴心地自带了一些样式，让你可以不需要自己写一大堆html标签就能得到美观的页面效果。</p>]]></description></item><item><title>Hexo系列(1) - NexT主题美化与博客功能增强</title><link>https://lewky.cn/posts/ef301a4d.html/</link><pubDate>Wed, 11 Jul 2018 23:37:24 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ef301a4d.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>此外NexT主题很贴心地自带了一些样式，让你可以不需要自己写一大堆html标签就能得到美观的页面效果。</p>]]></description></item><item><title>Hexo系列(2) - NexT主题美化与博客功能增强</title><link>https://lewky.cn/posts/hexo-2.html/</link><pubDate>Wed, 11 Jul 2018 23:37:24 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hexo-2.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>网上有不少相关的帖子，不过版本会比较旧，而不同版本可能存在代码不同的问题，不过大部分还是大同小异，本系列就不啰嗦重复了，基本只会按照本人所使用的版本以及个人所使用到的内容来进行介绍。</p>
-<p>该系列是对我所使用的Next主题进行个性化定制，涉及到js和css等的修改，还有各种插件的使用，包括使用过程中的一些踩坑记录；另外也会对Next主题进行一些写作技巧的介绍与运用，希望能对大家有所帮助。有疑问的朋友可以给我留言，我会尽可能回复<code>O(∩_∩)O</code>。</p>]]></description></item><item><title>Hexo - 3.X.X版本无法生成baidusitemap</title><link>https://lewky.cn/posts/49fbb32a.html/</link><pubDate>Tue, 12 Jun 2018 00:52:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/49fbb32a.html/</guid><description><![CDATA[<p>今天安装了<code>hexo-generator-baidu-sitemap</code>后，运行<code>hexo g</code>报错如下：</p>
-<p>
-<figure>
-<a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/error.jpg" title="error.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/hexo/error.jpg" data-sub-html="<h2> </h2><p>error.jpg</p>">
-        
-    </a><figcaption class="image-caption">error.jpg</figcaption>
-    </figure></p>]]></description></item><item><title>NexT主题个性化 - 添加文章置顶功能</title><link>https://lewky.cn/posts/6ed0d627.html/</link><pubDate>Sun, 13 May 2018 23:33:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/6ed0d627.html/</guid><description><![CDATA[<h2 id="安装插件及其使用方法">安装插件及其使用方法</h2>
-<p>在站点根目录执行命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">npm uninstall hexo-generator-index --save
-npm install hexo-generator-index-pin-top --save
-</code></pre></td></tr></table>
-</div>
-</div><p>接下来在需要置顶的文章头部添加 <code>top: true</code> 或者 <code>top: n</code>，这里的n是数字，数字越大表示置顶等级越高。</p>]]></description></item><item><title>NexT主题个性化 - 启用搜索功能</title><link>https://lewky.cn/posts/3e5e6b79.html/</link><pubDate>Sun, 13 May 2018 21:59:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/3e5e6b79.html/</guid><description><![CDATA[<h2 id="安装搜索插件">安装搜索插件</h2>
-<p>在站点根目录使用 <code>git bash</code> 执行命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">npm install hexo-generator-searchdb --save
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="启用搜索功能">启用搜索功能</h2>
-<p>打开主题配置文件 <code>_config.yml</code>，修改如下配置：</p>]]></description></item></channel></rss>
+<p>该系列是对我所使用的Next主题进行个性化定制，涉及到js和css等的修改，还有各种插件的使用，包括使用过程中的一些踩坑记录；另外也会对Next主题进行一些写作技巧的介绍与运用，希望能对大家有所帮助。有疑问的朋友可以给我留言，我会尽可能回复<code>O(∩_∩)O</code>。</p>]]></description></item><item><title>Hexo系列(1) - 简单搭建教程与远程部署</title><link>https://lewky.cn/posts/hexo-1.html/</link><pubDate>Tue, 24 Apr 2018 22:06:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hexo-1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>搭建个人博客一般有两种选择，一个是使用WordPress，但是需要将博客搭建在服务器上，不过搭建好后写文章方便，适合没有程序基础的人使用。另一个是使用Hexo，相对简洁高效，不需要服务器，既可以部署在本地，也可以将博客部署到GitHub Pages上，支持Markdown语法，缺点是需要有Git基础，写文章比WordPress麻烦点。</p>
+<p>初次使用Hexo来搭建个人博客，确实比较手忙脚乱，这里记录一下流程，希望对大家能有所帮助。</p>]]></description></item></channel></rss>
