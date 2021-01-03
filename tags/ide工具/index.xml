@@ -1,15 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>IDE工具 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/ide%E5%B7%A5%E5%85%B7/</link><description>IDE工具 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 30 Jan 2019 22:38:14 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/ide%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml"/><item><title>Eclipse - 怎么设置在启动时提示选择工作空间</title><link>https://lewky.cn/posts/3671826f.html/</link><pubDate>Wed, 30 Jan 2019 22:38:14 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/3671826f.html/</guid><description><![CDATA[<h2 id="方法">方法</h2>
-<ol>
-<li>Window -&gt; Preferences -&gt; General -&gt; Startup and Shutdown -&gt; Workspaces</li>
-<li>勾选<code>Prompt for workspace on startup</code></li>
-</ol>
-<h2 id="参考链接">参考链接</h2>
-<ul>
-<li><a href="https://jingyan.baidu.com/article/27fa732682e3f446f8271f26.html" target="_blank" rel="noopener noreffer">怎样设置Eclipse在启动时提示选择工作空间</a></li>
-</ul>]]></description></item><item><title>Eclipse - 安装了jd-eclipse插件后依然无法反编译类文件</title><link>https://lewky.cn/posts/89d8e317.html/</link><pubDate>Wed, 30 Jan 2019 01:02:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/89d8e317.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>Eclipse在安装了jd-eclipse插件后依然无法反编译类文件，这个问题是因为没有修改默认的类文件查看器。</p>
-<h2 id="解决方法">解决方法</h2>]]></description></item><item><title>Eclipse - Access restriction: The type 'JPEGCodec' is not API</title><link>https://lewky.cn/posts/5f77a7c4.html/</link><pubDate>Fri, 18 Jan 2019 23:04:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/5f77a7c4.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>今天导入项目时Eclipse报错如下：</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>IDE工具 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/ide%E5%B7%A5%E5%85%B7/</link><description>IDE工具 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 18 Jan 2020 23:04:49 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/ide%E5%B7%A5%E5%85%B7/" rel="self" type="application/rss+xml"/><item><title>Eclipse - 快捷键篇</title><link>https://lewky.cn/posts/eclipse-hotkey.html/</link><pubDate>Sat, 18 Jan 2020 23:04:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eclipse-hotkey.html/</guid><description><![CDATA[<h2 id="常用的快捷键">常用的快捷键</h2>
+<p><code>ctrl + shift + r</code> 查找工作空间内的文件，不包括Jar包内的文件</p>
+<p><code>ctrl + shift + t</code> 查找工作空间内的文件，包括Jar包内的文件</p>
+<p><code>ctrl + o</code> 查看当前类的所有方法</p>
+<p><code>ctrl + e</code> 快速切换编辑器，在打开了非常多的文件时会很便利</p>
+<p><code>ctrl + /</code> 单行注释或多行注释或取消注释</p>
+<p><code>ctrl + t</code> 查找一个类的继承关系树</p>
+<p><code>ctrl + d</code> 删除光标所在行</p>
+<p><code>ctrl + space</code> 代码提示，和输入法快捷键冲突时也可以用<code>alt + /</code></p>
+<p><code>ctrl + shift + f</code> 格式化代码</p>
+<p><code>ctrl + k</code> 快速跳转到下一个相同的被选中字符，在查找相同的字符串时会很方便</p>
+<p><code>ctrl + shift + k</code> 快速跳转到上一个相同的被选中字符</p>
+<p><code>shift + enter</code> 在光标所在行的下一行创建一行空白行</p>
+<p><code>ctrl + shift + enter</code> 在光标所在行的上一行创建一行空白行</p>
+<p><code>alt + ←</code> 跳转到上一步操作</p>
+<p><code>alt + →</code> 跳转到下一步操作</p>
+<p><code>alt + ↑</code> 将光标所在的那一行向上挪动一行</p>
+<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item><item><title>Eclipse问题汇总</title><link>https://lewky.cn/posts/5f77a7c4.html/</link><pubDate>Fri, 18 Jan 2019 23:04:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/5f77a7c4.html/</guid><description><![CDATA[<h2 id="access-restriction-the-type-jpegcodec-is-not-api">Access restriction: The type &lsquo;JPEGCodec&rsquo; is not API</h2>
+<p>导入项目时Eclipse报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -19,22 +26,4 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>第一次遇到这种错误，百度了下，原来是因为Eclipse默认把访问受限的API设置成了Error级别，所以才会编译报错。</p>]]></description></item><item><title>IDE工具、文本编辑器的列块编辑模式</title><link>https://lewky.cn/posts/f0ce18c5.html/</link><pubDate>Thu, 17 Jan 2019 22:22:14 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f0ce18c5.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
-&lt;p>有时候需要对若干列进行一样的操作，比如在前一百行数据的最前边加上一样的字符，这时候可以通过列块编辑模式来快捷地实现这个效果。在列块编辑模式下，被选定的区域内的所有字符会被替换成你之后输入的字符。&lt;/p></description></item><item><title>Eclipse - 在接口的实现类里使用@Override注解报错</title><link>https://lewky.cn/posts/f3ccdaa7.html/</link><pubDate>Tue, 20 Nov 2018 21:57:24 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f3ccdaa7.html/</guid><description><![CDATA[<h2 id="问题分析">问题分析</h2>
-<p>@Override注解用来检测子类对父类或接口的方法的重写是否正确，但有一次我在Eclipse里对接口的实现类里使用@Override注解却报错，不过在父类的子类里使用该注解却是正常的。</p>
-<p>百度了下才知道原来这是jdk1.5时的一个bug，在1.6时已经被修复；那么问题来了，我使用的jdk是1.8，为什么会报这个错误？明明之前也在接口的实现类里用过该注解，却没问题。由于Eclipse经常抽风，我怀疑是Eclipse的问题，经过排查确实如此，该项目使用的jdk版本不知道为什么变成了jdk1.5，导致出现了注解报错的问题。</p>]]></description></item><item><title>Eclipse - lombok的@Slf4j和@Data无效</title><link>https://lewky.cn/posts/eea0b72e.html/</link><pubDate>Wed, 24 Oct 2018 22:49:50 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eea0b72e.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
-<p>最近开始学习spring-boot框架，我用的是Eclipse，然后发现在使用到了lombok的@Data注解时，Eclipse会编译错误。@Data的作用是自动生成toString方法和setter/getter方法，可以减少大量重复性的代码工作。</p>
-<p>另外在使用了@Slf4j注解时，这个注解可以自动为当前类生成一个log变量，即：<code>rivate  final Logger logger = LoggerFactory.getLogger(XXX.class);</code>。然而Eclipse无法识别log变量，会报log变量未声明的错误。</p>]]></description></item><item><title>Eclipse - Maven项目Update Project后jdk版本变成1.5</title><link>https://lewky.cn/posts/519a131c.html/</link><pubDate>Sun, 02 Sep 2018 22:35:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/519a131c.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
-<p>最近遇到个奇怪的问题，在Eclipse里对一个Maven项目进行Update Project(快捷键是 <code>Alt+F5</code>)，原本jdk为1.8的项目忽然就变成了1.5，于是就报了一些错误。</p>
-<p>我猜想可能跟Maven默认的jdk版本有关系，百度了下，确实如此，Maven项目如果不指定编译的jdk版本，就会默认为jdk1.5。查了下项目的pom文件，里边并没有指定编译的jdk版本，而Maven的配置文件settings.xml里也没有指明jdk版本，所以当我Update Project后，这个Maven项目就会自动变成jdk1.5了。</p>]]></description></item><item><title>Eclipse - 如何修改web项目的web module version</title><link>https://lewky.cn/posts/4e16194f.html/</link><pubDate>Tue, 03 Apr 2018 00:04:00 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4e16194f.html/</guid><description><![CDATA[<h2 id="情景">情景</h2>
-<p>有时候我们想改变web项目的web module version，比如说原本是2.4版本，我们想改成3.0版本，通过右键项目名 -&gt; Properties -&gt; Project Facets，选中Dynamic Web Module后边的版本，将2.4改成3.0</p>
-<p>这时候会报错误：<code>Cannot change version of project facet Dynamic Web Module to 3.0.</code></p>
-<p>而且这时候改动web.xml的文件头从2.4改成3.0版本的文件头也会报错。</p>]]></description></item><item><title>Eclipse - 如何在新的工作空间使用原来的配置(编码、视图、快捷键、插件设置等)</title><link>https://lewky.cn/posts/3084e42f.html/</link><pubDate>Fri, 15 Sep 2017 20:25:12 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/3084e42f.html/</guid><description><![CDATA[<h2 id="情景">情景</h2>
-<p>Eclipse如果更换一个新的工作空间，需要重新设置视图、配置等一系列东西，算是想到麻烦的一件事情，其实我们完全可以将旧的工作空间里的配置拷贝到新的工作空间里，这样就可以省去重新配置的麻烦了~ </p>
-<p>具体操作如下：</p>
-<p>在<code>${workspace(你电脑里原本的工作空间目录)}/.metadata/.plugins</code>里有这样两个文件夹：<code>org.eclipse.core.runtime</code>和<code>org.eclipse.ui.workbench</code>，将新的工作空间里的同名文件夹删了，再将这两个文件夹复制到新的工作空间就行了！</p>]]></description></item><item><title>Eclipse - 修改默认编码为utf-8</title><link>https://lewky.cn/posts/c23cad48.html/</link><pubDate>Fri, 15 Sep 2017 12:38:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/c23cad48.html/</guid><description><![CDATA[<h2 id="配置方式">配置方式</h2>
-<p>一共需要设置三个地方：</p>
-<ol>
-<li>Window-&gt;Preferences-&gt;General -&gt;Content Type-&gt;Text-&gt;JSP，在 最下面设置为UTF-8</li>
-<li>Window-&gt;Preferences-&gt;General-&gt;Workspace，将Text file encoding 设置UTF-8</li>
-<li>Window-&gt;Preferences-&gt;Web-&gt;JSP Files，设置为 ISO 10646/Unicode(UTF-8)</li>
-</ol>]]></description></item></channel></rss>
+&lt;p>有时候需要对若干列进行一样的操作，比如在前一百行数据的最前边加上一样的字符，这时候可以通过列块编辑模式来快捷地实现这个效果。在列块编辑模式下，被选定的区域内的所有字符会被替换成你之后输入的字符。&lt;/p></description></item></channel></rss>

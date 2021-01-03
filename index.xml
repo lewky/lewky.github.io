@@ -81,6 +81,21 @@ Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
 <span class="n">Could</span> <span class="n">not</span> <span class="n">transfer</span> <span class="n">artifact</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">pom</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>PostgreSQL - 如何杀死被锁死的进程</title><link>https://lewky.cn/posts/1514292e.html/</link><pubDate>Thu, 14 Nov 2019 23:24:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1514292e.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>在一次系统迭代后用户投诉说无法成功登陆系统，经过测试重现和日志定位，最后发现是由于用户在ui上进行了某些操作后，触发了堆栈溢出异常，导致数据库里的用户登陆信息表的数据被锁住，无法释放。这个表里存放的是用户的session信息。</p>
-<p>虽然后来解决了问题，但是数据库里这个用户登录信息表里被lock住的数据始终无法释放，这导致用户永远无法登陆成功，需要手动跑SQL把锁去掉才行。</p>]]></description></item></channel></rss>
+</div>]]></description></item><item><title>Eclipse - 快捷键篇</title><link>https://lewky.cn/posts/eclipse-hotkey.html/</link><pubDate>Sat, 18 Jan 2020 23:04:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eclipse-hotkey.html/</guid><description><![CDATA[<h2 id="常用的快捷键">常用的快捷键</h2>
+<p><code>ctrl + shift + r</code> 查找工作空间内的文件，不包括Jar包内的文件</p>
+<p><code>ctrl + shift + t</code> 查找工作空间内的文件，包括Jar包内的文件</p>
+<p><code>ctrl + o</code> 查看当前类的所有方法</p>
+<p><code>ctrl + e</code> 快速切换编辑器，在打开了非常多的文件时会很便利</p>
+<p><code>ctrl + /</code> 单行注释或多行注释或取消注释</p>
+<p><code>ctrl + t</code> 查找一个类的继承关系树</p>
+<p><code>ctrl + d</code> 删除光标所在行</p>
+<p><code>ctrl + space</code> 代码提示，和输入法快捷键冲突时也可以用<code>alt + /</code></p>
+<p><code>ctrl + shift + f</code> 格式化代码</p>
+<p><code>ctrl + k</code> 快速跳转到下一个相同的被选中字符，在查找相同的字符串时会很方便</p>
+<p><code>ctrl + shift + k</code> 快速跳转到上一个相同的被选中字符</p>
+<p><code>shift + enter</code> 在光标所在行的下一行创建一行空白行</p>
+<p><code>ctrl + shift + enter</code> 在光标所在行的上一行创建一行空白行</p>
+<p><code>alt + ←</code> 跳转到上一步操作</p>
+<p><code>alt + →</code> 跳转到下一步操作</p>
+<p><code>alt + ↑</code> 将光标所在的那一行向上挪动一行</p>
+<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item></channel></rss>
