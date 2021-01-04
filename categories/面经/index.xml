@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>面经 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E9%9D%A2%E7%BB%8F/</link><description>面经 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 04 Jan 2021 21:04:37 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E9%9D%A2%E7%BB%8F/" rel="self" type="application/rss+xml"/><item><title>Jave基础复习总纲</title><link>https://lewky.cn/posts/exam-java.html/</link><pubDate>Mon, 04 Jan 2021 21:04:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/exam-java.html/</guid><description><![CDATA[<h2 id="java语言有哪些特点">Java语言有哪些特点？</h2>
+<ol>
+<li>简单易学，有丰富的类库</li>
+<li>面向对象</li>
+<li>平台无关性，即跨平台</li>
+<li>可靠安全</li>
+<li>支持多线程</li>
+</ol>]]></description></item></channel></rss>
