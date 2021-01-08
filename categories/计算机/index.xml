@@ -7,4 +7,9 @@
 </blockquote>]]></description></item><item><title>网络适配器、网卡和网卡驱动</title><link>https://lewky.cn/posts/b66922.html/</link><pubDate>Mon, 13 Aug 2018 23:08:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/b66922.html/</guid><description><![CDATA[<h2 id="网络适配器网卡">网络适配器（网卡）</h2>
 <p>网络适配器其实就是计算机内部的网络连接设备，也就是俗称的网卡。网卡分为有线网卡和无线网卡，有线网卡能够支持宽带有线网络的连接和网络访问，而无线网卡则支持无线wifi局域网的网络连接和访问。</p>
 <p>台式电脑一般默认都不带无线卡，所以是无法接收wifi进行上网的。</p>
-<p>如果想要台式机接收无线网使用wifi，电脑必须安装一块无线网卡，可以选择USB接口无线网卡。</p>]]></description></item></channel></rss>
+<p>如果想要台式机接收无线网使用wifi，电脑必须安装一块无线网卡，可以选择USB接口无线网卡。</p>]]></description></item><item><title>Google hosts - 简单介绍与使用方法</title><link>https://lewky.cn/posts/9cdb4f66.html/</link><pubDate>Wed, 08 Aug 2018 23:16:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9cdb4f66.html/</guid><description><![CDATA[<h2 id="什么是hosts">什么是Hosts</h2>
+<p>百度百科：</p>
+<blockquote>
+<p>Hosts是一个没有扩展名的系统文件，可以用记事本等工具打开，其作用就是将一些常用的网址域名与其对应的IP地址建立一个关联“数据库”，当用户在浏览器中输入一个需要登录的网址时，系统会首先自动从Hosts文件中寻找对应的IP地址，一旦找到，系统会立即打开对应网页，如果没有找到，则系统会再将网址提交DNS域名解析服务器进行IP地址的解析。</p>
+<p>需要注意的是，Hosts文件配置的映射是静态的，如果网络上的计算机更改了请及时更新IP地址，否则将不能访问。</p>
+</blockquote>]]></description></item></channel></rss>
