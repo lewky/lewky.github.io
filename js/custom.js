@@ -30,8 +30,8 @@ var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "�
 			"w(·Д·)w", "(#`O′)", "（/TДT)/", "┭┮﹏┭┮", "_(:3」∠)_");
 jQuery(document).ready(function($) {
     $("body").click(function(e) {
-		/* 点击频率，点击几次就换挂件 */
-		var frequency = 3;
+		/* 点击频率，点击几次就换文字 */
+		var frequency = 2;
 		if (a_click % frequency === 0) {
 			
 			var $i = $("<span/>").text(a[a_idx]);
@@ -107,9 +107,13 @@ $(function() {
 	});
 });
 
-/* 首页头像div加载GitHub Chart作为背景图片 */
+/* 后置加载页面组件的背景图片 */
 $(function() {
+	/* 首页头像div加载GitHub Chart作为背景图片 */
 	$("div.home-avatar").attr('style', "background: url(https://ghchart.rshah.org/FFA500/lewky);background-repeat: no-repeat;background-position: center;background-size: auto 7.5rem;");
+
+	/* 评论框加载背景图片 */
+	$(".v[data-class=v] .veditor").attr('style', "background-image: url(" + $cdnPrefix + "/images/valinebg.webp) !important;");
 });
 
 function getCurrentDateString() {
