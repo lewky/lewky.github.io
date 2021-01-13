@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Log4j2 - 动态生成Appender - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="Log4j2 - 动态生成Appender"><meta property="og:description" content="功能需求
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Log4j2 - 动态生成Appender - Yulin Lewis' Blog</title><meta name=keywords content="雨临Lewis,Java,hugo,hexo,博客"><meta name=Description content="不想当写手的码农不是好咸鱼_(xз」∠)_"><meta property="og:title" content="Log4j2 - 动态生成Appender"><meta property="og:description" content="功能需求
 项目里将User分成了各个区域(domain)，这些domain有个标志domainId，现在要求在打印日志的时候，不仅将所有User的日志都打印到日志文件logs/CNTCore.log中，还需要另外再打印到对应domain的日志文件logs/{domainId}/CNTCore.log。
 比如User A的domainId是RD2，那么除了logs/CNTCore.log外，还需要将该User A的日志额外打印到logs/RD2/CNTCore.log中。
 实现思路

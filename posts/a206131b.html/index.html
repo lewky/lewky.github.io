@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>如何获取更多关于序列化异常的堆栈信息 - Yulin Lewis' Blog</title><meta name=Description content="不想当写手的码农不是好咸鱼<br>_(xз」∠)_"><meta property="og:title" content="如何获取更多关于序列化异常的堆栈信息"><meta property="og:description" content="问题与解决方法
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>如何获取更多关于序列化异常的堆栈信息 - Yulin Lewis' Blog</title><meta name=keywords content="雨临Lewis,Java,hugo,hexo,博客"><meta name=Description content="不想当写手的码农不是好咸鱼_(xз」∠)_"><meta property="og:title" content="如何获取更多关于序列化异常的堆栈信息"><meta property="og:description" content="问题与解决方法
 有时候我们的系统会报java.io.NotSerializableException，根据堆栈信息又无法得出有用的信息，无法找到具体是因为哪些类或者变量造成的，可以使用一个java参数-Dsun.io.serialization.extendedDebugInfo=true来得到更加具体的序列化信息。
 从jdk6开始就可以使用该参数，可以在启动java程序时启用该参数，也可以在项目的一开始通过代码来启用：
 
