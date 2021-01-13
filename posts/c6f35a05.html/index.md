@@ -37,4 +37,3 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Cannot access 
 ```
 
 因为offline mode导致无法从线上仓库下载依赖，将offline的值改为false就行了。
-

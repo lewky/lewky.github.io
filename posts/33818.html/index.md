@@ -570,4 +570,3 @@ startTime是Date类型的，通过`${startTime.time}`来将Date转换成long类�
 上一篇文章：[**Java高并发秒杀API(二)之Service层**](http://blog.csdn.net/lewky_liu/article/details/78162149)
 
 下一篇文章：[**Java高并发秒杀API(四)之高并发优化**](http://blog.csdn.net/lewky_liu/article/details/78166080)
-

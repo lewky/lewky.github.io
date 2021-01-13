@@ -269,4 +269,3 @@ AngularJS分为几个模块，需要使用哪个模块的功能，就直接引�
 
 * [GitHub地址](https://github.com/lewky/AngularJS-demo)
 * [下载地址](https://download.csdn.net/download/lewky_liu/10737742)
-

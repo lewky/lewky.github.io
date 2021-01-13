@@ -629,4 +629,3 @@ Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}
 如果你希望直接通过 https://{username}.github.io/ 来访问你的博客，可以将仓库名改为 {username}.github.io；这样就不需要在url后边添加上仓库名来访问了。
 
 接下来，开始享受你的个人博客吧 :)
-

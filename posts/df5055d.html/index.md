@@ -24,4 +24,3 @@ select 233 as num;
 select 233::bpchar as num;
 ```
 第一条sql拿到的是数值类型，第二条sql拿到的是字符串，233这个数值被转型成bpchar类型。
-

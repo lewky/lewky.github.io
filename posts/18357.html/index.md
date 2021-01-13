@@ -792,4 +792,3 @@ Spring一共有7个事务传播行为，默认的事务传播行为是`PROPAGATI
 上一篇文章：[**Java高并发秒杀API(一)之业务分析与DAO层**](http://blog.csdn.net/lewky_liu/article/details/78159983)
 
 下一篇文章：[**Java高并发秒杀API(三)之Web层**](http://blog.csdn.net/lewky_liu/article/details/78162153)
-

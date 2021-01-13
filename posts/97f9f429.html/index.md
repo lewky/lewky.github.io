@@ -15,4 +15,3 @@ cmd文件的描述是“windows nt命令脚本”，bat文件的描述是“ms d
 * [cmd文件和bat文件有什么区别](http://www.cnblogs.com/widget90/p/9253151.html)
 * [bat和cmd文件是什么，dos又是什么东西](https://blog.csdn.net/qq_26591517/article/details/80384186)
 * [关于CMD和BAT](https://zhidao.baidu.com/question/145761173.html)
-

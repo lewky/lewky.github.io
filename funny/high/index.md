@@ -8,4 +8,3 @@
 
 ![1.gif](/images/posts/carnival/1.gif)
 ![2.gif](/images/posts/carnival/2.gif)
-

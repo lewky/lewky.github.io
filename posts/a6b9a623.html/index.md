@@ -30,4 +30,3 @@ UNIQUE KEY `idx_name` USING BTREE (`column_name`)
 
 * [mysql导入数据时提示 USING BTREE 错误解决办法](https://blog.csdn.net/ccfxue/article/details/71118612)
 
-

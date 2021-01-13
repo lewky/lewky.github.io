@@ -41,4 +41,3 @@ vi -r my.ini
 1. [linux下vi操作Found a swap file by the name](http://chenzhou123520.iteye.com/blog/1313585)
 2. [非正常关闭vi编辑器时会生成一个.swp文件](https://www.cnblogs.com/quchunhui/p/7513586.html)
 
-

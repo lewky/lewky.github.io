@@ -60,4 +60,3 @@ alter table tb_student add "哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈�
 * [PostgreSQL官方文档](https://www.postgresql.org/docs/10/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS)
 * [PostgreSQL中文文档](http://www.kuqin.com/postgreSQL8.1_doc/sql-syntax.html)
 * [各个数据库表名和字段名长度限制](https://blog.csdn.net/lanseliuxingluo/article/details/78210600)
-

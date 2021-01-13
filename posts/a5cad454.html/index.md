@@ -41,4 +41,3 @@ java.lang.NoSuchMethodError: com.lmax.disruptor.dsl.Disruptor.<init>(Lcom/lmax/d
     <version>3.4.2</version>
 </dependency>
 ```
-

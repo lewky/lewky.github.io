@@ -931,4 +931,3 @@ CDATA指的是不应由 XML 解析器进行解析的文本数据，在XML元素�
 >本节结语
 
 至此，关于Java高并发秒杀API的DAO层的开发与测试已经完成，接下来进行Service层的开发、测试，详情可以参考[Java高并发秒杀API(二)之Service层](http://blog.csdn.net/lewky_liu/article/details/78162149)。
-

@@ -129,4 +129,3 @@
 
 * [**源码下载**](http://download.csdn.net/download/lewky_liu/10013556)
 * [**GitHub地址**](https://github.com/lewky/Seckill)
-

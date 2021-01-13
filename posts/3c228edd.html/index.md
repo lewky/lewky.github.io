@@ -223,4 +223,3 @@ return foo;
 
 * [JIRA issue 中的标记语言（Textile）](https://segmentfault.com/a/1190000004086559)
 * [Text Formatting Notation Help](https://jira.cbxsoftware.com/secure/WikiRendererHelpAction.jspa?section=all)
-
