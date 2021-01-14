@@ -120,7 +120,34 @@ v8.11.2
 nvm uninstall 8.11.2
 ```
 
+## 配置淘宝镜像
+
+nvm默认的下载地址是 http://nodejs.org/dist/ ，速度很慢，可以改用淘宝的镜像，打开nvm安装路径下的`settings.txt`，添加如下内容：
+```
+node_mirror: https://npm.taobao.org/mirrors/node/
+npm_mirror: https://npm.taobao.org/mirrors/npm/
+```
+
+然后打开C盘你的用户目录下的`.npmrc`文件，如果没有该文件可以自己创建一个，然后添加或修改如下内容：
+```
+registry=https://registry.npm.taobao.org/
+cache=D:\software\nvm\npm-cache
+prefix=D:\software\nvm\npm
+```
+
+这里的`cache`和`prefix`请自己填写想要存放的路径。
+
+## 其他的npm镜像源
+
+有些模块用淘宝镜像源不一定能下载下来，可以换成其他的镜像源：
+```
+npm config set registry https://registry.npmjs.org
+```
+
+如果不想每次都重新设置镜像源，也可以使用`nrm`来管理镜像源。
+
 ## 参考链接
 
 * [Window下完全卸载删除Nodejs](https://www.cnblogs.com/fighxp/p/7410235.html)
 * [Windows上node.js的多版本管理工具](https://blog.csdn.net/kongxx/article/details/78421050)
+* [NVM的安装和NPM下载速度慢的问题](https://www.jianshu.com/p/0e4f2bfadf3e)

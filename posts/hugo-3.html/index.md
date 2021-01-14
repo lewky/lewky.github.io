@@ -695,6 +695,39 @@ Save responses | 按需选择 | 保存执行定时任务的日志
 
 搞定，这个功能就完成了。
 
+## 添加文章加密功能
+
+将`\themes\LoveIt\layouts\posts\single.html`拷贝到`\layouts\posts\single.html`，打开拷贝后的文件，在`{{- $params := .Scratch.Get "params" -}}`的下一行添加如下代码：
+```
+    {{- $password := $params.password | default "" -}}
+    {{- if ne $password "" -}}
+		<script>
+			(function(){
+				if({{ $password }}){
+					if (prompt('请输入文章密码') != {{ $password }}){
+						alert('密码错误！');
+						if (history.length === 1) {
+							window.opener = null;
+							window.open('', '_self');
+							window.close();
+						} else {
+							history.back();
+						}
+					}
+				}
+			})();
+		</script>
+    {{- end -}}
+```
+
+之后只要在文章的头部加上`password`属性即可进行加密，只有输入了正确密码才能打开文章，否则会回退到之前的页面。用法如下：
+```
+---
+title: 随笔
+password: test
+---
+```
+
 ## 参考链接
 
 * [自定义Hugo主题样式](https://sr-c.github.io/2020/07/21/Hugo-custom/)
