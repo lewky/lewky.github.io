@@ -5,7 +5,7 @@
 <li>平台无关性，即跨平台</li>
 <li>可靠安全</li>
 <li>支持多线程</li>
-</ol>]]></description></item><item><title>Java - 三元运算符隐含的坑</title><link>https://lewky.cn/posts/java-tertiary-operator.html/</link><pubDate>Tue, 15 Dec 2020 22:52:09 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-tertiary-operator.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+</ol>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>大佬们 W4J1e&amp;#39;s blog 总是偏爱不务正业 勤奋的思远 一个网络安全爱好者的博客 阳光派Plus’Blog 聪明的妖怪已经录下了唐僧的紧箍咒 失联友链 北落师门 会者定离，一期一祈 Hugo-LoveIt主题 dillonzq / LoveIt Hugo-LoveIt主题 【十年之约】 【十年之约】 一个人的寂寞，一群人的狂欢。 十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和活力！ ☞ 本站已加入【十年之约】！有兴趣</description></item><item><title>Java - 三元运算符隐含的坑</title><link>https://lewky.cn/posts/java-tertiary-operator.html/</link><pubDate>Tue, 15 Dec 2020 22:52:09 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-tertiary-operator.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
 <p>某天发现系统报空指针异常，追踪异常栈后发现源头处是一个非常简单的三元表达式，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -74,18 +74,4 @@ Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
 </div>
 </div>]]></description></item><item><title>Hugo系列(1) - 简单搭建教程与远程部署</title><link>https://lewky.cn/posts/hugo-1.html/</link><pubDate>Sun, 06 Sep 2020 21:10:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。</p>
-<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item><item><title>Maven无法下载2.1.7.js7版本的itext依赖</title><link>https://lewky.cn/posts/d94da554.html/</link><pubDate>Mon, 16 Mar 2020 11:35:40 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/d94da554.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
-<p>某日忽然发现用Maven编译项目报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Failed</span> <span class="n">to</span> <span class="n">collect</span> <span class="n">dependencies</span> <span class="n">at</span> <span class="n">net</span><span class="o">.</span><span class="na">sf</span><span class="o">.</span><span class="na">jasperreports</span><span class="o">:</span><span class="n">jasperreports</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">6</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">0</span>
-<span class="o">-&gt;</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span><span class="o">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">read</span> <span class="n">artifact</span> <span class="n">descriptor</span> <span class="k">for</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span><span class="o">:</span> 
-<span class="n">Could</span> <span class="n">not</span> <span class="n">transfer</span> <span class="n">artifact</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">pom</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item></channel></rss>

@@ -24,10 +24,6 @@ Java
 * <a href="https://github.com/lewky">github@lewky</a>
 * <a href="https://blog.csdn.net/lewky_liu">csdn@lewky_liu</a>
 * <a href="http://www.cnblogs.com/yulinlewis">cnblogs@yulinlewis</a>
-* 
-### 随笔
-
-<a href="/posts/d65a1577.html" target="_blank">→ 戳我查看随笔 ←</a>
 
 ## 站点相关
 

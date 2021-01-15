@@ -23,15 +23,16 @@ logo="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/images/photo.jpg"
 word="聪明的妖怪已经录下了唐僧的紧箍咒"
 >}}
 
+
+
+## 失联友链
+
 {{< friend
 name="北落师门"
 url="https://www.fm-cslab.com"
 logo="https://knight-blog.oss-cn-hangzhou.aliyuncs.com/friendUrl/avatar.png"
 word="会者定离，一期一祈"
 >}}
-
-
-
 
 ## Hugo-LoveIt主题
 
