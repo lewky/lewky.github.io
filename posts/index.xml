@@ -5,7 +5,7 @@
 <li>平台无关性，即跨平台</li>
 <li>可靠安全</li>
 <li>支持多线程</li>
-</ol>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>大佬们 W4J1e&amp;#39;s blog 总是偏爱不务正业 勤奋的思远 一个网络安全爱好者的博客 阳光派Plus’Blog 聪明的妖怪已经录下了唐僧的紧箍咒 失联友链 北落师门 会者定离，一期一祈 Hugo-LoveIt主题 dillonzq / LoveIt Hugo-LoveIt主题 【十年之约】 【十年之约】 一个人的寂寞，一群人的狂欢。 十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和活力！ ☞ 本站已加入【十年之约】！有兴趣</description></item><item><title>Java - 三元运算符隐含的坑</title><link>https://lewky.cn/posts/java-tertiary-operator.html/</link><pubDate>Tue, 15 Dec 2020 22:52:09 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-tertiary-operator.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+</ol>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>大佬们 W4J1e&amp;#39;s blog 总是偏爱不务正业 勤奋的思远 一个网络安全爱好者的博客 阳光派Plus’Blog 聪明的妖怪已经录下了唐僧的紧箍咒 北落师门 会者定离，一期一祈 Hugo-LoveIt主题 dillonzq / LoveIt Hugo-LoveIt主题 【十年之约】 【十年之约】 一个人的寂寞，一群人的狂欢。 十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和活力！ ☞ 本站已加入【十年之约】！有兴趣的朋友可</description></item><item><title>Java - 三元运算符隐含的坑</title><link>https://lewky.cn/posts/java-tertiary-operator.html/</link><pubDate>Tue, 15 Dec 2020 22:52:09 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-tertiary-operator.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
 <p>某天发现系统报空指针异常，追踪异常栈后发现源头处是一个非常简单的三元表达式，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -42,7 +42,7 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录</title><link>https://lewky.cn/posts/hugo-4.html/</link><pubDate>Mon, 12 Oct 2020 23:28:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-4.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，下文会提及如何引入。</strong></p>]]></description></item><item><title>Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录</title><link>https://lewky.cn/posts/hugo-4.html/</link><pubDate>Mon, 12 Oct 2020 23:28:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-4.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文主要记录从Hexo迁移至Hugo所遇到的一些坑，以及Hugo的LoveIt主题的一些bug之类的应对方案。下面是涉及到的Hexo、Hugo以及LoveIt各自的版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

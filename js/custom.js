@@ -68,13 +68,14 @@ jQuery(document).ready(function($) {
 
 /* 点击头像更换b站挂件 */
 var avatar_plug = 0;
+var avatar_click = 1;
 jQuery(document).ready(function($) {
 	/* 点击频率，点击几次就换挂件 */
 	var frequency = 3;
 	/* 头像挂件数量 */
 	var plug_count = 44;
 	$("div.home-avatar a").click(function(e) {
-		if (a_click % frequency === 0) {
+		if (avatar_click % frequency === 0) {
 			avatar_plug ++;
 			/*$(".site-avatar-plug-bilibili").attr("src", $cdnPrefix + "/images/avatar-plug/bilibili_" + avatar_plug + ".png");*/
 			$(".site-avatar-plug-bilibili").attr("src", "/images/avatar-plug/bilibili_" + avatar_plug + ".png");
@@ -82,8 +83,8 @@ jQuery(document).ready(function($) {
 		if (avatar_plug === plug_count) {
 			avatar_plug = 0;
 		}
-		$("div.home-avatar a").attr("alt","再点击" + (frequency - a_click % frequency) + "次头像试试看~~");
-		a_click ++;
+		$("div.home-avatar a").attr("alt","再点击" + (frequency - avatar_click % frequency) + "次头像试试看~~");
+		avatar_click ++;
 	});
 });
 

@@ -11,6 +11,8 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 ```
 
+**请注意，本文的所有功能都离不开两个新增加的文件：`_custom.scss`和`custom.js`，部分功能还需要`jquery`，下文会提及如何引入。**
+
 <!--more-->
 ## 添加自定义的`_custom.scss`
 
@@ -30,7 +32,7 @@ Hugo在渲染页面时优先读取站点根目录下的同名字的目录和文�
 
 比如我原本使用的是`hugo_0.74.0_Windows-64bit.zip`，就需要改为使用`hugo_extended_0.74.0_Windows-64bit.zip`。
 
-## 添加自定义的custom.js
+## 添加自定义的`custom.js`
 
 LoveIt主题并没有提供一个文件来让我们自定义JavaScript，所以需要自己创建一个js文件来自定义JavaScript。
 
@@ -48,7 +50,7 @@ LoveIt主题并没有提供一个文件来让我们自定义JavaScript，所以�
 
 ## 添加背景图片轮播
 
-这个功能需要引入图片轮播插件的cdn，在你引入的`custom.js`的上面一行添加如下代码：
+这个功能需要引入图片轮播插件的cdn，打开`\layouts\partials\assets.html`，在你引入的`custom.js`的上面一行添加如下代码（必须要在custom.js之前引入这两个文件才有效果）：
 ```html
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
@@ -852,6 +854,189 @@ password: test
     .sidebar_wo{display:none}
 }
 ```
+
+最后在`custom.js`里添加如下代码，注意，要先引入`jquery`才有效果，具体细节请看前文：
+```
+/* 拉姆蕾姆回到顶部或底部按钮 */
+$(function() {
+	$("#lamu img").eq(0).click(function() {
+		$("html,body").animate({scrollTop:$(document).height()},800);
+		return false;
+	});
+	$("#leimu img").eq(0).click(function() {
+		$("html,body").animate({scrollTop:0},800);
+		return false;
+	});
+});
+```
+
+## 添加首页头像挂件
+
+这个功能分为四个部分：
+* 首页头像的动画特效从浮动改为旋转，为了适配挂件还稍微缩小了头像大小
+* 添加头像挂件（都是b站的挂件）
+* 点击头像3次后随机刷新头像
+* 加载首页时随机刷新头像（该功能可禁用）
+
+### 修改站点配置文件
+
+在站点配置文件里找到你配置首页头像的变量`avatarURL`，在其下方添加两个新的变量，内容如下：
+```
+      [params.home.profile]
+        enable = true
+        # 主页显示头像的 URL
+        avatarURL = "/images/avatar.jpg"
+        # 是否启用头像挂件
+        avatarPluginURL = "/images/avatar-plug/bilibili_27.png"
+        # 是否启用头像挂件自动刷新
+        avatarPluginFlush = true
+```
+
+### 修改模板文件profile.html
+
+将`\themes\LoveIt\layouts\partials\home\profile.html`拷贝到`\layouts\partials\home\profile.html`，打开拷贝后的文件，找到下面的代码：
+```
+<a href="{{ $url }}"{{ with .Title | default .Name }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+    {{- dict "Src" $avatar | partial "plugin/image.html" -}}
+</a>
+```
+
+这是渲染首页头像的代码，将这段代码改成如下内容：
+```
+{{- if $profile.avatarPluginURL -}}
+	<img class="site-avatar-plug-bilibili" />
+	<a href="javascript:void(0);"{{ with .Title | default .Name }} title="Please click me~~"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+		{{- dict "Src" $avatar "Title" "Please click me~~" | partial "plugin/image.html" -}}
+	</a>
+{{- else -}}
+	<a href="{{ $url }}"{{ with .Title | default .Name }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+		{{- dict "Src" $avatar | partial "plugin/image.html" -}}
+	</a>
+{{- end -}}
+```
+
+### 修改模板文件assets.html
+
+打开`\layouts\partials\assets.html`，在你引入的`jquery`的下面添加如下代码，不知道怎么引入`jquery`和`custom.js`的请看前文：
+```
+<!-- 头像挂件及自动刷新 -->
+<script>
+{{- $profile := .Site.Params.home.profile -}}
+{{- $avatarPlugin := $profile.avatarPluginURL -}}
+{{- if $avatarPlugin -}}
+	{{- if $profile.avatarPluginFlush -}}
+		$(function () {
+			$(".site-avatar-plug-bilibili").attr("src", "/images/avatar-plug/bilibili_" + (~~(44*Math.random())+1) + ".png");
+		});
+	{{- else -}}
+		$(function () {
+			$(".site-avatar-plug-bilibili").attr("src", "{{ $avatarPlugin }}");
+		});
+	{{- end -}}
+{{- end -}}
+</script>
+```
+
+### 添加js代码和css代码
+
+在`custom.js`里添加如下代码：
+```
+/* 点击头像更换b站挂件 */
+var avatar_plug = 0;
+var avatar_click = 1;
+jQuery(document).ready(function($) {
+	/* 点击频率，点击几次就换挂件 */
+	var frequency = 3;
+	/* 头像挂件数量 */
+	var plug_count = 44;
+	$("div.home-avatar a").click(function(e) {
+		if (avatar_click % frequency === 0) {
+			avatar_plug ++;
+			/*$(".site-avatar-plug-bilibili").attr("src", $cdnPrefix + "/images/avatar-plug/bilibili_" + avatar_plug + ".png");*/
+			$(".site-avatar-plug-bilibili").attr("src", "/images/avatar-plug/bilibili_" + avatar_plug + ".png");
+		}		
+		if (avatar_plug === plug_count) {
+			avatar_plug = 0;
+		}
+		$("div.home-avatar a").attr("alt","再点击" + (frequency - avatar_click % frequency) + "次头像试试看~~");
+		avatar_click ++;
+	});
+});
+```
+
+在`_custom.scss`里添加如下代码：
+```css
+/* 首页头像 */
+/* bilibili头像挂件 */
+img.site-avatar-plug-bilibili {
+    position: absolute;
+    display: block;
+    margin: -2rem !important;
+    padding: 0;
+    width: 9rem !important;
+    max-width: 168px;
+    height: auto;
+    box-shadow: none !important;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 头像旋转 */
+.home .home-profile .home-avatar img {
+    width: 5rem;
+
+  /* 设置循环动画
+  [animation: 
+	(play)动画名称
+	(2s)动画播放时长单位秒或微秒
+	(ease-out)动画播放的速度曲线为以低速结束 
+	(1s)等待1秒然后开始动画
+	(1)动画播放次数(infinite为循环播放) ]*/
+ 
+  /* 鼠标经过头像旋转360度 */
+  -webkit-transition: -webkit-transform 1.0s ease-out;
+  -moz-transition: -moz-transform 1.0s ease-out;
+  transition: transform 1.0s ease-out;
+    &:hover {
+      /* 鼠标经过停止头像旋转 
+      -webkit-animation-play-state:paused;
+      animation-play-state:paused;*/
+
+      /* 鼠标经过头像旋转360度 */
+      -webkit-transform: rotateZ(360deg);
+      -moz-transform: rotateZ(360deg);
+      transform: rotateZ(360deg);
+    }
+}
+/* Z 轴旋转动画 */
+@-webkit-keyframes play {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(-360deg);
+  }
+}
+@-moz-keyframes play {
+  0% {
+    -moz-transform: rotateZ(0deg);
+  }
+  100% {
+    -moz-transform: rotateZ(-360deg);
+  }
+}
+@keyframes play {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(-360deg);
+  }
+}
+```
+
+头像和挂件的样式代码可能根据个人的定制化而需要微调下位置之类的。至于头像挂件这些图片请去我的站点里下载下来，可以选择直接fork过来，或者去下面的地址一个个下载：
+https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar-plug/
 
 ## 参考链接
 
