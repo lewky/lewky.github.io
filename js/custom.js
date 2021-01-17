@@ -77,8 +77,7 @@ jQuery(document).ready(function($) {
 	$("div.home-avatar a").click(function(e) {
 		if (avatar_click % frequency === 0) {
 			avatar_plug ++;
-			/*$(".site-avatar-plug-bilibili").attr("src", $cdnPrefix + "/images/avatar-plug/bilibili_" + avatar_plug + ".png");*/
-			$(".site-avatar-plug-bilibili").attr("src", "/images/avatar-plug/bilibili_" + avatar_plug + ".png");
+			$(".site-avatar-plug-bilibili").attr("src", $cdnPrefix + "/images/avatar-plug/bilibili_" + avatar_plug + ".png");
 		}		
 		if (avatar_plug === plug_count) {
 			avatar_plug = 0;
