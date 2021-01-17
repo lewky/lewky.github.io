@@ -46,6 +46,26 @@ LoveIt主题并没有提供一个文件来让我们自定义JavaScript，所以�
 
 如果有其他的JavaScript文件要引入，加在一样的地方就行，但是要放在自定义的`custom.js`之前。这是我的[custom.js文件]({{< param cdnPrefix >}}/js/custom.js)，有兴趣的可以看看。
 
+## 添加背景图片轮播
+
+这个功能需要引入图片轮播插件的cdn，在你引入的`custom.js`的上面一行添加如下代码：
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+```
+
+然后在`custom.js`里添加如下代码，具体想要轮播哪些图片可以自行修改，如下：
+```javascript
+/* 轮播背景图片 */
+$(function () {
+	$.backstretch([
+		  "/images/background/saber1.jpg",
+		  "/images/background/saber2.jpg",
+		  "/images/background/wlop.jpg"
+	], { duration: 60000, fade: 1500 });
+});
+```
+
 ## 添加搜索功能
 
 `LoveIt`主题自带的搜索插件是`lunr`和`algolia`，这两个的使用都比较麻烦，后者甚至还想要去注册账号，虽然可以免费使用搜索服务，但是抓取收录时间好像是一小时一次，并且还有每月使用量的限制，太不便利了。
@@ -73,7 +93,7 @@ outputs = ["html", "json"]
 
 ### 修改页面模板文件baseof.html
 
-1. 把主题目录下的`\themes\even\layouts\_default\baseof.html`拷贝到站点根目录下的`\layouts\_default\baseof.html`
+1. 把主题目录下的`\themes\LoveIt\layouts\_default\baseof.html`拷贝到站点根目录下的`\layouts\_default\baseof.html`
 2. 在拷贝后的`baseof.html`的适当位置插入两段代码：`{{ block "main" . }}{{ end }}`和`{{ block "footer" . }}{{ end }}`，下面是一个修改后的样例：
 ```html
 <div class="wrapper">
@@ -772,6 +792,66 @@ password: test
 下面是GitHub Corner的项目地址，一共有10种颜色样式，随便挑！
 
 * [GitHub Corners项目地址](https://tholman.com/github-corners/)
+
+## 页面下方添加拉姆雷姆快捷跳转
+
+将`\themes\LoveIt\layouts\_default\baseof.html`拷贝到`\layouts\_default\baseof.html`，打开拷贝后的`baseof.html`，在`{{- /* Load JavaScript scripts and CSS */ -}}`的上面一行添加如下代码：
+```
+<div class="sidebar_wo">
+  <div id="leimu">
+	<img src="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuA.png" alt="雷姆" 
+	onmouseover="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuB.png'" 
+	onmouseout="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuA.png'" title="回到顶部">
+  </div>
+  <div class="sidebar_wo" id="lamu">
+	<img src="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuA.png" alt="雷姆" 
+	onmouseover="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuB.png'" 
+	onmouseout="this.src='https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuA.png'" title="回到底部">
+  </div>
+</div>
+```
+
+在`_custom.scss`里添加对应的css代码：
+```css
+/* 拉姆蕾姆回到顶部或底部按钮 */
+.sidebar_wo {
+    position:fixed;
+    line-height:0;
+    bottom:0;
+    z-index:1000
+}
+#leimu {
+    left:0;
+    -webkit-transition:all .3s ease-in-out;
+    transition:all .3s ease-in-out;
+    -webkit-transform:translate(-7px,7px);
+    -ms-transform:translate(-7px,7px);
+    transform:translate(-7px,7px)
+}
+#lamu {
+    -webkit-transition:all .3s ease-in-out;transition:all .3s ease-in-out;
+    -webkit-transform:translate(7px,7px);
+    -ms-transform:translate(7px,7px);
+    transform:translate(7px,7px);
+    right:0
+}
+#leimu:hover {
+    -webkit-transform:translate(0,0);
+    -ms-transform:translate(0,0);
+    transform:translate(0,0)
+}
+#lamu:hover {
+    -webkit-transform:translate(0,0);
+    -ms-transform:translate(0,0);
+    transform:translate(0,0)
+}
+.sidebar_wo img {
+    cursor:pointer;
+}
+@media only screen and (max-width:1024px) {
+    .sidebar_wo{display:none}
+}
+```
 
 ## 参考链接
 
