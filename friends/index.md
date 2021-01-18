@@ -4,7 +4,7 @@
 
 {{< friend
 name="W4J1e's blog"
-url="https://w4j1e.xyz"
+url="https://www.hin.cool"
 logo="https://gitee.com/W4j1e/pic/raw/master/img/dl2.png"
 word="总是偏爱不务正业"
 >}}
