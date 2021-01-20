@@ -20,6 +20,7 @@ PostgreSQL在安装的时候自带的pgAdmin这个可视化工具，自从将Pos
 3. 选定某条SQL语句，点击Query Tool里的闪电标志的按钮，就可以执行改SQL语句
 
 PS:
+
 虽然pgAdmin4比起3的ui好看了很多，在restore db的时候也变成了后台异步restore，不至于在restore比较大的db时阻塞住进程。但个人还是更喜欢另一款可视化工具DBeaver，不仅支持市面上各大常见的数据库，还有很多好用的功能和快捷键，真的非常好用！！强烈推荐！！
 
 ## 参考链接

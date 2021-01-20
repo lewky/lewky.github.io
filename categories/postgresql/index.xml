@@ -33,21 +33,24 @@
 </div>
 </div>]]></description></item><item><title>PostgreSQL - 怎么转换数据类型</title><link>https://lewky.cn/posts/f20deee6.html/</link><pubDate>Tue, 18 Dec 2018 23:55:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f20deee6.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>对于<code>select 233;</code>这个sql，得到的结果是<code>int4</code>类型，如果我们希望将结果转换成其他的数据类型，有以下方法(下边的<code>{数据类型}</code>表示占位符，要替换成数据库中的某一种数据类型)：</p>
-<h2 id="方法一使用数据类型">方法一：使用<code>::{数据类型}</code></h2>]]></description></item><item><title>PostgreSQL - 用psql 运行SQL文件</title><link>https://lewky.cn/posts/108d47a0.html/</link><pubDate>Tue, 18 Dec 2018 23:52:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/108d47a0.html/</guid><description><![CDATA[<p>对于预先写好的SQL文件，比如<code>/home/user1/updateMyData.sql</code>， 可以有两种方式来运行这个SQL文件。</p>
-<h2 id="方式一连接db后执行sql文件">方式一：连接db后执行SQL文件</h2>
-<p>首先通过psql连接到对应的db：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">psql -d db1 -U userA
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>PostgreSQL - update语句怎么关联多个表</title><link>https://lewky.cn/posts/8423a9d4.html/</link><pubDate>Mon, 10 Dec 2018 00:22:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8423a9d4.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<h2 id="方法一使用数据类型">方法一：使用<code>::{数据类型}</code></h2>]]></description></item><item><title>PostgreSQL - update语句怎么关联多个表</title><link>https://lewky.cn/posts/8423a9d4.html/</link><pubDate>Mon, 10 Dec 2018 00:22:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8423a9d4.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
 <p>对于select语句，我们可以通过join/outer join来关联多个表；但是对于update语句，是不能直接通过join/outer join来关联多表数据的，这里仅针对PostgreSQL。</p>
 <p>或者说，在PostgreSQL中，就算使用update+join不会报错，但join的那部分其实是没任何效果的，如下所示：</p>]]></description></item><item><title>PostgreSQL - pgAdmin4远程连接数据库</title><link>https://lewky.cn/posts/9f87c20d.html/</link><pubDate>Thu, 06 Dec 2018 23:56:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9f87c20d.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
 &lt;p>PostgreSQL在安装的时候自带的pgAdmin这个可视化工具，自从将PostgreSQL9升级到了10版本后，自带的pgAdmin也从3升级到了4版本。pgAdmin4的变化非常巨大，刚接触时一脸懵逼，这里记录下怎么用pgAdmin4进行远程连接数据库并执行SQL语句。&lt;/p></description></item><item><title>PostgreSQL - 查询表结构和索引信息</title><link>https://lewky.cn/posts/42ffcbd5.html/</link><pubDate>Mon, 19 Nov 2018 23:43:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/42ffcbd5.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>PostgreSQL的表一般都是建立在public这个schema下的，假如现在有个数据表<code>t_student</code>，可以用以下几种方式来查询表结构和索引信息。</p>
 <h2 id="使用d元命令查看表字段信息和索引信息">使用\d元命令查看表字段信息和索引信息</h2>
-<p>在cmd界面使用psql连接db后，输入\d加上表名即可：</p>]]></description></item></channel></rss>
+<p>在cmd界面使用psql连接db后，输入\d加上表名即可：</p>]]></description></item><item><title>PostgreSQL - N''和::bpchar</title><link>https://lewky.cn/posts/df5055d.html/</link><pubDate>Wed, 10 Oct 2018 23:07:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/df5055d.html/</guid><description><![CDATA[<h2 id="n和bpchar的区别">N'&lsquo;和::bpchar的区别</h2>
+<p>N'&lsquo;的效果和::bpchar效果类似，都表示定长字符串。比如下边的sql：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">n</span><span class="s1">&#39;233&#39;</span> <span class="k">as</span> <span class="n">num</span><span class="p">;</span>
+<span class="k">select</span> <span class="s1">&#39;233&#39;</span><span class="p">::</span><span class="n">bpchar</span> <span class="k">as</span> <span class="n">num</span><span class="p">;</span>
+<span class="k">select</span> <span class="s1">&#39;233&#39;</span> <span class="k">as</span> <span class="n">num</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

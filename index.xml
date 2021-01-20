@@ -5,26 +5,12 @@
 <li>平台无关性，即跨平台</li>
 <li>可靠安全</li>
 <li>支持多线程</li>
-</ol>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>大佬们 W4J1e&amp;#39;s blog 总是偏爱不务正业 勤奋的思远 一个网络安全爱好者的博客 阳光派Plus’Blog 聪明的妖怪已经录下了唐僧的紧箍咒 北落师门 会者定离，一期一祈 Hugo-LoveIt主题 dillonzq / LoveIt Hugo-LoveIt主题 【十年之约】 【十年之约】 一个人的寂寞，一群人的狂欢。 十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和活力！ ☞ 本站已加入【十年之约】！有兴趣的朋友可</description></item><item><title>Java - 三元运算符隐含的坑</title><link>https://lewky.cn/posts/java-tertiary-operator.html/</link><pubDate>Tue, 15 Dec 2020 22:52:09 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-tertiary-operator.html/</guid><description><![CDATA[<h2 id="背景">背景</h2>
-<p>某天发现系统报空指针异常，追踪异常栈后发现源头处是一个非常简单的三元表达式，如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Integer</span> <span class="n">age</span> <span class="o">=</span> <span class="n">user</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">user</span><span class="o">.</span><span class="na">getAge</span><span class="o">()</span> <span class="o">:</span> <span class="n">0</span><span class="o">;</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>Java - String的intern方法</title><link>https://lewky.cn/posts/java-intern.html/</link><pubDate>Wed, 28 Oct 2020 23:42:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-intern.html/</guid><description><![CDATA[<h2 id="stringintern">String#intern()</h2>
-<p>String#intern()是一个本地方法，用来将字符串放入常量池，在不同的jdk有不同的实现区别：</p>
-<ul>
-<li>在jdk1.6及以前：当字符串在常量池存在时，则返回常量池中的字符串；当字符串在常量池不存在时，则<strong>在常量池中拷贝一份</strong>，然后再返回常量池中的字符串。</li>
-</ul>]]></description></item><item><title>[转载]Java - 为什么不能根据返回类型来区分重载</title><link>https://lewky.cn/posts/java-overload.html/</link><pubDate>Wed, 28 Oct 2020 15:52:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-overload.html/</guid><description><![CDATA[<h2 id="什么是方法重载为什么不能根据返回类型来区分重载">什么是方法重载？为什么不能根据返回类型来区分重载？</h2>
+</ol>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>大佬们 W4J1e&amp;#39;s blog 总是偏爱不务正业 勤奋的思远 一个网络安全爱好者的博客 阳光派Plus’Blog 聪明的妖怪已经录下了唐僧的紧箍咒 北落师门 会者定离，一期一祈 Hugo-LoveIt主题 dillonzq / LoveIt Hugo-LoveIt主题 【十年之约】 【十年之约】 一个人的寂寞，一群人的狂欢。 十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和活力！ ☞ 本站已加入【十年之约】！有兴趣的朋友可</description></item><item><title>Java深入系列(0) - 基础汇总</title><link>https://lewky.cn/posts/java-deepgoing-0.html/</link><pubDate>Wed, 28 Oct 2020 15:52:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-deepgoing-0.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文主要汇总Java深入学习过程中遇到的一些不好归类的基础问题。</p>
+<h2 id="方法重载">方法重载</h2>
+<h3 id="什么是方法重载为什么不能根据返回类型来区分重载">什么是方法重载？为什么不能根据返回类型来区分重载？</h3>
 <p>方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。</p>
-<p>重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载。为什么这里不包括返回类型呢？很简单，如果只是返回类型不同，是无法区分开来的，如下：</p>]]></description></item><item><title>[转载]Java - 为什么switch不支持long</title><link>https://lewky.cn/posts/java-switch.html/</link><pubDate>Tue, 27 Oct 2020 23:18:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-switch.html/</guid><description><![CDATA[<h2 id="switch-支持的类型">switch 支持的类型</h2>
-<p>在 Java 语言规范里中，有说明 switch 支持的类型有：char、byte、short、int、Character、Byte、Short、Integer、String、enum。</p>
-<h2 id="为什么不支持-long-">为什么不支持 long ？</h2>
-<p>为什么只支持上面几种？int、String 都可以，为什么不支持 long ？</p>]]></description></item><item><title>Hugo系列(3) - LoveIt主题美化与博客功能增强</title><link>https://lewky.cn/posts/hugo-3.html/</link><pubDate>Thu, 22 Oct 2020 13:11:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载。为什么这里不包括返回类型呢？很简单，如果只是返回类型不同，是无法区分开来的，如下：</p>]]></description></item><item><title>Hugo系列(3) - LoveIt主题美化与博客功能增强</title><link>https://lewky.cn/posts/hugo-3.html/</link><pubDate>Thu, 22 Oct 2020 13:11:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -74,4 +60,35 @@ Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
 </div>
 </div>]]></description></item><item><title>Hugo系列(1) - 简单搭建教程与远程部署</title><link>https://lewky.cn/posts/hugo-1.html/</link><pubDate>Sun, 06 Sep 2020 21:10:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。</p>
-<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item></channel></rss>
+<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item><item><title>Maven无法下载2.1.7.js7版本的itext依赖</title><link>https://lewky.cn/posts/d94da554.html/</link><pubDate>Mon, 16 Mar 2020 11:35:40 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/d94da554.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>某日忽然发现用Maven编译项目报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Failed</span> <span class="n">to</span> <span class="n">collect</span> <span class="n">dependencies</span> <span class="n">at</span> <span class="n">net</span><span class="o">.</span><span class="na">sf</span><span class="o">.</span><span class="na">jasperreports</span><span class="o">:</span><span class="n">jasperreports</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">6</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">0</span>
+<span class="o">-&gt;</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span><span class="o">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">read</span> <span class="n">artifact</span> <span class="n">descriptor</span> <span class="k">for</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span><span class="o">:</span> 
+<span class="n">Could</span> <span class="n">not</span> <span class="n">transfer</span> <span class="n">artifact</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">pom</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Eclipse - 快捷键篇</title><link>https://lewky.cn/posts/eclipse-hotkey.html/</link><pubDate>Sat, 18 Jan 2020 23:04:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eclipse-hotkey.html/</guid><description><![CDATA[<h2 id="常用的快捷键">常用的快捷键</h2>
+<p><code>ctrl + shift + r</code> 查找工作空间内的文件，不包括Jar包内的文件</p>
+<p><code>ctrl + shift + t</code> 查找工作空间内的文件，包括Jar包内的文件</p>
+<p><code>ctrl + o</code> 查看当前类的所有方法</p>
+<p><code>ctrl + e</code> 快速切换编辑器，在打开了非常多的文件时会很便利</p>
+<p><code>ctrl + /</code> 单行注释或多行注释或取消注释</p>
+<p><code>ctrl + t</code> 查找一个类的继承关系树</p>
+<p><code>ctrl + d</code> 删除光标所在行</p>
+<p><code>ctrl + space</code> 代码提示，和输入法快捷键冲突时也可以用<code>alt + /</code></p>
+<p><code>ctrl + shift + f</code> 格式化代码</p>
+<p><code>ctrl + k</code> 快速跳转到下一个相同的被选中字符，在查找相同的字符串时会很方便</p>
+<p><code>ctrl + shift + k</code> 快速跳转到上一个相同的被选中字符</p>
+<p><code>shift + enter</code> 在光标所在行的下一行创建一行空白行</p>
+<p><code>ctrl + shift + enter</code> 在光标所在行的上一行创建一行空白行</p>
+<p><code>alt + ←</code> 跳转到上一步操作</p>
+<p><code>alt + →</code> 跳转到下一步操作</p>
+<p><code>alt + ↑</code> 将光标所在的那一行向上挪动一行</p>
+<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item><item><title>JDK自带的那些好用的工具</title><link>https://lewky.cn/posts/jdk-tools.html/</link><pubDate>Fri, 03 Jan 2020 14:59:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jdk-tools.html/</guid><description>将中文转换为ASCII码的工具 在jdk的安装目录下，有一个bin文件夹，这里隐藏了一个将中文转换为ASCII码的工具：native2ascii.exe。双击运行该程序，输入要转换的中文，按下Enter，就可以得到相应的ASCII码了。 接下来要如何将该ASCII码复制到文本上？ 右键cmd窗口，选择编辑菜单里的标记，选定了要复制的内容后按下Enter就自动复制到</description></item></channel></rss>
