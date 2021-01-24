@@ -30,6 +30,13 @@ logo="https://www.fm-cslab.com/default/avatar.png"
 word="会者定离，一期一祈"
 >}}
 
+{{< friend
+name="itsNekoDeng"
+url="https://nekodeng.gitee.io"
+logo="https://nekodeng.gitee.io/medias/avatar.jpg"
+word="十万伏特皮卡丘，梦想是世界和平，想要发光发热"
+>}}
+
 ## Hugo-LoveIt主题
 
 {{< friend
