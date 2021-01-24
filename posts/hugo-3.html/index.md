@@ -239,6 +239,47 @@ outputs = ["html", "json"]
 }
 ```
 
+### 优化中文搜索效果
+
+这个搜索功能借助了Fuse.js模糊搜索引擎，为了更好的适配中文搜索结果，需要修改模糊搜索的相关参数，相对的会导致英文搜索结果变多，不过这个可以接受。因为搜索结果变多了，总好过搜索不出来想要的中文结果。而且可以通过设置搜索结果的权重来改变结果的排序，这样越前面的搜索结果就越是我们想要的。
+
+打开`\themes\hugo-search-fuse-js\static\js\search.js`，这里面配置了fuse.js的搜索配置选项，可以参考下我的配置，我已经添加了部分中文注释：
+```
+// Options for fuse.js
+let fuseOptions = {
+  shouldSort: true, // 是否按分数对结果列表排序
+  includeMatches: true, //  是否应将分数包含在结果集中。0分表示完全匹配，1分表示完全不匹配。
+  tokenize: true,
+  matchAllTokens: true,
+  threshold: 0.2, // 匹配算法阈值。阈值为0.0需要完全匹配（字母和位置），阈值为1.0将匹配任何内容。
+  location: 0, // 确定文本中预期找到的模式的大致位置。
+  /**
+   * 确定匹配与模糊位置（由位置指定）的距离。一个精确的字母匹配，即距离模糊位置很远的字符将被视为完全不匹配。
+   *  距离为0要求匹配位于指定的准确位置，距离为100则要求完全匹配位于使用阈值0.2找到的位置的20个字符以内。
+   */
+  distance: 100,
+  maxPatternLength: 64, // 模式的最大长度
+  minMatchCharLength: 2, // 模式的最小字符长度
+  keys: [
+    {name:"title",weight:0.8},
+    {name:"tags",weight:0.5},
+    {name:"categories",weight:0.5},
+    {name:"contents",weight:0.4}
+  ]
+};
+```
+
+这里和中文搜索有关的主要就3个选项：`threshold`，`location`，`distance`。
+
+`threshold`是阈值，这个参数搭配`distance`使用。如果阈值填了`0.0`，相当于`distance`没有意义。`location`填0就行，`distance`填100就足够了，太大了会导致搜索到过多的结果。上面根据我个人的中文搜索测试结果，选择了这样的配置：
+```
+  threshold: 0.2,
+  location: 0,
+  distance: 100
+```
+
+可以根据个人情况来修改这几个参数的值，另外我还将`minMatchCharLength`的值改成了2，不过经过测试，和之前默认的`3`并没有什么差别。
+
 ## 如何添加自定义的页面
 
 除了发布草稿和正文，我们还可以添加自定义的页面page。page不会像文章那样被渲染，而是被渲染成一个单独的页面，类似于你的文档、标签页面。
@@ -1075,3 +1116,5 @@ https://github.com/lewky/lewky.github.io/tree/master/images/avatar-plug
 * [cron-job.org](https://cron-job.org/en/members/jobs/)
 * [Qmsg酱](https://qmsg.zendee.cn/)
 * [hexo中添加鼠标右键功能](https://www.zyoushuo.cn/post/4445.html)
+* [Fuse.js模糊搜索引擎](https://blog.csdn.net/weixin_46382477/article/details/108144964)
+* [使用fuse.js进行搜索](https://www.jianshu.com/p/d0c8c3de8233)

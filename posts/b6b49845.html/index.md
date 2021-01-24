@@ -86,7 +86,19 @@ scaffolds/*
 !scaffolds/draft.md
 ```
 
-**注意：这里必须在文件夹后面加上`/*`，否则是无法实现想要的效果的。**
+**注意：这里必须在文件夹后面加上`/*`，否则是无法实现想要的效果的。并且被忽略的文件和想要不忽略的文件必须是同一路径，否则无法生效。**如下的写法就是不能生效的：
+```text
+# ignore scaffolds folder, but don't ignore draft.md under scaffolds folder.
+scaffolds/*
+!scaffolds/test/draft.md
+```
+
+想要生效就要改成同一目录：
+```text
+# ignore scaffolds folder, but don't ignore draft.md under scaffolds folder.
+scaffolds/test/*
+!scaffolds/test/draft.md
+```
 
 ### 使用通配符及其他符号
 
