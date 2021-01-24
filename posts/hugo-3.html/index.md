@@ -1103,6 +1103,270 @@ img.site-avatar-plug-bilibili {
 头像和挂件的样式代码可能根据个人的定制化而需要微调下位置之类的。至于头像挂件这些图片请去我的站点里下载下来，下面是具体地址：
 https://github.com/lewky/lewky.github.io/tree/master/images/avatar-plug
 
+## 添加归档、分类页面里的文章数量统计
+
+### 在list.html里添加`sup`标签
+
+文章数量统计实际上就是添加html里的`sup`标签，借助hugo提供的变量来获取对应的文章数量，即可实现该功能。
+
+拷贝`\themes\LoveIt\layouts\taxonomy\list.html`到`\layouts\taxonomy\list.html`，打开拷贝后的文件，找到如下内容：
+```
+{{- if eq $taxonomy "category" -}}
+    <i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Title }}
+{{- else if eq $taxonomy "tag" -}}
+    <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}
+{{- else -}}
+```
+
+改成如下：
+```
+{{- if eq $taxonomy "category" -}}
+    <i class="far fa-folder-open fa-fw"></i>&nbsp;{{ .Title }}<sup>{{ len .Pages }}</sup>
+{{- else if eq $taxonomy "tag" -}}
+    <i class="fas fa-tag fa-fw"></i>&nbsp;{{ .Title }}<sup>{{ len .Pages }}</sup>
+{{- else -}}
+```
+
+继续找到如下内容：
+```
+{{- range $pages.PageGroups -}}
+    <h3 class="group-title">{{ .Key }}</h3>
+```
+
+改成如下：
+```
+{{- range $pages.PageGroups -}}
+    <h3 class="group-title">{{ .Key }} <sup>{{ len .Pages }}</sup></h3>
+```
+
+原本主题的文章是按照年份来分组的，如果想按照月份来分组，找到下面的内容：
+```
+{{- /* Paginate */ -}}
+{{- if .Pages -}}
+    {{- $pages := .Pages.GroupByDate "2006" -}}
+```
+
+改成如下：
+```
+{{- /* Paginate */ -}}
+{{- if .Pages -}}
+    {{- $pages := .Pages.GroupByDate "2006-01" -}}
+```
+
+### 在terms.html里添加`sup`标签
+
+拷贝`\themes\LoveIt\layouts\taxonomy\terms.html`到`\layouts\taxonomy\terms.html`，打开拷贝后的文件，找到如下内容：
+```
+<div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}
+    </h2>
+```
+
+改成如下：
+```
+<div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T $taxonomies) | default $taxonomies | dict "Some" | T "allSome" -}}<sup>{{ len .Pages }}</sup>
+    </h2>
+```
+
+找到如下内容：
+```
+<h3 class="card-item-title">
+    <a href="{{ .RelPermalink }}">
+        <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }}
+    </a>
+</h3>
+```
+
+改成如下：
+```
+<h3 class="card-item-title">
+    <a href="{{ .RelPermalink }}">
+        <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }} <sup>{{ len $value.Pages }}</sup>
+    </a>
+</h3>
+```
+
+### 在section.html里添加`sup`标签
+
+拷贝`\themes\LoveIt\layouts\_default\section.html`到`\layouts\_default\section.html`，打开拷贝后的文件，找到如下内容：
+```
+<div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}
+    </h2>
+```
+
+改成如下：
+```
+<div class="page archive">
+    {{- /* Title */ -}}
+    <h2 class="single-title animated pulse faster">
+        {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}<sup>{{ len .Pages }}</sup>
+    </h2>
+```
+
+找到如下内容：
+```
+{{- range $pages.PageGroups -}}
+            <h3 class="group-title">{{ .Key }}</h3>
+```
+
+改成如下：
+```
+{{- range $pages.PageGroups -}}
+    <h3 class="group-title">{{ .Key }} <sup>{{ len .Pages }}</sup></h3>
+```
+
+这里同样是按照年份来分组的，如果想按照月份来分组，找到下面的内容：
+```
+{{- /* Paginate */ -}}
+{{- if .Pages -}}
+    {{- $pages := .Pages.GroupByDate "2006" -}}
+```
+
+改成如下：
+```
+{{- /* Paginate */ -}}
+{{- if .Pages -}}
+    {{- $pages := .Pages.GroupByDate "2006-01" -}}
+```
+
+## 修改侧边栏目录样式
+
+默认侧边栏的目录是全展开的，如果文章太长，小标题太多，就会导致目录非常长，看起来不方便。可以改成只展开当前正在查看的小标题对应的目录，在`_custom.scss`里添加如下样式：
+```css
+/* 目录 */
+nav#TableOfContents ol {
+    padding-inline-start: 30px;
+
+    & ol {
+        padding-inline-start: 25px;
+        display: none;
+    }
+
+    & li.has-active ol {
+        display: block;
+    }
+}
+```
+
+## 添加文章过期提醒
+
+### 配置文件添加相关变量
+
+在`config.toml`添加如下变量：
+```
+  # Display a message at the beginning of an article to warn the readers that it's content may be outdated.
+  # 在文章末尾显示提示信息，提醒读者文章内容可能过时。
+  [params.outdatedInfoWarning]
+    enable = true
+    hint = 90     # Display hint if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示提醒
+    warn = 180    # Display warning if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示警告
+```
+
+这里是对全局文章生效，也可以在每篇文章的文件头里添加如下变量来控制是否启用该功能：
+```
+outdatedInfoWarning: false
+```
+
+### 修改模板文件`single.html`
+
+将`/themes/LoveIt/layouts/posts/single.html`拷贝到`/layouts/posts/single.html`，打开拷贝后的文件，找到如下内容：
+```
+{{- /* Content */ -}}
+<div class="content" id="content">
+    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+</div>
+```
+
+修改成如下：
+```
+<div class="content" id="content">
+    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+	
+	{{- /* Outdated Info Warning */ -}}
+	{{- partial "single/outdated-info-warning.html" . -}}
+</div>
+```
+
+### 添加模板文件`outdated-info-warning.html`
+
+新建模板文件`/layouts/partials/single/outdated-info-warning.html`，内容如下：
+```
+{{- if or .Params.outdatedInfoWarning (and .Site.Params.outdatedInfoWarning.enable (ne .Params.outdatedInfoWarning false)) }}
+  {{- $daysAgo := div (sub now.Unix .Lastmod.Unix) 86400 }}
+  {{- $hintThreshold := .Site.Params.outdatedInfoWarning.hint | default 30 }}
+  {{- $warnThreshold := .Site.Params.outdatedInfoWarning.warn | default 180 }}
+
+  {{- $updateTime := .Lastmod }}
+  {{- if .GitInfo }}
+    {{- if lt .GitInfo.AuthorDate.Unix .Lastmod.Unix }}
+      {{- $updateTime := .GitInfo.AuthorDate }}
+    {{- end }}
+  {{- end -}}
+
+  {{- if gt $daysAgo $hintThreshold }}
+	{{- $iconDetails := "fas fa-angle-right fa-fw" -}}
+    {{- if gt $daysAgo $warnThreshold }}
+		{{- $type := "warning" -}}
+		{{- $icon := "fas fa-exclamation-triangle fa-fw" -}}
+		<div class="details admonition {{ $type }} open">
+			<div class="details-summary admonition-title">
+				<i class="icon {{ $icon }}{{ $type }}"></i>{{ T $type }}<i class="details-icon {{ $iconDetails }}"></i>
+	{{- else }}
+		{{- $type := "note" -}}
+		{{- $icon := "fas fa-pencil-alt fa-fw" -}}
+		<div class="details admonition {{ $type }} open">
+			<div class="details-summary admonition-title">
+				<i class="icon {{ $icon }}{{ $type }}"></i>{{ T $type }}<i class="details-icon {{ $iconDetails }}"></i>
+    {{- end }}
+		    </div>
+			<div class="details-content">
+				<div class="admonition-content">
+					{{ T "outdatedInfoWarningBefore" -}}
+					<span class="timeago" datetime="{{ dateFormat "2006-01-02T15:04:05" $updateTime }}" title="{{ dateFormat "January 2, 2006" $updateTime }}">
+					{{- dateFormat "January 2, 2006" $updateTime -}}
+					</span>{{ T "outdatedInfoWarningAfter" -}}
+				</div>
+			</div>
+		 </div>
+  {{- end -}}
+{{- end -}}
+```
+
+### 添加变量到国际化文件
+
+将`\themes\LoveIt\i18n\zh-CN.toml`拷贝到`\i18n\zh-CN.toml`，然后将该文件重命名为`zh-cn.toml`。因为站点配置文件里的中文语言代码应该是全小写的`zh-cn`，如下：
+```
+defaultContentLanguage = "zh-cn"
+```
+
+打开拷贝后的文件，添加如下内容：
+```
+[outdatedInfoWarningBefore]
+  other = "本文最后更新于 "
+
+[outdatedInfoWarningAfter]
+  other = "，文中内容可能已过时，请谨慎使用。"
+```
+
+如果你的国际化文件是用的`yaml`格式，则如下：
+```
+outdatedInfoWarningBefore:
+  other: "本文最后更新于 "
+
+outdatedInfoWarningAfter:
+  other: "，文中内容可能已过时，请谨慎使用。"
+```
+
+如果有配置了其他语言，可以添加上面两个变量到对应的国际化文件里，自行修改`other`所对应的值即可。
+
 ## 参考链接
 
 * [自定义Hugo主题样式](https://sr-c.github.io/2020/07/21/Hugo-custom/)
