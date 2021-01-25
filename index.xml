@@ -1,11 +1,41 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 04 Jan 2021 21:04:37 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Jave基础复习总纲</title><link>https://lewky.cn/posts/exam-java.html/</link><pubDate>Mon, 04 Jan 2021 21:04:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/exam-java.html/</guid><description><![CDATA[<h2 id="java语言有哪些特点">Java语言有哪些特点？</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Jan 2021 23:43:02 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Java深入系列(1) - 日期</title><link>https://lewky.cn/posts/java-deepgoing-1.html/</link><pubDate>Mon, 25 Jan 2021 23:43:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-deepgoing-1.html/</guid><description><![CDATA[<h2 id="日期格式化的跨年问题">日期格式化的跨年问题</h2>
+<p>通常格式化日期时，都是使用的<code>YYYY/MM/dd</code>来格式化日期，但是在遇到跨年日期时，就会遇到很神奇的现象，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">Calendar</span> <span class="n">calendar</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+<span class="c1">// 2020-12-26
+</span><span class="c1"></span><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">2020</span><span class="o">,</span> <span class="n">11</span><span class="o">,</span> <span class="n">26</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">Date</span> <span class="n">date1226</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">getTime</span><span class="o">();</span>
+<span class="c1">// 2020-12-27
+</span><span class="c1"></span><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">2020</span><span class="o">,</span> <span class="n">11</span><span class="o">,</span> <span class="n">27</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">Date</span> <span class="n">date1227</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">getTime</span><span class="o">();</span>
+<span class="c1">// YYYY
+</span><span class="c1"></span><span class="kd">final</span> <span class="n">DateFormat</span> <span class="n">Y</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">&#34;YYYY/MM/dd&#34;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-26用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1226</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-27用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1227</span><span class="o">));</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Jave基础复习总纲</title><link>https://lewky.cn/posts/exam-java.html/</link><pubDate>Mon, 04 Jan 2021 21:04:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/exam-java.html/</guid><description><![CDATA[<h2 id="java语言有哪些特点">Java语言有哪些特点？</h2>
 <ol>
 <li>简单易学，有丰富的类库</li>
 <li>面向对象</li>
 <li>平台无关性，即跨平台</li>
 <li>可靠安全</li>
 <li>支持多线程</li>
-</ol>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>大佬们 W4J1e&amp;#39;s blog 总是偏爱不务正业 勤奋的思远 一个网络安全爱好者的博客 阳光派Plus’Blog 聪明的妖怪已经录下了唐僧的紧箍咒 北落师门 会者定离，一期一祈 itsNekoDeng 十万伏特皮卡丘，梦想是世界和平，想要发光发热 Hugo-LoveIt主题 dillonzq / LoveIt Hugo-LoveIt主题 【十年之约】 【十年之约】 一个人的寂寞，一群人的狂欢。 十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和</description></item><item><title>Java深入系列(0) - 基础汇总</title><link>https://lewky.cn/posts/java-deepgoing-0.html/</link><pubDate>Wed, 28 Oct 2020 15:52:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-deepgoing-0.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+</ol>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>大佬们 W4J1e&amp;#39;s blog 总是偏爱不务正业 勤奋的思远 一个网络安全爱好者的博客 阳光派Plus’Blog 聪明的妖怪已经录下了唐僧的紧箍咒 北落师门 会者定离，一期一祈 itsNekoDeng 十万伏特皮卡丘，梦想是世界和平，想要发光发热 Hugo-LoveIt主题 dillonzq / LoveIt Hugo-LoveIt主题 【十年之约】 【十年之约】 一个人的寂寞，一群人的狂欢。 十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和</description></item><item><title>Java深入系列(0) - 基础篇</title><link>https://lewky.cn/posts/java-deepgoing-0.html/</link><pubDate>Wed, 28 Oct 2020 15:52:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-deepgoing-0.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文主要汇总Java深入学习过程中遇到的一些不好归类的基础问题。</p>
 <h2 id="方法重载">方法重载</h2>
 <h3 id="什么是方法重载为什么不能根据返回类型来区分重载">什么是方法重载？为什么不能根据返回类型来区分重载？</h3>
@@ -91,4 +121,4 @@ Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
 <p><code>alt + ←</code> 跳转到上一步操作</p>
 <p><code>alt + →</code> 跳转到下一步操作</p>
 <p><code>alt + ↑</code> 将光标所在的那一行向上挪动一行</p>
-<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item><item><title>JDK自带的那些好用的工具</title><link>https://lewky.cn/posts/jdk-tools.html/</link><pubDate>Fri, 03 Jan 2020 14:59:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jdk-tools.html/</guid><description>将中文转换为ASCII码的工具 在jdk的安装目录下，有一个bin文件夹，这里隐藏了一个将中文转换为ASCII码的工具：native2ascii.exe。双击运行该程序，输入要转换的中文，按下Enter，就可以得到相应的ASCII码了。 接下来要如何将该ASCII码复制到文本上？ 右键cmd窗口，选择编辑菜单里的标记，选定了要复制的内容后按下Enter就自动复制到</description></item></channel></rss>
+<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item></channel></rss>

@@ -1,4 +1,34 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Java - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/java/</link><description>Java - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 28 Oct 2020 15:52:05 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/java/" rel="self" type="application/rss+xml"/><item><title>Java深入系列(0) - 基础汇总</title><link>https://lewky.cn/posts/java-deepgoing-0.html/</link><pubDate>Wed, 28 Oct 2020 15:52:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-deepgoing-0.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Java - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/java/</link><description>Java - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Jan 2021 23:43:02 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/java/" rel="self" type="application/rss+xml"/><item><title>Java深入系列(1) - 日期</title><link>https://lewky.cn/posts/java-deepgoing-1.html/</link><pubDate>Mon, 25 Jan 2021 23:43:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-deepgoing-1.html/</guid><description><![CDATA[<h2 id="日期格式化的跨年问题">日期格式化的跨年问题</h2>
+<p>通常格式化日期时，都是使用的<code>YYYY/MM/dd</code>来格式化日期，但是在遇到跨年日期时，就会遇到很神奇的现象，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">Calendar</span> <span class="n">calendar</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+<span class="c1">// 2020-12-26
+</span><span class="c1"></span><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">2020</span><span class="o">,</span> <span class="n">11</span><span class="o">,</span> <span class="n">26</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">Date</span> <span class="n">date1226</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">getTime</span><span class="o">();</span>
+<span class="c1">// 2020-12-27
+</span><span class="c1"></span><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">2020</span><span class="o">,</span> <span class="n">11</span><span class="o">,</span> <span class="n">27</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">Date</span> <span class="n">date1227</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">getTime</span><span class="o">();</span>
+<span class="c1">// YYYY
+</span><span class="c1"></span><span class="kd">final</span> <span class="n">DateFormat</span> <span class="n">Y</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">&#34;YYYY/MM/dd&#34;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-26用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1226</span><span class="o">));</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-27用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1227</span><span class="o">));</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Java深入系列(0) - 基础篇</title><link>https://lewky.cn/posts/java-deepgoing-0.html/</link><pubDate>Wed, 28 Oct 2020 15:52:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-deepgoing-0.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文主要汇总Java深入学习过程中遇到的一些不好归类的基础问题。</p>
 <h2 id="方法重载">方法重载</h2>
 <h3 id="什么是方法重载为什么不能根据返回类型来区分重载">什么是方法重载？为什么不能根据返回类型来区分重载？</h3>
@@ -26,6 +56,4 @@
 <p>首先去<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener noreffer">官网</a>下载Java，由于Sun被Oracle收购了，现在去官网下载Java需要先注册一个Oracle账号，虽然麻烦了点，但是没办法，谁叫Oracle牛逼呢。</p>
 <p>由于页面是全英文的，部分同学可能会懵逼，其实没什么，随便找一个版本下载就行。唯一需要注意的是，下载文件之前要先点击一下文件上方的同意协议，否则会提示你还没有同意协议。</p>]]></description></item><item><title>Java - Class版本号和UnsupportedClassVersionError</title><link>https://lewky.cn/posts/fd82a4a.html/</link><pubDate>Mon, 12 Nov 2018 22:11:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fd82a4a.html/</guid><description><![CDATA[<h2 id="问题分析">问题分析</h2>
 <p>Java是向下兼容的，每一个jdk版本都有对应的class版本号(major + minor version numbers)；如果用低版本的jvm去加载高版本jdk编译的类，就会报错：<code>java.lang.UnsupportedClassVersionError</code></p>]]></description></item><item><title>如何正确地打印异常堆栈信息</title><link>https://lewky.cn/posts/ea188909.html/</link><pubDate>Sun, 11 Nov 2018 11:09:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ea188909.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
-&lt;p>最近老大让我修改项目里所有和log有关的代码，之前我也用过log4j、slf4j或者Logback等日志框架/接口，一直以为打印异常信息就是简单地一句log.info()或者log.error()而已，没想到原来一直都使用错了，以至于有些错误信息没能在log文件中打印出堆栈信息，最终难以定位bug，排查困难。&lt;/p></description></item><item><title>Java - foreach循环报NPE空指针异常</title><link>https://lewky.cn/posts/fba3f254.html/</link><pubDate>Sun, 14 Oct 2018 20:11:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fba3f254.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>最近debug时忽然发现，如果一个集合赋值为null，那么对该集合进行foreach循环(也叫增强for循环)时，会报NPE(即空指针异常NullPointerException)。</p>
-<p>代码如下：</p>]]></description></item></channel></rss>
+&lt;p>最近老大让我修改项目里所有和log有关的代码，之前我也用过log4j、slf4j或者Logback等日志框架/接口，一直以为打印异常信息就是简单地一句log.info()或者log.error()而已，没想到原来一直都使用错了，以至于有些错误信息没能在log文件中打印出堆栈信息，最终难以定位bug，排查困难。&lt;/p></description></item></channel></rss>
