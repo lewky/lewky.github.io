@@ -29,7 +29,7 @@
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Java深入系列(0) - 基础篇</title><link>https://lewky.cn/posts/java-deepgoing-0.html/</link><pubDate>Wed, 28 Oct 2020 15:52:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-deepgoing-0.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文主要汇总Java深入学习过程中遇到的一些不好归类的基础问题。</p>
+<p>本文主要汇总Java深入学习或者工作过程中遇到的一些不好归类的基础问题。</p>
 <h2 id="方法重载">方法重载</h2>
 <h3 id="什么是方法重载为什么不能根据返回类型来区分重载">什么是方法重载？为什么不能根据返回类型来区分重载？</h3>
 <p>方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。</p>
@@ -38,22 +38,13 @@
 <p>之后就发现，当被拼接的字符串里含有<code>;</code>或<code>,</code>时，就会出现分割不正确的问题。</p>]]></description></item><item><title>Java反编译工具JD-GUI以及Eclipse的反编译插件</title><link>https://lewky.cn/posts/add9b646.html/</link><pubDate>Mon, 10 Dec 2018 00:27:11 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/add9b646.html/</guid><description><![CDATA[<h2 id="什么是反编译">什么是反编译</h2>
 <blockquote>
 <p>高级语言源程序经过编译变成可执行文件，反编译就是逆过程。但是通常不能把可执行文件变成高级语言源代码，只能转换成汇编程序。</p>
-</blockquote>]]></description></item><item><title>如何获取更多关于序列化异常的堆栈信息</title><link>https://lewky.cn/posts/a206131b.html/</link><pubDate>Mon, 03 Dec 2018 23:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a206131b.html/</guid><description><![CDATA[<h2 id="问题与解决方法">问题与解决方法</h2>
-<p>有时候我们的系统会报<code>java.io.NotSerializableException</code>，根据堆栈信息又无法得出有用的信息，无法找到具体是因为哪些类或者变量造成的，可以使用一个java参数<code>-Dsun.io.serialization.extendedDebugInfo=true</code>来得到更加具体的序列化信息。</p>
-<p>从jdk6开始就可以使用该参数，可以在启动java程序时启用该参数，也可以在项目的一开始通过代码来启用：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&#34;sun.io.serialization.extendedDebugInfo&#34;</span><span class="o">,</span> <span class="s">&#34;true&#34;</span><span class="o">);</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>Java - 怎么通过环境变量来切换jdk版本</title><link>https://lewky.cn/posts/java-%E6%80%8E%E4%B9%88%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%9D%A5%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC.html/</link><pubDate>Sat, 17 Nov 2018 00:10:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-%E6%80%8E%E4%B9%88%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%9D%A5%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC.html/</guid><description><![CDATA[问题与分析 我在本地安装了1.7和1.8两个版本的jdk，此时我的JAVA_HOME环境变量配置的是jdk1.8，在cmd窗口输入java -version发现报错如下： 1 2 3 4 5 C:\Users\Lewis&gt;java -version Error: Registry key &#39;Software\JavaSoft\Java Runtime Environment&#39;\CurrentVersion&#39; has value &#39;1.8&#39;, but &#39;1.7&#39; is required. Error: could not find java.dll Error: Could not find Java SE Runtime Environment. 接着输入javac -version则是正常： 1 2 C:\Users\Lewis&gt;javac -version javac 1.8.0_191 javac命令能正常执行， 说明我配置的CLASSPATH变量和JAVA_]]></description></item><item><title>Java - 安装jdk并设置环境变量</title><link>https://lewky.cn/posts/4c4c677.html/</link><pubDate>Sat, 17 Nov 2018 00:09:31 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4c4c677.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+</blockquote>]]></description></item><item><title>Java - 怎么通过环境变量来切换jdk版本</title><link>https://lewky.cn/posts/java-%E6%80%8E%E4%B9%88%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%9D%A5%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC.html/</link><pubDate>Sat, 17 Nov 2018 00:10:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-%E6%80%8E%E4%B9%88%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%9D%A5%E5%88%87%E6%8D%A2jdk%E7%89%88%E6%9C%AC.html/</guid><description><![CDATA[问题与分析 我在本地安装了1.7和1.8两个版本的jdk，此时我的JAVA_HOME环境变量配置的是jdk1.8，在cmd窗口输入java -version发现报错如下： 1 2 3 4 5 C:\Users\Lewis&gt;java -version Error: Registry key &#39;Software\JavaSoft\Java Runtime Environment&#39;\CurrentVersion&#39; has value &#39;1.8&#39;, but &#39;1.7&#39; is required. Error: could not find java.dll Error: Could not find Java SE Runtime Environment. 接着输入javac -version则是正常： 1 2 C:\Users\Lewis&gt;javac -version javac 1.8.0_191 javac命令能正常执行， 说明我配置的CLASSPATH变量和JAVA_]]></description></item><item><title>Java - 安装jdk并设置环境变量</title><link>https://lewky.cn/posts/4c4c677.html/</link><pubDate>Sat, 17 Nov 2018 00:09:31 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4c4c677.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>双十一买了台新的笔记本，需要重新安装下Java，这里记录下安装的过程，毕竟万事开头难，就算是老手也不一定能一次就把Java安装成功。</p>
 <h2 id="安装jdk">安装jdk</h2>
 <p>作为一名Java开发，当然是要安装jdk了，如果只是需要Java的运行环境，那么安装jre就足够了。另外说下，jdk里以及包含了jre了。</p>
 <p>首先去<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener noreffer">官网</a>下载Java，由于Sun被Oracle收购了，现在去官网下载Java需要先注册一个Oracle账号，虽然麻烦了点，但是没办法，谁叫Oracle牛逼呢。</p>
 <p>由于页面是全英文的，部分同学可能会懵逼，其实没什么，随便找一个版本下载就行。唯一需要注意的是，下载文件之前要先点击一下文件上方的同意协议，否则会提示你还没有同意协议。</p>]]></description></item><item><title>Java - Class版本号和UnsupportedClassVersionError</title><link>https://lewky.cn/posts/fd82a4a.html/</link><pubDate>Mon, 12 Nov 2018 22:11:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fd82a4a.html/</guid><description><![CDATA[<h2 id="问题分析">问题分析</h2>
 <p>Java是向下兼容的，每一个jdk版本都有对应的class版本号(major + minor version numbers)；如果用低版本的jvm去加载高版本jdk编译的类，就会报错：<code>java.lang.UnsupportedClassVersionError</code></p>]]></description></item><item><title>如何正确地打印异常堆栈信息</title><link>https://lewky.cn/posts/ea188909.html/</link><pubDate>Sun, 11 Nov 2018 11:09:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ea188909.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
-&lt;p>最近老大让我修改项目里所有和log有关的代码，之前我也用过log4j、slf4j或者Logback等日志框架/接口，一直以为打印异常信息就是简单地一句log.info()或者log.error()而已，没想到原来一直都使用错了，以至于有些错误信息没能在log文件中打印出堆栈信息，最终难以定位bug，排查困难。&lt;/p></description></item></channel></rss>
+&lt;p>最近老大让我修改项目里所有和log有关的代码，之前我也用过log4j、slf4j或者Logback等日志框架/接口，一直以为打印异常信息就是简单地一句log.info()或者log.error()而已，没想到原来一直都使用错了，以至于有些错误信息没能在log文件中打印出堆栈信息，最终难以定位bug，排查困难。&lt;/p></description></item><item><title>Java - foreach循环报NPE空指针异常</title><link>https://lewky.cn/posts/fba3f254.html/</link><pubDate>Sun, 14 Oct 2018 20:11:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fba3f254.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>最近debug时忽然发现，如果一个集合赋值为null，那么对该集合进行foreach循环(也叫增强for循环)时，会报NPE(即空指针异常NullPointerException)。</p>
+<p>代码如下：</p>]]></description></item></channel></rss>

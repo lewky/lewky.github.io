@@ -29,7 +29,7 @@
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Java深入系列(0) - 基础篇</title><link>https://lewky.cn/posts/java-deepgoing-0.html/</link><pubDate>Wed, 28 Oct 2020 15:52:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-deepgoing-0.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文主要汇总Java深入学习过程中遇到的一些不好归类的基础问题。</p>
+<p>本文主要汇总Java深入学习或者工作过程中遇到的一些不好归类的基础问题。</p>
 <h2 id="方法重载">方法重载</h2>
 <h3 id="什么是方法重载为什么不能根据返回类型来区分重载">什么是方法重载？为什么不能根据返回类型来区分重载？</h3>
 <p>方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。</p>
