@@ -37,6 +37,13 @@ logo="https://nekodeng.gitee.io/medias/avatar.jpg"
 word="十万伏特皮卡丘，梦想是世界和平，想要发光发热"
 >}}
 
+{{< friend
+name="BBing's Blog"
+url="https://bbing.com.cn/"
+logo="https://s3.ax1x.com/2021/01/21/s4crsU.png"
+word="自由 分享 合作"
+>}}
+
 ## Hugo-LoveIt主题
 
 {{< friend

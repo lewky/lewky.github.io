@@ -314,14 +314,14 @@ title: "友链墙"
 ```html
 {{ if .IsNamedParams }}
 {{ $defaultImg := "https://gravatar.loli.net/avatar/c02f8b813aa4b7f72e32de5a48dc17a7?d=retro&v=1.4.14" }}
-	<a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }} class="friend url">
+	<a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }}---{{ .Get "word" }} class="friend url">
 	  <div class="friend block whole">
 		<div class="friend block left">
 		  <img class="friend logo" src={{ .Get "logo" }} onerror="this.src='{{ $defaultImg }}'" />
 		</div>
 		<div class="friend block right">
 		  <div class="friend name">{{ .Get "name" }}</div>
-		  <div class="friend info">{{ .Get "word" }}</div>
+		  <div class="friend info">"{{ .Get "word" }}"</div>
 		</div>
 	  </div>
 	</a>
@@ -351,11 +351,12 @@ title: "友链墙"
 
 .friend.block.whole {
     height: 92px;
-    margin-top: 10px;
-    width: 48%;
-    display: inline-block !important;
+    margin-top: 8px;
+    margin-left: 4px;
+    width: 31%;
+    display: inline-flex !important;
     border-radius: 5px;
-    background: rgba(212, 235, 235, 0.2);
+    background: rgba(14, 220, 220, 0.15);
     box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, 0.2);
 }
 
@@ -378,6 +379,7 @@ title: "友链墙"
 
 .friend.block.left {
     width: 92px;
+    min-width: 92px;
     float: left;
 }
 
@@ -391,24 +393,39 @@ title: "友链墙"
 }
 
 .friend.name {
-    text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
+    word-wrap:break-word;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 .friend.info {
-    text-overflow: ellipsis;
+    margin-top: 3px;
     overflow: hidden;
-    white-space: nowrap;
+    word-wrap:break-word;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: normal;
+    font-size: 0.8rem;
+    color: #7a7a7a;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .friend.info {
         display: none;
     }
+    .friend.block.whole {
+        width: 48%;
+    }
     .friend.block.left {
         width: 84px;
-        margin: auto;
+        margin-left: 15px;
     }
     .friend.block.right {
         height: 100%;
@@ -474,7 +491,7 @@ word="Hugo-LoveIt主题"
 
 如果友链的头像无法正常显示，会以一个默认的Gravatar头像显示。此外，在移动端会隐藏站点描述，只显示头像和站点名称，你可以通过将当前窗口缩小到宽度最小即可看到效果。
 
-## Valine评论系统添加邮件通知和QQ提醒功能
+## Valine评论系统添加邮件通知和QQ提醒
 
 LoveIt主题自带的Valine没有邮件通知和QQ提醒功能，所以需要额外使用Valine的增强版`Valine-Admin`来进行功能增强。网上有好几个版本，我这里选择了目前由@W4J1e维护的`Hexo-Valine-ASPush`项目，由于我需要自定义部分改动，所以自己fork了一份：[valine-admin-custom](https://github.com/lewky/valine-admin-custom)。如果需要进行自定义改动的，可以继续fork我的这个项目。
 

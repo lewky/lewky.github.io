@@ -49,14 +49,14 @@ IE浏览器可以通过在某个标签里添加`onselectstart="return false"`来
 
 类似的属性属性还有：
 
-禁止鼠标右键：`oncontextmenu="return false"`
-禁止拖放：`ondragstart="return false"`
-禁止拷贝：`oncopy=document.selection.empty()`
-禁止复制：`oncopy = "return false"`
-禁止保存：`<noscript><iframe src="*.htm"></iframe></noscript>`，放在head里面。
-禁止粘贴：`<input type=text onpaste="return false">`
-禁止剪贴：`oncut = "return false"`
-关闭输入法：`<input style="ime-mode:disabled">`
+* 禁止鼠标右键：`oncontextmenu="return false"`
+* 禁止拖放：`ondragstart="return false"`
+* 禁止拷贝：`oncopy=document.selection.empty()`
+* 禁止复制：`oncopy = "return false"`
+* 禁止保存：`<noscript><iframe src="*.htm"></iframe></noscript>`，放在head里面。
+* 禁止粘贴：`<input type=text onpaste="return false">`
+* 禁止剪贴：`oncut = "return false"`
+* 关闭输入法：`<input style="ime-mode:disabled">`
 
 ## 单词的自动换行问题
 
@@ -72,15 +72,15 @@ word-break:break-all;
 ### word-wrap
 
 `word-wrap`用来控制换行，有两种取值：
-　　normal 
-　　break-word（此值用来强制换行，内容将在边界内换行，中文没有任何问题，英文语句也没问题。但是对于长串的英文，就不起作用。）
+* normal 
+* break-word（此值用来强制换行，内容将在边界内换行，中文没有任何问题，英文语句也没问题。但是对于长串的英文，就不起作用。）
 
 ### word-break
 
 `word-break`用来控制断词，有三种取值：
-　　normal
-　　break-all（是断开单词。在单词到边界时，下个字母自动到下一行。主要解决了长串英文的问题。）
-　　keep-all（是指Chinese, Japanese, and Korean不断词，一句话一行，可以用来排列古诗哟~）
+* normal
+* break-all（是断开单词。在单词到边界时，下个字母自动到下一行。主要解决了长串英文的问题。）
+* keep-all（是指Chinese, Japanese, and Korean不断词，一句话一行，可以用来排列古诗哟~）
 
 ## JS文件中的中文在网页上显示为乱码
 

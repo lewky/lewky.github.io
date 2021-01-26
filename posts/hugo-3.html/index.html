@@ -34,12 +34,12 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 
 
-请注意，本文的所有功能都离不开两个新增加的文件：_custom.scss和custom.js，部分功能还需要jquery，下文会提及如何引入。"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky.cn/posts/hugo-3.html/><link rel=prev href=https://lewky.cn/posts/hugo-2.html/><link rel=next href=https://lewky.cn/posts/hugo-4.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo系列(3) - LoveIt主题美化与博客功能增强","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hugo-3.html\/"},"genre":"posts","keywords":"Hugo, LoveIt主题, 主题美化, 功能增强","wordcount":15622,"url":"https:\/\/lewky.cn\/posts\/hugo-3.html\/","datePublished":"2020-10-11T13:11:16+08:00","dateModified":"2021-01-26T13:11:16+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
-<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hugo系列(3) - LoveIt主题美化与博客功能增强</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hugo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hugo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-10-11>2020-10-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 15622 字&nbsp;
+请注意，本文的所有功能都离不开两个新增加的文件：_custom.scss和custom.js，部分功能还需要jquery，下文会提及如何引入。"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky.cn/posts/hugo-3.html/><link rel=prev href=https://lewky.cn/posts/hugo-2.html/><link rel=next href=https://lewky.cn/posts/hugo-4.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo系列(3) - LoveIt主题美化与博客功能增强","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hugo-3.html\/"},"genre":"posts","keywords":"Hugo, LoveIt主题, 主题美化, 功能增强","wordcount":15675,"url":"https:\/\/lewky.cn\/posts\/hugo-3.html\/","datePublished":"2020-10-11T13:11:16+08:00","dateModified":"2021-01-26T13:11:16+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hugo系列(3) - LoveIt主题美化与博客功能增强</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hugo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hugo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2020-10-11>2020-10-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 15675 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 32 分钟&nbsp;<span id=/posts/hugo-3.html/ class=leancloud_visitors data-flag-title="Hugo系列(3) - LoveIt主题美化与博客功能增强">
 <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
 </span>&nbsp;</div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#添加自定义的_customscss>添加自定义的<code>_custom.scss</code></a><ol><li><a href=#注意>注意！！！</a></li></ol></li><li><a href=#添加自定义的customjs>添加自定义的<code>custom.js</code></a></li><li><a href=#添加背景图片轮播>添加背景图片轮播</a></li><li><a href=#添加搜索功能>添加搜索功能</a><ol><li><a href=#安装搜索插件hugo-search-fuse-js到本地>安装搜索插件hugo-search-fuse-js到本地</a></li><li><a href=#修改页面模板文件baseofhtml>修改页面模板文件baseof.html</a></li><li><a href=#添加搜索按钮>添加搜索按钮</a></li><li><a href=#关闭loveit主题默认的搜索插件>关闭LoveIt主题默认的搜索插件</a></li><li><a href=#修改搜索页面的样式>修改搜索页面的样式</a></li><li><a href=#优化中文搜索效果>优化中文搜索效果</a></li></ol></li><li><a href=#如何添加自定义的页面>如何添加自定义的页面</a></li><li><a href=#添加友链页面>添加友链页面</a><ol><li><a href=#新建page页面>新建Page页面</a></li><li><a href=#添加friendhtml>添加<code>friend.html</code></a></li><li><a href=#添加样式文件并引入>添加样式文件并引入</a></li><li><a href=#在菜单栏里新增一个友链按钮>在菜单栏里新增一个友链按钮</a></li><li><a href=#使用示例和效果展示>使用示例和效果展示</a></li></ol></li><li><a href=#valine评论系统添加邮件通知和qq提醒功能>Valine评论系统添加邮件通知和QQ提醒功能</a><ol><li><a href=#部署leancloud云引擎>部署LeanCloud云引擎</a></li><li><a href=#设置环境变量>设置环境变量</a></li><li><a href=#后台评论管理>后台评论管理</a></li><li><a href=#配置qq提醒>配置QQ提醒</a></li><li><a href=#解决云引擎休眠>解决云引擎休眠</a></li></ol></li><li><a href=#解决免费版云引擎流控问题>解决免费版云引擎流控问题</a><ol><li><a href=#方案一github--actions>方案一：<code>GitHub + Actions</code></a></li><li><a href=#方案二借助国内其他的免费云函数或定时任务>方案二：借助国内其他的免费云函数或定时任务</a></li><li><a href=#方案三cloudflare的workers>方案三：<code>cloudflare</code>的<code>Workers</code></a></li><li><a href=#方案四借助cron-job平台进行每日定时唤醒>方案四：借助<code>cron-job</code>平台进行每日定时唤醒</a></li></ol></li><li><a href=#添加百度统计>添加百度统计</a><ol><li><a href=#添加百度统计相关变量>添加百度统计相关变量</a></li><li><a href=#将百度统计的脚本代码添加到analyticshtml里>将百度统计的脚本代码添加到analytics.html里</a></li><li><a href=#启用百度统计>启用百度统计</a></li></ol></li><li><a href=#添加鼠标右键菜单>添加鼠标右键菜单</a><ol><li><a href=#添加右键菜单的变量>添加右键菜单的变量</a></li><li><a href=#添加rightmenuhtml文件>添加<code>rightmenu.html</code>文件</a></li><li><a href=#修改assetshtml文件>修改<code>assets.html</code>文件</a></li></ol></li><li><a href=#添加文章加密功能>添加文章加密功能</a></li><li><a href=#添加github-corner>添加GitHub Corner</a></li><li><a href=#页面下方添加拉姆雷姆快捷跳转>页面下方添加拉姆雷姆快捷跳转</a></li><li><a href=#添加首页头像挂件>添加首页头像挂件</a><ol><li><a href=#修改站点配置文件>修改站点配置文件</a></li><li><a href=#修改模板文件profilehtml>修改模板文件profile.html</a></li><li><a href=#修改模板文件assetshtml>修改模板文件assets.html</a></li><li><a href=#添加css代码>添加css代码</a></li></ol></li><li><a href=#添加归档分类页面里的文章数量统计>添加归档、分类页面里的文章数量统计</a><ol><li><a href=#在listhtml里添加sup标签>在list.html里添加<code>sup</code>标签</a></li><li><a href=#在termshtml里添加sup标签>在terms.html里添加<code>sup</code>标签</a></li><li><a href=#在sectionhtml里添加sup标签>在section.html里添加<code>sup</code>标签</a></li></ol></li><li><a href=#修改侧边栏目录样式>修改侧边栏目录样式</a></li><li><a href=#添加文章过期提醒>添加文章过期提醒</a><ol><li><a href=#配置文件添加相关变量>配置文件添加相关变量</a></li><li><a href=#添加变量到国际化文件>添加变量到国际化文件</a></li><li><a href=#添加模板文件outdated-info-warninghtml>添加模板文件<code>outdated-info-warning.html</code></a></li><li><a href=#修改模板文件singlehtml>修改模板文件<code>single.html</code></a></li></ol></li><li><a href=#添加文章打赏>添加文章打赏</a><ol><li><a href=#配置文件添加相关变量-1>配置文件添加相关变量</a></li><li><a href=#添加变量到国际化文件-1>添加变量到国际化文件</a></li><li><a href=#添加模板文件rewardhtml>添加模板文件<code>reward.html</code></a></li><li><a href=#修改模板文件singlehtml-1>修改模板文件<code>single.html</code></a></li><li><a href=#添加css代码-1>添加css代码</a></li></ol></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=前言>前言</h2><p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#添加自定义的_customscss>添加自定义的<code>_custom.scss</code></a><ol><li><a href=#注意>注意！！！</a></li></ol></li><li><a href=#添加自定义的customjs>添加自定义的<code>custom.js</code></a></li><li><a href=#添加背景图片轮播>添加背景图片轮播</a></li><li><a href=#添加搜索功能>添加搜索功能</a><ol><li><a href=#安装搜索插件hugo-search-fuse-js到本地>安装搜索插件hugo-search-fuse-js到本地</a></li><li><a href=#修改页面模板文件baseofhtml>修改页面模板文件baseof.html</a></li><li><a href=#添加搜索按钮>添加搜索按钮</a></li><li><a href=#关闭loveit主题默认的搜索插件>关闭LoveIt主题默认的搜索插件</a></li><li><a href=#修改搜索页面的样式>修改搜索页面的样式</a></li><li><a href=#优化中文搜索效果>优化中文搜索效果</a></li></ol></li><li><a href=#如何添加自定义的页面>如何添加自定义的页面</a></li><li><a href=#添加友链页面>添加友链页面</a><ol><li><a href=#新建page页面>新建Page页面</a></li><li><a href=#添加friendhtml>添加<code>friend.html</code></a></li><li><a href=#添加样式文件并引入>添加样式文件并引入</a></li><li><a href=#在菜单栏里新增一个友链按钮>在菜单栏里新增一个友链按钮</a></li><li><a href=#使用示例和效果展示>使用示例和效果展示</a></li></ol></li><li><a href=#valine评论系统添加邮件通知和qq提醒>Valine评论系统添加邮件通知和QQ提醒</a><ol><li><a href=#部署leancloud云引擎>部署LeanCloud云引擎</a></li><li><a href=#设置环境变量>设置环境变量</a></li><li><a href=#后台评论管理>后台评论管理</a></li><li><a href=#配置qq提醒>配置QQ提醒</a></li><li><a href=#解决云引擎休眠>解决云引擎休眠</a></li></ol></li><li><a href=#解决免费版云引擎流控问题>解决免费版云引擎流控问题</a><ol><li><a href=#方案一github--actions>方案一：<code>GitHub + Actions</code></a></li><li><a href=#方案二借助国内其他的免费云函数或定时任务>方案二：借助国内其他的免费云函数或定时任务</a></li><li><a href=#方案三cloudflare的workers>方案三：<code>cloudflare</code>的<code>Workers</code></a></li><li><a href=#方案四借助cron-job平台进行每日定时唤醒>方案四：借助<code>cron-job</code>平台进行每日定时唤醒</a></li></ol></li><li><a href=#添加百度统计>添加百度统计</a><ol><li><a href=#添加百度统计相关变量>添加百度统计相关变量</a></li><li><a href=#将百度统计的脚本代码添加到analyticshtml里>将百度统计的脚本代码添加到analytics.html里</a></li><li><a href=#启用百度统计>启用百度统计</a></li></ol></li><li><a href=#添加鼠标右键菜单>添加鼠标右键菜单</a><ol><li><a href=#添加右键菜单的变量>添加右键菜单的变量</a></li><li><a href=#添加rightmenuhtml文件>添加<code>rightmenu.html</code>文件</a></li><li><a href=#修改assetshtml文件>修改<code>assets.html</code>文件</a></li></ol></li><li><a href=#添加文章加密功能>添加文章加密功能</a></li><li><a href=#添加github-corner>添加GitHub Corner</a></li><li><a href=#页面下方添加拉姆雷姆快捷跳转>页面下方添加拉姆雷姆快捷跳转</a></li><li><a href=#添加首页头像挂件>添加首页头像挂件</a><ol><li><a href=#修改站点配置文件>修改站点配置文件</a></li><li><a href=#修改模板文件profilehtml>修改模板文件profile.html</a></li><li><a href=#修改模板文件assetshtml>修改模板文件assets.html</a></li><li><a href=#添加css代码>添加css代码</a></li></ol></li><li><a href=#添加归档分类页面里的文章数量统计>添加归档、分类页面里的文章数量统计</a><ol><li><a href=#在listhtml里添加sup标签>在list.html里添加<code>sup</code>标签</a></li><li><a href=#在termshtml里添加sup标签>在terms.html里添加<code>sup</code>标签</a></li><li><a href=#在sectionhtml里添加sup标签>在section.html里添加<code>sup</code>标签</a></li></ol></li><li><a href=#修改侧边栏目录样式>修改侧边栏目录样式</a></li><li><a href=#添加文章过期提醒>添加文章过期提醒</a><ol><li><a href=#配置文件添加相关变量>配置文件添加相关变量</a></li><li><a href=#添加变量到国际化文件>添加变量到国际化文件</a></li><li><a href=#添加模板文件outdated-info-warninghtml>添加模板文件<code>outdated-info-warning.html</code></a></li><li><a href=#修改模板文件singlehtml>修改模板文件<code>single.html</code></a></li></ol></li><li><a href=#添加文章打赏>添加文章打赏</a><ol><li><a href=#配置文件添加相关变量-1>配置文件添加相关变量</a></li><li><a href=#添加变量到国际化文件-1>添加变量到国际化文件</a></li><li><a href=#添加模板文件rewardhtml>添加模板文件<code>reward.html</code></a></li><li><a href=#修改模板文件singlehtml-1>修改模板文件<code>single.html</code></a></li><li><a href=#添加css代码-1>添加css代码</a></li></ol></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=前言>前言</h2><p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -383,107 +383,124 @@ title: &#34;友链墙&#34;
 </span><span class=lnt>14
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>{{ if .IsNamedParams }}
 {{ $defaultImg := &#34;https://gravatar.loli.net/avatar/c02f8b813aa4b7f72e32de5a48dc17a7?d=retro<span class=err>&amp;</span>v=1.4.14&#34; }}
-	<span class=p>&lt;</span><span class=nt>a</span> <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>{{</span> <span class=err>.</span><span class=na>Get</span> <span class=err>&#34;</span><span class=na>url</span><span class=err>&#34;</span> <span class=err>}}</span> <span class=na>title</span><span class=o>=</span><span class=s>{{</span> <span class=err>.</span><span class=na>Get</span> <span class=err>&#34;</span><span class=na>name</span><span class=err>&#34;</span> <span class=err>}}</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;friend url&#34;</span><span class=p>&gt;</span>
+	<span class=p>&lt;</span><span class=nt>a</span> <span class=na>target</span><span class=o>=</span><span class=s>&#34;_blank&#34;</span> <span class=na>href</span><span class=o>=</span><span class=s>{{</span> <span class=err>.</span><span class=na>Get</span> <span class=err>&#34;</span><span class=na>url</span><span class=err>&#34;</span> <span class=err>}}</span> <span class=na>title</span><span class=o>=</span><span class=s>{{</span> <span class=err>.</span><span class=na>Get</span> <span class=err>&#34;</span><span class=na>name</span><span class=err>&#34;</span> <span class=err>}}</span><span class=na>---</span><span class=err>{{</span> <span class=err>.</span><span class=na>Get</span> <span class=err>&#34;</span><span class=na>word</span><span class=err>&#34;</span> <span class=err>}}</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;friend url&#34;</span><span class=p>&gt;</span>
 	  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;friend block whole&#34;</span><span class=p>&gt;</span>
 		<span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;friend block left&#34;</span><span class=p>&gt;</span>
 		  <span class=p>&lt;</span><span class=nt>img</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;friend logo&#34;</span> <span class=na>src</span><span class=o>=</span><span class=s>{{</span> <span class=err>.</span><span class=na>Get</span> <span class=err>&#34;</span><span class=na>logo</span><span class=err>&#34;</span> <span class=err>}}</span> <span class=na>onerror</span><span class=o>=</span><span class=s>&#34;this.src=&#39;{{ $defaultImg }}&#39;&#34;</span> <span class=p>/&gt;</span>
 		<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
 		<span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;friend block right&#34;</span><span class=p>&gt;</span>
 		  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;friend name&#34;</span><span class=p>&gt;</span>{{ .Get &#34;name&#34; }}<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
-		  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;friend info&#34;</span><span class=p>&gt;</span>{{ .Get &#34;word&#34; }}<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+		  <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;friend info&#34;</span><span class=p>&gt;</span>&#34;{{ .Get &#34;word&#34; }}&#34;<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
 		<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
 	  <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
 	<span class=p>&lt;/</span><span class=nt>a</span><span class=p>&gt;</span>
 {{ end }}
-</code></pre></td></tr></table></div></div><h3 id=添加样式文件并引入>添加样式文件并引入</h3><p>在站点根目录下新增一个文件：<code>/assets/css/_partial/_single/_friend.scss</code>，内容如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span><span class=lnt>54
-</span><span class=lnt>55
-</span><span class=lnt>56
-</span><span class=lnt>57
-</span><span class=lnt>58
-</span><span class=lnt>59
-</span><span class=lnt>60
-</span><span class=lnt>61
-</span><span class=lnt>62
-</span><span class=lnt>63
-</span><span class=lnt>64
-</span><span class=lnt>65
-</span><span class=lnt>66
-</span><span class=lnt>67
-</span><span class=lnt>68
-</span><span class=lnt>69
-</span><span class=lnt>70
-</span><span class=lnt>71
-</span><span class=lnt>72
-</span><span class=lnt>73
-</span><span class=lnt>74
-</span><span class=lnt>75
-</span><span class=lnt>76
-</span><span class=lnt>77
-</span><span class=lnt>78
-</span><span class=lnt>79
-</span><span class=lnt>80
-</span><span class=lnt>81
-</span><span class=lnt>82
-</span><span class=lnt>83
-</span><span class=lnt>84
-</span><span class=lnt>85
-</span><span class=lnt>86
-</span><span class=lnt>87
-</span><span class=lnt>88
-</span><span class=lnt>89
+</code></pre></td></tr></table></div></div><h3 id=添加样式文件并引入>添加样式文件并引入</h3><p>在站点根目录下新增一个文件：<code>/assets/css/_partial/_single/_friend.scss</code>，内容如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-css data-lang=css><span class=p>.</span><span class=nc>friend</span><span class=p>.</span><span class=nc>url</span> <span class=p>{</span>
     <span class=k>text-decoration</span><span class=p>:</span> <span class=kc>none</span> <span class=cp>!important</span><span class=p>;</span>
     <span class=k>color</span><span class=p>:</span> <span class=kc>black</span><span class=p>;</span>
@@ -503,11 +520,12 @@ title: &#34;友链墙&#34;
 
 <span class=p>.</span><span class=nc>friend</span><span class=p>.</span><span class=nc>block</span><span class=p>.</span><span class=nc>whole</span> <span class=p>{</span>
     <span class=k>height</span><span class=p>:</span> <span class=mi>92</span><span class=kt>px</span><span class=p>;</span>
-    <span class=k>margin-top</span><span class=p>:</span> <span class=mi>10</span><span class=kt>px</span><span class=p>;</span>
-    <span class=k>width</span><span class=p>:</span> <span class=mi>48</span><span class=kt>%</span><span class=p>;</span>
-    <span class=k>display</span><span class=p>:</span> <span class=kc>inline</span><span class=o>-</span><span class=kc>block</span> <span class=cp>!important</span><span class=p>;</span>
+    <span class=k>margin-top</span><span class=p>:</span> <span class=mi>8</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>margin-left</span><span class=p>:</span> <span class=mi>4</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>width</span><span class=p>:</span> <span class=mi>31</span><span class=kt>%</span><span class=p>;</span>
+    <span class=k>display</span><span class=p>:</span> <span class=kc>inline</span><span class=o>-</span><span class=kc>flex</span> <span class=cp>!important</span><span class=p>;</span>
     <span class=k>border-radius</span><span class=p>:</span> <span class=mi>5</span><span class=kt>px</span><span class=p>;</span>
-    <span class=k>background</span><span class=p>:</span> <span class=nb>rgba</span><span class=p>(</span><span class=mi>212</span><span class=p>,</span> <span class=mi>235</span><span class=p>,</span> <span class=mi>235</span><span class=p>,</span> <span class=mf>0.2</span><span class=p>);</span>
+    <span class=k>background</span><span class=p>:</span> <span class=nb>rgba</span><span class=p>(</span><span class=mi>14</span><span class=p>,</span> <span class=mi>220</span><span class=p>,</span> <span class=mi>220</span><span class=p>,</span> <span class=mf>0.15</span><span class=p>);</span>
     <span class=k>box-shadow</span><span class=p>:</span> <span class=mi>4</span><span class=kt>px</span> <span class=mi>4</span><span class=kt>px</span> <span class=mi>2</span><span class=kt>px</span> <span class=mi>1</span><span class=kt>px</span> <span class=nb>rgba</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>255</span><span class=p>,</span> <span class=mf>0.2</span><span class=p>);</span>
 <span class=p>}</span>
 
@@ -530,6 +548,7 @@ title: &#34;友链墙&#34;
 
 <span class=p>.</span><span class=nc>friend</span><span class=p>.</span><span class=nc>block</span><span class=p>.</span><span class=nc>left</span> <span class=p>{</span>
     <span class=k>width</span><span class=p>:</span> <span class=mi>92</span><span class=kt>px</span><span class=p>;</span>
+    <span class=k>min-width</span><span class=p>:</span> <span class=mi>92</span><span class=kt>px</span><span class=p>;</span>
     <span class=k>float</span><span class=p>:</span> <span class=kc>left</span><span class=p>;</span>
 <span class=p>}</span>
 
@@ -543,24 +562,39 @@ title: &#34;友链墙&#34;
 <span class=p>}</span>
 
 <span class=p>.</span><span class=nc>friend</span><span class=p>.</span><span class=nc>name</span> <span class=p>{</span>
-    <span class=k>text-overflow</span><span class=p>:</span> <span class=kc>ellipsis</span><span class=p>;</span>
     <span class=k>overflow</span><span class=p>:</span> <span class=kc>hidden</span><span class=p>;</span>
-    <span class=k>white-space</span><span class=p>:</span> <span class=kc>nowrap</span><span class=p>;</span>
+    <span class=k>word-wrap</span><span class=p>:</span><span class=kc>break-word</span><span class=p>;</span>
+    <span class=k>word-break</span><span class=p>:</span> <span class=n>break-all</span><span class=p>;</span>
+    <span class=k>text-overflow</span><span class=p>:</span> <span class=kc>ellipsis</span><span class=p>;</span>
+    <span class=k>display</span><span class=p>:</span> <span class=kp>-webkit-</span><span class=n>box</span><span class=p>;</span>
+    <span class=kp>-webkit-</span><span class=n>line-clamp</span><span class=p>:</span> <span class=mi>1</span><span class=p>;</span>
+    <span class=kp>-webkit-</span><span class=n>box-orient</span><span class=p>:</span> <span class=kc>vertical</span><span class=p>;</span>
 <span class=p>}</span>
 
 <span class=p>.</span><span class=nc>friend</span><span class=p>.</span><span class=nc>info</span> <span class=p>{</span>
-    <span class=k>text-overflow</span><span class=p>:</span> <span class=kc>ellipsis</span><span class=p>;</span>
+    <span class=k>margin-top</span><span class=p>:</span> <span class=mi>3</span><span class=kt>px</span><span class=p>;</span>
     <span class=k>overflow</span><span class=p>:</span> <span class=kc>hidden</span><span class=p>;</span>
-    <span class=k>white-space</span><span class=p>:</span> <span class=kc>nowrap</span><span class=p>;</span>
+    <span class=k>word-wrap</span><span class=p>:</span><span class=kc>break-word</span><span class=p>;</span>
+    <span class=k>word-break</span><span class=p>:</span> <span class=n>break-all</span><span class=p>;</span>
+    <span class=k>text-overflow</span><span class=p>:</span> <span class=kc>ellipsis</span><span class=p>;</span>
+    <span class=k>display</span><span class=p>:</span> <span class=kp>-webkit-</span><span class=n>box</span><span class=p>;</span>
+    <span class=kp>-webkit-</span><span class=n>line-clamp</span><span class=p>:</span> <span class=mi>2</span><span class=p>;</span>
+    <span class=kp>-webkit-</span><span class=n>box-orient</span><span class=p>:</span> <span class=kc>vertical</span><span class=p>;</span>
+    <span class=k>line-height</span><span class=p>:</span> <span class=kc>normal</span><span class=p>;</span>
+    <span class=k>font-size</span><span class=p>:</span> <span class=mf>0.8</span><span class=kt>rem</span><span class=p>;</span>
+    <span class=k>color</span><span class=p>:</span> <span class=mh>#7a7a7a</span><span class=p>;</span>
 <span class=p>}</span>
 
-<span class=p>@</span><span class=k>media</span> <span class=nt>screen</span> <span class=nt>and</span> <span class=o>(</span><span class=nt>max-width</span><span class=o>:</span> <span class=nt>600px</span><span class=o>)</span> <span class=p>{</span>
+<span class=p>@</span><span class=k>media</span> <span class=nt>screen</span> <span class=nt>and</span> <span class=o>(</span><span class=nt>max-width</span><span class=o>:</span> <span class=nt>900px</span><span class=o>)</span> <span class=p>{</span>
     <span class=p>.</span><span class=nc>friend</span><span class=p>.</span><span class=nc>info</span> <span class=p>{</span>
         <span class=k>display</span><span class=p>:</span> <span class=kc>none</span><span class=p>;</span>
     <span class=p>}</span>
+    <span class=p>.</span><span class=nc>friend</span><span class=p>.</span><span class=nc>block</span><span class=p>.</span><span class=nc>whole</span> <span class=p>{</span>
+        <span class=k>width</span><span class=p>:</span> <span class=mi>48</span><span class=kt>%</span><span class=p>;</span>
+    <span class=p>}</span>
     <span class=p>.</span><span class=nc>friend</span><span class=p>.</span><span class=nc>block</span><span class=p>.</span><span class=nc>left</span> <span class=p>{</span>
         <span class=k>width</span><span class=p>:</span> <span class=mi>84</span><span class=kt>px</span><span class=p>;</span>
-        <span class=k>margin</span><span class=p>:</span> <span class=kc>auto</span><span class=p>;</span>
+        <span class=k>margin-left</span><span class=p>:</span> <span class=mi>15</span><span class=kt>px</span><span class=p>;</span>
     <span class=p>}</span>
     <span class=p>.</span><span class=nc>friend</span><span class=p>.</span><span class=nc>block</span><span class=p>.</span><span class=nc>right</span> <span class=p>{</span>
         <span class=k>height</span><span class=p>:</span> <span class=mi>100</span><span class=kt>%</span><span class=p>;</span>
@@ -603,7 +637,7 @@ url=&#34;lewky.cn&#34;
 logo=&#34;https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg&#34;
 word=&#34;不想当写手的码农不是好咸鱼_(xз」∠)_&#34;
 &gt;}}
-</code></pre></td></tr></table></div></div><a target=_blank href=lewky.cn title=雨临Lewis的博客 class="friend url"><div class="friend block whole"><div class="friend block left"><img class="friend logo" src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg onerror="this.src='https:\/\/gravatar.loli.net\/avatar\/c02f8b813aa4b7f72e32de5a48dc17a7?d=retro\u0026v=1.4.14'"></div><div class="friend block right"><div class="friend name">雨临Lewis的博客</div><div class="friend info">不想当写手的码农不是好咸鱼_(xз」∠)_</div></div></div></a><a target=_blank href=https://github.com/dillonzq/LoveIt title="dillonzq / LoveIt" class="friend url"><div class="friend block whole"><div class="friend block left"><img class="friend logo" src=https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/images/Apple-Devices-Preview.png onerror="this.src='https:\/\/gravatar.loli.net\/avatar\/c02f8b813aa4b7f72e32de5a48dc17a7?d=retro\u0026v=1.4.14'"></div><div class="friend block right"><div class="friend name">dillonzq / LoveIt</div><div class="friend info">Hugo-LoveIt主题</div></div></div></a><p>如果友链的头像无法正常显示，会以一个默认的Gravatar头像显示。此外，在移动端会隐藏站点描述，只显示头像和站点名称，你可以通过将当前窗口缩小到宽度最小即可看到效果。</p><h2 id=valine评论系统添加邮件通知和qq提醒功能>Valine评论系统添加邮件通知和QQ提醒功能</h2><p>LoveIt主题自带的Valine没有邮件通知和QQ提醒功能，所以需要额外使用Valine的增强版<code>Valine-Admin</code>来进行功能增强。网上有好几个版本，我这里选择了目前由@W4J1e维护的<code>Hexo-Valine-ASPush</code>项目，由于我需要自定义部分改动，所以自己fork了一份：<a href=https://github.com/lewky/valine-admin-custom target=_blank rel="noopener noreffer">valine-admin-custom</a>。如果需要进行自定义改动的，可以继续fork我的这个项目。</p><p>下面开始教程。这里默认你已经使用了Valine作为评论系统，如果还没有对应的LeanCloud应用请自行移步Valine的官方文档： <a href=https://valine.js.org/quickstart.html target=_blank rel="noopener noreffer">Valine快速开始</a>。</p><h3 id=部署leancloud云引擎>部署LeanCloud云引擎</h3><p>登陆你的LeanCloud账号，进入你的应用，选择：<code>云引擎 -> 部署 -> Git部署</code>，然后输入下面的仓库地址：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</code></pre></td></tr></table></div></div><a target=_blank href=lewky.cn title=雨临Lewis的博客---不想当写手的码农不是好咸鱼_(xз」∠)_ class="friend url"><div class="friend block whole"><div class="friend block left"><img class="friend logo" src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg onerror="this.src='https:\/\/gravatar.loli.net\/avatar\/c02f8b813aa4b7f72e32de5a48dc17a7?d=retro\u0026v=1.4.14'"></div><div class="friend block right"><div class="friend name">雨临Lewis的博客</div><div class="friend info">"不想当写手的码农不是好咸鱼_(xз」∠)_"</div></div></div></a><a target=_blank href=https://github.com/dillonzq/LoveIt title="dillonzq / LoveIt---Hugo-LoveIt主题" class="friend url"><div class="friend block whole"><div class="friend block left"><img class="friend logo" src=https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/images/Apple-Devices-Preview.png onerror="this.src='https:\/\/gravatar.loli.net\/avatar\/c02f8b813aa4b7f72e32de5a48dc17a7?d=retro\u0026v=1.4.14'"></div><div class="friend block right"><div class="friend name">dillonzq / LoveIt</div><div class="friend info">"Hugo-LoveIt主题"</div></div></div></a><p>如果友链的头像无法正常显示，会以一个默认的Gravatar头像显示。此外，在移动端会隐藏站点描述，只显示头像和站点名称，你可以通过将当前窗口缩小到宽度最小即可看到效果。</p><h2 id=valine评论系统添加邮件通知和qq提醒>Valine评论系统添加邮件通知和QQ提醒</h2><p>LoveIt主题自带的Valine没有邮件通知和QQ提醒功能，所以需要额外使用Valine的增强版<code>Valine-Admin</code>来进行功能增强。网上有好几个版本，我这里选择了目前由@W4J1e维护的<code>Hexo-Valine-ASPush</code>项目，由于我需要自定义部分改动，所以自己fork了一份：<a href=https://github.com/lewky/valine-admin-custom target=_blank rel="noopener noreffer">valine-admin-custom</a>。如果需要进行自定义改动的，可以继续fork我的这个项目。</p><p>下面开始教程。这里默认你已经使用了Valine作为评论系统，如果还没有对应的LeanCloud应用请自行移步Valine的官方文档： <a href=https://valine.js.org/quickstart.html target=_blank rel="noopener noreffer">Valine快速开始</a>。</p><h3 id=部署leancloud云引擎>部署LeanCloud云引擎</h3><p>登陆你的LeanCloud账号，进入你的应用，选择：<code>云引擎 -> 部署 -> Git部署</code>，然后输入下面的仓库地址：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>https://github.com/lewky/valine-admin-custom.git
 </code></pre></td></tr></table></div></div><p>然后点击部署按钮，等待云引擎将上面的仓库代码克隆下来。接下来需要设置环境变量。</p><h3 id=设置环境变量>设置环境变量</h3><p>点击<code>云引擎 -> 设置</code>，选择添加新变量，将下列变量一一加入。</p><table><thead><tr><th>变量</th><th>示例</th><th>说明</th></tr></thead><tbody><tr><td>SITE_NAME</td><td>xxx</td><td>[必填] 网站名称</td></tr><tr><td>SITE_URL</td><td><a href=https://xxx.com>https://xxx.com</a></td><td>[必填] 网站首页地址，地址末尾不要加/</td></tr><tr><td>SMTP_USER</td><td><a href=mailto:xxxxxx@qq.com>xxxxxx@qq.com</a></td><td>[必填] SMTP登录用户，一般为邮箱地址</td></tr><tr><td>SMTP_PASS</td><td>ccxxxxxxxxch</td><td>[必填] SMTP授权码，不是邮箱的登陆密码，请自行查询对应邮件服务商授权码的获取方式</td></tr><tr><td>SMTP_SERVICE</td><td>QQ</td><td>[必填] 邮件服务提供商，支持 QQ、163、126、Gmail 以及 <a href=https://nodemailer.com/smtp/well-known/#supported-services target=_blank rel="noopener noreffer">更多</a></td></tr><tr><td>SENDER_NAME</td><td>xxx</td><td>[必填] 发件人</td></tr><tr><td>SENDER_EMAIL</td><td><a href=mailto:xxxxxx@qq.com>xxxxxx@qq.com</a></td><td>[必填] 发件邮箱</td></tr><tr><td>ADMIN_URL</td><td><a href=https://xxx.leanapp.cn/>https://xxx.leanapp.cn/</a></td><td>[建议] Web主机二级域名（云引擎域名），用于自动唤醒</td></tr><tr><td>BLOGGER_EMAIL</td><td><a href=mailto:xxxxx@gmail.com>xxxxx@gmail.com</a></td><td>[可选] 博主通知收件地址，默认使用SENDER_EMAIL</td></tr><tr><td>AKISMET_KEY</td><td>xxxxxxxx</td><td>[可选] Akismet Key 用于垃圾评论检测，设为MANUAL_REVIEW开启人工审核，留空不使用反垃圾</td></tr><tr><td>TEMPLATE_NAME</td><td>default</td><td>[可选] 设置提醒邮件主题，目前内置了多款主题：default、rainbow、custom1、custom2</td></tr><tr><td>COMMENT</td><td>#post-comment</td><td>[可选] 评论 div 的 ID 名，直接跳转到评论位置</td></tr></tbody></table><p>设置好变量后，需要重启实例。在部署页面点击重启按钮即可，每次更改变量后都需要重启才能生效。如果对应的Git仓库代码发生变更，需要清除部署，重新克隆代码才能生效。</p><h3 id=后台评论管理>后台评论管理</h3><p>首先需要设置管理员信息。在部署云引擎成功后，访问管理员注册页面https://云引擎域名/sign-up，注册管理员登录信息，如：https://cloud.lewky.cn/sign-up</p><p>注册成功后可以在<code>存储 -> 结构化数据 -> _User</code>里看到多出来一条数据，正是刚刚我们注册成功的用户。</p><blockquote><p>注：使用原版Valine如果遇到注册页面不显示直接跳转至登录页的情况，请手动删除_User表中的全部数据。</p></blockquote><p>注册成功后，就可以通过这个注册的用户访问后台评论管理页面：https://云引擎域名</p><h3 id=配置qq提醒>配置QQ提醒</h3><ol><li>前往<a href=https://qmsg.zendee.cn/ target=_blank rel="noopener noreffer">Qmsg酱官网</a>，点击管理台登陆账号，选择其中任意一个你想使用的Qmsg酱(QQ机器人)，并加其为QQ好友</li><li>点击菜单栏里<code>Qmsg酱</code>旁边的<code>QQ号码</code>，添加你想要接收信息推送的QQ号码</li><li>点击菜单栏里的<code>KEY</code>，这里有一串字符串等下要添加到LeanCloud的环境变量里</li></ol><p>官网里提供了所有的接口文档，你可以先行通过一个简单的测试来验证你的QQ能不能接收到推送，如下：</p><ol><li>在浏览器新打开一个页面，在地址栏里输入<code>https://qmsg.zendee.cn/send/</code>，然后把你管理台里的<code>KEY</code>添加到地址栏末尾，然后在末尾继续加上<code>?msg=test</code>，接着按下回车键，这里表示让Qmsg酱发送<code>test</code>给你的QQ号码</li><li>如果发送成功，你会发现浏览器页面内容变成：</li></ol><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>{&#34;success&#34;:true,&#34;reason&#34;:&#34;操作成功&#34;,&#34;code&#34;:0,&#34;info&#34;:{}}
