@@ -704,7 +704,7 @@ Save responses | 按需选择 | 保存执行定时任务的日志
   cdnPrefix = "http://xxxx"
 ```
 
-### 添加`layouts/partials/plugin/rightmenu.html`文件
+### 添加`rightmenu.html`文件
 
 新建一个`layouts/partials/plugin/rightmenu.html`文件，内容如下：
 ```
@@ -1186,7 +1186,7 @@ https://github.com/lewky/lewky.github.io/tree/master/images/avatar-plug
 ```
 <h3 class="card-item-title">
     <a href="{{ .RelPermalink }}">
-        <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }} <sup>{{ len $value.Pages }}</sup>
+        <i class="far fa-folder fa-fw"></i>&nbsp;{{ .Page.Title }} <sup>{{ len .Pages }}</sup>
     </a>
 </h3>
 ```
