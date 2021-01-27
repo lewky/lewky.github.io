@@ -58,7 +58,7 @@ IE浏览器可以通过在某个标签里添加`onselectstart="return false"`来
 * 禁止剪贴：`oncut = "return false"`
 * 关闭输入法：`<input style="ime-mode:disabled">`
 
-## 单词的自动换行问题
+## 文本自动换行问题
 
 当行内出现很长的英文单词或者url的时候，会出现自动换行的问题，为了美化页面，往往会希望这些很长的英文单词或者url能够断开来，超出的部分换行到下一行。
 
@@ -82,6 +82,39 @@ word-break:break-all;
 * break-all（是断开单词。在单词到边界时，下个字母自动到下一行。主要解决了长串英文的问题。）
 * keep-all（是指Chinese, Japanese, and Korean不断词，一句话一行，可以用来排列古诗哟~）
 
+## 文本溢出控制
+
+### 单行溢出
+
+`text-overflow`是CSS3中的属性，规定了文本溢出后的显示样式，但它不会强制文本溢出，所以有时候会不生效。该属性支持的值如下：
+
+>* `clip`：默认值，将溢出的文本裁减掉
+>* `ellipsis`：将溢出的文本用省略号(...)来表示
+>* `<string>`：设置一个字符串用来表示溢出的文本
+>
+>兼容性上，除了`<string>`外，其余两个属性兼容到了IE6+，所以大可放心使用。
+
+为了让该属性生效，解决方法如下：
+```css
+width: 100%;  /*也可以是固定值、min-width这些*/
+white-space: nowrap;  /*强制文本不能换行*/
+overflow: hidden;  /*隐藏溢出内容*/
+text-overflow: ellipsis;
+```
+
+### 多行溢出
+
+通过`display: -webkit-box;`可以实现多行溢出：
+```css
+width: 100%;
+overflow: hidden;
+word-break: break-all;  /*允许在单词内换行，更美观*/
+text-overflow: ellipsis;
+display: -webkit-box;  /*元素作为box伸缩盒子*/
+-webkit-line-clamp: 3;  /*设置文本行数限制*/
+-webkit-box-orient: vertical;  /*设置文本排列方式*/
+```
+
 ## JS文件中的中文在网页上显示为乱码
 
 如果页面已经设置了`<meta charset="utf-8">`，JS文件里的中文在网页上仍然显示为乱码，可能是由于JS文件的编码问题导致的。
@@ -92,3 +125,4 @@ JS文件本身的编码默认为`ANSI编码`，而引入该JS文件的页面则�
 
 * [解决文档中有url链接时被强制换行的问题](https://blog.csdn.net/u011565547/article/details/77198026)
 * [JS文件中的中文在网页上显示为乱码](https://www.cnblogs.com/sharpest/p/7675856.html)
+* [谈谈text-overflow的那些坑和应对方法](https://www.cnblogs.com/ichenchao/articles/11168836.html)
