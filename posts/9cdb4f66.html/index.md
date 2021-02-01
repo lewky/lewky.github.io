@@ -32,11 +32,11 @@
 
 可以自己百度`Google hosts`寻找最新的hosts文件，获取前往GitHub上由大佬们维护的项目获取：https://github.com/googlehosts/hosts
 
-附上项目的镜像地址，访问不了GitHub的同学可以访问这个：https://coding.net/u/scaffrey/p/hosts/git
-
 在上述的项目地址中找到hosts文件(无后缀名)，也可以直接在线浏览该文件的内容，下边附上链接：https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
 
-同样附上国内镜像的浏览链接：https://coding.net/u/scaffrey/p/hosts/git/raw/master/hosts-files/hosts
+这是国内对应的CDN地址：https://cdn.jsdelivr.net/gh/googlehosts/hosts@master/hosts-files/
+
+也可以通过访问 https://cdn.jsdelivr.net/gh/googlehosts/hosts@master/hosts-files/hosts 来直接下载到本地。
 
 ### 修改本地hosts文件
 
