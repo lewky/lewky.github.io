@@ -376,6 +376,33 @@ System.setProperty("sun.io.serialization.extendedDebugInfo", "true");
 >Set the system property `sun.io.serialization.extendedDebugInfo` to `true`, either by adding`-Dsun.io.serialization.extendedDebugInfo=true`to the command line, or add the line `System.setProperty("sun.io.serialization.extendedDebugInfo", "true");` at the start of your program.
 >If something isn't serializable, this will cause a trace of the path through the data structure that leads from the "root" object (the one passed to ObjectOutputStream.writeObject()) to the object that's not serializable. At least, it'll tell you the class names of the instances and the fields that lead to the non-serializable object.
 
+## long、float、double变量的L、F、D尾缀和类型转换问题
+
+在声明long、float、double变量的时候，往往会在字面量末尾加上对应的L、F、D，也可以是小写的l、f、d，一般long变量尽量用大写的L，避免和数字的1和大写的i混淆。如下：
+```java
+long a = 123L;
+float b = 1.23F;
+double c = 1.23D;
+```
+
+等号右边的数值叫做字面量`literal`，跟在字面量末尾的字母是为了告诉编译器数值的类型。有时候不添加尾缀，编译期也不会报错，因为整数型的字面量默认是int，浮点型的字面量默认是double，如下：
+```java
+long a = 123;
+double c = 1.23;
+```
+
+这里不会在编译期报错，是因为范围小的类型可以自动转换成范围大的类型，因为不会丢失精度，也叫向上转型。而`float b = 1.23;`会报错，是因为`1.23`默认是double类型，精度比float大，无法自动转换类型，需要进行强制类型转换，即`float b = (float) 1.23;`。
+
+long的字节数是8，和float字节数一样，但是`long b = 1.23f;`还是会报错。这是因为long和float的存储方式不一样，尽管二者占据一样多的字节，但是float能表示的数值范围远超long，所以需要强制类型转换：`long b = (long) 1.23f;`。
+
+**既然不能直接将字面量赋值给精度更小的类型，那为什么`byte b = 12; short s = 12;`却不需要强制类型转换也不会报错？**
+
+这是因为编译器对整数型数值做了处理，对于整数字面量，如果赋值给比int范围更小的类型时（即byte/char/short类型），如果该字面量没有超出对应的赋值类型的范围，就会自动进行隐式类型转换。如果超出了范围，就会报错，需要经过强制类型转换才可以。
+
+**为什么`byte b = 100`不会报错，而`int a = 100; byte b = a;`却会报错？**
+
+前者是因为100属于byte的范围内，会隐式类型转换。后者的变量a已经被声明为int类型，将其直接赋值给byte变量需要经过强制类型转换：`int a = 100; byte b = (byte) a;`
+
 ## 参考链接
 
 * [深入 -- 为什么不能根据返回类型来区分重载？](https://blog.csdn.net/simba_cheng/article/details/80835646)
@@ -388,3 +415,5 @@ System.setProperty("sun.io.serialization.extendedDebugInfo", "true");
 * [深入分析String.intern和String常量的实现原理](https://www.jianshu.com/p/c14364f72b7e)
 * [Locating Serialization Issue in Complex Bean](https://stackoverflow.com/questions/627389/locating-serialization-issue-in-complex-bean/627437#627437)
 * [cannot find source of NotSerializableException](https://stackoverflow.com/questions/26615682/cannot-find-source-of-notserializableexception/26666238#26666238)
+* [Java中给byte变量直接赋值可以自动转换,但为什么把int变量赋给byte变量需要强制转换，同样是int。](https://zhidao.baidu.com/question/878702194900509172.html)
+* [Java中float、double、long类型变量赋值添加f、d、L尾缀问题](https://blog.csdn.net/FX677588/article/details/52663805)
