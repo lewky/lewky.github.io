@@ -125,6 +125,31 @@ psql -d db1 -U userA -f /pathA/xxx.sql
 
 **小技巧：可以直接把sql文件拖到cmd窗口里，会自动把该sql文件的所在路径给输入到命令行中。**
 
+## 导出db dump
+
+格式如下：
+```
+pg_dump -h <host> -p <port> -U <db_user> -F c -f <dump_path> <db_name>
+```
+
+demo:
+```
+pg_dump -h localhost -p 5432 -U postgres -F c -f D:\dump_jar\test.dump test
+```
+
+## 恢复备份（导入db dump）
+
+```
+pg_restore -h <host> -p <port> -U <db_user> -W -O -d <db_name> <dump_path>
+```
+
+demo:
+```
+pg_restore -h localhost -p 5432 -U postgres -W -O -d test test.DUMP
+```
+
+这里的db要先创建好，dump本质上就是一大堆sql，可以通过该命令导入到已存在的db里。另外，执行pg_restore时需要输入密码。
+
 ## 参考链接
 
 * [PostgreSQL 教程](https://www.runoob.com/postgresql/postgresql-tutorial.html)
