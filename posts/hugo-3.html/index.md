@@ -95,6 +95,12 @@ $(function () {
 });
 ```
 
+如果是想在模板文件里引入某个自定义的JavaScript文件，如下：
+```javascript
+{{- /* 自定义的js文件 */ -}}
+<script type="text/javascript" src="{{ .Site.Params.cdnPrefix }}/js/custom.js"></script>
+```
+
 ## 添加背景图片轮播
 
 这个功能需要引入图片轮播插件`jquery-backstretch`的cdn，并且该插件依赖于jQuery，需要在引入该插件之前引入jQuery。
