@@ -56,6 +56,45 @@ LoveIt主题并没有提供一个文件来让我们自定义JavaScript，所以�
 
 如果有其他的JavaScript文件要引入，加在一样的地方就行，但是要放在自定义的`custom.js`之前。这是我的[custom.js文件]({{< param cdnPrefix >}}/js/custom.js)，有兴趣的可以看看。
 
+## 添加全局cdn变量
+
+对于一些静态资源，比如图片、音乐文件、第三方库等，如果有自己的cdn或者图床等，可以在站点配置文件自定义一个cdn变量，如下：
+```
+[params]
+  # cdn变量，末尾不需要加/
+  cdnPrefix = "http://xxxx"
+```
+
+接下来就可以在你需要的地方使用该变量，大概有如下2种用法。
+
+### 在md文件中使用
+
+在md文件中可以用内置的shortcodes来使用该变量：
+```
+{{</* param cdnPrefix */>}}
+
+![avatar.jpg]({{</* param cdnPrefix */>}}/images/avatar.jpg)
+```
+
+### 在JavaScript文件中使用
+
+由于JavaScript文件中不能使用上述的shortcodes来引用变量，可以通过在`\layouts\partials\assets.html`中引入该变量，如下：
+```
+<script>
+	/* cdn for some static resources */
+	var $cdnPrefix = {{ .Site.Params.cdnPrefix }};
+</script>
+```
+
+这样就可以在JavaScript中使用这个`$cdnPrefix`变量：
+```javascript
+$(function () {
+	$.backstretch([
+		  $cdnPrefix + "/images/background/saber1.jpg"
+	], { duration: 60000, fade: 1500 });
+});
+```
+
 ## 添加背景图片轮播
 
 这个功能需要引入图片轮播插件`jquery-backstretch`的cdn，并且该插件依赖于jQuery，需要在引入该插件之前引入jQuery。
@@ -714,12 +753,7 @@ Save responses | 按需选择 | 保存执行定时任务的日志
       url = "/friends/"
 ```
 
-如果你有图床的话，还可以额外增加一个图床变量，这样可以去图床加载你的图片：
-```
-[params]
-  # 图床变量，末尾不需要加/
-  cdnPrefix = "http://xxxx"
-```
+如果你有图床的话，还可以额外增加一个图床变量，这样可以去图床加载你的图片，可以参考前文的[添加全局cdn变量](http://localhost:1313/posts/hugo-3.html/#%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80cdn%E5%8F%98%E9%87%8F)。
 
 ### 添加`rightmenu.html`文件
 

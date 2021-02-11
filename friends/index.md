@@ -1,6 +1,40 @@
 # 友链墙
 
+## 主题相关
+
+本站主题源自Hugo-LoveIt，感谢本主题的开发者们！
+
+{{< friend
+name="dillonzq / LoveIt"
+url="https://github.com/dillonzq/LoveIt"
+logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/images/screenshot.png"
+word="Hugo-LoveIt主题"
+>}}
+
+{{< friend
+name="LoveIt官方文档"
+url="https://hugoloveit.com/"
+logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
+word="Hugo-LoveIt主题官方文档"
+>}}
+
 ## 大佬们
+
+{{< friend
+name="阳光派Plus’Blog"
+url="https://www.zyoushuo.cn/"
+logo="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/images/photo.jpg"
+word="聪明的妖怪已经录下了唐僧的紧箍咒"
+>}}
+
+{{< friend
+name="BBing's Blog"
+url="https://bbing.com.cn/"
+logo="https://s3.ax1x.com/2021/01/21/s4crsU.png"
+word="自由 分享 合作"
+>}}
+
+## 网络安全
 
 {{< friend
 name="W4J1e's blog"
@@ -16,19 +50,7 @@ logo="http://lsybk.xyz/zb_users/upload/2020/12/202012171608220655581876.png"
 word="一个网络安全爱好者的博客"
 >}}
 
-{{< friend
-name="阳光派Plus’Blog"
-url="https://www.zyoushuo.cn/"
-logo="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/images/photo.jpg"
-word="聪明的妖怪已经录下了唐僧的紧箍咒"
->}}
-
-{{< friend
-name="北落师门"
-url="https://www.fm-cslab.com"
-logo="https://www.fm-cslab.com/default/avatar.png"
-word="会者定离，一期一祈"
->}}
+## 程序猿 / 程序媛
 
 {{< friend
 name="itsNekoDeng"
@@ -37,23 +59,20 @@ logo="https://nekodeng.gitee.io/medias/avatar.jpg"
 word="十万伏特皮卡丘，梦想是世界和平，想要发光发热"
 >}}
 
-{{< friend
-name="BBing's Blog"
-url="https://bbing.com.cn/"
-logo="https://s3.ax1x.com/2021/01/21/s4crsU.png"
-word="自由 分享 合作"
->}}
-
-## Hugo-LoveIt主题
+## 站点失联中
 
 {{< friend
-name="dillonzq / LoveIt"
-url="https://github.com/dillonzq/LoveIt"
-logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/images/Apple-Devices-Preview.png"
-word="Hugo-LoveIt主题"
+name="北落师门"
+url="https://www.fm-cslab.com"
+logo="https://www.fm-cslab.com/default/avatar.png"
+word="会者定离，一期一祈"
 >}}
 
 ## 【十年之约】
+
+>十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和活力！
+
+*☞ 本站已加入【十年之约】！有兴趣的朋友可以点击下面的链接了解一哈~*
 
 {{< friend
 name="【十年之约】"
@@ -61,10 +80,6 @@ url="https://www.foreverblog.cn/"
 logo="https://www.foreverblog.cn/favicon.ico"
 word="一个人的寂寞，一群人的狂欢。"
 >}}
-
->十年之约，即从加入这个活动起，我们的博客十年不关闭，保持更新和活力！
-
-*☞ 本站已加入【十年之约】！有兴趣的朋友可以点击上面的链接了解一哈~*
 
 ## 本站友链信息
 
@@ -92,4 +107,5 @@ group="分组（这个属性可以不写，上面四个属性必填）"
 * **上述的双引号请务必使用英文的双引号！！**
 * 若您的头像无法获取时，会自动使用默认头像。
 * 当您的网站无法访问时，本站可能会在不通知的情况下撤掉贵站链接！
+* 为保证友链质量，本站暂时只接受优质友链，还望见谅。
 {{< /admonition >}}
