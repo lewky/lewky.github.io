@@ -46,7 +46,7 @@ word="总是偏爱不务正业"
 {{< friend
 name="勤奋的思远"
 url="http://lsybk.xyz"
-logo="http://lsybk.xyz/zb_users/upload/2020/12/202012171608220655581876.png"
+logo="https://lsybk.xyz/zb_users/upload/2020/12/202012171608220655581876.png"
 word="一个网络安全爱好者的博客"
 >}}
 

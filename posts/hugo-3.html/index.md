@@ -65,7 +65,7 @@ LoveIt主题并没有提供一个文件来让我们自定义JavaScript，所以�
   cdnPrefix = "http://xxxx"
 ```
 
-接下来就可以在你需要的地方使用该变量，大概有如下2种用法。
+接下来就可以在你需要的地方使用该变量，大概有如下3种用法。
 
 ### 在md文件中使用
 
@@ -76,17 +76,33 @@ LoveIt主题并没有提供一个文件来让我们自定义JavaScript，所以�
 ![avatar.jpg]({{</* param cdnPrefix */>}}/images/avatar.jpg)
 ```
 
+### 在模板文件中使用
+
+在`layouts`目录下有很多html文件，这些是用来渲染站点的模板文件，可以用Hugo的语法来引入该变量：
+```
+{{ .Site.Params.cdnPrefix }}
+```
+
+如果在一个模板文件里有多个地方使用到该变量，可以定义一个局部变量来使用：
+```
+{{- $cdn := .Site.Params.cdnPrefix -}}
+
+/* 使用局部变量 */
+{{ $cdn }}
+```
+
 ### 在JavaScript文件中使用
 
-由于JavaScript文件中不能使用上述的shortcodes来引用变量，可以通过在`\layouts\partials\assets.html`中引入该变量，如下：
+由于JavaScript文件中不能使用上述的shortcodes或Hugo语法来引用变量，只能通过在`\layouts\partials\assets.html`中用JavaScript语法来引入该变量，如下：
 ```
+/* 这是可以应用于JavaScript文件的全局变量 */
 <script>
 	/* cdn for some static resources */
 	var $cdnPrefix = {{ .Site.Params.cdnPrefix }};
 </script>
 ```
 
-这样就可以在JavaScript中使用这个`$cdnPrefix`变量：
+这样就可以在其他被引入的JavaScript文件中使用这个`$cdnPrefix`变量：
 ```javascript
 $(function () {
 	$.backstretch([
