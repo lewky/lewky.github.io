@@ -22,11 +22,16 @@
 ## TODO LIST
 
 >* 文章top10
->* Valine评论添加铭牌
 >* 增加Timeline
->* 考虑将站点部署到Vervel，并将评论改为Waline，同样部署在Vervel
+>* 将站点部署到Vercel
 
 <!--more-->
+
+## 2021-02-17
+
+* 将评论改为Waline，并部署在Vercel
+* 评论添加自定义表情包
+* 修改友链样式
 
 ## 2021-01-24
 

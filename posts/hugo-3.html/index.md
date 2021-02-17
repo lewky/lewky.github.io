@@ -32,6 +32,8 @@ Hugo在渲染页面时优先读取站点根目录下的同名字的目录和文�
 
 比如我原本使用的是`hugo_0.74.0_Windows-64bit.zip`，就需要改为使用`hugo_extended_0.74.0_Windows-64bit.zip`。
 
+此外，本文会涉及多个文件的修改，包括hmtl、js、scss等文件类型，且由于**引入了中文字符**，可能导致页面**显示乱码**，这是因为文件的编码使用的是`ANSI`，**需要改为`UTF-8`的编码**。
+
 ## 添加自定义的`custom.js`
 
 LoveIt主题并没有提供一个文件来让我们自定义JavaScript，所以需要自己创建一个js文件来自定义JavaScript。
@@ -116,6 +118,108 @@ $(function () {
 {{- /* 自定义的js文件 */ -}}
 <script type="text/javascript" src="{{ .Site.Params.cdnPrefix }}/js/custom.js"></script>
 ```
+
+## 主题自带的admonition样式
+
+LoveIt提供了`admonition` shortcode，支持 **12** 种样式，可以在页面中插入提示的横幅。代码如下：
+```
+{{</* admonition */>}}
+一个 **注意** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition abstract */>}}
+一个 **摘要** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition info */>}}
+一个 **信息** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition tip */>}}
+一个 **技巧** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition success */>}}
+一个 **成功** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition question */>}}
+一个 **问题** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition warning */>}}
+一个 **警告** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition failure */>}}
+一个 **失败** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition danger */>}}
+一个 **危险** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition bug */>}}
+一个 **Bug** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition example */>}}
+一个 **示例** 横幅
+{{</* /admonition */>}}
+
+{{</* admonition quote */>}}
+一个 **引用** 横幅
+{{</* /admonition */>}}
+```
+
+效果如下：
+{{< admonition >}}
+一个 **注意** 横幅
+{{< /admonition >}}
+
+{{< admonition abstract >}}
+一个 **摘要** 横幅
+{{< /admonition >}}
+
+{{< admonition info >}}
+一个 **信息** 横幅
+{{< /admonition >}}
+
+{{< admonition tip >}}
+一个 **技巧** 横幅
+{{< /admonition >}}
+
+{{< admonition success >}}
+一个 **成功** 横幅
+{{< /admonition >}}
+
+{{< admonition question >}}
+一个 **问题** 横幅
+{{< /admonition >}}
+
+{{< admonition warning >}}
+一个 **警告** 横幅
+{{< /admonition >}}
+
+{{< admonition failure >}}
+一个 **失败** 横幅
+{{< /admonition >}}
+
+{{< admonition danger >}}
+一个 **危险** 横幅
+{{< /admonition >}}
+
+{{< admonition bug >}}
+一个 **Bug** 横幅
+{{< /admonition >}}
+
+{{< admonition example >}}
+一个 **示例** 横幅
+{{< /admonition >}}
+
+{{< admonition quote >}}
+一个 **引用** 横幅
+{{< /admonition >}}
 
 ## 添加背景图片轮播
 
@@ -367,6 +471,13 @@ title: "友链墙"
 ---
 ```
 
+由于博主想要将友链分类，并能使用上目录，所以不使用这种page形式的友链页面，而是直接创建一篇文章作为友链使用，文件头如下：
+```
+title: "友链墙"
+url: friends
+hiddenFromHomePage: true
+```
+
 ### 添加`friend.html`
 
 我们通过自定义一个`shortcode`来实现该功能，以后就可以方便地通过这个`shortcode`快速新增友链到页面上。
@@ -374,11 +485,11 @@ title: "友链墙"
 在站点根目录下新增一个文件：`/layouts/shortcodes/friend.html`，其内容如下：
 ```html
 {{ if .IsNamedParams }}
-{{ $defaultImg := "https://gravatar.loli.net/avatar/c02f8b813aa4b7f72e32de5a48dc17a7?d=retro&v=1.4.14" }}
+{{ $defaultImg := "https://sdn.geekzu.org/avatar/d41d8cd98f00b204e9800998ecf8427e?d=retro" }}
 	<a target="_blank" href={{ .Get "url" }} title={{ .Get "name" }}---{{ .Get "word" }} class="friend url">
-	  <div class="friend block whole">
+	  <div class="friend block whole {{ .Get "primary-color" | default "default"}} {{ .Get "border-animation" | default "shadow"}}">
 		<div class="friend block left">
-		  <img class="friend logo" src={{ .Get "logo" }} onerror="this.src='{{ $defaultImg }}'" />
+		  <img class="friend logo {{ .Get "img-animation" | default "rotate"}}" src={{ .Get "logo" }} onerror="this.src='{{ $defaultImg }}'" />
 		</div>
 		<div class="friend block right">
 		  <div class="friend name">{{ .Get "name" }}</div>
@@ -404,7 +515,6 @@ title: "友链墙"
     border-radius: 50%;
     border: 1px solid #ddd;
     padding: 2px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
     margin-top: 14px !important;
     margin-left: 14px !important;
     background-color: #fff;
@@ -418,24 +528,97 @@ title: "友链墙"
     display: inline-flex !important;
     border-radius: 5px;
     background: rgba(14, 220, 220, 0.15);
-    box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, 0.2);
+
+    &.shadow {
+        margin-right: 4px;
+        box-shadow: 4px 4px 2px 1px rgba(0, 0, 255, 0.2);
+    }
+    &.borderFlash {
+        border-width: 3.5px;
+        border-style: solid;
+        animation: borderFlash 2s infinite alternate;
+    }
+    &.led {
+        animation: led 3s infinite alternate;
+    }
+    &.bln {
+        animation: bln 3s infinite alternate;
+    }
 }
 
-.friend.block.whole:hover {
-    background: rgba(87, 142, 224, 0.15);
+.friend.block.whole {
+    &:hover {
+        color: white;
+        & .friend.info {
+            color: white;
+        }
+    }
+
+    &.default {
+        --primary-color: #215bb3bf;
+        &:hover {
+            background: rgba(33, 91, 179, 0.75);
+        }
+    }
+    &.red {
+        --primary-color: #e72638;
+        &:hover {
+            background: rgba(231, 38, 56, 0.75);
+        }
+    }
+    &.green {
+        --primary-color: #2ec58d;
+        &:hover {
+            background: rgba(21, 167, 33, 0.75);
+        }
+    }
+    &.blue {
+        --primary-color: #2575fc;
+        &:hover {
+            background: rgba(37, 117, 252, 0.75);
+        }
+    }
+    &.linear-red {
+        --primary-color: #e72638;
+        &:hover {
+            background: linear-gradient(to right, #f9cdcd 0, #e72638 35%);
+        }
+    }
+    &.linear-green {
+        --primary-color: #2ec58d;
+        &:hover {
+            background: linear-gradient(to right, #1d7544 0, #2ec58d 35%);
+        }
+    }
+    &.linear-blue {
+        --primary-color: #2575fc;
+        &:hover {
+            background: linear-gradient(to right, #6a11cb 0, #2575fc 35%);
+        }
+    }
 }
 
+.friend.block.whole .friend.block.left img {
+    &.auto_rotate_left {
+        animation: auto_rotate_left 3s linear infinite;
+    }
+    &.auto_rotate_right {
+        animation: auto_rotate_right 3s linear infinite;
+    }
+}
 .friend.block.whole:hover .friend.block.left img {
-    transition: 0.9s !important;
-    -webkit-transition: 0.9s !important;
-    -moz-transition: 0.9s !important;
-    -o-transition: 0.9s !important;
-    -ms-transition: 0.9s !important;
-    transform: rotate(360deg) !important;
-    -webkit-transform: rotate(360deg) !important;
-    -moz-transform: rotate(360deg) !important;
-    -o-transform: rotate(360deg) !important;
-    -ms-transform: rotate(360deg) !important;
+    &.rotate {
+        transition: 0.9s !important;
+        -webkit-transition: 0.9s !important;
+        -moz-transition: 0.9s !important;
+        -o-transition: 0.9s !important;
+        -ms-transition: 0.9s !important;
+        transform: rotate(360deg) !important;
+        -webkit-transform: rotate(360deg) !important;
+        -moz-transform: rotate(360deg) !important;
+        -o-transform: rotate(360deg) !important;
+        -ms-transform: rotate(360deg) !important;
+    }
 }
 
 .friend.block.left {
@@ -455,6 +638,7 @@ title: "友链墙"
 
 .friend.name {
     overflow: hidden;
+    font-weight: bolder;
     word-wrap:break-word;
     word-break: break-all;
     text-overflow: ellipsis;
@@ -482,7 +666,7 @@ title: "友链墙"
         display: none;
     }
     .friend.block.whole {
-        width: 48%;
+        width: 45%;
     }
     .friend.block.left {
         width: 84px;
@@ -498,6 +682,71 @@ title: "友链墙"
     .friend.name {
         font-size: 14px;
     }
+}
+
+@keyframes bln {
+	0% {
+		box-shadow: 0 0 5px grey,inset 0 0 5px grey,0 1px 0 grey;
+		box-shadow: 0 0 5px var(--primary-color,grey),inset 0 0 5px var(--primary-color,grey),0 1px 0 var(--primary-color,grey)
+	}
+
+	to {
+		box-shadow: 0 0 16px grey,inset 0 0 8px grey,0 1px 0 grey;
+		box-shadow: 0 0 16px var(--primary-color,grey),inset 0 0 8px var(--primary-color,grey),0 1px 0 var(--primary-color,grey)
+	}
+}
+
+@keyframes led {
+	0% {
+		box-shadow: 0 0 4px #ca00ff
+	}
+
+	25% {
+		box-shadow: 0 0 16px #00b5e5
+	}
+
+	50% {
+		box-shadow: 0 0 4px #00f
+	}
+
+	75% {
+		box-shadow: 0 0 16px #b1da21
+	}
+
+	to {
+		box-shadow: 0 0 4px red
+	}
+}
+
+@keyframes borderFlash {
+	0% {
+		border-color: white;
+	}
+
+	to {
+		border-color: grey;
+		border-color: var(--primary-color,grey)
+	}
+}
+
+@keyframes auto_rotate_left {
+	0% {
+		transform: rotate(0)
+	}
+
+	to {
+		transform: rotate(-1turn)
+	}
+}
+
+@keyframes auto_rotate_right {
+	0% {
+		transform: rotate(0)
+	}
+
+	to {
+		transform: rotate(1turn)
+	}
 }
 ```
 
@@ -536,18 +785,44 @@ word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 */>}}
 ```
 
+上面代码里的四个属性为必填项，还可以额外指定三个不同的属性来选择友链内置的多种样式，如下：
+```
+//边框及鼠标悬停的背景颜色，允许设置渐变色
+//支持7种：default、red、green、blue、linear-red、linear-green、linear-blue
+primary-color="default"
+
+//头像动画：rotate(鼠标悬停时旋转，此为默认效果)、auto_rotate_left(左旋转)、auto_rotate_right(右旋转)
+img-animation="rotate"
+
+//边框动画：shadow(阴影，此为默认效果)、borderFlash(边框闪现)、led(跑马灯)、bln(主颜色呼吸灯)
+border-animation="shadow"
+```
+
 {{< friend
 name="雨临Lewis的博客"
 url="lewky.cn"
 logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
+primary-color="linear-green"
+img-animation="auto_rotate_right"
+border-animation="led"
 >}}
 
 {{< friend
-name="dillonzq / LoveIt"
-url="https://github.com/dillonzq/LoveIt"
-logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/images/Apple-Devices-Preview.png"
-word="Hugo-LoveIt主题"
+name="雨临Lewis的博客"
+url="lewky.cn"
+logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
+word="不想当写手的码农不是好咸鱼_(xз」∠)_"
+primary-color="red"
+img-animation="auto_rotate_left"
+border-animation="borderFlash"
+>}}
+
+{{< friend
+name="雨临Lewis的博客"
+url="lewky.cn"
+logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
+word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 >}}
 
 如果友链的头像无法正常显示，会以一个默认的Gravatar头像显示。此外，在移动端会隐藏站点描述，只显示头像和站点名称，你可以通过将当前窗口缩小到宽度最小即可看到效果。
@@ -676,6 +951,164 @@ Address  | https://xxx.com | 访问的地址，请填写LeanCloud云引擎绑定
 Schedule | 按需选择 | 定时任务的执行时间和频率，这里建议使用第二种：`Every day at 6 : 50 `。具体每天几点执行请自行决定。
 Notifications | 按需选择 | 执行失败时的通知提醒
 Save responses | 按需选择 | 保存执行定时任务的日志
+
+## 使用Waline替代Valine评论系统
+
+鉴于Valine的安全问题，以及LeanCloud云引擎的限流问题，改用Waline + Vercel来作为评论系统，Waline是基于Valine进行开发的，所以迁移成本较低。这是Waline的[官方文档](https://waline.js.org/)，有很详细的配置、迁移等教程。
+
+由于LoveIt主题没有引入Waline，所以这里记录下如何引入Waline，以及遇到的相关问题的解决方法。
+
+### 站点配置文件添加相关变量
+
+打开站点配置文件，找到Valine相关变量`[params.page.comment.valine]`，在该节点下面添加Waline相关的变量	`[params.page.comment.waline]`：
+```
+      # Waline comment config (https://waline.js.org/)
+      # Waline 评论系统设置 (https://waline.js.org/)
+      [params.page.comment.waline]
+        enable = true
+        #js = "https://cdn.jsdelivr.net/npm/@waline/client@latest"
+        js = "https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js"
+        meta = ['nick','mail','link']                           # 评论者相关属性
+        requiredFields = ['nick','mail']                        # 设置必填项，默认匿名
+        placeholder = "提交评论较慢，请等待几秒~"              	# 评论框占位提示符
+        serverURL = ""                 							# Waline的服务端地址（必填） 
+        #imageHosting =                                         # 图床api，如果允许评论框上传图片
+        avatar = "retro"                                        # Gravatar头像
+        avatarCDN = "https://sdn.geekzu.org/avatar/"            # Gravatar头像CDN地址，不建议使用loli源
+        pageSize = 10                                           # 评论列表分页，每页条数
+        lang = "zh-CN"                                          # 多语言支持
+        visitor = true                                          # 文章访问量统计
+        highlight = true                                        # 代码高亮
+```
+
+记得把原本的评论系统的`enable`设置为false，改用新加的Waline。
+
+### 修改comment.html模板文件
+
+将`\themes\LoveIt\layouts\partials\comment.html`拷贝到`\layouts\partials\comment.html`，打开拷贝后的文件，找到Valine相关的代码部分，然后在其下方添加Waline的代码，如下：
+```
+        {{- /* Waline Comment System */ -}}
+        {{- $waline := $comment.waline | default dict -}}
+        {{- if $waline.enable -}}
+            <div id="waline"></div>
+			<script src='{{ $waline.js }}'></script>
+
+			<script>
+		    	new Waline({
+		    	  el: '#waline',
+				  meta: {{ $waline.meta }},
+				  placeholder: {{ $waline.placeholder }},
+		    	  serverURL: {{ $waline.serverURL }},
+		    	  avatarCDN: {{ $waline.avatarCDN }},
+		    	  requiredFields: {{ $waline.requiredFields }},
+		    	  pageSize: {{ $waline.pageSize }},
+		    	  avatar: {{ $waline.avatar }},
+		    	  lang: {{ $waline.lang }},
+				  visitor: {{ $waline.visitor }},
+				  highlight: {{ $waline.highlight }}
+		    	});
+		    </script>
+        {{- end -}}
+```
+
+Waline内置微博表情，如果想自定义表情包的，可以继续添加两个属性`emojiCDN`和`emojiMaps`到上面的代码里，具体做法可以参考[官方文档 - 自定义表情](https://waline.js.org/client/emoji.html)。
+
+这里顺便介绍下@小康大佬整理的一个很方便的表情包站点：[表情速查](https://emotion.xiaokang.me/)，里面有很多类别的表情包，还有对应的快速引入语法链接，以及用于配置Valine、Waline等评论系统表情包映射的JSON！
+
+### 添加评论统计到文章元数据
+
+将`/themes/LoveIt/layouts/posts/single.html`拷贝到`/layouts/posts/single.html`，打开拷贝后的文件，找到如下：
+```
+            <div class="post-meta-line">
+                {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
+                    <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                {{- end -}}
+                <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
+                {{- $comment := .Scratch.Get "comment" | default dict -}}
+                {{- if $comment.enable | and $comment.valine.enable | and $comment.valine.visitor -}}
+                    <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
+                    </span>&nbsp;
+                {{- end -}}
+            </div>
+```
+
+将上面的代码改为如下代码：
+```
+            <div class="post-meta-line">
+                {{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
+                    <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+                {{- end -}}
+                <i class="fas fa-pencil-alt fa-fw"></i>&nbsp;{{ T "wordCount" .WordCount }}
+                <i class="far fa-clock fa-fw"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
+                {{- $comment := .Scratch.Get "comment" | default dict -}}
+                {{- if $comment.enable | and $comment.valine.enable | and $comment.valine.visitor -}}
+                    <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
+                    </span>&nbsp;
+                {{- end -}}
+                {{- if $comment.enable | and $comment.waline.enable | and $comment.waline.visitor -}}
+                    <span id="{{ .RelPermalink }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
+                        <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;{{ T "views" }}
+                    </span>&nbsp;
+					<a href="#comments" id="post-meta-vcount" title="{{ T `viewComments` }}">
+						<i class="fas fa-comment fa-fw"></i>&nbsp;<span id="{{ .RelPermalink }}" class="waline-comment-count"></span>&nbsp;条评论
+					</a>
+                {{- end -}}
+            </div>
+```
+
+### 添加样式
+
+在`_custom.scss`里添加如下样式：
+```css
+/* 文章元数据meta */
+.post-meta .post-meta-line:nth-child(2) i:nth-child(1) {
+    margin-left: 0;
+}
+.post-meta .post-meta-line:nth-child(2) i {
+    margin-left: 0.3rem;
+}
+.post-meta .post-meta-line:nth-child(2) span i {
+    margin-left: 0.3rem !important;
+}
+.post-meta a#post-meta-vcount {
+    color: #a9a9b3;
+    &:hover {
+        color: #2d96bd;
+    }
+}
+```
+
+### 部署到Vercel
+
+这个部分直接参考[官方文档 - Vercel 部署](https://waline.js.org/quick-start.html#vercel-%E9%83%A8%E7%BD%B2)。实际上就是在GitHub上帮你创建了一个仓库，仓库里只有简单的几个文件，用于Vercel的部署。Vercel那边会和刚刚创建的GitHub仓库关联，然后部署到Vercel自己的服务器。
+
+这里有个坑，之前用Valine的时候只需要用到LeanCloud的两个变量`APP ID`和`APP KEY`。但是对于Waline，必须要再用到第三个变量`Master Key`。也就是说，**对于Waline + Vercel，必须配置三个变量`LEAN_ID`、`LEAN_KEY`和`LEAN_MASTER_KEY`才能算部署成功。**
+
+否则你会发现就算Vercel显示部署成功，一旦访问部署页面却会发现页面一片空白，具体可参考GitHub上的一个issue：[Vercel初始化后打开网址页面内容为空 #82](https://github.com/lizheming/waline/issues/82)
+
+Waline还带有简单的后台，可以实现对评论的管理。部署完成后访问`<serverURL>/ui/register`进行注册，第一个注册的你会被设定成管理员。登录成功后就可以看到评论管理的界面了，大家可以收藏该地址方便后续使用。`serverURL`就是Vercel部署成功后提供给你的那几个访问域名。
+
+如果原本使用的是Valine + LeanCloud云引擎，在改用Waline + Vercel后记得把LeanCloud云引擎的部署清除掉。
+
+### 使用评论通知功能
+
+Waline支持邮件、微信、QQ通知，想要使用通知功能，需要在Vercel那边配置环境变量。具体可参考[官方文档 - 评论通知](https://waline.js.org/server/notification.html#%E8%AF%84%E8%AE%BA%E9%80%9A%E7%9F%A5)。这些环境变量名字和Valine的配置是一样的，貌似只有QQ通知相关的一个变量名字不一样而已。
+
+Vercel配置环境变量步骤：
+1. 打开你在Vercel上创建的项目
+2. 点击`Settings` -> `Environment Variables` -> 选择添加`Plaintext`类型的环境变量 -> 输入环境变量的`name`和`value` -> 点击`Save`
+
+所有被添加的环境变量可以在下方看到，可以删除或修改已定义的环境变量。
+
+### Waline + Vercel的使用体验
+
+* 由于使用了LeanCloud作为存储，外加使用了反垃圾评论服务Akismet，所以在提交评论时会比较慢，大概需要等待个两三秒。这个耗时见仁见智，一方面确实慢，一方面可以有效避免被人恶意评论攻击。
+* 据说部署在CloudBase的速度还行。
+* Waline的机制好像是QQ提醒了邮件就不提醒，所以对于新评论，如果设置了QQ提醒就不会再收到邮件通知。对于回复的评论则是可以同时收到。
+* Waline提供了一个很棒的后台管理，还支持其他人的注册和登陆。
 
 ## 添加百度统计
 
@@ -1616,3 +2049,4 @@ article .post-reward .qr-code .image {
 * [hexo中添加鼠标右键功能](https://www.zyoushuo.cn/post/4445.html)
 * [Fuse.js模糊搜索引擎](https://blog.csdn.net/weixin_46382477/article/details/108144964)
 * [使用fuse.js进行搜索](https://www.jianshu.com/p/d0c8c3de8233)
+* [在搭配Volantis主题的hexo博客上使用waline](https://www.hin.cool/posts/waline.html)

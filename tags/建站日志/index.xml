@@ -24,8 +24,7 @@
 <blockquote>
 <ul>
 <li>文章top10</li>
-<li>Valine评论添加铭牌</li>
 <li>增加Timeline</li>
-<li>考虑将站点部署到Vervel，并将评论改为Waline，同样部署在Vervel</li>
+<li>将站点部署到Vercel</li>
 </ul>
 </blockquote>]]></description></item></channel></rss>

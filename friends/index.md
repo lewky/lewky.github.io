@@ -9,6 +9,8 @@ name="dillonzq / LoveIt"
 url="https://github.com/dillonzq/LoveIt"
 logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/images/screenshot.png"
 word="Hugo-LoveIt主题"
+primary-color="red"
+border-animation="borderFlash"
 >}}
 
 {{< friend
@@ -16,6 +18,8 @@ name="LoveIt官方文档"
 url="https://hugoloveit.com/"
 logo="https://cdn.jsdelivr.net/gh/dillonzq/LoveIt@master/exampleSite/assets/images/avatar.png"
 word="Hugo-LoveIt主题官方文档"
+primary-color="blue"
+border-animation="borderFlash"
 >}}
 
 ## 大佬们
@@ -50,7 +54,16 @@ logo="https://lsybk.xyz/zb_users/upload/2020/12/202012171608220655581876.png"
 word="一个网络安全爱好者的博客"
 >}}
 
-## 程序猿 / 程序媛
+## Java
+
+{{< friend
+name="Youth的时光录"
+url="https://imlql.cn/"
+logo="https://cdn.jsdelivr.net/gh/youthlql/lql_img/blog/avatar.jpg"
+word="主要是Java技术栈的博客，比较偏原理，源码类型的博主"
+>}}
+
+## 前端
 
 {{< friend
 name="itsNekoDeng"
@@ -59,6 +72,14 @@ logo="https://nekodeng.gitee.io/medias/avatar.jpg"
 word="十万伏特皮卡丘，梦想是世界和平，想要发光发热"
 >}}
 
+{{< friend
+name="小康博客"
+url="https://www.antmoe.com/"
+logo="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/avatar.jpg"
+word="一个收藏回忆与分享技术的地方！"
+>}}
+
+<!--
 ## 站点失联中
 
 {{< friend
@@ -67,6 +88,8 @@ url="https://www.fm-cslab.com"
 logo="https://www.fm-cslab.com/default/avatar.png"
 word="会者定离，一期一祈"
 >}}
+
+-->
 
 ## 【十年之约】
 
@@ -79,6 +102,19 @@ name="【十年之约】"
 url="https://www.foreverblog.cn/"
 logo="https://www.foreverblog.cn/favicon.ico"
 word="一个人的寂寞，一群人的狂欢。"
+primary-color="linear-blue"
+img-animation="auto_rotate_left"
+border-animation="bln"
+>}}
+
+{{< friend
+name="雨临Lewis的博客"
+url="lewky.cn"
+logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
+word="不想当写手的码农不是好咸鱼_(xз」∠)_"
+primary-color="linear-green"
+img-animation="auto_rotate_right"
+border-animation="led"
 >}}
 
 ## 本站友链信息
@@ -89,7 +125,7 @@ url="lewky.cn"
 logo="{{< param cdnPrefix >}}/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 screenshot="{{< param cdnPrefix >}}/images/common/screenshot.jpg"
-group="码农"
+group="Java"
 ```
 
 ![2233-line.png](/images/common/2233-line.png)
@@ -97,15 +133,33 @@ group="码农"
 {{< admonition tip "如何交换友链" >}}
 请在本页评论区里添加如下格式，添加友链成功后会通过回复评论的邮件通知进行反馈，所以请在评论时填写**正确的邮件地址**：
 ```html
+//必填项
 name="站点名字"
 url="站点地址"
 logo="站点图标或个人头像"
 word="站点描述"
-group="分组（这个属性可以不写，上面四个属性必填）"
 ```
 
-* **上述的双引号请务必使用英文的双引号！！**
+下面是可选项：
+```html
+//默认分组是大佬们
+group="分组"
+
+//边框及鼠标悬停的背景颜色，允许设置渐变色
+//支持7种：default、red、green、blue、linear-red、linear-green、linear-blue
+primary-color="default"
+
+//头像动画：rotate(鼠标悬停时旋转，此为默认效果)、auto_rotate_left(左旋转)、auto_rotate_right(右旋转)
+img-animation="rotate"
+
+//边框动画：shadow(阴影，此为默认效果)、borderFlash(边框闪现)、led(跑马灯)、bln(主颜色呼吸灯)
+border-animation="shadow"
+```
+{{< /admonition >}}
+
+{{< admonition note "友链须知" >}}
+* 上述的友链格式请使用英文的双引号。
 * 若您的头像无法获取时，会自动使用默认头像。
-* 当您的网站无法访问时，本站可能会在不通知的情况下撤掉贵站链接！
-* 为保证友链质量，本站暂时只接受优质友链，还望见谅。
+* 当您的网站存在无法访问、404、友链入口难以发现、删除本站友链等情况时，本站可能会在不通知的情况下撤掉贵站链接！如需恢复需要再次申请。
+* 为保证友链质量，本站目前只接受文章字数在**30K**以上、且有**独立域名**的友链，还望见谅。
 {{< /admonition >}}
