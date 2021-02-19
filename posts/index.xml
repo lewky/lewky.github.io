@@ -1,4 +1,87 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 04 Feb 2021 00:26:15 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>远程桌面无法复制粘贴</title><link>https://lewky.cn/posts/remote-desktop-issue.html/</link><pubDate>Thu, 04 Feb 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/remote-desktop-issue.html/</guid><description><![CDATA[<h2 id="方法一">方法一</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 Feb 2021 10:55:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>分享一些有趣的代码注释</title><link>https://lewky.cn/posts/program-comment-funny.html/</link><pubDate>Fri, 19 Feb 2021 10:55:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/program-comment-funny.html/</guid><description><![CDATA[<h2 id="代马">代马</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">                               _(\_/) 
+                             ,((((^`\
+                            ((((  (6 \ 
+                          ,((((( ,    \
+      ,,,_              ,(((((  /&#34;._  ,`,
+     ((((\\ ,...       ,((((   /    `-.-&#39;
+     )))  ;&#39;    `&#34;&#39;&#34;&#39;&#34;&#34;((((   (      
+    (((  /            (((      \
+     )) |                      |
+    ((  |        .       &#39;     |
+    ))  \     _ &#39;      `t   ,.&#39;)
+    (   |   y;- -,-&#34;&#34;&#39;&#34;-.\   \/  
+    )   / ./  ) /         `\  \
+       |./   ( (           / /&#39;
+       ||     \\          //&#39;|
+       ||      \\       _//&#39;||
+       ||       ))     |_/  ||
+       \_\     |_/          ||
+       `&#39;&#34;                  \_\
+                            `&#39;&#34; 
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>分享一些有趣的前端图形和页面</title><link>https://lewky.cn/posts/front-end-funny.html/</link><pubDate>Thu, 18 Feb 2021 22:50:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/front-end-funny.html/</guid><description><![CDATA[<h2 id="css绘制三角形">css绘制三角形</h2>
+<p>在盒子模型中border也占据了宽高，对于下面的样式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">#</span><span class="nn">div1</span><span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border-style</span><span class="p">:</span> <span class="kc">solid</span><span class="p">;</span>
+    <span class="k">border-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border-color</span><span class="p">:</span> <span class="kc">red</span> <span class="kc">forestgreen</span> <span class="kc">blue</span> <span class="kc">cyan</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PostgreSQL - 字符串函数汇总</title><link>https://lewky.cn/posts/postgresql-string.html/</link><pubDate>Thu, 18 Feb 2021 22:44:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-string.html/</guid><description><![CDATA[<h2 id="拼接字符串">拼接字符串</h2>
+<p><code>||</code>是字符串连接操作符，在拼接字符串时要求前两个操作数至少有一个是字符串类型，不然会报错。如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="mi">44</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">--Error
+</span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>远程桌面无法复制粘贴</title><link>https://lewky.cn/posts/remote-desktop-issue.html/</link><pubDate>Thu, 04 Feb 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/remote-desktop-issue.html/</guid><description><![CDATA[<h2 id="方法一">方法一</h2>
 <p>可能是<code>rdpclip.exe</code>进程出了问题，在任务管理器中找到该进程，选中后并结束进程。接着重启该进程：</p>
 <ol>
 <li><code>win + R</code>组合键打开运行窗口</li>
@@ -82,32 +165,4 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，下文会提及如何引入。</strong></p>]]></description></item><item><title>Hugo系列(2) - 通过配置文件来定制个人站点</title><link>https://lewky.cn/posts/hugo-2.html/</link><pubDate>Sat, 10 Oct 2020 16:08:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-2.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>Hugo本身可以通过修改站点配置文件来完成页面的部分定制，如按钮、多语言等功能。本文基于<code>LoveIt</code>主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-cmd" data-lang="cmd"><span class="p">&gt;</span>hugo version
-Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>Hugo系列(1) - 简单搭建教程与远程部署</title><link>https://lewky.cn/posts/hugo-1.html/</link><pubDate>Sun, 06 Sep 2020 21:10:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。</p>
-<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item><item><title>Maven无法下载2.1.7.js7版本的itext依赖</title><link>https://lewky.cn/posts/d94da554.html/</link><pubDate>Mon, 16 Mar 2020 11:35:40 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/d94da554.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
-<p>某日忽然发现用Maven编译项目报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Failed</span> <span class="n">to</span> <span class="n">collect</span> <span class="n">dependencies</span> <span class="n">at</span> <span class="n">net</span><span class="o">.</span><span class="na">sf</span><span class="o">.</span><span class="na">jasperreports</span><span class="o">:</span><span class="n">jasperreports</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">6</span><span class="o">.</span><span class="na">10</span><span class="o">.</span><span class="na">0</span>
-<span class="o">-&gt;</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span><span class="o">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">read</span> <span class="n">artifact</span> <span class="n">descriptor</span> <span class="k">for</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">jar</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span><span class="o">:</span> 
-<span class="n">Could</span> <span class="n">not</span> <span class="n">transfer</span> <span class="n">artifact</span> <span class="n">com</span><span class="o">.</span><span class="na">lowagie</span><span class="o">:</span><span class="n">itext</span><span class="o">:</span><span class="n">pom</span><span class="o">:</span><span class="n">2</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">7</span><span class="o">.</span><span class="na">js7</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，下文会提及如何引入。</strong></p>]]></description></item></channel></rss>

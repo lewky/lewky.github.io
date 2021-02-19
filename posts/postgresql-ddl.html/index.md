@@ -1,4 +1,4 @@
-# PostgreSQl - DDL操作汇总
+# PostgreSQL - DDL操作汇总
 
 ## 重命名数据库
 

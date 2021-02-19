@@ -1,0 +1,1691 @@
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>分享一些有趣的代码注释 - Yulin Lewis' Blog</title><meta name=keywords content="雨临Lewis,Java,hugo,hexo,博客"><meta name=Description content="不想当写手的码农不是好咸鱼_(xз」∠)_"><meta property="og:title" content="分享一些有趣的代码注释"><meta property="og:description" content="代马
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+
+                               _(\_/) 
+                             ,((((^`\
+                            ((((  (6 \ 
+                          ,((((( ,    \
+      ,,,_              ,(((((  /&#34;._  ,`,
+     ((((\\ ,...       ,((((   /    `-.-'
+     )))  ;'    `&#34;'&#34;'&#34;&#34;((((   (      
+    (((  /            (((      \
+     )) |                      |
+    ((  |        .       '     |
+    ))  \     _ '      `t   ,.')
+    (   |   y;- -,-&#34;&#34;'&#34;-.\   \/  
+    )   / ./  ) /         `\  \
+       |./   ( (           / /'
+       ||     \\          //'|
+       ||      \\       _//'||
+       ||       ))     |_/  ||
+       \_\     |_/          ||
+       `'&#34;                  \_\
+                            `'&#34;"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/program-comment-funny.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2021-02-19T10:55:45+08:00"><meta property="article:modified_time" content="2021-02-19T10:55:45+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="分享一些有趣的代码注释"><meta name=twitter:description content="代马
+
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
+
+                               _(\_/) 
+                             ,((((^`\
+                            ((((  (6 \ 
+                          ,((((( ,    \
+      ,,,_              ,(((((  /&#34;._  ,`,
+     ((((\\ ,...       ,((((   /    `-.-'
+     )))  ;'    `&#34;'&#34;'&#34;&#34;((((   (      
+    (((  /            (((      \
+     )) |                      |
+    ((  |        .       '     |
+    ))  \     _ '      `t   ,.')
+    (   |   y;- -,-&#34;&#34;'&#34;-.\   \/  
+    )   / ./  ) /         `\  \
+       |./   ( (           / /'
+       ||     \\          //'|
+       ||      \\       _//'||
+       ||       ))     |_/  ||
+       \_\     |_/          ||
+       `'&#34;                  \_\
+                            `'&#34;"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky.cn/posts/program-comment-funny.html/><link rel=prev href=https://lewky.cn/posts/front-end-funny.html/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"分享一些有趣的代码注释","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/program-comment-funny.html\/"},"genre":"posts","keywords":"代码注释, funny","wordcount":6241,"url":"https:\/\/lewky.cn\/posts\/program-comment-funny.html\/","datePublished":"2021-02-19T10:55:45+08:00","dateModified":"2021-02-19T10:55:45+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档 </a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于 </a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链 </a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索 </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/><i class="fas fa-fw fa-archive"></i>归档</a><a class=menu-item href=/tags/><i class="fas fa-fw fa-tag"></i>标签</a><a class=menu-item href=/categories/><i class="fas fa-fw fa-th"></i>分类</a><a class=menu-item href=/about/><i class="fas fa-fw fa-at"></i>关于</a><a class=menu-item href=/friends/><i class="fas fa-fw fa-fan fa-spin"></i>友链</a><a class=menu-item href=/search/><i class="fas fa-fw fa-search"></i>搜索</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">分享一些有趣的代码注释</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E7%BC%96%E7%A8%8B/><i class="far fa-folder fa-fw"></i>编程</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-02-19>2021-02-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6241 字
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 13 分钟&nbsp;<span id=/posts/program-comment-funny.html/ class=leancloud_visitors data-flag-title=分享一些有趣的代码注释>
+<i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+</span>&nbsp;
+<a href=#comments id=post-meta-vcount title=查看评论><i class="fas fa-comment fa-fw"></i>&nbsp;<span id=/posts/program-comment-funny.html/ class=waline-comment-count></span>&nbsp;条评论</a></div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#代马>代马</a></li><li><a href=#狗子>狗子</a></li><li><a href=#滑稽>滑稽</a></li><li><a href=#物件>物件</a></li><li><a href=#佛祖>佛祖</a></li><li><a href=#fuck>FUCK</a></li><li><a href=#神兽>神兽</a></li><li><a href=#嘲讽>嘲讽</a></li><li><a href=#初音>初音</a></li><li><a href=#好耶>好耶</a></li><li><a href=#网站>网站</a></li><li><a href=#->👁-👁⃢</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=代马>代马</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>                               _(\_/) 
+                             ,((((^`\
+                            ((((  (6 \ 
+                          ,((((( ,    \
+      ,,,_              ,(((((  /&#34;._  ,`,
+     ((((\\ ,...       ,((((   /    `-.-&#39;
+     )))  ;&#39;    `&#34;&#39;&#34;&#39;&#34;&#34;((((   (      
+    (((  /            (((      \
+     )) |                      |
+    ((  |        .       &#39;     |
+    ))  \     _ &#39;      `t   ,.&#39;)
+    (   |   y;- -,-&#34;&#34;&#39;&#34;-.\   \/  
+    )   / ./  ) /         `\  \
+       |./   ( (           / /&#39;
+       ||     \\          //&#39;|
+       ||      \\       _//&#39;||
+       ||       ))     |_/  ||
+       \_\     |_/          ||
+       `&#39;&#34;                  \_\
+                            `&#39;&#34; 
+</code></pre></td></tr></table></div></div><h2 id=狗子>狗子</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span><span class=lnt>90
+</span><span class=lnt>91
+</span><span class=lnt>92
+</span><span class=lnt>93
+</span><span class=lnt>94
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***                                                                          
+ *          .,:,,,                                        .::,,,::.          
+ *        .::::,,;;,                                  .,;;:,,....:i:         
+ *        :i,.::::,;i:.      ....,,:::::::::,....   .;i:,.  ......;i.        
+ *        :;..:::;::::i;,,:::;:,,,,,,,,,,..,.,,:::iri:. .,:irsr:,.;i.        
+ *        ;;..,::::;;;;ri,,,.                    ..,,:;s1s1ssrr;,.;r,        
+ *        :;. ,::;ii;:,     . ...................     .;iirri;;;,,;i,        
+ *        ,i. .;ri:.   ... ............................  .,,:;:,,,;i:        
+ *        :s,.;r:... ....................................... .::;::s;        
+ *        ,1r::. .............,,,.,,:,,........................,;iir;        
+ *        ,s;...........     ..::.,;:,,.          ...............,;1s        
+ *       :i,..,.              .,:,,::,.          .......... .......;1,       
+ *      ir,....:rrssr;:,       ,,.,::.     .r5S9989398G95hr;. ....,.:s,      
+ *     ;r,..,s9855513XHAG3i   .,,,,,,,.  ,S931,.,,.;s;s&amp;BHHA8s.,..,..:r:     
+ *    :r;..rGGh,  :SAG;;G@BS:.,,,,,,,,,.r83:      hHH1sXMBHHHM3..,,,,.ir.    
+ *   ,si,.1GS,   sBMAAX&amp;MBMB5,,,,,,:,,.:&amp;8       3@HXHBMBHBBH#X,.,,,,,,rr    
+ *   ;1:,,SH:   .A@&amp;&amp;B#&amp;8H#BS,,,,,,,,,.,5XS,     3@MHABM&amp;59M#As..,,,,:,is,   
+ *  .rr,,,;9&amp;1   hBHHBB&amp;8AMGr,,,,,,,,,,,:h&amp;&amp;9s;   r9&amp;BMHBHMB9:  . .,,,,;ri.  
+ *  :1:....:5&amp;XSi;r8BMBHHA9r:,......,,,,:ii19GG88899XHHH&amp;GSr.      ...,:rs.  
+ *  ;s.     .:sS8G8GG889hi.        ....,,:;:,.:irssrriii:,.        ...,,i1,  
+ *  ;1,         ..,....,,isssi;,        .,,.                      ....,.i1,  
+ *  ;h:               i9HHBMBBHAX9:         .                     ...,,,rs,  
+ *  ,1i..            :A#MBBBBMHB##s                             ....,,,;si.  
+ *  .r1,..        ,..;3BMBBBHBB#Bh.     ..                    ....,,,,,i1;   
+ *   :h;..       .,..;,1XBMMMMBXs,.,, .. :: ,.               ....,,,,,,ss.   
+ *    ih: ..    .;;;, ;;:s58A3i,..    ,. ,.:,,.             ...,,,,,:,s1,    
+ *    .s1,....   .,;sh,  ,iSAXs;.    ,.  ,,.i85            ...,,,,,,:i1;     
+ *     .rh: ...     rXG9XBBM#M#MHAX3hss13&amp;&amp;HHXr         .....,,,,,,,ih;      
+ *      .s5: .....    i598X&amp;&amp;A&amp;AAAAAA&amp;XG851r:       ........,,,,:,,sh;       
+ *      . ihr, ...  .         ..                    ........,,,,,;11:.       
+ *         ,s1i. ...  ..,,,..,,,.,,.,,.,..       ........,,.,,.;s5i.         
+ *          .:s1r,......................       ..............;shs,           
+ *          . .:shr:.  ....                 ..............,ishs.             
+ *              .,issr;,... ...........................,is1s;.               
+ *                 .,is1si;:,....................,:;ir1sr;,                  
+ *                    ..:isssssrrii;::::::;;iirsssssr;:..                    
+ *                         .,::iiirsssssssssrri;;:.                      
+ */						 
+
+
+/***
+ *               ii.                                         ;9ABH,          
+ *              SA391,                                    .r9GG35&amp;G          
+ *              &amp;#ii13Gh;                               i3X31i;:,rB1         
+ *              iMs,:,i5895,                         .5G91:,:;:s1:8A         
+ *               33::::,,;5G5,                     ,58Si,,:::,sHX;iH1        
+ *                Sr.,:;rs13BBX35hh11511h5Shhh5S3GAXS:.,,::,,1AG3i,GG        
+ *                .G51S511sr;;iiiishS8G89Shsrrsh59S;.,,,,,..5A85Si,h8        
+ *               :SB9s:,............................,,,.,,,SASh53h,1G.       
+ *            .r18S;..,,,,,,,,,,,,,,,,,,,,,,,,,,,,,....,,.1H315199,rX,       
+ *          ;S89s,..,,,,,,,,,,,,,,,,,,,,,,,....,,.......,,,;r1ShS8,;Xi       
+ *        i55s:.........,,,,,,,,,,,,,,,,.,,,......,.....,,....r9&amp;5.:X1       
+ *       59;.....,.     .,,,,,,,,,,,...        .............,..:1;.:&amp;s       
+ *      s8,..;53S5S3s.   .,,,,,,,.,..      i15S5h1:.........,,,..,,:99       
+ *      93.:39s:rSGB@A;  ..,,,,.....    .SG3hhh9G&amp;BGi..,,,,,,,,,,,,.,83      
+ *      G5.G8  9#@@@@@X. .,,,,,,.....  iA9,.S&amp;B###@@Mr...,,,,,,,,..,.;Xh     
+ *      Gs.X8 S@@@@@@@B:..,,,,,,,,,,. rA1 ,A@@@@@@@@@H:........,,,,,,.iX:    
+ *     ;9. ,8A#@@@@@@#5,.,,,,,,,,,... 9A. 8@@@@@@@@@@M;    ....,,,,,,,,S8    
+ *     X3    iS8XAHH8s.,,,,,,,,,,...,..58hH@@@@@@@@@Hs       ...,,,,,,,:Gs   
+ *    r8,        ,,,...,,,,,,,,,,.....  ,h8XABMMHX3r.          .,,,,,,,.rX:  
+ *   :9, .    .:,..,:;;;::,.,,,,,..          .,,.               ..,,,,,,.59  
+ *  .Si      ,:.i8HBMMMMMB&amp;5,....                    .            .,,,,,.sMr
+ *  SS       :: h@@@@@@@@@@#; .                     ...  .         ..,,,,iM5
+ *  91  .    ;:.,1&amp;@@@@@@MXs.                            .          .,,:,:&amp;S
+ *  hS ....  .:;,,,i3MMS1;..,..... .  .     ...                     ..,:,.99
+ *  ,8; ..... .,:,..,8Ms:;,,,...                                     .,::.83
+ *   s&amp;: ....  .sS553B@@HX3s;,.    .,;13h.                            .:::&amp;1
+ *    SXr  .  ...;s3G99XA&amp;X88Shss11155hi.                             ,;:h&amp;,
+ *     iH8:  . ..   ,;iiii;,::,,,,,.                                 .;irHA  
+ *      ,8X5;   .     .......                                       ,;iihS8Gi
+ *         1831,                                                 .,;irrrrrs&amp;@
+ *           ;5A8r.                                            .:;iiiiirrss1H
+ *             :X@H3s.......                                .,:;iii;iiiiirsrh
+ *              r#h:;,...,,.. .,,:;;;;;:::,...              .:;;;;;;iiiirrss1
+ *             ,M8 ..,....,.....,,::::::,,...         .     .,;;;iiiiiirss11h
+ *             8B;.,,,,,,,.,.....          .           ..   .:;;;;iirrsss111h
+ *            i@5,:::,,,,,,,,.... .                   . .:::;;;;;irrrss111111
+ *            9Bi,:,,,,......                        ..r91;;;;;iirrsss1ss1111
+ */
+
+/***
+ * ░░░░░░░░░░░░░░░░░░░░░░░░▄░░
+ * ░░░░░░░░░▐█░░░░░░░░░░░▄▀▒▌░
+ * ░░░░░░░░▐▀▒█░░░░░░░░▄▀▒▒▒▐
+ * ░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐
+ * ░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐
+ * ░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌
+ * ░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒
+ * ░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐
+ * ░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄
+ * ░▌░▒▄██▄▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒
+ * ▀▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒
+ * 单身狗就这样默默地看着你，一句话也不说。
+ */
+</code></pre></td></tr></table></div></div><h2 id=滑稽>滑稽</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***                                                                    
+ *            .,,       .,:;;iiiiiiiii;;:,,.     .,,                   
+ *          rGB##HS,.;iirrrrriiiiiiiiiirrrrri;,s&amp;##MAS,                
+ *         r5s;:r3AH5iiiii;;;;;;;;;;;;;;;;iiirXHGSsiih1,               
+ *            .;i;;s91;;;;;;::::::::::::;;;;iS5;;;ii:                  
+ *          :rsriii;;r::::::::::::::::::::::;;,;;iiirsi,               
+ *       .,iri;;::::;;;;;;::,,,,,,,,,,,,,..,,;;;;;;;;iiri,,.           
+ *    ,9BM&amp;,            .,:;;:,,,,,,,,,,,hXA8:            ..,,,.       
+ *   ,;&amp;@@#r:;;;;;::::,,.   ,r,,,,,,,,,,iA@@@s,,:::;;;::,,.   .;.      
+ *    :ih1iii;;;;;::::;;;;;;;:,,,,,,,,,,;i55r;;;;;;;;;iiirrrr,..       
+ *   .ir;;iiiiiiiiii;;;;::::::,,,,,,,:::::,,:;;;iiiiiiiiiiiiri         
+ *   iriiiiiiiiiiiiiiii;;;::::::::::::::::;;;iiiiiiiiiiiiiiiir;        
+ *  ,riii;;;;;;;;;;;;;:::::::::::::::::::::::;;;;;;;;;;;;;;iiir.       
+ *  iri;;;::::,,,,,,,,,,:::::::::::::::::::::::::,::,,::::;;iir:       
+ * .rii;;::::,,,,,,,,,,,,:::::::::::::::::,,,,,,,,,,,,,::::;;iri       
+ * ,rii;;;::,,,,,,,,,,,,,:::::::::::,:::::,,,,,,,,,,,,,:::;;;iir.      
+ * ,rii;;i::,,,,,,,,,,,,,:::::::::::::::::,,,,,,,,,,,,,,::i;;iir.      
+ * ,rii;;r::,,,,,,,,,,,,,:,:::::,:,:::::::,,,,,,,,,,,,,::;r;;iir.      
+ * .rii;;rr,:,,,,,,,,,,,,,,:::::::::::::::,,,,,,,,,,,,,:,si;;iri       
+ *  ;rii;:1i,,,,,,,,,,,,,,,,,,:::::::::,,,,,,,,,,,,,,,:,ss:;iir:       
+ *  .rii;;;5r,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,sh:;;iri        
+ *   ;rii;:;51,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.:hh:;;iir,        
+ *    irii;::hSr,.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.,sSs:;;iir:         
+ *     irii;;:iSSs:.,,,,,,,,,,,,,,,,,,,,,,,,,,,..:135;:;;iir:          
+ *      ;rii;;:,r535r:...,,,,,,,,,,,,,,,,,,..,;sS35i,;;iirr:           
+ *       :rrii;;:,;1S3Shs;:,............,:is533Ss:,;;;iiri,            
+ *        .;rrii;;;:,;rhS393S55hh11hh5S3393Shr:,:;;;iirr:              
+ *          .;rriii;;;::,:;is1h555555h1si;:,::;;;iirri:.               
+ *            .:irrrii;;;;;:::,,,,,,,,:::;;;;iiirrr;,                  
+ *               .:irrrriiiiii;;;;;;;;iiiiiirrrr;,.                    
+ *                  .,:;iirrrrrrrrrrrrrrrrri;:.                        
+ *                        ..,:::;;;;:::,,.                             
+ */ 
+</code></pre></td></tr></table></div></div><h2 id=物件>物件</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***
+ * ┌───┐   ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐
+ * │Esc│   │ F1│ F2│ F3│ F4│ │ F5│ F6│ F7│ F8│ │ F9│F10│F11│F12│ │P/S│S L│P/B│  ┌┐    ┌┐    ┌┐
+ * └───┘   └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┘  └┘    └┘    └┘
+ * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐ ┌───┬───┬───┐ ┌───┬───┬───┬───┐
+ * │~ `│! 1│@ 2│# 3│$ 4│% 5│^ 6│&amp; 7│* 8│( 9│) 0│_ -│+ =│ BacSp │ │Ins│Hom│PUp│ │N L│ / │ * │ - │
+ * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤ ├───┼───┼───┤ ├───┼───┼───┼───┤
+ * │ Tab │ Q │ W │ E │ R │ T │ Y │ U │ I │ O │ P │{ [│} ]│ | \ │ │Del│End│PDn│ │ 7 │ 8 │ 9 │   │
+ * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┤ └───┴───┴───┘ ├───┼───┼───┤ + │
+ * │ Caps │ A │ S │ D │ F │ G │ H │ J │ K │ L │: ;│&#34; &#39;│ Enter  │               │ 4 │ 5 │ 6 │   │
+ * ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────────┤     ┌───┐     ├───┼───┼───┼───┤
+ * │ Shift  │ Z │ X │ C │ V │ B │ N │ M │&lt; ,│&gt; .│? /│  Shift   │     │ ↑ │     │ 1 │ 2 │ 3 │   │
+ * ├─────┬──┴─┬─┴──┬┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤ ┌───┼───┼───┐ ├───┴───┼───┤ E││
+ * │ Ctrl│    │Alt │         Space         │ Alt│    │    │Ctrl│ │ ← │ ↓ │ → │ │   0   │ . │←─┘│
+ * └─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘
+ */
+
+/***
+ *              ,----------------,              ,---------,
+ *         ,-----------------------,          ,&#34;        ,&#34;|
+ *       ,&#34;                      ,&#34;|        ,&#34;        ,&#34;  |
+ *      +-----------------------+  |      ,&#34;        ,&#34;    |
+ *      |  .-----------------.  |  |     +---------+      |
+ *      |  |                 |  |  |     | -==----&#39;|      |
+ *      |  |  I LOVE DOS!    |  |  |     |         |      |
+ *      |  |  Bad command or |  |  |/----|`---=    |      |
+ *      |  |  C:\&gt;_          |  |  |   ,/|==== ooo |      ;
+ *      |  |                 |  |  |  // |(((( [33]|    ,&#34;
+ *      |  `-----------------&#39;  |,&#34; .;&#39;| |((((     |  ,&#34;
+ *      +-----------------------+  ;;  | |         |,&#34;
+ *         /_)______________(_/  //&#39;   | +---------+
+ *    ___________________________/___  `,
+ *   /  oooooooooooooooo  .o.  oooo /,   \,&#34;-----------
+ *  / ==ooooooooooooooo==.o.  ooo= //   ,`\--{)B     ,&#34;
+ * /_==__==========__==_ooo__ooo=_/&#39;   /___________,&#34;
+ *
+ */
+
+
+/***
+ *                 .-~~~~~~~~~-._       _.-~~~~~~~~~-.
+ *             __.&#39;              ~.   .~              `.__
+ *           .&#39;//                  \./                  \\`.
+ *         .&#39;//                     |                     \\`.
+ *       .&#39;// .-~&#34;&#34;&#34;&#34;&#34;&#34;&#34;~~~~-._     |     _,-~~~~&#34;&#34;&#34;&#34;&#34;&#34;&#34;~-. \\`.
+ *     .&#39;//.-&#34;                 `-.  |  .-&#39;                 &#34;-.\\`.
+ *   .&#39;//______.============-..   \ | /   ..-============.______\\`.
+ * .&#39;______________________________\|/______________________________`.
+ *
+ */
+</code></pre></td></tr></table></div></div><h2 id=佛祖>佛祖</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***
+ *                    _ooOoo_
+ *                   o8888888o
+ *                   88&#34; . &#34;88
+ *                   (| -_- |)
+ *                    O\ = /O
+ *                ____/`---&#39;\____
+ *              .   &#39; \\| |// `.
+ *               / \\||| : |||// \
+ *             / _||||| -:- |||||- \
+ *               | | \\\ - /// | |
+ *             | \_| &#39;&#39;\---/&#39;&#39; | |
+ *              \ .-\__ `-` ___/-. /
+ *           ___`. .&#39; /--.--\ `. . __
+ *        .&#34;&#34; &#39;&lt; `.___\_&lt;|&gt;_/___.&#39; &gt;&#39;&#34;&#34;.
+ *       | | : `- \`.;`\ _ /`;.`/ - ` : | |
+ *         \ \ `-. \_ __\ /__ _/ .-` / /
+ * ======`-.____`-.___\_____/___.-`____.-&#39;======
+ *                    `=---=&#39;
+ *
+ * .............................................
+ *          佛祖保佑             永无BUG
+ */
+
+
+/***
+ *  佛曰:
+ *          写字楼里写字间，写字间里程序员；
+ *          程序人员写程序，又拿程序换酒钱。
+ *          酒醒只在网上坐，酒醉还来网下眠；
+ *          酒醉酒醒日复日，网上网下年复年。
+ *          但愿老死电脑间，不愿鞠躬老板前；
+ *          奔驰宝马贵者趣，公交自行程序员。
+ *          别人笑我忒疯癫，我笑自己命太贱；
+ *          不见满街漂亮妹，哪个归得程序员？
+ */
+
+
+/***
+ * _ooOoo_
+ * o8888888o
+ * 88&#34; . &#34;88
+ * (| -_- |)
+ *  O\ = /O
+ * ___/`---&#39;\____
+ * .   &#39; \\| |// `.
+ * / \\||| : |||// \
+ * / _||||| -:- |||||- \
+ * | | \\\ - /// | |
+ * | \_| &#39;&#39;\---/&#39;&#39; | |
+ * \ .-\__ `-` ___/-. /
+ * ___`. .&#39; /--.--\ `. . __
+ * .&#34;&#34; &#39;&lt; `.___\_&lt;|&gt;_/___.&#39; &gt;&#39;&#34;&#34;.
+ * | | : `- \`.;`\ _ /`;.`/ - ` : | |
+ * \ \ `-. \_ __\ /__ _/ .-` / /
+ * ======`-.____`-.___\_____/___.-`____.-&#39;======
+ * `=---=&#39;
+ *          .............................................
+ *           佛曰：bug泛滥，我已瘫痪！
+ */
+</code></pre></td></tr></table></div></div><h2 id=fuck>FUCK</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***
+ *
+ *   █████▒█    ██  ▄████▄   ██ ▄█▀       ██████╗ ██╗   ██╗ ██████╗
+ * ▓██   ▒ ██  ▓██▒▒██▀ ▀█   ██▄█▒        ██╔══██╗██║   ██║██╔════╝
+ * ▒████ ░▓██  ▒██░▒▓█    ▄ ▓███▄░        ██████╔╝██║   ██║██║  ███╗
+ * ░▓█▒  ░▓▓█  ░██░▒▓▓▄ ▄██▒▓██ █▄        ██╔══██╗██║   ██║██║   ██║
+ * ░▒█░   ▒▒█████▓ ▒ ▓███▀ ░▒██▒ █▄       ██████╔╝╚██████╔╝╚██████╔╝
+ *  ▒ ░   ░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░▒ ▒▒ ▓▒       ╚═════╝  ╚═════╝  ╚═════╝
+ *  ░     ░░▒░ ░ ░   ░  ▒   ░ ░▒ ▒░
+ *  ░ ░    ░░░ ░ ░ ░        ░ ░░ ░
+ *           ░     ░ ░      ░  ░
+ */
+
+
+/***
+ *                    .::::.
+ *                  .::::::::.
+ *                 :::::::::::  FUCK YOU
+ *             ..:::::::::::&#39;
+ *           &#39;::::::::::::&#39;
+ *             .::::::::::
+ *        &#39;::::::::::::::..
+ *             ..::::::::::::.
+ *           ``::::::::::::::::
+ *            ::::``:::::::::&#39;        .:::.
+ *           ::::&#39;   &#39;:::::&#39;       .::::::::.
+ *         .::::&#39;      ::::     .:::::::&#39;::::.
+ *        .:::&#39;       :::::  .:::::::::&#39; &#39;:::::.
+ *       .::&#39;        :::::.:::::::::&#39;      &#39;:::::.
+ *      .::&#39;         ::::::::::::::&#39;         ``::::.
+ *  ...:::           ::::::::::::&#39;              ``::.
+ * ```` &#39;:.          &#39;:::::::::&#39;                  ::::..
+ *                    &#39;.:::::&#39;                    &#39;:&#39;````..
+ */
+</code></pre></td></tr></table></div></div><h2 id=神兽>神兽</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***
+ *      ┌─┐       ┌─┐
+ *   ┌──┘ ┴───────┘ ┴──┐
+ *   │                 │
+ *   │       ───       │
+ *   │  ─┬┘       └┬─  │
+ *   │                 │
+ *   │       ─┴─       │
+ *   │                 │
+ *   └───┐         ┌───┘
+ *       │         │
+ *       │         │
+ *       │         │
+ *       │         └──────────────┐
+ *       │                        │
+ *       │                        ├─┐
+ *       │                        ┌─┘
+ *       │                        │
+ *       └─┐  ┐  ┌───────┬──┐  ┌──┘
+ *         │ ─┤ ─┤       │ ─┤ ─┤
+ *         └──┴──┘       └──┴──┘
+ *                神兽保佑
+ *               代码无BUG!
+ */
+
+
+/***
+ *      ┌─┐       ┌─┐
+ *   ┌──┘ ┴───────┘ ┴──┐
+ *   │                 │
+ *   │       ───       │
+ *   │   &gt;        &lt;    │
+ *   │                 │
+ *   │   ...  ⌒  ...   │
+ *   │                 │
+ *   └───┐         ┌───┘
+ *       │         │
+ *       │         │
+ *       │         │
+ *       │         └──────────────┐
+ *       │                        │
+ *       │                        ├─┐
+ *       │                        ┌─┘
+ *       │                        │
+ *       └─┐  ┐  ┌───────┬──┐  ┌──┘
+ *         │ ─┤ ─┤       │ ─┤ ─┤
+ *         └──┴──┘       └──┴──┘
+ *                神兽保佑
+ *               代码无BUG!
+ */
+
+
+/***
+ *      ┌─┐       ┌─┐ + +
+ *   ┌──┘ ┴───────┘ ┴──┐++
+ *   │                 │
+ *   │       ───       │++ + + +
+ *   ███████───███████ │+
+ *   │                 │+
+ *   │       ─┴─       │
+ *   │                 │
+ *   └───┐         ┌───┘
+ *       │         │
+ *       │         │   + +
+ *       │         │
+ *       │         └──────────────┐
+ *       │                        │
+ *       │                        ├─┐
+ *       │                        ┌─┘
+ *       │                        │
+ *       └─┐  ┐  ┌───────┬──┐  ┌──┘  + + + +
+ *         │ ─┤ ─┤       │ ─┤ ─┤
+ *         └──┴──┘       └──┴──┘  + + + +
+ *                神兽保佑
+ *               代码无BUG!
+ */
+
+
+/***
+ *                  ___====-_  _-====___
+ *            _--^^^#####//      \\#####^^^--_
+ *         _-^##########// (    ) \\##########^-_
+ *        -############//  |\^^/|  \\############-
+ *      _/############//   (@::@)   \\############\_
+ *     /#############((     \\//     ))#############\
+ *    -###############\\    (oo)    //###############-
+ *   -#################\\  / VV \  //#################-
+ *  -###################\\/      \//###################-
+ * _#/|##########/\######(   /\   )######/\##########|\#_
+ * |/ |#/\#/\#/\/  \#/\##\  |  |  /##/\#/  \/\#/\#/\#| \|
+ * `  |/  V  V  `   V  \#\| |  | |/#/  V   &#39;  V  V  \|  &#39;
+ *    `   `  `      `   / | |  | | \   &#39;      &#39;  &#39;   &#39;
+ *                     (  | |  | |  )
+ *                    __\ | |  | | /__
+ *                   (vvv(VVV)(VVV)vvv)                
+ *                        神兽保佑
+ *                       代码无BUG!
+ */
+
+
+/***
+ *
+ *
+ *                                                    __----~~~~~~~~~~~------___
+ *                                   .  .   ~~//====......          __--~ ~~
+ *                   -.            \_|//     |||\\  ~~~~~~::::... /~
+ *                ___-==_       _-~o~  \/    |||  \\            _/~~-
+ *        __---~~~.==~||\=_    -_--~/_-~|-   |\\   \\        _/~
+ *    _-~~     .=~    |  \\-_    &#39;-~7  /-   /  ||    \      /
+ *  .~       .~       |   \\ -_    /  /-   /   ||      \   /
+ * /  ____  /         |     \\ ~-_/  /|- _/   .||       \ /
+ * |~~    ~~|--~~~~--_ \     ~==-/   | \~--===~~        .\
+ *          &#39;         ~-|      /|    |-~\~~       __--~~
+ *                      |-~~-_/ |    |   ~\_   _-~            /\
+ *                           /  \     \__   \/~                \__
+ *                       _--~ _/ | .-~~____--~-/                  ~~==.
+ *                      ((-&gt;/~   &#39;.|||&#39; -_|    ~~-/ ,              . _||
+ *                                 -_     ~\      ~~---l__i__i__i--~~_/
+ *                                 _-~-__   ~)  \--______________--~~
+ *                               //.-~~~-~_--~- |-------~~~~~~~~
+ *                                      //.-~~~--\
+ *                               神兽保佑
+ *                              代码无BUG!
+ */
+</code></pre></td></tr></table></div></div><h2 id=嘲讽>嘲讽</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***                              _
+ *  _._ _..._ .-&#39;,     _.._(`))
+ * &#39;-. `     &#39;  /-._.-&#39;    &#39;,/
+ *    )         \            &#39;.
+ *   / _    _    |             \
+ *  |  a    a    /              |
+ *  \   .-.                     ;
+ *   &#39;-(&#39;&#39; ).-&#39;       ,&#39;       ;
+ *      &#39;-;           |      .&#39;
+ *         \           \    /
+ *         | 7  .__  _.-\   \
+ *         | |  |  ``/  /`  /
+ *        /,_|  |   /,_/   /
+ *           /,_/      &#39;`-&#39;
+ */
+
+
+/***
+ **************************************************************
+ *                                                            *
+ *   .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.       *
+ *    |                     ______                     |      *
+ *    |                  .-&#34;      &#34;-.                  |      *
+ *    |                 /            \                 |      *
+ *    |     _          |              |          _     |      *
+ *    |    ( \         |,  .-.  .-.  ,|         / )    |      *
+ *    |     &gt; &#34;=._     | )(__/  \__)( |     _.=&#34; &lt;     |      *
+ *    |    (_/&#34;=._&#34;=._ |/     /\     \| _.=&#34;_.=&#34;\_)    |      *
+ *    |           &#34;=._&#34;(_     ^^     _)&#34;_.=&#34;           |      *
+ *    |               &#34;=\__|IIIIII|__/=&#34;               |      *
+ *    |              _.=&#34;| \IIIIII/ |&#34;=._              |      *
+ *    |    _     _.=&#34;_.=&#34;\          /&#34;=._&#34;=._     _    |      *
+ *    |   ( \_.=&#34;_.=&#34;     `--------`     &#34;=._&#34;=._/ )   |      *
+ *    |    &gt; _.=&#34;                            &#34;=._ &lt;    |      *
+ *    |   (_/                                    \_)   |      *
+ *    |                                                |      *
+ *    &#39;-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=&#39;      *
+ *                                                            *
+ *           LASCIATE OGNI SPERANZA, VOI CH&#39;ENTRATE           *
+ **************************************************************
+ */
+
+
+/***
+ *                                         ,s555SB@@&amp;                          
+ *                                      :9H####@@@@@Xi                        
+ *                                     1@@@@@@@@@@@@@@8                       
+ *                                   ,8@@@@@@@@@B@@@@@@8                      
+ *                                  :B@@@@X3hi8Bs;B@@@@@Ah,                   
+ *             ,8i                  r@@@B:     1S ,M@@@@@@#8;                 
+ *            1AB35.i:               X@@8 .   SGhr ,A@@@@@@@@S                
+ *            1@h31MX8                18Hhh3i .i3r ,A@@@@@@@@@5               
+ *            ;@&amp;i,58r5                 rGSS:     :B@@@@@@@@@@A               
+ *             1#i  . 9i                 hX.  .: .5@@@@@@@@@@@1               
+ *              sG1,  ,G53s.              9#Xi;hS5 3B@@@@@@@B1                
+ *               .h8h.,A@@@MXSs,           #@H1:    3ssSSX@1                  
+ *               s ,@@@@@@@@@@@@Xhi,       r#@@X1s9M8    .GA981               
+ *               ,. rS8H#@@@@@@@@@@#HG51;.  .h31i;9@r    .8@@@@BS;i;          
+ *                .19AXXXAB@@@@@@@@@@@@@@#MHXG893hrX#XGGXM@@@@@@@@@@MS        
+ *                s@@MM@@@hsX#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&amp;,      
+ *              :GB@#3G@@Brs ,1GM@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@B,     
+ *            .hM@@@#@@#MX 51  r;iSGAM@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8     
+ *          :3B@@@@@@@@@@@&amp;9@h :Gs   .;sSXH@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:    
+ *      s&amp;HA#@@@@@@@@@@@@@@M89A;.8S.       ,r3@@@@@@@@@@@@@@@@@@@@@@@@@@@r    
+ *   ,13B@@@@@@@@@@@@@@@@@@@5 5B3 ;.         ;@@@@@@@@@@@@@@@@@@@@@@@@@@@i    
+ *  5#@@#&amp;@@@@@@@@@@@@@@@@@@9  .39:          ;@@@@@@@@@@@@@@@@@@@@@@@@@@@;    
+ *  9@@@X:MM@@@@@@@@@@@@@@@#;    ;31.         H@@@@@@@@@@@@@@@@@@@@@@@@@@:    
+ *   SH#@B9.rM@@@@@@@@@@@@@B       :.         3@@@@@@@@@@@@@@@@@@@@@@@@@@5    
+ *     ,:.   9@@@@@@@@@@@#HB5                 .M@@@@@@@@@@@@@@@@@@@@@@@@@B    
+ *           ,ssirhSM@&amp;1;i19911i,.             s@@@@@@@@@@@@@@@@@@@@@@@@@@S   
+ *              ,,,rHAri1h1rh&amp;@#353Sh:          8@@@@@@@@@@@@@@@@@@@@@@@@@#:  
+ *            .A3hH@#5S553&amp;@@#h   i:i9S          #@@@@@@@@@@@@@@@@@@@@@@@@@A.
+ *
+ *
+ *    又看源码，看你妹妹呀！
+ */
+</code></pre></td></tr></table></div></div><h2 id=初音>初音</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***
+ *_______________#########_______________________
+ *______________############_____________________
+ *______________#############____________________
+ *_____________##__###########___________________
+ *____________###__######_#####__________________
+ *____________###_#######___####_________________
+ *___________###__##########_####________________
+ *__________####__###########_####_______________
+ *________#####___###########__#####_____________
+ *_______######___###_########___#####___________
+ *_______#####___###___########___######_________
+ *______######___###__###########___######_______
+ *_____######___####_##############__######______
+ *____#######__#####################_#######_____
+ *____#######__##############################____
+ *___#######__######_#################_#######___
+ *___#######__######_######_#########___######___
+ *___#######____##__######___######_____######___
+ *___#######________######____#####_____#####____
+ *____######________#####_____#####_____####_____
+ *_____#####________####______#####_____###______
+ *______#####______;###________###______#________
+ *________##_______####________####______________
+ */
+</code></pre></td></tr></table></div></div><h2 id=好耶>好耶</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***
+ * 頂頂頂頂頂頂頂頂頂　頂頂頂頂頂頂頂頂頂
+ * 頂頂頂頂頂頂頂　　　　　頂頂　　　　　
+ * 　　　頂頂　　　頂頂頂頂頂頂頂頂頂頂頂
+ * 　　　頂頂　　　頂頂頂頂頂頂頂頂頂頂頂
+ * 　　　頂頂　　　頂頂　　　　　　　頂頂
+ * 　　　頂頂　　　頂頂　　頂頂頂　　頂頂
+ * 　　　頂頂　　　頂頂　　頂頂頂　　頂頂
+ * 　　　頂頂　　　頂頂　　頂頂頂　　頂頂
+ * 　　　頂頂　　　頂頂　　頂頂頂　　頂頂
+ * 　　　頂頂　　　　　　　頂頂頂　
+ * 　　　頂頂　　　　　　頂頂　頂頂　頂頂
+ * 　頂頂頂頂　　　頂頂頂頂頂　頂頂頂頂頂
+ * 　頂頂頂頂　　　頂頂頂頂　　　頂頂頂頂
+ */
+
+/***
+ *                   /88888888888888888888888888\
+ *                   |88888888888888888888888888/
+ *                    |~~____~~~~~~~~~&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;|
+ *                   / \_________/&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;\
+ *                  /  |              \         \
+ *                 /   |  88    88     \         \
+ *                /    |  88    88      \         \
+ *               /    /                  \        |
+ *              /     |   ________        \       |
+ *              \     |   \______/        /       |
+ *   /&#34;\         \     \____________     /        |
+ *   | |__________\_        |  |        /        /
+ * /&#34;&#34;&#34;&#34;\           \_------&#39;  &#39;-------/       --
+ * \____/,___________\                 -------/
+ * ------*            |                    \
+ *   ||               |                     \
+ *   ||               |                 ^    \
+ *   ||               |                | \    \
+ *   ||               |                |  \    \
+ *   ||               |                |   \    \
+ *   \|              /                /&#34;&#34;&#34;\/    /
+ *      -------------                |    |    /
+ *      |\--_                        \____/___/
+ *      |   |\-_                       |
+ *      |   |   \_                     |
+ *      |   |     \                    |
+ *      |   |      \_                  |
+ *      |   |        ----___           |
+ *      |   |               \----------|
+ *      /   |                     |     ----------&#34;&#34;\
+ * /&#34;\--&#34;--_|                     |               |  \
+ * |_______/                      \______________/    )
+ *                                               \___/
+ */
+
+
+/***
+ *                        d*##$.
+ *  zP&#34;&#34;&#34;&#34;&#34;$e.           $&#34;    $o
+ * 4$       &#39;$          $&#34;      $
+ * &#39;$        &#39;$        J$       $F
+ *  &#39;b        $k       $&gt;       $
+ *   $k        $r     J$       d$
+ *   &#39;$         $     $&#34;       $~
+ *    &#39;$        &#34;$   &#39;$E       $
+ *     $         $L   $&#34;      $F ...
+ *      $.       4B   $      $$$*&#34;&#34;&#34;*b
+ *      &#39;$        $.  $$     $$      $F
+ *       &#34;$       R$  $F     $&#34;      $
+ *        $k      ?$ u*     dF      .$
+ *        ^$.      $$&#34;     z$      u$$$$e
+ *         #$b             $E.dW@e$&#34;    ?$
+ *          #$           .o$$# d$$$$c    ?F
+ *           $      .d$$#&#34; . zo$&gt;   #$r .uF
+ *           $L .u$*&#34;      $&amp;$$$k   .$$d$$F
+ *            $$&#34;            &#34;&#34;^&#34;$$$P&#34;$P9$
+ *           JP              .o$$$$u:$P $$
+ *           $          ..ue$&#34;      &#34;&#34;  $&#34;
+ *          d$          $F              $
+ *          $$     ....udE             4B
+ *           #$    &#34;&#34;&#34;&#34;` $r            @$
+ *            ^$L        &#39;$            $F
+ *              RN        4N           $
+ *               *$b                  d$
+ *                $$k                 $F
+ *                 $$b                $F
+ *                  $&#34;&#34;               $F
+ *                  &#39;$                $
+ *                   $L               $
+ *                   &#39;$               $
+ *                    $               $
+ */
+</code></pre></td></tr></table></div></div><h2 id=网站>网站</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***
+ *             ,%%%%%%%%,
+ *           ,%%/\%%%%/\%%
+ *          ,%%%\c &#34;&#34; J/%%%
+ * %.       %%%%/ o  o \%%%
+ * `%%.     %%%%    _  |%%%
+ *  `%%     `%%%%(__Y__)%%&#39;
+ *  //       ;%%%%`\-/%%%&#39;
+ * ((       /  `%%%%%%%&#39;
+ *  \\    .&#39;          |
+ *   \\  /       \  | |
+ *    \\/         ) | |
+ *     \         /_ | |__
+ *     (___________))))))) 攻城湿
+ *
+ *        _       _
+ * __   _(_)_   _(_) __ _ _ __
+ * \ \ / / \ \ / / |/ _` |&#39;_ \
+ *  \ V /| |\ V /| | (_| | | | |
+ *   \_/ |_| \_/ |_|\__,_|_| |_|
+ */
+
+
+/***
+ * https://gold.xitu.io/
+ *　　　　１１１　　　　　　　　　　　　　　　　　　　　　　　　　１　　　　　　　　　　　
+ *　　　　１１１　１１１１１１１１１１１１　　　　　　　　　　　１１１　　　　　　　　　　
+ *　　　　１１　　１１１１１１１１１１１１　　　　　　　　　　１１１１１　　　　　　　　　
+ *　　　　１１　　１１１　　　　　　　１１　　　　　　　　　１１１１１１１　　　　　　　　
+ *　　１１１１　１　１１１１１１１１１１１　　　　　　　　　１１１　１１１１　　　　　　　
+ *　　１１１１１１　１１１１１１１１１１１　　　　　　　１１１１　　　１１１１１　　　　　
+ *　　１１１１１１　１１　　　　　　　　　　　　　　　１１１１　　　　　１１１１１１　　　
+ *　　　　１１　　　１１１１１１１１　１１　　　　１１１１１１１１１１１１１１１１１１　　
+ *　　　　１１　　　１１１１１１１１１１１　　　１１１１１１１１１１１１１１１１１１１　　
+ *　　　　１１１１１１１１１　１１　　１１　　　　１１　　　　　　１１　　　　　　　　　　
+ *　　１１１１１１１１１１１１１１１１１１　　　　　　　　　　　　１１　　　　　　　　　　
+ *　　１１１１　　１１１１１１１１１１１１　　　　　　１１１１１１１１１１１１１１　　　　
+ *　　１１１１　　１１　　　　１１　　　　　　　　　　１１１１１１１１１１１１１１　　　　
+ *　　　　１１　　１１　１１　１１　　１１１　　　　　　１１　　　１１　　１１１　　　　　
+ *　　　　１１　　１１　１１　１１　　１１　　　　　　　１１１　　１１　　１１１　　　　　
+ *　　　　１１　１１１　１１　１１　　１１　　　　　　　　１１１　１１　１１１　　　　　　
+ *　　１１１１　１１１　１１１１１１１１１　　　　　１１　１１１　１１　１１１１１１１　　
+ *　　　１１１１１１　　１１１１１１１１１１　　　　１１１１１１１１１１１１１１１１１　　
+ *　　　１１　１１１　　　　　　　　　１１１　　　　１１１１１１１１１１１１１１１１１　　
+ */
+
+
+/***
+ * https://www.zhihu.com/
+ *           _____                    _____                    _____                    _____          
+ *          /\    \                  /\    \                  /\    \                  /\    \         
+ *         /::\____\                /::\    \                /::\    \                /::\    \        
+ *        /:::/    /                \:::\    \              /::::\    \              /::::\    \       
+ *       /:::/    /                  \:::\    \            /::::::\    \            /::::::\    \      
+ *      /:::/    /                    \:::\    \          /:::/\:::\    \          /:::/\:::\    \     
+ *     /:::/____/                      \:::\    \        /:::/__\:::\    \        /:::/__\:::\    \    
+ *    /::::\    \                      /::::\    \      /::::\   \:::\    \      /::::\   \:::\    \   
+ *   /::::::\    \   _____    ____    /::::::\    \    /::::::\   \:::\    \    /::::::\   \:::\    \  
+ *  /:::/\:::\    \ /\    \  /\   \  /:::/\:::\    \  /:::/\:::\   \:::\____\  /:::/\:::\   \:::\    \
+ * /:::/  \:::\    /::\____\/::\   \/:::/  \:::\____\/:::/  \:::\   \:::|    |/:::/__\:::\   \:::\____\
+ * \::/    \:::\  /:::/    /\:::\  /:::/    \::/    /\::/   |::::\  /:::|____|\:::\   \:::\   \::/    /
+ *  \/____/ \:::\/:::/    /  \:::\/:::/    / \/____/  \/____|:::::\/:::/    /  \:::\   \:::\   \/____/
+ *           \::::::/    /    \::::::/    /                 |:::::::::/    /    \:::\   \:::\    \     
+ *            \::::/    /      \::::/____/                  |::|\::::/    /      \:::\   \:::\____\    
+ *            /:::/    /        \:::\    \                  |::| \::/____/        \:::\   \::/    /    
+ *           /:::/    /          \:::\    \                 |::|  ~|               \:::\   \/____/     
+ *          /:::/    /            \:::\    \                |::|   |                \:::\    \         
+ *         /:::/    /              \:::\____\               \::|   |                 \:::\____\        
+ *         \::/    /                \::/    /                \:|   |                  \::/    /        
+ *          \/____/                  \/____/                  \|___|                   \/____/         
+ */
+
+
+/***
+ * http://www.freebuf.com/
+ *           _.._        ,------------.
+ *        ,&#39;      `.    ( We want you! )
+ *       /  __) __` \    `-,----------&#39;
+ *      (  (`-`(-&#39;)  ) _.-&#39;
+ *      /)  \  = /  (
+ *     /&#39;    |--&#39; .  \
+ *    (  ,---|  `-.)__`
+ *     )(  `-.,--&#39;   _`-.
+ *    &#39;/,&#39;          (  Uu&#34;,
+ *     (_       ,    `/,-&#39; )
+ *     `.__,  : `-&#39;/  /`--&#39;
+ *       |     `--&#39;  |
+ *       `   `-._   /
+ *        \        (
+ *        /\ .      \.  freebuf
+ *       / |` \     ,-\
+ *      /  \| .)   /   \
+ *     ( ,&#39;|\    ,&#39;     :
+ *     | \,`.`--&#34;/      }
+ *     `,&#39;    \  |,&#39;    /
+ *    / &#34;-._   `-/      |
+ *    &#34;-.   &#34;-.,&#39;|     ;
+ *   /        _/[&#34;---&#39;&#34;&#34;]
+ *  :        /  |&#34;-     &#39;
+ *  &#39;           |      /
+ *              `      |
+ */
+
+
+/***
+ * https://campus.alibaba.com/
+ *                                 `:::::::::::,
+ *                             `::;:::::::;:::::::,  `
+ *                          `::;;:::::::@@@@;:::::::`
+ *                        ,:::::::::::::@    #@&#39;:::::`
+ *                      :::::::::::::::&#39;@@      @;::::
+ *                    ::::::::::::&#39;@@@@&#39;```      .+:::`
+ *                  ::::::::::;@@@#.              ,:::,
+ *                .::::::::+@#@`                   ::::
+ *               :::::::+@@&#39;                       ::::
+ *             `:::::&#39;@@:                         `:::.
+ *            ,::::@@:  `                         ::::
+ *           ;::::::@                            .:::;
+ *          :;:::::;@`        `                  :::;
+ *         :::::::::@`        @                 ;::::
+ *        :::::::::#`          @`              ,::::
+ *       :::::::::@`         +@ @             .::::`
+ *      .::::::&#39;@@`       `@@&#39;  @             ::::,
+ *      :::::::++@@@@@@@@@@.                 ::::;
+ *     ;:::::::+,   `..`                    :::::
+ *    ,::::::::&#39;,                          :::::
+ *    :::::::::+,                         :::::`
+ *   :::::::::+@.                        ,::::.`                     `,
+ *   ::::::;;@+                         .::;::                     `;
+ *  :::::::@@                          `:::;:                   `::``
+ *  ::::::#@                           ;::::                  .::`
+ *  :::::;@                           :::::`               .;::`
+ *  :::::@                           `:;:::            `::::;
+ *  :::::#                           :::::.        `,;:::::
+ *  ::::::                    `      ::::::,.,::::::::::.
+ *  ,::::::`              .::        ::::::::::::::::;`
+ *   ;::::::::,````.,:::::,          ::::::::::::::.
+ *    :::::::::::::::::: `           `::::::::::`
+ *     `::::::::::::,                  .:::.
+ *         `..`
+ */
+
+
+/***
+ * http://www.flvcd.com/
+ *  .--,       .--,
+ * ( (  \.---./  ) )
+ *  &#39;.__/o   o\__.&#39;
+ *     {=  ^  =}
+ *      &gt;  -  &lt;
+ *     /       \
+ *    //       \\
+ *   //|   .   |\\
+ *   &#34;&#39;\       /&#39;&#34;_.-~^`&#39;-.
+ *      \  _  /--&#39;         `
+ *    ___)( )(___
+ *   (((__) (__)))    高山仰止,景行行止.虽不能至,心向往之。
+ */
+</code></pre></td></tr></table></div></div><h2 id=->👁-👁⃢</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>/***             无可奉告 一颗赛艇
+ *  uJjYJYYLLv7r7vJJ5kqSFFFUUjJ7rrr7LLYLJLJ7
+ *  JuJujuYLrvuEM@@@B@@@B@B@B@@@MG5Y7vLjYjJL
+ *  JYjYJvr7XM@BB8GOOE8ZEEO8GqM8OBBBMu77LLJ7
+ *  LJLY7ru@@@BOZ8O8NXFFuSkSu25X0OFZ8MZJ;vLv
+ *  YvL7i5@BM8OGGqk22uvriiriii;r7LuSZXEMXrvr
+ *  vv7iU@BMNkF1uY7v7rr;iiii:i:i:ii7JEPNBPir
+ *  L7iL@BM8Xjuujvv77rr;ri;i;:iiiii:iLXFOBJ:
+ *  7ri@B@MOFuUS2Y7L7777rii;:::::i:iirjPG@O:
+ *  7:1B@BBOPjXXSJvrL7rr7iiii:i::::i;iv5MBB,
+ *  r:0@BBM8SFPX2Y77rri::iirri:::::iii75O@G.
+ *  7:SB@BBGqXPk0122UJL::i::r:::i:i;i:v2@Bk.
+ *  ri:MB@BBEqEMGq2JLLL1u7.iX51u77LF27iSB@r,
+ *  ri,v@B@MB8@qqNEqN1u:5B8BOFE0S7ii7qMB@F::
+ *  ii,J80Eq1MZkqPPX5YkPE@B@iXPE52j7:vBjE7::
+ *  ii:7MSqkS0PvLv7rrii0@L.Z1iLr::ir:rO,vi::
+ *  ii::EZXPSkquLvii:iF@N:.,BUi7ri,::UY;r:::
+ *  i::.2ONXqkPXS5FUUEOPP;..iSPXkjLYLLrr:::,
+ *  :::,iMXNP0NPLriiLGZ@BB1P87;JuL7r:7ri:::,
+ *  :::,.UGqNX0EZF2uUjUuULr:::,:7uuvv77::::.
+ *  ::::..5OXqXNJ50NSY;i:.,,,:i77Yvr;v;,,::.
+ *  :::,:.jOEPqPJiqBMMMO8NqP0SYLJriirv:.:,:.
+ *  ,:,,,.,Zq0P0X7vPFqF1ujLv7r:irrr7j7.,,::.
+ *  ,,,....0qk0080v75ujLLv7ri:i:rvj2J...,,,.
+ *  ......8@UXqZEMNvJjr;ii::,:::7uuv...,.,,.
+ *  .....B@BOvX88GMGk52vririiirJS1i.......,.
+ *  .JEMB@B@BMvL0MOMMMO8PE8GPqSk2L:.........
+ *  @B@@@B@M@B@L:7PGBOO8MOMOEP0Xri@B@Mk7,...
+ *  B@B@BBMBB@B@0::rJP8MO0uvvu7..,B@B@B@B@Z7
+ *  MMBM@BBB@B@B@Br:i,..:Lur:....7@OMMBM@B@@
+ *  8OOMMMOMMMMBB@B:....,PZENNi..JBOZ8GMOOOO
+ */
+</code></pre></td></tr></table></div></div><h2 id=参考链接>参考链接</h2><ul><li><a href=https://blog.csdn.net/ydk888888/article/details/81563608 target=_blank rel="noopener noreffer">有趣的代码注释整理（魔性图注释）</a></li></ul><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/common/wechat.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/common/alipay.png>
+<span>支付宝打赏</span></label></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2021-02-19</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/posts/program-comment-funny.html/index.md target=_blank>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/program-comment-funny.html/ data-title=分享一些有趣的代码注释 data-hashtags=代码注释,funny><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/program-comment-funny.html/ data-hashtag=代码注释><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/program-comment-funny.html/ data-title=分享一些有趣的代码注释><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/program-comment-funny.html/ data-title=分享一些有趣的代码注释><i data-svg-src=https://cdn.jsdelivr.net/npm/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/program-comment-funny.html/ data-title=分享一些有趣的代码注释><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A/>代码注释</a>,&nbsp;<a href=/tags/funny/>funny</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/front-end-funny.html/ class=prev rel=prev title=分享一些有趣的前端图形和页面><i class="fas fa-angle-left fa-fw"></i>分享一些有趣的前端图形和页面</a></div></div><div id=comments><div id=waline></div><script src=https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js></script><script>new Waline({el:'#waline',meta:["nick","mail","link"],placeholder:"提交评论较慢，请等待几秒~",serverURL:"https://comment.lewky.cn/",avatarCDN:"https://sdn.geekzu.org/avatar/",requiredFields:["nick","mail"],pageSize:10,avatar:"retro",lang:"zh-CN",visitor:true,highlight:true,emojiCDN:'https:\/\/cdn.jsdelivr.net\/gh\/lewky\/lewky.github.io@master/images/emoji/',emojiMaps:{"good":"weibo/2018new_good_org.png","no way":"weibo/2018new_kuxiao_org.png","smile":"weibo/2018new_weixioa02_org.png","ok":"weibo/2018new_ok_org.png","laugh and cry":"weibo/2018new_xiaoku_thumb.png","doge":"weibo/2018new_doge02_org.png","whee":"weibo/2018new_xixi_thumb.png","happy":"weibo/2018new_taikaixin_org.png","sweat":"weibo/2018new_han_org.png","cat":"weibo/2018new_miaomiao_thumb.png","dog":"weibo/2018new_erha_org.png","lovely":"weibo/2018new_keai_org.png","QQ-0":"qq/0.gif","QQ-1":"qq/1.gif","QQ-3":"qq/3.gif","QQ-6":"qq/6.gif","QQ-10":"qq/10.gif","QQ-12":"qq/12.gif","QQ-13":"qq/13.gif","QQ-26":"qq/26.gif","QQ-31":"qq/31.gif","QQ-37":"qq/37.gif","QQ-71":"qq/71.gif","QQ-72":"qq/72.gif","QQ-74":"qq/74.gif","QQ-85":"qq/85.gif","QQ-146":"qq/146.gif","QQ-147":"qq/147.gif","QQ-148":"qq/148.gif","QQ-149":"qq/149.gif","QQ-150":"qq/150.gif","QQ-151":"qq/151.gif","QQ-152":"qq/152.gif","QQ-153":"qq/153.gif","QQ-154":"qq/154.gif","QQ-155":"qq/155.gif","QQ-172":"qq/172.gif","QQ-207":"qq/207.gif","QQ-jin_li":"qq/jin_li.gif","QQ-zheng_yan":"qq/zheng_yan.gif","aru-1":"aru/1.png","aru-22":"aru/22.png","aru-45":"aru/45.png","aru-47":"aru/47.png","aru-52":"aru/52.png","aru-53":"aru/53.png","aru-54":"aru/54.png","aru-55":"aru/55.png","aru-56":"aru/56.png","aru-57":"aru/57.png","aru-58":"aru/58.png","aru-61":"aru/61.png","aru-100":"aru/100.png","aru-101":"aru/101.png","aru-103":"aru/103.png","aru-104":"aru/104.png","aru-107":"aru/107.png","aru-108":"aru/108.png","aru-110":"aru/110.png","aru-112":"aru/112.png","aru-122":"aru/122.png","aru-123":"aru/123.png","aru-134":"aru/134.png","aru-135":"aru/135.png","aru-144":"aru/144.png","aru-150":"aru/150.png","aru-151":"aru/151.png","aru-152":"aru/152.png","aru-153":"aru/153.png","aru-155":"aru/155.png","aru-156":"aru/156.png","aru-160":"aru/160.png","aru-162":"aru/162.png","aru-164":"aru/164.png","aru-166":"aru/166.png","aru-167":"aru/167.png","aru-168":"aru/168.png","aru-170":"aru/170.png","aru-171":"aru/171.png","aru-172":"aru/172.png","aru-173":"aru/173.png","aru-174":"aru/174.png","aru-175":"aru/175.png","aru-176":"aru/176.png","aru-178":"aru/178.png","aru-213":"aru/213.png","aru-240":"aru/240.png","aru-241":"aru/241.png","aru-249":"aru/249.png","aru-257":"aru/257.png","aru-258":"aru/258.png","aru-259":"aru/259.png","aru-265":"aru/265.png","aru-266":"aru/266.png","aru-267":"aru/267.png","aru-285":"aru/285.png","aru-286":"aru/286.png","aru-287":"aru/287.png","aru-288":"aru/288.png","aru-295":"aru/295.png","aru-296":"aru/296.png","aru-297":"aru/297.png","aru-298":"aru/298.png","aru-299":"aru/299.png","aru-300":"aru/300.png","aru-301":"aru/301.png","aru-302":"aru/302.png","aru-303":"aru/303.png","aru-304":"aru/304.png","aru-305":"aru/305.png","aru-306":"aru/306.png","bilibili_2233-卖萌":"bilibili_2233/卖萌.png","bilibili_2233-吃惊":"bilibili_2233/吃惊.png","bilibili_2233-吐魂":"bilibili_2233/吐魂.png","bilibili_2233-喝水":"bilibili_2233/喝水.png","bilibili_2233-困惑":"bilibili_2233/困惑.png","bilibili_2233-大哭":"bilibili_2233/大哭.png","bilibili_2233-大笑":"bilibili_2233/大笑.png","bilibili_2233-委屈":"bilibili_2233/委屈.png","bilibili_2233-怒":"bilibili_2233/怒.png","bilibili_2233-无言":"bilibili_2233/无言.png","bilibili_2233-汗":"bilibili_2233/汗.png","bilibili_2233-疑问":"bilibili_2233/疑问.png","bilibili_2233-第一":"bilibili_2233/第一.png","bilibili_2233-耶":"bilibili_2233/耶.png","bilibili_2233-郁闷":"bilibili_2233/郁闷.png","bilibili_tv_gif-doge":"bilibili_tv_gif/doge.gif","bilibili_tv_gif-亲亲":"bilibili_tv_gif/亲亲.gif","bilibili_tv_gif-偷笑":"bilibili_tv_gif/偷笑.gif","bilibili_tv_gif-再见":"bilibili_tv_gif/再见.gif","bilibili_tv_gif-发怒":"bilibili_tv_gif/发怒.gif","bilibili_tv_gif-发财":"bilibili_tv_gif/发财.gif","bilibili_tv_gif-可爱":"bilibili_tv_gif/可爱.gif","bilibili_tv_gif-吐血":"bilibili_tv_gif/吐血.gif","bilibili_tv_gif-呆":"bilibili_tv_gif/呆.gif","bilibili_tv_gif-呕吐":"bilibili_tv_gif/呕吐.gif","bilibili_tv_gif-困":"bilibili_tv_gif/困.gif","bilibili_tv_gif-坏笑":"bilibili_tv_gif/坏笑.gif","bilibili_tv_gif-大佬":"bilibili_tv_gif/大佬.gif","bilibili_tv_gif-大哭":"bilibili_tv_gif/大哭.gif","bilibili_tv_gif-委屈":"bilibili_tv_gif/委屈.gif","bilibili_tv_gif-害羞":"bilibili_tv_gif/害羞.gif","bilibili_tv_gif-尴尬":"bilibili_tv_gif/尴尬.gif","bilibili_tv_gif-微笑":"bilibili_tv_gif/微笑.gif","bilibili_tv_gif-思考":"bilibili_tv_gif/思考.gif","bilibili_tv_gif-惊吓":"bilibili_tv_gif/惊吓.gif","bilibili_tv_gif-打脸":"bilibili_tv_gif/打脸.gif","bilibili_tv_gif-抓狂":"bilibili_tv_gif/抓狂.gif","bilibili_tv_gif-抠鼻子":"bilibili_tv_gif/抠鼻子.gif","bilibili_tv_gif-斜眼笑":"bilibili_tv_gif/斜眼笑.gif","bilibili_tv_gif-无奈":"bilibili_tv_gif/无奈.gif","bilibili_tv_gif-晕":"bilibili_tv_gif/晕.gif","bilibili_tv_gif-流汗":"bilibili_tv_gif/流汗.gif","bilibili_tv_gif-流鼻血":"bilibili_tv_gif/流鼻血.gif","bilibili_tv_gif-点赞":"bilibili_tv_gif/点赞.gif","bilibili_tv_gif-生气":"bilibili_tv_gif/生气.gif","bilibili_tv_gif-生病":"bilibili_tv_gif/生病.gif","bilibili_tv_gif-疑问":"bilibili_tv_gif/疑问.gif","bilibili_tv_gif-白眼":"bilibili_tv_gif/白眼.gif","bilibili_tv_gif-睡着":"bilibili_tv_gif/睡着.gif","bilibili_tv_gif-笑哭":"bilibili_tv_gif/笑哭.gif","bilibili_tv_gif-腼腆":"bilibili_tv_gif/腼腆.gif","bilibili_tv_gif-色":"bilibili_tv_gif/色.gif","bilibili_tv_gif-调皮":"bilibili_tv_gif/调皮.gif","bilibili_tv_gif-鄙视":"bilibili_tv_gif/鄙视.gif","bilibili_tv_gif-闭嘴":"bilibili_tv_gif/闭嘴.gif","bilibili_tv_gif-难过":"bilibili_tv_gif/难过.gif","bilibili_tv_gif-馋":"bilibili_tv_gif/馋.gif","bilibili_tv_gif-黑人问号":"bilibili_tv_gif/黑人问号.gif","bilibili_tv_gif-鼓掌":"bilibili_tv_gif/鼓掌.gif","滑稽-001":"滑稽/001.jpg","滑稽-002":"滑稽/002.jpg","滑稽-003":"滑稽/003.jpg","滑稽-004":"滑稽/004.jpg","滑稽-005":"滑稽/005.jpg","滑稽-006":"滑稽/006.jpg","滑稽-007":"滑稽/007.jpg","滑稽-008":"滑稽/008.jpg","滑稽-009":"滑稽/009.jpg","滑稽-010":"滑稽/010.jpg","滑稽-011":"滑稽/011.jpg","滑稽-012":"滑稽/012.jpg","滑稽-013":"滑稽/013.jpg","滑稽-014":"滑稽/014.jpg","滑稽-015":"滑稽/015.jpg","滑稽-016":"滑稽/016.jpg","滑稽-017":"滑稽/017.jpg","滑稽-018":"滑稽/018.jpg","滑稽-019":"滑稽/019.jpg","滑稽-020":"滑稽/020.jpg","滑稽-021":"滑稽/021.jpg","滑稽-022":"滑稽/022.jpg","滑稽-023":"滑稽/023.jpg","滑稽-024":"滑稽/024.jpg","滑稽-025":"滑稽/025.jpg","滑稽-026":"滑稽/026.jpg","滑稽-027":"滑稽/027.jpg","滑稽-028":"滑稽/028.jpg","滑稽-029":"滑稽/029.jpg","滑稽-030":"滑稽/030.jpg","滑稽-031":"滑稽/031.jpg","滑稽-032":"滑稽/032.jpg","滑稽-033":"滑稽/033.jpg","滑稽-034":"滑稽/034.jpg","滑稽-035":"滑稽/035.jpg","滑稽-036":"滑稽/036.jpg","滑稽-037":"滑稽/037.jpg","滑稽-038":"滑稽/038.jpg","滑稽-039":"滑稽/039.jpg","滑稽-040":"滑稽/040.jpg","滑稽-041":"滑稽/041.jpg","滑稽-042":"滑稽/042.jpg","滑稽-043":"滑稽/043.jpg","滑稽-044":"滑稽/044.jpg","滑稽-045":"滑稽/045.jpg","滑稽-046":"滑稽/046.jpg","滑稽-047":"滑稽/047.jpg","default-01":"default/01.webp","default-010":"default/010.webp","default-011":"default/011.webp","default-012":"default/012.webp","default-013":"default/013.webp","default-014":"default/014.webp","default-016":"default/016.webp","default-017":"default/017.webp","default-018":"default/018.jpg","default-019":"default/019.webp","default-02":"default/02.webp","default-020":"default/020.webp","default-021":"default/021.webp","default-022":"default/022.webp","default-023":"default/023.webp","default-024":"default/024.webp","default-025":"default/025.jpg","default-026":"default/026.webp","default-027":"default/027.webp","default-028":"default/028.webp","default-029":"default/029.webp","default-03":"default/03.jpg","default-030":"default/030.gif","default-031":"default/031.webp","default-04":"default/04.jpg","default-05":"default/05.gif","default-06":"default/06.gif","default-07":"default/07.webp","default-08":"default/08.webp","default-09":"default/09.webp"}});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.74.2">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i>LoveIt</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=sidebar_wo><div id=leimu><img src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/leimuA.png alt=雷姆 onmouseover="this.src='https:\/\/cdn.jsdelivr.net\/gh\/lewky\/lewky.github.io@master/images/b2t/leimuB.png'" onmouseout="this.src='https:\/\/cdn.jsdelivr.net\/gh\/lewky\/lewky.github.io@master/images/b2t/leimuA.png'" title=回到顶部></div><div class=sidebar_wo id=lamu><img src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/b2t/lamuA.png alt=雷姆 onmouseover="this.src='https:\/\/cdn.jsdelivr.net\/gh\/lewky\/lewky.github.io@master/images/b2t/lamuB.png'" onmouseout="this.src='https:\/\/cdn.jsdelivr.net\/gh\/lewky\/lewky.github.io@master/images/b2t/lamuA.png'" title=回到底部></div></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":15},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js></script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js></script><script>$(function(){$(".site-avatar-plug-bilibili").attr("src","https:\/\/cdn.jsdelivr.net\/gh\/lewky\/lewky.github.io@master/images/avatar-plug/bilibili_"+(~~(128*Math.random())+1)+".png");});var avatar_plug=0;var avatar_click=1;jQuery(document).ready(function($){var frequency=1;var plug_count=128;$("div.home-avatar a").click(function(e){if(avatar_click%frequency===0){avatar_plug++;$(".site-avatar-plug-bilibili").attr("src","https:\/\/cdn.jsdelivr.net\/gh\/lewky\/lewky.github.io@master/images/avatar-plug/bilibili_"+avatar_plug+".png");}
+if(avatar_plug===plug_count){avatar_plug=0;}
+$("div.home-avatar a").attr("alt","再点击"+(frequency-avatar_click%frequency)+"次头像试试看~~");avatar_click++;});});</script><script>var $cdnPrefix="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master";</script><script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script><div class="GalMenu GalDropDown"><div class=circle id=gal><div class=ring><a href=/ target=_blank style=background-image:url(https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/rightmenu/rightmenu1.jpg) class=menuItem>首页</a><a href=/funny/mikutap/ target=_blank style=background-image:url(https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/rightmenu/rightmenu2.jpg) class=menuItem>音乐游戏</a><a href=/funny/high/ target=_blank style=background-image:url(https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/rightmenu/rightmenu3.jpg) class=menuItem>前方高能</a><a href=/posts/e62c38c4.html target=_blank style=background-image:url(https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/rightmenu/rightmenu4.jpg) class=menuItem>建站日志</a><a href=/posts/d65a1577.html target=_blank style=background-image:url(https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/rightmenu/rightmenu5.jpg) class=menuItem>随笔</a><a href=/friends/ target=_blank style=background-image:url(https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/rightmenu/rightmenu6.jpg) class=menuItem>友链</a></div><audio id=audio src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/audio/niconiconi.mp3></audio></div></div><script type=text/javascript>var items=document.querySelectorAll('.menuItem');for(var i=0,l=items.length;i<l;i++){items[i].style.left=(50-35*Math.cos(-0.5*Math.PI-2*(1/l)*i*Math.PI)).toFixed(4)+"%";items[i].style.top=(50+35*Math.sin(-0.5*Math.PI-2*(1/l)*i*Math.PI)).toFixed(4)+"%"}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/css/GalMenu.css><script type=text/javascript src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/js/GalMenu.js></script><script type=text/javascript>$(document).ready(function(){$('body').GalMenu({'menu':'GalDropDown'})});</script></body></html>

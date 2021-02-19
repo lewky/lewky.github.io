@@ -1,4 +1,18 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>PostgreSQL - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/postgresql/</link><description>PostgreSQL - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 14 Nov 2019 23:24:29 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/postgresql/" rel="self" type="application/rss+xml"/><item><title>PostgreSQL - 如何杀死被锁死的进程</title><link>https://lewky.cn/posts/1514292e.html/</link><pubDate>Thu, 14 Nov 2019 23:24:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1514292e.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>PostgreSQL - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/postgresql/</link><description>PostgreSQL - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 18 Feb 2021 22:44:03 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/postgresql/" rel="self" type="application/rss+xml"/><item><title>PostgreSQL - 字符串函数汇总</title><link>https://lewky.cn/posts/postgresql-string.html/</link><pubDate>Thu, 18 Feb 2021 22:44:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-string.html/</guid><description><![CDATA[<h2 id="拼接字符串">拼接字符串</h2>
+<p><code>||</code>是字符串连接操作符，在拼接字符串时要求前两个操作数至少有一个是字符串类型，不然会报错。如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="mi">44</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">--Error
+</span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PostgreSQL - 如何杀死被锁死的进程</title><link>https://lewky.cn/posts/1514292e.html/</link><pubDate>Thu, 14 Nov 2019 23:24:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1514292e.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>在一次系统迭代后用户投诉说无法成功登陆系统，经过测试重现和日志定位，最后发现是由于用户在ui上进行了某些操作后，触发了堆栈溢出异常，导致数据库里的用户登陆信息表的数据被锁住，无法释放。这个表里存放的是用户的session信息。</p>
 <p>虽然后来解决了问题，但是数据库里这个用户登录信息表里被lock住的数据始终无法释放，这导致用户永远无法登陆成功，需要手动跑SQL把锁去掉才行。</p>]]></description></item><item><title>PostgreSQL - raise函数打印字符串</title><link>https://lewky.cn/posts/20180240.html/</link><pubDate>Wed, 01 May 2019 15:50:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/20180240.html/</guid><description><![CDATA[<h2 id="raise函数">raise函数</h2>
 <p>在PostgreSQL中，该函数用于打印字符串，类似于Java中的<code>System.out.println()</code>，Oracle中的<code>dbms_output.put_line()</code>。</p>
@@ -39,18 +53,4 @@
 &lt;p>PostgreSQL在安装的时候自带的pgAdmin这个可视化工具，自从将PostgreSQL9升级到了10版本后，自带的pgAdmin也从3升级到了4版本。pgAdmin4的变化非常巨大，刚接触时一脸懵逼，这里记录下怎么用pgAdmin4进行远程连接数据库并执行SQL语句。&lt;/p></description></item><item><title>PostgreSQL - 查询表结构和索引信息</title><link>https://lewky.cn/posts/42ffcbd5.html/</link><pubDate>Mon, 19 Nov 2018 23:43:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/42ffcbd5.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>PostgreSQL的表一般都是建立在public这个schema下的，假如现在有个数据表<code>t_student</code>，可以用以下几种方式来查询表结构和索引信息。</p>
 <h2 id="使用d元命令查看表字段信息和索引信息">使用\d元命令查看表字段信息和索引信息</h2>
-<p>在cmd界面使用psql连接db后，输入\d加上表名即可：</p>]]></description></item><item><title>PostgreSQL - N''和::bpchar</title><link>https://lewky.cn/posts/df5055d.html/</link><pubDate>Wed, 10 Oct 2018 23:07:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/df5055d.html/</guid><description><![CDATA[<h2 id="n和bpchar的区别">N'&lsquo;和::bpchar的区别</h2>
-<p>N'&lsquo;的效果和::bpchar效果类似，都表示定长字符串。比如下边的sql：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">n</span><span class="s1">&#39;233&#39;</span> <span class="k">as</span> <span class="n">num</span><span class="p">;</span>
-<span class="k">select</span> <span class="s1">&#39;233&#39;</span><span class="p">::</span><span class="n">bpchar</span> <span class="k">as</span> <span class="n">num</span><span class="p">;</span>
-<span class="k">select</span> <span class="s1">&#39;233&#39;</span> <span class="k">as</span> <span class="n">num</span><span class="p">;</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p>在cmd界面使用psql连接db后，输入\d加上表名即可：</p>]]></description></item></channel></rss>

@@ -221,6 +221,10 @@ LoveIt提供了`admonition` shortcode，支持 **12** 种样式，可以在页�
 一个 **引用** 横幅
 {{< /admonition >}}
 
+## 自定义404页面
+
+主题默认的404页面太普通，可以通过新增`\layouts\404.html`来自定义自己想要的404页面。这是本站的[404页面](https://lewky.cn/404.html)，有兴趣的可以看看[源码页面](https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/404.html)。
+
 ## 添加背景图片轮播
 
 这个功能需要引入图片轮播插件`jquery-backstretch`的cdn，并且该插件依赖于jQuery，需要在引入该插件之前引入jQuery。

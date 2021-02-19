@@ -1,0 +1,70 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>funny - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/funny/</link><description>funny - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 Feb 2021 10:55:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/funny/" rel="self" type="application/rss+xml"/><item><title>分享一些有趣的代码注释</title><link>https://lewky.cn/posts/program-comment-funny.html/</link><pubDate>Fri, 19 Feb 2021 10:55:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/program-comment-funny.html/</guid><description><![CDATA[<h2 id="代马">代马</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">                               _(\_/) 
+                             ,((((^`\
+                            ((((  (6 \ 
+                          ,((((( ,    \
+      ,,,_              ,(((((  /&#34;._  ,`,
+     ((((\\ ,...       ,((((   /    `-.-&#39;
+     )))  ;&#39;    `&#34;&#39;&#34;&#39;&#34;&#34;((((   (      
+    (((  /            (((      \
+     )) |                      |
+    ((  |        .       &#39;     |
+    ))  \     _ &#39;      `t   ,.&#39;)
+    (   |   y;- -,-&#34;&#34;&#39;&#34;-.\   \/  
+    )   / ./  ) /         `\  \
+       |./   ( (           / /&#39;
+       ||     \\          //&#39;|
+       ||      \\       _//&#39;||
+       ||       ))     |_/  ||
+       \_\     |_/          ||
+       `&#39;&#34;                  \_\
+                            `&#39;&#34; 
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>分享一些有趣的前端图形和页面</title><link>https://lewky.cn/posts/front-end-funny.html/</link><pubDate>Thu, 18 Feb 2021 22:50:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/front-end-funny.html/</guid><description><![CDATA[<h2 id="css绘制三角形">css绘制三角形</h2>
+<p>在盒子模型中border也占据了宽高，对于下面的样式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">#</span><span class="nn">div1</span><span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border-style</span><span class="p">:</span> <span class="kc">solid</span><span class="p">;</span>
+    <span class="k">border-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">border-color</span><span class="p">:</span> <span class="kc">red</span> <span class="kc">forestgreen</span> <span class="kc">blue</span> <span class="kc">cyan</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>
