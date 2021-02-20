@@ -184,7 +184,7 @@ GitHub首页只支持展示最多6个项目仓库卡片，但是通过该项目�
 
 ## 使用CDN加速GitHub的站点文件
 
-jsdelivr为GitHub上的仓库文件做了CDN缓存，可以通过下面的cdn地址格式来获取GitHub上的仓库文件：
+jsdelivr为GitHub上的仓库文件做了CDN缓存，这是[官方文档地址](https://www.jsdelivr.com/?docs=gh)。可以通过下面的cdn地址格式来获取GitHub上的仓库文件：
 ```
 // load any GitHub release, commit, or branch
 https://cdn.jsdelivr.net/gh/user/repo@version/file
