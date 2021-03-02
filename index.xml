@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 20 Feb 2021 23:13:35 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>fonts.googleapis.com访问太慢导致站点加载很慢</title><link>https://lewky.cn/posts/fonts-googleapis-slow.html/</link><pubDate>Sat, 20 Feb 2021 23:13:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fonts-googleapis-slow.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 01 Mar 2021 23:58:45 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>docsify快速入门</title><link>https://lewky.cn/posts/docsify-0.html/</link><pubDate>Mon, 01 Mar 2021 23:58:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/docsify-0.html/</guid><description><![CDATA[<h2 id="docsify">docsify</h2>
+<p>根据官方说法，docsify是一个神奇的文档网站生成工具，也可以把它当做一个简易版的静态站点诸如Hexo、Hugo等。当然，它是专门针对文档的，忽然想到了程序员深恶痛绝的就是写API文档……</p>
+<p>docsify特性很多，最吸引我的是全文搜索、主题简洁好看、无需构建的纯静态站点。这意味着可以很简单地把写完的文档直接扔到Pages服务上，比如GitHub Pages、Coding Pages等等。</p>]]></description></item><item><title>fonts.googleapis.com访问太慢导致站点加载很慢</title><link>https://lewky.cn/posts/fonts-googleapis-slow.html/</link><pubDate>Sat, 20 Feb 2021 23:13:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fonts-googleapis-slow.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>有些网站需要加载谷歌字体，由于网络问题或者某些问题，<code>fonts.googleapis.com</code>访问太慢会导致站点加载很慢。虽然最后能看到网站，但实际上谷歌字体依然加载失败了，这个体验就非常差劲了。</p>]]></description></item><item><title>分享一些有趣的代码注释</title><link>https://lewky.cn/posts/program-comment-funny.html/</link><pubDate>Fri, 19 Feb 2021 10:55:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/program-comment-funny.html/</guid><description><![CDATA[<h2 id="代马">代马</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -130,22 +132,4 @@
 <h2 id="方法重载">方法重载</h2>
 <h3 id="什么是方法重载为什么不能根据返回类型来区分重载">什么是方法重载？为什么不能根据返回类型来区分重载？</h3>
 <p>方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。</p>
-<p>重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载。为什么这里不包括返回类型呢？很简单，如果只是返回类型不同，是无法区分开来的，如下：</p>]]></description></item><item><title>Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录</title><link>https://lewky.cn/posts/hugo-4.html/</link><pubDate>Mon, 12 Oct 2020 23:28:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-4.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文主要记录从Hexo迁移至Hugo所遇到的一些坑，以及Hugo的LoveIt主题的一些bug之类的应对方案。下面是涉及到的Hexo、Hugo以及LoveIt各自的版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">hexo: 3.8.0
-
-hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-
-LoveIt: v0.2.10
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p>重载发生在一个类中，同名的方法如果有不同的参数列表（参数类型不同、参数个数不同或者二者都不同）则视为重载。为什么这里不包括返回类型呢？很简单，如果只是返回类型不同，是无法区分开来的，如下：</p>]]></description></item></channel></rss>
