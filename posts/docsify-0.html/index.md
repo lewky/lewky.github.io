@@ -170,7 +170,7 @@ name会作为标题显示在站点的侧边栏，repo会作为Github Corner显�
 
 docsify提供了一些插件，包括全文搜索等，可以通过该地址查询有哪些插件：https://cdn.jsdelivr.net/npm/docsify@4.12.0/lib/plugins/
 
-对于全文搜索插件，需要在`index.html`里添加search属性以及JavaScript，如下：
+对于全文搜索插件，需要在`index.html`里添加search属性以及JavaScript，官方提供的搜索插件好像有点问题，这里用的是其他的搜索插件。如下：
 ```
   <script>
     window.$docsify = {
@@ -184,7 +184,7 @@ docsify提供了一些插件，包括全文搜索等，可以通过该地址查�
 	  }
     }
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4.12.0/lib/plugins/search.min.js"></script>
+  <script src="//cdn.bootcss.com/docsify/4.5.9/plugins/search.min.js"></script>
 ```
 
 ## 远程部署到Pages服务
