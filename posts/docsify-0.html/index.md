@@ -191,12 +191,12 @@ docsify提供了一些插件，包括全文搜索等，可以通过该地址查�
 
 `GitHub Pages`支持从三个地方读取文件：
 * `docs`目录
-* `master`分支
+* `main`分支（以前是叫master分支）
 * `gh-pages`分支
 
 master分支一般用于个人站点，gh-pages分支需要另外创建一个新的分支（默认GitHub仓库创建的是master分支），对于文档站点，建议直接使用`docs`目录来部署，这也是前文为什么建议用docs目录进行初始化的原因。
 
-将文档站点推送到GitHub仓库后，在`Settings`里选择使用`master branch/docs folder`进行部署即可。
+将文档站点推送到GitHub仓库后，在`Settings`里选择使用`main branch`和`/docs`进行部署即可。
 
 ## 参考链接
 
