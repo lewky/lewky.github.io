@@ -48,7 +48,10 @@ select substring('PostgreSQL' from '[a-z]+'); --ostgre
 
 也可以用`substr`函数，如下：
 ```sql
+select substr('PostgreSQL', 2, 0); --空字符串
+select substr('PostgreSQL', 2, 1); --o
 select substr('PostgreSQL', 2, 4); --ostg
+select substr('PostgreSQL', 2); --ostgreSQL
 ```
 
 ## 裁剪字符串
