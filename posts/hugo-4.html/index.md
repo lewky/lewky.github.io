@@ -305,6 +305,12 @@ linkToMarkdown: false
 
 这样就不会生成对应的md文件，也不会在页面尾部有`阅读原始文档`这个链接。
 
+### 终极方案：新增`.nojekyll`文件
+
+在学习docsify的时候意外找到了最简单有效的解决方法，就是在站点根目录的`static`目录下添加一个名为`.nojekyll`的空内容文件。
+
+`.nojekyll`文件会告知GitHub Pages不使用jekyll来渲染静态站点，这样就不会和md文件里的某些代码冲突而build失败。
+
 ## 网站配置了keywords没有生效
 
 在 https://seo.chinaz.com 里查询站点时发现页面TDK信息里的关键词(KeyWords)为空，然而站点配置文件里是有配置的，如下：
