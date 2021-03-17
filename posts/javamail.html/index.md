@@ -1,5 +1,7 @@
 # JavaMail-发送一封简单邮件（附带附件）
 
+## 代码实现
+
 最近使用到JavaMail，写了个简单的工具类，记录一下。
 ```java
 import java.util.Date;
@@ -197,3 +199,13 @@ public class Test {
 最后是导入的jar包：
 
 [javax.mail-1.6.0.jar](http://download.csdn.net/download/lewky_liu/10129340)
+
+## 补充
+
+JavaMail提供了多个属性，这些属性的值都必须是字符串，否则设置无效，如下：
+* `mail.smtp.sendpartial`设置为`"true"`，当一次发送多个地址时就不会因为某个地址无效而全部发送失败。
+* `mail.smtp.auth`设置为`"false"`时，则无需验证账号密码即可发送邮件。SMTP只是个简单的邮件发送协议，如果不设置校验，可能会造成垃圾邮件泛滥的问题。不过我发现公司项目在发送邮件时并没有设置验证，可能是图方便。
+
+## 参考链接
+
+* [[疑问]JavaMail的mail.smtp.sendpartial不起作用？](http://www.mytju.com/classCode/news_readNews.asp?newsID=231)
