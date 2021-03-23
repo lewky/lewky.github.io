@@ -1,2 +1,49 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>杂谈 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E6%9D%82%E8%B0%88/</link><description>杂谈 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 20 Feb 2021 23:13:35 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E6%9D%82%E8%B0%88/" rel="self" type="application/rss+xml"/><item><title>fonts.googleapis.com访问太慢导致站点加载很慢</title><link>https://lewky.cn/posts/fonts-googleapis-slow.html/</link><pubDate>Sat, 20 Feb 2021 23:13:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fonts-googleapis-slow.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>有些网站需要加载谷歌字体，由于网络问题或者某些问题，<code>fonts.googleapis.com</code>访问太慢会导致站点加载很慢。虽然最后能看到网站，但实际上谷歌字体依然加载失败了，这个体验就非常差劲了。</p>]]></description></item></channel></rss>
+<p>有些网站需要加载谷歌字体，由于网络问题或者某些问题，<code>fonts.googleapis.com</code>访问太慢会导致站点加载很慢。虽然最后能看到网站，但实际上谷歌字体依然加载失败了，这个体验就非常差劲了。</p>]]></description></item><item><title>分享一些有趣的代码注释</title><link>https://lewky.cn/posts/program-comment-funny.html/</link><pubDate>Fri, 19 Feb 2021 10:55:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/program-comment-funny.html/</guid><description><![CDATA[<h2 id="代马">代马</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">                               _(\_/) 
+                             ,((((^`\
+                            ((((  (6 \ 
+                          ,((((( ,    \
+      ,,,_              ,(((((  /&#34;._  ,`,
+     ((((\\ ,...       ,((((   /    `-.-&#39;
+     )))  ;&#39;    `&#34;&#39;&#34;&#39;&#34;&#34;((((   (      
+    (((  /            (((      \
+     )) |                      |
+    ((  |        .       &#39;     |
+    ))  \     _ &#39;      `t   ,.&#39;)
+    (   |   y;- -,-&#34;&#34;&#39;&#34;-.\   \/  
+    )   / ./  ) /         `\  \
+       |./   ( (           / /&#39;
+       ||     \\          //&#39;|
+       ||      \\       _//&#39;||
+       ||       ))     |_/  ||
+       \_\     |_/          ||
+       `&#39;&#34;                  \_\
+                            `&#39;&#34; 
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

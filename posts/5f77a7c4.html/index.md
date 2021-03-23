@@ -170,6 +170,21 @@ lombok的下载地址：https://projectlombok.org/downloads/lombok.jar
 
 把pojo类的私有变量前边的final去掉后，@Data终于生效了。之所以会自动给变量加上final修饰符，是因为我设置了Save Action，Eclipse会自动在我保存代码的时候自动在私有变量、局部变量前加上final修饰符，这个是公司制定的代码编程规范。
 
+## Eclipse无法找到MapStruct生成的mapper实现类
+
+Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，还要另外安装插件`m2e-apt`，该插件可以在Eclipse的Market里搜到。
+
+接着在pom文件里添加：
+```
+<properties>
+        <m2e.apt.activation>jdt_apt</m2e.apt.activation>
+</properties>
+```
+
+然后maven update一下项目，重新编译后会在target目录下出现两个文件目录，里面存放的是MapStruct的生成类。
+
+如果这时候还没效果，要手动打开apt的功能。邮件项目，选择`Properties` -> `Maven` -> `Annotation Processing` -> 勾选`Enable project specific settings` -> 选择第一个选项`Automatically config JDT APT` -> `Apply and Close`
+
 ## 参考链接
 
 * [解决办法：Access restriction: The type JPEGImageEncoder is not accessible due to restriction](https://blog.csdn.net/free4294/article/details/7017442)
@@ -178,3 +193,4 @@ lombok的下载地址：https://projectlombok.org/downloads/lombok.jar
 * [maven 修改默认的JDK版本](https://www.cnblogs.com/bianqi/p/6819074.html)
 * [Maven管理项目的时候 Update Project后jre变成1.5](https://blog.csdn.net/Ashes18/article/details/70488617)
 * [安装jadClipse插件后,还是不能反编译.class](https://zhidao.baidu.com/question/152315060.html)
+* [mapstruct在eclipse生成不了mapper的实现类的问题](https://blog.csdn.net/u014519194/article/details/54410391)
