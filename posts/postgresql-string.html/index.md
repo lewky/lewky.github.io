@@ -1,5 +1,9 @@
 # PostgreSQL - 字符串函数汇总
 
+## 前言
+
+本文基于`PostgreSQL 12.6`版本，不同版本的函数可能存在差异。
+
 ## 拼接字符串
 
 `||`是字符串连接操作符，在拼接字符串时要求前两个操作数至少有一个是字符串类型，不然会报错。如下：
@@ -91,6 +95,51 @@ select chr(65); --A
 `md5`函数，以十六进制返回结果，如下：
 ```sql
 select md5('abc'); --900150983cd24fb0d6963f7d28e17f72
+```
+
+## null和''的区别与判断以及COALESCE函数
+
+null是一种类型，`''`是空字符串，打个比方，`''`是你参加了考试且得了零分，而null则是你压根就没有参加考试。
+
+如果要在sql中对两者进行判断，是有区别的：
+
+```sql
+--null只能和is或is not搭配，不能使用=、!=或者<>
+select * from student where name is null;
+select * from student where name is not null;
+
+--''的判断可以使用=、!=或者<>
+select * from student where name = '';
+select * from student where name != '';
+select * from student where name <> '';
+
+--任何与null的运算比较，结果都是null
+select 1 > null;  --null
+```
+
+COALESCE函数是返回参数中的第一个非null的值，在`PostgreSQL 10`里，它要求参数中至少有一个是非null的，如果参数都是null会报错。
+
+不过在`PostgreSQL 12.6`版本COALESCE函数允许参数里只有null，此时返回值是null。
+
+```sql
+select COALESCE(null,null); //报错
+select COALESCE(null,null,now()::varchar,''); //结果会得到当前的时间
+select COALESCE(null,null,'',now()::varchar); //结果会得到''
+
+//可以和其他函数配合来实现一些复杂点的功能：查询学生姓名，如果学生名字为null或''则显示“姓名为空”
+select case when coalesce(name,'') = '' then '姓名为空' else name end from student;
+```
+
+## nullif函数
+
+`nullif(a, b)`用来检测a参数是否与b参数相等，这里的a、b参数必须是同一种数据类型，否则会报错。当a参数与b参数相等时会返回null，否则返回a参数。
+
+可以用这个函数来检测期望以外的值，一般用于检测字符串比较多。如下：
+```sql
+select nullif('test', 'unexpected');		--test
+select nullif('unexpected', 'unexpected');	--null
+
+select nullif(233, 111);		--233
 ```
 
 ## 参考链接

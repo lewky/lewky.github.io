@@ -70,7 +70,9 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>PostgreSQL - 字符串函数汇总</title><link>https://lewky.cn/posts/postgresql-string.html/</link><pubDate>Thu, 18 Feb 2021 22:44:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-string.html/</guid><description><![CDATA[<h2 id="拼接字符串">拼接字符串</h2>
+</div>]]></description></item><item><title>PostgreSQL - 字符串函数汇总</title><link>https://lewky.cn/posts/postgresql-string.html/</link><pubDate>Thu, 18 Feb 2021 22:44:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-string.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文基于<code>PostgreSQL 12.6</code>版本，不同版本的函数可能存在差异。</p>
+<h2 id="拼接字符串">拼接字符串</h2>
 <p><code>||</code>是字符串连接操作符，在拼接字符串时要求前两个操作数至少有一个是字符串类型，不然会报错。如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
