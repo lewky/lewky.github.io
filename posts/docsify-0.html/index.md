@@ -187,6 +187,42 @@ docsify提供了一些插件，包括全文搜索等，可以通过该地址查�
   <script src="//cdn.bootcss.com/docsify/4.5.9/plugins/search.min.js"></script>
 ```
 
+## 回到顶部插件
+
+在`index.html`引入脚本和参数配置：
+```
+  <script>
+    window.$docsify = {
+      name: 'Java-Note',
+      repo: 'https://github.com/lewky',
+	  scrollToTop: {
+        auto: true,
+        text: 'Top',
+        right: 15,
+        bottom: 15,
+        offset: 300
+      }
+    }
+  </script>
+  <script src="//unpkg.com/docsify-scroll-to-top/dist/docsify-scroll-to-top.min.js"></script>
+```
+
+参数配置有默认值，不配也可以，一共就这几个属性，可以自己随意定制。
+
+## 添加`fontawesome`
+
+可以通过引入`fontawesome`来使用各种免费的矢量图标来丰富页面内容：
+```
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+```
+
+用法很简单，就是使用`<i>`标签来引入，而markdown兼容html代码，如下：
+```
+<i class="fas fa-fw fa-home"></i>
+```
+
+还有其他的动态图用法等，网上教程很多，这里就不赘述了。
+
 ## 远程部署到Pages服务
 
 `GitHub Pages`支持从三个地方读取文件：
@@ -204,3 +240,4 @@ master分支一般用于个人站点，gh-pages分支需要另外创建一个新
 * [docsify 入坑指南与我放弃 Gitbook 的那些理由](https://zhuanlan.zhihu.com/p/70219397)
 * [有了docsify神器，从此爱上看文档](https://www.jianshu.com/p/4883e95aa903)
 * [关于写作那些事之github告诉我构建失败,然后呢?](https://blog.csdn.net/weixin_38171180/article/details/89227515)
+* [docsify-scroll-to-top](https://www.npmjs.com/package/docsify-scroll-to-top)
