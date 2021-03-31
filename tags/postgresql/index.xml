@@ -38,14 +38,17 @@
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="k">table</span> <span class="k">where</span> <span class="n">name</span> <span class="k">like</span> <span class="s1">&#39;张/_小%&#39;</span> <span class="k">escape</span> <span class="s1">&#39;/&#39;</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>PostgreSQL - 怎么将时间转换成秒</title><link>https://lewky.cn/posts/8470760a.html/</link><pubDate>Wed, 19 Dec 2018 22:34:12 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8470760a.html/</guid><description><![CDATA[<h2 id="保留原来的毫秒值">保留原来的毫秒值</h2>
+</div>]]></description></item><item><title>PostgreSQL - 日期函数汇总</title><link>https://lewky.cn/posts/8470760a.html/</link><pubDate>Wed, 19 Dec 2018 22:34:12 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8470760a.html/</guid><description><![CDATA[<p>##　比较两个日期之间的时间差超过N个小时</p>
+<p>在PostgreSQL中，两个时间戳相减会得到一个<code>interval</code>类型的结果，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="k">extract</span><span class="p">(</span><span class="n">epoch</span> <span class="k">from</span> <span class="s1">&#39;03:21:06.678&#39;</span><span class="p">::</span><span class="n">time</span><span class="p">);</span>
-</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="s1">&#39;2021-03-28 15:47:07&#39;</span><span class="p">;</span> <span class="c1">--0 years 0 mons 2 days 0 hours 1 mins 15.081206 secs
+</span><span class="c1"></span><span class="k">select</span> <span class="s1">&#39;2021-03-28 15:47:07&#39;</span> <span class="o">-</span> <span class="n">now</span><span class="p">();</span> <span class="c1">--0 years 0 mons -2 days 0 hours -3 mins -17.692835 secs
+</span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - 怎么转换数据类型</title><link>https://lewky.cn/posts/f20deee6.html/</link><pubDate>Tue, 18 Dec 2018 23:55:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f20deee6.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>对于<code>select 233;</code>这个sql，得到的结果是<code>int4</code>类型，如果我们希望将结果转换成其他的数据类型，有以下方法(下边的<code>{数据类型}</code>表示占位符，要替换成数据库中的某一种数据类型)：</p>
