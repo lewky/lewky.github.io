@@ -1,11 +1,5 @@
 # 关于
 
-
-{{< admonition tip "Running Time" >}}
-<!-- 站点运行时间 -->
-<div id="days"></div>
-{{< /admonition >}}
-
 ## 博主相关
 
 ### 近况
@@ -43,33 +37,3 @@ Java
 ### 友情链接
 
 想添加友链可以前往[友链页面](/friends)留言 `(ﾉ*･ω･)ﾉ～`
-
-
-<script>
-/* 站点运行时间 */
-function show_date_time(){
-	window.setTimeout("show_date_time()", 1000);
-	/* 请修改这里的起始时间 */
-	BirthDay=new Date("04/24/2018 15:00:00");
-	today=new Date();
-	timeold=(today.getTime()-BirthDay.getTime());
-	sectimeold=timeold/1000
-	secondsold=Math.floor(sectimeold);
-	msPerDay=24*60*60*1000
-	e_daysold=timeold/msPerDay
-	daysold=Math.floor(e_daysold);
-	e_hrsold=(e_daysold-daysold)*24;
-	hrsold=setzero(Math.floor(e_hrsold));
-	e_minsold=(e_hrsold-hrsold)*60;
-	minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
-	seconds=setzero(Math.floor((e_minsold-minsold)*60));
-	document.getElementById('days').innerHTML="本站已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
-}
-function setzero(i){
-	if (i<10) {
-		i="0" + i;
-	}
-	return i;
-}
-show_date_time();
-</script>
