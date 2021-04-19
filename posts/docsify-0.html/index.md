@@ -209,6 +209,43 @@ docsify提供了一些插件，包括全文搜索等，可以通过该地址查�
 
 参数配置有默认值，不配也可以，一共就这几个属性，可以自己随意定制。
 
+## 代码高亮插件
+
+在`index.html`引入脚本，可以根据需要引入对应的语言高亮脚本：
+```
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-java.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-c.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-sql.min.js"></script>
+```
+
+## 复制代码块插件
+
+在`index.html`引入脚本和参数配置：
+```
+<script>
+	window.$docsify = {
+	  // docsify-copy-code (defaults)
+	  copyCode: {
+	    buttonText : 'Copy to clipboard',
+	    errorText  : 'Error',
+	    successText: 'Copied'
+	  }
+	}
+</script>
+
+<script src="//unpkg.com/docsify-copy-code@2.1.1/dist/docsify-copy-code.min.js"></script>
+```
+
+参数配置有默认值，可以不配置直接引入脚本即可使用。
+
+## 图片缩放插件
+
+在`index.html`引入脚本即可：
+```
+<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+```
+
 ## 添加`fontawesome`
 
 可以通过引入`fontawesome`来使用各种免费的矢量图标来丰富页面内容：
@@ -241,3 +278,4 @@ master分支一般用于个人站点，gh-pages分支需要另外创建一个新
 * [有了docsify神器，从此爱上看文档](https://www.jianshu.com/p/4883e95aa903)
 * [关于写作那些事之github告诉我构建失败,然后呢?](https://blog.csdn.net/weixin_38171180/article/details/89227515)
 * [docsify-scroll-to-top](https://www.npmjs.com/package/docsify-scroll-to-top)
+* [入坑 docsify，一款神奇的文档生成利器！](https://baijiahao.baidu.com/s?id=1683928475208184783&wfr=spider&for=pc)
