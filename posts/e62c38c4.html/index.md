@@ -22,10 +22,14 @@
 ## TODO LIST
 
 >* 文章top10
->* 增加Timeline
 >* 将站点部署到Vercel
 
 <!--more-->
+
+## 2021-04-20
+
+* 添加下拉菜单
+* 添加BBS，使用Artitalk作为公告栏
 
 ## 2021-04-17
 
