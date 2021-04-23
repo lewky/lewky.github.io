@@ -121,13 +121,35 @@ javax.persistence.EntityNotFoundException: Unable to find com.cbxsoftware.rest.e
 	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:95)
 ```
 
-通过使用hibernate提供的`@NotFound(action = NotFoundAction.IGNORE)`可以避免这个问题，该注解的默认值是`NotFoundAction.EXCEPTION`，所以hibernate在join表时查不到对应的数据就会抛出异常。
+通过使用Hibernate提供的`@NotFound(action = NotFoundAction.IGNORE)`可以避免这个问题，该注解的默认值是`NotFoundAction.EXCEPTION`，所以hibernate在join表时查不到对应的数据就会抛出异常。
 
 ## 懒加载导致的N + 1问题
 
+Hibernate的懒加载有个让人诟病的问题，就是所谓的N + 1问题：如果一个实体里存在一个懒加载的集合对象，在查询该实体时，会发出一条SQL。当触发查询该懒加载的集合时，则会发出N条SQL。
+
+如果这个实体比较复杂，存在多个懒加载的集合，集合对象又各自关联了其他的懒加载的集合，如果触发查询这些集合，就会发出大量的SQL去查询，对DB造成较大的负荷。
+
+解决方法有如下几种：
+1. 取消懒加载，改为`FetchType.EAGER`。
+2. 给集合对象添加`@Fetch(FetchMode.SUBSELECT)`，该注解会让Hibernate只会生成一条SQL去查询该集合。
+3. 使用`@NamedEntityGraph`和`@EntityGraph`来解决懒加载时SQL查询过多的问题，但是这种方法比较复杂。
+
+* [解决JPA懒加载典型的N+1问题-注解@NamedEntityGraph](https://blog.csdn.net/ahilll/article/details/83107982)
 
 ## cannot simultaneously fetch multiple bags异常
 
+应用启动时报错：`org.hibernate.loader.MultipleBagFetchException: cannot simultaneously fetch multiple bags`，该异常由Hibernate引发，当一个实体中定义了两个及两个以上的非懒加载的集合时，即`fetch = FetchType.EAGER`，这些集合又可能关联其他的对象。Hibernate实现的JPA，默认最高抓取深度含本身级为四级(它有个属性配置是0-3)，若多方(第二级)存在重复值，则第三级中抓取的值就无法映射，就会出现 multiple bags。
+
+简单来说，Hibernate默认会用一条SQL直接把`FetchType.EAGER`的集合也一起left join进来，如果这些集合允许重复值，且存在两个及两个以上的这些集合，而集合又可能关联其他的对象。一旦出现这种情况，Hibernate就会无法区分清楚查询回来的结果集。
+
+解决方法有如下几种：
+
+1. 改用懒加载`FetchType.LAZY`来加载这些集合对象。
+2. 给集合对象添加`@Fetch(FetchMode.SUBSELECT)`，该注解会让Hibernate另外生成一条SQL去查询该集合。效果类似于懒加载，也是用分开的SQL去查询，区别是这个是非懒加载。
+3. 使用Set集合来替代List集合。
+4. 使用`@IndexColumn`，该注解允许你指明存放索引值的字段，目的跟Set容器不允许重复元素的道理一样。但是该注解以废弃，官方推荐使用的是JPA规范的`@OrderColumn`。
+
+前两种方法比较常用，不过第二个方法是Hibernate自身的规范。
 
 ## 参考链接
 
@@ -135,4 +157,5 @@ javax.persistence.EntityNotFoundException: Unable to find com.cbxsoftware.rest.e
 * [No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor](https://blog.csdn.net/weixin_43839457/article/details/90445950)
 * [springboot集成jpa返回Json报错 com.fasterxml.jackson.databind.exc.InvalidDefinitionException:](https://blog.csdn.net/liu_yulong/article/details/84594771)
 * [Hibernate和Spring整合出现懒加载异常：org.hibernate.LazyInitializationException: could not initialize proxy - no Session](https://www.cnblogs.com/TTTTT/p/6682798.html)
-* [【JPA】 javax.persistence.EntityNotFoundException: Unable to find XXXX with id 0 问题原因](https://blog.csdn.net/mamingjie12/article/details/25911967)
+* [[JPA] javax.persistence.EntityNotFoundException: Unable to find XXXX with id 0 问题原因](https://blog.csdn.net/mamingjie12/article/details/25911967)
+* [[转]cannot simultaneously fetch multiple bags 问题的解决办法](http://blog.sina.com.cn/s/blog_697b968901017w9p.html)
