@@ -30,8 +30,6 @@
 <h2 id="todo-list">TODO LIST</h2>
 <blockquote>
 <ul>
-<li>文章top10</li>
-<li>首页最新评论</li>
 <li>菜单栏改为多级菜单</li>
 <li>将站点部署到Vercel</li>
 </ul>
