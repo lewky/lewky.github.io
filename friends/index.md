@@ -38,13 +38,6 @@ logo="https://s3.ax1x.com/2021/01/21/s4crsU.png"
 word="自由 分享 合作"
 >}}
 
-{{< friend
-name="猫猫的小窝"
-url="https://maogeblog.top"
-logo="https://cdn.jsdelivr.net/gh/HUC-GMM/maogeblog/ico.png"
-word="万丈高楼平地起，辉煌只能靠自己"
->}}
-
 ## 网络安全
 
 {{< friend
@@ -94,6 +87,14 @@ name="北落师门"
 url="https://www.fm-cslab.com"
 logo="https://www.fm-cslab.com/default/avatar.png"
 word="会者定离，一期一祈"
+>}}
+
+
+{{< friend
+name="猫猫的小窝"
+url="https://maogeblog.top"
+logo="https://cdn.jsdelivr.net/gh/HUC-GMM/maogeblog/ico.png"
+word="万丈高楼平地起，辉煌只能靠自己"
 >}}
 
 -->
