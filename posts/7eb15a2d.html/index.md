@@ -203,6 +203,12 @@ https://cdn.jsdelivr.net/
 https://purge.jsdelivr.net/
 ```
 
+## 添加GitHub Profile首页展示
+
+在GitHub上创建一个和自己id同名的项目，新建一个`README.md`文档，该文档将作为你的GitHub首页来展示。可以利用上文提及的各种图表、图标等开源项目来渲染GitHub首页。
+
+这里给个参考的例子：https://github.com/lewky/lewky
+
 ## 参考链接
 
 * [如何为github已有仓库添加协议。](https://www.cnblogs.com/gwca/p/8341198.html)
