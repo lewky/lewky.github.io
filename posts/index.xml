@@ -140,61 +140,22 @@
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-27用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1227</span><span class="o">));</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Jave基础复习总纲</title><link>https://lewky.cn/posts/exam-java.html/</link><pubDate>Mon, 04 Jan 2021 21:04:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/exam-java.html/</guid><description><![CDATA[<h2 id="java的数据结构有哪些">Java的数据结构有哪些？</h2>
-<ol>
-<li>线性表（ArrayList）</li>
-<li>链表（LinkedList）</li>
-<li>栈（Stack）</li>
-<li>队列（Queue）</li>
-<li>图（Map）</li>
-<li>树（Tree）</li>
-</ol>
-<h2 id="面向对象的特征有哪些方面">面向对象的特征有哪些方面</h2>
-<ol>
-<li>抽象：找共性，将一类对象的共同特征总结出来构造类的过程, 包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的具体细节。</li>
-<li>继承：子类继承父类的所有属性和方法，可以重用，也可以覆盖。</li>
-<li>封装：把数据和操作数据的方法绑定起来，对数据的访问只能通过已定义的接口。隐藏一切可隐藏的东西，只向外界提供最简单的编程接口。</li>
-<li>多态性：分编译时的多态性和运行时的多态性。方法重载（overload）实现的是编译时的多态性（也称为前绑定），而方法重写（override）实现的是运行时的多态性（也称为后绑定）。
-要实现运行时的多态要满足：
-<ul>
-<li>方法重写，即子类重写父类的方法</li>
-<li>对象造型，即父类引用引用子类对象</li>
-</ul>
-</li>
-</ol>
-<h2 id="i与i的区别">++i与i++的区别</h2>
-<ul>
-<li>i++：先赋值，后计算</li>
-<li>++i：先计算，后赋值</li>
-</ul>
-<h2 id="程序的结构有那些">程序的结构有那些</h2>
-<ul>
-<li>顺序结构</li>
-<li>选择结构</li>
-<li>循环结构</li>
-</ul>
-<h2 id="数组实例化有几种方式">数组实例化有几种方式</h2>
-<p>静态实例化：创建数组的时候已经指定数组中的元素。</p>
+</div>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>主题相关 本站主题源自Hugo-LoveIt，感谢本主题的开发者们！ dillonzq / LoveIt "Hugo-LoveIt主题" LoveIt官方文档 "Hugo-LoveIt主题官方文档" 大佬们 阳光派Plus’Blog "聪明的妖怪已经录下了唐僧的紧箍咒" BBing&amp;#39;s Blog "自由 分享 合作" 网络安全 W4J1e&amp;#39;s blog "总是偏爱不务正业" 勤奋的思远 "一个网络安全爱好者的博客" Java Youth的时光录 "主要是Java技术栈的</description></item><item><title>Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录</title><link>https://lewky.cn/posts/hugo-4.html/</link><pubDate>Mon, 12 Oct 2020 23:28:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-4.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文主要记录从Hexo迁移至Hugo所遇到的一些坑，以及Hugo的LoveIt主题的一些bug之类的应对方案。下面是涉及到的Hexo、Hugo以及LoveIt各自的版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">int</span> <span class="o">[]</span> <span class="n">a</span><span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span> <span class="n">1</span> <span class="o">,</span> <span class="n">3</span> <span class="o">,</span> <span class="n">3</span><span class="o">}</span>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hexo: 3.8.0
+
+hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10
 </code></pre></td></tr></table>
 </div>
-</div><p>动态实例化：实例化数组的时候，只指定了数组长度，数组中所有元素都是数组类型的默认值。</p>
-<h2 id="java常用包有那些">Java常用包有那些</h2>
-<ul>
-<li>java.lang</li>
-<li>java.io</li>
-<li>java.sql</li>
-<li>java.util</li>
-<li>java.net</li>
-<li>java.math</li>
-</ul>
-<h2 id="形参与实参区别">形参与实参区别</h2>
-<h3 id="实参argument">实参(argument)</h3>
-<p>全称为&quot;实际参数&rdquo;，是在调用时传递给函数的参数。在进行函数调用时，实参必须具有确定的值，以便把这些值传送给形参。</p>
-<h3 id="形参parameter">形参(parameter)</h3>
-<p>全称为&quot;形式参数&rdquo;，由于它不是实际存在的变量，所以又称虚拟变量。是在定义函数名和函数体的时候使用的参数，目的是用来接收调用该函数时传入的参数。在调用函数时，实参将赋值给形参。因而，必须注意实参的个数、类型应与形参一一对应，并且实参必须要有确定的值。</p>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>主题相关 本站主题源自Hugo-LoveIt，感谢本主题的开发者们！ dillonzq / LoveIt "Hugo-LoveIt主题" LoveIt官方文档 "Hugo-LoveIt主题官方文档" 大佬们 阳光派Plus’Blog "聪明的妖怪已经录下了唐僧的紧箍咒" BBing&amp;#39;s Blog "自由 分享 合作" 网络安全 W4J1e&amp;#39;s blog "总是偏爱不务正业" 勤奋的思远 "一个网络安全爱好者的博客" Java Youth的时光录 "主要是Java技术栈的</description></item></channel></rss>
+</div>]]></description></item></channel></rss>
