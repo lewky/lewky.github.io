@@ -117,7 +117,7 @@ class Dummy {
 @enduml
 ```
 
-![plantuml](http://www.plantuml.com/plantuml/png/SoWkIImgAStDuKhEIImkLd0fpSsjLAZcKb2e1igKP2RNAWIN56NcfIjafe044vEAIueIaqjg5ShoCrCKSbDBCl9JYZKqkMgv75BpKa060G00)
+![plantuml](https://www.plantuml.com/plantuml/png/SoWkIImgAStDuKhEIImkLd0fpSsjLAZcKb2e1igKP2RNAWIN56NcfIjafe044vEAIueIaqjg5ShoCrCKSbDBCl9JYZKqkMgv75BpKa060G00)
 
 ## 备注和模板
 
@@ -234,7 +234,7 @@ end note
 @enduml
 ```
 
-![plantuml2](http://www.plantuml.com/plantuml/png/ROyn3i8m34NtdEAF86xGgTrXWmEuYQ6H6WSbBY1LlJjk9TI5xUlhlM-vhKf5fpGwFrAjw32xsJgDVa4KXS-JA1TtUkKOC5DVjP3N1PjuM16DYVEaHxSu9raP9Ju6HRwZQvgV3ro7M94uzLnWYSHOKWwE9M3r_jZRaTtL8GTpZNw3Fy-Heh0L0iBjSjv6zhNMqlhO5m00)
+![plantuml2](https://www.plantuml.com/plantuml/png/ROyn3i8m34NtdEAF86xGgTrXWmEuYQ6H6WSbBY1LlJjk9TI5xUlhlM-vhKf5fpGwFrAjw32xsJgDVa4KXS-JA1TtUkKOC5DVjP3N1PjuM16DYVEaHxSu9raP9Ju6HRwZQvgV3ro7M94uzLnWYSHOKWwE9M3r_jZRaTtL8GTpZNw3Fy-Heh0L0iBjSjv6zhNMqlhO5m00)
 
 ## 参考链接
 
