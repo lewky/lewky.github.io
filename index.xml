@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 01 Apr 2021 00:07:30 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>JPA/Hibernate问题汇总</title><link>https://lewky.cn/posts/jpa-hibernate.html/</link><pubDate>Thu, 01 Apr 2021 00:07:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jpa-hibernate.html/</guid><description><![CDATA[<h2 id="懒加载异常---jsonmappingexception-could-not-initialize-proxy">懒加载异常 - JsonMappingException: could not initialize proxy</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 14 May 2021 19:46:52 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>PlantUML - 类图</title><link>https://lewky.cn/posts/plantuml-class-diagram.html/</link><pubDate>Fri, 14 May 2021 19:46:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/plantuml-class-diagram.html/</guid><description><![CDATA[<h2 id="plantuml">PlantUML</h2>
+<p>PlantUML是一个开源项目，可以用来快速生成各种UML图，官方文档：https://plantuml.com/zh/</p>
+<p>可以通过<a href="http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000" target="_blank" rel="noopener noreffer">官方提供的工具</a>在线生成对应的类图，本文只介绍PlantUML类图的部分常用语法。</p>]]></description></item><item><title>JPA/Hibernate问题汇总</title><link>https://lewky.cn/posts/jpa-hibernate.html/</link><pubDate>Thu, 01 Apr 2021 00:07:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jpa-hibernate.html/</guid><description><![CDATA[<h2 id="懒加载异常---jsonmappingexception-could-not-initialize-proxy">懒加载异常 - JsonMappingException: could not initialize proxy</h2>
 <p>查询数据时报懒加载异常：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -140,22 +142,4 @@
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-27用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1227</span><span class="o">));</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>主题相关 本站主题源自Hugo-LoveIt，感谢本主题的开发者们！ dillonzq / LoveIt "Hugo-LoveIt主题" LoveIt官方文档 "Hugo-LoveIt主题官方文档" 大佬们 阳光派Plus’Blog "聪明的妖怪已经录下了唐僧的紧箍咒" BBing&amp;#39;s Blog "自由 分享 合作" 网络安全 W4J1e&amp;#39;s blog "总是偏爱不务正业" 勤奋的思远 "一个网络安全爱好者的博客" Java Youth的时光录 "主要是Java技术栈的</description></item><item><title>Hugo系列(4) - 从Hexo迁移至Hugo以及使用LoveIt主题的踩坑记录</title><link>https://lewky.cn/posts/hugo-4.html/</link><pubDate>Mon, 12 Oct 2020 23:28:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-4.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文主要记录从Hexo迁移至Hugo所遇到的一些坑，以及Hugo的LoveIt主题的一些bug之类的应对方案。下面是涉及到的Hexo、Hugo以及LoveIt各自的版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">hexo: 3.8.0
-
-hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-
-LoveIt: v0.2.10
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+</div>]]></description></item><item><title>友链墙</title><link>https://lewky.cn/friends/</link><pubDate>Sat, 26 Dec 2020 22:01:44 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/friends/</guid><description>主题相关 本站主题源自Hugo-LoveIt，感谢本主题的开发者们！ dillonzq / LoveIt "Hugo-LoveIt主题" LoveIt官方文档 "Hugo-LoveIt主题官方文档" 大佬们 阳光派Plus’Blog "聪明的妖怪已经录下了唐僧的紧箍咒" BBing&amp;#39;s Blog "自由 分享 合作" 网络安全 W4J1e&amp;#39;s blog "总是偏爱不务正业" 勤奋的思远 "一个网络安全爱好者的博客" Java Youth的时光录 "主要是Java技术栈的</description></item></channel></rss>

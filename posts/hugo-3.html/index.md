@@ -2164,6 +2164,53 @@ ul#hot li {
 
 需要把上面代码中的`appId`和`appKey`改成LeanCloud应用对应的值。
 
+## 添加PlantUML支持
+
+新增`/themes/LoveIt/layouts/shortcodes/uml.html`，内容如下：
+
+```html
+{{ $title := "Diagram" }}
+{{ if .IsNamedParams }}
+  {{ with .Get "title" }}
+    {{ $title = . }}
+  {{ end }}
+{{ else }}
+  {{ with .Get 0 }}
+    {{ $title = . }}
+  {{ end }}
+{{ end }}
+
+{{ $inner := .Inner }}
+
+<figure>
+  <img
+    src='https://g.gravizo.com/svg?{{ $inner }}'
+    alt='{{ $title  }}'
+    />
+    <figcaption>{{ $title  }}</figcaption>
+</figure>
+```
+
+之后即可在正文中通过在`{{</* uml */>}}`和`{{</* /uml */>}}`之间使用PlantUML的语法来自动渲染出对应的PlantUML图，不过需要注意的是，该功能是借助的`gravizo`来实现。而gravizo并不能支持所有的PlantUML语法，部分语法会失效导致渲染失败。这时候只能手动去PlantUML官网提供的在线工具生成对应的图片了。
+
+```plantuml
+{{</* uml */>}}
+@startuml
+class Animal
+class Cat
+Animal <-- Cat
+@enduml
+{{</* /uml */>}}
+```
+
+{{< uml >}}
+@startuml
+class Animal
+class Cat
+Animal <-- Cat
+@enduml
+{{< /uml >}}
+
 ## 参考链接
 
 * [自定义Hugo主题样式](https://sr-c.github.io/2020/07/21/Hugo-custom/)
@@ -2182,3 +2229,4 @@ ul#hot li {
 * [在搭配Volantis主题的hexo博客上使用waline](https://www.hin.cool/posts/waline.html)
 * [Hexo-NexT添加热度、阅读量排行](https://wangc1993.github.io/2019/01/12/10/)
 * [分享一个纯CSS样式，显示不同颜色数字的排行榜列表](https://cloud.tencent.com/developer/article/1537969)
+* [Embed a diagram in a Hugo page](https://it.knightnet.org.uk/kb/hugo/embed-diagram/)
