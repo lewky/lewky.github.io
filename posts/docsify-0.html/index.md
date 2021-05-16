@@ -260,6 +260,25 @@ docsify提供了一些插件，包括全文搜索等，可以通过该地址查�
 
 还有其他的动态图用法等，网上教程很多，这里就不赘述了。
 
+## PlantUML插件
+
+在`index.html`引入脚本即可：
+```
+<script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
+```
+
+默认主题是`default`，也可以配置成`classic`：
+
+```
+<script>
+window.$docsify = {
+  plantuml: {
+    skin: 'classic',
+  }
+}
+</script>
+```
+
 ## 远程部署到Pages服务
 
 `GitHub Pages`支持从三个地方读取文件：
