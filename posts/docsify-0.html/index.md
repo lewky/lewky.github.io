@@ -177,15 +177,20 @@ docsify提供了一些插件，包括全文搜索等，可以通过该地址查�
       name: 'Java-Note',
       repo: 'https://github.com/lewky',
 	  search: {
-	  	paths: 'auto',
-	  	placeholder: '🔍 Type to search ',
-	  	noData: '😞 No Results! ',
-	  	depth: 6
+		maxAge: 86400000, // Expiration time, the default one day
+		paths: 'auto',
+		placeholder: '🔍 Type to search ',
+		noData: '😞 No Results! ',
+		depth: 6
 	  }
     }
   </script>
   <script src="//cdn.bootcss.com/docsify/4.5.9/plugins/search.min.js"></script>
 ```
+
+目前似乎高于`4.5.9`版本的搜索插件有bug，只能搜索到首页的数据；建议使用该版本的搜索插件。
+
+此外，使用了无序列表或者有序列表的数据是无法生成对应索引的，也就是说搜索插件无法搜索到列表里的数据。建议尽量别使用列表语法，可以改用特殊符号`● `、罗马数字`ⅠⅡⅢⅣⅤⅥⅦⅧⅨ `和换行符`<br>`来代替列表语法。
 
 ## 回到顶部插件
 
