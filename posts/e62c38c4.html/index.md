@@ -21,8 +21,7 @@
 
 ## TODO LIST
 
->* 菜单栏改为多级菜单
->* 将站点部署到Vercel
+>* 将站点部署到Vercel（2021年的Vercel被墙了，换了个新的CNAME才解决）
 
 <!--more-->
 

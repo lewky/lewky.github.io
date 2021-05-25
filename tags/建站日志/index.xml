@@ -23,7 +23,6 @@
 <h2 id="todo-list">TODO LIST</h2>
 <blockquote>
 <ul>
-<li>菜单栏改为多级菜单</li>
-<li>将站点部署到Vercel</li>
+<li>将站点部署到Vercel（2021年的Vercel被墙了，换了个新的CNAME才解决）</li>
 </ul>
 </blockquote>]]></description></item></channel></rss>

@@ -881,7 +881,8 @@ COMMENT | #post-comment | [可选] 评论 div 的 ID 名，直接跳转到评论
 
 1. 前往[Qmsg酱官网](https://qmsg.zendee.cn/)，点击管理台登陆账号，选择其中任意一个你想使用的Qmsg酱(QQ机器人)，并加其为QQ好友
 2. 点击菜单栏里`Qmsg酱`旁边的`QQ号码`，添加你想要接收信息推送的QQ号码
-3. 点击菜单栏里的`KEY`，这里有一串字符串等下要添加到LeanCloud的环境变量里
+3. 点击
+4. 菜单栏里的`KEY`，这里有一串字符串等下要添加到LeanCloud的环境变量里
 
 官网里提供了所有的接口文档，你可以先行通过一个简单的测试来验证你的QQ能不能接收到推送，如下：
 1. 在浏览器新打开一个页面，在地址栏里输入`https://qmsg.zendee.cn/send/`，然后把你管理台里的`KEY`添加到地址栏末尾，然后在末尾继续加上`?msg=test`，接着按下回车键，这里表示让Qmsg酱发送`test`给你的QQ号码
@@ -2210,6 +2211,148 @@ class Cat
 Animal <-- Cat
 @enduml
 {{< /uml >}}
+
+## 菜单栏添加下拉菜单
+
+### 修改模板代码
+
+将主题的`/themes/LoveIt/layouts/partials/header.html`拷贝一份到`layouts/partials/header.html`，找到如下代码：
+```
+        <div class="menu">
+            <div class="menu-inner">
+                {{- range .Site.Menus.main -}}
+                    {{- $url := .URL | relLangURL -}}
+                    {{- with .Page -}}
+                        {{- $url = .RelPermalink -}}
+                    {{- end -}}
+                    <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+                        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
+                    </a>
+                {{- end -}}
+```
+
+在上述代码下方添加如下代码：
+```
+                {{- if .Site.Menus.more -}}
+                    <div class="dropdown">
+                        <a href="javascript:void(0);" class="menu-item menu-more dropbtn" title="{{ T "more" }}">
+                            <i class="fas fa-fw fa-angle-double-down"></i>
+                            {{ T "more" }}
+                        </a>
+                        <div class="menu-more-content dropdown-content">
+                            {{- range .Site.Menus.ops -}}
+                                {{- $url := .URL | relLangURL -}}
+                                {{- with .Page -}}
+                                    {{- $url = .RelPermalink -}}
+                                {{- end -}}
+                                    <a href="{{ $url }}">{{- .Pre }} {{ .Name }} {{ .Post -}}</a>
+                            {{- end -}}
+                        </div>
+                    </div>
+                {{- end -}}
+```
+
+接着继续找到如下代码：
+```
+            <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a>
+```
+
+在这行超链代码的上方添加刚刚一样的代码，这个是为了渲染移动端的下拉菜单。
+
+### 添加css样式
+
+在`_custom.scss`中添加如下代码：
+```
+/* 菜单栏下拉框 */
+.dropdown {
+  display: inline-block;
+}
+
+/* 下拉内容 (默认隐藏) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  line-height: 1.3rem;
+}
+
+/* 下拉菜单的链接 */
+.dropdown-content a {
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+/* 鼠标移上去后修改下拉菜单链接颜色 */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* 在鼠标移上去后显示下拉菜单 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 680px) {
+  .dropdown:hover .dropdown-content {
+    display: inline;
+    position: relative;
+  }
+  .dropdown-content a:hover {
+    background-color: transparent;
+  }
+}
+```
+
+### 配置下拉菜单
+
+打开站点配置文件`config.toml`，添加下拉菜单到菜单栏里，直接配置到菜单栏的下方就行，这里只提供本人的配置（没有使用多语言功能）：
+```
+# 菜单配置
+[menu]
+# 菜单栏
+  [[menu.main]]
+    pre = "<i class='fas fa-fw fa-search'></i>"
+    name = "搜索"
+    weight = 100
+    identifier = "search"
+    url = "/search/"
+# 下拉菜单，和菜单栏同级
+  [[menu.more]]
+    [[menu.ops]]
+      pre = "<i class='fas fa-fw fa-comment'></i>"
+      name = "公告/留言"
+      identifier = "bbs"
+      url = "/bbs/"
+      weight = 1
+    [[menu.ops]]
+      pre = "<i class='fas fa-fw fa-book'></i>"
+      name = "Java笔记"
+      identifier = "note"
+      url = "https://javanote.doc.lewky.cn/"
+      weight = 2
+    [[menu.ops]]
+	  identifier = "tags"
+      pre = "<i class='fas fa-fw fa-tag'></i>"
+	  name = "标签"
+	  url = "/tags/"
+	  weight = 3
+    [[menu.ops]]
+      pre = "<i class='fas fa-fw fa-at'></i>"
+      name = "关于"
+      identifier = "about"
+      url = "/about/"
+      weight = 4
+    [[menu.ops]]
+      pre = "<i class='fas fa-fw fa-cog'></i>"
+      name = "建站日志"
+      identifier = "siting-log"
+      url = "/posts/e62c38c4.html/"
+      weight = 5
+```
 
 ## 参考链接
 
