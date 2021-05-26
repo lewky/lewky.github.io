@@ -151,6 +151,24 @@ Hibernate的懒加载有个让人诟病的问题，就是所谓的N + 1问题：
 
 前两种方法比较常用，不过第二个方法是Hibernate自身的规范。
 
+## UnexpectedRollbackException异常
+
+在使用事务时发生异常，事务回滚时报错：
+
+```java
+org.springframework.transaction.UnexpectedRollbackException: Transaction rolled back because it has been marked as rollback-only
+```
+
+这是事务传播行为导致的，JPA默认的事务传播级别是`PROPAGATION_REQUIRED`：如果当前存在事务则加入该事务，否则新建一个事务。
+
+于是当一个事务方法A去调用了另一个事务方法B时，不指明事务传播级别，那么事务方法B依然使用方法A的事务。此时如果方法B抛出异常，触发事务回滚，而在方法A调用方法B的地方使用try-catch捕获发生的异常，理论上方法A应该继续正常执行，实际上却不是这样。
+
+当方法A继续执行完毕，在最后提交事务时，会发现当前事务已经被标记为`rollback-only`状态，于是整个事务回滚并抛出`UnexpectedRollbackException`异常。
+
+在这种情况下，一般有两种处理场景：
+* 只有方法B在遇到异常时事务回滚，且不影响到方法A的事务提交，那么此时方法B的事务要指明为`PROPAGATION_NESTED`。但是，**JPA默认实现是Hibernate，而Hibernate不提供事务嵌套**。对于这种情况，要么使用其他的JPA实现，要么在方法B中将可能发生的异常try-catch并且不往外抛出，但此时方法B将不能自动事务回滚。
+* 方法B发生异常时，和方法A一起事务回滚。这种场景需要在方法A调用方法B的地方使用try-catch捕获发生的异常，并且将该异常重新往外抛出，这样就可以让方法A事务回滚，且得到的异常也是真正的异常，而不是UnexpectedRollbackException异常。
+
 ## 参考链接
 
 * [springboot jpa 解决延迟加载问题](https://blog.csdn.net/hsz2568952354/article/details/82724719)
@@ -159,3 +177,4 @@ Hibernate的懒加载有个让人诟病的问题，就是所谓的N + 1问题：
 * [Hibernate和Spring整合出现懒加载异常：org.hibernate.LazyInitializationException: could not initialize proxy - no Session](https://www.cnblogs.com/TTTTT/p/6682798.html)
 * [[JPA] javax.persistence.EntityNotFoundException: Unable to find XXXX with id 0 问题原因](https://blog.csdn.net/mamingjie12/article/details/25911967)
 * [[转]cannot simultaneously fetch multiple bags 问题的解决办法](http://blog.sina.com.cn/s/blog_697b968901017w9p.html)
+* [UnexpectedRollbackException解决方案](https://segmentfault.com/a/1190000016418596?utm_source=tag-newest)
