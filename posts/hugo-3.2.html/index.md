@@ -619,91 +619,98 @@ Animal <-- Cat
 @enduml
 {{< /uml >}}
 
-## 菜单栏添加下拉菜单
+## 菜单栏支持子菜单
 
 ### 修改模板代码
 
-将主题的`/themes/LoveIt/layouts/partials/header.html`拷贝一份到`layouts/partials/header.html`，找到如下代码：
+将主题的`/themes/LoveIt/layouts/partials/header.html`拷贝一份到`layouts/partials/header.html`，找到如下代码，一共有两个地方，分别对应网页端和手机端：
 ```
-        <div class="menu">
-            <div class="menu-inner">
-                {{- range .Site.Menus.main -}}
-                    {{- $url := .URL | relLangURL -}}
-                    {{- with .Page -}}
-                        {{- $url = .RelPermalink -}}
-                    {{- end -}}
-                    <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
-                        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
-                    </a>
-                {{- end -}}
+{{- range .Site.Menus.main -}}
+    {{- $url := .URL | relLangURL -}}
+    {{- with .Page -}}
+        {{- $url = .RelPermalink -}}
+    {{- end -}}
+    <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
+    </a>
+{{- end -}}
 ```
 
-在上述代码下方添加如下代码：
-```
-                {{- if .Site.Menus.more -}}
-                    <div class="dropdown">
-                        <a href="javascript:void(0);" class="menu-item menu-more dropbtn" title="{{ T "more" }}">
-                            <i class="fas fa-fw fa-angle-double-down"></i>
-                            {{ T "more" }}
-                        </a>
-                        <div class="menu-more-content dropdown-content">
-                            {{- range .Site.Menus.ops -}}
-                                {{- $url := .URL | relLangURL -}}
-                                {{- with .Page -}}
-                                    {{- $url = .RelPermalink -}}
-                                {{- end -}}
-                                    <a href="{{ $url }}">{{- .Pre }} {{ .Name }} {{ .Post -}}</a>
-                            {{- end -}}
-                        </div>
-                    </div>
-                {{- end -}}
-```
+将上述代码改为如下代码：
 
-接着继续找到如下代码：
 ```
-            <a href="javascript:void(0);" class="menu-item theme-switch" title="{{ T "switchTheme" }}">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a>
+{{- range .Site.Menus.main -}}
+	{{ if .HasChildren }}
+		<div class="dropdown">
+			<a {{ if .URL }}href="{{ .URL }}"{{ else }}href="javascript:void(0);"{{ end }} class="menu-item menu-more dropbtn" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>
+				{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+			</a>
+			<div class="menu-more-content dropdown-content">
+				{{- range .Children -}}
+					{{- $url := .URL | relLangURL -}}
+					{{- with .Page -}}
+						{{- $url = .RelPermalink -}}
+					{{- end -}}
+						<a href="{{ $url }}" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}</a>
+				{{- end -}}
+			</div>
+		</div>
+	{{ else }}
+		{{- $url := .URL | relLangURL -}}
+		{{- with .Page -}}
+			{{- $url = .RelPermalink -}}
+		{{- end -}}
+		<a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+			{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+		</a>
+	{{- end -}}
+{{- end -}}
 ```
-
-在这行超链代码的上方添加刚刚一样的代码，这个是为了渲染移动端的下拉菜单。
 
 ### 添加css样式
 
 在`_custom.scss`中添加如下代码：
 ```
-/* 菜单栏下拉框 */
+/* 子菜单栏 */
 .dropdown {
   display: inline-block;
 }
 
-/* 下拉内容 (默认隐藏) */
+/* 子菜单的内容 (默认隐藏) */
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
   line-height: 1.3rem;
 }
 
-/* 下拉菜单的链接 */
+/* 子菜单的链接 */
 .dropdown-content a {
-  padding: 10px 12px;
+  padding: 10px 18px 10px 14px;
   text-decoration: none;
   display: block;
+  & i {
+    margin-right: 3px;
+  }
 }
 
-/* 鼠标移上去后修改下拉菜单链接颜色 */
+/* 鼠标移上去后修改子菜单链接颜色 */
 .dropdown-content a:hover {
   background-color: #f1f1f1;
+  border-radius: 4px;
 }
 
-/* 在鼠标移上去后显示下拉菜单 */
+/* 在鼠标移上去后显示子菜单 */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
 @media screen and (max-width: 680px) {
+    .dropdown {
+      display: inline;
+    }
   .dropdown:hover .dropdown-content {
     display: inline;
     position: relative;
@@ -714,52 +721,52 @@ Animal <-- Cat
 }
 ```
 
-### 配置下拉菜单
+### 配置子菜单
 
-打开站点配置文件`config.toml`，添加下拉菜单到菜单栏里，直接配置到菜单栏的下方就行，这里只提供本人的配置（没有使用多语言功能）：
+打开站点配置文件`config.toml`，添加子菜单到菜单栏里。子菜单其实和原本的菜单一样写法，只是多了一个`parent`属性，用来定位到对应的父菜单的`identifier`。下面是一个简单的子菜单定义方式（没有使用多语言功能）：
 ```
 # 菜单配置
 [menu]
-# 菜单栏
   [[menu.main]]
-    pre = "<i class='fas fa-fw fa-search'></i>"
-    name = "搜索"
-    weight = 100
-    identifier = "search"
-    url = "/search/"
-# 下拉菜单，和菜单栏同级
-  [[menu.more]]
-    [[menu.ops]]
-      pre = "<i class='fas fa-fw fa-comment'></i>"
-      name = "公告/留言"
-      identifier = "bbs"
-      url = "/bbs/"
-      weight = 1
-    [[menu.ops]]
-      pre = "<i class='fas fa-fw fa-book'></i>"
-      name = "Java笔记"
-      identifier = "note"
-      url = "https://javanote.doc.lewky.cn/"
-      weight = 2
-    [[menu.ops]]
-	  identifier = "tags"
-      pre = "<i class='fas fa-fw fa-tag'></i>"
-	  name = "标签"
-	  url = "/tags/"
-	  weight = 3
-    [[menu.ops]]
-      pre = "<i class='fas fa-fw fa-at'></i>"
-      name = "关于"
-      identifier = "about"
-      url = "/about/"
-      weight = 4
-    [[menu.ops]]
-      pre = "<i class='fas fa-fw fa-cog'></i>"
-      name = "建站日志"
-      identifier = "siting-log"
-      url = "/posts/e62c38c4.html/"
-      weight = 5
+    identifier = "posts"
+    # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+    pre = "<i class='fas fa-fw fa-archive'></i>"
+    # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+    post = ""
+    name = "归档"
+    url = "/posts/"
+    title = ""
+    weight = 1
+  [[menu.main]]
+    pre = "<i class='fas fa-fw fa-link'></i>"
+    name = "友链"
+    identifier = "friends"
+    url = "/friends/"
+    weight = 2
+
+  # 二级菜单
+  [[menu.main]]
+    parent = "posts"
+    pre = "<i class='fas fa-fw fa-th'></i>"
+    name = "分类"
+    identifier = "categories"
+    url = "/categories/"
+    weight = 1
+  [[menu.main]]
+    parent = "posts"
+	identifier = "tags"
+    pre = "<i class='fas fa-fw fa-tag'></i>"
+    post = "_blank"
+	name = "标签"
+	url = "/tags/"
+	title = ""
+	weight = 2
 ```
+
+菜单栏还允许以下配置：
+* 通过给菜单配置一个`post = "_blank"`属性来将该菜单设置为在新窗口打开该链接，如果`post`属性填其他值则依然作为原本的功能使用：即给`name`添加后缀。
+* 通过设置`title`来添加超链的提示文本。
+* 父菜单可以通过将`url`设置为空来将其渲染为不跳转的超链：`url = ""`。
 
 ## 参考链接
 
