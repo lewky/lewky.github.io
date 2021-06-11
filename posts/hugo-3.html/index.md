@@ -769,6 +769,25 @@ hiddenFromHomePage: true
 
 这样Hugo就会用我们新增的这个文件来渲染友链页面了。
 
+### 另一种添加样式文件并引入的方案
+
+感谢`@kirito`的建议，原友链样式的方案会侵入原本的主题样式，并且也不是所有页面都需要这个友链样式，所以可以采用另一种方案来选择性地引入友链样式：即同样使用shortcode来引入。
+
+首先创建一个`/assets/css/friend.scss`文件，内容跟上文的`_friend.scss`文件一样。然后新增一个`/layouts/shortcodes/friend-css.html`文件：
+
+```html
+{{ $options := (dict "targetPath" "/css/friend.css" "outputStyle" "compressed" "enableSourceMap" true) }}
+{{ $style := resources.Get "css/friend.scss" | resources.ToCSS $options }}
+
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+```
+
+在需要使用友链的页面、文章中添加如下shortcode来引入友链样式即可：
+
+```
+{{</* friend-css */>}}
+```
+
 ### 在菜单栏里新增一个友链按钮
 
 打开站点配置文件`config.toml`，添加友链按钮：
@@ -807,6 +826,8 @@ img-animation="rotate"
 //边框动画：shadow(阴影，此为默认效果)、borderFlash(边框闪现)、led(跑马灯)、bln(主颜色呼吸灯)
 border-animation="shadow"
 ```
+
+{{< friend-css >}}
 
 {{< friend
 name="雨临Lewis的博客"

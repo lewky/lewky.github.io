@@ -4,6 +4,8 @@
 
 本站主题源自Hugo-LoveIt，感谢本主题的开发者们！
 
+{{< friend-css >}}
+
 {{< friend
 name="dillonzq / LoveIt"
 url="https://github.com/dillonzq/LoveIt"
@@ -38,6 +40,13 @@ logo="https://s3.ax1x.com/2021/01/21/s4crsU.png"
 word="自由 分享 合作"
 >}}
 
+{{< friend
+name="kirito"
+url="https://www.kirito41dd.cn"
+logo="https://blog-1256556944.cos.ap-nanjing.myqcloud.com/kirito.jpg"
+word="被带歪也不能怨我"
+>}}
+
 ## 网络安全
 
 {{< friend
@@ -59,7 +68,7 @@ word="一个网络安全爱好者的博客"
 {{< friend
 name="Youth的时光录"
 url="https://imlql.cn/"
-logo="https://cdn.jsdelivr.net/gh/youthlql/lql_img/blog/avatar.jpg"
+logo="https://cdn.jsdelivr.net/gh/youthlql/lqlp@v1.0.0/blog/avatar.jpg"
 word="主要是Java技术栈的博客，比较偏原理，源码类型的博主"
 >}}
 
