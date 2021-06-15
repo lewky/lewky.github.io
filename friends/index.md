@@ -47,6 +47,13 @@ logo="https://blog-1256556944.cos.ap-nanjing.myqcloud.com/kirito.jpg"
 word="被带歪也不能怨我"
 >}}
 
+{{< friend
+name="框架师"
+url="https://www.mobaijun.com"
+logo="https://cdn.jsdelivr.net/gh/mobaijun/blog_css_js/image/avatar.jpg"
+word="代码改变世界！"
+>}}
+
 ## 网络安全
 
 {{< friend
@@ -98,6 +105,7 @@ logo="https://www.fm-cslab.com/default/avatar.png"
 word="会者定离，一期一祈"
 >}}
 
+## 站点已关闭
 
 {{< friend
 name="猫猫的小窝"
