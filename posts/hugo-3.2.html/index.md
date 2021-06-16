@@ -713,7 +713,9 @@ Animal <-- Cat
     }
   .dropdown:hover .dropdown-content {
     display: inline;
-    position: relative;
+    z-index: 1;
+    margin-top: -2em;
+    margin-left: 3em;
   }
   .dropdown-content a:hover {
     background-color: transparent;
