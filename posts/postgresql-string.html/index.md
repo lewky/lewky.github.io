@@ -142,7 +142,85 @@ select nullif('unexpected', 'unexpected');	--null
 select nullif(233, 111);		--233
 ```
 
+## 判断是否包含字符串
+
+`position`函数会返回字符串首次出现的位置，如果没有出现则返回0。因此可以通过返回值是否大于0来判断是否包含指定的字符串。
+
+```sql
+select position('aa' in 'abcd');	--0
+select position('bc' in 'abcd');	--2
+select position('bc' in 'abcdabc');	--2
+```
+
+`strpos`函数也是同样的效果：
+
+```sql
+select strpos('abcd','aa');		--0
+select strpos('abcd','bc');		--2
+select strpos('abcdabc','bc');	--2
+```
+
+此外还可以用正则表达式来判断，返回值是true或false：
+
+```sql
+select 'abcd' ~ 'aa';		--false
+select 'abcd' ~ 'bc';		--true
+select 'abcdabc' ~ 'bc';	--true
+```
+
+## 合并字符串
+
+`string_agg`函数可以将一个字符串列合并成一个字符串，该函数需要指定分隔符，还可以指定合并时的顺序，或者是对合并列进行去重：
+
+```sql
+select ref_no from cnt_item where updated_on between '2021-05-05' and '2021-05-30 16:13:25';
+--结果如下：
+--ITM2105-000001
+--ITM2105-000002
+--ITM2105-000003
+--ITM2105-000003
+
+select string_agg(ref_no, ',') from cnt_item where updated_on between '2021-05-05' and '2021-05-30 16:13:25';
+--合并结果：ITM2105-000001,ITM2105-000002,ITM2105-000003,ITM2105-000003
+
+select string_agg(distinct ref_no, ',') from cnt_item where updated_on between '2021-05-05' and '2021-05-30 16:13:25';
+--合并结果：ITM2105-000001,ITM2105-000002,ITM2105-000003
+
+select string_agg(distinct ref_no, ',' order by ref_no desc) from cnt_item where updated_on between '2021-05-05' and '2021-05-30 16:13:25';
+--合并结果：ITM2105-000003,ITM2105-000002,ITM2105-000001
+```
+
+## 将字符串合并成一个数组
+
+`array_agg`和`string_agg`函数类似，但会把一个字符串列合并成一个数组对象，同样支持指定合并顺序和去重操作；合并成数组后意味着你可以像数组那样去读取它，**需要注意的是，数据库的数组下标是从1开始的**，而不是从0开始：
+
+```sql
+select array_agg(distinct ref_no) from cnt_item where updated_on between '2021-05-05' and '2021-05-30 16:13:25';
+--合并结果：{ITM2105-000001,ITM2105-000002,ITM2105-000003}
+
+select (array_agg(distinct ref_no order by ref_no desc))[1] from cnt_item where updated_on between '2021-05-05' and '2021-05-30 16:13:25';
+--结果：ITM2105-000003
+```
+
+该函数还可以搭配`array_to_string`函数将数组转合并成一个字符串：
+
+```sql
+select array_to_string(array_agg(distinct ref_no), '&') from cnt_item where updated_on between '2021-05-05' and '2021-05-30 16:13:25';
+--合并结果：ITM2105-000001&ITM2105-000002&ITM2105-000003
+```
+
+## 分割字符串
+
+`string_to_array`函数可以分割字符串，返回值是一个数组：
+
+```sql
+select string_to_array('ITM2105-000001&ITM2105-000002&ITM2105-000003', '&');
+--结果：{ITM2105-000001,ITM2105-000002,ITM2105-000003}
+```
+
 ## 参考链接
 
 * [postgresql 常用函数汇总](https://www.cnblogs.com/brucexl/p/7561292.html)
 * [字符串函数和操作符](https://www.runoob.com/postgresql/postgresql-functions.html)
+* [PostgreSQL 判断字符串包含的几种方法](https://blog.csdn.net/luojinbai/article/details/45461837)
+* [PostgreSql 聚合函数string_agg与array_agg](https://blog.csdn.net/u011944141/article/details/78902678/)
