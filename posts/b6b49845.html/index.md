@@ -186,6 +186,55 @@ git merge --squash dev --allow-unrelated-histories
 
 这句命令表示将`dev`分支合并到当前分支，这里的两个本地分支各自追踪不同的远程库，需要加入`--allow-unrelated-histories`参数才能够完成合并操作而不报错，至于`--squash`参数是为了压缩`dev`分支原本的commit历史，可以将原本所有的commit历史合成一个commit，以避免当前分支在合并之后掺入了其他项目的commit历史。
 
+## warning: LF will be replaced by CRLF
+
+这个问题由不同平台的换行符不同所造成：
+
+* CR是回车，CarriageReturn，即`\r`（return）。LF是换行，LineFeed，即`\n`（newline）。
+* Dos和Windows平台使用CRLF来结束一行。
+* Mac和Linux平台使用LF来结束一行。（最早Mac以CR来结束一行，后改为了LF）
+
+**影响：**
+
+* Unix/Mac系统下的文件在Windows里打开，所有文字会变成一行。
+* Windows的文件在Unix/Mac下打开，在每行的结尾可能会多出一个`^M`符号。
+* Linux保存的文件在windows上用记事本查看会出现黑点。
+
+**解决方法：**
+
+为了避免git管理的项目中出现混合的换行符，通常会将项目的换行符设置为`LF`。
+
+对于Windows平台，git的客户端默认设置为`core.autocrlf=true`。在提交文件时，会自动将换行符转换为`LF`，在检出文件时则自动转为`CRLF`。
+
+```
+git config --global core.autocrlf true
+```
+
+对于Mac和Linux平台，可以将配置设置为`input`。这样在提交文件时会转为`LF`，检出时则不转换。
+
+```
+git config --global core.autocrlf input
+```
+
+如果只使用Windows平台进行开发并运行项目，可以设置为`false`，来取消git自动转换换行符的功能。
+
+```
+git config --global core.autocrlf false
+```
+
+还可以配置`core.safecrlf`来改变git对于换行符的检查行为：
+
+```
+#拒绝提交包含混合换行符的文件
+git config --global core.safecrlf true   
+
+#允许提交包含混合换行符的文件
+git config --global core.safecrlf false   
+
+#提交包含混合换行符的文件时给出警告
+git config --global core.safecrlf warn
+```
+
 ## 参考链接
 
 * [.gitignore 规则写法 - 在已忽略文件夹中不忽略指定文件、文件夹【注意项】](https://my.oschina.net/longyuan/blog/521098)
@@ -194,3 +243,4 @@ git merge --squash dev --allow-unrelated-histories
 * [git忽略已经被提交的文件](https://segmentfault.com/q/1010000000430426)
 * [如何去解决fatal: refusing to merge unrelated histories](https://blog.csdn.net/m0_37402140/article/details/72801372)
 * [git merge --no-ff是什么意思](https://segmentfault.com/q/1010000002477106)
+* [关于git提示“warning: LF will be replaced by CRLF”终极解答](https://www.jianshu.com/p/450cd21b36a4)
