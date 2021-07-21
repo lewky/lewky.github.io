@@ -6,6 +6,14 @@
 
 <!--more-->
 
+## 2021-07-20
+
+这两天Waline评论系统被一个自称为`Waline Hacker`的攻击了，绕过了后台审核直接恶意批量新增了几百条垃圾评论。
+
+去Waline项目的issue里看到了同样处境的道友，按照开发者的建议升级了服务端，并添加`LOGIN=force`环境变量，客户端同样新增该变量，必须登录才能发表评论。
+
+此外，使用了评论发布审核功能，需要经过人工审核才可发布评论。
+
 ## 2021-01-18
 
 <span style="background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );color:transparent;-webkit-background-clip: text;font-size:3em;">建站1000天纪念！！</span>
