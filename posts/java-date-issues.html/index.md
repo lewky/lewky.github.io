@@ -160,8 +160,30 @@ System.out.println(withZoneSameInstant.toLocalDateTime());  // 2021-01-04T16:00
 System.out.println(withZoneSameLocal.toLocalDateTime());    // 2021-01-05T00:00
 ```
 
+### 获取月份、年份的最后一天
+
+JDK 8提供了`TemporalAdjusters`工具类来实现调整时间的功能：
+
+```java
+// 2021-07-27
+final LocalDate localDate = LocalDate.now();
+// 2021-07-01
+System.out.println(localDate.with(TemporalAdjusters.firstDayOfMonth()));
+// 2021-01-01
+System.out.println(localDate.with(TemporalAdjusters.firstDayOfYear()));
+// 2021-08-01
+System.out.println(localDate.with(TemporalAdjusters.firstDayOfNextMonth()));
+// 2022-01-01
+System.out.println(localDate.with(TemporalAdjusters.firstDayOfNextYear()));
+// 当月第一个周一： 2021-07-05
+System.out.println(localDate.with(TemporalAdjusters.firstInMonth(DayOfWeek.MONDAY)));
+// 当月最后一个周五： 2021-07-30
+System.out.println(localDate.with(TemporalAdjusters.lastInMonth(DayOfWeek.FRIDAY)));
+```
+
 ## 参考链接
 
 * [Java YYYY/MM/dd遇到跨年日期的问题](https://blog.csdn.net/weixin_42619772/article/details/111053743)
 * [YYYY-MM-DD 的黑锅，我们不背！](https://blog.csdn.net/singwhatiwanna/article/details/103966585)
 * [Java日期时间API系列19--Jdk8，ZonedDateTime和时区转换。](https://zhuanlan.zhihu.com/p/149302250)
+* [【java8中的时间操作】java8中获取月的最后一天或者总天数，JDK8 LocalDate AP](https://blog.csdn.net/qq_40598321/article/details/112191964)
