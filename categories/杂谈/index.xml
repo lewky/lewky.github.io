@@ -48,4 +48,15 @@
                             `&#39;&#34; 
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item></channel></rss>
+</div>]]></description></item><item><title>GitHub使用技巧</title><link>https://lewky.cn/posts/7eb15a2d.html/</link><pubDate>Sun, 02 Dec 2018 23:49:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/7eb15a2d.html/</guid><description><![CDATA[<h2 id="github仓库怎么添加协议">GitHub仓库怎么添加协议</h2>
+<p>如果一开始在GitHub上创建仓库时没有添加协议，可以用以下方式来重新添加相关的协议：</p>
+<ol>
+<li>打开GitHub上的某个仓库，点击<code>Create new file</code>；</li>
+<li>在新建文件的页面上，输入文件名<code>LICENSE</code>，这时候你会发现在标题的右边多出来一个按钮<code>Choose a license template</code>，点击该按钮；</li>
+</ol>]]></description></item><item><title>MarkdownPad - win10环境下无法渲染HTML问题</title><link>https://lewky.cn/posts/511045a6.html/</link><pubDate>Sat, 17 Nov 2018 22:58:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/511045a6.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>在win10平台安装了MarkdownPad 2之后，发现在渲染md文件时报错，在预览页面无法正常渲染HTML：
+
+<figure><a class="lightgallery" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/software/markdownpad_error.jpg" title="markdownpad_error.jpg" data-thumbnail="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/posts/software/markdownpad_error.jpg" data-sub-html="<h2> </h2><p>markdownpad_error.jpg</p>">
+        
+    </a><figcaption class="image-caption">markdownpad_error.jpg</figcaption>
+    </figure></p>]]></description></item></channel></rss>

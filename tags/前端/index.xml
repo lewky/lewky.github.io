@@ -59,19 +59,7 @@ D:\coding\Resume\Resumes&gt;gulp -v
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>页面的背景音乐加载很慢</title><link>https://lewky.cn/posts/eee6409f.html/</link><pubDate>Wed, 19 Dec 2018 22:35:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eee6409f.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>由于我在页面中使用了<code>&lt;audio&gt;</code>标签来播放一首背景音乐，该音频是一首大小为2.7MB的MP3文件。在第一次加载该页面时，需要花费相当长的一段时间去加载音频。</p>]]></description></item><item><title>前端问题汇总</title><link>https://lewky.cn/posts/4d6b513d.html/</link><pubDate>Sun, 02 Sep 2018 22:49:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4d6b513d.html/</guid><description><![CDATA[<h2 id="如何让input文本框和图片对齐">如何让input文本框和图片对齐</h2>
-<p>在默认情况下，input文本框和图片无法自然对齐，总会有所偏差，文本框往往会比图片要往下边一点，只要给元素添加<code>vertical-align:bottom</code>即可令两者底部水平对齐，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;vertical-align:bottom&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">img</span> <span class="na">src </span><span class="o">=</span> <span class="s">&#34;images/露琪亚.jpg&#34;</span> <span class="na">width </span><span class="o">=</span> <span class="s">&#34;50%&#34;</span> <span class="na">height </span><span class="o">=</span> <span class="s">&#34;50%&#34;</span> <span class="na">alt </span><span class="o">=</span> <span class="s">&#34;露琪亚&#34;</span> <span class="na">title </span><span class="o">=</span> <span class="s">&#34;死神里的露琪亚&#34;</span>  <span class="na">style</span><span class="o">=</span><span class="s">&#34;vertical-align:bottom&#34;</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>js、css外部文件的相对路径问题</title><link>https://lewky.cn/posts/29169.html/</link><pubDate>Wed, 02 May 2018 10:21:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/29169.html/</guid><description><![CDATA[<p>如果js、css外部文件有使用到相对路径时，需要注意其相对路径的基准是不一样的。</p>
+<p>由于我在页面中使用了<code>&lt;audio&gt;</code>标签来播放一首背景音乐，该音频是一首大小为2.7MB的MP3文件。在第一次加载该页面时，需要花费相当长的一段时间去加载音频。</p>]]></description></item><item><title>js、css外部文件的相对路径问题</title><link>https://lewky.cn/posts/29169.html/</link><pubDate>Wed, 02 May 2018 10:21:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/29169.html/</guid><description><![CDATA[<p>如果js、css外部文件有使用到相对路径时，需要注意其相对路径的基准是不一样的。</p>
 <p>比如说，在index.html中引用到了外部的js和css文件，这两个文件都通过相对路径引用了某一张图片；这些文件所在的目录如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
