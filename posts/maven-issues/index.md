@@ -283,6 +283,49 @@ Java加载外部字体时报错`FontFormatException`，Maven在编译项目时�
 
 `include`是指定打包时需要哪些文件，但`include`和`exclude`的配置冲突时，以后者为准。
 
+## 引入本地jar包
+
+两种方式，一种是把jar包安装到本地仓库后再引入；一种是直接用`systemPath`直接引入一个外部的jar包。如果只是本地开发，可以用前一种方式；如果是协同开发，个人更倾向于后一种方式。
+
+### 方式一：安装到本地仓库
+
+下面是将jar包安装到本地的命令：
+
+```bat
+mvn install:install-file -Dfile=D:\lib\test.jar -DgroupId=com.test -DartifactId=test -Dversion=0.0.1 -Dpackaging=jar
+```
+
+`-Dfile`指明需要被安装的jar包路径。
+
+`-DgroupId`和`-DartifactId`指定jar包的唯一依赖路径，注意别跟其他的本地依赖路径冲突就行。
+
+`-Dversion`指定依赖的版本。
+
+`-Dpackaging`指明打包方式。
+
+安装到本地仓库后可以像普通依赖那样引入：
+
+```xml
+<dependency>
+    <groupId>com.test</groupId>
+    <artifactId>test</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+### 方式二：`systemPath`直接引入
+
+```xml
+<dependency>
+    <groupId>com.test</groupId>
+    <artifactId>test</artifactId>
+    <scope>system</scope>
+    <systemPath>${basedir}/src/main/resources/lib/test.jar</systemPath>
+</dependency>
+```
+
+`${basedir}`是Maven的内置属性，代表项目根目录。
+
 ## 参考链接
 
 * [maven(八)，阿里云国内镜像，提高jar包下载速度](https://blog.csdn.net/wangb_java/article/details/55653122)
@@ -294,3 +337,4 @@ Java加载外部字体时报错`FontFormatException`，Maven在编译项目时�
 * [maven设置下载源码](https://blog.csdn.net/ljxbbss/article/details/78060636)
 * [Dependency error in jasper-reports from itext](https://stackoverflow.com/questions/31314373/dependency-error-in-jasper-reports-from-itext)
 * [IText, A Free Java PDF Library](https://mvnrepository.com/artifact/com.lowagie/itext)
+* [在maven中引入本地jar包的方法](https://www.cnblogs.com/guojuncheng/p/9149151.html)
