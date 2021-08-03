@@ -11,7 +11,7 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 ```
 
-**请注意，本文的所有功能都离不开两个新增加的文件：`_custom.scss`和`custom.js`，部分功能还需要`jquery`，下文会提及如何引入。**
+**请注意，本文的所有功能都离不开两个新增加的文件：`_custom.scss`和`custom.js`，部分功能还需要`jquery`，在第一章中会提及如何引入。**
 
 另外本文篇幅太长，阅读体验不好，将其进行分章如下：
 
@@ -769,6 +769,63 @@ Animal <-- Cat
 * 通过给菜单配置一个`post = "_blank"`属性来将该菜单设置为在新窗口打开该链接，如果`post`属性填其他值则依然作为原本的功能使用：即给`name`添加后缀。
 * 通过设置`title`来添加超链的提示文本。
 * 父菜单可以通过将`url`设置为空来将其渲染为不跳转的超链：`url = ""`。
+
+## 显示最近更新的十篇文章
+
+在归档页面只能看到所有以创建时间递减排序的文章列表，可以用下面的方法在归档页面开头增添十篇最近更新的文章。
+
+将`/themes/LoveIt/layouts/_default/section.html`拷贝到`/layouts/_default/section.html`，打开拷贝后的文件，找到如下：
+
+```
+{{- /* Paginate */ -}}
+```
+
+在这行代码上方插入下面的代码：
+
+```
+{{- /* Last Modified */ -}}
+{{- if .Pages -}}
+    {{- $pages := .Pages.ByLastmod.Reverse -}}
+    <h3 class="group-title">最近更新 <sup>10</sup></h3>
+    {{- range first 10 $pages -}}
+		<article class="archive-item">
+			<a href="{{ .RelPermalink }}" class="archive-item-link">
+				{{- .Title -}}
+			</a>
+			<span class="archive-item-date2">
+				{{- "2006-01-02" | .Lastmod.Format -}}
+			</span>
+		</article>
+    {{- end -}}
+{{- end -}}
+```
+
+然后在`/assets/css/_custom.scss`中添加如下样式代码：
+
+```css
+.archive-item-date2 {
+    color: #a9a9b3;
+}
+```
+
+同时为了方便区分开创建时间和最近更新时间，在每篇文章中也新增了最近更新时间这个meta。将`/themes/LoveIt/layouts/posts/single.html`拷贝到`/layouts/posts/single.html`，打开拷贝后的文件，找到如下：
+
+```
+{{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
+    <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+{{- end -}}
+```
+
+将上面的代码改为如下：
+
+```
+{{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
+    <i class="far fa-calendar fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+{{- end -}}
+{{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
+    <i class="far fa-calendar-plus fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
+{{- end -}}
+```
 
 ## 参考链接
 

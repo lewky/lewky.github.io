@@ -18,7 +18,7 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，下文会提及如何引入。</strong></p>
+</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
 <p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>
 <ul>
 <li><a href="/posts/hugo-3.html/" rel="">Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</a></li>
@@ -42,7 +42,7 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，下文会提及如何引入。</strong></p>
+</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
 <p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>
 <ul>
 <li><a href="/posts/hugo-3.html/" rel="">Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</a></li>
@@ -66,7 +66,7 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，下文会提及如何引入。</strong></p>
+</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
 <p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>
 <ul>
 <li><a href="/posts/hugo-3.html/" rel="">Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</a></li>
