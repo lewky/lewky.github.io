@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>npm - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/npm/</link><description>npm - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 04 Aug 2021 22:51:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/npm/" rel="self" type="application/rss+xml"/><item><title>npm问题汇总</title><link>https://lewky.cn/posts/npm-issues/</link><pubDate>Wed, 04 Aug 2021 22:51:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/npm-issues/</guid><description><![CDATA[<h2 id="修改npm全局安装的路径">修改npm全局安装的路径</h2>
+<p>在cmd输入命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cmd" data-lang="cmd">npm config set prefix <span class="s2">&#34;D:\software\nodejs\node_global&#34;</span>
+npm config set cache <span class="s2">&#34;D:\software\nodejs\node_cache&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>之后可以执行<code>npm config ls</code>来查看是否设置成功了。</p>
+<p>为了方便全局安装的模块能通过命令行来运行，可以将上述设置的两个路径添加到环境变量<code>PATH</code>中。</p>]]></description></item></channel></rss>
