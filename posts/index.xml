@@ -1,4 +1,11 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 04 Aug 2021 22:51:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>npm问题汇总</title><link>https://lewky.cn/posts/npm-issues/</link><pubDate>Wed, 04 Aug 2021 22:51:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/npm-issues/</guid><description><![CDATA[<h2 id="修改npm全局安装的路径">修改npm全局安装的路径</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 05 Aug 2021 22:44:17 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>博客园SimpleMemory皮肤定制化</title><link>https://lewky.cn/posts/cnblogs-skin/</link><pubDate>Thu, 05 Aug 2021 22:44:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cnblogs-skin/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>博客园支持皮肤的高度定制化，本文主要简单介绍下博客园的SimpleMemory皮肤的定制化。感谢皮肤作者以及定制化皮肤的作者！</p>
+<p>个人使用的是<code>BNDong</code>大大开源的基于SimpleMemory原皮的定制化皮肤，下面是相关的一些链接。</p>
+<ul>
+<li>项目地址：https://github.com/BNDong/Cnblogs-Theme-SimpleMemory</li>
+<li>文档地址：https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/</li>
+<li>原作者：https://www.cnblogs.com/bndong/</li>
+</ul>]]></description></item><item><title>npm问题汇总</title><link>https://lewky.cn/posts/npm-issues/</link><pubDate>Wed, 04 Aug 2021 22:51:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/npm-issues/</guid><description><![CDATA[<h2 id="修改npm全局安装的路径">修改npm全局安装的路径</h2>
 <p>在cmd输入命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -139,22 +146,4 @@ LoveIt: v0.2.10
 <p>参数化类型：把类型当作参数来传递，这意味着参数化类型不能是基本数据类型，需要用对应的包装类来代替。</p>
 <p>相关概念：</p>]]></description></item><item><title>PlantUML - 类图</title><link>https://lewky.cn/posts/plantuml-class-diagram.html/</link><pubDate>Fri, 14 May 2021 19:46:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/plantuml-class-diagram.html/</guid><description><![CDATA[<h2 id="plantuml">PlantUML</h2>
 <p>PlantUML是一个开源项目，可以用来快速生成各种UML图，官方文档：https://plantuml.com/zh/</p>
-<p>可以通过<a href="http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000" target="_blank" rel="noopener noreffer">官方提供的工具</a>在线生成对应的类图，本文只介绍PlantUML类图的部分常用语法。</p>]]></description></item><item><title>JPA/Hibernate问题汇总</title><link>https://lewky.cn/posts/jpa-hibernate.html/</link><pubDate>Thu, 01 Apr 2021 00:07:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jpa-hibernate.html/</guid><description><![CDATA[<h2 id="懒加载异常---jsonmappingexception-could-not-initialize-proxy">懒加载异常 - JsonMappingException: could not initialize proxy</h2>
-<p>查询数据时报懒加载异常：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Caused</span> <span class="n">by</span><span class="o">:</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">LazyInitializationException</span><span class="o">:</span> <span class="n">could</span> <span class="n">not</span> <span class="n">initialize</span> <span class="n">proxy</span> <span class="o">[</span><span class="n">com</span><span class="o">.</span><span class="na">cbxsoftware</span><span class="o">.</span><span class="na">cbx</span><span class="o">.</span><span class="na">attachment</span><span class="o">.</span><span class="na">entity</span><span class="o">.</span><span class="na">RefAttachment</span><span class="err">#</span><span class="n">c109ec36e60c4a89a10eabc72416d984</span><span class="o">]</span> <span class="o">-</span> <span class="n">no</span> <span class="n">Session</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">AbstractLazyInitializer</span><span class="o">.</span><span class="na">initialize</span><span class="o">(</span><span class="n">AbstractLazyInitializer</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">169</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">AbstractLazyInitializer</span><span class="o">.</span><span class="na">getImplementation</span><span class="o">(</span><span class="n">AbstractLazyInitializer</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">309</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">pojo</span><span class="o">.</span><span class="na">bytebuddy</span><span class="o">.</span><span class="na">ByteBuddyInterceptor</span><span class="o">.</span><span class="na">intercept</span><span class="o">(</span><span class="n">ByteBuddyInterceptor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">45</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">ProxyConfiguration$InterceptorDispatcher</span><span class="o">.</span><span class="na">intercept</span><span class="o">(</span><span class="n">ProxyConfiguration</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">95</span><span class="o">)</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p>可以通过<a href="http://www.plantuml.com/plantuml/uml/SyfFKj2rKt3CoKnELR1Io4ZDoSa70000" target="_blank" rel="noopener noreffer">官方提供的工具</a>在线生成对应的类图，本文只介绍PlantUML类图的部分常用语法。</p>]]></description></item></channel></rss>

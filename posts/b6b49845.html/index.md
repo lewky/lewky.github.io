@@ -235,6 +235,16 @@ git config --global core.safecrlf false
 git config --global core.safecrlf warn
 ```
 
+可以通过以下命令来查询Git的配置：
+
+```
+// 查询配置
+git config -l
+
+// 查询全局配置
+git config -l  --global
+```
+
 ## 参考链接
 
 * [.gitignore 规则写法 - 在已忽略文件夹中不忽略指定文件、文件夹【注意项】](https://my.oschina.net/longyuan/blog/521098)
