@@ -82,6 +82,82 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Cannot access 
 
 这里的source和target的1.7指的是编译时使用jdk1.7版本；而encoding指定了utf8编码（我测试了下，发现写utf-8也可以）。
 
+## 打war包的方式
+
+首先要了解Maven的流程：
+
+* `mvn clean`：清除`target`目录
+* `mvn compile`：编译文件
+* `mvn package`：打包项目
+* `mvn install`：把打包后的项目安装到本地仓库，包含了compile和package
+* `mvn deploy`：把打包后的项目上传到远程仓库（比如自行搭建的私服），包含了install
+
+关于打war包，有多种方式，如下：
+
+* 使用Maven本身的打包方式，把`mvn packaging`设为`war`，即可使用package命令打成war包。
+* 使用maven的war命令：`mvn war:exploded`或者`mvn war:war`，后一个命令会打包出一个war包以及war包解压后的目录文件，前一个命令只会打包出war包解压后的目录文件。
+* 使用`tomcat7`插件命令打包：`mvn tomcat7:exec-war`或者`mvn tomcat7:exec-war-only`，如下：
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>2.2</version>
+        </plugin>
+    </plugins>
+</build>
+```
+
+`tomcat7`插件支持以下命令：
+
+```
+// 查看帮助信息
+tomcat7:help
+
+// 把WAR部署到Tomcat
+tomcat7:deploy
+
+// 把WAR部署到Tomcat，但是不管理包的生命周期
+tomcat7:deploy-only
+
+// 重新部署WAR到Tomcat
+tomcat7:redeploy
+
+// 重新部署WAR到Tomcat，但是不管理包的生命周期
+tomcat7:redeploy-only
+
+// 从Tomcat中卸载WAR
+tomcat7:undeploy
+
+// 使用内嵌的Tomcat服务把当前应用作为动态web应用运行
+tomcat7:run
+
+// 使用内嵌的Tomcat服务运行当前应用的打包文件war
+tomcat7:run-war
+
+// 使用内嵌的Tomcat服务运行当前应用的打包文件war，但是不管理包的生命周期
+tomcat7:run-war-only
+
+// 创建一个可执行的jar文件，其中包含了Apache Tomcat，只要执行java -jar xxx.jar即可运行web应用
+tomcat7:exec-war
+
+// 创建一个可执行的jar文件，但是不管理包的生命周期
+tomcat7:exec-war-only
+
+// 关闭所有的可执行的服务
+tomcat7:shutdown
+
+// 创建一个可执行的war文件
+tomcat7:standalone-war
+
+// 创建一个可执行的war文件
+tomcat7:standalone-war-only
+```
+
+最后两个命令在`mvn tomcat7:help`中的解释是一模一样的，暂时不知道和`exec-war`有何区别。
+
 ## `mvn clean package`的执行顺序
 
 1. 使用清理插件`maven-clean-plugin`清理已有的target目录（使用了clean才有这一步）
@@ -326,6 +402,76 @@ mvn install:install-file -Dfile=D:\lib\test.jar -DgroupId=com.test -DartifactId=
 
 `${basedir}`是Maven的内置属性，代表项目根目录。
 
+## 压缩js+css代码
+
+借助`yuicompressor`插件来完成：
+
+```xml
+<!-- Maven全局属性，统一编码 -->
+<properties>
+ <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
+<!-- 构建相关配置  -->
+<build>
+ <!-- maven插件配置 -->
+ <plugins>
+   <plugin>
+     <!-- YUI Compressor Maven压缩插件 -->
+     <groupId>net.alchim31.maven</groupId>
+     <artifactId>yuicompressor-maven-plugin</artifactId>
+     <version>1.3.0</version>
+     <configuration>
+       <!-- 读取js,css文件采用UTF-8编码 -->
+       <encoding>UTF-8</encoding>
+       <!-- 不显示js可能的错误 -->
+       <jswarn>false</jswarn>
+       <!-- 若存在已压缩的文件，会先对比源文件是否有改动。有改动便压缩，无改动就不压缩 -->
+       <force>false</force>
+       <!-- 在指定的列号后插入新行 -->
+       <linebreakpos>-1</linebreakpos>
+       <!-- 压缩之前先执行聚合文件操作 -->
+       <preProcessAggregates>true</preProcessAggregates>
+       <!-- 压缩后保存文件后缀 -->
+       <suffix>.min</suffix>
+       <!-- 源目录，即需压缩的根目录 -->
+       <sourceDirectory>${basedir}/mobile</sourceDirectory>
+       <!-- 压缩js和css文件 -->
+       <includes>
+         <include>**/*.js</include>
+         <include>**/*.css</include>
+       </includes>
+       <!-- 以下目录和文件不会被压缩 -->
+       <excludes>
+         <exclude>**/*.min.js</exclude>
+         <exclude>**/*.min.css</exclude>
+         <exclude>scripts/data/*.js</exclude>
+       </excludes>
+       <!-- 压缩后输出文件目录 -->
+       <outputDirectory>${basedir}/mobile</outputDirectory>
+       <!-- 聚合文件 -->
+       <aggregations>
+         <aggregation>
+           <!-- 合并每一个文件后插入一新行 -->
+           <insertNewLine>true</insertNewLine>
+           <!-- 需合并文件的根文件夹 -->
+           <inputDir>${basedir}/mobile/scripts</inputDir>
+           <!-- 最终合并的输出文件 -->
+           <output>${basedir}/mobile/scripts/app/app.js</output>
+           <!-- 把以下js文件合并成一个js文件，是按顺序合并的 -->
+           <includes>
+             <include>app/core.js</include>
+             <include>app/mlmanager.js</include>
+             <include>app/tmpl.js</include>
+             <include>app/ui.js</include>
+           </includes>
+         </aggregation>
+       </aggregations>
+     </configuration>
+   </plugin>
+ </plugins>
+</build>
+```
+
 ## 参考链接
 
 * [maven(八)，阿里云国内镜像，提高jar包下载速度](https://blog.csdn.net/wangb_java/article/details/55653122)
@@ -338,3 +484,6 @@ mvn install:install-file -Dfile=D:\lib\test.jar -DgroupId=com.test -DartifactId=
 * [Dependency error in jasper-reports from itext](https://stackoverflow.com/questions/31314373/dependency-error-in-jasper-reports-from-itext)
 * [IText, A Free Java PDF Library](https://mvnrepository.com/artifact/com.lowagie/itext)
 * [在maven中引入本地jar包的方法](https://www.cnblogs.com/guojuncheng/p/9149151.html)
+* [maven实现JS+CSS自动压缩](https://www.cnblogs.com/lorence/articles/2750001.html)
+* [eclipse maven 打war包的几种方式](https://www.cnblogs.com/qlqwjy/p/8231032.html)
+* [Maven之Tomcat](https://blog.csdn.net/qq_34017326/article/details/78591632)
