@@ -1,4 +1,9 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 04 Aug 2021 22:51:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>npm问题汇总</title><link>https://lewky.cn/posts/npm-issues/</link><pubDate>Wed, 04 Aug 2021 22:51:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/npm-issues/</guid><description><![CDATA[<h2 id="修改npm全局安装的路径">修改npm全局安装的路径</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Aug 2021 22:41:57 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>IDEA问题汇总</title><link>https://lewky.cn/posts/idea-issues/</link><pubDate>Fri, 06 Aug 2021 22:41:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文基于2021-2版本的IDEA。</p>
+<h2 id="启动时选择工作空间">启动时选择工作空间</h2>
+<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Appearance &amp; Behavior</code> -&gt; <code>System Settings</code> -&gt; 不勾选<code>Reopen projects on startup</code></p>
+<h2 id="无法搜索或者下载插件">无法搜索或者下载插件</h2>
+<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>]]></description></item><item><title>npm问题汇总</title><link>https://lewky.cn/posts/npm-issues/</link><pubDate>Wed, 04 Aug 2021 22:51:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/npm-issues/</guid><description><![CDATA[<h2 id="修改npm全局安装的路径">修改npm全局安装的路径</h2>
 <p>在cmd输入命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -156,14 +161,4 @@ npm config set cache <span class="s2">&#34;D:\software\nodejs\node_cache&#34;</s
 <pre class="chroma"><code class="language-shell" data-lang="shell">/bin/sh^M: bad interpreter: No such file or directory
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Eclipse问题汇总</title><link>https://lewky.cn/posts/5f77a7c4.html/</link><pubDate>Fri, 18 Jan 2019 23:04:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/5f77a7c4.html/</guid><description><![CDATA[<h2 id="access-restriction-the-type-jpegcodec-is-not-api">Access restriction: The type &lsquo;JPEGCodec&rsquo; is not API</h2>
-<p>导入项目时Eclipse报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Access restriction: The type &#39;JPEGCodec&#39; is not API (restriction on required library &#39;C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar&#39;)
-</code></pre></td></tr></table>
-</div>
-</div><p>第一次遇到这种错误，百度了下，原来是因为Eclipse默认把访问受限的API设置成了Error级别，所以才会编译报错。</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>
