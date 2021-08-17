@@ -160,6 +160,13 @@ public class ${NAME} {
 * 勾选`Show line numbers`
 * 勾选`Show method separators`
 
+## 编辑器中光标变为Insert状态
+
+在编辑器中光标变为Insert状态，此时无法进行复制黏贴等操作。这个问题有两种可能性：
+
+* 可能跟IDEA本身的配置有关：`File` -> `Settings...` -> `Editor` -> `General` -> `Appearance` -> 取消勾选`Use block caret`
+* 也可能跟IdeaVim插件有关：`File` -> `Settings...` -> `Plugins` -> `Installed` -> 搜索ideavim，取消勾选该插件
+
 ## 参考链接
 
 * [IntelliJ IDEA 2021.2激活破解教程（亲测有用，永久激活，长期更新）](https://www.exception.site/essay/how-to-free-use-intellij-idea-2019-3)
@@ -167,3 +174,4 @@ public class ${NAME} {
 * [完美解决idea无法搜索下载插件的问题](https://www.jb51.net/article/195740.htm)
 * [idea如何修改默认的${user}值](https://www.cnblogs.com/zhenhunfan2/p/13522995.html)
 * [IntelliJ IDEA高效使用教程，让你的工作效率提升10倍！](https://mp.weixin.qq.com/s/cRWGkDUguX-vPPCVyF7D2Q)
+* [idea编译器光标变为insert状态](https://blog.csdn.net/qingfengmuzhu1993/article/details/79496280)

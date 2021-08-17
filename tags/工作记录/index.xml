@@ -1,4 +1,18 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Aug 2021 22:41:57 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>IDEA问题汇总</title><link>https://lewky.cn/posts/idea-issues/</link><pubDate>Fri, 06 Aug 2021 22:41:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 07 Aug 2021 23:23:54 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>Log4j、Log4j2问题汇总</title><link>https://lewky.cn/posts/log4j2-issues/</link><pubDate>Sat, 07 Aug 2021 23:23:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/log4j2-issues/</guid><description><![CDATA[<h2 id="isdebugenabled的作用"><code>isDebugEnabled()</code>的作用</h2>
+<p>查看公司项目的代码，发现在打印日志的时候会先进行一次判断，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">LOGGER</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">LOGGER</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Search parameters: &#34;</span> <span class="o">+</span> <span class="n">searchParams</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>IDEA问题汇总</title><link>https://lewky.cn/posts/idea-issues/</link><pubDate>Fri, 06 Aug 2021 22:41:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文基于2021-2版本的IDEA。</p>
 <h2 id="启动时选择工作空间">启动时选择工作空间</h2>
 <p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Appearance &amp; Behavior</code> -&gt; <code>System Settings</code> -&gt; 不勾选<code>Reopen projects on startup</code></p>
@@ -151,14 +165,4 @@ npm config set cache <span class="s2">&#34;D:\software\nodejs\node_cache&#34;</s
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>SmartGit - 选择秘钥时不支持OPENSSH格式</title><link>https://lewky.cn/posts/23f5d220.html/</link><pubDate>Tue, 13 Aug 2019 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/23f5d220.html/</guid><description>&lt;h2 id="问题与解决方法">问题与解决方法&lt;/h2>
-&lt;p>某天发现用Git Bash生成的SSH key无法被SmartGit识别，提示需要PEM格式，不支持OPENSSH格式。奇怪的是之前也用同样的方法生成的key是可以被识别的，猜测要么是SmartGit版本不同导致无法支持OPENSSH格式，要么是Git Bash版本不同导致默认生成的key格式发生了变化。&lt;/p></description></item><item><title>Linux - /bin/sh^M: bad interpreter: No such file or directory</title><link>https://lewky.cn/posts/d5221ccd.html/</link><pubDate>Thu, 08 Aug 2019 21:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/d5221ccd.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">/bin/sh^M: bad interpreter: No such file or directory
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+&lt;p>某天发现用Git Bash生成的SSH key无法被SmartGit识别，提示需要PEM格式，不支持OPENSSH格式。奇怪的是之前也用同样的方法生成的key是可以被识别的，猜测要么是SmartGit版本不同导致无法支持OPENSSH格式，要么是Git Bash版本不同导致默认生成的key格式发生了变化。&lt;/p></description></item></channel></rss>

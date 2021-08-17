@@ -185,6 +185,12 @@ Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，�
 
 如果这时候还没效果，要手动打开apt的功能。邮件项目，选择`Properties` -> `Maven` -> `Annotation Processing` -> 勾选`Enable project specific settings` -> 选择第一个选项`Automatically config JDT APT` -> `Apply and Close`
 
+## 弹窗提示`code recommenders cannot download its model repository index`
+
+原因是该插件的model地址`http://download.eclipse.org/recommenders/models/oxygen/`已经被移除了，且很久没有更新了，最新版的Eclipse里已经把该地址移除了，旧版本的需要自行移除：
+
+`Window` -> `Preferences` -> `Code Recommenders` -> `Models` -> 选中这里面的地址，然后点击`Remove`即可。
+
 ## 参考链接
 
 * [解决办法：Access restriction: The type JPEGImageEncoder is not accessible due to restriction](https://blog.csdn.net/free4294/article/details/7017442)
@@ -194,3 +200,4 @@ Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，�
 * [Maven管理项目的时候 Update Project后jre变成1.5](https://blog.csdn.net/Ashes18/article/details/70488617)
 * [安装jadClipse插件后,还是不能反编译.class](https://zhidao.baidu.com/question/152315060.html)
 * [mapstruct在eclipse生成不了mapper的实现类的问题](https://blog.csdn.net/u014519194/article/details/54410391)
+* [eclipse 报错 code recommenders cannot download its model repository index-已解决](https://blog.csdn.net/sjc170/article/details/102961231)
