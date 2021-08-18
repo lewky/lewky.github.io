@@ -49,7 +49,8 @@ Result table:
 (2, B) and (4, D) were changed from &#39;f&#39; to &#39;m&#39;.
 </code></pre></td></tr></table>
 </div>
-</div><p>sex字段是枚举类型，只有m和f两种值，现在要求只能用一个简单的update语句来将表中数据的sex字段的值对调，即m变为f，f变为m；不允许使用select之类的语句。</p>]]></description></item><item><title>Log4j、Log4j2问题汇总</title><link>https://lewky.cn/posts/log4j2-issues/</link><pubDate>Sat, 07 Aug 2021 23:23:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/log4j2-issues/</guid><description><![CDATA[<h2 id="isdebugenabled的作用"><code>isDebugEnabled()</code>的作用</h2>
+</div><p>sex字段是枚举类型，只有m和f两种值，现在要求只能用一个简单的update语句来将表中数据的sex字段的值对调，即m变为f，f变为m；不允许使用select之类的语句。</p>]]></description></item><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
+&lt;p>最近需要用到iReport报表工具，但是在启动客户端时却发现会闪退，无法正常启动。查找了资料，发现是因为iReport无法支持jdk 1.8，必须要修改配置文件，将java版本指定为1.7或之前的版本。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。&lt;/p></description></item><item><title>Log4j、Log4j2问题汇总</title><link>https://lewky.cn/posts/log4j2-issues/</link><pubDate>Sat, 07 Aug 2021 23:23:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/log4j2-issues/</guid><description><![CDATA[<h2 id="isdebugenabled的作用"><code>isDebugEnabled()</code>的作用</h2>
 <p>查看公司项目的代码，发现在打印日志的时候会先进行一次判断，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -442,6 +443,4 @@ Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
 <p><code>alt + ←</code> 跳转到上一步操作</p>
 <p><code>alt + →</code> 跳转到下一步操作</p>
 <p><code>alt + ↑</code> 将光标所在的那一行向上挪动一行</p>
-<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item><item><title>JDK自带的那些好用的工具</title><link>https://lewky.cn/posts/jdk-tools.html/</link><pubDate>Fri, 03 Jan 2020 14:59:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jdk-tools.html/</guid><description>将中文转换为ASCII码的工具 在jdk的安装目录下，有一个bin文件夹，这里隐藏了一个将中文转换为ASCII码的工具：native2ascii.exe。双击运行该程序，输入要转换的中文，按下Enter，就可以得到相应的ASCII码了。 接下来要如何将该ASCII码复制到文本上？ 右键cmd窗口，选择编辑菜单里的标记，选定了要复制的内容后按下Enter就自动复制到</description></item><item><title>PostgreSQL - 如何杀死被锁死的进程</title><link>https://lewky.cn/posts/1514292e.html/</link><pubDate>Thu, 14 Nov 2019 23:24:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1514292e.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>在一次系统迭代后用户投诉说无法成功登陆系统，经过测试重现和日志定位，最后发现是由于用户在ui上进行了某些操作后，触发了堆栈溢出异常，导致数据库里的用户登陆信息表的数据被锁住，无法释放。这个表里存放的是用户的session信息。</p>
-<p>虽然后来解决了问题，但是数据库里这个用户登录信息表里被lock住的数据始终无法释放，这导致用户永远无法登陆成功，需要手动跑SQL把锁去掉才行。</p>]]></description></item></channel></rss>
+<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item><item><title>JDK自带的那些好用的工具</title><link>https://lewky.cn/posts/jdk-tools.html/</link><pubDate>Fri, 03 Jan 2020 14:59:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jdk-tools.html/</guid><description>将中文转换为ASCII码的工具 在jdk的安装目录下，有一个bin文件夹，这里隐藏了一个将中文转换为ASCII码的工具：native2ascii.exe。双击运行该程序，输入要转换的中文，按下Enter，就可以得到相应的ASCII码了。 接下来要如何将该ASCII码复制到文本上？ 右键cmd窗口，选择编辑菜单里的标记，选定了要复制的内容后按下Enter就自动复制到</description></item></channel></rss>

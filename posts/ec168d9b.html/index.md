@@ -3,7 +3,9 @@
 ## 前言
 
 log4j中常用的Filter分为四种：DenyAllFilter、LevelMatchFilter、LevelRangeFilter、StringMatchFilter。
+
 当appender匹配了某个Filter的时候，就不会继续匹配下一个filter，所以当需要配置多个filter时需要注意先后顺序，这样才能实现需要的效果。
+
 这些filter有个共同的属性`AcceptOnMatch`，用来控制匹配到的appender是否打印日志。
 <!--more-->
 

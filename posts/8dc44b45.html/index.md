@@ -95,7 +95,7 @@ public static void createDomainAppender(final String domainId){
 
 这段代码动态生成一个名为`omainCntCoreLog`的RollingFileAppender，该appender交由`com.lewis`这个logger来使用，并将日志信息输入到`logs/{domainId}/CNTCore.log`。
 
-该logger在使用`omainCntCoreLog`这个RollingFileAppender时还设置了一个过滤器`ThreadContextMapFilter`，这个Filter用来控制logger只能对指定了domainId的进行打印日志。
+该logger在使用`domainCntCoreLog`这个RollingFileAppender时还设置了一个过滤器`ThreadContextMapFilter`，这个Filter用来控制logger只能对指定了domainId的进行打印日志。
 
 ThreadContext是Log4j2用来存放线程信息的，相当于Log4j 1.X中的MDC和NDC，MDC是map，NDC是stack。当每个User登录时，就将该User的domainId存放到ThreadContext中，当退出登录时就将该domainId从ThreadContext中移除。
 
