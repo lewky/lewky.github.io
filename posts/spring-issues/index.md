@@ -1,8 +1,8 @@
-# Spring异常 - SpelEvaluationException: EL1030E
+# Spring问题汇总
 
-## 问题与分析
+## `org.springframework.expression.spel.SpelEvaluationException: EL1030E`
 
-在本地开发项目时发现报错如下：
+运行Spring项目时报错如下：
 
 ```java
 org.springframework.expression.spel.SpelEvaluationException: EL1030E: The operator 'ADD' is not supported between objects of type 'java.lang.String' and 'null'
@@ -26,6 +26,7 @@ org.springframework.expression.spel.SpelEvaluationException: EL1030E: The operat
 
 <!--more-->
 从堆栈信息可以看出，该异常与`spel`有关。`spel`指的是`Spring Expression Language`，结合问题代码进行分析，可以认为该异常与spring表达式有关。而在我的代码里，只有`@Cacheable`注解里使用到了`spel`，如下：
+
 ```java
     @Cacheable(key = "#root.target.getCacheKeyPrefix() + '::' + + #root.target.getRootDomain() + '-' + #root.target.getLocale() + '-' + #searchLabelKey")
     public String getFromRootDomain(final String labelId, final String locale, final String searchLabelKey) {
@@ -41,8 +42,37 @@ org.springframework.expression.spel.SpelEvaluationException: EL1030E: The operat
 @Cacheable(key = "#root.target.getCacheKeyPrefix() + '::' + #root.target.getRootDomain() + '-' + #root.target.getLocale() + '-' + #searchLabelKey")
 ```
 
-而之所以之前没能发现这个问题，是因为没有启用redis cache，导致避开了这个问题。目前刚开始了解`spel`这门表达式语言，在此记录下这个问题，方便日后回顾分析，下面顺便贴上官方的一篇中译文档。
+而之所以之前没能发现这个问题，是因为没有启用redis cache，导致避开了这个问题。目前刚开始了解`spel`这门表达式语言，在此记录下这个问题，方便日后回顾分析，参考链接里顺便贴上官方的一篇中译文档。
+
+## 使用`@PathVariable`接收参数时，最后一个`.`后的字符串会被截断
+
+当使用了`@PathVariable`接收参数时，如果该参数的值包含有`.`这个符号，则最后的`.`以及之后的字符串会被截断。举个简单的例子，代码如下：
+
+```java
+@GetMapping(value = "/users/{loginId}", produces = Constants.REQUEST_BODY_TYPE_APP_JSON)
+public UserDto getLatestUserByLoginId(@PathVariable final String loginId) throws DocumentNotFoundException {
+    final UserDto result = userDocumentService.findDtoByLoginIdAndIsLatest(loginId);
+    return result;
+}
+```
+
+* 当请求是`/users/lewis.liu`时，`loginId`参数接收到的值是`lewis`；
+* 当请求是`/users/lewis.liu.p`时，`loginId`参数接收到的值是`lewis.liu`；
+* 当请求是`/users/lewis.liu.p.w`时，`loginId`参数接收到的值是`lewis.liu.p`。
+
+可以发现，`@PathVariable`注解会自动截断最后一个`.`以及之后的字符串。这是因为Spring认为最后一个`.`以及之后的字符串属于文件扩展类型，比如`.java`之类的，所以就自动将其截断了。
+
+解决这个问题可以在请求的变量占位符里加上正则表达式，如下：
+
+```java
+// 原来的写法
+@GetMapping(value = "/users/{loginId}", produces = Constants.REQUEST_BODY_TYPE_APP_JSON)
+
+// 改后的写法
+@GetMapping(value = "/users/{loginId:.+}", produces = Constants.REQUEST_BODY_TYPE_APP_JSON)
+```
 
 ## 参考链接
 
 * [8. Spring 表达式语言 (SpEL)](http://itmyhome.com/spring/expressions.html#expressions-operator-safe-navigation)
+* [Spring MVC @PathVariable with dot (.) is getting truncated](https://stackoverflow.com/questions/16332092/spring-mvc-pathvariable-with-dot-is-getting-truncated)

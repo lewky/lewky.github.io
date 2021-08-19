@@ -191,6 +191,21 @@ Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，�
 
 `Window` -> `Preferences` -> `Code Recommenders` -> `Models` -> 选中这里面的地址，然后点击`Remove`即可。
 
+## Eclipse无法搜索到本地仓库的jar包
+
+某次忽然发现无法在Eclipse中搜索到刚刚install好的jar包，来回折腾了好久也无法解决。百度后才知道原因，其实每次打开Eclipse时都会自动更新index索引，可能是出了某种未知的问题，自动更新index失败了，由于index缺失导致无法定位到本地install的新jar包。所以我们需要在Eclipse里手动更新下maven的index索引。
+
+解决方法如下：
+
+1. 打开Eclipse的Maven仓库视图：`Window` -> `Show View` -> `Other...` -> `Maven Repositories`
+2. 找到你的本地仓库并重建索引：`Local Repositories` -> `Local Repository` -> 右键，选择`Rebuild Index`
+3. 更新完索引后就可以搜索到本地库里最新的jar包了
+
+如果想搜索远程库的最新依赖(jar包)，操作类似：
+1. 在Maven仓库视图里：`Global Repositories` -> 选定某个远程库 -> 右键，选择`Update Index`
+2. 更新完索引后就可以搜索到远程库里最新的jar包了
+
+
 ## 参考链接
 
 * [解决办法：Access restriction: The type JPEGImageEncoder is not accessible due to restriction](https://blog.csdn.net/free4294/article/details/7017442)
@@ -201,3 +216,4 @@ Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，�
 * [安装jadClipse插件后,还是不能反编译.class](https://zhidao.baidu.com/question/152315060.html)
 * [mapstruct在eclipse生成不了mapper的实现类的问题](https://blog.csdn.net/u014519194/article/details/54410391)
 * [eclipse 报错 code recommenders cannot download its model repository index-已解决](https://blog.csdn.net/sjc170/article/details/102961231)
+* [在eclipse的maven插件中搜寻本地仓库中的jar搜索不到的解决方案](https://blog.csdn.net/weixin_34289744/article/details/86033158)

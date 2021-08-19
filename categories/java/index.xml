@@ -1,4 +1,14 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Java - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/java/</link><description>Java - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 01 Jun 2021 23:30:42 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/java/" rel="self" type="application/rss+xml"/><item><title>Java - 数据结构之树</title><link>https://lewky.cn/posts/java-tree.html/</link><pubDate>Tue, 01 Jun 2021 23:30:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-tree.html/</guid><description><![CDATA[<h2 id="基本概念">基本概念</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Java - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/java/</link><description>Java - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Aug 2021 23:13:04 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/java/" rel="self" type="application/rss+xml"/><item><title>PowerMock问题汇总</title><link>https://lewky.cn/posts/powermock-issues/</link><pubDate>Tue, 10 Aug 2021 23:13:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/powermock-issues/</guid><description><![CDATA[<h2 id="powermock报错导致无法运行测试类">PowerMock报错导致无法运行测试类</h2>
+<p>在执行单元测试时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ScriptEngineManager</span> <span class="n">providers</span><span class="o">.</span><span class="na">next</span><span class="o">():</span> <span class="n">javax</span><span class="o">.</span><span class="na">script</span><span class="o">.</span><span class="na">ScriptEngineFactory</span><span class="o">:</span> <span class="n">Provider</span> <span class="n">jdk</span><span class="o">.</span><span class="na">nashorn</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">scripting</span><span class="o">.</span><span class="na">NashornScriptEngineFactory</span> <span class="n">not</span> <span class="n">a</span> <span class="n">subtype</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在Stack Overflow上找到了同样的错误，该报错是在使用了PowerMock框架后发生的，奇怪的是，某些同样使用该框架的测试类却不会报错，暂时不明白抛出该异常的根本原因，先记录下解决方法。</p>]]></description></item><item><title>Java - 数据结构之树</title><link>https://lewky.cn/posts/java-tree.html/</link><pubDate>Tue, 01 Jun 2021 23:30:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-tree.html/</guid><description><![CDATA[<h2 id="基本概念">基本概念</h2>
 <p>树（Tree）不是线性表，而是一种描述非线性层次关系的数据结构，描述的是一对多的数据结构。</p>
 <p>● 结点：Node，有的资料也叫做节点。<br>
 ● 根结点（Root）：没有父结点的结点，一棵树只能有一个根结点。<br>
@@ -73,5 +83,4 @@
 <h2 id="安装jdk">安装jdk</h2>
 <p>作为一名Java开发，当然是要安装jdk了，如果只是需要Java的运行环境，那么安装jre就足够了。另外说下，jdk里以及包含了jre了。</p>
 <p>首先去<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener noreffer">官网</a>下载Java，由于Sun被Oracle收购了，现在去官网下载Java需要先注册一个Oracle账号，虽然麻烦了点，但是没办法，谁叫Oracle牛逼呢。</p>
-<p>由于页面是全英文的，部分同学可能会懵逼，其实没什么，随便找一个版本下载就行。唯一需要注意的是，下载文件之前要先点击一下文件上方的同意协议，否则会提示你还没有同意协议。</p>]]></description></item><item><title>Java - Class版本号和UnsupportedClassVersionError</title><link>https://lewky.cn/posts/fd82a4a.html/</link><pubDate>Mon, 12 Nov 2018 22:11:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fd82a4a.html/</guid><description><![CDATA[<h2 id="问题分析">问题分析</h2>
-<p>Java是向下兼容的，每一个jdk版本都有对应的class版本号(major + minor version numbers)；如果用低版本的jvm去加载高版本jdk编译的类，就会报错：<code>java.lang.UnsupportedClassVersionError</code></p>]]></description></item></channel></rss>
+<p>由于页面是全英文的，部分同学可能会懵逼，其实没什么，随便找一个版本下载就行。唯一需要注意的是，下载文件之前要先点击一下文件上方的同意协议，否则会提示你还没有同意协议。</p>]]></description></item></channel></rss>

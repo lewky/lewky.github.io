@@ -1,0 +1,11 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>PowerMock - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/powermock/</link><description>PowerMock - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Aug 2021 23:13:04 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/powermock/" rel="self" type="application/rss+xml"/><item><title>PowerMock问题汇总</title><link>https://lewky.cn/posts/powermock-issues/</link><pubDate>Tue, 10 Aug 2021 23:13:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/powermock-issues/</guid><description><![CDATA[<h2 id="powermock报错导致无法运行测试类">PowerMock报错导致无法运行测试类</h2>
+<p>在执行单元测试时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ScriptEngineManager</span> <span class="n">providers</span><span class="o">.</span><span class="na">next</span><span class="o">():</span> <span class="n">javax</span><span class="o">.</span><span class="na">script</span><span class="o">.</span><span class="na">ScriptEngineFactory</span><span class="o">:</span> <span class="n">Provider</span> <span class="n">jdk</span><span class="o">.</span><span class="na">nashorn</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">scripting</span><span class="o">.</span><span class="na">NashornScriptEngineFactory</span> <span class="n">not</span> <span class="n">a</span> <span class="n">subtype</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在Stack Overflow上找到了同样的错误，该报错是在使用了PowerMock框架后发生的，奇怪的是，某些同样使用该框架的测试类却不会报错，暂时不明白抛出该异常的根本原因，先记录下解决方法。</p>]]></description></item></channel></rss>

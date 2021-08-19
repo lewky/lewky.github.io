@@ -49,7 +49,59 @@ Result table:
 (2, B) and (4, D) were changed from &#39;f&#39; to &#39;m&#39;.
 </code></pre></td></tr></table>
 </div>
-</div><p>sex字段是枚举类型，只有m和f两种值，现在要求只能用一个简单的update语句来将表中数据的sex字段的值对调，即m变为f，f变为m；不允许使用select之类的语句。</p>]]></description></item><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
+</div><p>sex字段是枚举类型，只有m和f两种值，现在要求只能用一个简单的update语句来将表中数据的sex字段的值对调，即m变为f，f变为m；不允许使用select之类的语句。</p>]]></description></item><item><title>PowerMock问题汇总</title><link>https://lewky.cn/posts/powermock-issues/</link><pubDate>Tue, 10 Aug 2021 23:13:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/powermock-issues/</guid><description><![CDATA[<h2 id="powermock报错导致无法运行测试类">PowerMock报错导致无法运行测试类</h2>
+<p>在执行单元测试时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ScriptEngineManager</span> <span class="n">providers</span><span class="o">.</span><span class="na">next</span><span class="o">():</span> <span class="n">javax</span><span class="o">.</span><span class="na">script</span><span class="o">.</span><span class="na">ScriptEngineFactory</span><span class="o">:</span> <span class="n">Provider</span> <span class="n">jdk</span><span class="o">.</span><span class="na">nashorn</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">scripting</span><span class="o">.</span><span class="na">NashornScriptEngineFactory</span> <span class="n">not</span> <span class="n">a</span> <span class="n">subtype</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在Stack Overflow上找到了同样的错误，该报错是在使用了PowerMock框架后发生的，奇怪的是，某些同样使用该框架的测试类却不会报错，暂时不明白抛出该异常的根本原因，先记录下解决方法。</p>]]></description></item><item><title>Spring问题汇总</title><link>https://lewky.cn/posts/spring-issues/</link><pubDate>Mon, 09 Aug 2021 23:06:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-issues/</guid><description><![CDATA[<h2 id="orgspringframeworkexpressionspelspelevaluationexception-el1030e"><code>org.springframework.expression.spel.SpelEvaluationException: EL1030E</code></h2>
+<p>运行Spring项目时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">SpelEvaluationException</span><span class="o">:</span> <span class="n">EL1030E</span><span class="o">:</span> <span class="n">The</span> <span class="n">operator</span> <span class="err">&#39;</span><span class="n">ADD</span><span class="err">&#39;</span> <span class="n">is</span> <span class="n">not</span> <span class="n">supported</span> <span class="n">between</span> <span class="n">objects</span> <span class="n">of</span> <span class="n">type</span> <span class="err">&#39;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="err">&#39;</span> <span class="n">and</span> <span class="err">&#39;</span><span class="kc">null</span><span class="err">&#39;</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ExpressionState</span><span class="o">.</span><span class="na">operate</span><span class="o">(</span><span class="n">ExpressionState</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">240</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">80</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">85</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">SpelNodeImpl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">SpelNodeImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">109</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">standard</span><span class="o">.</span><span class="na">SpelExpression</span><span class="o">.</span><span class="na">getValue</span>
+<span class="o">....</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">NioEndpoint$SocketProcessor</span><span class="o">.</span><span class="na">doRun</span><span class="o">(</span><span class="n">NioEndpoint</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1415</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">SocketProcessorBase</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">SocketProcessorBase</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">49</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.</span><span class="na">ThreadPoolExecutor</span><span class="o">.</span><span class="na">runWorker</span><span class="o">(</span><span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1142</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.</span><span class="na">ThreadPoolExecutor$Worker</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">617</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">threads</span><span class="o">.</span><span class="na">TaskThread$WrappingRunnable</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TaskThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">61</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Thread</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">745</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
 &lt;p>最近需要用到iReport报表工具，但是在启动客户端时却发现会闪退，无法正常启动。查找了资料，发现是因为iReport无法支持jdk 1.8，必须要修改配置文件，将java版本指定为1.7或之前的版本。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。&lt;/p></description></item><item><title>Log4j、Log4j2问题汇总</title><link>https://lewky.cn/posts/log4j2-issues/</link><pubDate>Sat, 07 Aug 2021 23:23:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/log4j2-issues/</guid><description><![CDATA[<h2 id="isdebugenabled的作用"><code>isDebugEnabled()</code>的作用</h2>
 <p>查看公司项目的代码，发现在打印日志的时候会先进行一次判断，如下：</p>
 <div class="highlight"><div class="chroma">
@@ -426,21 +478,4 @@ Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=n
 </code></pre></td></tr></table>
 </div>
-</div><p>参数说明：</p>]]></description></item><item><title>Eclipse - 快捷键篇</title><link>https://lewky.cn/posts/eclipse-hotkey.html/</link><pubDate>Sat, 18 Jan 2020 23:04:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eclipse-hotkey.html/</guid><description><![CDATA[<h2 id="常用的快捷键">常用的快捷键</h2>
-<p><code>ctrl + shift + r</code> 查找工作空间内的文件，不包括Jar包内的文件</p>
-<p><code>ctrl + shift + t</code> 查找工作空间内的文件，包括Jar包内的文件</p>
-<p><code>ctrl + o</code> 查看当前类的所有方法</p>
-<p><code>ctrl + e</code> 快速切换编辑器，在打开了非常多的文件时会很便利</p>
-<p><code>ctrl + /</code> 单行注释或多行注释或取消注释</p>
-<p><code>ctrl + t</code> 查找一个类的继承关系树</p>
-<p><code>ctrl + d</code> 删除光标所在行</p>
-<p><code>ctrl + space</code> 代码提示，和输入法快捷键冲突时也可以用<code>alt + /</code></p>
-<p><code>ctrl + shift + f</code> 格式化代码</p>
-<p><code>ctrl + k</code> 快速跳转到下一个相同的被选中字符，在查找相同的字符串时会很方便</p>
-<p><code>ctrl + shift + k</code> 快速跳转到上一个相同的被选中字符</p>
-<p><code>shift + enter</code> 在光标所在行的下一行创建一行空白行</p>
-<p><code>ctrl + shift + enter</code> 在光标所在行的上一行创建一行空白行</p>
-<p><code>alt + ←</code> 跳转到上一步操作</p>
-<p><code>alt + →</code> 跳转到下一步操作</p>
-<p><code>alt + ↑</code> 将光标所在的那一行向上挪动一行</p>
-<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item><item><title>JDK自带的那些好用的工具</title><link>https://lewky.cn/posts/jdk-tools.html/</link><pubDate>Fri, 03 Jan 2020 14:59:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jdk-tools.html/</guid><description>将中文转换为ASCII码的工具 在jdk的安装目录下，有一个bin文件夹，这里隐藏了一个将中文转换为ASCII码的工具：native2ascii.exe。双击运行该程序，输入要转换的中文，按下Enter，就可以得到相应的ASCII码了。 接下来要如何将该ASCII码复制到文本上？ 右键cmd窗口，选择编辑菜单里的标记，选定了要复制的内容后按下Enter就自动复制到</description></item></channel></rss>
+</div><p>参数说明：</p>]]></description></item></channel></rss>
