@@ -1,4 +1,42 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Aug 2021 23:13:04 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>PowerMock问题汇总</title><link>https://lewky.cn/posts/powermock-issues/</link><pubDate>Tue, 10 Aug 2021 23:13:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/powermock-issues/</guid><description><![CDATA[<h2 id="powermock报错导致无法运行测试类">PowerMock报错导致无法运行测试类</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 20 Aug 2021 08:23:26 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>SpringBoot问题汇总</title><link>https://lewky.cn/posts/springboot-issues/</link><pubDate>Fri, 20 Aug 2021 08:23:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/springboot-issues/</guid><description><![CDATA[<h2 id="使用log4j2日志替代默认的logback">使用Log4j2日志替代默认的Logback</h2>
+<p>SpringBoot默认使用Logback打印日志，出于性能考虑想要改用Log4j2，需要修改POM中的依赖，移除默认的Logback依赖：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+ 
+&lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PowerMock问题汇总</title><link>https://lewky.cn/posts/powermock-issues/</link><pubDate>Tue, 10 Aug 2021 23:13:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/powermock-issues/</guid><description><![CDATA[<h2 id="powermock报错导致无法运行测试类">PowerMock报错导致无法运行测试类</h2>
 <p>在执行单元测试时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -151,36 +189,6 @@ npm config set cache <span class="s2">&#34;D:\software\nodejs\node_cache&#34;</s
 	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">AbstractLazyInitializer</span><span class="o">.</span><span class="na">getImplementation</span><span class="o">(</span><span class="n">AbstractLazyInitializer</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">309</span><span class="o">)</span>
 	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">pojo</span><span class="o">.</span><span class="na">bytebuddy</span><span class="o">.</span><span class="na">ByteBuddyInterceptor</span><span class="o">.</span><span class="na">intercept</span><span class="o">(</span><span class="n">ByteBuddyInterceptor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">45</span><span class="o">)</span>
 	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">ProxyConfiguration$InterceptorDispatcher</span><span class="o">.</span><span class="na">intercept</span><span class="o">(</span><span class="n">ProxyConfiguration</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">95</span><span class="o">)</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>Java日期问题汇总</title><link>https://lewky.cn/posts/java-date-issues.html/</link><pubDate>Mon, 25 Jan 2021 23:43:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-date-issues.html/</guid><description><![CDATA[<h2 id="日期格式化的跨年问题">日期格式化的跨年问题</h2>
-<p>通常格式化日期时，都是使用的<code>YYYY/MM/dd</code>来格式化日期，但是在遇到跨年日期时，就会遇到很神奇的现象，如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">Calendar</span> <span class="n">calendar</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
-<span class="c1">// 2020-12-26
-</span><span class="c1"></span><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">2020</span><span class="o">,</span> <span class="n">11</span><span class="o">,</span> <span class="n">26</span><span class="o">);</span>
-<span class="kd">final</span> <span class="n">Date</span> <span class="n">date1226</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">getTime</span><span class="o">();</span>
-<span class="c1">// 2020-12-27
-</span><span class="c1"></span><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">2020</span><span class="o">,</span> <span class="n">11</span><span class="o">,</span> <span class="n">27</span><span class="o">);</span>
-<span class="kd">final</span> <span class="n">Date</span> <span class="n">date1227</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">getTime</span><span class="o">();</span>
-<span class="c1">// YYYY
-</span><span class="c1"></span><span class="kd">final</span> <span class="n">DateFormat</span> <span class="n">Y</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">&#34;YYYY/MM/dd&#34;</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-26用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1226</span><span class="o">));</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-27用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1227</span><span class="o">));</span>
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

@@ -1,4 +1,42 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 17 Aug 2021 23:21:30 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>LeetCode - SQL题目</title><link>https://lewky.cn/posts/leetcode-sql/</link><pubDate>Tue, 17 Aug 2021 23:21:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/leetcode-sql/</guid><description><![CDATA[<h2 id="627-swap-salary">627. Swap Salary</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 20 Aug 2021 08:23:26 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>SpringBoot问题汇总</title><link>https://lewky.cn/posts/springboot-issues/</link><pubDate>Fri, 20 Aug 2021 08:23:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/springboot-issues/</guid><description><![CDATA[<h2 id="使用log4j2日志替代默认的logback">使用Log4j2日志替代默认的Logback</h2>
+<p>SpringBoot默认使用Logback打印日志，出于性能考虑想要改用Log4j2，需要修改POM中的依赖，移除默认的Logback依赖：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+ 
+&lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>LeetCode - SQL题目</title><link>https://lewky.cn/posts/leetcode-sql/</link><pubDate>Tue, 17 Aug 2021 23:21:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/leetcode-sql/</guid><description><![CDATA[<h2 id="627-swap-salary">627. Swap Salary</h2>
 <h3 id="题目">题目</h3>
 <p><a href="https://leetcode.com/problems/swap-salary/description/">https://leetcode.com/problems/swap-salary/description/</a></p>
 <div class="highlight"><div class="chroma">
@@ -467,15 +505,4 @@ Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
 </div>
 </div>]]></description></item><item><title>Hugo系列(1) - 简单搭建教程与远程部署</title><link>https://lewky.cn/posts/hugo-1.html/</link><pubDate>Sun, 06 Sep 2020 21:10:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。</p>
-<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item><item><title>Java的远程调试Remote Debug</title><link>https://lewky.cn/posts/java-remote-debug.html/</link><pubDate>Tue, 17 Mar 2020 23:30:40 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-remote-debug.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>一般开发项目时可以直接本地借助IDE工具进行debug调试，但对于线上的项目，则需要借助Java提供的远程debug功能来进行调试。可以在启动项目前通过配置对应的JVM参数来启用远程debug，也可以把参数添加到Tomcat或者Jetty之类的启动脚本里。</p>
-<h2 id="配置jvm参数">配置JVM参数</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=n
-</code></pre></td></tr></table>
-</div>
-</div><p>参数说明：</p>]]></description></item></channel></rss>
+<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item></channel></rss>
