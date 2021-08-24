@@ -18,6 +18,7 @@ LoveIt: v0.2.10
 * [Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章](/posts/hugo-3.html/)
 * [Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章](/posts/hugo-3.1.html/)
 * [Hugo系列(3.2) - LoveIt主题美化与博客功能增强 · 第三章](/posts/hugo-3.2.html/)
+* [Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章](/posts/hugo-3-3/)
 
 <!--more-->
 
@@ -285,6 +286,157 @@ outdatedInfoWarningAfter:
 </div>
 ```
 
+## 菜单栏支持子菜单
+
+### 修改模板代码
+
+将主题的`/themes/LoveIt/layouts/partials/header.html`拷贝一份到`layouts/partials/header.html`，找到如下代码，一共有两个地方，分别对应网页端和手机端：
+```
+{{- range .Site.Menus.main -}}
+    {{- $url := .URL | relLangURL -}}
+    {{- with .Page -}}
+        {{- $url = .RelPermalink -}}
+    {{- end -}}
+    <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
+    </a>
+{{- end -}}
+```
+
+将上述代码改为如下代码：
+
+```
+{{- range .Site.Menus.main -}}
+	{{ if .HasChildren }}
+		<div class="dropdown">
+			<a {{ if .URL }}href="{{ .URL }}"{{ else }}href="javascript:void(0);"{{ end }} class="menu-item menu-more dropbtn" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>
+				{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+			</a>
+			<div class="menu-more-content dropdown-content">
+				{{- range .Children -}}
+					{{- $url := .URL | relLangURL -}}
+					{{- with .Page -}}
+						{{- $url = .RelPermalink -}}
+					{{- end -}}
+						<a href="{{ $url }}" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}</a>
+				{{- end -}}
+			</div>
+		</div>
+	{{ else }}
+		{{- $url := .URL | relLangURL -}}
+		{{- with .Page -}}
+			{{- $url = .RelPermalink -}}
+		{{- end -}}
+		<a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
+			{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+		</a>
+	{{- end -}}
+{{- end -}}
+```
+
+### 添加css样式
+
+在`_custom.scss`中添加如下代码：
+```
+/* 子菜单栏 */
+.dropdown {
+  display: inline-block;
+}
+
+/* 子菜单的内容 (默认隐藏) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  line-height: 1.3rem;
+}
+
+/* 子菜单的链接 */
+.dropdown-content a {
+  padding: 10px 18px 10px 14px;
+  text-decoration: none;
+  display: block;
+  & i {
+    margin-right: 3px;
+  }
+}
+
+/* 鼠标移上去后修改子菜单链接颜色 */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+/* 在鼠标移上去后显示子菜单 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media screen and (max-width: 680px) {
+    .dropdown {
+      display: inline;
+    }
+  .dropdown:hover .dropdown-content {
+    display: inline;
+    z-index: 1;
+    margin-top: -2em;
+    margin-left: 3em;
+  }
+  .dropdown-content a:hover {
+    background-color: transparent;
+  }
+}
+```
+
+### 配置子菜单
+
+打开站点配置文件`config.toml`，添加子菜单到菜单栏里。子菜单其实和原本的菜单一样写法，只是多了一个`parent`属性，用来定位到对应的父菜单的`identifier`。下面是一个简单的子菜单定义方式（没有使用多语言功能）：
+```
+# 菜单配置
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+    pre = "<i class='fas fa-fw fa-archive'></i>"
+    # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+    post = ""
+    name = "归档"
+    url = "/posts/"
+    title = ""
+    weight = 1
+  [[menu.main]]
+    pre = "<i class='fas fa-fw fa-link'></i>"
+    name = "友链"
+    identifier = "friends"
+    url = "/friends/"
+    weight = 2
+
+  # 二级菜单
+  [[menu.main]]
+    parent = "posts"
+    pre = "<i class='fas fa-fw fa-th'></i>"
+    name = "分类"
+    identifier = "categories"
+    url = "/categories/"
+    weight = 1
+  [[menu.main]]
+    parent = "posts"
+	identifier = "tags"
+    pre = "<i class='fas fa-fw fa-tag'></i>"
+    post = "_blank"
+	name = "标签"
+	url = "/tags/"
+	title = ""
+	weight = 2
+```
+
+菜单栏还允许以下配置：
+* 通过给菜单配置一个`post = "_blank"`属性来将该菜单设置为在新窗口打开该链接，如果`post`属性填其他值则依然作为原本的功能使用：即给`name`添加后缀。
+* 通过设置`title`来添加超链的提示文本。
+* 父菜单可以通过将`url`设置为空来将其渲染为不跳转的超链：`url = ""`。
+
 ## 添加文章打赏
 
 ### 配置文件添加相关变量
@@ -445,6 +597,404 @@ article .post-reward .qr-code .image {
     height: 200px
 }
 ```
+
+## 添加打赏榜
+
+全文新增了[文章打赏的功能](https://lewky.cn/posts/hugo-3.2.html/#添加文章打赏)，这里添加一个新的页面来记录老板们的打赏和红包，用的是响应式垂直时间轴。
+
+### 配置文件添加子菜单
+
+这里使用了菜单栏的子菜单配置，子菜单的做法请参考[前文](https://lewky.cn/posts/hugo-3.2.html/#菜单栏支持子菜单)。
+
+```
+  [[menu.main]]
+    parent = "posts"
+    pre = "<i class='fas fa-fw fa-donate'></i>"
+    name = "打赏"
+    title = "感谢打赏，老板大气~"
+    identifier = "donation"
+    url = "/donation/"
+    weight = 4
+```
+
+### 添加模板文件`donation.html`
+
+新建模板文件`/layouts/shortcodes/donation.html`，内容如下：
+
+```
+{{ if .IsNamedParams }}
+{{- $cdn := .Site.Params.cdnPrefix -}}
+{{- $name := .Get "name" -}}
+	<div class="cd-timeline-block">
+	{{- if eq $name "wechat" -}}
+		<div class="cd-timeline-img cd-wechat">
+		  <img src="/images/common/wechat.svg" alt="微信">
+		</div>
+	{{- else if eq $name "alipay" -}}
+		<div class="cd-timeline-img cd-alipay">
+		  <img src="{{- $cdn -}}/images/common/alipay.svg" alt="支付宝">
+		</div>
+	{{- end -}}
+	<div class="cd-timeline-content {{ .Get "name" }}">
+	  <p><b>{{ .Get "title" }}</b></p>
+	  <p>{{ .Get "description" }}</p>
+	  <a href={{ .Get "url" }} class="cd-read-more" target="_blank">阅读被打赏文章</a>
+	  <span class="cd-date">{{ .Get "date" }}</span>
+	</div>
+	</div>
+{{ end }}
+```
+
+### 新增css样式文件和图片
+
+新建`/static/css/timeline.style.css`，内容如下：
+
+```css
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 100%;
+  background-color: #e9f0f5;
+}
+
+footer {
+  padding-bottom: 3rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* -------------------------------- 
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.cd-container {
+  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.cd-container::after {
+  /* clearfix */
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* -------------------------------- 
+
+Main components 
+
+-------------------------------- */
+
+#cd-timeline {
+  position: relative;
+  padding: 2em 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#cd-timeline::before {
+  /* this is the vertical line */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18px;
+  height: 100%;
+  width: 4px;
+  background: #d7e4ed;
+}
+@media only screen and (min-width: 1170px) {
+  #cd-timeline {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #cd-timeline::before {
+    left: 50%;
+    margin-left: -2px;
+  }
+}
+
+.cd-timeline-block {
+  position: relative;
+  margin: 2em 0;
+}
+.cd-timeline-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-timeline-block:first-child {
+  margin-top: 0;
+}
+.cd-timeline-block:last-child {
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-block {
+    margin: 4em 0;
+  }
+  .cd-timeline-block:first-child {
+    margin-top: 0;
+  }
+  .cd-timeline-block:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.cd-timeline-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #e9f0f5, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+.cd-timeline-img img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+.cd-timeline-img.cd-wechat {
+  background: #75ce66;
+}
+.cd-timeline-img.cd-alipay {
+  background: #3e8af4;
+}
+.cd-timeline-img.cd-location {
+  background: #f0ca45;
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-img {
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+  }
+  .cssanimations .cd-timeline-img.is-hidden {
+    visibility: hidden;
+  }
+  .cssanimations .cd-timeline-img.bounce-in {
+    visibility: visible;
+    -webkit-animation: cd-bounce-1 0.6s;
+    -moz-animation: cd-bounce-1 0.6s;
+    animation: cd-bounce-1 0.6s;
+  }
+}
+
+.cd-timeline-content {
+  position: relative;
+  margin-left: 60px;
+  border-radius: 0.25em;
+  padding: 1em;
+  box-shadow: 0 3px 0 #d7e4ed;
+}
+.cd-timeline-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-timeline-content {
+  color: #303e49;
+}
+.cd-timeline-block .wechat{
+  background: #75ce66;
+}
+.cd-timeline-block .alipay{
+  background: #3e8af4;
+}
+.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  display: inline-block;
+}
+.cd-timeline-content p {
+  margin: 1em 0;
+  line-height: 1.6;
+}
+.cd-timeline-content .cd-read-more {
+  float: right;
+  padding: .8em 1em;
+  background: white;
+  color: #999 !important;
+  border-radius: 0.25em;
+}
+.no-touch .cd-timeline-content .cd-read-more:hover {
+  background-color: #bac4cb;  
+}
+a.cd-read-more:hover{text-decoration:none; background-color: #424242;  }
+.cd-timeline-content .cd-date {
+  float: left;
+  padding: .8em 0;
+  opacity: .7;
+  color: black;
+}
+.cd-timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 100%;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-right: 7px solid white;
+}
+@media only screen and (min-width: 768px) {
+  .cd-timeline-content {
+    font-size: 20px;
+    font-size: 1.25rem;
+  }
+  .cd-timeline-content p {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+    font-size: 14px;
+    font-size: 0.875rem;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  .cd-timeline-content {
+    margin-left: 0;
+    padding: 1em;
+    width: 45%;
+  }
+  .cd-timeline-content::before {
+    top: 24px;
+    left: 100%;
+    border-color: transparent;
+    border-left-color: white;
+  }
+  .cd-timeline-content .cd-read-more {
+    float: left;
+  }
+  .cd-timeline-content .cd-date {
+    position: absolute;
+    width: 100%;
+    left: 122%;
+    top: 6px;
+    font-size: 16px;
+    font-size: 1rem;
+  }
+  .cd-timeline-block .wechat{
+    background: #75ce66;
+  }
+  .cd-timeline-block .alipay{
+    background: #3e8af4;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content {
+    float: right;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+    top: 24px;
+    left: auto;
+    right: 100%;
+    border-color: transparent;
+    border-right-color: white;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+    float: right;
+  }
+  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+    left: auto;
+    right: 122%;
+    text-align: right;
+  }
+  .cssanimations .cd-timeline-content.is-hidden {
+    visibility: hidden;
+  }
+  .cssanimations .cd-timeline-content.bounce-in {
+    visibility: visible;
+    -webkit-animation: cd-bounce-2 0.6s;
+    -moz-animation: cd-bounce-2 0.6s;
+    animation: cd-bounce-2 0.6s;
+  }
+}
+
+@media only screen and (min-width: 1170px) {
+  /* inverse bounce effect on even content blocks */
+  .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+    -webkit-animation: cd-bounce-2-inverse 0.6s;
+    -moz-animation: cd-bounce-2-inverse 0.6s;
+    animation: cd-bounce-2-inverse 0.6s;
+  }
+}
+```
+
+此外还需要新增两个图片：
+
+`/static/images/common/alipay.svg`和`/static/images/common/wechat.svg`，这两个图片可以从下面的路径里获取到，请自行下载。
+
+* https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/common/
+
+### 新建donation页面
+
+新建`/content/donation/index.md`，内容如下：
+
+```
+---
+title: "打赏榜"
+date: 2021-08-23T22:01:44+08:00
+lastmod: 2021-08-23T22:01:44+08:00
+---
+<link rel="stylesheet" href="/css/timeline.style.css" />
+
+<section id="cd-timeline" class="cd-container">
+
+{{</* donation
+name="wechat"
+title="感谢*A打赏5元！"
+description="打赏文章为Hexo系列(2.1) - NexT主题美化与博客功能增强 · 第二章#对文章进行加密"
+url="https://lewky.cn/posts/hexo-2.1.html/#对文章进行加密"
+date="2021-08-23"
+*/>}}
+
+{{</* donation
+name="alipay"
+title="感谢*B打赏5元！"
+description="打赏文章为Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章#使用Waline替代Valine评论系统"
+url="http://lewky.cn/posts/hugo-3.1.html/#使用waline替代valine评论系统"
+date="2021-08-11"
+*/>}}
+
+</section>
+```
+
+该页面首先需要引入css样式文件，然后是添加一个`section`标签，我们的打赏片段需要在`section`标签里通过一个个的`donation`短代码来引入。
+
+上文中的`donation`短代码有五个属性。
+
+`name`有两种值：`wechat`和`alipay`，分别对应微信和支付宝。
+
+`title`是标题，`description`是描述，`url`是被打赏文章的链接，`date`是打赏日期。
+
+具体效果可以去我的[打赏页面](http://localhost:1313/donation/)看看。
 
 ## 添加站点运行时间
 
@@ -619,216 +1169,9 @@ Animal <-- Cat
 @enduml
 {{< /uml >}}
 
-## 菜单栏支持子菜单
-
-### 修改模板代码
-
-将主题的`/themes/LoveIt/layouts/partials/header.html`拷贝一份到`layouts/partials/header.html`，找到如下代码，一共有两个地方，分别对应网页端和手机端：
-```
-{{- range .Site.Menus.main -}}
-    {{- $url := .URL | relLangURL -}}
-    {{- with .Page -}}
-        {{- $url = .RelPermalink -}}
-    {{- end -}}
-    <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
-        {{- .Pre | safeHTML }} {{ .Name }} {{ .Post | safeHTML -}}
-    </a>
-{{- end -}}
-```
-
-将上述代码改为如下代码：
-
-```
-{{- range .Site.Menus.main -}}
-	{{ if .HasChildren }}
-		<div class="dropdown">
-			<a {{ if .URL }}href="{{ .URL }}"{{ else }}href="javascript:void(0);"{{ end }} class="menu-item menu-more dropbtn" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>
-				{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
-			</a>
-			<div class="menu-more-content dropdown-content">
-				{{- range .Children -}}
-					{{- $url := .URL | relLangURL -}}
-					{{- with .Page -}}
-						{{- $url = .RelPermalink -}}
-					{{- end -}}
-						<a href="{{ $url }}" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}</a>
-				{{- end -}}
-			</div>
-		</div>
-	{{ else }}
-		{{- $url := .URL | relLangURL -}}
-		{{- with .Page -}}
-			{{- $url = .RelPermalink -}}
-		{{- end -}}
-		<a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}" href="{{ $url }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
-			{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
-		</a>
-	{{- end -}}
-{{- end -}}
-```
-
-### 添加css样式
-
-在`_custom.scss`中添加如下代码：
-```
-/* 子菜单栏 */
-.dropdown {
-  display: inline-block;
-}
-
-/* 子菜单的内容 (默认隐藏) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  line-height: 1.3rem;
-}
-
-/* 子菜单的链接 */
-.dropdown-content a {
-  padding: 10px 18px 10px 14px;
-  text-decoration: none;
-  display: block;
-  & i {
-    margin-right: 3px;
-  }
-}
-
-/* 鼠标移上去后修改子菜单链接颜色 */
-.dropdown-content a:hover {
-  background-color: #f1f1f1;
-  border-radius: 4px;
-}
-
-/* 在鼠标移上去后显示子菜单 */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-@media screen and (max-width: 680px) {
-    .dropdown {
-      display: inline;
-    }
-  .dropdown:hover .dropdown-content {
-    display: inline;
-    z-index: 1;
-    margin-top: -2em;
-    margin-left: 3em;
-  }
-  .dropdown-content a:hover {
-    background-color: transparent;
-  }
-}
-```
-
-### 配置子菜单
-
-打开站点配置文件`config.toml`，添加子菜单到菜单栏里。子菜单其实和原本的菜单一样写法，只是多了一个`parent`属性，用来定位到对应的父菜单的`identifier`。下面是一个简单的子菜单定义方式（没有使用多语言功能）：
-```
-# 菜单配置
-[menu]
-  [[menu.main]]
-    identifier = "posts"
-    # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-    pre = "<i class='fas fa-fw fa-archive'></i>"
-    # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
-    post = ""
-    name = "归档"
-    url = "/posts/"
-    title = ""
-    weight = 1
-  [[menu.main]]
-    pre = "<i class='fas fa-fw fa-link'></i>"
-    name = "友链"
-    identifier = "friends"
-    url = "/friends/"
-    weight = 2
-
-  # 二级菜单
-  [[menu.main]]
-    parent = "posts"
-    pre = "<i class='fas fa-fw fa-th'></i>"
-    name = "分类"
-    identifier = "categories"
-    url = "/categories/"
-    weight = 1
-  [[menu.main]]
-    parent = "posts"
-	identifier = "tags"
-    pre = "<i class='fas fa-fw fa-tag'></i>"
-    post = "_blank"
-	name = "标签"
-	url = "/tags/"
-	title = ""
-	weight = 2
-```
-
-菜单栏还允许以下配置：
-* 通过给菜单配置一个`post = "_blank"`属性来将该菜单设置为在新窗口打开该链接，如果`post`属性填其他值则依然作为原本的功能使用：即给`name`添加后缀。
-* 通过设置`title`来添加超链的提示文本。
-* 父菜单可以通过将`url`设置为空来将其渲染为不跳转的超链：`url = ""`。
-
-## 显示最近更新的十篇文章
-
-在归档页面只能看到所有以创建时间递减排序的文章列表，可以用下面的方法在归档页面开头增添十篇最近更新的文章。
-
-将`/themes/LoveIt/layouts/_default/section.html`拷贝到`/layouts/_default/section.html`，打开拷贝后的文件，找到如下：
-
-```
-{{- /* Paginate */ -}}
-```
-
-在这行代码上方插入下面的代码：
-
-```
-{{- /* Last Modified */ -}}
-{{- if .Pages -}}
-    {{- $pages := .Pages.ByLastmod.Reverse -}}
-    <h3 class="group-title">最近更新 <sup>10</sup></h3>
-    {{- range first 10 $pages -}}
-		<article class="archive-item">
-			<a href="{{ .RelPermalink }}" class="archive-item-link">
-				{{- .Title -}}
-			</a>
-			<span class="archive-item-date2">
-				{{- "2006-01-02" | .Lastmod.Format -}}
-			</span>
-		</article>
-    {{- end -}}
-{{- end -}}
-```
-
-然后在`/assets/css/_custom.scss`中添加如下样式代码：
-
-```css
-.archive-item-date2 {
-    color: #a9a9b3;
-}
-```
-
-同时为了方便区分开创建时间和最近更新时间，在每篇文章中也新增了最近更新时间这个meta。将`/themes/LoveIt/layouts/posts/single.html`拷贝到`/layouts/posts/single.html`，打开拷贝后的文件，找到如下：
-
-```
-{{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
-    <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
-{{- end -}}
-```
-
-将上面的代码改为如下：
-
-```
-{{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
-    <i class="far fa-calendar fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
-{{- end -}}
-{{- with .Site.Params.dateformat | default "2006-01-02" | .Lastmod.Format -}}
-    <i class="far fa-calendar-plus fa-fw"></i>&nbsp;<time datetime="{{ . }}">{{ . }}</time>&nbsp;
-{{- end -}}
-```
-
 ## 参考链接
 
 * [Hexo-NexT添加热度、阅读量排行](https://wangc1993.github.io/2019/01/12/10/)
 * [分享一个纯CSS样式，显示不同颜色数字的排行榜列表](https://cloud.tencent.com/developer/article/1537969)
 * [Embed a diagram in a Hugo page](https://it.knightnet.org.uk/kb/hugo/embed-diagram/)
+* [HTML5+CSS3实现的响应式垂直时间轴](https://www.daimabiji.com/datetimes/1393.html)

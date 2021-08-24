@@ -1,4 +1,29 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 20 Aug 2021 08:23:26 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>SpringBoot问题汇总</title><link>https://lewky.cn/posts/springboot-issues/</link><pubDate>Fri, 20 Aug 2021 08:23:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/springboot-issues/</guid><description><![CDATA[<h2 id="使用log4j2日志替代默认的logback">使用Log4j2日志替代默认的Logback</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 24 Aug 2021 15:11:16 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章</title><link>https://lewky.cn/posts/hugo-3-3/</link><pubDate>Tue, 24 Aug 2021 15:11:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3-3/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hexo: 3.8.0
+
+hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
+<p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>
+<ul>
+<li><a href="/posts/hugo-3.html/" rel="">Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</a></li>
+<li><a href="/posts/hugo-3.1.html/" rel="">Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章</a></li>
+<li><a href="/posts/hugo-3.2.html/" rel="">Hugo系列(3.2) - LoveIt主题美化与博客功能增强 · 第三章</a></li>
+<li><a href="/posts/hugo-3-3/" rel="">Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章</a></li>
+</ul>]]></description></item><item><title>SpringBoot问题汇总</title><link>https://lewky.cn/posts/springboot-issues/</link><pubDate>Fri, 20 Aug 2021 08:23:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/springboot-issues/</guid><description><![CDATA[<h2 id="使用log4j2日志替代默认的logback">使用Log4j2日志替代默认的Logback</h2>
 <p>SpringBoot默认使用Logback打印日志，出于性能考虑想要改用Log4j2，需要修改POM中的依赖，移除默认的Logback依赖：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -278,6 +303,7 @@ LoveIt: v0.2.10
 <li><a href="/posts/hugo-3.html/" rel="">Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</a></li>
 <li><a href="/posts/hugo-3.1.html/" rel="">Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章</a></li>
 <li><a href="/posts/hugo-3.2.html/" rel="">Hugo系列(3.2) - LoveIt主题美化与博客功能增强 · 第三章</a></li>
+<li><a href="/posts/hugo-3-3/" rel="">Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章</a></li>
 </ul>]]></description></item><item><title>Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章</title><link>https://lewky.cn/posts/hugo-3.1.html/</link><pubDate>Sat, 29 May 2021 13:11:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3.1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
 <div class="highlight"><div class="chroma">
@@ -302,6 +328,7 @@ LoveIt: v0.2.10
 <li><a href="/posts/hugo-3.html/" rel="">Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</a></li>
 <li><a href="/posts/hugo-3.1.html/" rel="">Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章</a></li>
 <li><a href="/posts/hugo-3.2.html/" rel="">Hugo系列(3.2) - LoveIt主题美化与博客功能增强 · 第三章</a></li>
+<li><a href="/posts/hugo-3-3/" rel="">Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章</a></li>
 </ul>]]></description></item><item><title>Java - 泛型</title><link>https://lewky.cn/posts/java-generic.html/</link><pubDate>Mon, 24 May 2021 23:35:36 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-generic.html/</guid><description><![CDATA[<h2 id="泛型generic">泛型（Generic）</h2>
 <p>泛型：把类型明确的工作推迟到创建对象或调用方法时再明确的特殊类型。</p>
 <p>参数化类型：把类型当作参数来传递，这意味着参数化类型不能是基本数据类型，需要用对应的包装类来代替。</p>
@@ -491,6 +518,7 @@ LoveIt: v0.2.10
 <li><a href="/posts/hugo-3.html/" rel="">Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</a></li>
 <li><a href="/posts/hugo-3.1.html/" rel="">Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章</a></li>
 <li><a href="/posts/hugo-3.2.html/" rel="">Hugo系列(3.2) - LoveIt主题美化与博客功能增强 · 第三章</a></li>
+<li><a href="/posts/hugo-3-3/" rel="">Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章</a></li>
 </ul>]]></description></item><item><title>Hugo系列(2) - 通过配置文件来定制个人站点</title><link>https://lewky.cn/posts/hugo-2.html/</link><pubDate>Sat, 10 Oct 2020 16:08:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-2.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>Hugo本身可以通过修改站点配置文件来完成页面的部分定制，如按钮、多语言等功能。本文基于<code>LoveIt</code>主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：</p>
 <div class="highlight"><div class="chroma">
@@ -503,6 +531,4 @@ LoveIt: v0.2.10
 Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Hugo系列(1) - 简单搭建教程与远程部署</title><link>https://lewky.cn/posts/hugo-1.html/</link><pubDate>Sun, 06 Sep 2020 21:10:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。</p>
-<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>
