@@ -60,17 +60,7 @@ java.lang.StackOverflowError: null
 	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:64) ~[cbx-mybatis-3.3.0.jar:3.3.0]
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:53) ~[cbx-mybatis-3.3.0.jar:3.3.0]
 	at com.sun.proxy.$Proxy68.findEntitesByCriterion(Unknown Source) ~[?:?]
-	at com.core.cbx.data.retriever.EntityRetrieverUtils.retrieveEntitiesWithAclApplied(EntityRetrieverUtils.java:102) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.retriever.CollectionFieldRetriever.retrieve(CollectionFieldRetriever.java:80) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.retriever.SubEntitiesRetriever.retrieve(SubEntitiesRetriever.java:155) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.retriever.EntityRetriever.retrieveList(EntityRetriever.java:151) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.DynamicEntityModel.findEntities(DynamicEntityModel.java:1416) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.DynamicEntityModel.findEntities(DynamicEntityModel.java:1007) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.DynamicEntityModel.findUniqueBy(DynamicEntityModel.java:1046) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.DynamicEntityModel.findUniqueBy(DynamicEntityModel.java:1022) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.DynamicEntityModel.getLatestEntityByRefNo(DynamicEntityModel.java:2990) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.entity.DynamicRefEntityProxy.initialize(DynamicRefEntityProxy.java:143) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
-	at com.core.cbx.data.entity.EntityFieldProxy.entrySet(EntityFieldProxy.java:1007) ~[cbx-core-9.16.0-SNAPSHOT.jar:?]
+	···
 	at org.apache.logging.log4j.message.ParameterFormatter.appendMap(ParameterFormatter.java:562) ~[log4j-api-2.11.2.jar:2.11.2]
 	at org.apache.logging.log4j.message.ParameterFormatter.appendPotentiallyRecursiveValue(ParameterFormatter.java:498) ~[log4j-api-2.11.2.jar:2.11.2]
 	at org.apache.logging.log4j.message.ParameterFormatter.recursiveDeepToString(ParameterFormatter.java:456) ~[log4j-api-2.11.2.jar:2.11.2]
@@ -145,6 +135,35 @@ java.lang.NoSuchMethodError: com.lmax.disruptor.dsl.Disruptor.<init>(Lcom/lmax/d
     <version>3.4.2</version>
 </dependency>
 ```
+
+## PatternLayout的格式化参数
+
+```java
+Log4J采用类似C语言中的printf函数的打印格式格式化日志信息，打印参数如下：
+1）%t 用来输出生成该日志事件的线程的名称
+2）%p 用于输出日志事件的优先级，即DEBUG，INFO，WARN，ERROR，FATAL
+3）%r 用于输出从layout（布局）的构建到日志事件创建所经过的毫秒数
+4）%c 用于输出日志事件的category（类别），通常就是所在类的全名
+5）%F 用于输出被发出日志记录请求，其中的文件名
+6）%d 用于输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyyy-MM-dd HH:mm:ss,SSS}
+7）%L 用于输出日志事件的发生位置，即在代码中的行数。
+8）%l 用于输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。
+9）%% 用于输出％标志，%即为转义标志
+10）%M 用于输出打印该条日志的方法名
+11）%m 用于输出代码中指定的消息
+12）%n 用于输出一个回车换行符，Windows平台为“rn”，Unix平台为“n”
+```
+
+输出的日志信息可能长短不一，可以通过格式修饰符来对齐。
+格式修饰符：可以控制输出字段的最小字段宽度、最大字段宽度、字段对齐格式，如下所示：
+
+|格式修饰符|对齐方式|最小宽度|最大宽度|备注（对%c来使用格式修饰符，所以改变的是类别名称）|
+|:-:|:-:|:-:|:-:|:-:|
+|%-20c|左对齐|20|none|用空格右垫，如果类别名称少于20个字符长|
+|%20c|右对齐|20|none|用空格左垫，如果类别名称少于20个字符长|
+|%.30c|左对齐|none|30|从开始截断，如果类别名称超过30个字符长|
+|%-20.30c|左对齐|20|30|用空格右侧垫，如果类别名称短于20个字符。但是，如果类别名称长度超过30个字符，那么从开始截断。|
+|%20.30c|右对齐|20|30|用空格左侧垫，如果类别名称短于20个字符。但是，如果类别名称长度超过30个字符，那么从开始截断。|
 
 ## `IllegalStateException: No factory method found for class`
 
@@ -271,10 +290,129 @@ System.setProperty("domainId", "xxx");
 
 不要在RollingFile的fileName和filePattern属性里使用到`${ctx:domainId}`等cdn或者mdn的写法，这样会导致在log4j2异步扫描重加载配置文件的时候报错。
 
-可以使用另一种Appender来实现这种把日志分别打印到不同文件的效果，那就是`RoutingAppender`。有兴趣的可以去了解下这个，还是挺有意思的。
+可以使用另一种Appender来实现这种把日志分别打印到不同文件的效果，那就是[路由日志`RoutingAppender`](http://lewky.cn/posts/log4j2-issues/#路由日志routingappender)。有兴趣的可以去了解下这个，还是挺有意思的。
+
+## Logj4 1.x怎么使用异步日志
+
+异步日志是Log4j2引入的新特性，但可以通过导入一个桥接包`log4j-1.2-api-2.6.jar`，这样就可以用旧版本的Log4j 1.x的API来调用Log4j2的实现。
+
+当然更推荐的做法是，直接升级Log4j到2.x版本。
+
+## 回滚策略
+
+`RollingFile`标签里可以配置回滚策略`Policies`，有两种类型：一种是基于体积回滚日志，一种是基于日期。可以同时配置多个回滚策略：
+
+```xml
+<RollingFile name="cntCorelog" immediateFlush="true" fileName="logs/CNTCore.log" filePattern="logs/%d{yyyy/MM/dd}/CNTCore.log.%d{yyyy-MM-dd-HH}-%i.gz"
+    append="true">
+    <PatternLayout>
+        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}:%p %t %X{TracingMsg} %c - %m%n</pattern>
+    </PatternLayout>
+    <Policies>
+        <SizeBasedTriggeringPolicy size="100MB" />
+        <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+    </Policies>
+    <DefaultRolloverStrategy max="30"/>
+</RollingFile>
+```
+
+`TimeBasedTriggeringPolicy`标签的`interval`表示回滚间隔，`1`表示每经过一个单位的最小时间粒度就回滚一次。`modulate`表示回滚的时间点是否校准为零点整。
+
+回滚日志的最小时间粒度由`filePattern`决定，比如`%d{yyyy-MM-dd-HH}`表示最小时间粒度为小时，以最后一个符号为准。
+
+## DefaultRolloverStrategy无效，超出上限的日志没有被删除
+
+默认的`DefaultRolloverStrategy`的`max`默认值是7，如下：
+
+```xml
+<DefaultRolloverStrategy max="7"/>
+```
+
+这里的`max`属性并非指日志的保留上限，而是指`filePattern`的计数器`%i`的最大值，**`max`属性必须和这个计数器`%i`搭配使用才有效果**，此外`filePattern`的最小时间粒度为分钟。如下：
+
+`RollingFile`会自动按照`filePattern`的最小时间粒度进行日志的切割回滚。
+
+```xml
+<RollingFile name="cntCorelog" immediateFlush="true" fileName="logs/CNTCore.log" filePattern="logs/%d{yyyy/MM/dd}/CNTCore.log.%d{yyyy-MM-dd-HH}-%i.gz"
+    append="true">
+    <PatternLayout>
+        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}:%p %t %X{TracingMsg} %c - %m%n</pattern>
+    </PatternLayout>
+    <Policies>
+        <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+    </Policies>
+    <DefaultRolloverStrategy max="30"/>
+</RollingFile>
+```
+
+上述配置的回滚日志会存放到名字为日期格式的子目录里，因此`max`统计的是子目录里的数量。如果需要统计所有的子目录里的日志数量，则需要对`DefaultRolloverStrategy`进行特殊配置：
+
+```xml
+<DefaultRolloverStrategy max="30">
+    <Delete basePath="logs/%d{yyyy/MM/dd}/" maxDepth="2">
+        <IfFileName glob="*.gz" />
+        <!--7天-->
+        <IfLastModified age="168H" />
+    </Delete>
+</DefaultRolloverStrategy>
+```
+
+`Delete`标签内决定了删除过期文件的规则：
+
+* `IfLastModified`的`age`的时间粒度要和filePattern的一致，此外`age`填写的数字最好大于2，否则可能造成删除的时候`IfLastModified`的`age`的时间粒度要和filePattern的一致，此外`age`填写的数字最好大于2，否则可能造成删除的时候, 最近的文件还处于被占用状态,导致删除不成功。
+* `maxDepth`是递归统计的目录深度，`basePath`是需要处理的目录，`maxDepth="1"`表示当前目录，即`basePath`。
+
+## 路由日志RoutingAppender
+
+如果想要将日志文件生成到指定的目录里，这个目录是动态的，由程序来控制具体的值，比如说，对于不同的用户，可以将这些用户专属的日志存放到各自的目录里进行分类，方便后续跟踪。
+
+这种时候，就需要使用到路由日志RoutingAppender，如下：
+
+```xml
+<Appenders>
+    <Routing name="domainAppender">
+        <Routes pattern="$${ctx:domainId}">
+
+            <!-- This route is chosen if ThreadContext has no value for key domainId. -->
+            <Route key="$${ctx:domainId}">
+                <AppenderRef ref="" />
+            </Route>
+
+            <!-- This route is chosen if ThreadContext has value '/' for key domainId. -->
+            <Route key="/">
+                <AppenderRef ref="" />
+            </Route>
+
+            <!-- This route is chosen if ThreadContext has value(besides '/') for key domainId. -->
+            <Route>
+                <RollingFile name="${ctx:domainId}-cntCorelog" immediateFlush="true" fileName="logs/${ctx:domainId}/CNTCore.log"
+                     filePattern="logs/${ctx:domainId}/CNTCore.log.%d{yyyy-MM-dd-a}.gz" append="true">
+                    <PatternLayout>
+                        <pattern>%d %t %p %X{TracingMsg} %c - %m%n</pattern>
+                    </PatternLayout>
+                    <Policies>
+                        <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+                    </Policies>
+                </RollingFile>
+            </Route>
+
+        </Routes>
+    </Routing>
+    
+</Appenders>
+```
+
+`$${}`这里的两个`$$`是对`$`进行了转义，这里表示动态计算占位符`${}`的值。如果是`${}`占位符，只会计算第一次然后替换为对应的值，而`$${}`每一次都会计算值。换句话说，`${}`只能生效一次，后续就算改变了变量值也无效。
+
+而`$${ctx:domainId}`指的是存放于MDC中的一个变量`domainId`的值，在上述配置中不同用户的`domainId`是不一样的，这样就可以实现对不同用户的日志进行归类。
 
 ## 参考链接
 
 * [Java日志框架中真的需要判断log.isDebugEnabled()吗？](https://blog.csdn.net/neosmith/article/details/50100061)
 * [Unable to invoke factory method in class class org.apache.logging.log4j.core.appender.RollingFileAppender for element RollingFile](https://issues.apache.org/jira/browse/LOG4J2-1967)
 * [Property Substitution](http://logging.apache.org/log4j/2.x/manual/configuration.html)
+* [Can i run my log asynchronously using log4j 1.x with log4j.properties file?](https://stackoverflow.com/questions/37525996/can-i-run-my-log-asynchronously-using-log4j-1-x-with-log4j-properties-file#)
+* [Log4j2中RollingFile的文件滚动更新机制](https://www.cnblogs.com/yeyang/p/7944899.html)
+* [log4j2定期生成和删除过期日志文件的配置](https://www.jianshu.com/p/ee075bfc7dff)
+* [Log4j2进阶使用(按大小时间备份日志)](https://www.cnblogs.com/bugzeroman/p/12858116.html)
+* [log4j（二）——如何控制日志信息的输出？](https://www.cnblogs.com/godtrue/p/6442347.html)
