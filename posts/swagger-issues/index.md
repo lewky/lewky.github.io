@@ -296,8 +296,84 @@ public class HashMapModelPropertyBuilder implements ModelPropertyBuilderPlugin {
 
 之所以这样实现是因为javassist来生成一个泛型List太困难（可能是我没找到正确的接口），还是直接定义这样一个类，让Java自己帮我们搞定类型来得更简单准确。
 
+## 按类中字段定义的顺序展示字段
+
+Swagger默认按照首字母顺序来显示接口和字段。
+
+字段可以通过`@ApiModelProperty`的`position`属性来指定顺序，而接口相关的注解`@ApiOperation`则不行。但不管如何，直接靠人工添加注解来排序是不现实的；可以通过重写插件来便捷地解决这个问题。
+
+可以通过实现ModelPropertyBuilderPlugin重写字段顺序：
+
+```java
+package test;
+
+import static springfox.documentation.schema.Annotations.findPropertyAnnotation;
+import static springfox.documentation.swagger.schema.ApiModelProperties.findApiModePropertyAnnotation;
+
+import java.lang.reflect.Field;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.databind.introspect.AnnotatedField;
+import com.fasterxml.jackson.databind.introspect.BeanPropertyDefinition;
+import com.google.common.base.Optional;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.extern.slf4j.Slf4j;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.schema.ModelPropertyBuilderPlugin;
+import springfox.documentation.spi.schema.contexts.ModelPropertyContext;
+
+@Component
+@Order
+@Slf4j
+public class CustomApiModelPropertyPositionBuilder implements ModelPropertyBuilderPlugin {
+
+    @Override
+    public boolean supports(final DocumentationType delimiter) {
+        return true;
+    }
+
+    @Override
+    public void apply(final ModelPropertyContext context) {
+        final Optional<BeanPropertyDefinition> beanPropertyDefinitionOpt = context.getBeanPropertyDefinition();
+        Optional<ApiModelProperty> annotation = Optional.absent();
+        if (context.getAnnotatedElement().isPresent()) {
+            annotation = annotation.or(findApiModePropertyAnnotation(context.getAnnotatedElement().get()));
+        }
+        if (context.getBeanPropertyDefinition().isPresent()) {
+            annotation = annotation.or(findPropertyAnnotation(context.getBeanPropertyDefinition().get(), ApiModelProperty.class));
+        }
+        if (beanPropertyDefinitionOpt.isPresent()) {
+            final BeanPropertyDefinition beanPropertyDefinition = beanPropertyDefinitionOpt.get();
+            if (annotation.isPresent() && annotation.get().position() != 0) {
+                return;
+            }
+            final AnnotatedField field = beanPropertyDefinition.getField();
+            final Class<?> clazz = field.getDeclaringClass();
+            final Field[] declaredFields = clazz.getDeclaredFields();
+            Field declaredField;
+            try {
+                declaredField = clazz.getDeclaredField(field.getName());
+            } catch (NoSuchFieldException | SecurityException e) {
+                log.error("Error.", e);
+                return;
+            }
+            final int indexOf = ArrayUtils.indexOf(declaredFields, declaredField);
+            if (indexOf != -1) {
+                context.getBuilder().position(indexOf);
+            }
+        }
+    }
+
+}
+``` 
+
 ## 参考链接
 
 * [重新认识Swagger和Springfox](https://www.cnblogs.com/jason1990/archive/2020/03/27/12581773.html)
 * [Swagger2 @ApiIgnore注解忽略接口在swagger-ui.html中显示](https://www.cnblogs.com/jichuang/p/11733131.html)
 * [spring boot集成swagger之springfox-boot-starter配置指定paths()（四）](https://blog.csdn.net/hhjyan/article/details/117229253)
+* [swagger扩展为按代码定义顺序展示接口和字段](https://www.jianshu.com/p/c91591843770)
