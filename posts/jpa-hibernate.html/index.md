@@ -169,6 +169,75 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction rolled 
 * 只有方法B在遇到异常时事务回滚，且不影响到方法A的事务提交，那么此时方法B的事务要指明为`PROPAGATION_NESTED`。但是，**JPA默认实现是Hibernate，而Hibernate不提供事务嵌套**。对于这种情况，要么使用其他的JPA实现，要么在方法B中将可能发生的异常try-catch并且不往外抛出，但此时方法B将不能自动事务回滚。
 * 方法B发生异常时，和方法A一起事务回滚。这种场景需要在方法A调用方法B的地方使用try-catch捕获发生的异常，并且将该异常重新往外抛出，这样就可以让方法A事务回滚，且得到的异常也是真正的异常，而不是UnexpectedRollbackException异常。
 
+## JPA Projection不支持新的日期类LocalDate、LocalDateTime
+
+JPA的Projection有个坑：不支持LocalDate、LocalDateTime这两个类型。代码如下：
+
+```java
+@Query(value = "select ibs.sequence as sequence, ibs.inspect_booking_id as inspectBookingId, ibs.date as date "
+        + "from CNT_INSPECT_BOOKING_SCHEDULED ibs where ibs.inspector_id = :inspectorId", nativeQuery = true)
+List<SimpleInspectBookingScheduled> findInspectBookingIdByInspectorId(@Param(value = "inspectorId")final String inspectorId);
+
+interface SimpleInspectBookingScheduled {
+    Long getSequence();
+
+    String getInspectBookingId();
+
+    LocalDate getDate();
+}
+```
+
+当调用该方法时会抛出如下异常：
+
+```java
+java.lang.IllegalArgumentException: Projection type must be an interface!
+	at org.springframework.util.Assert.isTrue(Assert.java:121)
+	at org.springframework.data.projection.ProxyProjectionFactory.createProjection(ProxyProjectionFactory.java:105)
+	at org.springframework.data.projection.SpelAwareProxyProjectionFactory.createProjection(SpelAwareProxyProjectionFactory.java:45)
+	at org.springframework.data.projection.ProjectingMethodInterceptor.getProjection(ProjectingMethodInterceptor.java:160)
+	at org.springframework.data.projection.ProjectingMethodInterceptor.potentiallyConvertResult(ProjectingMethodInterceptor.java:108)
+	at org.springframework.data.projection.ProjectingMethodInterceptor.invoke(ProjectingMethodInterceptor.java:85)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.ProxyProjectionFactory$TargetAwareMethodInterceptor.invoke(ProxyProjectionFactory.java:250)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at com.sun.proxy.$Proxy611.getDate(Unknown Source)
+```
+
+在使用JPA Projection时，对于日期类型必须使用`java.sql`包下的Date或Timestamp。如果强行使用Java 8新增的日期类，则会抛出上述诡异的异常。将接口改为如下则调用正常：
+
+```java
+import java.sql.Date;
+
+interface SimpleInspectBookingScheduled {
+    Long getSequence();
+
+    String getInspectBookingId();
+
+    Date getDate();
+}
+```
+
+此外，`java.sql`包下的类和新的日期类的转换方式如下：
+
+```java
+// 2021-05-01
+LocalDate localDate = LocalDate.of(2021, 5, 1);
+// 2021-05-01
+final Date sqlDate = Date.valueOf(localDate);
+// 2021-05-01
+localDate = sqlDate.toLocalDate();
+
+// 2021-05-01T00:16:44.032
+LocalDateTime localDateTime = LocalDateTime.of(localDate, LocalTime.now());
+// 2021-05-01 00:16:44.032
+final Timestamp timestamp = Timestamp.valueOf(localDateTime);
+// 2021-05-01T00:16:44.032
+localDateTime = timestamp.toLocalDateTime();
+```
+
 ## 参考链接
 
 * [springboot jpa 解决延迟加载问题](https://blog.csdn.net/hsz2568952354/article/details/82724719)
@@ -178,3 +247,4 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction rolled 
 * [[JPA] javax.persistence.EntityNotFoundException: Unable to find XXXX with id 0 问题原因](https://blog.csdn.net/mamingjie12/article/details/25911967)
 * [[转]cannot simultaneously fetch multiple bags 问题的解决办法](http://blog.sina.com.cn/s/blog_697b968901017w9p.html)
 * [UnexpectedRollbackException解决方案](https://segmentfault.com/a/1190000016418596?utm_source=tag-newest)
+* [import java.sql.date_Java8中 LocalDate和java.sql.Date的相互转换操作](https://blog.csdn.net/weixin_33526828/article/details/114507298?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.essearch_pc_relevant&spm=1001.2101.3001.4242)

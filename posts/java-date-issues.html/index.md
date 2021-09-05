@@ -181,9 +181,31 @@ System.out.println(localDate.with(TemporalAdjusters.firstInMonth(DayOfWeek.MONDA
 System.out.println(localDate.with(TemporalAdjusters.lastInMonth(DayOfWeek.FRIDAY)));
 ```
 
+### 比较两个日期
+
+```java
+final LocalDate date1 = LocalDate.of(2021, 5, 1);
+final LocalDate date2 = LocalDate.of(2021, 5, 2);
+final LocalDate date3 = LocalDate.of(2021, 6, 2);
+// 1
+System.out.println(Period.between(date1, date2).getDays());
+// 1
+System.out.println(Period.between(date1, date3).getDays());
+
+// 1
+System.out.println(date1.until(date2, ChronoUnit.DAYS));
+// 32
+System.out.println(date1.until(date3, ChronoUnit.DAYS));
+```
+
+`Period`只能用来比较两个日期之间的相对时间差，比如单纯比较年份、月份或者天数之间的相对差额，在比较的时候不会计算其他的时间单位，因此在比较`2021-05-01`和`2021-06-02`的天数差是1天，而不是32天。
+
+如果想要比较完整的天数差，需要用`until()`方法，要用日期更小的那个来调用这个方法，否则会得到负数结果。另外这个`until()`方法有两个，要使用带有时间单位的那个方法，如果不指定时间单位，返回值是`Period`，这样就变成`Period`一样的用法了。
+
 ## 参考链接
 
 * [Java YYYY/MM/dd遇到跨年日期的问题](https://blog.csdn.net/weixin_42619772/article/details/111053743)
 * [YYYY-MM-DD 的黑锅，我们不背！](https://blog.csdn.net/singwhatiwanna/article/details/103966585)
 * [Java日期时间API系列19--Jdk8，ZonedDateTime和时区转换。](https://zhuanlan.zhihu.com/p/149302250)
 * [【java8中的时间操作】java8中获取月的最后一天或者总天数，JDK8 LocalDate AP](https://blog.csdn.net/qq_40598321/article/details/112191964)
+* [localdate 比较两个时间_Java 8中处理日期和时间示例](https://blog.csdn.net/weixin_31954813/article/details/113086552)

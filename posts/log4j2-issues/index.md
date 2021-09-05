@@ -165,6 +165,23 @@ Log4J采用类似C语言中的printf函数的打印格式格式化日志信息�
 |%-20.30c|左对齐|20|30|用空格右侧垫，如果类别名称短于20个字符。但是，如果类别名称长度超过30个字符，那么从开始截断。|
 |%20.30c|右对齐|20|30|用空格左侧垫，如果类别名称短于20个字符。但是，如果类别名称长度超过30个字符，那么从开始截断。|
 
+## 启用热部署
+
+在`configuration`标签里可以通过设置`monitorInterval`属性来配置热部署功能，即扫描当前配置文件的间隔时间。单位为秒，不配置则默认值为0；官方文档提及如果配置了值，则会有个最小值5。
+
+具体细节可以参考这篇文章，里面有源码分析：[Log4j和Log4j2怎么动态加载配置文件](https://lewky.cn/posts/2c65baa3.html/)
+
+下面是一个简要的demo：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude" monitorInterval="30" status="error">
+    ....
+</configuration>
+```
+
+`configuration`标签里还有个`status`属性，用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，你会看到log4j2内部各种详细输出。这里设置成error后则只能看到log4j2自身error级以上级别的日志信息。
+
 ## `IllegalStateException: No factory method found for class`
 
 在使用Log4j2时，虽然可以正确读取配置文件并生成log文件，但偶然发现控制台打印了异常信息：
@@ -416,3 +433,4 @@ System.setProperty("domainId", "xxx");
 * [log4j2定期生成和删除过期日志文件的配置](https://www.jianshu.com/p/ee075bfc7dff)
 * [Log4j2进阶使用(按大小时间备份日志)](https://www.cnblogs.com/bugzeroman/p/12858116.html)
 * [log4j（二）——如何控制日志信息的输出？](https://www.cnblogs.com/godtrue/p/6442347.html)
+* [Log4j2配置文件详解](https://www.cnblogs.com/yudar/p/5113655.html)

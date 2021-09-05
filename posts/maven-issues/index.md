@@ -472,6 +472,14 @@ mvn install:install-file -Dfile=D:\lib\test.jar -DgroupId=com.test -DartifactId=
 </build>
 ```
 
+## 跳过测试案例
+
+有两种方式，一个是启动时添加参数：`-DskipTests`；一种是添加参数`-Dmaven.test.skip=true`。
+
+前者不执行测试用例，但是会编译测试类到`target/test-classes`目录。
+
+后者既不执行测试用例，也不编译测试类。
+
 ## 参考链接
 
 * [maven(八)，阿里云国内镜像，提高jar包下载速度](https://blog.csdn.net/wangb_java/article/details/55653122)
@@ -487,3 +495,4 @@ mvn install:install-file -Dfile=D:\lib\test.jar -DgroupId=com.test -DartifactId=
 * [maven实现JS+CSS自动压缩](https://www.cnblogs.com/lorence/articles/2750001.html)
 * [eclipse maven 打war包的几种方式](https://www.cnblogs.com/qlqwjy/p/8231032.html)
 * [Maven之Tomcat](https://blog.csdn.net/qq_34017326/article/details/78591632)
+* [Maven中-DskipTests和-Dmaven.test.skip=true的区别](https://www.cnblogs.com/wangcp-2014/p/6211439.html)
