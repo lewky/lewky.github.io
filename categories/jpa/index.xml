@@ -1,19 +1,31 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>JPA - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/jpa/</link><description>JPA - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 01 Apr 2021 00:07:30 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/jpa/" rel="self" type="application/rss+xml"/><item><title>JPA/Hibernate问题汇总</title><link>https://lewky.cn/posts/jpa-hibernate.html/</link><pubDate>Thu, 01 Apr 2021 00:07:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jpa-hibernate.html/</guid><description><![CDATA[<h2 id="懒加载异常---jsonmappingexception-could-not-initialize-proxy">懒加载异常 - JsonMappingException: could not initialize proxy</h2>
-<p>查询数据时报懒加载异常：</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>JPA - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/jpa/</link><description>JPA - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 01 Apr 2021 00:07:30 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/jpa/" rel="self" type="application/rss+xml"/><item><title>JPA/Hibernate问题汇总</title><link>https://lewky.cn/posts/jpa-hibernate.html/</link><pubDate>Thu, 01 Apr 2021 00:07:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jpa-hibernate.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文基于如下版本的JPA和Hibernate下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Caused</span> <span class="n">by</span><span class="o">:</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">LazyInitializationException</span><span class="o">:</span> <span class="n">could</span> <span class="n">not</span> <span class="n">initialize</span> <span class="n">proxy</span> <span class="o">[</span><span class="n">com</span><span class="o">.</span><span class="na">cbxsoftware</span><span class="o">.</span><span class="na">cbx</span><span class="o">.</span><span class="na">attachment</span><span class="o">.</span><span class="na">entity</span><span class="o">.</span><span class="na">RefAttachment</span><span class="err">#</span><span class="n">c109ec36e60c4a89a10eabc72416d984</span><span class="o">]</span> <span class="o">-</span> <span class="n">no</span> <span class="n">Session</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">AbstractLazyInitializer</span><span class="o">.</span><span class="na">initialize</span><span class="o">(</span><span class="n">AbstractLazyInitializer</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">169</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">AbstractLazyInitializer</span><span class="o">.</span><span class="na">getImplementation</span><span class="o">(</span><span class="n">AbstractLazyInitializer</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">309</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">pojo</span><span class="o">.</span><span class="na">bytebuddy</span><span class="o">.</span><span class="na">ByteBuddyInterceptor</span><span class="o">.</span><span class="na">intercept</span><span class="o">(</span><span class="n">ByteBuddyInterceptor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">45</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">.</span><span class="na">proxy</span><span class="o">.</span><span class="na">ProxyConfiguration$InterceptorDispatcher</span><span class="o">.</span><span class="na">intercept</span><span class="o">(</span><span class="n">ProxyConfiguration</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">95</span><span class="o">)</span>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>hibernate-core<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.4.23.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

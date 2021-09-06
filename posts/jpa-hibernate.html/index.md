@@ -1,5 +1,24 @@
 # JPA/Hibernate问题汇总
 
+## 前言
+
+本文基于如下版本的JPA和Hibernate下：
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-jpa</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>org.hibernate</groupId>
+  <artifactId>hibernate-core</artifactId>
+  <version>5.4.23.Final</version>
+</dependency>
+```
+
+<!--more-->
 ## 懒加载异常 - JsonMappingException: could not initialize proxy
 
 查询数据时报懒加载异常：
@@ -11,7 +30,6 @@ Caused by: org.hibernate.LazyInitializationException: could not initialize proxy
 	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:95)
 ```
 
-<!--more-->
 报错很明显，是由于hibernate的懒加载引起的。项目使用的是SpringBoot框架，JPA默认使用的是hibernate的实现，而hibernate的懒加载机制其实就是延迟加载对象，如果没有在session关闭前使用到对象里除id以外的属性时，就只会返回一个没有初始化过的包含了id的代理类。很多时候，这个代理类会引发上述的异常。
 
 简单说一下为什么会触发懒加载异常，首先hibernate开启一个session（会话），然后开启transaction（事务），接着发出sql找回数据并组装成pojo（或者说entity、model），这时候如果pojo里有懒加载的对象，并不会去发出sql查询db，而是直接返回一个懒加载的代理对象，这个对象里只有id。
