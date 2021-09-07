@@ -59,6 +59,19 @@ Caused by: org.eclipse.aether.transfer.ArtifactNotFoundException: Cannot access 
 
 这种时候需要重新将offline节点改为false。
 
+## optional标签
+
+当不需要将某个依赖向外传递时，可以通过将optional标签设置为true来实现，比如当前项目使用的Lombok依赖不需要被其他项目所使用到：
+
+```java
+<dependency>
+  <groupId>org.projectlombok</groupId>
+  <artifactId>lombok</artifactId>
+  <version>1.18.16</version>
+  <optional>true</optional>
+</dependency>
+```
+
 ## 编码GBK的不可映射字符
 
 执行`mvn clean package`时报错：`编码GBK的不可映射字符`，该问题是因为字符集编码不同导致的，需要在pom中设置统一的编码：
