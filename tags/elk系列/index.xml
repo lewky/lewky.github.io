@@ -42,76 +42,7 @@
 </div>
 </div>]]></description></item><item><title>ELK系列(5) - Logstash怎么分割字符串并添加新的字段到Elasticsearch</title><link>https://lewky.cn/posts/b37842a8.html/</link><pubDate>Sun, 12 May 2019 18:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/b37842a8.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
 <p>有时候我们想要在Logstash里对收集到的日志等信息进行分割，并且将分割后的字符作为新的字符来index到Elasticsearch里。假定需求如下：</p>
-<p>Logstash收集到的日志字段<code>message</code>的值是由多个字段拼接而成的，分隔符是<code>;,;</code>，如下：</p>]]></description></item><item><title>ELK系列(4) - Elasticsearch cannot write xcontent for unknown value of type class java.math.BigDecimal</title><link>https://lewky.cn/posts/7784288c.html/</link><pubDate>Sun, 12 May 2019 17:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/7784288c.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
-<p>在使用Elasticsearch进行index数据时，发现报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalArgumentException</span><span class="o">:</span> <span class="n">cannot</span> <span class="n">write</span> <span class="n">xcontent</span> <span class="k">for</span> <span class="n">unknown</span> <span class="n">value</span> <span class="n">of</span> <span class="n">type</span> <span class="kd">class</span> <span class="nc">java</span><span class="o">.</span><span class="na">math</span><span class="o">.</span><span class="na">BigDecimal</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">xcontent</span><span class="o">.</span><span class="na">XContentBuilder</span><span class="o">.</span><span class="na">unknownValue</span><span class="o">(</span><span class="n">XContentBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">755</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">xcontent</span><span class="o">.</span><span class="na">XContentBuilder</span><span class="o">.</span><span class="na">value</span><span class="o">(</span><span class="n">XContentBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">726</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">xcontent</span><span class="o">.</span><span class="na">XContentBuilder</span><span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="n">XContentBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">711</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">index</span><span class="o">.</span><span class="na">query</span><span class="o">.</span><span class="na">BaseTermQueryBuilder</span><span class="o">.</span><span class="na">doXContent</span><span class="o">(</span><span class="n">BaseTermQueryBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">154</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">index</span><span class="o">.</span><span class="na">query</span><span class="o">.</span><span class="na">AbstractQueryBuilder</span><span class="o">.</span><span class="na">toXContent</span><span class="o">(</span><span class="n">AbstractQueryBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">82</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">index</span><span class="o">.</span><span class="na">query</span><span class="o">.</span><span class="na">BoolQueryBuilder</span><span class="o">.</span><span class="na">doXArrayContent</span><span class="o">(</span><span class="n">BoolQueryBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">275</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">index</span><span class="o">.</span><span class="na">query</span><span class="o">.</span><span class="na">BoolQueryBuilder</span><span class="o">.</span><span class="na">doXContent</span><span class="o">(</span><span class="n">BoolQueryBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">256</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">index</span><span class="o">.</span><span class="na">query</span><span class="o">.</span><span class="na">AbstractQueryBuilder</span><span class="o">.</span><span class="na">toXContent</span><span class="o">(</span><span class="n">AbstractQueryBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">82</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">xcontent</span><span class="o">.</span><span class="na">XContentBuilder</span><span class="o">.</span><span class="na">value</span><span class="o">(</span><span class="n">XContentBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">779</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">xcontent</span><span class="o">.</span><span class="na">XContentBuilder</span><span class="o">.</span><span class="na">value</span><span class="o">(</span><span class="n">XContentBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">772</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">xcontent</span><span class="o">.</span><span class="na">XContentBuilder</span><span class="o">.</span><span class="na">field</span><span class="o">(</span><span class="n">XContentBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">764</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">search</span><span class="o">.</span><span class="na">builder</span><span class="o">.</span><span class="na">SearchSourceBuilder</span><span class="o">.</span><span class="na">toXContent</span><span class="o">(</span><span class="n">SearchSourceBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1184</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">xcontent</span><span class="o">.</span><span class="na">XContentHelper</span><span class="o">.</span><span class="na">toXContent</span><span class="o">(</span><span class="n">XContentHelper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">349</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">search</span><span class="o">.</span><span class="na">builder</span><span class="o">.</span><span class="na">SearchSourceBuilder</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">SearchSourceBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1558</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">search</span><span class="o">.</span><span class="na">builder</span><span class="o">.</span><span class="na">SearchSourceBuilder</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">SearchSourceBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1553</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">2994</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">StringBuilder</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">StringBuilder</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">131</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">elasticsearch</span><span class="o">.</span><span class="na">action</span><span class="o">.</span><span class="na">search</span><span class="o">.</span><span class="na">SearchRequest</span><span class="o">.</span><span class="na">toString</span><span class="o">(</span><span class="n">SearchRequest</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">516</span><span class="o">)</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>ELK系列(3) - Elasticsearch修改jvm参数</title><link>https://lewky.cn/posts/7a146e10.html/</link><pubDate>Sun, 12 May 2019 17:02:23 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/7a146e10.html/</guid><description><![CDATA[<h2 id="方法">方法</h2>
-<p>Elasticsearch默认会配置1G的JVM堆的初始值和最大值，该jvm参数被配置在<code>/config/jvm.options</code>里：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">-Xms1g
--Xmx1g
-</code></pre></td></tr></table>
-</div>
-</div><p>如果只是个人开发小项目，可以把参数改小些，比如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">-Xms512m
--Xmx512m
-</code></pre></td></tr></table>
-</div>
-</div><p>这个<code>jvm.options</code>用来配置各种jvm参数，比如GC、GC logging、heap dumps等。</p>]]></description></item><item><title>ELK系列(2) - Kibana怎么修改日期格式Date format</title><link>https://lewky.cn/posts/c85bbf4e.html/</link><pubDate>Sun, 12 May 2019 16:48:00 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/c85bbf4e.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>Logstash收集到的日志字段<code>message</code>的值是由多个字段拼接而成的，分隔符是<code>;,;</code>，如下：</p>]]></description></item><item><title>ELK系列(2) - Kibana怎么修改日期格式Date format</title><link>https://lewky.cn/posts/c85bbf4e.html/</link><pubDate>Sun, 12 May 2019 16:48:00 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/c85bbf4e.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
 <p>Kibana在创建<code>Index Patterns</code>的时候，可以选择某个date类型的field作为排序字段。之后在<code>Discover</code>里打开对应的index，会发现这个date类型的field的格式显示如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

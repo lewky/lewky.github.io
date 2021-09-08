@@ -1,4 +1,22 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Aug 2021 21:46:08 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 08 Sep 2021 23:44:59 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>Elasticsearch问题汇总</title><link>https://lewky.cn/posts/es-issues/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/es-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文主要基于Elasticsearch 6.5.4版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;dependency&gt;
+  &lt;groupId&gt;org.elasticsearch&lt;/groupId&gt;
+  &lt;artifactId&gt;elasticsearch&lt;/artifactId&gt;
+  &lt;version&gt;6.5.4&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
 &lt;p>最近需要用到iReport报表工具，但是在启动客户端时却发现会闪退，无法正常启动。查找了资料，发现是因为iReport无法支持jdk 1.8，必须要修改配置文件，将java版本指定为1.7或之前的版本。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。&lt;/p></description></item><item><title>Swagger问题汇总</title><link>https://lewky.cn/posts/swagger-issues/</link><pubDate>Fri, 09 Jul 2021 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/swagger-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>SpringFox是一个开源的用于生成API文档接口的框架，支持多种API文档的格式。可以用SpringFox来整合Spring和Swagger，本文使用的Swagger和SpringFox版本如下：</p>
 <div class="highlight"><div class="chroma">
@@ -68,6 +86,4 @@
 </tr>
 </tbody>
 </table>
-<p>对于这种场景，可以通过Excel的公式来实现。</p>]]></description></item><item><title>嵌套循环的优化</title><link>https://lewky.cn/posts/fe753197.html/</link><pubDate>Sat, 13 Oct 2018 22:59:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fe753197.html/</guid><description><![CDATA[<h2 id="需求背景">需求背景</h2>
-<p>今天拿到这样一个需求：有Map A和Map B，这两个Map都持有着一个同样的key——id，其对应的value可能相同，也可能不相同。现在需要对两个Map中该key对应的value相同的键值对做些特殊的操作。</p>
-<p>这是个很简单的需求，代码很简单，我直接一个循环里嵌套另一个循环去实现这个功能需求：</p>]]></description></item></channel></rss>
+<p>对于这种场景，可以通过Excel的公式来实现。</p>]]></description></item></channel></rss>
