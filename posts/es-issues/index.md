@@ -87,7 +87,7 @@ java.lang.IllegalArgumentException: cannot write xcontent for unknown value of t
 
 ### 解决方案一：转变成其他ES支持的数据类型
 
-我使用的是6.4.2版本的Elasticsearch，该版本尚不支持BigDecimal或者BigInteger的数据类型，所以在index到Elasticsearch之前，需要转换成其他数据类型，这里要注意不要数据溢出了:
+我使用的是6.5.4版本的Elasticsearch，该版本尚不支持BigDecimal或者BigInteger的数据类型，所以在index到Elasticsearch之前，需要转换成其他数据类型，这里要注意不要数据溢出了:
 
 1. BigDecimal要转变成Double类型
 2. BigInteger要转变成Long类型
@@ -98,7 +98,7 @@ java.lang.IllegalArgumentException: cannot write xcontent for unknown value of t
 
 下面附上两个版本的支持的数据类型的源码：
 
-* 6.4.2版本的Elasticsearch相关源码
+* 6.5.4版本的Elasticsearch相关源码
 
 ```java
 Map<Class<?>, Writer> writers = new HashMap<>();

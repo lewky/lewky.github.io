@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 08 Sep 2021 23:44:59 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Elasticsearch问题汇总</title><link>https://lewky.cn/posts/es-issues/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/es-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 09 Sep 2021 23:44:02 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>日志框架与门面模式</title><link>https://lewky.cn/posts/log-framework/</link><pubDate>Thu, 09 Sep 2021 23:44:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/log-framework/</guid><description><![CDATA[<h2 id="日志框架">日志框架</h2>
+<p>目前的日志框架可以分为两种：一种是jdk自带的，一种是第三方实现的。</p>
+<p>第三方的日志框架除了提供具体的日志实现外，也有的会提供自身框架的接口。此外，有些日志框架仅仅提供了一套统一的接口，不包含具体的日志实现，可以通过一些桥接包来调用其他的日志框架。（即日志的门面模式）</p>]]></description></item><item><title>Elasticsearch问题汇总</title><link>https://lewky.cn/posts/es-issues/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/es-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文主要基于Elasticsearch 6.5.4版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -524,29 +526,4 @@ hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 LoveIt: v0.2.10
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</title><link>https://lewky.cn/posts/hugo-3.html/</link><pubDate>Sun, 11 Oct 2020 13:11:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">hexo: 3.8.0
-
-hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-
-LoveIt: v0.2.10
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
-<p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>
-<ul>
-<li><a href="/posts/hugo-3.html/" rel="">Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</a></li>
-<li><a href="/posts/hugo-3.1.html/" rel="">Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章</a></li>
-<li><a href="/posts/hugo-3.2.html/" rel="">Hugo系列(3.2) - LoveIt主题美化与博客功能增强 · 第三章</a></li>
-<li><a href="/posts/hugo-3-3/" rel="">Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章</a></li>
-</ul>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>

@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 08 Sep 2021 23:44:59 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>Elasticsearch问题汇总</title><link>https://lewky.cn/posts/es-issues/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/es-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 09 Sep 2021 23:44:02 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>日志框架与门面模式</title><link>https://lewky.cn/posts/log-framework/</link><pubDate>Thu, 09 Sep 2021 23:44:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/log-framework/</guid><description><![CDATA[<h2 id="日志框架">日志框架</h2>
+<p>目前的日志框架可以分为两种：一种是jdk自带的，一种是第三方实现的。</p>
+<p>第三方的日志框架除了提供具体的日志实现外，也有的会提供自身框架的接口。此外，有些日志框架仅仅提供了一套统一的接口，不包含具体的日志实现，可以通过一些桥接包来调用其他的日志框架。（即日志的门面模式）</p>]]></description></item><item><title>Elasticsearch问题汇总</title><link>https://lewky.cn/posts/es-issues/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/es-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文主要基于Elasticsearch 6.5.4版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -202,11 +204,4 @@ Result table:
 <h2 id="启动时选择工作空间">启动时选择工作空间</h2>
 <p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Appearance &amp; Behavior</code> -&gt; <code>System Settings</code> -&gt; 不勾选<code>Reopen projects on startup</code></p>
 <h2 id="无法搜索或者下载插件">无法搜索或者下载插件</h2>
-<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>]]></description></item><item><title>博客园SimpleMemory皮肤定制化</title><link>https://lewky.cn/posts/cnblogs-skin/</link><pubDate>Thu, 05 Aug 2021 22:44:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cnblogs-skin/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>博客园支持皮肤的高度定制化，本文主要简单介绍下博客园的SimpleMemory皮肤的定制化。感谢皮肤作者以及定制化皮肤的作者！</p>
-<p>个人使用的是<code>BNDong</code>大大开源的基于SimpleMemory原皮的定制化皮肤，下面是相关的一些链接。</p>
-<ul>
-<li>项目地址：https://github.com/BNDong/Cnblogs-Theme-SimpleMemory</li>
-<li>文档地址：https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/</li>
-<li>原作者：https://www.cnblogs.com/bndong/</li>
-</ul>]]></description></item></channel></rss>
+<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>]]></description></item></channel></rss>
