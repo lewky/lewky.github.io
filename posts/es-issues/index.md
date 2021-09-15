@@ -156,8 +156,96 @@ writers.put(BigDecimal.class, (b, v) -> b.value((BigDecimal) v));
 
 可以发现，在6.7.1版本的源码里，多出了最后的两种数据类型的支持：BigInteger和BigDecimal。
 
+## Limit of total fields [1000] in index has been exceeded
+
+在索引数据时ES抛出异常：
+
+```
+cause: ElasticsearchException[Elasticsearch exception [type=illegal_argument_exception, reason=Limit of total fields [1000] in index [item] has been exceeded]]
+```
+
+这是由于被索引的文档字段数量超过了默认的1000上限，两种解决方法，要么减少文档的字段，要么增加字段上限。
+
+增加字段上限可以只设置某个索引，也可以设置为全局的配置，对所有已存在的索引生效，但对之后新建的索引是无效的。
+
+```
+// 只设置test索引的配置
+PUT http://localhost:9200/test/_settings
+
+{
+  "index.mapping.total_fields.limit": 5000
+}
+
+// 全局的配置
+PUT http://localhost:9200/_settings
+
+{
+  "index.mapping.total_fields.limit": 5000
+}
+```
+
+## FORBIDDEN/12/index read-only / allow delete (api)
+
+索引数据时报错如下：
+
+```
+cause: ElasticsearchException[Elasticsearch exception [type=cluster_block_exception, reason=blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];]]
+```
+
+这是ES节点的数据目录data磁盘空间使用率超过90%导致的，为了保护数据，ES将索引变为只读模式，只允许删除。
+
+此时需要增大磁盘的使用空间，有如下多种方法：
+
+1. 集群增加节点
+2. 降低集群的索引副本数量
+3. 清理磁盘无用的数据，比如日志等
+
+ES应该尽量别和其他项目部署在一起，磁盘容易被其他项目的日志挤占。此外，ES本身的日志和数据存储目录也可以配置在不同的目录，需要更改配置文件`/config/elasticsearch.yml`：
+
+```yml
+# ----------------------------------- Paths ------------------------------------
+#
+# Path to directory where to store the data (separate multiple locations by comma):
+#
+#path.data: /path/to/data
+#
+# Path to log files:
+#
+#path.logs: /path/to/logs
+```
+
+在增大了磁盘的使用空间后，索引的只读状态需要手动更改回来，可以更改所有索引，也可以只指定某个索引（用对应的索引名字取代`_all`，`_all`表示所有索引，如果不指定索引名，也不使用`_all`，同样表示修改全局配置）：
+
+```
+// curl方式
+curl -XPUT -H "Content-Type: application/json" http://localhost:9200/_all/_settings -d '{"index.blocks.read_only_allow_delete": null}'
+
+// RESTful方式
+PUT http://localhost:9200/_all/_settings
+
+{"index.blocks.read_only_allow_delete": null}
+```
+
+## 修改分页查询的最大结果数量
+
+ES分页查询（from+size）默认的最大查询结果数量为10000，可以通过修改max_result_window的值来提高上限：
+
+```
+// curl方式
+curl -XPUT -H "Content-Type: application/json" http://localhost:9200/_all/_settings -d '{"index.max_result_window" :"100000"}'
+
+// RESTful方式
+PUT http://localhost:9200/_all/_settings
+
+{"index.max_result_window" :"100000"}
+```
+
 ## 参考链接
 
 * [Elasticsearch Guide 6.7 - Search Settings](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/search-settings.html)
 * [ES 问题 ： too_many_clauses maxClauseCount is set to 1024](https://blog.csdn.net/qingmou_csdn/article/details/86687041)
 * [elastic search 5.4.版本，java api 调用出现：can not write type 【class java.math.BigDecimal】](https://elasticsearch.cn/question/3757)
+* [java.lang.IllegalArgumentException: Limit of total fields 【1000】 in index 索引名称](https://blog.csdn.net/qq_15713753/article/details/94436186)
+* [ES 写索引报错 FORBIDDEN/12/index read-only / allow delete (api)解决方案](https://blog.csdn.net/zheng45/article/details/92383323)
+* [ES集群修改index副本数报错 ：index read-only / allow delete](https://blog.51cto.com/michaelkang/2164181)
+* [ES更改参数max_result_window](https://www.cnblogs.com/binbinyouni/p/10749985.html)
