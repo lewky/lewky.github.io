@@ -54,6 +54,13 @@ logo="https://cdn.jsdelivr.net/gh/mobaijun/blog_css_js/image/avatar.jpg"
 word="代码改变世界！"
 >}}
 
+{{< friend
+name="徐泽林的博客"
+url="https://www.zlinblog.cn"
+logo="https://pic.zlinblog.cn/avatar.jpg"
+word="唯书籍不朽"
+>}}
+
 ## 网络安全
 
 {{< friend
