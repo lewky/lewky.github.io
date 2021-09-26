@@ -226,7 +226,16 @@ PUT http://localhost:9200/_all/_settings
 {"index.blocks.read_only_allow_delete": null}
 ```
 
-## 修改分页查询的最大结果数量
+## Result window is too large, from + size must be less than or equal to: [10000]
+
+报错如下：
+
+```json
+"root_cause": [{
+    "type": "illegal_argument_exception",
+    "reason": "Result window is too large, from + size must be less than or equal to: [10000] but was [80000]. See the scroll api for a more efficient way to request large data sets. This limit can be set by changing the [index.max_result_window] index level setting."
+}]
+```
 
 ES分页查询（from+size）默认的最大查询结果数量为10000，可以通过修改max_result_window的值来提高上限：
 
