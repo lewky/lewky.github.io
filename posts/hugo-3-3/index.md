@@ -26,29 +26,40 @@ LoveIt: v0.2.10
 
 在归档页面只能看到所有以创建时间递减排序的文章列表，可以用下面的方法在归档页面开头增添十篇最近更新的文章。
 
-将`/themes/LoveIt/layouts/_default/section.html`拷贝到`/layouts/_default/section.html`，打开拷贝后的文件，找到如下：
+首先在配置文件`config.toml`中添加新的变量：
+
+```
+  [params.section]
+    # 显示最近更新文章的数量
+    lastUpdatedSize = 15
+```
+
+接着将`/themes/LoveIt/layouts/_default/section.html`拷贝到`/layouts/_default/section.html`，打开拷贝后的文件，找到如下：
 
 ```
 {{- /* Paginate */ -}}
 ```
 
-在这行代码上方插入下面的代码：
+在这行代码的上方位置插入下面的代码：
 
 ```
 {{- /* Last Modified */ -}}
-{{- if .Pages -}}
-    {{- $pages := .Pages.ByLastmod.Reverse -}}
-    <h3 class="group-title">最近更新 <sup>10</sup></h3>
-    {{- range first 10 $pages -}}
-		<article class="archive-item">
-			<a href="{{ .RelPermalink }}" class="archive-item-link">
-				{{- .Title -}}
-			</a>
-			<span class="archive-item-date2">
-				{{- "2006-01-02" | .Lastmod.Format -}}
-			</span>
-		</article>
-    {{- end -}}
+{{- $lastUpdatedSize := .Site.Params.section.lastUpdatedSize -}}
+{{- if $lastUpdatedSize -}}
+	{{- if .Pages -}}
+		{{- $pages := .Pages.ByLastmod.Reverse -}}
+		<h3 class="group-title">最近更新 <sup>{{- $lastUpdatedSize -}}</sup></h3>
+		{{- range first $lastUpdatedSize $pages -}}
+			<article class="archive-item">
+				<a href="{{ .RelPermalink }}" class="archive-item-link">
+					{{- .Title -}}
+				</a>
+				<span class="archive-item-date2">
+					{{- "2006-01-02" | .Lastmod.Format -}}
+				</span>
+			</article>
+		{{- end -}}
+	{{- end -}}
 {{- end -}}
 ```
 
