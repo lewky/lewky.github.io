@@ -245,6 +245,64 @@ git config -l
 git config -l  --global
 ```
 
+## 统计代码提交行数
+
+可以在`git bash`里用`git log`命令来统计，部分参数说明如下：
+
+```
+--author   指定作者
+--stat   显示每次更新的文件修改统计信息，会列出具体文件列表
+--shortstat    统计每个commit 的文件修改行数，包括增加，删除，但不列出文件列表
+--numstat   统计每个commit 的文件修改行数，包括增加，删除，并列出文件列表
+--pretty 使用其他格式显示历史提交信息
+--pretty=tformat	可以定制要显示的记录格式
+--since, --after 仅显示指定时间之后的提交
+--until, --before 仅显示指定时间之前的提交
+
+-w 显示字数
+-c 显示Bytes数
+-l 显示行数
+```
+
+统计某段时间内的提交：
+
+```
+git log --since ==2021-09-01 --until=2021-10-05 | wc -l
+```
+
+统计当前用户的代码提交量，包括增加、删除：
+
+```
+git log --author="$(git config --get user.name)" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }'
+```
+
+统计仓库排名前五的提交：
+
+```
+git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 5
+
+--按照邮箱来统计排名前五的提交（邮箱名不同，但是用户名可以相同）
+git log --pretty=format:%ae | gawk -- '{ ++c[$0]; } END { for(cc in c) printf "%5d %s\n",c[cc],cc; }' | sort -u -n -r | head -n 5
+```
+
+贡献者统计：
+
+```
+git log --pretty='%aN' | sort -u | wc -l
+```
+
+提交数统计：
+
+```
+git log --oneline | wc -l
+```
+
+添加或修改的代码行数：
+
+```
+git log --stat|perl -ne 'END { print $c } $c += $1 if /(\d+) insertions/;'
+```
+
 ## 参考链接
 
 * [.gitignore 规则写法 - 在已忽略文件夹中不忽略指定文件、文件夹【注意项】](https://my.oschina.net/longyuan/blog/521098)
@@ -254,3 +312,4 @@ git config -l  --global
 * [如何去解决fatal: refusing to merge unrelated histories](https://blog.csdn.net/m0_37402140/article/details/72801372)
 * [git merge --no-ff是什么意思](https://segmentfault.com/q/1010000002477106)
 * [关于git提示“warning: LF will be replaced by CRLF”终极解答](https://www.jianshu.com/p/450cd21b36a4)
+* [用git统计代码提交行数](https://blog.csdn.net/carterslam/article/details/81162463)
