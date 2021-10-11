@@ -160,6 +160,24 @@ System.out.println(withZoneSameInstant.toLocalDateTime());  // 2021-01-04T16:00
 System.out.println(withZoneSameLocal.toLocalDateTime());    // 2021-01-05T00:00
 ```
 
+### `java.sql`包下的类和新的日期类的转换：
+
+```java
+// 2021-05-01
+LocalDate localDate = LocalDate.of(2021, 5, 1);
+// 2021-05-01
+final Date sqlDate = Date.valueOf(localDate);
+// 2021-05-01
+localDate = sqlDate.toLocalDate();
+
+// 2021-05-01T00:16:44.032
+LocalDateTime localDateTime = LocalDateTime.of(localDate, LocalTime.now());
+// 2021-05-01 00:16:44.032
+final Timestamp timestamp = Timestamp.valueOf(localDateTime);
+// 2021-05-01T00:16:44.032
+localDateTime = timestamp.toLocalDateTime();
+```
+
 ### 获取月份、年份的最后一天
 
 JDK 8提供了`TemporalAdjusters`工具类来实现调整时间的功能：
