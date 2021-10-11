@@ -1,4 +1,7 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Sep 2021 23:27:22 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky.cn/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 12 Oct 2021 00:04:01 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>MySQL问题汇总</title><link>https://lewky.cn/posts/mysql-issues/</link><pubDate>Tue, 12 Oct 2021 00:04:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/mysql-issues/</guid><description><![CDATA[<h2 id="指定字符集编码">指定字符集编码</h2>
+<p>需要在数据库连接中指定两个参数：<code>useUnicode=true&amp;characterEncoding=UTF-8</code>，只有当设置了<code>useUnicode=true</code>时，后续指定的字符集编码才有效。</p>
+<h2 id="mysql-56别名默认不生效问题">MySQL 5.6别名默认不生效问题</h2>
+<p>在数据库连接中指定参数：<code>useOldAliasMetadataBehavior=true</code>。</p>]]></description></item><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky.cn/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>Spring Data除了常用的JPA（Hibernate）关系型数据库的模块外，还有其他用于非关系型数据库的数据交互模块：比如Redis、MongoDB、Elasticsearch等。</p>
 <p>用法和JPA模块类似，都需要定义对应的POJO、Repository，同时也提供了对应的数据库工具模板类：如RedisTemplate、MongoTemplate等。</p>
 <p>本文基于以下版本：</p>
@@ -205,18 +208,4 @@ Result table:
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
-&lt;p>最近需要用到iReport报表工具，但是在启动客户端时却发现会闪退，无法正常启动。查找了资料，发现是因为iReport无法支持jdk 1.8，必须要修改配置文件，将java版本指定为1.7或之前的版本。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。&lt;/p></description></item><item><title>Log4j、Log4j2问题汇总</title><link>https://lewky.cn/posts/log4j2-issues/</link><pubDate>Sat, 07 Aug 2021 23:23:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/log4j2-issues/</guid><description><![CDATA[<h2 id="isdebugenabled的作用"><code>isDebugEnabled()</code>的作用</h2>
-<p>查看公司项目的代码，发现在打印日志的时候会先进行一次判断，如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">LOGGER</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">LOGGER</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Search parameters: &#34;</span> <span class="o">+</span> <span class="n">searchParams</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+&lt;p>最近需要用到iReport报表工具，但是在启动客户端时却发现会闪退，无法正常启动。查找了资料，发现是因为iReport无法支持jdk 1.8，必须要修改配置文件，将java版本指定为1.7或之前的版本。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。&lt;/p></description></item></channel></rss>
