@@ -182,6 +182,148 @@ Log4J采用类似C语言中的printf函数的打印格式格式化日志信息�
 
 `configuration`标签里还有个`status`属性，用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，你会看到log4j2内部各种详细输出。这里设置成error后则只能看到log4j2自身error级以上级别的日志信息。
 
+## 在脚本中指定配置文件路径
+
+通常项目会通过bat或者shell脚本来运行，而配置文件又存放在其他路径，需要在脚本中另外指定配置文件的路径。
+
+Log4j的配置文件路径参数为`-Dlog4j.configuration`，在用java命令执行项目时加入改参数即可：
+
+```java
+java com.test.Test -Dlog4j.configuration=config/log4j.xml
+```
+
+Log4j2的配置文件路径参数为`-Dlog4j.configurationFile`，如下：
+
+```java
+java com.test.Test -Dlog4j.configurationFile=config/log4j2.xml
+```
+
+## 使用`include`标签来引入参数文件
+
+Log4j2的配置文件可以设置一些参数变量，方便下文使用：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration monitorInterval="30">
+    <Properties>
+        <Property name="logstash.host">udp:localhost</Property>
+        <Property name="logstash.port">4567</Property>
+    </Properties>
+    
+    <Appenders>
+		<!-- This appender is used for indexing CommandLog into Elasticsearch by ELK. -->
+	    <Gelf name="logstash-gelf" host="${logstash.host}" port="${logstash.port}" version="1.1" ignoreExceptions="true"
+             extractStackTrace="true" filterStackTrace="false">
+        </Gelf>
+	</Appenders>
+
+	<Loggers>
+	    <Logger name="elk" level="info" additivity="false">
+            <AppenderRef ref="logstash-gelf"/>
+        </Logger>
+		
+		<Root level="error">
+			<AppenderRef ref="logfile" />
+		</Root>
+	</Loggers>
+
+</configuration>
+```
+
+有时候这个参数，不只是某个项目的配置文件使用，可能多个项目之间都是共享同样的变量值，这时候可以通过将公共的参数变量定义到一个单独的文件中，然后通过`include`标签来引入参数文件：
+
+首先定义一个单独的参数文件，假如命名为`log4j-xinclude-properties.xml`：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Properties>
+    <Property name="logstash.host">udp:localhost</Property>
+    <Property name="logstash.port">4567</Property>
+</Properties>
+```
+
+然后在原本的配置文件`log4j2.xml`中引入`include`标签，**注意需要在文件头里引入该标签**：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xi="http://www.w3.org/2001/XInclude" monitorInterval="30">
+    <xi:include href="log4j-xinclude-properties.xml" />
+    
+    <Appenders>
+		<!-- This appender is used for indexing CommandLog into Elasticsearch by ELK. -->
+	    <Gelf name="logstash-gelf" host="${logstash.host}" port="${logstash.port}" version="1.1" ignoreExceptions="true"
+             extractStackTrace="true" filterStackTrace="false">
+        </Gelf>
+	</Appenders>
+
+	<Loggers>
+	    <Logger name="elk" level="info" additivity="false">
+            <AppenderRef ref="logstash-gelf"/>
+        </Logger>
+		
+		<Root level="error">
+			<AppenderRef ref="logfile" />
+		</Root>
+	</Loggers>
+
+</configuration>
+```
+
+当然，`include`标签不只是可以引入其他文件的Properties节点，实际上也可以引入公共的Appenders或者Loggers节点，注意它只能引入这种一级节点，且一级节点是不能重复定义的，也就是说如果引入了一个Properties节点，那么原本的配置文件中就不能定义该节点了，否则会冲突或者报错。
+
+## NDC和MDC功能
+
+NDC（Nested Diagnostic Context）和MDC（Mapped Diagnostic Context）是Log4j提供的一个线程共享的变量容器，NDC对应Stack，MDC对应Map，可以将变量存入其中，然后在打印日志时通过PatternLayout来将变量值打印出来，比如打印当前用户的用户id等。
+
+从功能来看，其实跟Java提供的ThreadLocal差不多。NDC和MDC都是线程独立的，子线程会从父线程拷贝上下文。用法很简单：
+
+```java
+// NDC
+1.开始调用
+NDC.push(message);
+
+2.删除栈顶消息
+NDC.pop();
+
+3.清除全部的消息，必须在线程退出前显示的调用，否则会导致内存溢出。
+NDC.remove();
+
+4.输出模板，注意是小写的[%x]
+log4j.appender.stdout.layout.ConversionPattern=[%d{yyyy-MM-dd HH:mm:ssS}] [%x] : %m%n
+
+
+// MDC
+1.保存信息到上下文
+MDC.put(key, value);
+
+2.从上下文获取设置的信息
+MDC.get(key);
+
+3.清楚上下文中指定的key的信息
+MDC.remove(key);
+
+4.清除所有
+clear()
+
+5.输出模板，注意是大写[%X{key}]
+log4j.appender.consoleAppender.layout.ConversionPattern = %-4r [%t] %5p %c %x - %m - %X{key}%n
+
+// PatternLayout
+%X 输出Map中全部数据
+%X{key} 指定输出Map中的key的值
+%x 输出Stack中的全部内容
+```
+
+而到了Log4j2中，将MDC和NDC合并到了一个新的类`ThreadContext`中，不过API和PatternLayout还是和NDC、MDC的用法一样。去查看底层源码，会发现内置了一个Stack和Map：
+
+```java
+public final class ThreadContext {
+    private static ThreadContextMap contextMap;
+    private static ThreadContextStack contextStack;
+}
+```
+
 ## `IllegalStateException: No factory method found for class`
 
 在使用Log4j2时，虽然可以正确读取配置文件并生成log文件，但偶然发现控制台打印了异常信息：
@@ -305,7 +447,7 @@ System.setProperty("domainId", "xxx");
 
 ### 解决方案三
 
-不要在RollingFile的fileName和filePattern属性里使用到`${ctx:domainId}`等cdn或者mdn的写法，这样会导致在log4j2异步扫描重加载配置文件的时候报错。
+不要在RollingFile的fileName和filePattern属性里使用到`${ctx:domainId}`等NDC和MDC的写法，这样会导致在log4j2异步扫描重加载配置文件的时候报错。
 
 可以使用另一种Appender来实现这种把日志分别打印到不同文件的效果，那就是[路由日志`RoutingAppender`](http://lewky.cn/posts/log4j2-issues/#路由日志routingappender)。有兴趣的可以去了解下这个，还是挺有意思的。
 
@@ -423,6 +565,114 @@ System.setProperty("domainId", "xxx");
 
 而`$${ctx:domainId}`指的是存放于MDC中的一个变量`domainId`的值，在上述配置中不同用户的`domainId`是不一样的，这样就可以实现对不同用户的日志进行归类。
 
+## Log4j升级到Log4j2
+
+由于公司老项目的日志管理十分混乱，大部分地方使用自定制的打印类工具来打印，小部分地方用的slf4j+log4j。Log4j在高并发场景下，也会有引发线程阻塞的情况。
+
+为了便于管理，以及提高日志打印的性能，决定将日志从Log4j升级到Log4j2。并且统一使用slf4j+log4j2的方式来打印日志，关于slf4j等日志门面，可以看这篇文章：[日志框架与门面模式](https://lewky.cn/posts/log-framework/)
+
+首先是移除低版本的Log4j日志依赖：
+
+```
+<exclusions>  
+    <exclusion>  
+        <groupId>org.slf4j</groupId>  
+        <artifactId>slf4j-log4j12</artifactId>  
+    </exclusion>  
+    <exclusion>  
+        <groupId>log4j</groupId>  
+        <artifactId>log4j</artifactId>  
+    </exclusion>  
+</exclusions>
+```
+
+然后是添加Log4j2的依赖：
+
+```
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.11.2</version>
+</dependency>
+
+<!-- web工程需要包含log4j-web，非web工程不需要 -->
+<!-- 用来释放日志资源（关闭数据库连接，关闭文件等） -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-web</artifactId>
+    <version>2.11.2</version>
+</dependency>
+
+<!-- log4j2的异步日志AsyncLogger需要disruptor-->
+<dependency>
+    <groupId>com.lmax</groupId>
+    <artifactId>disruptor</artifactId>
+    <version>3.4.2</version>
+</dependency>
+```
+
+关于log4j-web这个jar包，可以看看这个问答：[web项目中log4j2的log4j-web包如果不添加，会影响哪些日志输出？](https://segmentfault.com/q/1010000017777508)
+
+接着是添加slf4j的依赖：
+
+```
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.13</version>
+</dependency>
+
+<!-- 桥接slf4j和log4j2 -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-slf4j-impl</artifactId>
+    <version>2.11.2</version>
+</dependency>
+
+<!-- 下面的桥接包都是为了兼容第三方库的日志打印 -->
+<!-- 将jcl桥接为slf4j -->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>jcl-over-slf4j</artifactId>
+    <version>1.7.13</version>
+</dependency>
+
+<!-- 将log4j桥接为slf4j -->
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>log4j-over-slf4j</artifactId>
+    <version>1.7.13</version>
+</dependency>
+```
+
+最后是改变日志的配置文件，将`log4j.properties`替换成`log4j2.xml`。
+
+下面是Log4j官方网站的迁移文档说明：
+
+[Migrating from Log4j 1.x](https://logging.apache.org/log4j/2.x/manual/migration.html)
+
+## SpringBoot项目使用Log4j2
+
+SpringBoot项目默认使用commons-logging + Logback，可以用下面的方式改为使用Log4j2：
+
+```
+<!-- use log4j2 instead of logback -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-log4j2</artifactId>
+</dependency>
+```
+
 ## 参考链接
 
 * [Java日志框架中真的需要判断log.isDebugEnabled()吗？](https://blog.csdn.net/neosmith/article/details/50100061)
@@ -434,3 +684,6 @@ System.setProperty("domainId", "xxx");
 * [Log4j2进阶使用(按大小时间备份日志)](https://www.cnblogs.com/bugzeroman/p/12858116.html)
 * [log4j（二）——如何控制日志信息的输出？](https://www.cnblogs.com/godtrue/p/6442347.html)
 * [Log4j2配置文件详解](https://www.cnblogs.com/yudar/p/5113655.html)
+* [Log4j2 File Inclusion : <include> and <included> similar to Logback](https://stackoverflow.com/questions/25694782/log4j2-file-inclusion-include-and-included-similar-to-logback/30478905#30478905)
+* [Java日志Log4j或者Logback的NDC和MDC功能](https://zhuanlan.zhihu.com/p/89594636)
+* [使用Slf4j集成Log4j2构建项目日志系统的完美解决方案](https://www.cnblogs.com/hafiz/p/6160298.html#autoid-2-0-0)

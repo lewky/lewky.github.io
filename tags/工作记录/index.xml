@@ -1,4 +1,9 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 12 Oct 2021 00:04:01 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>MySQL问题汇总</title><link>https://lewky.cn/posts/mysql-issues/</link><pubDate>Tue, 12 Oct 2021 00:04:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/mysql-issues/</guid><description><![CDATA[<h2 id="指定字符集编码">指定字符集编码</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 14 Oct 2021 21:26:47 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>Java正则表达式问题汇总</title><link>https://lewky.cn/posts/java-regex-issues/</link><pubDate>Thu, 14 Oct 2021 21:26:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-regex-issues/</guid><description><![CDATA[<h2 id="正则表达式的模式修饰符">正则表达式的模式修饰符</h2>
+<p>在正则表达式前面可以加上<code>(?i)</code>，<code>(?s)</code>和<code>(?m)</code>这三种模式修饰符，用以改变正则表达式的匹配模式。</p>
+<p><code>(?i)</code>表示匹配时不区分大小写。</p>
+<p><code>(?s)</code>表示Singleline（单行模式），匹配时会改变<code>.</code>的含义，使其能与换行符（\r或者\n，如果是\r\n需要用两个<code>.</code>）匹配。</p>
+<p><code>(?m)</code>表示Multiline（多行模式），匹配时会改变<code>^</code>和<code>$</code>的含义，使其分别在任意一行的行首和行尾匹配，而不仅仅在整个字符串的开头和结尾匹配。</p>
+<p>这三种模式修饰符可以搭配使用，如：<code>(?im)</code>，<code>(?is)</code>等。</p>]]></description></item><item><title>MySQL问题汇总</title><link>https://lewky.cn/posts/mysql-issues/</link><pubDate>Tue, 12 Oct 2021 00:04:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/mysql-issues/</guid><description><![CDATA[<h2 id="指定字符集编码">指定字符集编码</h2>
 <p>需要在数据库连接中指定两个参数：<code>useUnicode=true&amp;characterEncoding=UTF-8</code>，只有当设置了<code>useUnicode=true</code>时，后续指定的字符集编码才有效。</p>
 <h2 id="mysql-56别名默认不生效问题">MySQL 5.6别名默认不生效问题</h2>
 <p>在数据库连接中指定参数：<code>useOldAliasMetadataBehavior=true</code>。</p>]]></description></item><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky.cn/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
@@ -149,17 +154,4 @@
 <h2 id="启动时选择工作空间">启动时选择工作空间</h2>
 <p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Appearance &amp; Behavior</code> -&gt; <code>System Settings</code> -&gt; 不勾选<code>Reopen projects on startup</code></p>
 <h2 id="无法搜索或者下载插件">无法搜索或者下载插件</h2>
-<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>]]></description></item><item><title>npm问题汇总</title><link>https://lewky.cn/posts/npm-issues/</link><pubDate>Wed, 04 Aug 2021 22:51:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/npm-issues/</guid><description><![CDATA[<h2 id="修改npm全局安装的路径">修改npm全局安装的路径</h2>
-<p>在cmd输入命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-cmd" data-lang="cmd">npm config set prefix <span class="s2">&#34;D:\software\nodejs\node_global&#34;</span>
-npm config set cache <span class="s2">&#34;D:\software\nodejs\node_cache&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>之后可以执行<code>npm config ls</code>来查看是否设置成功了。</p>
-<p>为了方便全局安装的模块能通过命令行来运行，可以将上述设置的两个路径添加到环境变量<code>PATH</code>中。</p>]]></description></item></channel></rss>
+<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>]]></description></item></channel></rss>
