@@ -240,6 +240,48 @@ interface SimpleInspectBookingScheduled {
 
 此外，`java.sql`包下的类和新的日期类的转换方式可以参考[这篇文章](https://lewky.cn/posts/java-date-issues.html/#javasql包下的类和新的日期类的转换)
 
+## operator does not exist: character varying = bytea
+
+当使用JPA的`@Query`查询数据库时，此时`@Query`里自定义的sql会用到参数绑定，如下：
+
+```
+@Query(value = "SELECT * "
+            + "from tb_test test "
+            + "where test.domain_id = :domainId", nativeQuery = true)
+List<Test> test(@Param(value = "domainId") final String domainId);
+```
+
+如果被绑定的参数值是`null`，而被查询的数据库是PostgreSQL，那么上述SQL在执行时就会报错：
+
+```
+Caused by: org.postgresql.util.PSQLException: ERROR: operator does not exist: character varying = bytea
+  Hint: No operator matches the given name and argument types. You might need to add explicit type casts.
+  Position: 145
+```
+
+原因是PostgreSQL驱动把null值识别成了bytea类型，在进行参数绑定时，由于当前字段是varchar类型（character varying），会认为需要进行显示类型转换。如果直接把下述SQL去PostgreSQL 12查询，是不会报错的：
+
+```
+SELECT * from tb_test test where test.domain_id = null;
+```
+
+这里报错是因为JPA使用了参数绑定的方式：
+
+```
+SELECT * from tb_test test where test.domain_id = ?;
+```
+
+解决这个问题，需要处理参数值是null的情况，由于业务需求，这个参数值不能为null，我需要在参数值不为null时才能调用这个方法，这样就不会触发这个问题。
+
+如果是需要按照参数值是否为null来作为查询条件，可以这样写：
+
+```
+@Query(value = "SELECT * "
+            + "from tb_test test "
+            + "where test.sourcing_record_ref is null or test.sourcing_record_ref = cast(:sourcingRecordRef as text)", nativeQuery = true)
+List<Test> test(@Param(value = "domainId") final String domainId);
+```
+
 ## 参考链接
 
 * [springboot jpa 解决延迟加载问题](https://blog.csdn.net/hsz2568952354/article/details/82724719)
@@ -250,3 +292,4 @@ interface SimpleInspectBookingScheduled {
 * [[转]cannot simultaneously fetch multiple bags 问题的解决办法](http://blog.sina.com.cn/s/blog_697b968901017w9p.html)
 * [UnexpectedRollbackException解决方案](https://segmentfault.com/a/1190000016418596?utm_source=tag-newest)
 * [import java.sql.date_Java8中 LocalDate和java.sql.Date的相互转换操作](https://blog.csdn.net/weixin_33526828/article/details/114507298?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.essearch_pc_relevant&spm=1001.2101.3001.4242)
+* [PostgreSQL错误处理“operator does not exist: character varying = bytea at character”](https://www.it610.com/article/1289093039972753408.htm)
