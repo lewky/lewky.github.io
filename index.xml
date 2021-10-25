@@ -111,58 +111,7 @@ LoveIt: v0.2.10
 &lt;/dependency&gt;
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>LeetCode - SQL题目</title><link>https://lewky.cn/posts/leetcode-sql/</link><pubDate>Tue, 17 Aug 2021 23:21:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/leetcode-sql/</guid><description><![CDATA[<h2 id="627-swap-salary">627. Swap Salary</h2>
-<h3 id="题目">题目</h3>
-<p><a href="https://leetcode.com/problems/swap-salary/description/">https://leetcode.com/problems/swap-salary/description/</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Salary table:
-+----+------+-----+--------+
-| id | name | sex | salary |
-+----+------+-----+--------+
-| 1  | A    | m   | 2500   |
-| 2  | B    | f   | 1500   |
-| 3  | C    | m   | 5500   |
-| 4  | D    | f   | 500    |
-+----+------+-----+--------+
-
-Result table:
-+----+------+-----+--------+
-| id | name | sex | salary |
-+----+------+-----+--------+
-| 1  | A    | f   | 2500   |
-| 2  | B    | m   | 1500   |
-| 3  | C    | f   | 5500   |
-| 4  | D    | m   | 500    |
-+----+------+-----+--------+
-(1, A) and (3, C) were changed from &#39;m&#39; to &#39;f&#39;.
-(2, B) and (4, D) were changed from &#39;f&#39; to &#39;m&#39;.
-</code></pre></td></tr></table>
-</div>
-</div><p>sex字段是枚举类型，只有m和f两种值，现在要求只能用一个简单的update语句来将表中数据的sex字段的值对调，即m变为f，f变为m；不允许使用select之类的语句。</p>]]></description></item><item><title>PowerMock问题汇总</title><link>https://lewky.cn/posts/powermock-issues/</link><pubDate>Tue, 10 Aug 2021 23:13:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/powermock-issues/</guid><description><![CDATA[<h2 id="powermock报错导致无法运行测试类">PowerMock报错导致无法运行测试类</h2>
+</div>]]></description></item><item><title>PowerMock问题汇总</title><link>https://lewky.cn/posts/powermock-issues/</link><pubDate>Tue, 10 Aug 2021 23:13:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/powermock-issues/</guid><description><![CDATA[<h2 id="powermock报错导致无法运行测试类">PowerMock报错导致无法运行测试类</h2>
 <p>在执行单元测试时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -502,4 +451,10 @@ LoveIt: v0.2.10
 <span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="mi">44</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">--Error
 </span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item></channel></rss>
+</div>]]></description></item><item><title>远程桌面无法复制粘贴</title><link>https://lewky.cn/posts/remote-desktop-issue.html/</link><pubDate>Thu, 04 Feb 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/remote-desktop-issue.html/</guid><description><![CDATA[<h2 id="方法一">方法一</h2>
+<p>可能是<code>rdpclip.exe</code>进程出了问题，在任务管理器中找到该进程，选中后并结束进程。接着重启该进程：</p>
+<ol>
+<li><code>win + R</code>组合键打开运行窗口</li>
+<li>输入<code>rdpclip.exe</code>，按下回车或确定按钮。</li>
+</ol>
+<p>此时可以在任务管理器重新看到该进程，一般情况下就可以正常的在远程桌面复制粘贴了。</p>]]></description></item></channel></rss>

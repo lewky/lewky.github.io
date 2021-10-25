@@ -111,9 +111,18 @@ LoveIt: v0.2.10
 &lt;/dependency&gt;
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>LeetCode - SQL题目</title><link>https://lewky.cn/posts/leetcode-sql/</link><pubDate>Tue, 17 Aug 2021 23:21:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/leetcode-sql/</guid><description><![CDATA[<h2 id="627-swap-salary">627. Swap Salary</h2>
-<h3 id="题目">题目</h3>
-<p><a href="https://leetcode.com/problems/swap-salary/description/">https://leetcode.com/problems/swap-salary/description/</a></p>
+</div>]]></description></item><item><title>PowerMock问题汇总</title><link>https://lewky.cn/posts/powermock-issues/</link><pubDate>Tue, 10 Aug 2021 23:13:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/powermock-issues/</guid><description><![CDATA[<h2 id="powermock报错导致无法运行测试类">PowerMock报错导致无法运行测试类</h2>
+<p>在执行单元测试时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ScriptEngineManager</span> <span class="n">providers</span><span class="o">.</span><span class="na">next</span><span class="o">():</span> <span class="n">javax</span><span class="o">.</span><span class="na">script</span><span class="o">.</span><span class="na">ScriptEngineFactory</span><span class="o">:</span> <span class="n">Provider</span> <span class="n">jdk</span><span class="o">.</span><span class="na">nashorn</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">scripting</span><span class="o">.</span><span class="na">NashornScriptEngineFactory</span> <span class="n">not</span> <span class="n">a</span> <span class="n">subtype</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在Stack Overflow上找到了同样的错误，该报错是在使用了PowerMock框架后发生的，奇怪的是，某些同样使用该框架的测试类却不会报错，暂时不明白抛出该异常的根本原因，先记录下解决方法。</p>]]></description></item><item><title>Spring问题汇总</title><link>https://lewky.cn/posts/spring-issues/</link><pubDate>Mon, 09 Aug 2021 23:06:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-issues/</guid><description><![CDATA[<h2 id="orgspringframeworkexpressionspelspelevaluationexception-el1030e"><code>org.springframework.expression.spel.SpelEvaluationException: EL1030E</code></h2>
+<p>运行Spring项目时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -133,43 +142,25 @@ LoveIt: v0.2.10
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Salary table:
-+----+------+-----+--------+
-| id | name | sex | salary |
-+----+------+-----+--------+
-| 1  | A    | m   | 2500   |
-| 2  | B    | f   | 1500   |
-| 3  | C    | m   | 5500   |
-| 4  | D    | f   | 500    |
-+----+------+-----+--------+
-
-Result table:
-+----+------+-----+--------+
-| id | name | sex | salary |
-+----+------+-----+--------+
-| 1  | A    | f   | 2500   |
-| 2  | B    | m   | 1500   |
-| 3  | C    | f   | 5500   |
-| 4  | D    | m   | 500    |
-+----+------+-----+--------+
-(1, A) and (3, C) were changed from &#39;m&#39; to &#39;f&#39;.
-(2, B) and (4, D) were changed from &#39;f&#39; to &#39;m&#39;.
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">SpelEvaluationException</span><span class="o">:</span> <span class="n">EL1030E</span><span class="o">:</span> <span class="n">The</span> <span class="n">operator</span> <span class="err">&#39;</span><span class="n">ADD</span><span class="err">&#39;</span> <span class="n">is</span> <span class="n">not</span> <span class="n">supported</span> <span class="n">between</span> <span class="n">objects</span> <span class="n">of</span> <span class="n">type</span> <span class="err">&#39;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="err">&#39;</span> <span class="n">and</span> <span class="err">&#39;</span><span class="kc">null</span><span class="err">&#39;</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ExpressionState</span><span class="o">.</span><span class="na">operate</span><span class="o">(</span><span class="n">ExpressionState</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">240</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">80</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">85</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">SpelNodeImpl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">SpelNodeImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">109</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">standard</span><span class="o">.</span><span class="na">SpelExpression</span><span class="o">.</span><span class="na">getValue</span>
+<span class="o">....</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">NioEndpoint$SocketProcessor</span><span class="o">.</span><span class="na">doRun</span><span class="o">(</span><span class="n">NioEndpoint</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1415</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">SocketProcessorBase</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">SocketProcessorBase</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">49</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.</span><span class="na">ThreadPoolExecutor</span><span class="o">.</span><span class="na">runWorker</span><span class="o">(</span><span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1142</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.</span><span class="na">ThreadPoolExecutor$Worker</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">617</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">threads</span><span class="o">.</span><span class="na">TaskThread$WrappingRunnable</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TaskThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">61</span><span class="o">)</span>
+	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Thread</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">745</span><span class="o">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>sex字段是枚举类型，只有m和f两种值，现在要求只能用一个简单的update语句来将表中数据的sex字段的值对调，即m变为f，f变为m；不允许使用select之类的语句。</p>]]></description></item><item><title>PowerMock问题汇总</title><link>https://lewky.cn/posts/powermock-issues/</link><pubDate>Tue, 10 Aug 2021 23:13:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/powermock-issues/</guid><description><![CDATA[<h2 id="powermock报错导致无法运行测试类">PowerMock报错导致无法运行测试类</h2>
-<p>在执行单元测试时报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ScriptEngineManager</span> <span class="n">providers</span><span class="o">.</span><span class="na">next</span><span class="o">():</span> <span class="n">javax</span><span class="o">.</span><span class="na">script</span><span class="o">.</span><span class="na">ScriptEngineFactory</span><span class="o">:</span> <span class="n">Provider</span> <span class="n">jdk</span><span class="o">.</span><span class="na">nashorn</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">scripting</span><span class="o">.</span><span class="na">NashornScriptEngineFactory</span> <span class="n">not</span> <span class="n">a</span> <span class="n">subtype</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>在Stack Overflow上找到了同样的错误，该报错是在使用了PowerMock框架后发生的，奇怪的是，某些同样使用该框架的测试类却不会报错，暂时不明白抛出该异常的根本原因，先记录下解决方法。</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>
