@@ -1,4 +1,26 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 14 Oct 2021 21:28:37 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>计算机网络基础</title><link>https://lewky.cn/posts/network/</link><pubDate>Thu, 14 Oct 2021 21:28:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/network/</guid><description><![CDATA[<h2 id="ip地址">IP地址</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 02 Nov 2021 23:31:23 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Git常用命令</title><link>https://lewky.cn/posts/git-commands/</link><pubDate>Tue, 02 Nov 2021 23:31:23 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/git-commands/</guid><description><![CDATA[<h2 id="git-clone">git clone</h2>
+<p>克隆远程库到本地：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 默认本地仓库名字与远程库一样
+git clone https://github.com/jquery/jquery.git
+
+// 指定本地库名字为test
+git clone https://github.com/jquery/jquery.git test
+
+// git clone的仓库地址支持多种协议，通常使用最多的是http(s)和ssh协议，比如从GitHub上克隆仓库。
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>计算机网络基础</title><link>https://lewky.cn/posts/network/</link><pubDate>Thu, 14 Oct 2021 21:28:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/network/</guid><description><![CDATA[<h2 id="ip地址">IP地址</h2>
 <p>IP地址由网络号（包括子网号）和主机号组成，网络号（包括子网号）相同意味着在同一网段下。在IPv4中，IP地址是一个32位的整数，对应4个字节，通常用x.x.x.x的点式十进制方式来表示。</p>
 <p>**主机号为全0时，代表当前网络地址；主机号为全1时，代表当前网络的广播地址。**当向某个网络的广播地址发送消息时，该网络内的所有主机都能收到该广播消息。</p>]]></description></item><item><title>Java正则表达式问题汇总</title><link>https://lewky.cn/posts/java-regex-issues/</link><pubDate>Thu, 14 Oct 2021 21:26:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-regex-issues/</guid><description><![CDATA[<h2 id="正则表达式的模式修饰符">正则表达式的模式修饰符</h2>
 <p>在正则表达式前面可以加上<code>(?i)</code>，<code>(?s)</code>和<code>(?m)</code>这三种模式修饰符，用以改变正则表达式的匹配模式。</p>
@@ -451,10 +473,4 @@ LoveIt: v0.2.10
 <span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="mi">44</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">--Error
 </span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>远程桌面无法复制粘贴</title><link>https://lewky.cn/posts/remote-desktop-issue.html/</link><pubDate>Thu, 04 Feb 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/remote-desktop-issue.html/</guid><description><![CDATA[<h2 id="方法一">方法一</h2>
-<p>可能是<code>rdpclip.exe</code>进程出了问题，在任务管理器中找到该进程，选中后并结束进程。接着重启该进程：</p>
-<ol>
-<li><code>win + R</code>组合键打开运行窗口</li>
-<li>输入<code>rdpclip.exe</code>，按下回车或确定按钮。</li>
-</ol>
-<p>此时可以在任务管理器重新看到该进程，一般情况下就可以正常的在远程桌面复制粘贴了。</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>
