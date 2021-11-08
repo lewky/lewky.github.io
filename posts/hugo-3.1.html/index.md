@@ -211,6 +211,8 @@ Waline内置微博表情，如果想自定义表情包的，可以继续添加�
 
 这里顺便介绍下@小康大佬整理的一个很方便的表情包站点：[表情速查](https://emotion.xiaokang.me/)，里面有很多类别的表情包，还有对应的快速引入语法链接，以及用于配置Valine、Waline等评论系统表情包映射的JSON！
 
+这里还有一个专门爬取b站表情包的项目仓库：[lrhtony / BiliEmoji](https://github.com/lrhtony/BiliEmoji)
+
 ### 添加评论统计到文章元数据
 
 将`/themes/LoveIt/layouts/posts/single.html`拷贝到`/layouts/posts/single.html`，打开拷贝后的文件，找到如下：

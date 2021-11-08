@@ -61,6 +61,13 @@ logo="https://pic.zlinblog.cn/avatar.jpg"
 word="唯书籍不朽"
 >}}
 
+{{< friend
+name="pai233の小窝"
+url="https://blog.pai233.top"
+logo="https://blog.pai233.top/images/avatar.jpg"
+word="Write Down My Life."
+>}}
+
 ## 网络安全
 
 {{< friend
