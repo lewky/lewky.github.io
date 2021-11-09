@@ -1,6 +1,6 @@
 # Spring问题汇总
 
-## `org.springframework.expression.spel.SpelEvaluationException: EL1030E`
+## SpelEvaluationException: EL1030E
 
 运行Spring项目时报错如下：
 
@@ -44,7 +44,7 @@ org.springframework.expression.spel.SpelEvaluationException: EL1030E: The operat
 
 而之所以之前没能发现这个问题，是因为没有启用redis cache，导致避开了这个问题。目前刚开始了解`spel`这门表达式语言，在此记录下这个问题，方便日后回顾分析，参考链接里顺便贴上官方的一篇中译文档。
 
-## 使用`@PathVariable`接收参数时，最后一个`.`后的字符串会被截断
+## `@PathVariable`会截断字符串中最后一个`.`
 
 当使用了`@PathVariable`接收参数时，如果该参数的值包含有`.`这个符号，则最后的`.`以及之后的字符串会被截断。举个简单的例子，代码如下：
 
@@ -70,6 +70,19 @@ public UserDto getLatestUserByLoginId(@PathVariable final String loginId) throws
 
 // 改后的写法
 @GetMapping(value = "/users/{loginId:.+}", produces = Constants.REQUEST_BODY_TYPE_APP_JSON)
+```
+
+## 获取当前项目部署在Tomcat中的路径
+
+```java
+import javax.servlet.ServletContext;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
+
+
+WebApplicationContext webApplicationContext = ContextLoader.getCurrentWebApplicationContext();
+ServletContext servletContext = webApplicationContext.getServletContext();
+String contextPath = servletContext.getContextPath();
 ```
 
 ## 参考链接

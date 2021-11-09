@@ -1,6 +1,5 @@
 # Elasticsearch问题汇总
 
-
 ## 前言
 
 本文主要基于Elasticsearch 6.5.4版本：
@@ -249,6 +248,53 @@ PUT http://localhost:9200/_all/_settings
 {"index.max_result_window" :"100000"}
 ```
 
+## failed to parse date field [2021-06-15 00:00:00] with format  [strict_date_optional_time||epoch_millis]
+
+在查询es时报错如下：
+
+```json
+{
+	"error": {
+		"root_cause": [{
+			"type": "parse_exception",
+			"reason": "failed to parse date field [2021-06-15 00:00:00] with format [strict_date_optional_time||epoch_millis]"
+		}],
+		"type": "search_phase_execution_exception",
+		"reason": "all shards failed",
+		"phase": "query",
+		"grouped": true,
+		"failed_shards": [{
+			"shard": 0,
+			"index": "inspectbooking_kmt",
+			"node": "Its-Juf2QXKEwmYYNu_aBQ",
+			"reason": {
+				"type": "parse_exception",
+				"reason": "failed to parse date field [2021-06-15 00:00:00] with format [strict_date_optional_time||epoch_millis]",
+				"caused_by": {
+					"type": "illegal_argument_exception",
+					"reason": "Unrecognized chars at the end of [2021-06-15 00:00:00]: [ 00:00:00]"
+				}
+			}
+		}]
+	},
+	"status": 400
+}
+```
+
+这是因为es的日期默认使用`strict_date_optional_time`和`epoch_millis`的format来匹配，前者是严格的ISO日期格式，后者是毫秒值格式。
+
+这里由于搜索日期值使用的是`2021-06-15 00:00:00`这种格式，无法被es的日期解析器解析成上述的两种格式，因此抛出异常。要避免这种异常，要么修改mapping中日期字段的format，比如说用`||`添加新的格式；要么修改搜索日期时输入的值。
+
+由于mapping一旦确定就无法更改，因此更推荐改变被搜索的日期值格式这种做法：
+
+```java
+DateTimeFormatter dateTimePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+// 日期字符串是从db中获取的零时区日期
+TemporalAccessor parseDateTime = dateTimePattern.parse("2021-06-15 00:00:00");
+LocalDateTime localDateTime = LocalDateTime.from(parseDateTime);
+DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(localDateTime);
+```
+
 ## 参考链接
 
 * [Elasticsearch Guide 6.7 - Search Settings](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/search-settings.html)
@@ -258,3 +304,4 @@ PUT http://localhost:9200/_all/_settings
 * [ES 写索引报错 FORBIDDEN/12/index read-only / allow delete (api)解决方案](https://blog.csdn.net/zheng45/article/details/92383323)
 * [ES集群修改index副本数报错 ：index read-only / allow delete](https://blog.51cto.com/michaelkang/2164181)
 * [ES更改参数max_result_window](https://www.cnblogs.com/binbinyouni/p/10749985.html)
+* [Elasticsearch date 类型详解](https://www.jianshu.com/p/a44f6523912b)
