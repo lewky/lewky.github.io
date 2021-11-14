@@ -84,6 +84,13 @@ logo="https://lsybk.xyz/zb_users/upload/2020/12/202012171608220655581876.png"
 word="一个网络安全爱好者的博客"
 >}}
 
+{{< friend
+name="Thrower的博客"
+url="https://thrower.cc"
+logo="https://thrower.cc/wp-content/uploads/2021/07/QQ图片20210704153032.jpg"
+word="一名网络安全技术爱好者，汪峰的老歌迷。"
+>}}
+
 ## Java
 
 {{< friend
@@ -169,8 +176,10 @@ group="Java"
 
 ![2233-line.png](/images/common/2233-line.png)
 
-{{< admonition tip "如何交换友链" >}}
-请在本页评论区里（也可以通过邮件、或者提交GitHub Issue的方式）添加如下格式，添加友链成功后会通过回复评论的邮件通知进行反馈，所以请在评论时填写**正确的邮件地址**：
+## 如何交换友链
+
+请在本页评论区里（也可以通过邮件、或者提交GitHub Issue的方式）添加如下格式，添加友链成功后会通过回复评论的邮件通知进行反馈：
+
 ```html
 //必填项
 name="站点名字"
@@ -180,6 +189,7 @@ word="站点描述"
 ```
 
 下面是可选项：
+
 ```html
 //默认分组是大佬们
 group="分组"
@@ -194,7 +204,6 @@ img-animation="rotate"
 //边框动画：shadow(阴影，此为默认效果)、borderFlash(边框闪现)、led(跑马灯)、bln(主颜色呼吸灯)
 border-animation="shadow"
 ```
-{{< /admonition >}}
 
 {{< admonition note "友链须知" >}}
 * 上述的友链格式请使用英文的双引号。

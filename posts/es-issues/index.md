@@ -225,7 +225,7 @@ PUT http://localhost:9200/_all/_settings
 {"index.blocks.read_only_allow_delete": null}
 ```
 
-## Result window is too large, from + size must be less than or equal to: [10000]
+## Result window is too large
 
 报错如下：
 
@@ -248,7 +248,7 @@ PUT http://localhost:9200/_all/_settings
 {"index.max_result_window" :"100000"}
 ```
 
-## failed to parse date field [2021-06-15 00:00:00] with format  [strict_date_optional_time||epoch_millis]
+## failed to parse date field
 
 在查询es时报错如下：
 
