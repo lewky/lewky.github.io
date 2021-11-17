@@ -55,6 +55,28 @@ System.out.println("2020-12-27用yyyy/MM/dd表示:" + y.format(date1227));
 2020-12-27用yyyy/MM/dd表示:2020/12/27
 ```
 
+## 日期格式化异常
+
+使用新的日期API格式化日期时发生如下异常：
+
+```java
+java.time.DateTimeException: Field DayOfYear cannot be printed as the value 320 exceeds the maximum print width of 2
+	at java.time.format.DateTimeFormatterBuilder$NumberPrinterParser.format(DateTimeFormatterBuilder.java:2548)
+	at java.time.format.DateTimeFormatterBuilder$CompositePrinterParser.format(DateTimeFormatterBuilder.java:2179)
+	at java.time.format.DateTimeFormatter.formatTo(DateTimeFormatter.java:1746)
+	at java.time.format.DateTimeFormatter.format(DateTimeFormatter.java:1720)
+```
+
+这个跟日期格式有关，这里我使用的是`YYMMDD`来格式化日期：
+
+```java
+String currentDate = DateTimeFormatter.ofPattern("yyMMDD").format(LocalDateTime.now())
+```
+
+如果当前日期是从四月的10号（闰年是四月9号）即之后的日期，就会遇到上述的异常。原因是格式化字符串中的`D`指的是一年的第几天，而这里用了两个`D`，表明天数是两位数（不足两位数会补前缀0）。如果使用了前文提及的日期，也就是说当前属于一年的100天以上的天数（即天数是3位数），与格式化指定的两位数冲突，因此抛出异常。
+
+这里想要的是每个月的天数，应当使用`d`，而不是大写的`D`。其实关于这类格式化字符需要注意大小写的问题，比如`y`和`Y`的含义也是不一样的。
+
 ## JDK 8新的日期和时间API
 
 新版本的日期时间API主要分为：LocalDate、LocalTime、LocalDateTime、ZonedDateTime四个类。
@@ -227,3 +249,4 @@ System.out.println(date1.until(date3, ChronoUnit.DAYS));
 * [Java日期时间API系列19--Jdk8，ZonedDateTime和时区转换。](https://zhuanlan.zhihu.com/p/149302250)
 * [【java8中的时间操作】java8中获取月的最后一天或者总天数，JDK8 LocalDate AP](https://blog.csdn.net/qq_40598321/article/details/112191964)
 * [localdate 比较两个时间_Java 8中处理日期和时间示例](https://blog.csdn.net/weixin_31954813/article/details/113086552)
+* [日期格式‘YYYY-MM-DD’中的BUG](https://blog.csdn.net/l2580258/article/details/103845730)

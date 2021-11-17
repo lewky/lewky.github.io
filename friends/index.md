@@ -2,7 +2,7 @@
 
 ## 主题相关
 
-本站主题源自Hugo-LoveIt，感谢本主题的开发者们！
+本站原主题是Hugo-LoveIt，感谢本主题的开发者们！
 
 {{< friend-css >}}
 
@@ -24,7 +24,7 @@ primary-color="blue"
 border-animation="borderFlash"
 >}}
 
-## 大佬们
+## 【大佬们】
 
 {{< friend
 name="阳光派Plus’Blog"
@@ -68,7 +68,7 @@ logo="https://blog.pai233.top/images/avatar.jpg"
 word="Write Down My Life."
 >}}
 
-## 网络安全
+## 【网络安全】
 
 {{< friend
 name="W4J1e's blog"
@@ -91,7 +91,7 @@ logo="https://thrower.cc/wp-content/uploads/2021/07/QQ图片20210704153032.jpg"
 word="一名网络安全技术爱好者，汪峰的老歌迷。"
 >}}
 
-## Java
+## 【Java】
 
 {{< friend
 name="Youth的时光录"
@@ -100,7 +100,7 @@ logo="https://cdn.jsdelivr.net/gh/youthlql/lqlp@v1.0.0/blog/avatar.jpg"
 word="主要是Java技术栈的博客，比较偏原理，源码类型的博主"
 >}}
 
-## 前端
+## 【前端】
 
 {{< friend
 name="itsNekoDeng"
