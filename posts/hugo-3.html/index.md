@@ -29,7 +29,7 @@ Hugo在渲染页面时优先读取站点根目录下的同名字的目录和文�
 
 首先在站点根目录下创建一个自定义的文件：`\assets\css\_custom.scss`，这样Hugo就会最终以该文件来渲染页面的样式。
 
-这是我个人站点的[css文件](https://lewky.cn/css/style.min.css)，有兴趣的可以看看。
+这是我个人站点的[_custom.scss文件](https://lewky.cn/css/_custom.scss)，有兴趣的可以看看。
 
 ### 注意！！！
 
