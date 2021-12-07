@@ -1,4 +1,7 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 14 Oct 2021 21:26:47 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>Java正则表达式问题汇总</title><link>https://lewky.cn/posts/java-regex-issues/</link><pubDate>Thu, 14 Oct 2021 21:26:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-regex-issues/</guid><description><![CDATA[<h2 id="正则表达式的模式修饰符">正则表达式的模式修饰符</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 07 Dec 2021 23:43:17 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky.cn/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
+<p>DO关键字用来执行一段一次性的匿名函数，具体可以看这篇文章：<a href="/posts/d98f1635.html/" rel="">PostgreSQL - pl/pgsql的DO关键字</a></p>
+<h2 id="遍历数据变量赋值">遍历数据，变量赋值</h2>
+<p>遍历操作以及变量赋值操作需要在匿名函数脚本中使用，且匿名函数在执行时必须显示开启事务。</p>]]></description></item><item><title>Java正则表达式问题汇总</title><link>https://lewky.cn/posts/java-regex-issues/</link><pubDate>Thu, 14 Oct 2021 21:26:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-regex-issues/</guid><description><![CDATA[<h2 id="正则表达式的模式修饰符">正则表达式的模式修饰符</h2>
 <p>在正则表达式前面可以加上<code>(?i)</code>，<code>(?s)</code>和<code>(?m)</code>这三种模式修饰符，用以改变正则表达式的匹配模式。</p>
 <p><code>(?i)</code>表示匹配时不区分大小写。</p>
 <p><code>(?s)</code>表示Singleline（单行模式），匹配时会改变<code>.</code>的含义，使其能与换行符（\r或者\n，如果是\r\n需要用两个<code>.</code>）匹配。</p>
@@ -149,9 +152,4 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>IDEA问题汇总</title><link>https://lewky.cn/posts/idea-issues/</link><pubDate>Fri, 06 Aug 2021 22:41:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文基于2021-2版本的IDEA。</p>
-<h2 id="启动时选择工作空间">启动时选择工作空间</h2>
-<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Appearance &amp; Behavior</code> -&gt; <code>System Settings</code> -&gt; 不勾选<code>Reopen projects on startup</code></p>
-<h2 id="无法搜索或者下载插件">无法搜索或者下载插件</h2>
-<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>
