@@ -68,6 +68,13 @@ logo="https://blog.pai233.top/images/avatar.jpg"
 word="Write Down My Life."
 >}}
 
+{{< friend
+name="cywhat's blog"
+url="https://cywhat.cn"
+logo="https://cdn.jsdelivr.net/gh/chaoyangya/cywhat-cdn@master/images/cywhat-logo.png"
+word="一位摸爬滚打的测开Dog."
+>}}
+
 ## 【网络安全】
 
 {{< friend
