@@ -38,7 +38,7 @@ Caused by: org.hibernate.LazyInitializationException: could not initialize proxy
 
 ### 解决方法一
 
-如果是spring继承的hibernate，根据上述的原因，可以延长session的生命周期，但是这里用的是SpringBoot的JPA，处理方法不同，需要在`application.properties`配置下懒加载相关的东西：
+如果是spring集成的hibernate，根据上述的原因，可以延长session的生命周期，但是这里用的是SpringBoot的JPA，处理方法不同，需要在`application.properties`配置下懒加载相关的东西：
 ```xml
 spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
 ```
