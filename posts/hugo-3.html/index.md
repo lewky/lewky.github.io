@@ -63,7 +63,7 @@ LoveIt主题并没有提供一个文件来让我们自定义JavaScript，所以�
 <script type="text/javascript" src="/js/custom.js"></script>
 ```
 
-如果有其他的JavaScript文件要引入，加在一样的地方就行，但是要放在自定义的`custom.js`之前。这是我的[custom.js文件]({{< param cdnPrefix >}}/js/custom.js)，有兴趣的可以看看。
+如果有其他的JavaScript文件要引入，加在一样的地方就行，但是要放在自定义的`custom.js`之前。这是我的[custom.js文件](https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/js/custom.js)，有兴趣的可以看看。
 
 ## 添加全局cdn变量
 

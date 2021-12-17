@@ -175,9 +175,9 @@ border-animation="led"
 ```html
 name="雨临Lewis的博客"
 url="lewky.cn"
-logo="{{< param cdnPrefix >}}/images/avatar.jpg"
+logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
-screenshot="{{< param cdnPrefix >}}/images/common/screenshot.jpg"
+screenshot="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/common/screenshot.jpg"
 group="Java"
 ```
 

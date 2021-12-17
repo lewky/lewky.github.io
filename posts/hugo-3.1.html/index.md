@@ -630,25 +630,27 @@ $(function() {
 这个功能分为四个部分：
 * 首页头像的动画特效从浮动改为旋转，为了适配挂件还稍微缩小了头像大小
 * 添加头像挂件（都是b站的挂件）
-* 点击头像一点次数后随机刷新头像
+* 点击头像一定次数后随机刷新头像
 * 加载首页时随机刷新头像（该功能可禁用）
 
 ### 修改站点配置文件
 
-在站点配置文件里找到你配置首页头像的变量`avatarURL`，在其下方添加两个新的变量，内容如下：
+在站点配置文件里找到你配置首页头像的变量`avatarURL`，在其下方添加几个新的变量，内容如下：
 ```
       [params.home.profile]
         enable = true
         # 主页显示头像的 URL
         avatarURL = "/images/avatar.jpg"
         # 是否启用头像挂件
-        avatarPluginURL = "/images/avatar-plug/bilibili_27.png"
+        avatarPluginURL = "/images/avatar-plug/png/bilibili_105.png"
         # 是否启用头像挂件自动刷新
         avatarPluginFlush = true
         # 点击频率，点击几次就换挂件
         avatarPluginFrequency = 1
         # 头像挂件总数
-        avatarPluginCount = 128
+        avatarPluginCount = 23
+        # 头像挂件格式：png, webp
+        avatarPluginSuffix = "webp"
 ```
 
 如果你有自己的图床，还可以配置一个给头像挂件使用的图床地址，如下：
@@ -656,6 +658,7 @@ $(function() {
 # 参数
 [params]
   # 图床变量，末尾不需要加/
+  #cdnPrefix = ""
   cdnPrefix = "https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master"
 ```
 
@@ -673,7 +676,7 @@ $(function() {
 这是渲染首页头像的代码，将这段代码改成如下内容：
 ```
 {{- if $profile.avatarPluginURL -}}
-	<img class="site-avatar-plug-bilibili" />
+	<img class="site-avatar-plug-bilibili" onerror="this.src='{{ $profile.avatarPluginURL }}'" />
 	<a href="javascript:void(0);"{{ with .Title | default .Name }} title="Please click me~~"{{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank"{{ end }}>
 		{{- dict "Src" $avatar "Title" "Please click me~~" | partial "plugin/image.html" -}}
 	</a>
@@ -689,46 +692,49 @@ $(function() {
 打开`\layouts\partials\assets.html`，在你引入的`jquery`的下面添加如下代码，不知道怎么引入`jquery`的请看前文：
 ```
 <!-- 头像挂件 -->
-<script>
-{{- $profile := .Site.Params.home.profile -}}
-{{- $avatarPlugin := $profile.avatarPluginURL -}}
-{{- $avatarPluginFrequency := $profile.avatarPluginFrequency -}}
-{{- $avatarPluginCount := $profile.avatarPluginCount -}}
-{{- $cdnPrefix := .Site.Params.cdnPrefix -}}
-{{- if $avatarPlugin -}}
-	/* 头像挂件自动刷新 */
-	{{- if $profile.avatarPluginFlush -}}
-		$(function () {
-			$(".site-avatar-plug-bilibili").attr("src", "{{ $cdnPrefix }}/images/avatar-plug/bilibili_" + (~~({{ $avatarPluginCount }}*Math.random())+1) + ".png");
-		});
-	{{- else -}}
-		$(function () {
-			$(".site-avatar-plug-bilibili").attr("src", "{{ $cdnPrefix }}{{ $avatarPlugin }}");
+{{- if .IsHome -}}
+	<script>
+	{{- $profile := .Site.Params.home.profile -}}
+	{{- $avatarPlugin := $profile.avatarPluginURL -}}
+	{{- $avatarPluginFrequency := $profile.avatarPluginFrequency -}}
+	{{- $avatarPluginCount := $profile.avatarPluginCount -}}
+	{{- $avatarPluginSuffix := $profile.avatarPluginSuffix -}}
+	{{- $cdnPrefix := .Site.Params.cdnPrefix -}}
+	{{- if $avatarPlugin -}}
+		/* 头像挂件自动刷新 */
+		{{- if $profile.avatarPluginFlush -}}
+			$(function () {
+				$(".site-avatar-plug-bilibili").attr("src", "{{ $cdnPrefix }}/images/avatar-plug/{{ $avatarPluginSuffix }}/bilibili_" + (~~({{ $avatarPluginCount }}*Math.random())+1) + ".{{ $avatarPluginSuffix }}");
+			});
+		{{- else -}}
+			$(function () {
+				$(".site-avatar-plug-bilibili").attr("src", "{{ $cdnPrefix }}{{ $avatarPlugin }}");
+			});
+		{{- end -}}
+		
+		/* 点击头像更换b站挂件 */
+		var avatar_plug = 0;
+		var avatar_click = 1;
+		jQuery(document).ready(function($) {
+			/* 点击频率，点击几次就换挂件 */
+			var frequency = {{ $avatarPluginFrequency }};
+			/* 头像挂件总数 */
+			var plug_count = {{ $avatarPluginCount }};
+			$("div.home-avatar a").click(function(e) {
+				if (avatar_click % frequency === 0) {
+					avatar_plug ++;
+					$(".site-avatar-plug-bilibili").attr("src", "{{ $cdnPrefix }}/images/avatar-plug/{{ $avatarPluginSuffix }}/bilibili_" + avatar_plug + ".{{ $avatarPluginSuffix }}");
+				}		
+				if (avatar_plug === plug_count) {
+					avatar_plug = 0;
+				}
+				$("div.home-avatar a").attr("alt","再点击" + (frequency - avatar_click % frequency) + "次头像试试看~~");
+				avatar_click ++;
+			});
 		});
 	{{- end -}}
-	
-	/* 点击头像更换b站挂件 */
-	var avatar_plug = 0;
-	var avatar_click = 1;
-	jQuery(document).ready(function($) {
-		/* 点击频率，点击几次就换挂件 */
-		var frequency = {{ $avatarPluginFrequency }};
-		/* 头像挂件总数 */
-		var plug_count = {{ $avatarPluginCount }};
-		$("div.home-avatar a").click(function(e) {
-			if (avatar_click % frequency === 0) {
-				avatar_plug ++;
-				$(".site-avatar-plug-bilibili").attr("src", "{{ $cdnPrefix }}/images/avatar-plug/bilibili_" + avatar_plug + ".png");
-			}		
-			if (avatar_plug === plug_count) {
-				avatar_plug = 0;
-			}
-			$("div.home-avatar a").attr("alt","再点击" + (frequency - avatar_click % frequency) + "次头像试试看~~");
-			avatar_click ++;
-		});
-	});
+	</script>
 {{- end -}}
-</script>
 ```
 
 ### 添加css代码

@@ -4,7 +4,7 @@
 万分感谢各位老板的打赏与红包！！
 {{< /admonition >}}
 
-<link rel="stylesheet" href="{{< param cdnPrefix >}}/css/timeline.style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/css/timeline.style.css" />
 
 <section id="cd-timeline" class="cd-container">
 
