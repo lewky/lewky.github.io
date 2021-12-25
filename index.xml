@@ -1,4 +1,14 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 07 Dec 2021 23:43:17 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky.cn/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:26:15 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows查询被占用的端口</title><link>https://lewky.cn/posts/windows-netstat.html/</link><pubDate>Sat, 25 Dec 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/windows-netstat.html/</guid><description><![CDATA[<h2 id="查询被占用的端口">查询被占用的端口</h2>
+<p>假如被占用的是61613端口号（activemq的），在cmd窗口中执行如下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cmd" data-lang="cmd">netstat -aon<span class="p">|</span>findstr <span class="s2">&#34;61613&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky.cn/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
 <p>DO关键字用来执行一段一次性的匿名函数，具体可以看这篇文章：<a href="/posts/d98f1635.html/" rel="">PostgreSQL - pl/pgsql的DO关键字</a></p>
 <h2 id="遍历数据变量赋值">遍历数据，变量赋值</h2>
 <p>遍历操作以及变量赋值操作需要在匿名函数脚本中使用，且匿名函数在执行时必须显示开启事务。</p>]]></description></item><item><title>Git常用命令</title><link>https://lewky.cn/posts/git-commands/</link><pubDate>Tue, 02 Nov 2021 23:31:23 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/git-commands/</guid><description><![CDATA[<h2 id="git-clone">git clone</h2>
@@ -436,28 +446,6 @@ LoveIt: v0.2.10
        \_\     |_/          ||
        `&#39;&#34;                  \_\
                             `&#39;&#34; 
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>分享一些有趣的前端图形和页面</title><link>https://lewky.cn/posts/front-end-funny.html/</link><pubDate>Thu, 18 Feb 2021 22:50:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/front-end-funny.html/</guid><description><![CDATA[<h2 id="css绘制三角形">css绘制三角形</h2>
-<p>在盒子模型中border也占据了宽高，对于下面的样式：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-css" data-lang="css"><span class="p">#</span><span class="nn">div1</span><span class="p">{</span>
-    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
-    <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
-    <span class="k">border-style</span><span class="p">:</span> <span class="kc">solid</span><span class="p">;</span>
-    <span class="k">border-width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">100</span><span class="kt">px</span> <span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
-    <span class="k">border-color</span><span class="p">:</span> <span class="kc">red</span> <span class="kc">forestgreen</span> <span class="kc">blue</span> <span class="kc">cyan</span><span class="p">;</span>
-<span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

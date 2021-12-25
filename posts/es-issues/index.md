@@ -295,6 +295,29 @@ LocalDateTime localDateTime = LocalDateTime.from(parseDateTime);
 DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(localDateTime);
 ```
 
+## Request size exceeded 104857600 bytes
+
+在使用bulk批处理ES请求时，报错如下：
+
+```java
+ URI [/_bulk?timeout=1m], status line [HTTP/1.1 413 Request Entity Too Large]
+{"Message":"Request size exceeded 104857600 bytes"} 
+    at org.elasticsearch.client.RestClient$SyncResponseListener.get(RestClient.java:926)
+    at org.elasticsearch.client.RestClient.performRequest(RestClient.java:229)
+    at org.elasticsearch.client.RestHighLevelClient.internalPerformRequest(RestHighLevelClient.java:1593)
+    ...
+```
+
+ES默认的请求内容最大值为100mb，超过100mb就会报错，可以在`/config/elasticsearch.yml`中添加如下配置：
+
+```yml
+http.max_content_length: 200mb
+```
+
+注：AWS的ES似乎没有提供修改ES配置文件的服务，在请求最大值上也只有10mb或者100mb的两种选项。
+
+* [AWS Elasticsearch cluster method to update `http.max_content_length`?](https://stackoverflow.com/questions/55541625/aws-elasticsearch-cluster-method-to-update-http-max-content-length)
+
 ## 参考链接
 
 * [Elasticsearch Guide 6.7 - Search Settings](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/search-settings.html)
@@ -305,3 +328,4 @@ DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(localDateTime);
 * [ES集群修改index副本数报错 ：index read-only / allow delete](https://blog.51cto.com/michaelkang/2164181)
 * [ES更改参数max_result_window](https://www.cnblogs.com/binbinyouni/p/10749985.html)
 * [Elasticsearch date 类型详解](https://www.jianshu.com/p/a44f6523912b)
+* [hive向ES中插入数据量过大时出错：HTTP content length exceeded 104857600 bytes.](https://blog.csdn.net/ly_521015/article/details/88421596)

@@ -136,6 +136,23 @@ git pull --rebase <远程库别名> <远程分支名>:<本地分支名>
 
 git有两种合并方式：merge和rebase，这两个合并方式存在一定的区别，不能误用。
 
+## git add
+
+`git add [参数] <路径>`用于将工作区的文件添加到暂存区，可以多次使用`git add`命令将文件添加到暂存区中。暂存区中的文件可以通过`git commit`一次性提交到本地仓库。
+
+```
+// 将当前路径下修改的文件以及新增的文件添加到暂存区，不包括被删除的文件
+git add .
+
+// 将当前路径下修改的文件和被删除的文件添加到暂存区，不包括新增的文件
+// 相当于git add --update
+git add -u .
+
+// 将当前路径下的所有文件添加到暂存区，相当于上面两个命令的集合
+// 相当于git add --all
+git add -A .
+```
+
 ## git push
 
 用于推送本地分支的更新到远程分支，用法与git pull类似。
@@ -168,3 +185,4 @@ git push --all <远程库别名>
 ## 参考链接
 
 * [Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
+* [git的add、commit、push的详细介绍](https://www.jianshu.com/p/2e1d551b8261)
