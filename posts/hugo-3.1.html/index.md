@@ -156,7 +156,8 @@ Save responses | 按需选择 | 保存执行定时任务的日志
 
 ### 站点配置文件添加相关变量
 
-打开站点配置文件，找到Valine相关变量`[params.page.comment.valine]`，在该节点下面添加Waline相关的变量	`[params.page.comment.waline]`：
+打开站点配置文件，找到Valine相关变量`[params.page.comment.valine]`，在该节点下面添加Waline相关的变量	：
+
 ```
       # Waline comment config (https://waline.js.org/)
       # Waline 评论系统设置 (https://waline.js.org/)
@@ -165,13 +166,15 @@ Save responses | 按需选择 | 保存执行定时任务的日志
         #js = "https://cdn.jsdelivr.net/npm/@waline/client@latest"
         js = "https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js"
         meta = ['nick','mail','link']                           # 评论者相关属性
-        requiredFields = ['nick','mail']                        # 设置必填项，默认匿名
-        placeholder = "提交评论较慢，请等待几秒~"              	# 评论框占位提示符
-        serverURL = ""                 							# Waline的服务端地址（必填） 
+        requiredMeta = ['nick','mail']                        # 设置必填项，默认匿名
+        login = "force"                                         # 评论必须先登录，用于防护恶意攻击
+        placeholder = "为防恶意灌水攻击，评论前需注册并登录，望见谅~"     # 评论框占位提示符
+        serverURL = ""                 # Waline的服务端地址（必填） 
         #imageHosting =                                         # 图床api，如果允许评论框上传图片
+        uploadImage = false                                     # 评论上传图片功能
         avatar = "retro"                                        # Gravatar头像
         avatarCDN = "https://sdn.geekzu.org/avatar/"            # Gravatar头像CDN地址，不建议使用loli源
-        pageSize = 10                                           # 评论列表分页，每页条数
+        pageSize = 20                                           # 评论列表分页，每页条数
         lang = "zh-CN"                                          # 多语言支持
         visitor = true                                          # 文章访问量统计
         highlight = true                                        # 代码高亮
@@ -193,21 +196,23 @@ Save responses | 按需选择 | 保存执行定时任务的日志
 		    	new Waline({
 		    	  el: '#waline',
 				  meta: {{ $waline.meta }},
+		    	  requiredMeta: {{ $waline.requiredMeta }},
+		    	  login: {{ $waline.login }},
 				  placeholder: {{ $waline.placeholder }},
 		    	  serverURL: {{ $waline.serverURL }},
 		    	  avatarCDN: {{ $waline.avatarCDN }},
-		    	  requiredFields: {{ $waline.requiredFields }},
 		    	  pageSize: {{ $waline.pageSize }},
 		    	  avatar: {{ $waline.avatar }},
 		    	  lang: {{ $waline.lang }},
 				  visitor: {{ $waline.visitor }},
-				  highlight: {{ $waline.highlight }}
+				  highlight: {{ $waline.highlight }},
+				  uploadImage: {{ $waline.uploadImage }}				  
 		    	});
 		    </script>
         {{- end -}}
 ```
 
-Waline内置微博表情，如果想自定义表情包的，可以继续添加两个属性`emojiCDN`和`emojiMaps`到上面的代码里，具体做法可以参考[官方文档 - 自定义表情](https://waline.js.org/client/emoji.html)。
+Waline内置微博表情，如果想自定义表情包的，可以继续添加两个属性`emoji`到上面的代码里，具体做法可以参考[官方文档 - 自定义表情](https://waline.js.org/guide/client/emoji.html#%E9%A2%84%E8%AE%BE)。
 
 这里顺便介绍下@小康大佬整理的一个很方便的表情包站点：[表情速查](https://emotion.xiaokang.me/)，里面有很多类别的表情包，还有对应的快速引入语法链接，以及用于配置Valine、Waline等评论系统表情包映射的JSON！
 
