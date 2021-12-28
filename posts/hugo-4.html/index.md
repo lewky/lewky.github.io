@@ -181,25 +181,27 @@ Content.
 
 在Hexo里，如果文章的标题里存在英文的双引号、冒号等特定的符号，必须使用字符实体来替代，否则就会报错。而在Hugo里，则没有这个需要，直接使用原本的符号就行。如果在标题里使用字符实体，并不会被自动解析成对应的字符。
 
-## Console报错找不到`/site.webmanifest`
+## Console报错找不到site.webmanifest
 
 该文件和`Progressive web applications (PWA) `有关，通过添加PWA到Hugo站点，可以实现离线访问的功能，也就是说断网状态下依然可以访问到你之前访问过的网页，换言之就是通过PWA来将访问过的网页资源缓存到了本地，所以断网下仍然可以继续访问网站。当然，恢复网络时会自动更新最新的页面资源。
 
 有兴趣的可以去看看下面这几个网站：
+
 * [Add PWA to your Hugo site](https://techformist.com/add-pwa-hugo/)
 * [改造你的网站，变身 PWA](https://www.jianshu.com/p/7546527a786d)
 * [基于Service Worker 的XSS攻击面拓展](https://bbs.ichunqiu.com/thread-39418-1-1.html)
 
 后来又在LoveIt主题作者的一篇文章中找到了答案，如下：
+
 >强烈建议你把:
 >
-* apple-touch-icon.png (180x180)
-* favicon-32x32.png (32x32)
-* favicon-16x16.png (16x16)
-* mstile-150x150.png (150x150)
-* android-chrome-192x192.png (192x192)
-* android-chrome-512x512.png (512x512)
-放在	`/static`目录. 利用 https://realfavicongenerator.net/ 可以很容易地生成这些文件.
+>* apple-touch-icon.png (180x180)
+>* favicon-32x32.png (32x32)
+>* favicon-16x16.png (16x16)
+>* mstile-150x150.png (150x150)
+>* android-chrome-192x192.png (192x192)
+>* android-chrome-512x512.png (512x512)
+>放在`/static`目录. 利用 https://realfavicongenerator.net/ 可以很容易地生成这些文件.
 >
 >可以自定义`browserconfig.xml`和`site.webmanifest`文件来设置`theme-color`和`background-color`.
 

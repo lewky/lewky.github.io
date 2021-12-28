@@ -303,6 +303,20 @@ git log --oneline | wc -l
 git log --stat|perl -ne 'END { print $c } $c += $1 if /(\d+) insertions/;'
 ```
 
+## git reset --hard HEAD^后显示more?
+
+如果在cmd窗口中输入`git reset --hard HEAD^`会显示`more?`，原因是`^`在cmd窗口中代表换行符，因此这里会通过回显`more?`来询问你是否还需要输入更多命令。
+
+解决方法有如下几种：
+
+* 加引号：`git reset --hard "HEAD^"`
+* 加一个`^`进行转义：`git reset --hard HEAD^^`
+* 换成`~`：`git reset --hard HEAD~` 或者 `git reset --hard HEAD~1`
+
+`~`后面的数字表示回退几次提交，默认是一次。
+
+如果使用`git bash`或者`powershell`则不会出现该问题。
+
 ## 参考链接
 
 * [.gitignore 规则写法 - 在已忽略文件夹中不忽略指定文件、文件夹【注意项】](https://my.oschina.net/longyuan/blog/521098)
@@ -313,3 +327,4 @@ git log --stat|perl -ne 'END { print $c } $c += $1 if /(\d+) insertions/;'
 * [git merge --no-ff是什么意思](https://segmentfault.com/q/1010000002477106)
 * [关于git提示“warning: LF will be replaced by CRLF”终极解答](https://www.jianshu.com/p/450cd21b36a4)
 * [用git统计代码提交行数](https://blog.csdn.net/carterslam/article/details/81162463)
+* [git reset --hard HEAD^后显示more?的解决方案](https://blog.csdn.net/qq_32623363/article/details/78968077)

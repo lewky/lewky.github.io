@@ -182,7 +182,74 @@ git push --all <远程库别名>
 
 此外，git push不会推送tag，除非添加`--tags`参数。
 
+## git reset
+
+该命令用于将仓库代码回退到指定的版本，通常会带上`--hard`参数。本地git仓库分为三个区域：工作区，暂存区和本地库。回退版本的命令有3个参数，与这三个区域有关。
+
+### `--hard`
+
+* 移动本地库HEAD指针
+* 重置工作区
+* 重置暂存区
+
+回退版本后，本地库原本工作区和暂存区的文件将被清空，彻底变回指定版本的状态。
+
+### `--soft`
+
+* 移动本地库HEAD指针
+
+回退版本后，仅仅移动了本地库的指针，工作区和暂存区文件保持不变。
+
+### `--mixed`
+
+* 移动本地库HEAD指针
+* 重置暂存区
+
+回退版本后，本地库原本暂存区的文件将被清空。
+
+可以通过实际情况来决定使用哪个参数，但在实际开发中，为了避免自己的工作成果被误删，最好先确保自己的改动已经提交到了本地库或者远程库。
+
+对于误操作回退版本导致文件丢失的情况，可以参考这篇文章：[关于git reset --hard命令！！！，未提交代码丢失找回](https://blog.csdn.net/shenlf_bk/article/details/106622877)
+
+### 具体操作
+
+首先切换到需要回退的分支：`git checkout <分支名>`。
+
+然后用`git reset`命令来回退到指定的版本，通常会带上`--hard`参数：
+
+```
+// 回退到上一个版本
+git reset --hard HEAD^
+
+// 回退到上上个版本
+git reset --hard HEAD^^
+
+// 每多回退一个版本，就多一个^
+// 为了避免^太多，可以用~n来简化，n表示回退几次提交，默认是一次
+git reset --hard HEAD~2
+```
+
+此外，也可以用commit id来回退到指定的版本。仓库的每次提交都会为其生成一个唯一的id（40位哈希值），可以通过`git log`来查看每个提交对应的commit id。
+
+在回退版本时，可以用这个commit id来指定回退到对应的提交，不需要指定完整的commit id，只需要前7位字符（short commit id）即可。
+
+```
+// 比如仓库有一个提交：commit 26e1d228c71e69f0cb63fa73db8cc1ae3c6d8e87
+// 现在回退到这一个提交时的版本
+git reset --hard 26e1d22
+```
+
+如果不放心这个手动截取前七位字符的short commit id，可以用以下命令来得到：
+
+```
+git rev-parse --short 26e1d228c71e69f0cb63fa73db8cc1ae3c6d8e87
+26e1d22
+```
+
 ## 参考链接
 
 * [Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
 * [git的add、commit、push的详细介绍](https://www.jianshu.com/p/2e1d551b8261)
+* [git的hard、soft、mixed参数比较](https://blog.csdn.net/weixin_40295575/article/details/91816937)
+* [git_04_回退到上个版本](https://www.cnblogs.com/mini-monkey/p/12032051.html)
+* [Git基础操作：将git commit id转成short commit id](https://blog.csdn.net/hl_java/article/details/91424506)
