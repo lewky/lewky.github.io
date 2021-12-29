@@ -4,8 +4,6 @@
 
 本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：
 ```
-hexo: 3.8.0
-
 hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
 
 LoveIt: v0.2.10
