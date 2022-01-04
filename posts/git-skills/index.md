@@ -209,6 +209,12 @@ https://purge.jsdelivr.net/
 
 这里给个参考的例子：https://github.com/lewky/lewky
 
+## GitHub项目趋势排行
+
+有个项目的git pages可以看一段时间内的项目趋势排行：
+
+https://wangchujiang.com/github-rank/trending.html
+
 ## 参考链接
 
 * [如何为github已有仓库添加协议。](https://www.cnblogs.com/gwca/p/8341198.html)

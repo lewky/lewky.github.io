@@ -48,7 +48,7 @@
                             `&#39;&#34; 
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>GitHub使用技巧</title><link>https://lewky.cn/posts/7eb15a2d.html/</link><pubDate>Sun, 02 Dec 2018 23:49:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/7eb15a2d.html/</guid><description><![CDATA[<h2 id="github仓库怎么添加协议">GitHub仓库怎么添加协议</h2>
+</div>]]></description></item><item><title>GitHub使用技巧</title><link>https://lewky.cn/posts/git-skills/</link><pubDate>Sun, 02 Dec 2018 23:49:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/git-skills/</guid><description><![CDATA[<h2 id="github仓库怎么添加协议">GitHub仓库怎么添加协议</h2>
 <p>如果一开始在GitHub上创建仓库时没有添加协议，可以用以下方式来重新添加相关的协议：</p>
 <ol>
 <li>打开GitHub上的某个仓库，点击<code>Create new file</code>；</li>
