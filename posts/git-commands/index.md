@@ -246,6 +246,76 @@ git rev-parse --short 26e1d228c71e69f0cb63fa73db8cc1ae3c6d8e87
 26e1d22
 ```
 
+## git tag
+
+Git的tag用于给某个分支的某个提交打上标签，可以理解为一个别名，类似于浏览器收藏某个网页作为书签。
+
+通常tag用于标记某个阶段性的某次提交作为重要节点，比如release了某个版本等。因为commit-id本身很长，不利于记忆，将这个commit打上tag，如`v1.0.0`等，以后就可以直接搜索这个tag来快速切换到对应的代码。
+
+```
+// 列出所有标签
+git tag
+
+// 使用-l或--list查询指定的标签
+// 查询条件区分大小写，可以使用通配符，如*
+git tag -l "v1.0.*"
+```
+
+创建标签如下：
+
+```
+// 创建标签：分为轻量标签（lightweight）和附注标签（annotated）
+// 轻量标签只是对某个commit的引用
+// 附注标签是存在在Git数据库中的一个完整对象，包括了打标签者、打标签时间、标签的附注信息等额外的信息。
+// 可以通过git show <标签名>来看到这两种标签的信息
+
+// 创建附注标签
+git tag -a <标签名> -m "<备注信息>"
+// git tag -a v1.4 -m "my version 1.4"
+
+// 创建轻量标签，不需要指定任何参数
+git tag <标签名>
+// git tag v1.4
+
+// 上面都是对当前分支最新的commit创建标签，也可以对过去的某个commit打tag
+git tag -a <标签名> <commit-id>
+// git tag -a v1.4 26e1d22
+```
+
+其他操作如下：
+
+```
+// git push默认不会把tag推送到远程库（但是pull默认会获取tag），需要显示推送标签，操作和推送分支一样
+// 推送指定的标签到远程库
+git push <远程库别名> <本地标签名>
+// git push origin v1.4
+
+// 使用--tags参数来一次性推送所有不在远程库的标签
+git push <远程库别名> --tags
+// git push origin --tags
+
+
+// 删除标签需要-d参数
+git tag -d <标签名>
+// git tag -d v1.4
+
+// 删除远程库标签有两种方式
+// 方式一：将空标签推送到指定的远程库标签
+git push <远程库别名> :refs/tags/<标签名>
+// git push origin :refs/tags/v1.4
+
+// 方式二：使用--delete，需要Git版本大于v1.7.0才能使用
+git push <远程库别名> --delete <标签名>
+// git push origin --delete v1.4
+
+
+// 检出标签
+// tag是快照读，直接检出到指定的tag会使仓库处于detached HEAD状态，此时不能更改代码
+// 如果需要回到某个tag并修改代码，需要创建对应的分支。当在该分支上提交后，可能需要一个新的tag来标注最新的提交
+git checkout -b <新建分支名> <标签名>
+// git checkout -b version1.4 v1.4
+```
+
 ## 参考链接
 
 * [Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
@@ -253,3 +323,4 @@ git rev-parse --short 26e1d228c71e69f0cb63fa73db8cc1ae3c6d8e87
 * [git的hard、soft、mixed参数比较](https://blog.csdn.net/weixin_40295575/article/details/91816937)
 * [git_04_回退到上个版本](https://www.cnblogs.com/mini-monkey/p/12032051.html)
 * [Git基础操作：将git commit id转成short commit id](https://blog.csdn.net/hl_java/article/details/91424506)
+* [2.6 Git 基础 - 打标签](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%89%93%E6%A0%87%E7%AD%BE)

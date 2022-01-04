@@ -282,6 +282,12 @@ SELECT * from tb_test test where test.domain_id = ?;
 List<Test> test(@Param(value = "domainId") final String domainId);
 ```
 
+## 忽略某个字段
+
+有时候需要在pojo中定义一个常量字段，仅用于业务逻辑，且不希望该字段被映射到数据库中，也就是说这个字段的值不需要被持久化的数据库中。
+
+这时候可以使用`@Transient`注解（包路径是`javax.persistence.Transient`）。
+
 ## 参考链接
 
 * [springboot jpa 解决延迟加载问题](https://blog.csdn.net/hsz2568952354/article/details/82724719)

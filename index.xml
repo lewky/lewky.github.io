@@ -1,4 +1,7 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Dec 2021 00:26:15 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows查询被占用的端口</title><link>https://lewky.cn/posts/windows-netstat/</link><pubDate>Sat, 25 Dec 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/windows-netstat/</guid><description><![CDATA[<h2 id="查询被占用的端口">查询被占用的端口</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 04 Jan 2022 23:45:42 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Jackson问题汇总</title><link>https://lewky.cn/posts/jackson-issues/</link><pubDate>Tue, 04 Jan 2022 23:45:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jackson-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>常见的json框架有：Jackson，FasJson（阿里的，万年没更新，积累了大量issue），Gson（谷歌的）。其中Jackson效率最高，性能最好，最为常用。本文基于<code>2.11.3</code>版本的Jackson。</p>
+<p>Jackson在1.x版本使用的包名是<code>codehaus</code>，后来升级到2.x版本时，为了和旧版本区分开来，采用了新的包名<code>fasterxml</code>。有这种类似操作的还有Log4j和Log4j2，在使用时需要注意引入的包名，避免混用版本或误用版本。</p>
+<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>Windows查询被占用的端口</title><link>https://lewky.cn/posts/windows-netstat/</link><pubDate>Sat, 25 Dec 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/windows-netstat/</guid><description><![CDATA[<h2 id="查询被占用的端口">查询被占用的端口</h2>
 <p>假如被占用的是61613端口号（activemq的），在cmd窗口中执行如下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -389,51 +392,4 @@ LoveIt: v0.2.10
 </div>]]></description></item><item><title>docsify快速入门</title><link>https://lewky.cn/posts/docsify-0.html/</link><pubDate>Mon, 01 Mar 2021 23:58:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/docsify-0.html/</guid><description><![CDATA[<h2 id="docsify">docsify</h2>
 <p>根据官方说法，docsify是一个神奇的文档网站生成工具，也可以把它当做一个简易版的静态站点诸如Hexo、Hugo等。当然，它是专门针对文档的，忽然想到了程序员深恶痛绝的就是写API文档……</p>
 <p>docsify特性很多，最吸引我的是全文搜索、主题简洁好看、无需构建的纯静态站点。这意味着可以很简单地把写完的文档直接扔到Pages服务上，比如GitHub Pages、Coding Pages等等。</p>]]></description></item><item><title>fonts.googleapis.com访问太慢导致站点加载很慢</title><link>https://lewky.cn/posts/fonts-googleapis-slow.html/</link><pubDate>Sat, 20 Feb 2021 23:13:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fonts-googleapis-slow.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>有些网站需要加载谷歌字体，由于网络问题或者某些问题，<code>fonts.googleapis.com</code>访问太慢会导致站点加载很慢。虽然最后能看到网站，但实际上谷歌字体依然加载失败了，这个体验就非常差劲了。</p>]]></description></item><item><title>分享一些有趣的代码注释</title><link>https://lewky.cn/posts/program-comment-funny.html/</link><pubDate>Fri, 19 Feb 2021 10:55:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/program-comment-funny.html/</guid><description><![CDATA[<h2 id="代马">代马</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">                               _(\_/) 
-                             ,((((^`\
-                            ((((  (6 \ 
-                          ,((((( ,    \
-      ,,,_              ,(((((  /&#34;._  ,`,
-     ((((\\ ,...       ,((((   /    `-.-&#39;
-     )))  ;&#39;    `&#34;&#39;&#34;&#39;&#34;&#34;((((   (      
-    (((  /            (((      \
-     )) |                      |
-    ((  |        .       &#39;     |
-    ))  \     _ &#39;      `t   ,.&#39;)
-    (   |   y;- -,-&#34;&#34;&#39;&#34;-.\   \/  
-    )   / ./  ) /         `\  \
-       |./   ( (           / /&#39;
-       ||     \\          //&#39;|
-       ||      \\       _//&#39;||
-       ||       ))     |_/  ||
-       \_\     |_/          ||
-       `&#39;&#34;                  \_\
-                            `&#39;&#34; 
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p>有些网站需要加载谷歌字体，由于网络问题或者某些问题，<code>fonts.googleapis.com</code>访问太慢会导致站点加载很慢。虽然最后能看到网站，但实际上谷歌字体依然加载失败了，这个体验就非常差劲了。</p>]]></description></item></channel></rss>
