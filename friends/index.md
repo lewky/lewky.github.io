@@ -75,6 +75,13 @@ logo="https://cdn.jsdelivr.net/gh/chaoyangya/cywhat-cdn@master/images/cywhat-log
 word="一位摸爬滚打的测开Dog."
 >}}
 
+{{< friend
+name="Sukun的博客"
+url="https://sukun.xyz"
+logo="https://sukun.xyz/images/德丽莎观星.png"
+word="Sukun的博客，记录学习历程！"
+>}}
+
 ## 【网络安全】
 
 {{< friend
@@ -87,7 +94,7 @@ word="总是偏爱不务正业"
 {{< friend
 name="勤奋的思远"
 url="http://lsybk.xyz"
-logo="https://lsybk.xyz/zb_users/upload/2020/12/202012171608220655581876.png"
+logo="https://image.lsybk.xyz/2021/09/05/509989fa83b23.png"
 word="一个网络安全爱好者的博客"
 >}}
 
