@@ -15,7 +15,7 @@
 <p><code>alt + ←</code> 跳转到上一步操作</p>
 <p><code>alt + →</code> 跳转到下一步操作</p>
 <p><code>alt + ↑</code> 将光标所在的那一行向上挪动一行</p>
-<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item><item><title>Eclipse问题汇总</title><link>https://lewky.cn/posts/5f77a7c4.html/</link><pubDate>Fri, 18 Jan 2019 23:04:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/5f77a7c4.html/</guid><description><![CDATA[<h2 id="access-restriction-the-type-jpegcodec-is-not-api">Access restriction: The type &lsquo;JPEGCodec&rsquo; is not API</h2>
+<p><code>alt + ↓</code> 将光标所在的那一行向下挪动一行</p>]]></description></item><item><title>Eclipse问题汇总</title><link>https://lewky.cn/posts/eclipse-issues/</link><pubDate>Fri, 18 Jan 2019 23:04:49 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eclipse-issues/</guid><description><![CDATA[<h2 id="access-restriction-the-type-jpegcodec-is-not-api">Access restriction: The type &lsquo;JPEGCodec&rsquo; is not API</h2>
 <p>导入项目时Eclipse报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

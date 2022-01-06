@@ -9,12 +9,14 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;dependency&gt;
-  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
-  &lt;version&gt;2.4.0&lt;/version&gt;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!--  对应的是4.1.1版本的MongoDB --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
+    &lt;version&gt;2.4.0&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre></td></tr></table>
 </div>

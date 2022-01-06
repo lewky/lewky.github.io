@@ -154,22 +154,6 @@ Eclipse在安装了jd-eclipse插件后依然无法反编译类文件，这个问
 
 接着重启Eclipse后就可以正常地反编译类文件了，如果缺少上述的第三步操作，会有比较大的可能依然无法反编译类文件。
 
-## lombok的@Slf4j和@Data无效
-
-使用lombok框架开发可以减少大量重复性的代码，大大提高开发效率，但是Eclipse本身并不支持lombok，会编译报错。除了项目要导入lombok依赖，还需要为Eclipse安装该lombok插件。
-
-安装方法很简单，找到你导入的lombok的jar包，双击运行该jar包，会出现一个安装界面。或者右键jar包，选择`打开方式`，接着选择`Java (TM) Platform SE binary`，会出现安装界面。
-
-在安装界面选择当前的Eclipse进程，或者点击左下角的`Specify location...`选择你要安装插件的Eclipse，接着点右下角的`Install / Update`，很快就安装完毕，点击`Quit Installer`。
-
-lombok的下载地址：https://projectlombok.org/downloads/lombok.jar
-
-### 个人问题补充
-
-当我安装好lombok之后，Eclipse虽然能够正常识别@Slf4j注解生成的log变量，但@Data注解依然无效。在使用到了pojo类的私有变量时，依然会提示说缺少setter/getter方法。折腾了好久，才发现原来是因为Eclipse自动给我的pojo类的私有变量加上`final`修饰符，导致setter/getter方法注入失败了。
-
-把pojo类的私有变量前边的final去掉后，@Data终于生效了。之所以会自动给变量加上final修饰符，是因为我设置了Save Action，Eclipse会自动在我保存代码的时候自动在私有变量、局部变量前加上final修饰符，这个是公司制定的代码编程规范。
-
 ## Eclipse无法找到MapStruct生成的mapper实现类
 
 Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，还要另外安装插件`m2e-apt`，该插件可以在Eclipse的Market里搜到。

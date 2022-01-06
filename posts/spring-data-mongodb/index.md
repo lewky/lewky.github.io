@@ -9,10 +9,11 @@ Spring Data除了常用的JPA（Hibernate）关系型数据库的模块外，还
 本文基于以下版本：
 
 ```
+<!--  对应的是4.1.1版本的MongoDB -->
 <dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-data-mongodb</artifactId>
-  <version>2.4.0</version>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+    <version>2.4.0</version>
 </dependency>
 ```
 
@@ -88,7 +89,7 @@ public class MongoDBConfig {
 }
 ```
 
-## The bean 'xxx', defined in null, could not be registered. A bean with that name has already been defined in null and overriding is disabled.
+## The bean ‘xxx’, defined in null, could not be registered.
 
 当同时使用了多个Spring Data模块时，比如混用了Spring Data JPA和Spring Data MongoDB时就会报这种错：
 
