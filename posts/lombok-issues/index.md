@@ -45,10 +45,8 @@ public class ItemDto extends BaseEntityDto {
 }
 ```
 
-## 腾讯云声明
-
-我的博客即将同步至腾讯云+社区，邀请大家一同入驻：https://cloud.tencent.com/developer/support-plan?invite_code=3paqcjjzio4k8
-
 ## 参考链接
 
 * [lombok @EqualsAndHashCode 注解的影响](https://blog.csdn.net/zhanlanmg/article/details/50392266)
+
+我的博客即将同步至腾讯云+社区，邀请大家一同入驻：[https://cloud.tencent.com/developer/support-plan?invite_code=3paqcjjzio4k8](https://cloud.tencent.com/developer/support-plan?invite_code=3paqcjjzio4k8)
