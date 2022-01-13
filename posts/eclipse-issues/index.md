@@ -48,7 +48,7 @@ Eclipse如果更换一个新的工作空间，需要重新设置视图、配置�
 
 另外不要没事就随便转换工作空间，Eclipse容易崩溃_(:3」∠)_
 
-## 在接口的实现类里使用@Override注解报错
+## 接口实现类里使用@Override注解报错
 
 @Override注解用来检测子类对父类或接口的方法的重写是否正确，但有一次我在Eclipse里对接口的实现类里使用@Override注解却报错，不过在父类的子类里使用该注解却是正常的。
 
@@ -169,7 +169,7 @@ Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，�
 
 如果这时候还没效果，要手动打开apt的功能。邮件项目，选择`Properties` -> `Maven` -> `Annotation Processing` -> 勾选`Enable project specific settings` -> 选择第一个选项`Automatically config JDT APT` -> `Apply and Close`
 
-## 弹窗提示`code recommenders cannot download its model repository index`
+## 弹窗提示 code recommenders cannot download its model repository index
 
 原因是该插件的model地址`http://download.eclipse.org/recommenders/models/oxygen/`已经被移除了，且很久没有更新了，最新版的Eclipse里已经把该地址移除了，旧版本的需要自行移除：
 
@@ -189,6 +189,25 @@ Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，�
 1. 在Maven仓库视图里：`Global Repositories` -> 选定某个远程库 -> 右键，选择`Update Index`
 2. 更新完索引后就可以搜索到远程库里最新的jar包了
 
+## 启动SpringBoot项目报错： Error: Could not find or load main class
+
+在Eclipse里对一个SpringBoot项目选择`Run As` -> `Maven clean`后，通过启动类启动该项目时报错如下：
+
+```java
+Error: Could not find or load main class
+```
+
+解决方法是clean该项目并重新编译，再次启动时选择`Run As` -> `Java Application`，启动成功。
+
+还有另一个会触发该错误的方式：
+
+在Eclipse里启动SpringBoot项目的时候，右键启动类，选择`Run As`，此时手误点成了`Run on Server`，之后就一直启动报错如下：
+
+```java
+Error: Could not find or load main class
+```
+
+解决方法同上。
 
 ## 参考链接
 

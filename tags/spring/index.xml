@@ -1,4 +1,24 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Spring - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/spring/</link><description>Spring - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Sep 2021 23:27:22 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/spring/" rel="self" type="application/rss+xml"/><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky.cn/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Spring - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/spring/</link><description>Spring - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Jan 2022 23:10:42 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/spring/" rel="self" type="application/rss+xml"/><item><title>Spring Data Redis问题汇总</title><link>https://lewky.cn/posts/spring-data-redis/</link><pubDate>Thu, 13 Jan 2022 23:10:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-redis/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文基于以下版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--  对应的是3.3.0版本的jedis（redis的java客户端） --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky.cn/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>Spring Data除了常用的JPA（Hibernate）关系型数据库的模块外，还有其他用于非关系型数据库的数据交互模块：比如Redis、MongoDB、Elasticsearch等。</p>
 <p>用法和JPA模块类似，都需要定义对应的POJO、Repository，同时也提供了对应的数据库工具模板类：如RedisTemplate、MongoTemplate等。</p>
 <p>本文基于以下版本：</p>

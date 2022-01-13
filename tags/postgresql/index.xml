@@ -41,7 +41,7 @@
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="k">table</span> <span class="k">where</span> <span class="n">name</span> <span class="k">like</span> <span class="s1">&#39;张/_小%&#39;</span> <span class="k">escape</span> <span class="s1">&#39;/&#39;</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>PostgreSQL - 日期函数汇总</title><link>https://lewky.cn/posts/8470760a.html/</link><pubDate>Wed, 19 Dec 2018 22:34:12 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8470760a.html/</guid><description><![CDATA[<p>##　比较两个日期之间的时间差超过N个小时</p>
+</div>]]></description></item><item><title>PostgreSQL - 日期函数汇总</title><link>https://lewky.cn/posts/postgresql-date/</link><pubDate>Wed, 19 Dec 2018 22:34:12 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-date/</guid><description><![CDATA[<h2 id="比较两个日期之间的时间差超过n个小时">比较两个日期之间的时间差超过N个小时</h2>
 <p>在PostgreSQL中，两个时间戳相减会得到一个<code>interval</code>类型的结果，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

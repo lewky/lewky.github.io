@@ -90,7 +90,7 @@ LOGGER.debug("Current item id is " + id + ", size is " + size + ", color is " + 
 
 这个堆栈溢出并不会立刻抛出并结束，而是会在项目运行中卡死页面无响应十几分钟！经过测试，重新改回原本的写法便可避免该异常。网上也找不到类似的案例，只能将原因归结于Log4j2框架的`ParameterFormatter#recursiveDeepToString()`的bug了。
 
-在使用占位符打印日志时，**要注意参数的类型，最好只使用简单的一些字符串来作为参数，尽量避免直接将一个复杂的对象作为参数，**否则有可能引发预料之外的堆栈溢出问题。
+在使用占位符打印日志时，**要注意参数的类型**，最好只使用简单的一些字符串来作为参数，**尽量避免直接将一个复杂的对象作为参数**，否则有可能引发预料之外的堆栈溢出问题。
 
 ## `NoSuchMethodError: com.lmax.disruptor.dsl.Disruptor`
 
@@ -271,6 +271,14 @@ Log4j2的配置文件可以设置一些参数变量，方便下文使用：
 ```
 
 当然，`include`标签不只是可以引入其他文件的Properties节点，实际上也可以引入公共的Appenders或者Loggers节点，注意它只能引入这种一级节点，且一级节点是不能重复定义的，也就是说如果引入了一个Properties节点，那么原本的配置文件中就不能定义该节点了，否则会冲突或者报错。
+
+
+此外，配置中的变量占位符`${key}`可以用`${key:-defaultValue}`的形式来设置默认值：
+
+```
+${logstash.host:-udp:localhost}
+${logstash.port:-4567}
+```
 
 ## NDC和MDC功能
 

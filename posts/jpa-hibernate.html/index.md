@@ -126,7 +126,7 @@ this.initializeLazyStateOutsideTransactions = cfgService.getSetting( ENABLE_LAZY
 
 如果在配置文件中设置了`spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true`，那么上述的`allowLoadOutsideTransaction`变量值就为true，则可以进入`permissiveInitialization()`方法另起session和事务，最终避免懒加载异常`LazyInitializationException`。如果没有配置该参数，那么就会由于session已关闭（即为null）而抛出`LazyInitializationException`。
 
-## @JoinColumn注解无法找回数据导致报错
+## @JoinColumn无法找回数据导致报错
 
 使用`@JoinColumn`时如果无法找到对应的record，就会报错导致查询失败：
 ```java
@@ -288,6 +288,36 @@ List<Test> test(@Param(value = "domainId") final String domainId);
 
 这时候可以使用`@Transient`注解（包路径是`javax.persistence.Transient`）。
 
+## SpringBoot打印Hibernate的sql
+
+```
+# 控制台打印sql语句
+spring.jpa.show-sql=true
+
+# 格式化sql语句
+spring.jpa.properties.hibernate.format_sql=false
+
+# 指出是什么操作生成了该sql语句
+spring.jpa.properties.hibernate.use_sql_comments=false
+spring.jpa.properties.hibernate.generate_statistics=false
+```
+
+如果想把sql也打印的log文件中，logger的配置如下：
+
+```xml
+<!-- Use DEBUG level to print sql and sql-parameters, change to INFO level will not print them. -->
+<Logger name="org.hibernate.SQL" level="DEBUG" additivity="true">
+</Logger>
+<Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="INFO" additivity="true">
+</Logger>
+```
+
+## detached entity passed to persist
+
+不要手动设置id的值，如果有其他实体需要用到这个id的值，可以直接getId()来获取id（尽管此时id还没有被hibernate生成出来），hibernate会在commit到db的时候获取到id。
+
+jpa的Repository的save()有个返回值，返回值是保存之后的对象，虽然此时还没commit到db，但可以通过这个返回值来获取到一些需要提交到db才会生成的数据，如id等。
+
 ## 参考链接
 
 * [springboot jpa 解决延迟加载问题](https://blog.csdn.net/hsz2568952354/article/details/82724719)
@@ -299,3 +329,5 @@ List<Test> test(@Param(value = "domainId") final String domainId);
 * [UnexpectedRollbackException解决方案](https://segmentfault.com/a/1190000016418596?utm_source=tag-newest)
 * [import java.sql.date_Java8中 LocalDate和java.sql.Date的相互转换操作](https://blog.csdn.net/weixin_33526828/article/details/114507298?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-0.essearch_pc_relevant&spm=1001.2101.3001.4242)
 * [PostgreSQL错误处理“operator does not exist: character varying = bytea at character”](https://www.it610.com/article/1289093039972753408.htm)
+* [Hibernate在控制台打印sql语句以及参数](https://blog.csdn.net/Randy_Wang_/article/details/79460306)
+* [detached entity passed to persist 错误的引起的原因和解决办法](https://blog.csdn.net/remote_roamer/article/details/5680445)

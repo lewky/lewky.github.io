@@ -1,4 +1,44 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Jan 2022 09:01:30 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>lombok问题汇总</title><link>https://lewky.cn/posts/lombok-issues/</link><pubDate>Thu, 06 Jan 2022 09:01:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/lombok-issues/</guid><description><![CDATA[<h2 id="eclipse安装lombok插件">Eclipse安装lombok插件</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Jan 2022 23:10:42 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>Spring Data Redis问题汇总</title><link>https://lewky.cn/posts/spring-data-redis/</link><pubDate>Thu, 13 Jan 2022 23:10:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-redis/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文基于以下版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--  对应的是3.3.0版本的jedis（redis的java客户端） --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Java数值问题汇总</title><link>https://lewky.cn/posts/java-number/</link><pubDate>Mon, 10 Jan 2022 23:03:06 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-number/</guid><description><![CDATA[<h2 id="double转成bigdecimal的精度损失问题">double转成BigDecimal的精度损失问题</h2>
+<p>如果直接用构造方法将double数值转成BigDecimal，可能存在损失精度的问题：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b1</span> <span class="o">=</span><span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">48</span><span class="o">);</span>
+<span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">BigDecimal</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">48</span><span class="o">);</span>
+<span class="c1">// 0.479999999999999982236431605997495353221893310546875
+</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b1</span><span class="o">);</span>
+<span class="c1">// 0.48
+</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b2</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>lombok问题汇总</title><link>https://lewky.cn/posts/lombok-issues/</link><pubDate>Thu, 06 Jan 2022 09:01:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/lombok-issues/</guid><description><![CDATA[<h2 id="eclipse安装lombok插件">Eclipse安装lombok插件</h2>
 <h3 id="方式一">方式一</h3>
 <p>使用lombok框架开发可以减少大量重复性的代码，大大提高开发效率，但是Eclipse本身并不支持lombok，会编译报错。除了项目要导入lombok依赖，还需要为Eclipse安装该lombok插件。</p>
 <p>安装方法很简单，找到你导入的lombok的jar包，双击运行该jar包，会出现一个安装界面。或者右键jar包，选择<code>打开方式</code>，接着选择<code>Java (TM) Platform SE binary</code>，会出现安装界面。</p>
@@ -6,7 +46,33 @@
 <p>lombok的下载地址：https://projectlombok.org/downloads/lombok.jar</p>]]></description></item><item><title>Jackson问题汇总</title><link>https://lewky.cn/posts/jackson-issues/</link><pubDate>Tue, 04 Jan 2022 23:45:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jackson-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>常见的json框架有：Jackson，FasJson（阿里的，万年没更新，积累了大量issue），Gson（谷歌的）。其中Jackson效率最高，性能最好，最为常用。本文基于<code>2.11.3</code>版本的Jackson。</p>
 <p>Jackson在1.x版本使用的包名是<code>codehaus</code>，后来升级到2.x版本时，为了和旧版本区分开来，采用了新的包名<code>fasterxml</code>。有这种类似操作的还有Log4j和Log4j2，在使用时需要注意引入的包名，避免混用版本或误用版本。</p>
-<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>Windows查询被占用的端口</title><link>https://lewky.cn/posts/windows-netstat/</link><pubDate>Sat, 25 Dec 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/windows-netstat/</guid><description><![CDATA[<h2 id="查询被占用的端口">查询被占用的端口</h2>
+<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>Java Servlet问题汇总</title><link>https://lewky.cn/posts/11/</link><pubDate>Sat, 01 Jan 2022 23:16:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/11/</guid><description><![CDATA[<h2 id="cannot-forward-after-response-has-been-committe">Cannot forward after response has been committe</h2>
+<p>之前在使用Servlet的时候，总是在 doGet()/doPost() 的最后一行才使用请求转发或者重定向。如果需要根据条件来判断进行不同的请求转发或者重定向，代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="kd">final</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="kd">final</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">AttrConsts</span><span class="o">.</span><span class="na">LOGIN_USER</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">LOGIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Windows查询被占用的端口</title><link>https://lewky.cn/posts/windows-netstat/</link><pubDate>Sat, 25 Dec 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/windows-netstat/</guid><description><![CDATA[<h2 id="查询被占用的端口">查询被占用的端口</h2>
 <p>假如被占用的是61613端口号（activemq的），在cmd窗口中执行如下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -48,31 +114,4 @@ git clone https://github.com/jquery/jquery.git test
 <p><code>(?i)</code>表示匹配时不区分大小写。</p>
 <p><code>(?s)</code>表示Singleline（单行模式），匹配时会改变<code>.</code>的含义，使其能与换行符（\r或者\n，如果是\r\n需要用两个<code>.</code>）匹配。</p>
 <p><code>(?m)</code>表示Multiline（多行模式），匹配时会改变<code>^</code>和<code>$</code>的含义，使其分别在任意一行的行首和行尾匹配，而不仅仅在整个字符串的开头和结尾匹配。</p>
-<p>这三种模式修饰符可以搭配使用，如：<code>(?im)</code>，<code>(?is)</code>等。</p>]]></description></item><item><title>MySQL问题汇总</title><link>https://lewky.cn/posts/mysql-issues/</link><pubDate>Tue, 12 Oct 2021 00:04:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/mysql-issues/</guid><description><![CDATA[<h2 id="指定字符集编码">指定字符集编码</h2>
-<p>需要在数据库连接中指定两个参数：<code>useUnicode=true&amp;characterEncoding=UTF-8</code>，只有当设置了<code>useUnicode=true</code>时，后续指定的字符集编码才有效。</p>
-<h2 id="mysql-56别名默认不生效问题">MySQL 5.6别名默认不生效问题</h2>
-<p>在数据库连接中指定参数：<code>useOldAliasMetadataBehavior=true</code>。</p>]]></description></item><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky.cn/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>Spring Data除了常用的JPA（Hibernate）关系型数据库的模块外，还有其他用于非关系型数据库的数据交互模块：比如Redis、MongoDB、Elasticsearch等。</p>
-<p>用法和JPA模块类似，都需要定义对应的POJO、Repository，同时也提供了对应的数据库工具模板类：如RedisTemplate、MongoTemplate等。</p>
-<p>本文基于以下版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!--  对应的是4.1.1版本的MongoDB --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
-    &lt;version&gt;2.4.0&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>这是MongoDB官网用户手册的翻译文档仓库：<a href="https://github.com/mongodb-china/MongoDB-4.2-Manual" target="_blank" rel="noopener noreffer">MongoDB-4.2-Manual</a></p>]]></description></item><item><title>日志框架与门面模式</title><link>https://lewky.cn/posts/log-framework/</link><pubDate>Thu, 09 Sep 2021 23:44:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/log-framework/</guid><description><![CDATA[<h2 id="日志框架">日志框架</h2>
-<p>目前的日志框架可以分为两种：一种是jdk自带的，一种是第三方实现的。</p>
-<p>第三方的日志框架除了提供具体的日志实现外，也有的会提供自身框架的接口。此外，有些日志框架仅仅提供了一套统一的接口，不包含具体的日志实现，可以通过一些桥接包来调用其他的日志框架。（即日志的门面模式）</p>]]></description></item></channel></rss>
+<p>这三种模式修饰符可以搭配使用，如：<code>(?im)</code>，<code>(?is)</code>等。</p>]]></description></item></channel></rss>

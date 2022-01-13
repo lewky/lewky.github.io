@@ -1,8 +1,9 @@
 # PostgreSQL - 日期函数汇总
 
-##　比较两个日期之间的时间差超过N个小时
+## 比较两个日期之间的时间差超过N个小时
 
 在PostgreSQL中，两个时间戳相减会得到一个`interval`类型的结果，如下：
+
 ```sql
 select now() - '2021-03-28 15:47:07'; --0 years 0 mons 2 days 0 hours 1 mins 15.081206 secs
 select '2021-03-28 15:47:07' - now(); --0 years 0 mons -2 days 0 hours -3 mins -17.692835 secs
@@ -15,6 +16,18 @@ select interval '0 years 100 mons 2 days 0 hours' > interval '4years'; --true
 
 select now() - '2021-03-28 15:47:07' > interval '4days'; --false
 ```
+
+## 比较日期时隐藏的坑
+
+PostgreSQl在比较两个timestamp时，隐藏了一个坑：在用DBeaver查看数据时，这个timestamp的值是看不到毫秒值的，在比较的时候可能不小心就被毫秒值坑了，如下：
+
+```sql
+select * from cnt_item where updated_on > '2019-05-13 15:49:26';
+```
+
+上述的条件是可能查出来更新日期为`2019-05-13 15:49:26`的数据的，原因是上诉条件等价于`updated_on > '2019-05-13 15:49:26 000'`，有部分数据的毫秒值虽然看不到，但却大于条件中的毫秒值，因此会造成查询出问题的错觉。
+
+在查询日期时，应该尽量根据实际情况将秒值增大一秒或变小一秒。
 
 ## EXTRACT函数对日期进行处理
 
@@ -69,11 +82,9 @@ select ceiling(extract(epoch from '03:21:06.678'::time));
 select round(extract(epoch from '03:21:06.678'::time));
 ```
 
-## 补充
+## 补充：epoch新纪元时间
 
-### epoch新纪元时间
-
->新纪元时间 Epoch 是以`1970-01-01 00:00:00 UTC`为标准的时间，将目标时间与`1970-01-01 00:00:00`时间的差值以秒来计算 ，单位是秒，可以是负值; 有些应用会将时间存储成epoch 时间形式，以提高读取效率。
+新纪元时间 Epoch 是以`1970-01-01 00:00:00 UTC`为标准的时间，将目标时间与`1970-01-01 00:00:00`时间的差值以秒来计算 ，单位是秒，可以是负值; 有些应用会将时间存储成epoch 时间形式，以提高读取效率。
 
 ## 参考链接
 
