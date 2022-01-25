@@ -10,7 +10,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b1</span> <span class="o">=</span><span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">48</span><span class="o">);</span>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">48</span><span class="o">);</span>
 <span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">BigDecimal</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">48</span><span class="o">);</span>
 <span class="c1">// 0.479999999999999982236431605997495353221893310546875
 </span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b1</span><span class="o">);</span>

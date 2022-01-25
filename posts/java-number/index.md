@@ -5,7 +5,7 @@
 如果直接用构造方法将double数值转成BigDecimal，可能存在损失精度的问题：
 
 ```java
-final BigDecimal b1 =new BigDecimal(0.48);
+final BigDecimal b1 = new BigDecimal(0.48);
 final BigDecimal b2 = BigDecimal.valueOf(0.48);
 // 0.479999999999999982236431605997495353221893310546875
 System.out.println(b1);
@@ -25,4 +25,12 @@ System.out.println(b2);
         // constants, later.
         return new BigDecimal(Double.toString(val));
     }
+```
+
+因此，也可以直接传入字符串来构造BigDecimal：
+
+```java
+final BigDecimal b3 = new BigDecimal("0.48");
+// 0.48
+System.out.println(b3);
 ```
