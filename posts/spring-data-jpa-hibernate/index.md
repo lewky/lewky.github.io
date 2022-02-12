@@ -1,8 +1,8 @@
-# JPA/Hibernate问题汇总
+# Spring Data JPA/Hibernate问题汇总
 
 ## 前言
 
-本文基于如下版本的JPA和Hibernate下：
+本文基于如下版本的JPA和Hibernate：
 
 ```xml
 <dependency>
@@ -275,10 +275,10 @@ SELECT * from tb_test test where test.domain_id = ?;
 
 如果是需要按照参数值是否为null来作为查询条件，可以这样写：
 
-```
+```java
 @Query(value = "SELECT * "
             + "from tb_test test "
-            + "where test.sourcing_record_ref is null or test.sourcing_record_ref = cast(:sourcingRecordRef as text)", nativeQuery = true)
+            + "where test.domain_id is null or test.domain_id = cast(:domainId as text)", nativeQuery = true)
 List<Test> test(@Param(value = "domainId") final String domainId);
 ```
 
@@ -318,6 +318,86 @@ spring.jpa.properties.hibernate.generate_statistics=false
 
 jpa的Repository的save()有个返回值，返回值是保存之后的对象，虽然此时还没commit到db，但可以通过这个返回值来获取到一些需要提交到db才会生成的数据，如id等。
 
+## id生成策略
+
+通常情况下直接用下面的注解来标注一个pojo的id字段即可：
+
+```java
+@Entity
+@Table(name = "TB_ITEM")
+public class Item {
+
+    @Id
+    @GeneratedValue(generator = "jpa-uuid")
+    @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
+    private String id;
+
+}
+```
+
+`@Id`和`@GeneratedValue`是JPA规范的注解，`@GenericGenerator`是Hibernate的注解。
+
+`@Id`指明当前字段是当前pojo的id主键，`@GeneratedValue`指明使用名为`jpa-uuid`的id生成器。
+
+`@GenericGenerator`定义了一个名为`@GenericGenerator`的id生成器，使用的生成策略是`uuid`（32位16进制数字）。
+
+Hibernate除了常见的uuid策略，还提供了其他常见的策略：sequence、identity等。
+
+### sequence策略
+
+使用底层数据库的序列机制生成id，换言之，必须用底层数据库支持序列才行。比如MySQL就不支持sequence，但是可以用identity。
+
+支持序列的有Oracle、PostgreSQL等，使用该策略需要先在数据库创建序列。
+
+### identity策略
+
+identity同样是由数据库生成的，但该主键字段必须设置为自增长。使用该策略的前提是数据库要支持自动增长类型的字段，Oracle不支持该策略。
+
+支持自增长的有MySQL、PostgreSQL等，在MySQL中需要将主键设为`auto_increment`，在PostgreSQL中需要将主键设为`serial4`或`serial8`，前者是32位长度，后者是64位长度。
+
+### 其他的写法
+
+如果不想混用Hibernate的注解，可以用JPA自身提供的生成器注解：`@TableGenerator`，`@SequenceGenerator`等，此时需要改变`@GeneratedValue`的策略。
+
+下面是样例代码，具体可以参考这篇文章：[Hibernate学习笔记2.4（Hibernate的Id生成策略）](https://www.cnblogs.com/frankzone/p/9439143.html)
+
+```java
+// 自增长，适用于支持自增字段的数据库
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+// 使用表存储生成的主键，可以跨数据库。
+// 每次需要主键值时，查询名为"hibernate_table"的表，查找主键列"gen_pk"值为"2"记录，得到这条记录的"gen_val"值，根据这个值，和allocationSize的值生成主键值。
+@Id
+@GeneratedValue(strategy = GenerationType.TABLE, generator = "ud")
+@TableGenerator(name = "ud",
+table = "hibernate_table",
+pkColumnName = "gen_pk",
+pkColumnValue = "2",
+valueColumnName = "gen_val",
+initialValue = 2,
+allocationSize = 5)
+
+// 使用序列
+@Id
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ud")
+@SequenceGenerator(name = "ud",
+sequenceName = "hibernate_seq",
+allocationSize = 1,
+initialValue = 2)
+```
+
+## nativeQuery
+
+有时候用hql来查询一个复杂的sql会比较麻烦，可以用`nativeQuery = true`来使用原生sql查询数据：
+
+```java
+@Query(value = "SELECT * "
+            + "from tb_test test "
+            + "where test.domain_id is null or test.domain_id = cast(:domainId as text)", nativeQuery = true)
+List<Test> test(@Param(value = "domainId") final String domainId);
+```
+
 ## 参考链接
 
 * [springboot jpa 解决延迟加载问题](https://blog.csdn.net/hsz2568952354/article/details/82724719)
@@ -331,3 +411,5 @@ jpa的Repository的save()有个返回值，返回值是保存之后的对象，�
 * [PostgreSQL错误处理“operator does not exist: character varying = bytea at character”](https://www.it610.com/article/1289093039972753408.htm)
 * [Hibernate在控制台打印sql语句以及参数](https://blog.csdn.net/Randy_Wang_/article/details/79460306)
 * [detached entity passed to persist 错误的引起的原因和解决办法](https://blog.csdn.net/remote_roamer/article/details/5680445)
+* [postgresql如何设置自动增长](https://blog.csdn.net/qing_gee/article/details/84655167)
+* [Hibernate学习笔记2.4（Hibernate的Id生成策略）](https://www.cnblogs.com/frankzone/p/9439143.html)
