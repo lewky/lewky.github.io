@@ -34,3 +34,20 @@ final BigDecimal b3 = new BigDecimal("0.48");
 // 0.48
 System.out.println(b3);
 ```
+
+## 判断BigDecimal是否相等
+
+在判断两个BigDecimal是否相等时，不能使用`equals()`，原因是`equals()`除了比较数值是否相等外，还会比较标度scale。从业务来考虑，通常只需要对比数值就行了，此时应该用`compareTo()`方法：
+
+```java
+public static void main(final String[] args) {
+    BigDecimal a = new BigDecimal("0.1");
+    BigDecimal b = new BigDecimal("0.10");
+	// false
+    System.out.println(a.equals(b));
+	// 0
+    System.out.println(a.compareTo(b));
+}
+```
+
+`compareTo()`会返回-1,0和1，从上述代码可以看出来，a和b的标度不同，a的标度是0.1，b的标度是0.10，所以`equals()`返回的true，但是由于二者数值相同，所以`compareTo()`返回了0。
