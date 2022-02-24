@@ -50,4 +50,4 @@ public static void main(final String[] args) {
 }
 ```
 
-`compareTo()`会返回-1,0和1，从上述代码可以看出来，a和b的标度不同，a的标度是0.1，b的标度是0.10，所以`equals()`返回的true，但是由于二者数值相同，所以`compareTo()`返回了0。
+`compareTo()`会返回-1,0和1，从上述代码可以看出来，a和b的标度不同，a的标度是0.1，b的标度是0.10，所以`equals()`返回的false，但是由于二者数值相同，所以`compareTo()`返回了0。
