@@ -82,6 +82,13 @@ logo="https://sukun.xyz/images/德丽莎观星.png"
 word="Sukun的博客，记录学习历程！"
 >}}
 
+{{< friend
+name="Barney’s Blog"
+url="https://barneys.gitee.io/"
+logo="https://gitee.com/Barneys/myfiles/raw/master/img/1625052486520.png"
+word="All the truth is simple"
+>}}
+
 ## 【网络安全】
 
 {{< friend
