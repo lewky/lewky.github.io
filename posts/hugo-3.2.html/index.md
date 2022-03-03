@@ -1089,7 +1089,7 @@ ul#hot li {
 </style>
 
 <div><ul id="hot"></ul></div>
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@3.10.0/dist/av-min.js"></script>
 <script>AV.initialize("appId", "appKey");</script>
 <script type="text/javascript">
   var time=0
