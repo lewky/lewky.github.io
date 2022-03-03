@@ -141,6 +141,47 @@ javax.persistence.EntityNotFoundException: Unable to find com.cbxsoftware.rest.e
 
 通过使用Hibernate提供的`@NotFound(action = NotFoundAction.IGNORE)`可以避免这个问题，该注解的默认值是`NotFoundAction.EXCEPTION`，所以hibernate在join表时查不到对应的数据就会抛出异常。
 
+## 连表时指定额外的条件
+
+连表时使用的`@JoinColumn`只能指定被连接的表的列，如果需要指定其他的条件，如`a inner join b on b.column_1 = 'xxx'`，需要使用`@JoinColumnsOrFormula`注解：
+
+```java
+@Data
+@Entity
+@Table(name = "navi")
+public class Navi {
+    @JsonUnwrapped
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumnsOrFormulas(value={
+            @JoinColumnOrFormula(column=@JoinColumn(name="label",referencedColumnName="labelId")),
+            @JoinColumnOrFormula(formula=@JoinFormula(value="'en_US'",referencedColumnName="locale"))
+    })
+    private Label label;
+}
+
+@Data
+@Entity
+@Table(name="label")
+public class Label {
+    private String labelId;
+    private String locale;
+}
+```
+
+上面的连表sql即为：`navi inner join label on navi.label = label.label_id and label.locale = 'en_US'`。
+
+这里的`Formula`用来定义sql判断，`referencedColumnName`是被连接的表的字段名字（非数据库列名）。如果嫌麻烦，也可以不写`@JoinColumnsOrFormulas`，直接用简写的方式：
+
+```java
+@JsonUnwrapped
+@OneToOne(fetch = FetchType.EAGER)
+@JoinColumnOrFormula(column=@JoinColumn(name="label",referencedColumnName="labelId")),
+@JoinColumnOrFormula(formula=@JoinFormula(value="'en_US'",referencedColumnName="locale"))
+private Label label;
+```
+
+编译器会自动将多个`@JoinColumnOrFormula`注解包装成一个`@JoinColumnsOrFormulas`。
+
 ## 懒加载导致的N + 1问题
 
 Hibernate的懒加载有个让人诟病的问题，就是所谓的N + 1问题：如果一个实体里存在一个懒加载的集合对象，在查询该实体时，会发出一条SQL。当触发查询该懒加载的集合时，则会发出N条SQL。
@@ -413,3 +454,4 @@ List<Test> test(@Param(value = "domainId") final String domainId);
 * [detached entity passed to persist 错误的引起的原因和解决办法](https://blog.csdn.net/remote_roamer/article/details/5680445)
 * [postgresql如何设置自动增长](https://blog.csdn.net/qing_gee/article/details/84655167)
 * [Hibernate学习笔记2.4（Hibernate的Id生成策略）](https://www.cnblogs.com/frankzone/p/9439143.html)
+* [Hibernate oneToOne join with additional criteria](https://stackoverflow.com/questions/39892267/hibernate-onetoone-join-with-additional-criteria)

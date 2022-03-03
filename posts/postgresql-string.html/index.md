@@ -218,6 +218,20 @@ select string_to_array('ITM2105-000001&ITM2105-000002&ITM2105-000003', '&');
 --结果：{ITM2105-000001,ITM2105-000002,ITM2105-000003}
 ```
 
+## 使用正则表达式分割字符串
+
+`regexp_split_to_table`可以通过正则表达式来定义分隔符，将一个字符串分割成多个字符串，即将一条数据分隔成多条数据。有两个参数，第一个参数是需要被分隔的字符串，第二个参数是正则表达式。
+
+```sql
+select regexp_split_to_table(trim(both '{}' from '{lbl.codelist} > {lbl.codelist.tabHeader} > {lbl.codelist.tabHeader.codelists}: 115 (993) > {lbl.codelist.tabHeader.codelists.name}'), '}[^}]*{') as label;
+
+--结果：原字符串被分隔成四个字符串，并返回四行数据
+lbl.codelist
+lbl.codelist.tabHeader
+lbl.codelist.tabHeader.codelists
+lbl.codelist.tabHeader.codelists.name
+```
+
 ## 参考链接
 
 * [postgresql 常用函数汇总](https://www.cnblogs.com/brucexl/p/7561292.html)
