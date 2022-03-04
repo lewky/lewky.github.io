@@ -45,7 +45,4 @@
 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list3</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>不占用任何额外空间的情况下交换两个数的值</title><link>https://lewky.cn/posts/9136af.html/</link><pubDate>Sat, 22 Dec 2018 23:07:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9136af.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
-<p>假如有x、y两个数，如何在不占用任何额外空间的情况下交换两个数的值？</p>
-<h2 id="思路">思路</h2>
-<p>平时我们在交换两个数的值时，往往会用一个中间数temp来实现效果，现在需要不占用任何额外空间，自然就不能使用这种寻常的方法了；这里可以有两种方法来实现。</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>

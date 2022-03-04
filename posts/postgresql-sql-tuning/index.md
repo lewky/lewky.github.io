@@ -1,11 +1,41 @@
 # PostgreSQL - SQL调优方案
 
+## 查询执行很长时间的SQL（慢SQL）
+
+可以通过查询系统表来找到目前处于活跃状态的SQL：
+
+```sql
+SELECT * FROM pg_stat_activity WHERE datname='数据库名' 
+and client_addr = '发起查询的IP地址' order by state_change desc;
+```
+
+<!--more-->
+有个更好的办法，是安装扩展`pg_stat_statements`，此处需要PostgreSql支持，部分版本需要编译安装：
+
+```sql
+CREATE extension pg_stat_statements;
+SELECT pg_stat_reset();
+SELECT pg_stat_statements_reset();
+```
+
+等待一段时间后就可以查询慢SQL：
+
+```sql
+SELECT * FROM pg_stat_statements ORDER BY total_time DESC LIMIT 5;
+```
+
+查询使用Buffer次数最多的SQL：
+
+```sql
+SELECT * FROM pg_stat_statements ORDER BY shared_blks_hit+shared_blks_read DESC LIMIT 5;
+```
+
 ## 分析执行计划
 
 `explain`可以看到sql的执行计划（但不会去执行这条sql），`explain analyze`或者`explain analyse`则可以看到真正执行sql时的执行计划。
 
 对于已经能够确定其性能很慢的sql不建议使用`explain analyze`，除非你想慢慢等它执行完再看到对应的执行计划。
-<!--more-->
+
 PostgreSQL的执行计划会显示出这条SQL的预估成本`cost`，需要扫描的数据行数量`rows`，扫描方式（是否使用索引等），循环次数`loops`等。执行计划中会使用缩减符和`->`来表示执行时每一步的先后顺序，缩减最大的就是最早执行的SQL片段。
 
 `cost`就是执行对应的SQL片段时所需要的预估成本，包含启动成本和结束成本。不同的扫描方式其启动成本不一定一样，每一步的cost都会包含上一步的成本。
@@ -77,3 +107,4 @@ path	preLabelKey	pre2LabelKey
 * [EXPLAIN分析pgsql的性能](https://www.cnblogs.com/ricklz/p/12777165.html)
 * [T-SQL查询进阶--详解公用表表达式(CTE)](https://www.cnblogs.com/CareySon/archive/2011/12/12/2284740.html)
 * [使用WITH AS提高性能简化嵌套SQL](https://www.cnblogs.com/fygh/archive/2011/08/31/2160266.html)
+* [PostgreSql查询正在执行的SQL和查询执行耗时的SQL](https://www.lidaren.com/archives/1813)

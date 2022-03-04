@@ -2,29 +2,34 @@
 
 ## 博主相关
 
-### 近况
+### 古往 & 今来
 
-17年本科毕业，目前在珠海从事Java开发，码农界~~萌新~~老腊肉 (⌒▽⌒)
+* 17年毕业于宇宙工业大学
+* 目前在珠海从事Java开发
+* 码农界老腊肉 (⌒▽⌒)
 
-### 技能
+### 技能 & 喜好
 
-Java
+* Java ~~（性感码农，在线搬砖）~~
+* Markdown ~~（关于我没能成为写手的那些事）~~
+* 健身 ~~（我要打十个）~~
+* 追漫看番 ~~（老二次元了）~~
 
-~~（性感码农，在线搬砖）~~
-
-### 联系
+### 传音 & 入密
 
 * <a href="javascript:void(0);">email: 1019175915@qq.com</a>
 * <a href="https://github.com/lewky">github@lewky</a>
-* <a href="https://blog.csdn.net/lewky_liu">csdn@lewky_liu</a>
-* <a href="http://www.cnblogs.com/yulinlewis">cnblogs@yulinlewis</a>
+* ~~<a href="https://blog.csdn.net/lewky_liu">csdn@lewky_liu</a>~~
+* ~~<a href="http://www.cnblogs.com/yulinlewis">cnblogs@yulinlewis</a>~~
 
 ## 站点相关
 
 ### 站点及主题版本
 
-	hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-	LoveIt: v0.2.10
+```
+hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+LoveIt: v0.2.10
+```
 
 ### 建站日志
 

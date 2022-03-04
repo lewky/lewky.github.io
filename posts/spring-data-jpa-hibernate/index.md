@@ -19,6 +19,280 @@
 ```
 
 <!--more-->
+## 定义实体类相关的一些注解
+
+实体类的字段不要使用基本数据类型，应该使用包装类。
+
+`@Entity`：声明该类为一个实体类。
+
+`@Table`：声明当前实体类对应数据库中的哪一张表。
+
+### 一对一的关联关系
+
+`@OneToOne`：定义两个实体间一对一的关联关系，通常和`@JoinColumn`搭配使用。比如下面的例子：一个商品只能有一个默认的采购记录，然后采购记录也关联这个商品，由于两者没有定义外键关系所以没有配置`mappedBy`：
+
+```java
+@Data
+@Entity
+@Table(name = "tb_item")
+public class Item {
+
+    @Id
+    @GeneratedValue(generator = "jpa-uuid")
+    @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
+    private String id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    // 在一对一或者多对一的关系中，@JoinColumn是拿自己表的字段去连接对方的字段，默认连接对方的id字段
+    @JoinColumn(name = "default_sourcing_record_id")
+    private SourcingRecord defaultSourcingRecord;
+
+}
+
+@Data
+@Entity
+@Table(name = "tb_sourcing_record")
+public class SourcingRecord {
+
+    @Id
+    @GeneratedValue(generator = "jpa-uuid")
+    @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
+    private String id;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    // 在一对一或者多对一的关系中，@JoinColumn是拿自己表的字段（由name指定）去连接对方的字段，默认连接对方的id字段
+    @JoinColumn(name = "item_id")
+    private Item item;
+
+}
+```
+
+### 一对多的关联关系
+
+`@OneToMany`和`@ManyToOne`：定义两个实体间一对多的关联关系，多对一的那方需要指定`@JoinColumn`，为了保证数据一致性通常会设置外键关系，并通过`mappedBy`来对外键关系进行维护。
+
+下面是一个一对多的例子，相当于父子关系，一个商品可以有不同的颜色方案：
+
+```java
+@Data
+@Entity
+@Table(name = "tb_item")
+public class Item {
+
+    // 这里没有指定mappedBy，因此使用了orphanRemoval来指明自动删除
+    // 当集合中移除元素时自动删除多方表中对应的记录，如果不设置为true则只会将对应记录的外键设为null
+    // 如果设置了mappedBy，则集合中移除元素将不会产生任何影响（即无法删掉或更新对应记录）
+    // cascade是级联策略
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
+    // 在一对多的关系中，@JoinColumn是拿自己表的id字段去连接对方的字段（由name指定）
+    @JoinColumn(name = "item_id")
+    @OrderBy(value = "colorSeq")
+    private List<ItemColor> itemColorList;
+
+}
+
+@Data
+@Entity
+@Table(name = "tb_item_color")
+public class ItemColor {
+
+    // 外键
+    @Column(name = "item_id")
+    private String itemId;
+
+}
+```
+
+### 多对多的关联关系
+
+下面是一个多对多的例子，将多对多拆分成两个一对多，并额外定义一个中间表。供应商和工厂之间是多对多的关系，通过一个中间表来进行维护：
+
+```java
+@Data
+@Entity
+@Table(name = "tb_vendor")
+public class Vendor {
+
+    // 一对多的一方，不需要指定@JoinColumn，不负责维护外键关系，mappedBy指明由多方的vendor变量来维护外键关系
+    @OneToMany(mappedBy = "vendor", fetch = FetchType.LAZY)
+    @OrderBy(value = "internalSeqNo")
+    private List<VendorFact> factList;
+
+}
+
+
+@Data
+@Entity
+@Table(name = "tb_vendor_fact")
+public class VendorFact {
+
+    // 多对一的一方需要指定@JoinColumn
+    @ManyToOne(fetch = FetchType.LAZY)
+    // 在一对一或者多对一的关系中，@JoinColumn是拿自己表的字段（由name指定）去连接对方的字段，默认连接对方的id字段
+    @JoinColumn(name = "vendor_id")
+    private Vendor vendor;
+
+    // 多对一的一方需要指定@JoinColumn
+    @ManyToOne(fetch = FetchType.LAZY)
+    // 在一对一或者多对一的关系中，@JoinColumn是拿自己表的字段（由name指定）去连接对方的字段，默认连接对方的id字段
+    @JoinColumn(name = "fact_id")
+    private Fact fact;
+
+}
+
+@Data
+@Entity
+@Table(name = "tb_fact")
+public class Fact {
+
+    // 一对多的一方，不需要指定@JoinColumn，不负责维护外键关系，mappedBy指明由多方的vendor变量来维护外键关系
+    @OneToMany(mappedBy = "fact", fetch = FetchType.LAZY)
+    @OrderBy(value = "internalSeqNo")
+    private List<VendorFact> vendorList;
+
+}
+```
+
+### 属性嵌入
+
+如果实体类中需要定义一个对象属性，但该对象的字段来自于自身表的多个列，而非另一个表，则可以用`@Embedded`，`@Embeddable`，`@AttributeOverrides`和`@AttributeOverride`来实现。
+
+比如供应商有一个国家变量，这个国家变量对应数据表中的三个列，现在希望把这三个列作为一个整体定义到实体类中，如下：
+
+```java
+@Data
+@Entity
+@Table(name = "tb_vendor")
+public class Vendor {
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "code", column = @Column(name = "country")),
+        @AttributeOverride(name = "name", column = @Column(name = "country_name")),
+        @AttributeOverride(name = "version", column = @Column(name = "country_ver"))
+    })
+    private EmbedCodelist country;
+
+}
+
+@Data
+@Embeddable
+public class EmbedCodelist {
+    private String code;
+    private String name;
+    private Integer version;
+}
+```
+
+这里的`@AttributeOverrides`可以省略不写，效果是一样的，如下：
+
+```java
+@AttributeOverride(name = "code", column = @Column(name = "country"))
+@AttributeOverride(name = "name", column = @Column(name = "country_name"))
+@AttributeOverride(name = "version", column = @Column(name = "country_ver"))
+private EmbedCodelist country;
+```
+
+## 建表策略
+
+通常不使用hibernate的建表策略，避免把生产数据搞没了，在SpringBoot配置如下：
+
+```
+# common.jpa.hibernate.ddl-auto - available values are: create, create-drop, validate, update, none
+spring.jpa.hibernate.ddl-auto=none
+```
+
+## id生成策略
+
+通常情况下直接用下面的注解来标注一个pojo的id字段即可：
+
+```java
+@Entity
+@Table(name = "TB_ITEM")
+public class Item {
+
+    @Id
+    @GeneratedValue(generator = "jpa-uuid")
+    @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
+    private String id;
+
+}
+```
+
+`@Id`和`@GeneratedValue`是JPA规范的注解，`@GenericGenerator`是Hibernate的注解。
+
+`@Id`指明当前字段是当前pojo的id主键，`@GeneratedValue`指明使用名为`jpa-uuid`的id生成器。
+
+`@GenericGenerator`定义了一个名为`@GenericGenerator`的id生成器，使用的生成策略是`uuid`（32位16进制数字）。
+
+Hibernate除了常见的uuid策略，还提供了其他常见的策略：sequence、identity等。
+
+### sequence策略
+
+使用底层数据库的序列机制生成id，换言之，必须用底层数据库支持序列才行。比如MySQL就不支持sequence，但是可以用identity。
+
+支持序列的有Oracle、PostgreSQL等，使用该策略需要先在数据库创建序列。
+
+### identity策略
+
+identity同样是由数据库生成的，但该主键字段必须设置为自增长。使用该策略的前提是数据库要支持自动增长类型的字段，Oracle不支持该策略。
+
+支持自增长的有MySQL、PostgreSQL等，在MySQL中需要将主键设为`auto_increment`，在PostgreSQL中需要将主键设为`serial4`或`serial8`，前者是32位长度，后者是64位长度。
+
+### 其他的写法
+
+如果不想混用Hibernate的注解，可以用JPA自身提供的生成器注解：`@TableGenerator`，`@SequenceGenerator`等，此时需要改变`@GeneratedValue`的策略。
+
+下面是样例代码，具体可以参考这篇文章：[Hibernate学习笔记2.4（Hibernate的Id生成策略）](https://www.cnblogs.com/frankzone/p/9439143.html)
+
+```java
+// 自增长，适用于支持自增字段的数据库
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+// 使用表存储生成的主键，可以跨数据库。
+// 每次需要主键值时，查询名为"hibernate_table"的表，查找主键列"gen_pk"值为"2"记录，得到这条记录的"gen_val"值，根据这个值，和allocationSize的值生成主键值。
+@Id
+@GeneratedValue(strategy = GenerationType.TABLE, generator = "ud")
+@TableGenerator(name = "ud",
+table = "hibernate_table",
+pkColumnName = "gen_pk",
+pkColumnValue = "2",
+valueColumnName = "gen_val",
+initialValue = 2,
+allocationSize = 5)
+
+// 使用序列
+@Id
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ud")
+@SequenceGenerator(name = "ud",
+sequenceName = "hibernate_seq",
+allocationSize = 1,
+initialValue = 2)
+```
+
+## should be mapped with insert="false" update="false"
+
+启动项目时报错`should be mapped with insert="false" update="false"`，这是因为实体类中定义了重复的映射字段，可能是`@Column`和`@JoinColumn`里指定的列名重复了。
+
+解决方法有两个，要么去掉重复定义的，只留下唯一的映射字段；要么在重复的映射字段上添加`insertable = false, updatable = false`，如下：
+
+```java
+@Data
+@Entity
+@Table(name = "tb_member_rule")
+public class MemberRule {
+
+    private String accessObjectId;
+
+    @OneToOne
+    // 定义重复了映射字段
+    @JoinColumn(name = "accessObjectId", referencedColumnName = "id", insertable = false, updatable = false)
+    private AccessObject accessObject;
+
+}
+```
+
 ## 懒加载异常 - JsonMappingException: could not initialize proxy
 
 查询数据时报懒加载异常：
@@ -175,7 +449,7 @@ public class Label {
 ```java
 @JsonUnwrapped
 @OneToOne(fetch = FetchType.EAGER)
-@JoinColumnOrFormula(column=@JoinColumn(name="label",referencedColumnName="labelId")),
+@JoinColumnOrFormula(column=@JoinColumn(name="label",referencedColumnName="labelId"))
 @JoinColumnOrFormula(formula=@JoinFormula(value="'en_US'",referencedColumnName="locale"))
 private Label label;
 ```
@@ -359,75 +633,6 @@ spring.jpa.properties.hibernate.generate_statistics=false
 
 jpa的Repository的save()有个返回值，返回值是保存之后的对象，虽然此时还没commit到db，但可以通过这个返回值来获取到一些需要提交到db才会生成的数据，如id等。
 
-## id生成策略
-
-通常情况下直接用下面的注解来标注一个pojo的id字段即可：
-
-```java
-@Entity
-@Table(name = "TB_ITEM")
-public class Item {
-
-    @Id
-    @GeneratedValue(generator = "jpa-uuid")
-    @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
-    private String id;
-
-}
-```
-
-`@Id`和`@GeneratedValue`是JPA规范的注解，`@GenericGenerator`是Hibernate的注解。
-
-`@Id`指明当前字段是当前pojo的id主键，`@GeneratedValue`指明使用名为`jpa-uuid`的id生成器。
-
-`@GenericGenerator`定义了一个名为`@GenericGenerator`的id生成器，使用的生成策略是`uuid`（32位16进制数字）。
-
-Hibernate除了常见的uuid策略，还提供了其他常见的策略：sequence、identity等。
-
-### sequence策略
-
-使用底层数据库的序列机制生成id，换言之，必须用底层数据库支持序列才行。比如MySQL就不支持sequence，但是可以用identity。
-
-支持序列的有Oracle、PostgreSQL等，使用该策略需要先在数据库创建序列。
-
-### identity策略
-
-identity同样是由数据库生成的，但该主键字段必须设置为自增长。使用该策略的前提是数据库要支持自动增长类型的字段，Oracle不支持该策略。
-
-支持自增长的有MySQL、PostgreSQL等，在MySQL中需要将主键设为`auto_increment`，在PostgreSQL中需要将主键设为`serial4`或`serial8`，前者是32位长度，后者是64位长度。
-
-### 其他的写法
-
-如果不想混用Hibernate的注解，可以用JPA自身提供的生成器注解：`@TableGenerator`，`@SequenceGenerator`等，此时需要改变`@GeneratedValue`的策略。
-
-下面是样例代码，具体可以参考这篇文章：[Hibernate学习笔记2.4（Hibernate的Id生成策略）](https://www.cnblogs.com/frankzone/p/9439143.html)
-
-```java
-// 自增长，适用于支持自增字段的数据库
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-
-// 使用表存储生成的主键，可以跨数据库。
-// 每次需要主键值时，查询名为"hibernate_table"的表，查找主键列"gen_pk"值为"2"记录，得到这条记录的"gen_val"值，根据这个值，和allocationSize的值生成主键值。
-@Id
-@GeneratedValue(strategy = GenerationType.TABLE, generator = "ud")
-@TableGenerator(name = "ud",
-table = "hibernate_table",
-pkColumnName = "gen_pk",
-pkColumnValue = "2",
-valueColumnName = "gen_val",
-initialValue = 2,
-allocationSize = 5)
-
-// 使用序列
-@Id
-@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ud")
-@SequenceGenerator(name = "ud",
-sequenceName = "hibernate_seq",
-allocationSize = 1,
-initialValue = 2)
-```
-
 ## nativeQuery
 
 有时候用hql来查询一个复杂的sql会比较麻烦，可以用`nativeQuery = true`来使用原生sql查询数据：
@@ -455,3 +660,4 @@ List<Test> test(@Param(value = "domainId") final String domainId);
 * [postgresql如何设置自动增长](https://blog.csdn.net/qing_gee/article/details/84655167)
 * [Hibernate学习笔记2.4（Hibernate的Id生成策略）](https://www.cnblogs.com/frankzone/p/9439143.html)
 * [Hibernate oneToOne join with additional criteria](https://stackoverflow.com/questions/39892267/hibernate-onetoone-join-with-additional-criteria)
+* [Hibernate实体基本注解，ManyToOne,OneToMany,cascade,orphanRemoval等说明](https://blog.csdn.net/marsedely/article/details/47092581)
