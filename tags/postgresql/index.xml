@@ -31,9 +31,7 @@
 </div>
 </div>]]></description></item><item><title>PostgreSQL - 如何杀死被锁死的进程</title><link>https://lewky.cn/posts/1514292e.html/</link><pubDate>Thu, 14 Nov 2019 23:24:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1514292e.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>在一次系统迭代后用户投诉说无法成功登陆系统，经过测试重现和日志定位，最后发现是由于用户在ui上进行了某些操作后，触发了堆栈溢出异常，导致数据库里的用户登陆信息表的数据被锁住，无法释放。这个表里存放的是用户的session信息。</p>
-<p>虽然后来解决了问题，但是数据库里这个用户登录信息表里被lock住的数据始终无法释放，这导致用户永远无法登陆成功，需要手动跑SQL把锁去掉才行。</p>]]></description></item><item><title>PostgreSQL - raise函数打印字符串</title><link>https://lewky.cn/posts/20180240.html/</link><pubDate>Wed, 01 May 2019 15:50:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/20180240.html/</guid><description><![CDATA[<h2 id="raise函数">raise函数</h2>
-<p>在PostgreSQL中，该函数用于打印字符串，类似于Java中的<code>System.out.println()</code>，Oracle中的<code>dbms_output.put_line()</code>。</p>
-<p>用法如下：</p>]]></description></item><item><title>PostgreSQL - invalid input syntax for type timestamp with time zone</title><link>https://lewky.cn/posts/b1fd04b3.html/</link><pubDate>Thu, 25 Apr 2019 23:19:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/b1fd04b3.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>虽然后来解决了问题，但是数据库里这个用户登录信息表里被lock住的数据始终无法释放，这导致用户永远无法登陆成功，需要手动跑SQL把锁去掉才行。</p>]]></description></item><item><title>PostgreSQL - invalid input syntax for type timestamp with time zone</title><link>https://lewky.cn/posts/b1fd04b3.html/</link><pubDate>Thu, 25 Apr 2019 23:19:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/b1fd04b3.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
 <p>在执行以下sql时报错：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -69,4 +67,6 @@
 <p>对于<code>select 233;</code>这个sql，得到的结果是<code>int4</code>类型，如果我们希望将结果转换成其他的数据类型，有以下方法(下边的<code>{数据类型}</code>表示占位符，要替换成数据库中的某一种数据类型)：</p>
 <h2 id="方法一使用数据类型">方法一：使用<code>::{数据类型}</code></h2>]]></description></item><item><title>PostgreSQL - update语句怎么关联多个表</title><link>https://lewky.cn/posts/8423a9d4.html/</link><pubDate>Mon, 10 Dec 2018 00:22:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8423a9d4.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
 <p>对于select语句，我们可以通过join/outer join来关联多个表；但是对于update语句，是不能直接通过join/outer join来关联多表数据的，这里仅针对PostgreSQL。</p>
-<p>或者说，在PostgreSQL中，就算使用update+join不会报错，但join的那部分其实是没任何效果的，如下所示：</p>]]></description></item></channel></rss>
+<p>或者说，在PostgreSQL中，就算使用update+join不会报错，但join的那部分其实是没任何效果的，如下所示：</p>]]></description></item><item><title>怎么快速对DB里的所有email进行校验</title><link>https://lewky.cn/posts/4a555132.html/</link><pubDate>Fri, 07 Dec 2018 00:01:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4a555132.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>由于业务上的需求，重新改写了校验email的正则表达式，同时DB里又迁移了其他数据库的数据，现在需要重新对DB里的所有email再校验一次，以排除掉不合法的email。</p>
+<p>DB里的数据很多，手动去一个个校验的做法显然是不靠谱的，这种机械的重复性操作，自然是要用程序来解决才是最简易的。</p>]]></description></item></channel></rss>

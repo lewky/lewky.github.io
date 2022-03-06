@@ -17,6 +17,7 @@ select 2 || 44 || 'a' || 1; --Error
 ## 填充字符串
 
 `lpad(string text, length int [, fill text])`是在字符串左边填充字符，如果不指定要填充的字符，则默认填充空格，如下：
+
 ```sql
 select LPAD((99 - 1)::text, 6); -- 98
 select LPAD((99 - 1)::text, 6, '0'); --000098
@@ -36,6 +37,7 @@ select lower('TEST'); --test
 ## 获取字符串长度
 
 `length`、`char_length`和`character_length`函数，如下：
+
 ```sql
 select length('test'); --4
 select char_length('test'); --4
@@ -45,12 +47,14 @@ select character_length('test'); --4
 ## 截取字符串
 
 `substring`函数，支持下标范围截取或者正则表达式截取，如下：
+
 ```sql
 select substring('PostgreSQL' from 2 for 4); --ostg
 select substring('PostgreSQL' from '[a-z]+'); --ostgre
 ```
 
 也可以用`substr`函数，如下：
+
 ```sql
 select substr('PostgreSQL', 2, 0); --空字符串
 select substr('PostgreSQL', 2, 1); --o
@@ -61,6 +65,7 @@ select substr('PostgreSQL', 2); --ostgreSQL
 ## 裁剪字符串
 
 `trim`函数，从字符串的开头/结尾/两边（leading/trailing/both）尽可能多地裁剪指定的字符，不指定则裁剪空白符，如下：
+
 ```sql
 select trim(leading 'x' from 'xTestxx'); --Testxx
 select trim(trailing 'x' from 'xTestxx'); --xTest
@@ -71,6 +76,7 @@ select trim(' Test '); --Test
 ```
 
 也可以用`ltrim`，`rtrim`或者`btrim`函数，效果同上：
+
 ```sql
 select ltrim('xTestxxy', 'xy'); --Testxxy
 select rtrim('xTestxxy', 'xy'); --xTest
@@ -80,12 +86,14 @@ select btrim('xTestxxy', 'xy'); --Test
 ## 获取第一个字符的ASCII码
 
 `ascii`函数，如下：
+
 ```sql
 select ascii('test'); --116
 select ascii('t'); --116
 ```
 
 如果想从ASCII码转成字符，则使用`chr`函数，参数是int，如下：
+
 ```sql
 select chr(65); --A
 ```
@@ -93,6 +101,7 @@ select chr(65); --A
 ## 计算string的MD5散列
 
 `md5`函数，以十六进制返回结果，如下：
+
 ```sql
 select md5('abc'); --900150983cd24fb0d6963f7d28e17f72
 ```
@@ -135,6 +144,7 @@ select case when coalesce(name,'') = '' then '姓名为空' else name end from s
 `nullif(a, b)`用来检测a参数是否与b参数相等，这里的a、b参数必须是同一种数据类型，否则会报错。当a参数与b参数相等时会返回null，否则返回a参数。
 
 可以用这个函数来检测期望以外的值，一般用于检测字符串比较多。如下：
+
 ```sql
 select nullif('test', 'unexpected');		--test
 select nullif('unexpected', 'unexpected');	--null
@@ -232,9 +242,30 @@ lbl.codelist.tabHeader.codelists
 lbl.codelist.tabHeader.codelists.name
 ```
 
+## raise函数打印字符串
+
+在PostgreSQL中，raise函数用于打印字符串，类似于Java中的`System.out.println()`，Oracle中的`dbms_output.put_line()`。
+
+用法如下：
+
+```sql
+raise notice 'My name is %, I am a %.', 'Lewis', 'coder';
+```
+
+以上sql会在控制台输出`My name is Lewis, I am a coder.`。如果是在DBeaver里使用该函数，则会在`output`的tab里输出字符串。
+
+raise后面的`notice`是级别，一共有`debug/log/info/notice/warning/exception`这些级别，可以任意指定一个级别。有些类似于Java里的日志框架，比如Log4j2之类的。
+
+接着级别后面的是要输出的字符串参数，用一对单引号包括起来。这个字符串支持占位符的写法，也就是`%`这个字符。如果在字符串里使用了这个`%`，那么会自动使用字符串参数后面的参数来替换掉这里的`%`。有多少个占位符，就需要在第一个字符串参数后面加上多少个对应的参数。
+
+这个占位符输出的用法，也和Log4j2类似。
+
+由raise打印出来的信息可以输出到服务端日志，也可以输出到客户端，亦或者同时输出到二者。这个是由`log_min_messages`和`client_min_messages`两个参数控制的，这两个参数在数据库初始化时用到。
+
 ## 参考链接
 
 * [postgresql 常用函数汇总](https://www.cnblogs.com/brucexl/p/7561292.html)
 * [字符串函数和操作符](https://www.runoob.com/postgresql/postgresql-functions.html)
 * [PostgreSQL 判断字符串包含的几种方法](https://blog.csdn.net/luojinbai/article/details/45461837)
 * [PostgreSql 聚合函数string_agg与array_agg](https://blog.csdn.net/u011944141/article/details/78902678/)
+* [postgreSQL学习记录之raise用法](https://blog.csdn.net/publishwy/article/details/9241387)
