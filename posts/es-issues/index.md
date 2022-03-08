@@ -52,6 +52,17 @@ Elasticsearch是用Java开发的，默认会配置1G的jvm堆的初始值和最�
 
 这个`jvm.options`用来配置各种jvm参数，比如GC、GC logging、heap dumps等。
 
+## 设置远程访问
+
+修改配置文件`config/elasticsearch.yml`：
+
+```yml
+#network.host: 192.168.0.1
+network.host: 0.0.0.0
+```
+
+若设置为127.0.0.1则只能在本地访问。
+
 ## cannot write xcontent for unknown value of type class java.math.BigDecimal
 
 Elasticsearch在索引数据时报错如下：
@@ -318,6 +329,172 @@ http.max_content_length: 200mb
 
 * [AWS Elasticsearch cluster method to update `http.max_content_length`?](https://stackoverflow.com/questions/55541625/aws-elasticsearch-cluster-method-to-update-http-max-content-length)
 
+## 查询区分大小写
+
+Elasticsearch在分词时会进行分词，分词器会自动将英文转为小写，这样可以减少分词后的英文词项数量，从而减少内存的使用。
+
+text类型会经过上述的分词，keyword类型则会将原本的文本原封不动进行保存。而Elasticsearch在查询时，又是区分大小写的，这会导致一个情况：
+
+* 被查询的字段是text类型，搜索的关键词如果包含大写字母则会搜索不到结果，因为text类型被分词后的词项里全是小写字母。
+* 被查询的字段是keyword类型则没有这个问题。
+
+对于这个问题，如果希望搜索时保持区分大小写，可以把text类型改为keyword类型，这样还可以起到节省内存的效果，因为keyword类型不会分词，相当于索引的词项只有一个原始文本。
+
+如果只是希望能搜索到结果，又不想改类型，可以在程序中对用户搜索的关键词进行预处理，先将其转换为小写，再进行搜索，但是这样会导致搜索不到keyword类型的文本，因为原始文本可能包含了大写字母。对于这种情况，可以给keyword类型添加一个analysis分析器：
+
+``` 
+# 给test_normalizer索引定义一个分析器normalizer 
+# 将定义的分析器配置给keyword类型的字段
+PUT test_normalizer
+{
+  "settings": {
+    "analysis": {
+      "normalizer": {
+        "lowercase": {
+          "type": "custom",
+          "filter": ["lowercase"]
+        }
+      }
+    }
+  },
+  "mappings": {
+      "properties": {
+        "foo": {
+          "type": "keyword"
+        },
+        "foo_normalizer": {
+          "type": "keyword",
+          "normalizer": "lowercase"
+        }
+    }
+  }
+}
+
+# 给test_normalizer索引一些测试数据
+PUT test_normalizer/_doc/1
+{
+  "foo": "bar",
+  "foo_normalizer": "bar"
+}
+PUT test_normalizer/_doc/2
+{
+  "foo": "Bar",
+  "foo_normalizer": "Bar"
+}
+ 
+# 查询测试一
+GET test_normalizer/_search
+{
+  "query": {
+    "term":{
+      "foo":"BaR"
+    }
+  }
+}
+# 查询测试二
+GET test_normalizer/_search
+{
+  "query": {
+    "term":{
+      "foo_normalizer":"bAr"
+    }
+  }
+}
+```
+
+由于上述配置了keyword的分析器，会将keyword类型的单词项进行小写处理，这样一来无论是写入ES的数据，还是搜索keyword时的词项都是全小写的，因此查询测试二可以成功搜索到数据。
+
+## 自定义的几种分词器
+
+ES的分析（analysis）指的是用过分析器（Analyzer）将一个原始文本进行分析、分词为一个个标记或词项的过程，分析器通常分为三个部分：字符过滤器（Character filters）、分词器（Tokenizers）和标记过滤器（Token filters）。
+
+一个原始文本，首先经过字符过滤器来过滤特定的字符，然后分词器将其进行分词为一个个标记（Token），标记过滤器再对这些标记进行过滤（比如转成全小写）。
+
+* [ES 6.4 - Analysis](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/analysis.html)
+
+下面的配置自定义了两个分析器，一个是按照指定的字符来分词，一个是ngram分词（就是将一个单词分解成若干个前缀词项，用于前缀搜索，比如将Item分解为I，It，Ite，Item）。
+
+```
+{
+	"settings": {
+		"analysis": {
+			"analyzer": {
+				"char_group_analyzer": {
+					"tokenizer": "char_group_tokenizer",
+					"filter": [
+						"lowercase"
+					]
+				},
+				"ngram_analyzer": {
+					"tokenizer": "ngram_tokenizer",
+					"filter": [
+						"lowercase"
+					]
+				}
+			},
+			"tokenizer": {
+				"char_group_tokenizer": {
+					"type": "char_group",
+					"tokenize_on_chars": [
+						"whitespace",
+						"-",
+						"_",
+						"/",
+						"\\"
+					]
+				},
+				"ngram_tokenizer": {
+					"type": "ngram"
+				}
+			}
+		}
+	}
+}
+```
+
+将上面定义的分析器用于指定的索引字段中：
+
+```
+{
+    "properties": {
+        "fieldA": {
+            "type": "text",
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                },
+                "ngram_search": {
+                    "type": "text",
+                    "analyzer": "ngram_analyzer"
+                },
+                "char_group_search": {
+                    "type": "text",
+                    "analyzer": "char_group_analyzer"
+                }
+            }
+        }
+    }
+}
+```
+
+## 禁止通过某个字段来搜索到整个文档
+
+通常情况下可以ES的全文搜索会通过匹配整个文档中的全部字段，如果不希望通过某个字段来搜索到整个文档，可以将该字段配置为`index: false`。
+
+```
+# 这里的test是index，_doc是type，修改fieldA的mapping（只能增量更新，不能删改已存在的属性）
+PUT http://localhost:9200/test/_doc/_mapping
+{
+    "properties": {
+        "fieldA": {
+            "type": "text",
+            "index": false
+        }
+    }
+}
+```
+
 ## 参考链接
 
 * [Elasticsearch Guide 6.7 - Search Settings](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/search-settings.html)
@@ -329,3 +506,4 @@ http.max_content_length: 200mb
 * [ES更改参数max_result_window](https://www.cnblogs.com/binbinyouni/p/10749985.html)
 * [Elasticsearch date 类型详解](https://www.jianshu.com/p/a44f6523912b)
 * [hive向ES中插入数据量过大时出错：HTTP content length exceeded 104857600 bytes.](https://blog.csdn.net/ly_521015/article/details/88421596)
+* [Elasticsearch让 keyword 和 term 忽略大小写](https://blog.csdn.net/lzzyok/article/details/107051689)

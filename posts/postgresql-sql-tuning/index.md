@@ -86,12 +86,14 @@ with pre as (
 select distinct book.path,pre."preLabelKey",pre2."pre2LabelKey" from cnt_codelist_book_h book
 inner join pre on pre.id = book.id
 inner join pre2 on pre2.id = book.id;
-
---查询结果如下：
-path	preLabelKey	pre2LabelKey
-{lbl.codelist} > {lbl.common.version}	lbl.codelist} > {lbl.common.version	lbl.codelist
-{lbl.codelist} > {lbl.common.version}	lbl.codelist} > {lbl.common.version	lbl.common.version
 ```
+
+查询结果如下：
+
+|path|preLabelKey|pre2LabelKey|
+|:-|:-|:-|
+|{lbl.codelist} > {lbl.common.version}|lbl.codelist} > {lbl.common.version|lbl.codelist|
+|{lbl.codelist} > {lbl.common.version}|lbl.codelist} > {lbl.common.version|lbl.common.version|
 
 注：上述sql中由于别名存在大小写，因此要用双引号包括起来，否则会报错。另外这里仅仅演示语法，因此写的很随意，不喜勿怪。
 
