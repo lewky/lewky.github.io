@@ -294,7 +294,7 @@ PUT http://localhost:9200/_all/_settings
 
 这是因为es的日期默认使用`strict_date_optional_time`和`epoch_millis`的format来匹配，前者是严格的ISO日期格式，后者是毫秒值格式。
 
-这里由于搜索日期值使用的是`2021-06-15 00:00:00`这种格式，无法被es的日期解析器解析成上述的两种格式，因此抛出异常。要避免这种异常，要么修改mapping中日期字段的format，比如说用`||`添加新的格式；要么修改搜索日期时输入的值。
+这里由于搜索日期值使用的是`2021-06-15 00:00:00`这种格式，无法被es的日期解析器解析成上述的两种格式，因此抛出异常。要避免这种异常，要么修改mapping中日期字段的format，比如说用`||`添加新的格式：`"format": "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis"`；要么修改搜索日期时输入的值。
 
 由于mapping一旦确定就无法更改，因此更推荐改变被搜索的日期值格式这种做法：
 
@@ -404,6 +404,20 @@ GET test_normalizer/_search
 
 由于上述配置了keyword的分析器，会将keyword类型的单词项进行小写处理，这样一来无论是写入ES的数据，还是搜索keyword时的词项都是全小写的，因此查询测试二可以成功搜索到数据。
 
+此外，text类型实际上会自动添加一个keyword类型的子字段来保存原始文本：
+
+```json
+"foo": {
+    "type": "text",
+    "fields": {
+        "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+        }
+    }
+}
+```
+
 ## 自定义的几种分词器
 
 ES的分析（analysis）指的是用过分析器（Analyzer）将一个原始文本进行分析、分词为一个个标记或词项的过程，分析器通常分为三个部分：字符过滤器（Character filters）、分词器（Tokenizers）和标记过滤器（Token filters）。
@@ -476,6 +490,15 @@ ES的分析（analysis）指的是用过分析器（Analyzer）将一个原始�
         }
     }
 }
+```
+
+注意，在修改Settings时需要先关闭index，修改完之后再打开index：
+
+```
+// 关闭索引
+POST localhost:9200/<indexName>/_close
+// 打开索引
+POST localhost:9200/<indexName>/_open
 ```
 
 ## 禁止通过某个字段来搜索到整个文档
