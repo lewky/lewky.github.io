@@ -1,4 +1,4 @@
-# Elasticsearch问题汇总
+# ELK系列(4) - Elasticsearch问题汇总
 
 ## 前言
 
@@ -13,27 +13,6 @@
 ```
 
 <!--more-->
-## too_many_clauses问题
-
-Elasticsearch查询时报错如下：
-
-```
-"caused_by":{"type":"too_many_clauses","reason":"maxClauseCount is set to 1024"}}}],
-"caused_by":{"type":"query_shard_exception","reason":"failed to create query:
-```
-
-这是bool查询的条件超过了默认的1024上限，可以通过修改全局配置来增加上限，需要注意的是别设置太高，会消耗太多的CPU资源和内存。
-
-打开ES的配置文件`/config/elasticsearch.yml`，增加配置：
-
-```
-indices.query.bool.max_clause_count: 2048
-```
-
-修改全局配置后需要重启ES才能生效。如果不允许重启ES集群，就只能从查询语句入手了，要么削减查询条件的数量，要么将查询条件转移到`must_not`的`terms`查询中。
-
-`must_not`的`terms`查询可以超过默认的1024上限，对于肯定条件可以用`must_not`嵌套`must_not`来实现。（这种做法是其他博主验证的，这里只提一嘴，在短期内无法重启ES集群时可以作为临时方案使用。）
-
 ## 修改jvm参数
 
 Elasticsearch是用Java开发的，默认会配置1G的jvm堆的初始值和最大值，该jvm参数被配置在`/config/jvm.options`里：
@@ -63,7 +42,93 @@ network.host: 0.0.0.0
 
 若设置为127.0.0.1则只能在本地访问。
 
-## cannot write xcontent for unknown value of type class java.math.BigDecimal
+## 常用接口
+
+```
+// 创建blog索引，类型是_doc，id是1
+curl -H 'Content-Type:application/json' -XPUT http://localhost:9200/blog/_doc/1 -d '
+{
+      "id": "1",
+      "title": "New version of Elasticsearch released!",
+      "content": "Version 1.0 released today!",
+      "priority": 10,
+      "tags": ["announce", "elasticsearch", "release"]
+}'
+
+// 创建blog索引，类型是_doc，id由ES自己生成（长度为20个字符，URL安全，base64编码，GUID，分布式系统并行生成时不可能会发生冲突）
+curl -H 'Content-Type:application/json' -XPOST http://localhost:9200/blog/_doc/ -d '
+{
+      "title": "New version of Elasticsearch released!",
+      "content": "Version 1.0 released today!",
+      "priority": 10,
+      "tags": ["announce", "elasticsearch", "release"]
+}'
+
+// 查询索引，v参数会显示column，对应的column可以作为url参数并配合通配符来使用
+GET http://localhost:9200/_cat/indices?v
+GET http://localhost:9200/_cat/indices?v&index=item*
+
+// 查询blog索引中id为1的文档，pretty参数会格式化返回的json，可以只查询文档的_source节点
+GET http://localhost:9200/blog/_doc/1?pretty
+GET http://localhost:9200/blog/_doc/1/_source?pretty
+```
+
+## 查询参数
+
+在查询时可以通过添加一些参数来达到调试的目的。
+
+### explain
+
+如果想显示当前查询的打分情况，可以添加`explain: true`，在查询结果的`hits`节点中，每个命中的文档里会多出来一个`_explanation`节点。
+
+```json
+{
+    "from": 0,
+    "size": 50,
+    "explain": true,
+    "query": {},
+    "_source": {},
+    "sort": []
+}
+```
+
+### profile
+
+如果想显示当前查询的命中情况，可以添加`profile: true`，在查询结果中会多出来一个`profile`节点。不过需要注意的是，如果查询的索引字段很多，profile参数可能会导致当前的查询效率很慢，返回的结果也会很大。
+
+```json
+{
+    "from": 0,
+    "size": 50,
+    "profile": true,
+    "query": {},
+    "_source": {},
+    "sort": []
+}
+```
+
+## too_many_clauses问题
+
+Elasticsearch查询时报错如下：
+
+```
+"caused_by":{"type":"too_many_clauses","reason":"maxClauseCount is set to 1024"}}}],
+"caused_by":{"type":"query_shard_exception","reason":"failed to create query:
+```
+
+这是bool查询的条件超过了默认的1024上限，可以通过修改全局配置来增加上限，需要注意的是别设置太高，会消耗太多的CPU资源和内存。
+
+打开ES的配置文件`/config/elasticsearch.yml`，增加配置：
+
+```
+indices.query.bool.max_clause_count: 2048
+```
+
+修改全局配置后需要重启ES才能生效。如果不允许重启ES集群，就只能从查询语句入手了，要么削减查询条件的数量，要么将查询条件转移到`must_not`的`terms`查询中。
+
+`must_not`的`terms`查询可以超过默认的1024上限，对于肯定条件可以用`must_not`嵌套`must_not`来实现。（这种做法是其他博主验证的，这里只提一嘴，在短期内无法重启ES集群时可以作为临时方案使用。）
+
+## 不支持BigDecimal类型
 
 Elasticsearch在索引数据时报错如下：
 
@@ -89,7 +154,7 @@ java.lang.IllegalArgumentException: cannot write xcontent for unknown value of t
 	at org.elasticsearch.action.search.SearchRequest.toString(SearchRequest.java:516)
 ```
 
-从异常信息看，显然ES无法接受BigDecimal类型，经过百度，也确实如此。在一篇博文评论中解释如下：
+从异常信息看，显然ES的接口无法接收BigDecimal类型，经过百度，也确实如此。在一篇博文评论中解释如下：
 
 >应该是客户端代码里将查询的数值定义成了java.math.BigDecimal，而ES不支持这个类型。之所以2.2没有问题，是因为之前的transport client发送数据之前将其序列化成了json，而在5.x以后，使用的内部的transport protocol，数据类型如果不匹配会抛错误。
 >
@@ -525,7 +590,6 @@ PUT http://localhost:9200/test/_doc/_mapping
 * [elastic search 5.4.版本，java api 调用出现：can not write type 【class java.math.BigDecimal】](https://elasticsearch.cn/question/3757)
 * [java.lang.IllegalArgumentException: Limit of total fields 【1000】 in index 索引名称](https://blog.csdn.net/qq_15713753/article/details/94436186)
 * [ES 写索引报错 FORBIDDEN/12/index read-only / allow delete (api)解决方案](https://blog.csdn.net/zheng45/article/details/92383323)
-* [ES集群修改index副本数报错 ：index read-only / allow delete](https://blog.51cto.com/michaelkang/2164181)
 * [ES更改参数max_result_window](https://www.cnblogs.com/binbinyouni/p/10749985.html)
 * [Elasticsearch date 类型详解](https://www.jianshu.com/p/a44f6523912b)
 * [hive向ES中插入数据量过大时出错：HTTP content length exceeded 104857600 bytes.](https://blog.csdn.net/ly_521015/article/details/88421596)

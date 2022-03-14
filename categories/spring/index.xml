@@ -1,4 +1,84 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Spring - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/spring/</link><description>Spring - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 09 Aug 2021 23:06:01 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/spring/" rel="self" type="application/rss+xml"/><item><title>Spring问题汇总</title><link>https://lewky.cn/posts/spring-issues/</link><pubDate>Mon, 09 Aug 2021 23:06:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-issues/</guid><description><![CDATA[<h2 id="spelevaluationexception-el1030e">SpelEvaluationException: EL1030E</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Spring - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/spring/</link><description>Spring - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Jan 2022 23:10:42 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/spring/" rel="self" type="application/rss+xml"/><item><title>Spring Data Redis问题汇总</title><link>https://lewky.cn/posts/spring-data-redis/</link><pubDate>Thu, 13 Jan 2022 23:10:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-redis/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文基于以下版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--  对应的是3.3.0版本的jedis（redis的java客户端） --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky.cn/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>Spring Data除了常用的JPA（Hibernate）关系型数据库的模块外，还有其他用于非关系型数据库的数据交互模块：比如Redis、MongoDB、Elasticsearch等。</p>
+<p>用法和JPA模块类似，都需要定义对应的POJO、Repository，同时也提供了对应的数据库工具模板类：如RedisTemplate、MongoTemplate等。</p>
+<p>本文基于以下版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!--  对应的是4.1.1版本的MongoDB --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
+    &lt;version&gt;2.4.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>这是MongoDB官网用户手册的翻译文档仓库：<a href="https://github.com/mongodb-china/MongoDB-4.2-Manual" target="_blank" rel="noopener noreffer">MongoDB-4.2-Manual</a></p>]]></description></item><item><title>SpringBoot问题汇总</title><link>https://lewky.cn/posts/springboot-issues/</link><pubDate>Fri, 20 Aug 2021 08:23:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/springboot-issues/</guid><description><![CDATA[<h2 id="使用log4j2日志替代默认的logback">使用Log4j2日志替代默认的Logback</h2>
+<p>SpringBoot默认使用Logback打印日志，出于性能考虑想要改用Log4j2，需要修改POM中的依赖，移除默认的Logback依赖：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+ 
+&lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Spring问题汇总</title><link>https://lewky.cn/posts/spring-issues/</link><pubDate>Mon, 09 Aug 2021 23:06:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-issues/</guid><description><![CDATA[<h2 id="spelevaluationexception-el1030e">SpelEvaluationException: EL1030E</h2>
 <p>运行Spring项目时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -38,6 +118,36 @@
 	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.</span><span class="na">ThreadPoolExecutor$Worker</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">617</span><span class="o">)</span>
 	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">threads</span><span class="o">.</span><span class="na">TaskThread$WrappingRunnable</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TaskThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">61</span><span class="o">)</span>
 	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Thread</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">745</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Spring Data JPA/Hibernate问题汇总</title><link>https://lewky.cn/posts/spring-data-jpa-hibernate/</link><pubDate>Thu, 01 Apr 2021 00:07:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-jpa-hibernate/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>本文基于如下版本的JPA和Hibernate：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>hibernate-core<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>5.4.23.Final<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

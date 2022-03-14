@@ -72,7 +72,13 @@ D:\coding\Resume\Resumes&gt;gulp -v
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>页面的背景音乐加载很慢</title><link>https://lewky.cn/posts/eee6409f.html/</link><pubDate>Wed, 19 Dec 2018 22:35:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eee6409f.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>由于我在页面中使用了<code>&lt;audio&gt;</code>标签来播放一首背景音乐，该音频是一首大小为2.7MB的MP3文件。在第一次加载该页面时，需要花费相当长的一段时间去加载音频。</p>]]></description></item><item><title>前端问题汇总</title><link>https://lewky.cn/posts/4d6b513d.html/</link><pubDate>Sun, 02 Sep 2018 22:49:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4d6b513d.html/</guid><description><![CDATA[<h2 id="如何让input文本框和图片对齐">如何让input文本框和图片对齐</h2>
+<p>由于我在页面中使用了<code>&lt;audio&gt;</code>标签来播放一首背景音乐，该音频是一首大小为2.7MB的MP3文件。在第一次加载该页面时，需要花费相当长的一段时间去加载音频。</p>]]></description></item><item><title>AngularJS - 入门小Demo</title><link>https://lewky.cn/posts/69c71fa6.html/</link><pubDate>Mon, 22 Oct 2018 23:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/69c71fa6.html/</guid><description><![CDATA[<h2 id="angularjs四大特效">AngularJS四大特效</h2>
+<p>MVC模式、模块化设计、自动化双向数据绑定、依赖注入</p>
+<p>如果了解了后端开发知识，想必对这些词汇不会陌生，AngularJS融合了后端开发的一些思想，虽然身为前端框架，但与jQuery框架却是完全不相同的东西。</p>
+<p>AngularJS分为几个模块，需要使用哪个模块的功能，就直接引入对应的模块，这种模块化设计具备高内聚、低耦合的特点。
+官方提供的模块有：ng、ngRoute、ngAnimate
+用户也可以自定义模块：angular.module(&lsquo;模块名&rsquo;, [])
+这里的ng是引擎engine的缩写，类似于Nginx的Ngin也是engine的缩写(谐音？)</p>]]></description></item><item><title>前端问题汇总</title><link>https://lewky.cn/posts/4d6b513d.html/</link><pubDate>Sun, 02 Sep 2018 22:49:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4d6b513d.html/</guid><description><![CDATA[<h2 id="如何让input文本框和图片对齐">如何让input文本框和图片对齐</h2>
 <p>在默认情况下，input文本框和图片无法自然对齐，总会有所偏差，文本框往往会比图片要往下边一点，只要给元素添加<code>vertical-align:bottom</code>即可令两者底部水平对齐，代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

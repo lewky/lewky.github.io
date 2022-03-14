@@ -1,24 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Jan 2022 23:10:42 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>Spring Data Redis问题汇总</title><link>https://lewky.cn/posts/spring-data-redis/</link><pubDate>Thu, 13 Jan 2022 23:10:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-redis/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文基于以下版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--  对应的是3.3.0版本的jedis（redis的java客户端） --&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>lombok问题汇总</title><link>https://lewky.cn/posts/lombok-issues/</link><pubDate>Thu, 06 Jan 2022 09:01:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/lombok-issues/</guid><description><![CDATA[<h2 id="eclipse安装lombok插件">Eclipse安装lombok插件</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Jan 2022 09:01:30 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>lombok问题汇总</title><link>https://lewky.cn/posts/lombok-issues/</link><pubDate>Thu, 06 Jan 2022 09:01:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/lombok-issues/</guid><description><![CDATA[<h2 id="eclipse安装lombok插件">Eclipse安装lombok插件</h2>
 <h3 id="方式一">方式一</h3>
 <p>使用lombok框架开发可以减少大量重复性的代码，大大提高开发效率，但是Eclipse本身并不支持lombok，会编译报错。除了项目要导入lombok依赖，还需要为Eclipse安装该lombok插件。</p>
 <p>安装方法很简单，找到你导入的lombok的jar包，双击运行该jar包，会出现一个安装界面。或者右键jar包，选择<code>打开方式</code>，接着选择<code>Java (TM) Platform SE binary</code>，会出现安装界面。</p>
@@ -26,47 +6,7 @@
 <p>lombok的下载地址：https://projectlombok.org/downloads/lombok.jar</p>]]></description></item><item><title>Jackson问题汇总</title><link>https://lewky.cn/posts/jackson-issues/</link><pubDate>Tue, 04 Jan 2022 23:45:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jackson-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>常见的json框架有：Jackson，FasJson（阿里的，万年没更新，积累了大量issue），Gson（谷歌的）。其中Jackson效率最高，性能最好，最为常用。本文基于<code>2.11.3</code>版本的Jackson。</p>
 <p>Jackson在1.x版本使用的包名是<code>codehaus</code>，后来升级到2.x版本时，为了和旧版本区分开来，采用了新的包名<code>fasterxml</code>。有这种类似操作的还有Log4j和Log4j2，在使用时需要注意引入的包名，避免混用版本或误用版本。</p>
-<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky.cn/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>Spring Data除了常用的JPA（Hibernate）关系型数据库的模块外，还有其他用于非关系型数据库的数据交互模块：比如Redis、MongoDB、Elasticsearch等。</p>
-<p>用法和JPA模块类似，都需要定义对应的POJO、Repository，同时也提供了对应的数据库工具模板类：如RedisTemplate、MongoTemplate等。</p>
-<p>本文基于以下版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!--  对应的是4.1.1版本的MongoDB --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
-    &lt;version&gt;2.4.0&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></td></tr></table>
-</div>
-</div><p>这是MongoDB官网用户手册的翻译文档仓库：<a href="https://github.com/mongodb-china/MongoDB-4.2-Manual" target="_blank" rel="noopener noreffer">MongoDB-4.2-Manual</a></p>]]></description></item><item><title>Elasticsearch问题汇总</title><link>https://lewky.cn/posts/es-issues/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/es-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文主要基于Elasticsearch 6.5.4版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;dependency&gt;
-  &lt;groupId&gt;org.elasticsearch&lt;/groupId&gt;
-  &lt;artifactId&gt;elasticsearch&lt;/artifactId&gt;
-  &lt;version&gt;6.5.4&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
+<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
 &lt;p>最近需要用到iReport报表工具，但是在启动客户端时却发现会闪退，无法正常启动。查找了资料，发现是因为iReport无法支持jdk 1.8，必须要修改配置文件，将java版本指定为1.7或之前的版本。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。&lt;/p></description></item><item><title>Swagger问题汇总</title><link>https://lewky.cn/posts/swagger-issues/</link><pubDate>Fri, 09 Jul 2021 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/swagger-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>SpringFox是一个开源的用于生成API文档接口的框架，支持多种API文档的格式。可以用SpringFox来整合Spring和Swagger，本文使用的Swagger和SpringFox版本如下：</p>
 <div class="highlight"><div class="chroma">
@@ -95,37 +35,25 @@
 <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Spring Data JPA/Hibernate问题汇总</title><link>https://lewky.cn/posts/spring-data-jpa-hibernate/</link><pubDate>Thu, 01 Apr 2021 00:07:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-jpa-hibernate/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文基于如下版本的JPA和Hibernate：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-
-<span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>hibernate-core<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>5.4.23.Final<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></td></tr></table>
-</div>
 </div>]]></description></item><item><title>由Java正则表达式的灾难性回溯引发的高CPU异常：java.util.regex.Pattern$Loop.match</title><link>https://lewky.cn/posts/af92ed86.html/</link><pubDate>Wed, 09 Oct 2019 20:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/af92ed86.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
 <p>某天领导report了一个问题：线上的CPU自从上一个版本迭代后就一直处于居高不下的状况，领导看着这段时间的曲线图判断是有两条线程在不停的死循环。</p>
 <p>接到任务后去查看了AWS的CloudWatch，发现线上CPU确实一直居高不下，使用率基本是之前的两倍；另外发现线程使用率以比之前频繁很多。后来公司的大佬拿到dump后经过分析发现，是由正则表达式造成的CPU持续高使用率的问题。</p>]]></description></item><item><title>SmartGit - 选择秘钥时不支持OPENSSH格式</title><link>https://lewky.cn/posts/23f5d220.html/</link><pubDate>Tue, 13 Aug 2019 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/23f5d220.html/</guid><description>&lt;h2 id="问题与解决方法">问题与解决方法&lt;/h2>
-&lt;p>某天发现用Git Bash生成的SSH key无法被SmartGit识别，提示需要PEM格式，不支持OPENSSH格式。奇怪的是之前也用同样的方法生成的key是可以被识别的，猜测要么是SmartGit版本不同导致无法支持OPENSSH格式，要么是Git Bash版本不同导致默认生成的key格式发生了变化。&lt;/p></description></item></channel></rss>
+&lt;p>某天发现用Git Bash生成的SSH key无法被SmartGit识别，提示需要PEM格式，不支持OPENSSH格式。奇怪的是之前也用同样的方法生成的key是可以被识别的，猜测要么是SmartGit版本不同导致无法支持OPENSSH格式，要么是Git Bash版本不同导致默认生成的key格式发生了变化。&lt;/p></description></item><item><title>IDE工具、文本编辑器的列块编辑模式</title><link>https://lewky.cn/posts/f0ce18c5.html/</link><pubDate>Thu, 17 Jan 2019 22:22:14 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f0ce18c5.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>有时候需要对若干列进行一样的操作，比如在前一百行数据的最前边加上一样的字符，这时候可以通过列块编辑模式来快捷地实现这个效果。在列块编辑模式下，被选定的区域内的所有字符会被替换成你之后输入的字符。&lt;/p></description></item><item><title>升级Log4j到Log4j2报错：cannot access org.apache.http.annotation.NotThreadSafe</title><link>https://lewky.cn/posts/55fa957a.html/</link><pubDate>Fri, 28 Dec 2018 01:16:21 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/55fa957a.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>今天把项目的log4j的依赖改成了log4j2的依赖后，发现使用Maven打包时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project cbx-core: Compilation failure
+[ERROR] cannot access org.apache.http.annotation.NotThreadSafe
+[ERROR] class file for org.apache.http.annotation.NotThreadSafe not found
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>JIRA中的标记语言的语法参考</title><link>https://lewky.cn/posts/3c228edd.html/</link><pubDate>Tue, 18 Dec 2018 00:50:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/3c228edd.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>看到网上有的文章说JIRA是使用Textile这门标记语言，有些语法和Wikitext和Markdown相像。JIRA在2017年进行了一次大更新，某些语法可能和以前不大一样，这里纪录一下常用的一些语法。&lt;/p></description></item><item><title>怎么快速对DB里的所有email进行校验</title><link>https://lewky.cn/posts/4a555132.html/</link><pubDate>Fri, 07 Dec 2018 00:01:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4a555132.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>由于业务上的需求，重新改写了校验email的正则表达式，同时DB里又迁移了其他数据库的数据，现在需要重新对DB里的所有email再校验一次，以排除掉不合法的email。</p>
+<p>DB里的数据很多，手动去一个个校验的做法显然是不靠谱的，这种机械的重复性操作，自然是要用程序来解决才是最简易的。</p>]]></description></item></channel></rss>

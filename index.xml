@@ -174,7 +174,7 @@ git clone https://github.com/jquery/jquery.git test
 </div>
 </div><p>这是MongoDB官网用户手册的翻译文档仓库：<a href="https://github.com/mongodb-china/MongoDB-4.2-Manual" target="_blank" rel="noopener noreffer">MongoDB-4.2-Manual</a></p>]]></description></item><item><title>日志框架与门面模式</title><link>https://lewky.cn/posts/log-framework/</link><pubDate>Thu, 09 Sep 2021 23:44:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/log-framework/</guid><description><![CDATA[<h2 id="日志框架">日志框架</h2>
 <p>目前的日志框架可以分为两种：一种是jdk自带的，一种是第三方实现的。</p>
-<p>第三方的日志框架除了提供具体的日志实现外，也有的会提供自身框架的接口。此外，有些日志框架仅仅提供了一套统一的接口，不包含具体的日志实现，可以通过一些桥接包来调用其他的日志框架。（即日志的门面模式）</p>]]></description></item><item><title>Elasticsearch问题汇总</title><link>https://lewky.cn/posts/es-issues/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/es-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>第三方的日志框架除了提供具体的日志实现外，也有的会提供自身框架的接口。此外，有些日志框架仅仅提供了一套统一的接口，不包含具体的日志实现，可以通过一些桥接包来调用其他的日志框架。（即日志的门面模式）</p>]]></description></item><item><title>ELK系列(4) - Elasticsearch问题汇总</title><link>https://lewky.cn/posts/elk-4/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-4/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文主要基于Elasticsearch 6.5.4版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
