@@ -19,32 +19,6 @@
 </span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b2</span><span class="o">);</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Java Servlet问题汇总</title><link>https://lewky.cn/posts/11/</link><pubDate>Sat, 01 Jan 2022 23:16:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/11/</guid><description><![CDATA[<h2 id="cannot-forward-after-response-has-been-committe">Cannot forward after response has been committe</h2>
-<p>之前在使用Servlet的时候，总是在 doGet()/doPost() 的最后一行才使用请求转发或者重定向。如果需要根据条件来判断进行不同的请求转发或者重定向，代码如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="kd">final</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="kd">final</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
-        <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
-
-    <span class="k">if</span> <span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">AttrConsts</span><span class="o">.</span><span class="na">LOGIN_USER</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">LOGIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
-</div>
 </div>]]></description></item><item><title>Java正则表达式问题汇总</title><link>https://lewky.cn/posts/java-regex-issues/</link><pubDate>Thu, 14 Oct 2021 21:26:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-regex-issues/</guid><description><![CDATA[<h2 id="正则表达式的模式修饰符">正则表达式的模式修饰符</h2>
 <p>在正则表达式前面可以加上<code>(?i)</code>，<code>(?s)</code>和<code>(?m)</code>这三种模式修饰符，用以改变正则表达式的匹配模式。</p>
 <p><code>(?i)</code>表示匹配时不区分大小写。</p>
@@ -117,4 +91,27 @@
 </div>
 </div><p>参数说明：</p>]]></description></item><item><title>JDK自带的那些好用的工具</title><link>https://lewky.cn/posts/jdk-tools.html/</link><pubDate>Fri, 03 Jan 2020 14:59:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jdk-tools.html/</guid><description>将中文转换为ASCII码的工具 在jdk的安装目录下，有一个bin文件夹，这里隐藏了一个将中文转换为ASCII码的工具：native2ascii.exe。双击运行该程序，输入要转换的中文，按下Enter，就可以得到相应的ASCII码了。 接下来要如何将该ASCII码复制到文本上？ 右键cmd窗口，选择编辑菜单里的标记，选定了要复制的内容后按下Enter就自动复制到</description></item><item><title>由Java正则表达式的灾难性回溯引发的高CPU异常：java.util.regex.Pattern$Loop.match</title><link>https://lewky.cn/posts/af92ed86.html/</link><pubDate>Wed, 09 Oct 2019 20:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/af92ed86.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
 <p>某天领导report了一个问题：线上的CPU自从上一个版本迭代后就一直处于居高不下的状况，领导看着这段时间的曲线图判断是有两条线程在不停的死循环。</p>
-<p>接到任务后去查看了AWS的CloudWatch，发现线上CPU确实一直居高不下，使用率基本是之前的两倍；另外发现线程使用率以比之前频繁很多。后来公司的大佬拿到dump后经过分析发现，是由正则表达式造成的CPU持续高使用率的问题。</p>]]></description></item></channel></rss>
+<p>接到任务后去查看了AWS的CloudWatch，发现线上CPU确实一直居高不下，使用率基本是之前的两倍；另外发现线程使用率以比之前频繁很多。后来公司的大佬拿到dump后经过分析发现，是由正则表达式造成的CPU持续高使用率的问题。</p>]]></description></item><item><title>Java - 一道关于整型和字符类型相加的题目</title><link>https://lewky.cn/posts/a34ffc44.html/</link><pubDate>Sat, 11 May 2019 00:25:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a34ffc44.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">10</span><span class="o">;</span>
+        <span class="kd">final</span> <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">20</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="sc">&#39;+&#39;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="sc">&#39;=&#39;</span> <span class="o">+</span> <span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

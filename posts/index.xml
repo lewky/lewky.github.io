@@ -79,7 +79,7 @@
 <p>lombok的下载地址：https://projectlombok.org/downloads/lombok.jar</p>]]></description></item><item><title>Jackson问题汇总</title><link>https://lewky.cn/posts/jackson-issues/</link><pubDate>Tue, 04 Jan 2022 23:45:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jackson-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>常见的json框架有：Jackson，FasJson（阿里的，万年没更新，积累了大量issue），Gson（谷歌的）。其中Jackson效率最高，性能最好，最为常用。本文基于<code>2.11.3</code>版本的Jackson。</p>
 <p>Jackson在1.x版本使用的包名是<code>codehaus</code>，后来升级到2.x版本时，为了和旧版本区分开来，采用了新的包名<code>fasterxml</code>。有这种类似操作的还有Log4j和Log4j2，在使用时需要注意引入的包名，避免混用版本或误用版本。</p>
-<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>Java Servlet问题汇总</title><link>https://lewky.cn/posts/11/</link><pubDate>Sat, 01 Jan 2022 23:16:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/11/</guid><description><![CDATA[<h2 id="cannot-forward-after-response-has-been-committe">Cannot forward after response has been committe</h2>
+<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>Java Servlet问题汇总</title><link>https://lewky.cn/posts/javaweb-servlet-issues/</link><pubDate>Sat, 01 Jan 2022 23:16:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/javaweb-servlet-issues/</guid><description><![CDATA[<h2 id="cannot-forward-after-response-has-been-committe">Cannot forward after response has been committe</h2>
 <p>之前在使用Servlet的时候，总是在 doGet()/doPost() 的最后一行才使用请求转发或者重定向。如果需要根据条件来判断进行不同的请求转发或者重定向，代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
