@@ -44,6 +44,8 @@ network.host: 0.0.0.0
 
 ## 常用接口
 
+### 创建索引
+
 ```
 // 创建blog索引，类型是_doc，id是1
 curl -H 'Content-Type:application/json' -XPUT http://localhost:9200/blog/_doc/1 -d '
@@ -55,7 +57,8 @@ curl -H 'Content-Type:application/json' -XPUT http://localhost:9200/blog/_doc/1 
       "tags": ["announce", "elasticsearch", "release"]
 }'
 
-// 创建blog索引，类型是_doc，id由ES自己生成（长度为20个字符，URL安全，base64编码，GUID，分布式系统并行生成时不可能会发生冲突）
+// 创建blog索引，类型是_doc，id由ES自己生成
+// 该id长度为20个字符，URL安全，base64编码，GUID，分布式系统并行生成时不可能会发生冲突
 curl -H 'Content-Type:application/json' -XPOST http://localhost:9200/blog/_doc/ -d '
 {
       "title": "New version of Elasticsearch released!",
@@ -63,7 +66,11 @@ curl -H 'Content-Type:application/json' -XPOST http://localhost:9200/blog/_doc/ 
       "priority": 10,
       "tags": ["announce", "elasticsearch", "release"]
 }'
+```
 
+### 查询索引
+
+```
 // 查询索引，v参数会显示column，对应的column可以作为url参数并配合通配符来使用
 GET http://localhost:9200/_cat/indices?v
 GET http://localhost:9200/_cat/indices?v&index=item*
@@ -71,6 +78,17 @@ GET http://localhost:9200/_cat/indices?v&index=item*
 // 查询blog索引中id为1的文档，pretty参数会格式化返回的json，可以只查询文档的_source节点
 GET http://localhost:9200/blog/_doc/1?pretty
 GET http://localhost:9200/blog/_doc/1/_source?pretty
+```
+
+### 删除索引
+
+```
+// 删除索引，可以同时删除多个索引，也可以使用通配符或_all，_all是删除所有索引
+// 不建议使用通配符或_all，万一误删索引影响较大
+DELETE http://localhost:9200/blog
+DELETE http://localhost:9200/blog1,blog2
+DELETE http://localhost:9200/blog*
+DELETE http://localhost:9200/_all
 ```
 
 ## 查询参数

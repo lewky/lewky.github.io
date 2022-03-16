@@ -150,4 +150,4 @@
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item></channel></rss>
+</div><p>JPA本身提供的Repository功能比较简单，遇到一些复杂的查询无法胜任，这时可以使用第三方的增强库，比如Jinq或者QueryDSL。</p>]]></description></item></channel></rss>

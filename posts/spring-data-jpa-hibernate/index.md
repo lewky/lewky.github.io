@@ -18,6 +18,8 @@
 </dependency>
 ```
 
+JPA本身提供的Repository功能比较简单，遇到一些复杂的查询无法胜任，这时可以使用第三方的增强库，比如Jinq或者QueryDSL。
+
 <!--more-->
 ## 定义实体类相关的一些注解
 
@@ -644,6 +646,25 @@ jpa的Repository的save()有个返回值，返回值是保存之后的对象，�
 List<Test> test(@Param(value = "domainId") final String domainId);
 ```
 
+## 事务提交成功才能执行其他操作
+
+有些业务可能需要在事务提交之后才能执行，可以使用TransactionSynchronizationManager来实现：
+
+```java
+public void afterCommitProcess() throws Exception {
+    TransactionSynchronizationManager.registerSynchronization(new TransactionSynchronizationAdapter() {
+        @Override
+        public void afterCommit() {
+            System.out.println("after transaction commit...");
+        }
+    });
+}
+```
+
+TransactionSynchronizationAdapter在Spring5.3之后被废弃了，直接改用其继承的接口`org.springframework.transaction.support.TransactionSynchronization`就行。
+
+TransactionSynchronization中可以重写`beforeCommit(boolean readOnly)`、`afterCommit()`等方法来控制事务的生命周期，比如想要在事务提交后发邮件通知，就可以重写`afterCommit()`，添加发生邮件的功能。
+
 ## 参考链接
 
 * [springboot jpa 解决延迟加载问题](https://blog.csdn.net/hsz2568952354/article/details/82724719)
@@ -661,3 +682,4 @@ List<Test> test(@Param(value = "domainId") final String domainId);
 * [Hibernate学习笔记2.4（Hibernate的Id生成策略）](https://www.cnblogs.com/frankzone/p/9439143.html)
 * [Hibernate oneToOne join with additional criteria](https://stackoverflow.com/questions/39892267/hibernate-onetoone-join-with-additional-criteria)
 * [Hibernate实体基本注解，ManyToOne,OneToMany,cascade,orphanRemoval等说明](https://blog.csdn.net/marsedely/article/details/47092581)
+* [如何在数据库事务提交成功后进行异步操作](https://segmentfault.com/a/1190000004235193)
