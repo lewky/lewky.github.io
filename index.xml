@@ -116,9 +116,8 @@
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky.cn/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
-<p>DO关键字用来执行一段一次性的匿名函数，具体可以看这篇文章：<a href="/posts/d98f1635.html/" rel="">PostgreSQL - pl/pgsql的DO关键字</a></p>
-<h2 id="遍历数据变量赋值">遍历数据，变量赋值</h2>
-<p>遍历操作以及变量赋值操作需要在匿名函数脚本中使用，且匿名函数在执行时必须显示开启事务。</p>]]></description></item><item><title>Git常用命令</title><link>https://lewky.cn/posts/git-commands/</link><pubDate>Tue, 02 Nov 2021 23:31:23 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/git-commands/</guid><description><![CDATA[<h2 id="git-clone">git clone</h2>
+<h3 id="do关键字">DO关键字</h3>
+<p>pl/pgsql即Procedural Language/ Postgres SQL(过程化sql语言)，是Postgresql数据库对sql语句的扩展，可以在pl/pgsql代码块内定义多条sql语句，每条语句以分号结束，代码块由begin开始，end结束，代码块的最后一个end可以不加分号。</p>]]></description></item><item><title>Git常用命令</title><link>https://lewky.cn/posts/git-commands/</link><pubDate>Tue, 02 Nov 2021 23:31:23 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/git-commands/</guid><description><![CDATA[<h2 id="git-clone">git clone</h2>
 <p>克隆远程库到本地：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

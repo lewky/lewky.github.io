@@ -11,9 +11,8 @@
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky.cn/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
-<p>DO关键字用来执行一段一次性的匿名函数，具体可以看这篇文章：<a href="/posts/d98f1635.html/" rel="">PostgreSQL - pl/pgsql的DO关键字</a></p>
-<h2 id="遍历数据变量赋值">遍历数据，变量赋值</h2>
-<p>遍历操作以及变量赋值操作需要在匿名函数脚本中使用，且匿名函数在执行时必须显示开启事务。</p>]]></description></item><item><title>PostgreSQL - 字符串函数汇总</title><link>https://lewky.cn/posts/postgresql-string.html/</link><pubDate>Thu, 18 Feb 2021 22:44:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-string.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<h3 id="do关键字">DO关键字</h3>
+<p>pl/pgsql即Procedural Language/ Postgres SQL(过程化sql语言)，是Postgresql数据库对sql语句的扩展，可以在pl/pgsql代码块内定义多条sql语句，每条语句以分号结束，代码块由begin开始，end结束，代码块的最后一个end可以不加分号。</p>]]></description></item><item><title>PostgreSQL - 字符串函数汇总</title><link>https://lewky.cn/posts/postgresql-string.html/</link><pubDate>Thu, 18 Feb 2021 22:44:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-string.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文基于<code>PostgreSQL 12.6</code>版本，不同版本的函数可能存在差异。</p>
 <h2 id="拼接字符串">拼接字符串</h2>
 <p><code>||</code>是字符串连接操作符，在拼接字符串时要求前两个操作数至少有一个是字符串类型，不然会报错。如下：</p>
@@ -28,18 +27,6 @@
 <span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
 <span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="mi">44</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">--Error
 </span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>PostgreSQL - 如何杀死被锁死的进程</title><link>https://lewky.cn/posts/1514292e.html/</link><pubDate>Thu, 14 Nov 2019 23:24:29 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1514292e.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>在一次系统迭代后用户投诉说无法成功登陆系统，经过测试重现和日志定位，最后发现是由于用户在ui上进行了某些操作后，触发了堆栈溢出异常，导致数据库里的用户登陆信息表的数据被锁住，无法释放。这个表里存放的是用户的session信息。</p>
-<p>虽然后来解决了问题，但是数据库里这个用户登录信息表里被lock住的数据始终无法释放，这导致用户永远无法登陆成功，需要手动跑SQL把锁去掉才行。</p>]]></description></item><item><title>PostgreSQL - invalid input syntax for type timestamp with time zone</title><link>https://lewky.cn/posts/b1fd04b3.html/</link><pubDate>Thu, 25 Apr 2019 23:19:55 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/b1fd04b3.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>在执行以下sql时报错：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">COALESCE</span><span class="p">(</span><span class="k">null</span><span class="p">,</span><span class="k">null</span><span class="p">,</span><span class="n">now</span><span class="p">(),</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
-</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - 模糊查询</title><link>https://lewky.cn/posts/8fd6368.html/</link><pubDate>Thu, 28 Feb 2019 21:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8fd6368.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>like、not like在SQL中用于模糊查询，<code>%</code>表示任意个字符，<code>_</code>表示单个任意字符，如果需要在模糊查询中查询这两个通配符，需要用<code>ESCAPE</code>进行转义，如下：</p>
@@ -65,7 +52,34 @@
 </div>
 </div>]]></description></item><item><title>PostgreSQL - 怎么转换数据类型</title><link>https://lewky.cn/posts/f20deee6.html/</link><pubDate>Tue, 18 Dec 2018 23:55:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f20deee6.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>对于<code>select 233;</code>这个sql，得到的结果是<code>int4</code>类型，如果我们希望将结果转换成其他的数据类型，有以下方法(下边的<code>{数据类型}</code>表示占位符，要替换成数据库中的某一种数据类型)：</p>
-<h2 id="方法一使用数据类型">方法一：使用<code>::{数据类型}</code></h2>]]></description></item><item><title>PostgreSQL - update语句怎么关联多个表</title><link>https://lewky.cn/posts/8423a9d4.html/</link><pubDate>Mon, 10 Dec 2018 00:22:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8423a9d4.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>对于select语句，我们可以通过join/outer join来关联多个表；但是对于update语句，是不能直接通过join/outer join来关联多表数据的，这里仅针对PostgreSQL。</p>
-<p>或者说，在PostgreSQL中，就算使用update+join不会报错，但join的那部分其实是没任何效果的，如下所示：</p>]]></description></item><item><title>PostgreSQL - pgAdmin4远程连接数据库</title><link>https://lewky.cn/posts/9f87c20d.html/</link><pubDate>Thu, 06 Dec 2018 23:56:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9f87c20d.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
-&lt;p>PostgreSQL在安装的时候自带的pgAdmin这个可视化工具，自从将PostgreSQL9升级到了10版本后，自带的pgAdmin也从3升级到了4版本。pgAdmin4的变化非常巨大，刚接触时一脸懵逼，这里记录下怎么用pgAdmin4进行远程连接数据库并执行SQL语句。&lt;/p></description></item></channel></rss>
+<h2 id="方法一使用数据类型">方法一：使用<code>::{数据类型}</code></h2>]]></description></item><item><title>PostgreSQL问题汇总</title><link>https://lewky.cn/posts/postgresql-issues/</link><pubDate>Thu, 02 Aug 2018 22:41:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-issues/</guid><description><![CDATA[<h2 id="修改默认端口号">修改默认端口号</h2>
+<p>PostgreSQL默认使用5432端口号，如果要连接其他端口号，必须通过<code>-p</code>参数来指定端口号。</p>
+<p>如果不想指定端口号就能连接数据库，则需要修改默认端口号。首先将PostgreSQL的server服务关闭，这个要在系统的服务管理器中将其关闭：</p>
+<ul>
+<li>win + R快捷键打开运行；</li>
+<li>输入<code>services.msc</code>打开服务管理器；</li>
+<li>找到运行中的PostgreSQL的server服务将其关闭。</li>
+</ul>]]></description></item><item><title>PostgreSQL - psql使用汇总</title><link>https://lewky.cn/posts/postgresql-psql.html/</link><pubDate>Wed, 01 Aug 2018 00:34:04 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-psql.html/</guid><description><![CDATA[<h2 id="postgresql连接数据库的两种方式">PostgreSQL连接数据库的两种方式</h2>
+<p>PostgreSQL在安装时自带了<code>pgAdmin</code>和<code>psql</code>，<code>pgAdmin</code>是可视化工具，<code>psql</code>是命令行工具。</p>
+<p>虽然pgAdmin操作起来会更加直观简单，但是在restore和backup db的时候，效率和性能会比较低下，如果db过于庞大，还会导致pgAdmin内存溢出。</p>
+<p>推荐使用psql来连接数据库进行备份和恢复db，同样大小的db，使用psql来restore会比pgAdmin快上数倍！</p>]]></description></item><item><title>PostgreSQL - DDL操作汇总</title><link>https://lewky.cn/posts/postgresql-ddl.html/</link><pubDate>Fri, 23 Feb 2018 17:12:19 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-ddl.html/</guid><description><![CDATA[<h2 id="重命名数据库">重命名数据库</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">ALTER</span> <span class="k">DATABASE</span> <span class="n">db_1</span> <span class="k">RENAME</span> <span class="k">TO</span> <span class="n">db_2</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>也可以用下面的SQL：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="n">pg_database</span> <span class="k">SET</span> <span class="n">datname</span> <span class="o">=</span> <span class="s1">&#39;db_2&#39;</span> <span class="k">WHERE</span> <span class="n">datname</span> <span class="o">=</span> <span class="s1">&#39;db_1&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PostgreSQL - 开窗函数汇总</title><link>https://lewky.cn/posts/postgresql-window-function/</link><pubDate>Mon, 22 Jan 2018 23:50:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-window-function/</guid><description><![CDATA[<h2 id="和聚合函数的区别">和聚合函数的区别</h2>
+<p>开窗函数，也叫窗口函数，一般可以用开窗函数来做一些排行之类的统计操作。开窗函数必须搭配<code>over()</code>子句作为查询的条件，否则会报错。over()子句可以用<code>partition by</code>进行分组，以及用<code>order by</code>排序。</p>
+<p>聚合函数是将多条记录聚合为一条；而开窗函数是每条记录都会执行，有几条记录执行完还是几条，聚合函数也可以用于开窗函数中。</p>]]></description></item></channel></rss>
