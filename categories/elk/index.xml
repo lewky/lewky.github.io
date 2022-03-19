@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>ELK - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/elk/</link><description>ELK - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 08 Sep 2021 23:44:59 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/elk/" rel="self" type="application/rss+xml"/><item><title>ELK系列(4) - Elasticsearch问题汇总</title><link>https://lewky.cn/posts/elk-4/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-4/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>ELK - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/elk/</link><description>ELK - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 19 Mar 2022 22:27:05 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/elk/" rel="self" type="application/rss+xml"/><item><title>ELK系列(5) - Elasticsearch性能调优</title><link>https://lewky.cn/posts/elk-5/</link><pubDate>Sat, 19 Mar 2022 22:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-5/</guid><description><![CDATA[<h2 id="机器内存分配">机器内存分配</h2>
+<p>官方推荐一个ES节点最好是分配当前机器最大内存的50%，比如机器内存是16g，就分配8g给ES：<code>-Xmx8g</code>。</p>
+<p>剩下的8g内存并不是说就闲置了，ES会拿机器剩余的内存来优化自身的查询效率。也就是说，并不是一味将最大内存设置很大就是最优解。</p>]]></description></item><item><title>ELK系列(4) - Elasticsearch问题汇总</title><link>https://lewky.cn/posts/elk-4/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-4/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文主要基于Elasticsearch 6.5.4版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -16,19 +18,22 @@
 &lt;/dependency&gt;
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>ELK系列(3) - Logstash问题汇总</title><link>https://lewky.cn/posts/elk-3/</link><pubDate>Sun, 12 May 2019 18:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-3/</guid><description><![CDATA[<h2 id="分割字符串并添加新的字段到elasticsearch">分割字符串并添加新的字段到Elasticsearch</h2>
-<p>有时需要对收集到的日志等信息进行分割，并且将分割后的字符作为新的字段index到Elasticsearch里。假定需求如下：</p>
-<p>Logstash收集到的日志字段<code>message</code>的值是由多个字段拼接而成的，分隔符是<code>;,;</code>，如下：</p>
+</div>]]></description></item><item><title>ELK系列(3) - Logstash问题汇总</title><link>https://lewky.cn/posts/elk-3/</link><pubDate>Sun, 12 May 2019 18:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-3/</guid><description><![CDATA[<h2 id="启动参数">启动参数</h2>
+<p>启动Logstash时可以指定一些参数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
-    &#34;message&#34;: &#34;key_1=value_1;,;key_2=value_2&#34;
-}
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">-w # 指定线程,默认是cpu核数 
+-f # 指定配置文件
+-r # 启用热加载，可以在运行期间修改配置文件并生效
+-t # 测试配置文件是否正常
+-b # 执行filter模块之前最大能积累的日志，数值越大性能越好，同时越占内存
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>ELK系列(2) - Kibana问题汇总</title><link>https://lewky.cn/posts/elk-2/</link><pubDate>Sun, 12 May 2019 16:48:00 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-2/</guid><description><![CDATA[<h2 id="修改日期格式date-format">修改日期格式Date format</h2>

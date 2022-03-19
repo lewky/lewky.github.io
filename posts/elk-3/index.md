@@ -1,5 +1,132 @@
 # ELK系列(3) - Logstash问题汇总
 
+## 启动参数
+
+启动Logstash时可以指定一些参数：
+
+```
+-w # 指定线程,默认是cpu核数 
+-f # 指定配置文件
+-r # 启用热加载，可以在运行期间修改配置文件并生效
+-t # 测试配置文件是否正常
+-b # 执行filter模块之前最大能积累的日志，数值越大性能越好，同时越占内存
+```
+<!--more-->
+## 关闭Logstash
+
+如果将Logstash作为服务启动的，通过以下方式之一关闭：
+
+```
+// systemd
+systemctl stop logstash
+
+// upstart
+initctl stop logstash
+
+// sysv
+/etc/init.d/logstash stop
+```
+
+如果是在POSIX系统的控制台中直接运行Logstash则这样关闭：
+
+```
+kill -TERM {logstash_pid}
+```
+
+或者在控制台中输入`Ctrl-C`。
+
+## 启动、关闭脚本
+
+下面是一个Logstash启动、关闭的ansible脚本，里面有几个环境变量（logstash_home，logstash_bin_folder，logstash_config）需要替换成对应的值才能作为一个完整的shell文件执行：
+
+```shell
+#!/bin/sh
+
+#LOGSTASH_USAGE is the message if this script is called without any options
+LOGSTASH_USAGE="Usage: $0 {start|stop|status|restart}"
+
+#SHUTDOWN_WAIT is wait time in seconds for java proccess to stop
+SHUTDOWN_WAIT=20
+
+#------ private functions
+logstash_pid() {
+  echo `ps -fe | grep {{ logstash_home }} | grep -v grep | grep -v $0 | tr -s " "|cut -d" " -f2`
+}
+
+start() {
+  pid=$(logstash_pid)
+  if [ -n "$pid" ]
+  then
+    echo -e "Logstash is already running (pid: $pid)"
+  else
+    # Start Logstash
+    echo -e "Starting Logstash"
+    nohup sh {{ logstash_bin_folder }}/logstash -f {{ logstash_config }} &
+  fi
+  return 0
+}
+
+status(){
+  pid=$(logstash_pid)
+  if [ -n "$pid" ]; then echo -e "Logstash is running with pid: $pid"
+  else echo -e "Logstash is not running"
+  fi
+}
+
+stop() {
+  pid=$(logstash_pid)
+  if [ -n "$pid" ]
+  then
+    echo -e "Stoping Logstash [$pid]"
+    kill -TERM $pid
+
+    let kwait=$SHUTDOWN_WAIT
+    count=0;
+    until [ `ps -p $pid | grep -c $pid` = '0' ] || [ $count -gt $kwait ]
+    do
+      echo -n -e "\nwaiting for processes to exit";
+      sleep 1
+      let count=$count+1;
+    done
+
+    if [ $count -gt $kwait ]; then
+      echo -n -e "\nkilling processes which didn't stop after $SHUTDOWN_WAIT seconds"
+      kill -9 $pid
+    fi
+  else
+    echo -e "Logstash is not running"
+  fi
+
+  return 0
+}
+
+#----- main program
+case $1 in
+  start)
+    start
+  ;;
+
+  stop)
+    stop
+  ;;
+
+  restart)
+    stop
+    start
+  ;;
+
+  status)
+    status
+  ;;
+
+  *)
+    echo -e $LOGSTASH_USAGE
+  ;;
+esac
+
+exit 0
+```
+
 ## 分割字符串并添加新的字段到Elasticsearch
 
 有时需要对收集到的日志等信息进行分割，并且将分割后的字符作为新的字段index到Elasticsearch里。假定需求如下：
@@ -11,7 +138,7 @@ Logstash收集到的日志字段`message`的值是由多个字段拼接而成的
     "message": "key_1=value_1;,;key_2=value_2"
 }
 ```
-<!--more-->
+
 现在想要将`message`的值拆分成2个新的字段：key_1、key_2，并且将它们index到ES里，可以借助Logstash的filter的插件来完成；这里提供两种解决方案。
 
 ### 方案一：使用mutate插件
@@ -59,7 +186,9 @@ filter {
 }
 ```
 
-看得出来，这种做法很麻烦，也不利于日后的维护。每当`message`里被拼接的字段的数量增加时，就必须同步改动这里的filter逻辑，而且添加的代码量也是呈线性递增的。
+在filter里可以通过`if [varA]`来判断一个变量varA是否为空或null，如果需要取反则是`if ![varA]`。
+
+从上面代码可以看出，这种做法很麻烦，也不利于日后的维护。每当`message`里被拼接的字段的数量增加时，就必须同步改动这里的filter逻辑，而且添加的代码量也是呈线性递增的。
 
 此外，这里使用的诸如`temp1`等临时变量，可以用`[@metadata][temp1]`的写法来作为临时变量，这样就不需要去手动remove掉了。
 
@@ -152,3 +281,4 @@ output {
 * [Logstash事件字段遍历](https://blog.csdn.net/mvpboss1004/article/details/78069877)
 * [Logstash详解之——filter模块](https://yq.aliyun.com/articles/154341)
 * [logstash filter如何判断字段是够为空或者null](https://elasticsearch.cn/article/6192)
+* [Shutting Down Logstash](https://www.elastic.co/guide/en/logstash/6.6/shutdown.html)

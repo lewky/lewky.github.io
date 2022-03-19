@@ -91,6 +91,65 @@ DELETE http://localhost:9200/blog*
 DELETE http://localhost:9200/_all
 ```
 
+### 配置类接口
+
+```
+// 查询blog索引的配置，不指定索引则会查询所有索引的配置
+GET http://localhost:9200/blog/_settings
+GET http://localhost:9200/_settings
+
+// 查询blog索引的映射，不指定索引则会查询所有索引的映射
+GET http://localhost:9200/blog/_mapping
+GET http://localhost:9200/_mapping
+
+// 查询节点健康状态，如果是单节点部署则status是yellow，因为单节点部署下无法分配副本分片
+GET http://localhost:9200/_cat/health?v
+
+// 查询索引的分片信息（shard，默认是5个主要分片pri和1个副本分片rep）
+GET http://localhost:9200/_cat/shards?v
+```
+
+### 分段接口
+
+ES在索引数据时会生成分段（segment，一个segment就是一个完整的lucene倒排索引），这些分段会越来越多，最终影响性能，所以每隔一段时间需要对这些分段进行合并。对于一些不再更新的索引，也要主动进行合并分段操作。由于合并分段时对服务器负载较大（取决于索引的数据量），所以要挑个相对空闲的时间来合并分段。
+
+分段数量也不是越少越好，这会导致一个分段太大，使得查询性能降低，当查询效率低于期望时，这时候就需要考虑增加shard数量，提升查询的并行度。一般推荐一个shard不要超过50GB，也就是说一个segment最好也不要超过这个值。
+
+```
+// 查询所有索引的分段信息
+GET http://localhost:9200/_cat/segments?v
+
+// 查询blog索引的分段信息
+GET http://localhost:9200/_cat/segments/blog?v
+
+// 合并blog索引的分段，尽量避免一次性合并所有索引的分段，以免影响查询性能
+// max_num_segments表示最终合并成几个大分段
+POST http://localhost:9200/blog/_forcemerge?max_num_segments=1
+
+// 查询合并分段的进度
+GET http://localhost:9200/_cat/indices/?s=segmentsCount:desc&v&h=index,segmentsCount,segmentsMemory,memoryTotal,mergesCurrent,mergesCurrentDocs,storeSize,docsDeleted,p,r
+
+// 查询当前合并分段的线程数
+GET http://localhost:9200/_cat/thread_pool/force_merge?s=name&v
+```
+
+除了合并分段外，也可以通过删除不用的索引、或者关闭不用的索引来减少分段的内存占用，会比合并分段操作释放更多被占用的内存。
+
+### 分词接口
+
+```
+// 查询blog索引中id为1的文档中的name及其子字段的分词情况
+GET http://localhost:9200/blog/doc/1/_termvectors?fields=name.*
+
+// 查询词项分析，和上面接口的区别在于：这个用来测试指定字符串的词项分析情况，因此这个接口需要传入body
+// 查询blog索引中text字段的词项分析情况，这里指定的分析器是char_group_analyzer，字段值是test_123
+GET http://localhost:9200/blog/_analyze
+{
+    "analyzer": "char_group_analyzer",
+    "text": "test_123"
+}
+```
+
 ## 查询参数
 
 在查询时可以通过添加一些参数来达到调试的目的。
@@ -601,6 +660,79 @@ PUT http://localhost:9200/test/_doc/_mapping
 }
 ```
 
+## maximum shards open
+
+初始化索引时报错如下：
+
+```json
+{
+	"error": {
+		"root_cause": [{
+			"type": "validation_exception",
+			"reason": "Validation Failed: 1: this action would add [2] total shards, but this cluster currently has [999]/[1000] maximum shards open;"
+		}],
+		"type": "validation_exception",
+		"reason": "Validation Failed: 1: this action would add [2] total shards, but this cluster currently has [999]/[1000] maximum shards open;"
+	},
+	"status": 400
+}
+```
+
+这是因为从ES 7开始，集群中每个节点默认限制1000个分片，可以调大这个值：
+
+```
+PUT /_cluster/settings
+{
+  "transient": {
+    "cluster": {
+      "max_shards_per_node":10000
+    }
+  }
+}
+```
+
+也可以在配置文件`config/elasticsearch.yml`中进行设置：
+
+```
+cluster.max_shards_per_node: 10000
+```
+
+## more than allowed [85.0%] used disk on node
+
+ES集群无法分配副本分片，报错如下：
+
+```
+[NO(more than allowed [85.0%] used disk on node, free: [9.81147727054615%])]
+```
+
+这是因为ES默认启用了磁盘分配决策：`cluster.routing.allocation.disk.threshold_enabled`默认为True。而85%的阈值是`cluster.routing.allocation.disk.watermark.low`设置的，即允许分配时的磁盘空间最小值，可以设置为比例或绝对值，如85%或者5G。当磁盘占用超过设定的值之后，系统将不会对此节点进行分片分配操作。
+
+`cluster.routing.allocation.disk.watermark.high`则表示允许保存分片节点磁盘空间的最大值，默认90%，超过该阈值时系统会把分片迁移到别的节点。也可以设置一个具体的大小值，当空间大于这个值的时候，系统会自动迁移到别的节点。
+
+`cluster.info.update.interval`：检查集群中的每个节点的磁盘使用情况的时间间隔，默认30秒。
+
+`cluster.routing.allocation.disk.include_relocations`：当计算节点的磁盘使用时需要考虑当前被分片的情况。
+
+一个临时方案是调大阈值：
+
+```
+PUT /_cluster/settings{
+
+  "transient": {
+
+    "cluster.routing.allocation.disk.watermark.low": "95%",
+
+    "cluster.routing.allocation.disk.watermark.high": "20gb",
+
+    "cluster.info.update.interval": "1m"
+
+  }
+
+}
+```
+
+如果想完全解决，需要加数据节点，扩容集群。
+
 ## 参考链接
 
 * [Elasticsearch Guide 6.7 - Search Settings](https://www.elastic.co/guide/en/elasticsearch/reference/6.7/search-settings.html)
@@ -612,3 +744,7 @@ PUT http://localhost:9200/test/_doc/_mapping
 * [Elasticsearch date 类型详解](https://www.jianshu.com/p/a44f6523912b)
 * [hive向ES中插入数据量过大时出错：HTTP content length exceeded 104857600 bytes.](https://blog.csdn.net/ly_521015/article/details/88421596)
 * [Elasticsearch让 keyword 和 term 忽略大小写](https://blog.csdn.net/lzzyok/article/details/107051689)
+* [解决ElasticSearch的maximum shards open问题](https://www.jianshu.com/p/8ea97bd0f037)
+* [2019-07-01 elasticsearch force merge 步骤 原创](https://www.jianshu.com/p/1c5c921346e2)
+* [segment段文件非常大会有什么问题没？比如说100G一个？](https://elasticsearch.cn/question/2794)
+* [ElasticsearchIllegalArgumentException 错误](http://www.openskill.cn/question/364)

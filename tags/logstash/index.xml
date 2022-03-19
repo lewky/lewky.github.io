@@ -1,16 +1,19 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Logstash - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/logstash/</link><description>Logstash - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 May 2019 18:24:07 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/logstash/" rel="self" type="application/rss+xml"/><item><title>ELK系列(3) - Logstash问题汇总</title><link>https://lewky.cn/posts/elk-3/</link><pubDate>Sun, 12 May 2019 18:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-3/</guid><description><![CDATA[<h2 id="分割字符串并添加新的字段到elasticsearch">分割字符串并添加新的字段到Elasticsearch</h2>
-<p>有时需要对收集到的日志等信息进行分割，并且将分割后的字符作为新的字段index到Elasticsearch里。假定需求如下：</p>
-<p>Logstash收集到的日志字段<code>message</code>的值是由多个字段拼接而成的，分隔符是<code>;,;</code>，如下：</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Logstash - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/logstash/</link><description>Logstash - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 12 May 2019 18:24:07 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/logstash/" rel="self" type="application/rss+xml"/><item><title>ELK系列(3) - Logstash问题汇总</title><link>https://lewky.cn/posts/elk-3/</link><pubDate>Sun, 12 May 2019 18:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-3/</guid><description><![CDATA[<h2 id="启动参数">启动参数</h2>
+<p>启动Logstash时可以指定一些参数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{
-    &#34;message&#34;: &#34;key_1=value_1;,;key_2=value_2&#34;
-}
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">-w # 指定线程,默认是cpu核数 
+-f # 指定配置文件
+-r # 启用热加载，可以在运行期间修改配置文件并生效
+-t # 测试配置文件是否正常
+-b # 执行filter模块之前最大能积累的日志，数值越大性能越好，同时越占内存
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>ELK系列(1) - Elasticsearch + Logstash + Kibana + Log4j2快速入门与搭建用例</title><link>https://lewky.cn/posts/elk-1/</link><pubDate>Sat, 11 May 2019 21:14:33 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-1/</guid><description><![CDATA[<h2 id="前言">前言</h2>
