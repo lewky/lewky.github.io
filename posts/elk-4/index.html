@@ -28,14 +28,14 @@
   <groupId>org.elasticsearch</groupId>
   <artifactId>elasticsearch</artifactId>
   <version>6.5.4</version>
-</dependency>"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky.cn/posts/elk-4/><link rel=prev href=https://lewky.cn/posts/hugo-3-3/><link rel=next href=https://lewky.cn/posts/log-framework/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"ELK系列(4) - Elasticsearch问题汇总","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/elk-4\/"},"genre":"posts","keywords":"Elasticsearch, 工作记录","wordcount":7082,"url":"https:\/\/lewky.cn\/posts\/elk-4\/","datePublished":"2021-09-08T23:44:59+08:00","dateModified":"2022-03-19T23:44:59+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class="fas fa-fw fa-archive"></i>归档</a><div class="menu-more-content dropdown-content"><a href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a href=/hot/ title=文章热度Top15><i class="fas fa-fw fa-fire"></i>热度 </a><a href=/donation/ title=感谢打赏，老板大气~><i class="fas fa-fw fa-donate"></i>打赏 </a><a href=/about/><i class="fas fa-fw fa-at"></i>关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class="fas fa-fw fa-link"></i>友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class="fas fa-fw fa-fan fa-spin"></i>趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class="fas fa-fw fa-dizzy"></i>燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class="fas fa-fw fa-music"></i>在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class="fas fa-fw fa-cat"></i>抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class="fas fa-fw fa-atom"></i>站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class="fas fa-fw fa-comment"></i>公告留言 </a><a href=https://seo.chinaz.com target=_blank rel=noopener><i class="fas fa-fw fa-chart-line"></i>SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn target=_blank rel=noopener><i class="fas fa-fw fa-bezier-curve"></i>网站测速 </a><a href=/posts/e62c38c4.html/><i class="fas fa-fw fa-cog fa-spin"></i>建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn"><i class="fas fa-fw fa-book"></i>文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ target=_blank rel=noopener><i class="fas fa-fw fa-star"></i>Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class="fab fa-fw fa-java"></i>Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class="fas fa-fw fa-search"></i>搜索
+</dependency>"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky.cn/posts/elk-4/><link rel=prev href=https://lewky.cn/posts/hugo-3-3/><link rel=next href=https://lewky.cn/posts/log-framework/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"ELK系列(4) - Elasticsearch问题汇总","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/elk-4\/"},"genre":"posts","keywords":"Elasticsearch, 工作记录","wordcount":5051,"url":"https:\/\/lewky.cn\/posts\/elk-4\/","datePublished":"2021-09-08T23:44:59+08:00","dateModified":"2022-03-19T23:44:59+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class="fas fa-fw fa-archive"></i>归档</a><div class="menu-more-content dropdown-content"><a href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a href=/hot/ title=文章热度Top15><i class="fas fa-fw fa-fire"></i>热度 </a><a href=/donation/ title=感谢打赏，老板大气~><i class="fas fa-fw fa-donate"></i>打赏 </a><a href=/about/><i class="fas fa-fw fa-at"></i>关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class="fas fa-fw fa-link"></i>友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class="fas fa-fw fa-fan fa-spin"></i>趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class="fas fa-fw fa-dizzy"></i>燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class="fas fa-fw fa-music"></i>在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class="fas fa-fw fa-cat"></i>抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class="fas fa-fw fa-atom"></i>站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class="fas fa-fw fa-comment"></i>公告留言 </a><a href=https://seo.chinaz.com target=_blank rel=noopener><i class="fas fa-fw fa-chart-line"></i>SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn target=_blank rel=noopener><i class="fas fa-fw fa-bezier-curve"></i>网站测速 </a><a href=/posts/e62c38c4.html/><i class="fas fa-fw fa-cog fa-spin"></i>建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn"><i class="fas fa-fw fa-book"></i>文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ target=_blank rel=noopener><i class="fas fa-fw fa-star"></i>Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class="fab fa-fw fa-java"></i>Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class="fas fa-fw fa-search"></i>搜索
 </a><span class="menu-item delimiter"></span><a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class="fas fa-fw fa-subway"></i></a><a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class="fas fa-fw fa-inbox"></i></a><a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class="fab fa-fw fa-github"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class="fas fa-fw fa-archive"></i>归档</a><div class="menu-more-content dropdown-content"><a href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a href=/hot/ title=文章热度Top15><i class="fas fa-fw fa-fire"></i>热度 </a><a href=/donation/ title=感谢打赏，老板大气~><i class="fas fa-fw fa-donate"></i>打赏 </a><a href=/about/><i class="fas fa-fw fa-at"></i>关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class="fas fa-fw fa-link"></i>友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class="fas fa-fw fa-fan fa-spin"></i>趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class="fas fa-fw fa-dizzy"></i>燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class="fas fa-fw fa-music"></i>在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class="fas fa-fw fa-cat"></i>抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class="fas fa-fw fa-atom"></i>站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class="fas fa-fw fa-comment"></i>公告留言 </a><a href=https://seo.chinaz.com target=_blank rel=noopener><i class="fas fa-fw fa-chart-line"></i>SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn target=_blank rel=noopener><i class="fas fa-fw fa-bezier-curve"></i>网站测速 </a><a href=/posts/e62c38c4.html/><i class="fas fa-fw fa-cog fa-spin"></i>建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn"><i class="fas fa-fw fa-book"></i>文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ target=_blank rel=noopener><i class="fas fa-fw fa-star"></i>Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class="fab fa-fw fa-java"></i>Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class="fas fa-fw fa-search"></i>搜索</a>
-<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class="fas fa-fw fa-subway"></i></a><a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class="fas fa-fw fa-inbox"></i></a><a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class="fab fa-fw fa-github"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">ELK系列(4) - Elasticsearch问题汇总</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/elk/><i class="far fa-folder fa-fw"></i>ELK</a></span></div><div class=post-meta-line><i class="far fa-calendar fa-fw"></i>&nbsp;<time datetime=2021-09-08>2021-09-08</time>&nbsp;<i class="far fa-calendar-plus fa-fw"></i>&nbsp;<time datetime=2022-03-19>2022-03-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7082 字
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 15 分钟&nbsp;<span id=/posts/elk-4/ class=leancloud_visitors data-flag-title="ELK系列(4) - Elasticsearch问题汇总">
+<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class="fas fa-fw fa-subway"></i></a><a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class="fas fa-fw fa-inbox"></i></a><a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class="fab fa-fw fa-github"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">ELK系列(4) - Elasticsearch问题汇总</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/elk/><i class="far fa-folder fa-fw"></i>ELK</a></span></div><div class=post-meta-line><i class="far fa-calendar fa-fw"></i>&nbsp;<time datetime=2021-09-08>2021-09-08</time>&nbsp;<i class="far fa-calendar-plus fa-fw"></i>&nbsp;<time datetime=2022-03-19>2022-03-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 5051 字
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 11 分钟&nbsp;<span id=/posts/elk-4/ class=leancloud_visitors data-flag-title="ELK系列(4) - Elasticsearch问题汇总">
 <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
 </span>&nbsp;
 <a href=#comments id=post-meta-vcount title=查看评论><i class="fas fa-comment fa-fw"></i>&nbsp;<span id=/posts/elk-4/ class=waline-comment-count></span>&nbsp;条评论</a></div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#修改jvm参数>修改jvm参数</a></li><li><a href=#设置远程访问>设置远程访问</a></li><li><a href=#常用接口>常用接口</a><ol><li><a href=#创建索引>创建索引</a></li><li><a href=#查询索引>查询索引</a></li><li><a href=#删除索引>删除索引</a></li><li><a href=#配置类接口>配置类接口</a></li><li><a href=#分段接口>分段接口</a></li><li><a href=#分词接口>分词接口</a></li></ol></li><li><a href=#查询参数>查询参数</a><ol><li><a href=#explain>explain</a></li><li><a href=#profile>profile</a></li></ol></li><li><a href=#too_many_clauses问题>too_many_clauses问题</a></li><li><a href=#不支持bigdecimal类型>不支持BigDecimal类型</a><ol><li><a href=#解决方案一转变成其他es支持的数据类型>解决方案一：转变成其他ES支持的数据类型</a></li><li><a href=#解决方案二使用更高版本的es>解决方案二：使用更高版本的ES</a></li></ol></li><li><a href=#limit-of-total-fields-1000-in-index-has-been-exceeded>Limit of total fields [1000] in index has been exceeded</a></li><li><a href=#forbidden12index-read-only--allow-delete-api>FORBIDDEN/12/index read-only / allow delete (api)</a></li><li><a href=#result-window-is-too-large>Result window is too large</a></li><li><a href=#failed-to-parse-date-field>failed to parse date field</a></li><li><a href=#request-size-exceeded-104857600-bytes>Request size exceeded 104857600 bytes</a></li><li><a href=#查询区分大小写>查询区分大小写</a></li><li><a href=#自定义的几种分词器>自定义的几种分词器</a></li><li><a href=#禁止通过某个字段来搜索到整个文档>禁止通过某个字段来搜索到整个文档</a></li><li><a href=#maximum-shards-open>maximum shards open</a></li><li><a href=#more-than-allowed-850-used-disk-on-node>more than allowed [85.0%] used disk on node</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=前言>前言</h2><p>本文主要基于Elasticsearch 6.5.4版本：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#修改jvm参数>修改jvm参数</a></li><li><a href=#设置远程访问>设置远程访问</a></li><li><a href=#too_many_clauses问题>too_many_clauses问题</a></li><li><a href=#不支持bigdecimal类型>不支持BigDecimal类型</a><ol><li><a href=#解决方案一转变成其他es支持的数据类型>解决方案一：转变成其他ES支持的数据类型</a></li><li><a href=#解决方案二使用更高版本的es>解决方案二：使用更高版本的ES</a></li></ol></li><li><a href=#limit-of-total-fields-1000-in-index-has-been-exceeded>Limit of total fields [1000] in index has been exceeded</a></li><li><a href=#forbidden12index-read-only--allow-delete-api>FORBIDDEN/12/index read-only / allow delete (api)</a></li><li><a href=#result-window-is-too-large>Result window is too large</a></li><li><a href=#failed-to-parse-date-field>failed to parse date field</a></li><li><a href=#request-size-exceeded-104857600-bytes>Request size exceeded 104857600 bytes</a></li><li><a href=#查询区分大小写>查询区分大小写</a></li><li><a href=#禁止通过某个字段来搜索到整个文档>禁止通过某个字段来搜索到整个文档</a></li><li><a href=#maximum-shards-open>maximum shards open</a></li><li><a href=#more-than-allowed-850-used-disk-on-node>more than allowed [85.0%] used disk on node</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=前言>前言</h2><p>本文主要基于Elasticsearch 6.5.4版本：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -57,179 +57,7 @@
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yml data-lang=yml><span class=c>#network.host: 192.168.0.1</span><span class=w>
 </span><span class=w></span><span class=k>network.host</span><span class=p>:</span><span class=w> </span><span class=m>0.0.0.0</span><span class=w>
-</span></code></pre></td></tr></table></div></div><p>若设置为127.0.0.1则只能在本地访问。</p><h2 id=常用接口>常用接口</h2><h3 id=创建索引>创建索引</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// 创建blog索引，类型是_doc，id是1
-curl -H &#39;Content-Type:application/json&#39; -XPUT http://localhost:9200/blog/_doc/1 -d &#39;
-{
-      &#34;id&#34;: &#34;1&#34;,
-      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
-      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
-      &#34;priority&#34;: 10,
-      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
-}&#39;
-
-// 创建blog索引，类型是_doc，id由ES自己生成
-// 该id长度为20个字符，URL安全，base64编码，GUID，分布式系统并行生成时不可能会发生冲突
-curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blog/_doc/ -d &#39;
-{
-      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
-      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
-      &#34;priority&#34;: 10,
-      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
-}&#39;
-</code></pre></td></tr></table></div></div><h3 id=查询索引>查询索引</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// 查询索引，v参数会显示column，对应的column可以作为url参数并配合通配符来使用
-GET http://localhost:9200/_cat/indices?v
-GET http://localhost:9200/_cat/indices?v&amp;index=item*
-
-// 查询blog索引中id为1的文档，pretty参数会格式化返回的json，可以只查询文档的_source节点
-GET http://localhost:9200/blog/_doc/1?pretty
-GET http://localhost:9200/blog/_doc/1/_source?pretty
-</code></pre></td></tr></table></div></div><h3 id=删除索引>删除索引</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// 删除索引，可以同时删除多个索引，也可以使用通配符或_all，_all是删除所有索引
-// 不建议使用通配符或_all，万一误删索引影响较大
-DELETE http://localhost:9200/blog
-DELETE http://localhost:9200/blog1,blog2
-DELETE http://localhost:9200/blog*
-DELETE http://localhost:9200/_all
-</code></pre></td></tr></table></div></div><h3 id=配置类接口>配置类接口</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// 查询blog索引的配置，不指定索引则会查询所有索引的配置
-GET http://localhost:9200/blog/_settings
-GET http://localhost:9200/_settings
-
-// 查询blog索引的映射，不指定索引则会查询所有索引的映射
-GET http://localhost:9200/blog/_mapping
-GET http://localhost:9200/_mapping
-
-// 查询节点健康状态，如果是单节点部署则status是yellow，因为单节点部署下无法分配副本分片
-GET http://localhost:9200/_cat/health?v
-
-// 查询索引的分片信息（shard，默认是5个主要分片pri和1个副本分片rep）
-GET http://localhost:9200/_cat/shards?v
-</code></pre></td></tr></table></div></div><h3 id=分段接口>分段接口</h3><p>ES在索引数据时会生成分段（segment，一个segment就是一个完整的lucene倒排索引），这些分段会越来越多，最终影响性能，所以每隔一段时间需要对这些分段进行合并。对于一些不再更新的索引，也要主动进行合并分段操作。由于合并分段时对服务器负载较大（取决于索引的数据量），所以要挑个相对空闲的时间来合并分段。</p><p>分段数量也不是越少越好，这会导致一个分段太大，使得查询性能降低，当查询效率低于期望时，这时候就需要考虑增加shard数量，提升查询的并行度。一般推荐一个shard不要超过50GB，也就是说一个segment最好也不要超过这个值。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// 查询所有索引的分段信息
-GET http://localhost:9200/_cat/segments?v
-
-// 查询blog索引的分段信息
-GET http://localhost:9200/_cat/segments/blog?v
-
-// 合并blog索引的分段，尽量避免一次性合并所有索引的分段，以免影响查询性能
-// max_num_segments表示最终合并成几个大分段
-POST http://localhost:9200/blog/_forcemerge?max_num_segments=1
-
-// 查询合并分段的进度
-GET http://localhost:9200/_cat/indices/?s=segmentsCount:desc&amp;v&amp;h=index,segmentsCount,segmentsMemory,memoryTotal,mergesCurrent,mergesCurrentDocs,storeSize,docsDeleted,p,r
-
-// 查询当前合并分段的线程数
-GET http://localhost:9200/_cat/thread_pool/force_merge?s=name&amp;v
-</code></pre></td></tr></table></div></div><p>除了合并分段外，也可以通过删除不用的索引、或者关闭不用的索引来减少分段的内存占用，会比合并分段操作释放更多被占用的内存。</p><h3 id=分词接口>分词接口</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// 查询blog索引中id为1的文档中的name及其子字段的分词情况
-GET http://localhost:9200/blog/doc/1/_termvectors?fields=name.*
-
-// 查询词项分析，和上面接口的区别在于：这个用来测试指定字符串的词项分析情况，因此这个接口需要传入body
-// 查询blog索引中text字段的词项分析情况，这里指定的分析器是char_group_analyzer，字段值是test_123
-GET http://localhost:9200/blog/_analyze
-{
-    &#34;analyzer&#34;: &#34;char_group_analyzer&#34;,
-    &#34;text&#34;: &#34;test_123&#34;
-}
-</code></pre></td></tr></table></div></div><h2 id=查询参数>查询参数</h2><p>在查询时可以通过添加一些参数来达到调试的目的。</p><h3 id=explain>explain</h3><p>如果想显示当前查询的打分情况，可以添加<code>explain: true</code>，在查询结果的<code>hits</code>节点中，每个命中的文档里会多出来一个<code>_explanation</code>节点。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;from&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
-    <span class=nt>&#34;size&#34;</span><span class=p>:</span> <span class=mi>50</span><span class=p>,</span>
-    <span class=nt>&#34;explain&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
-    <span class=nt>&#34;query&#34;</span><span class=p>:</span> <span class=p>{},</span>
-    <span class=nt>&#34;_source&#34;</span><span class=p>:</span> <span class=p>{},</span>
-    <span class=nt>&#34;sort&#34;</span><span class=p>:</span> <span class=p>[]</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><h3 id=profile>profile</h3><p>如果想显示当前查询的命中情况，可以添加<code>profile: true</code>，在查询结果中会多出来一个<code>profile</code>节点。不过需要注意的是，如果查询的索引字段很多，profile参数可能会导致当前的查询效率很慢，返回的结果也会很大。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;from&#34;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
-    <span class=nt>&#34;size&#34;</span><span class=p>:</span> <span class=mi>50</span><span class=p>,</span>
-    <span class=nt>&#34;profile&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
-    <span class=nt>&#34;query&#34;</span><span class=p>:</span> <span class=p>{},</span>
-    <span class=nt>&#34;_source&#34;</span><span class=p>:</span> <span class=p>{},</span>
-    <span class=nt>&#34;sort&#34;</span><span class=p>:</span> <span class=p>[]</span>
-<span class=p>}</span>
-</code></pre></td></tr></table></div></div><h2 id=too_many_clauses问题>too_many_clauses问题</h2><p>Elasticsearch查询时报错如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td></tr></table></div></div><p>若设置为127.0.0.1则只能在本地访问。</p><h2 id=too_many_clauses问题>too_many_clauses问题</h2><p>Elasticsearch查询时报错如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>&#34;caused_by&#34;:{&#34;type&#34;:&#34;too_many_clauses&#34;,&#34;reason&#34;:&#34;maxClauseCount is set to 1024&#34;}}}],
 &#34;caused_by&#34;:{&#34;type&#34;:&#34;query_shard_exception&#34;,&#34;reason&#34;:&#34;failed to create query:
@@ -525,7 +353,7 @@ PUT http://localhost:9200/_all/_settings
     <span class=o>...</span>
 </code></pre></td></tr></table></div></div><p>ES默认的请求内容最大值为100mb，超过100mb就会报错，可以在<code>/config/elasticsearch.yml</code>中添加如下配置：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yml data-lang=yml><span class=k>http.max_content_length</span><span class=p>:</span><span class=w> </span>200mb<span class=w>
-</span></code></pre></td></tr></table></div></div><p>注：AWS的ES似乎没有提供修改ES配置文件的服务，在请求最大值上也只有10mb或者100mb的两种选项。</p><ul><li><a href=https://stackoverflow.com/questions/55541625/aws-elasticsearch-cluster-method-to-update-http-max-content-length target=_blank rel="noopener noreffer">AWS Elasticsearch cluster method to update <code>http.max_content_length</code>?</a></li></ul><h2 id=查询区分大小写>查询区分大小写</h2><p>Elasticsearch在分词时会进行分词，分词器会自动将英文转为小写，这样可以减少分词后的英文词项数量，从而减少内存的使用。</p><p>text类型会经过上述的分词，keyword类型则会将原本的文本原封不动进行保存。而Elasticsearch在查询时，又是区分大小写的，这会导致一个情况：</p><ul><li>被查询的字段是text类型，搜索的关键词如果包含大写字母则会搜索不到结果，因为text类型被分词后的词项里全是小写字母。</li><li>被查询的字段是keyword类型则没有这个问题。</li></ul><p>对于这个问题，如果希望搜索时保持区分大小写，可以把text类型改为keyword类型，这样还可以起到节省内存的效果，因为keyword类型不会分词，相当于索引的词项只有一个原始文本。</p><p>如果只是希望能搜索到结果，又不想改类型，可以在程序中对用户搜索的关键词进行预处理，先将其转换为小写，再进行搜索，但是这样会导致搜索不到keyword类型的文本，因为原始文本可能包含了大写字母。对于这种情况，可以给keyword类型添加一个analysis分析器：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span></code></pre></td></tr></table></div></div><p>注：AWS的ES似乎没有提供修改ES配置文件的服务，在请求最大值上也只有10mb或者100mb的两种选项。</p><ul><li><a href=https://stackoverflow.com/questions/55541625/aws-elasticsearch-cluster-method-to-update-http-max-content-length target=_blank rel="noopener noreffer">AWS Elasticsearch cluster method to update <code>http.max_content_length</code>?</a></li></ul><h2 id=查询区分大小写>查询区分大小写</h2><p>Elasticsearch在索引数据时会进行分词，分词器会自动将英文转为小写，这样可以减少分词后的英文词项数量，从而减少内存的使用。</p><p>text类型会经过上述的分词，keyword类型则会将原本的文本原封不动进行保存。而Elasticsearch在精确查询（term查询）时，又是区分大小写的，这会导致一个情况：</p><ul><li>被查询的字段是text类型，搜索的关键词如果包含大写字母则会搜索不到结果，因为text类型被分词后的词项里全是小写字母。</li><li>被查询的字段是keyword类型则没有这个问题。</li></ul><p>对于这个问题，如果希望搜索时保持区分大小写，可以把text类型改为keyword类型，这样还可以起到节省内存的效果，因为keyword类型不会分词，相当于索引的词项只有一个原始文本。</p><p>如果只是希望能搜索到结果，又不想改类型，可以在程序中对用户搜索的关键词进行预处理，先将其转换为小写，再进行搜索，但是这样会导致搜索不到keyword类型的文本，因为原始文本可能包含了大写字母。对于这种情况，可以给keyword类型添加一个analysis分析器：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -657,126 +485,6 @@ GET test_normalizer/_search
         <span class=p>}</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></td></tr></table></div></div><h2 id=自定义的几种分词器>自定义的几种分词器</h2><p>ES的分析（analysis）指的是用过分析器（Analyzer）将一个原始文本进行分析、分词为一个个标记或词项的过程，分析器通常分为三个部分：字符过滤器（Character filters）、分词器（Tokenizers）和标记过滤器（Token filters）。</p><p>一个原始文本，首先经过字符过滤器来过滤特定的字符，然后分词器将其进行分词为一个个标记（Token），标记过滤器再对这些标记进行过滤（比如转成全小写）。</p><ul><li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/6.4/analysis.html target=_blank rel="noopener noreffer">ES 6.4 - Analysis</a></li></ul><p>下面的配置自定义了两个分析器，一个是按照指定的字符来分词，一个是ngram分词（就是将一个单词分解成若干个前缀词项，用于前缀搜索，比如将Item分解为I，It，Ite，Item）。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>{
-	&#34;settings&#34;: {
-		&#34;analysis&#34;: {
-			&#34;analyzer&#34;: {
-				&#34;char_group_analyzer&#34;: {
-					&#34;tokenizer&#34;: &#34;char_group_tokenizer&#34;,
-					&#34;filter&#34;: [
-						&#34;lowercase&#34;
-					]
-				},
-				&#34;ngram_analyzer&#34;: {
-					&#34;tokenizer&#34;: &#34;ngram_tokenizer&#34;,
-					&#34;filter&#34;: [
-						&#34;lowercase&#34;
-					]
-				}
-			},
-			&#34;tokenizer&#34;: {
-				&#34;char_group_tokenizer&#34;: {
-					&#34;type&#34;: &#34;char_group&#34;,
-					&#34;tokenize_on_chars&#34;: [
-						&#34;whitespace&#34;,
-						&#34;-&#34;,
-						&#34;_&#34;,
-						&#34;/&#34;,
-						&#34;\\&#34;
-					]
-				},
-				&#34;ngram_tokenizer&#34;: {
-					&#34;type&#34;: &#34;ngram&#34;
-				}
-			}
-		}
-	}
-}
-</code></pre></td></tr></table></div></div><p>将上面定义的分析器用于指定的索引字段中：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>{
-    &#34;properties&#34;: {
-        &#34;fieldA&#34;: {
-            &#34;type&#34;: &#34;text&#34;,
-            &#34;fields&#34;: {
-                &#34;keyword&#34;: {
-                    &#34;type&#34;: &#34;keyword&#34;,
-                    &#34;ignore_above&#34;: 256
-                },
-                &#34;ngram_search&#34;: {
-                    &#34;type&#34;: &#34;text&#34;,
-                    &#34;analyzer&#34;: &#34;ngram_analyzer&#34;
-                },
-                &#34;char_group_search&#34;: {
-                    &#34;type&#34;: &#34;text&#34;,
-                    &#34;analyzer&#34;: &#34;char_group_analyzer&#34;
-                }
-            }
-        }
-    }
-}
-</code></pre></td></tr></table></div></div><p>注意，在修改Settings时需要先关闭index，修改完之后再打开index：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// 关闭索引
-POST localhost:9200/&lt;indexName&gt;/_close
-// 打开索引
-POST localhost:9200/&lt;indexName&gt;/_open
 </code></pre></td></tr></table></div></div><h2 id=禁止通过某个字段来搜索到整个文档>禁止通过某个字段来搜索到整个文档</h2><p>通常情况下可以ES的全文搜索会通过匹配整个文档中的全部字段，如果不希望通过某个字段来搜索到整个文档，可以将该字段配置为<code>index: false</code>。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
@@ -865,7 +573,7 @@ PUT http://localhost:9200/test/_doc/_mapping
   }
 
 }
-</code></pre></td></tr></table></div></div><p>如果想完全解决，需要加数据节点，扩容集群。</p><h2 id=参考链接>参考链接</h2><ul><li><a href=https://www.elastic.co/guide/en/elasticsearch/reference/6.7/search-settings.html target=_blank rel="noopener noreffer">Elasticsearch Guide 6.7 - Search Settings</a></li><li><a href=https://blog.csdn.net/qingmou_csdn/article/details/86687041 target=_blank rel="noopener noreffer">ES 问题 ： too_many_clauses maxClauseCount is set to 1024</a></li><li><a href=https://elasticsearch.cn/question/3757 target=_blank rel="noopener noreffer">elastic search 5.4.版本，java api 调用出现：can not write type 【class java.math.BigDecimal】</a></li><li><a href=https://blog.csdn.net/qq_15713753/article/details/94436186 target=_blank rel="noopener noreffer">java.lang.IllegalArgumentException: Limit of total fields 【1000】 in index 索引名称</a></li><li><a href=https://blog.csdn.net/zheng45/article/details/92383323 target=_blank rel="noopener noreffer">ES 写索引报错 FORBIDDEN/12/index read-only / allow delete (api)解决方案</a></li><li><a href=https://www.cnblogs.com/binbinyouni/p/10749985.html target=_blank rel="noopener noreffer">ES更改参数max_result_window</a></li><li><a href=https://www.jianshu.com/p/a44f6523912b target=_blank rel="noopener noreffer">Elasticsearch date 类型详解</a></li><li><a href=https://blog.csdn.net/ly_521015/article/details/88421596 target=_blank rel="noopener noreffer">hive向ES中插入数据量过大时出错：HTTP content length exceeded 104857600 bytes.</a></li><li><a href=https://blog.csdn.net/lzzyok/article/details/107051689 target=_blank rel="noopener noreffer">Elasticsearch让 keyword 和 term 忽略大小写</a></li><li><a href=https://www.jianshu.com/p/8ea97bd0f037 target=_blank rel="noopener noreffer">解决ElasticSearch的maximum shards open问题</a></li><li><a href=https://www.jianshu.com/p/1c5c921346e2 target=_blank rel="noopener noreffer">2019-07-01 elasticsearch force merge 步骤 原创</a></li><li><a href=https://elasticsearch.cn/question/2794 target=_blank rel="noopener noreffer">segment段文件非常大会有什么问题没？比如说100G一个？</a></li><li><a href=http://www.openskill.cn/question/364 target=_blank rel="noopener noreffer">ElasticsearchIllegalArgumentException 错误</a></li></ul><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+</code></pre></td></tr></table></div></div><p>如果想完全解决，需要加数据节点，扩容集群。</p><h2 id=参考链接>参考链接</h2><ul><li><a href=https://blog.csdn.net/qingmou_csdn/article/details/86687041 target=_blank rel="noopener noreffer">ES 问题 ： too_many_clauses maxClauseCount is set to 1024</a></li><li><a href=https://elasticsearch.cn/question/3757 target=_blank rel="noopener noreffer">elastic search 5.4.版本，java api 调用出现：can not write type 【class java.math.BigDecimal】</a></li><li><a href=https://blog.csdn.net/qq_15713753/article/details/94436186 target=_blank rel="noopener noreffer">java.lang.IllegalArgumentException: Limit of total fields 【1000】 in index 索引名称</a></li><li><a href=https://blog.csdn.net/zheng45/article/details/92383323 target=_blank rel="noopener noreffer">ES 写索引报错 FORBIDDEN/12/index read-only / allow delete (api)解决方案</a></li><li><a href=https://www.cnblogs.com/binbinyouni/p/10749985.html target=_blank rel="noopener noreffer">ES更改参数max_result_window</a></li><li><a href=https://www.jianshu.com/p/a44f6523912b target=_blank rel="noopener noreffer">Elasticsearch date 类型详解</a></li><li><a href=https://blog.csdn.net/ly_521015/article/details/88421596 target=_blank rel="noopener noreffer">hive向ES中插入数据量过大时出错：HTTP content length exceeded 104857600 bytes.</a></li><li><a href=https://blog.csdn.net/lzzyok/article/details/107051689 target=_blank rel="noopener noreffer">Elasticsearch让 keyword 和 term 忽略大小写</a></li><li><a href=https://www.jianshu.com/p/8ea97bd0f037 target=_blank rel="noopener noreffer">解决ElasticSearch的maximum shards open问题</a></li><li><a href=http://www.openskill.cn/question/364 target=_blank rel="noopener noreffer">ElasticsearchIllegalArgumentException 错误</a></li></ul><div class=post-reward><input type=checkbox name=reward id=reward hidden>
 <label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/common/wechat.png>
 <span>微信打赏</span></label>
 <label class=qr-code-image for=reward><img class=image src=https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/common/alipay.png>

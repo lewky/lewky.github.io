@@ -1,4 +1,49 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 19 Mar 2022 22:27:05 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>ELK系列(5) - Elasticsearch性能调优</title><link>https://lewky.cn/posts/elk-5/</link><pubDate>Sat, 19 Mar 2022 22:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-5/</guid><description><![CDATA[<h2 id="机器内存分配">机器内存分配</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 21 Mar 2022 08:38:01 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky.cn/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 创建blog索引，类型是_doc，id是1
+curl -H &#39;Content-Type:application/json&#39; -XPUT http://localhost:9200/blog/_doc/1 -d &#39;
+{
+      &#34;id&#34;: &#34;1&#34;,
+      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
+      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
+      &#34;priority&#34;: 10,
+      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
+}&#39;
+
+// 创建blog索引，类型是_doc，id由ES自己生成
+// 该id长度为20个字符，URL安全，base64编码，GUID，分布式系统并行生成时不可能会发生冲突
+curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blog/_doc/ -d &#39;
+{
+      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
+      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
+      &#34;priority&#34;: 10,
+      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
+}&#39;
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>ELK系列(5) - Elasticsearch性能调优</title><link>https://lewky.cn/posts/elk-5/</link><pubDate>Sat, 19 Mar 2022 22:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-5/</guid><description><![CDATA[<h2 id="机器内存分配">机器内存分配</h2>
 <p>官方推荐一个ES节点最好是分配当前机器最大内存的50%，比如机器内存是16g，就分配8g给ES：<code>-Xmx8g</code>。</p>
 <p>剩下的8g内存并不是说就闲置了，ES会拿机器剩余的内存来优化自身的查询效率。也就是说，并不是一味将最大内存设置很大就是最优解。</p>]]></description></item><item><title>MyBatis问题汇总</title><link>https://lewky.cn/posts/mybatis-issues/</link><pubDate>Thu, 03 Mar 2022 23:10:33 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/mybatis-issues/</guid><description><![CDATA[<h2 id="使用domainobjectrenamingrule报错">使用domainObjectRenamingRule报错</h2>
 <p>在使用MyBatis逆向工程时报错如下：</p>
@@ -396,25 +441,4 @@ npm config set cache <span class="s2">&#34;D:\software\nodejs\node_cache&#34;</s
 <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Java - 数据结构之树</title><link>https://lewky.cn/posts/java-tree.html/</link><pubDate>Tue, 01 Jun 2021 23:30:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-tree.html/</guid><description><![CDATA[<h2 id="基本概念">基本概念</h2>
-<p>树（Tree）不是线性表，而是一种描述非线性层次关系的数据结构，描述的是一对多的数据结构。</p>
-<p>● 结点：Node，有的资料也叫做节点。<br>
-● 根结点（Root）：没有父结点的结点，一棵树只能有一个根结点。<br>
-● 兄弟结点（Siblings）：拥有同一个父结点的结点，它们是父结点的子结点。<br>
-● 孩子、双亲（Child、Parent）：结点的子树的根称为该结点的孩子，相应地，该结点称为孩子的双亲。<br>
-● 结点的度（Degree）：一个结点所包含的子树的数量，即子结点的数量。<br>
-● 树的度：该树所有结点中最大的度。<br>
-● 叶子结点（Leaf）：树中度为零的结点，也叫终端结点。<br>
-● 分支（Branch）：至少有一个孩子的结点，也叫非终端结点。<br>
-● 祖先（Ancestor）：结点的祖先是从根到该结点所经分支上的所有结点。<br>
-● 后代（Descendant）：以某结点为根的子树中的任一结点都称为该结点的后代。<br>
-● 边（Edge）：一个结点和另一个结点之间的连接被称为边。<br>
-● 路径（Path）：连接结点和其后代的结点之间的（结点，边）的序列<br>
-● 层次（Level）：从根结点开始算，根结点是第一层，依次往下。（也可以把根结点作为第0层）<br>
-● 结点的高度（Height of node）：该结点和某个叶子之间存在的最长路径上的边的个数。<br>
-● 树的高度（Height of tree）：树的高度是其根结点的高度。<br>
-● 结点的深度（Depth of node）：从树的根结点到该结点的边的个数。**和高度的区别在于，深度是从根结点开始往下到自身结点；高度是从自身结点往下到叶子结点。**<br>
-● 树的深度（Depth of tree）：树中结点的最大层次。树的高度等于树的深度。<br>
-● 无序树：树中任意结点的子结点之间没有顺序关系，这种树称为无序树，也称为自由树。<br>
-● 有序树：树中各结点的子结点之间从左到右按一定次序排列的树。<br>
-● 森林：n(n&gt;=0)棵互不相交的树的集合。</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>
