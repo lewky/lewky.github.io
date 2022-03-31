@@ -167,6 +167,10 @@ public class ${NAME} {
 * 可能跟IDEA本身的配置有关：`File` -> `Settings...` -> `Editor` -> `General` -> `Appearance` -> 取消勾选`Use block caret`
 * 也可能跟IdeaVim插件有关：`File` -> `Settings...` -> `Plugins` -> `Installed` -> 搜索ideavim，取消勾选该插件
 
+## 分屏浏览两个文件
+
+在文件栏里右键一个打开的文件标签，选择`Move Right`可以实现左右分屏浏览，选择`Move Down`可以实现上下分屏浏览。
+
 ## 参考链接
 
 * [IntelliJ IDEA 2021.2激活破解教程（亲测有用，永久激活，长期更新）](https://www.exception.site/essay/how-to-free-use-intellij-idea-2019-3)

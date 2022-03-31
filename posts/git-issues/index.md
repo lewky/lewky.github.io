@@ -38,7 +38,15 @@ git config --global user.email "your user email"
 * 该文件是隐藏文件，位于`C:\Users\{user}\.gitconfig`，直接修改里边的name或者email，如果有重复的name或email，可以将其删掉，只剩下一个就好。
 * 修改完，通过git bash输入git config --list可以查看是否修改成功了。
 
-## `.gitignore`文件的作用
+## 添加.gitignore文件
+
+在Windows中无法直接创建该文件，因为文件名是`.`开头的，需要通过`git bash`来创建：
+
+```
+touch .gitignore
+```
+
+## .gitignore文件的作用
 
 `.gitignore`文件用来忽略被指定的文件或文件夹的改动，被记录在`.gitignore`文件里的文件或文件夹，是无法被git跟踪到的，换句话说，被忽略的文件是不会被放入到远程仓库里的。
 
@@ -46,7 +54,7 @@ git config --global user.email "your user email"
 
 `.gitignore`文件存放于git仓库的根目录下。
 
-## `.gitignore`文件的语法
+## .gitignore文件的语法
 
 ### 注释
 
