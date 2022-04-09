@@ -89,6 +89,13 @@ logo="https://gitee.com/Barneys/myfiles/raw/master/img/1625052486520.png"
 word="All the truth is simple"
 >}}
 
+{{< friend
+name="低调小熊猫"
+url="https://ilovey.live"
+logo="https://uss.ilovey.live/img/avatar.jpg"
+word="读万卷书，行万里路，赚很多钱"
+>}}
+
 ## 【网络安全】
 
 {{< friend
