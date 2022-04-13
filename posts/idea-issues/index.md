@@ -4,17 +4,13 @@
 
 本文基于2021-2版本的IDEA。
 
-## 启动时选择工作空间
-
-`File` -> `Settings...` -> `Appearance & Behavior` -> `System Settings` -> 不勾选`Reopen projects on startup`
-
 ## 无法搜索或者下载插件
 
 `File` -> `Settings...` -> `Plugins`可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。
-<!--more-->
 
 点击插件界面里的齿轮图标（在Marketplace、Installed的右边），选择`HTTP Proxy Settings...`，勾选`Auto-detect proxy settings`以及`Automatic proxy configuration URL:`，然后点击最下方的`Check connection`，在弹出框里输入官方插件网站`https://plugins.jetbrains.com/idea`，点击`OK`，一般都是可以连接成功的。之后就可以正常的搜索和下载插件了。
 
+<!--more-->
 如果上述的代理设置也不能成功，那只能自己去官方的插件市场网站搜索下载插件了：https://plugins.jetbrains.com/idea
 
 这个版本的IDEA已经自带了Lombok插件。
@@ -42,6 +38,42 @@
 * MybatisX 高效操作Mybatis插件
 * Save Actions格式化代码插件
 * Rainbow Brackets彩虹括号插件
+
+## 常用的快捷键
+
+`shift shift` 连按两次`shift`键可以搜索文件，可以选择搜索范围。
+
+`ctrl + h` 查找一个类的继承关系树。
+
+`ctrl + d` 复制光标选中的文本。
+
+`ctrl + y` 删除光标选中的行。
+
+`ctrl + f` 在当前文件查找文本。
+
+`ctrl + shift + f` 所有文件中查找文本，不包括jar包里的文件。
+
+`ctrl + r` 在当前文件替换文本。
+
+`alt + ←` 跳转到文件栏左边的文件。
+
+`alt + →` 跳转到文件栏左边的文件。
+
+`alt + shift + ←` 跳转到上一步操作。
+
+`alt + shift + →` 跳转到下一步操作。
+
+`shift + enter` 在光标所在行的下一行创建一行空白行。
+
+`ctrl + /` 单行注释或多行注释或取消注释。
+
+`ctrl + f12` 查看当前类的所有方法，可以选择显示父类的方法。
+
+`ctrl + space` 基础代码补全。
+
+## 启动时选择工作空间
+
+`File` -> `Settings...` -> `Appearance & Behavior` -> `System Settings` -> 不勾选`Reopen projects on startup`
 
 ## 全局配置优化
 
@@ -171,11 +203,17 @@ public class ${NAME} {
 
 在文件栏里右键一个打开的文件标签，选择`Move Right`可以实现左右分屏浏览，选择`Move Down`可以实现上下分屏浏览。
 
+## 鼠标悬停显示JavaDoc
+
+连续按两下Shift打开搜索框，输入`Show quick documentation on mouse move`，这时候可以看到一个开关，打开这个开关即可。
+
 ## 参考链接
 
+* [IDEA常用快捷键整理](https://www.cnblogs.com/tangxiaoyuan/p/14257563.html)
 * [IntelliJ IDEA 2021.2激活破解教程（亲测有用，永久激活，长期更新）](https://www.exception.site/essay/how-to-free-use-intellij-idea-2019-3)
 * [intellij idea 启动时怎么选择工作空间](https://zhidao.baidu.com/question/498068397998147524.html?qbl=relate_question_1&word=idea%D4%F5%C3%B4%D1%A1%B9%A4%D7%F7%BF%D5%BC%E4)
 * [完美解决idea无法搜索下载插件的问题](https://www.jb51.net/article/195740.htm)
 * [idea如何修改默认的${user}值](https://www.cnblogs.com/zhenhunfan2/p/13522995.html)
 * [IntelliJ IDEA高效使用教程，让你的工作效率提升10倍！](https://mp.weixin.qq.com/s/cRWGkDUguX-vPPCVyF7D2Q)
 * [idea编译器光标变为insert状态](https://blog.csdn.net/qingfengmuzhu1993/article/details/79496280)
+* [idea 鼠标变量_IntelliJ IDEA鼠标悬停方法显示Java Doc](https://blog.csdn.net/weixin_39793420/article/details/111805787)

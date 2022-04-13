@@ -1,19 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 31 Mar 2022 19:51:26 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>IDEA - 快捷键篇</title><link>https://lewky.cn/posts/idea-hotkey/</link><pubDate>Thu, 31 Mar 2022 19:51:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-hotkey/</guid><description><![CDATA[<h2 id="常用的快捷键">常用的快捷键</h2>
-<p><code>shift shift</code> 连按两次<code>shift</code>键可以搜索文件，可以选择搜索范围。</p>
-<p><code>ctrl + h</code> 查找一个类的继承关系树。</p>
-<p><code>ctrl + d</code> 复制光标选中的文本。</p>
-<p><code>ctrl + y</code> 删除光标选中的行。</p>
-<p><code>ctrl + f</code> 在当前文件查找文本。</p>
-<p><code>ctrl + shift + f</code> 所有文件中查找文本，不包括jar包里的文件。</p>
-<p><code>ctrl + r</code> 在当前文件替换文本。</p>
-<p><code>alt + ←</code> 跳转到文件栏左边的文件。</p>
-<p><code>alt + →</code> 跳转到文件栏左边的文件。</p>
-<p><code>alt + shift + ←</code> 跳转到上一步操作。</p>
-<p><code>alt + shift + →</code> 跳转到下一步操作。</p>
-<p><code>shift + enter</code> 在光标所在行的下一行创建一行空白行。</p>
-<p><code>ctrl + /</code> 单行注释或多行注释或取消注释。</p>
-<p><code>ctrl + f12</code> 查看当前类的所有方法，可以选择显示父类的方法。</p>
-<p><code>ctrl + space</code> 基础代码补全。</p>]]></description></item><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky.cn/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 21 Mar 2022 08:38:01 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky.cn/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
@@ -166,4 +151,6 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>]]></description></item></channel></rss>
+</div>]]></description></item><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky.cn/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
+<h3 id="do关键字">DO关键字</h3>
+<p>pl/pgsql即Procedural Language/ Postgres SQL(过程化sql语言)，是Postgresql数据库对sql语句的扩展，可以在pl/pgsql代码块内定义多条sql语句，每条语句以分号结束，代码块由begin开始，end结束，代码块的最后一个end可以不加分号。</p>]]></description></item></channel></rss>

@@ -1,19 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 31 Mar 2022 19:51:26 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>IDEA - 快捷键篇</title><link>https://lewky.cn/posts/idea-hotkey/</link><pubDate>Thu, 31 Mar 2022 19:51:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-hotkey/</guid><description><![CDATA[<h2 id="常用的快捷键">常用的快捷键</h2>
-<p><code>shift shift</code> 连按两次<code>shift</code>键可以搜索文件，可以选择搜索范围。</p>
-<p><code>ctrl + h</code> 查找一个类的继承关系树。</p>
-<p><code>ctrl + d</code> 复制光标选中的文本。</p>
-<p><code>ctrl + y</code> 删除光标选中的行。</p>
-<p><code>ctrl + f</code> 在当前文件查找文本。</p>
-<p><code>ctrl + shift + f</code> 所有文件中查找文本，不包括jar包里的文件。</p>
-<p><code>ctrl + r</code> 在当前文件替换文本。</p>
-<p><code>alt + ←</code> 跳转到文件栏左边的文件。</p>
-<p><code>alt + →</code> 跳转到文件栏左边的文件。</p>
-<p><code>alt + shift + ←</code> 跳转到上一步操作。</p>
-<p><code>alt + shift + →</code> 跳转到下一步操作。</p>
-<p><code>shift + enter</code> 在光标所在行的下一行创建一行空白行。</p>
-<p><code>ctrl + /</code> 单行注释或多行注释或取消注释。</p>
-<p><code>ctrl + f12</code> 查看当前类的所有方法，可以选择显示父类的方法。</p>
-<p><code>ctrl + space</code> 基础代码补全。</p>]]></description></item><item><title>桌面窗口管理器占用内存过高</title><link>https://lewky.cn/posts/dwm-issues/</link><pubDate>Tue, 22 Mar 2022 08:20:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/dwm-issues/</guid><description>&lt;h2 id="桌面窗口管理器dwmexe内存泄漏">桌面窗口管理器（dwm.exe）内存泄漏&lt;/h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 22 Mar 2022 08:20:42 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>桌面窗口管理器占用内存过高</title><link>https://lewky.cn/posts/dwm-issues/</link><pubDate>Tue, 22 Mar 2022 08:20:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/dwm-issues/</guid><description>&lt;h2 id="桌面窗口管理器dwmexe内存泄漏">桌面窗口管理器（dwm.exe）内存泄漏&lt;/h2>
 &lt;p>自从某天更新了Intel的核显驱动后，就发现电脑开机一段时间后必然发生卡顿，后来发现每次卡顿都是桌面窗口管理器（dwm.exe）占用内存过高。观察一段时间后发现，该进程内存会无限增加，怀疑发生了内存泄漏。在知乎搜索后发现很多人遇到了同款问题，这里记录下解决方法。&lt;/p></description></item><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky.cn/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -139,4 +124,7 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
 <p>使用lombok框架开发可以减少大量重复性的代码，大大提高开发效率，但是Eclipse本身并不支持lombok，会编译报错。除了项目要导入lombok依赖，还需要为Eclipse安装该lombok插件。</p>
 <p>安装方法很简单，找到你导入的lombok的jar包，双击运行该jar包，会出现一个安装界面。或者右键jar包，选择<code>打开方式</code>，接着选择<code>Java (TM) Platform SE binary</code>，会出现安装界面。</p>
 <p>在安装界面选择当前的Eclipse进程，或者点击左下角的<code>Specify location...</code>选择你要安装插件的Eclipse，接着点右下角的<code>Install / Update</code>，很快就安装完毕，点击<code>Quit Installer</code>。</p>
-<p>lombok的下载地址：https://projectlombok.org/downloads/lombok.jar</p>]]></description></item></channel></rss>
+<p>lombok的下载地址：https://projectlombok.org/downloads/lombok.jar</p>]]></description></item><item><title>Jackson问题汇总</title><link>https://lewky.cn/posts/jackson-issues/</link><pubDate>Tue, 04 Jan 2022 23:45:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jackson-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>常见的json框架有：Jackson，FasJson（阿里的，万年没更新，积累了大量issue），Gson（谷歌的）。其中Jackson效率最高，性能最好，最为常用。本文基于<code>2.11.3</code>版本的Jackson。</p>
+<p>Jackson在1.x版本使用的包名是<code>codehaus</code>，后来升级到2.x版本时，为了和旧版本区分开来，采用了新的包名<code>fasterxml</code>。有这种类似操作的还有Log4j和Log4j2，在使用时需要注意引入的包名，避免混用版本或误用版本。</p>
+<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item></channel></rss>

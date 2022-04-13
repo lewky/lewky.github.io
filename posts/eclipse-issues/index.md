@@ -1,14 +1,51 @@
 # Eclipse问题汇总
 
+## 常用的快捷键
+
+`ctrl + shift + r` 查找工作空间内的文件，不包括Jar包内的文件
+
+`ctrl + shift + t` 查找工作空间内的文件，包括Jar包内的文件
+
+`ctrl + o` 查看当前类的所有方法
+
+`ctrl + e` 快速切换编辑器，在打开了非常多的文件时会很便利
+
+`ctrl + /` 单行注释或多行注释或取消注释
+
+<!--more-->
+`ctrl + t` 查找一个类的继承关系树
+
+`ctrl + d` 删除光标所在行
+
+`ctrl + space` 代码提示，和输入法快捷键冲突时也可以用`alt + /`
+
+`ctrl + shift + f` 格式化代码
+
+`ctrl + k` 快速跳转到下一个相同的被选中字符，在查找相同的字符串时会很方便
+
+`ctrl + shift + k` 快速跳转到上一个相同的被选中字符
+
+`shift + enter` 在光标所在行的下一行创建一行空白行
+
+`ctrl + shift + enter` 在光标所在行的上一行创建一行空白行
+
+`alt + ←` 跳转到上一步操作
+
+`alt + →` 跳转到下一步操作
+
+`alt + ↑` 将光标所在的那一行向上挪动一行
+
+`alt + ↓` 将光标所在的那一行向下挪动一行
+
 ## Access restriction: The type 'JPEGCodec' is not API
 
 导入项目时Eclipse报错如下：
+
 ```
 Access restriction: The type 'JPEGCodec' is not API (restriction on required library 'C:\Program Files\Java\jdk1.8.0_191\jre\lib\rt.jar')
 ```
 
 第一次遇到这种错误，百度了下，原来是因为Eclipse默认把访问受限的API设置成了Error级别，所以才会编译报错。
-<!--more-->
 
 ### 解决方法一（推荐）
 
@@ -72,7 +109,7 @@ Eclipse的properties文件是默认ISO-8859-1编码的，如果在properties里�
 
 `Window -> Preferences -> General -> Content Types -> Text`，然后单击`Java Properties Files`，选定下方的`*.properties(locked)`，接着将最下方的ISO-8859-1改为utf-8，然后点击旁边的 `Update`，最后点击OK。
 
-## 如何修改web项目的web module version
+## 修改web项目的web module version
 
 有时候我们想改变web项目的web module version，比如说原本是2.4版本，我们想改成3.0版本，通过右键项目名 -> Properties -> Project Facets，选中Dynamic Web Module后边的版本，将2.4改成3.0
 
@@ -91,9 +128,9 @@ Eclipse的properties文件是默认ISO-8859-1编码的，如果在properties里�
 4. 保存该文件的改动，接着刷新Eclipse中的该项目(左键选中项目名，按F5刷新项目)
 5. 接着再去Properties -> Project Facets ， 将Dynamic Web Module改为3.0；然后将web.xml的文件头改为对应3.0版本的文件头；此时会发现可以修改成功而不会报错。
 
-## Maven项目Update Project后jdk版本变成1.5
+## Update Project后jdk版本变成1.5
 
-在Eclipse里对一个Maven项目进行Update Project(快捷键是 `Alt+F5`)，原本jdk为1.8的项目忽然就变成了1.5，于是就报了一些错误。
+在Eclipse里对一个Maven项目进行Update Project（快捷键是 `Alt+F5`），原本jdk为1.8的项目忽然就变成了1.5，于是就报了一些错误。
 
 这跟Maven默认的jdk版本有关系，Maven项目如果不指定编译的jdk版本，就会默认为jdk1.5。查了下项目的pom文件，里边并没有指定编译的jdk版本，而Maven的配置文件settings.xml里也没有指明jdk版本，所以当Update Project后，这个Maven项目就会自动变成jdk1.5了。
 
@@ -154,7 +191,7 @@ Eclipse在安装了jd-eclipse插件后依然无法反编译类文件，这个问
 
 接着重启Eclipse后就可以正常地反编译类文件了，如果缺少上述的第三步操作，会有比较大的可能依然无法反编译类文件。
 
-## Eclipse无法找到MapStruct生成的mapper实现类
+## 找不到MapStruct生成的mapper实现类
 
 Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，还要另外安装插件`m2e-apt`，该插件可以在Eclipse的Market里搜到。
 
@@ -169,7 +206,7 @@ Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，�
 
 如果这时候还没效果，要手动打开apt的功能。邮件项目，选择`Properties` -> `Maven` -> `Annotation Processing` -> 勾选`Enable project specific settings` -> 选择第一个选项`Automatically config JDT APT` -> `Apply and Close`
 
-## 弹窗提示 code recommenders cannot download its model repository index
+## 弹窗提示code recommenders cannot download its model repository index
 
 原因是该插件的model地址`http://download.eclipse.org/recommenders/models/oxygen/`已经被移除了，且很久没有更新了，最新版的Eclipse里已经把该地址移除了，旧版本的需要自行移除：
 
@@ -189,7 +226,7 @@ Eclipse本身不支持MapStruct，除了需要安装较新版本的m2e插件，�
 1. 在Maven仓库视图里：`Global Repositories` -> 选定某个远程库 -> 右键，选择`Update Index`
 2. 更新完索引后就可以搜索到远程库里最新的jar包了
 
-## 启动SpringBoot项目报错： Error: Could not find or load main class
+## Could not find or load main class
 
 在Eclipse里对一个SpringBoot项目选择`Run As` -> `Maven clean`后，通过启动类启动该项目时报错如下：
 
@@ -211,6 +248,7 @@ Error: Could not find or load main class
 
 ## 参考链接
 
+* [Eclipse快捷键 10个最有用的快捷键](https://www.open-open.com/solution/view/1320934157953)
 * [解决办法：Access restriction: The type JPEGImageEncoder is not accessible due to restriction](https://blog.csdn.net/free4294/article/details/7017442)
 * [缺少servlet-api.jar包](http://blog.sina.com.cn/s/blog_6cfb18070100n7pu.html)
 * [怎样设置Eclipse在启动时提示选择工作空间](https://jingyan.baidu.com/article/27fa732682e3f446f8271f26.html)

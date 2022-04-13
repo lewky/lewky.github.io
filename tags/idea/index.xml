@@ -1,21 +1,5 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>IDEA - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/idea/</link><description>IDEA - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 31 Mar 2022 19:51:26 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/idea/" rel="self" type="application/rss+xml"/><item><title>IDEA - 快捷键篇</title><link>https://lewky.cn/posts/idea-hotkey/</link><pubDate>Thu, 31 Mar 2022 19:51:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-hotkey/</guid><description><![CDATA[<h2 id="常用的快捷键">常用的快捷键</h2>
-<p><code>shift shift</code> 连按两次<code>shift</code>键可以搜索文件，可以选择搜索范围。</p>
-<p><code>ctrl + h</code> 查找一个类的继承关系树。</p>
-<p><code>ctrl + d</code> 复制光标选中的文本。</p>
-<p><code>ctrl + y</code> 删除光标选中的行。</p>
-<p><code>ctrl + f</code> 在当前文件查找文本。</p>
-<p><code>ctrl + shift + f</code> 所有文件中查找文本，不包括jar包里的文件。</p>
-<p><code>ctrl + r</code> 在当前文件替换文本。</p>
-<p><code>alt + ←</code> 跳转到文件栏左边的文件。</p>
-<p><code>alt + →</code> 跳转到文件栏左边的文件。</p>
-<p><code>alt + shift + ←</code> 跳转到上一步操作。</p>
-<p><code>alt + shift + →</code> 跳转到下一步操作。</p>
-<p><code>shift + enter</code> 在光标所在行的下一行创建一行空白行。</p>
-<p><code>ctrl + /</code> 单行注释或多行注释或取消注释。</p>
-<p><code>ctrl + f12</code> 查看当前类的所有方法，可以选择显示父类的方法。</p>
-<p><code>ctrl + space</code> 基础代码补全。</p>]]></description></item><item><title>IDEA问题汇总</title><link>https://lewky.cn/posts/idea-issues/</link><pubDate>Fri, 06 Aug 2021 22:41:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>IDEA - 标签 - Yulin Lewis' Blog</title><link>https://lewky.cn/tags/idea/</link><description>IDEA - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Aug 2021 22:41:57 +0800</lastBuildDate><atom:link href="https://lewky.cn/tags/idea/" rel="self" type="application/rss+xml"/><item><title>IDEA问题汇总</title><link>https://lewky.cn/posts/idea-issues/</link><pubDate>Fri, 06 Aug 2021 22:41:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文基于2021-2版本的IDEA。</p>
-<h2 id="启动时选择工作空间">启动时选择工作空间</h2>
-<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Appearance &amp; Behavior</code> -&gt; <code>System Settings</code> -&gt; 不勾选<code>Reopen projects on startup</code></p>
 <h2 id="无法搜索或者下载插件">无法搜索或者下载插件</h2>
-<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>]]></description></item></channel></rss>
+<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>
+<p>点击插件界面里的齿轮图标（在Marketplace、Installed的右边），选择<code>HTTP Proxy Settings...</code>，勾选<code>Auto-detect proxy settings</code>以及<code>Automatic proxy configuration URL:</code>，然后点击最下方的<code>Check connection</code>，在弹出框里输入官方插件网站<code>https://plugins.jetbrains.com/idea</code>，点击<code>OK</code>，一般都是可以连接成功的。之后就可以正常的搜索和下载插件了。</p>]]></description></item></channel></rss>
