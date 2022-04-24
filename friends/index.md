@@ -91,9 +91,16 @@ word="All the truth is simple"
 
 {{< friend
 name="低调小熊猫"
+url="https://www.v2rayfree.eu.org/"
+logo="https://www.v2rayfree.eu.org/images/avatar.png"
+word="读万卷书，行万里路，赚很多钱"
+>}}
+
+{{< friend
+name="免费v2ray节点"
 url="https://ilovey.live"
 logo="https://uss.ilovey.live/img/avatar.jpg"
-word="读万卷书，行万里路，赚很多钱"
+word="免费v2ray节点订阅自助获取"
 >}}
 
 ## 【网络安全】
