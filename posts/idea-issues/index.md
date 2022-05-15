@@ -71,6 +71,10 @@
 
 `ctrl + space` 基础代码补全。
 
+`ctrl + g` 跳转到第几行代码。
+
+`ctrl + alt + L`格式化代码。
+
 ## 启动时选择工作空间
 
 `File` -> `Settings...` -> `Appearance & Behavior` -> `System Settings` -> 不勾选`Reopen projects on startup`
