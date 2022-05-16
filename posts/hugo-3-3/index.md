@@ -173,6 +173,34 @@ jQuery(document).ready(function($) {
 });
 ```
 
+## 首页显示文章最近更新时间
+
+将`/themes/LoveIt/layouts/_default/summary.html`拷贝到`/layouts/_default/summary.html`，打开拷贝后的文件，找到如下内容：
+
+```
+        {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
+            &nbsp;<span class="post-publish">
+                {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}
+            </span>
+        {{- end -}}
+```
+
+修改成如下：
+
+```
+        {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
+            &nbsp;<span class="post-publish">
+                {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}, 
+            </span>
+        {{- end -}}
+
+        {{- with .Site.Params.dateFormat | default "2006-01-02" | .Lastmod.Format -}}
+            &nbsp;<span class="post-publish">
+                {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "updatedOnDate" | safeHTML -}}, 
+            </span>
+        {{- end -}}
+```
+
 ## 参考链接
 
 * [Lists of Content in Hugo](https://gohugo.io/templates/lists/)
