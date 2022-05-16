@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 22 Mar 2022 08:20:42 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>桌面窗口管理器占用内存过高</title><link>https://lewky.cn/posts/dwm-issues/</link><pubDate>Tue, 22 Mar 2022 08:20:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/dwm-issues/</guid><description>&lt;h2 id="桌面窗口管理器dwmexe内存泄漏">桌面窗口管理器（dwm.exe）内存泄漏&lt;/h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 11 May 2022 23:30:34 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>别了，珈乐</title><link>https://lewky.cn/posts/asoul-jiale/</link><pubDate>Wed, 11 May 2022 23:30:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-jiale/</guid><description><![CDATA[<h2 id="江湖路远有缘再见">江湖路远，有缘再见</h2>
+<p>感谢这一路走来的欢笑与感动，东北的小狼公主提前离开了城堡，皇家骑士们依然守候在身后。</p>
+<p>别了，珈乐。</p>]]></description></item><item><title>桌面窗口管理器占用内存过高</title><link>https://lewky.cn/posts/dwm-issues/</link><pubDate>Tue, 22 Mar 2022 08:20:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/dwm-issues/</guid><description>&lt;h2 id="桌面窗口管理器dwmexe内存泄漏">桌面窗口管理器（dwm.exe）内存泄漏&lt;/h2>
 &lt;p>自从某天更新了Intel的核显驱动后，就发现电脑开机一段时间后必然发生卡顿，后来发现每次卡顿都是桌面窗口管理器（dwm.exe）占用内存过高。观察一段时间后发现，该进程内存会无限增加，怀疑发生了内存泄漏。在知乎搜索后发现很多人遇到了同款问题，这里记录下解决方法。&lt;/p></description></item><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky.cn/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -389,28 +391,4 @@ npm config set cache <span class="s2">&#34;D:\software\nodejs\node_cache&#34;</s
 </code></pre></td></tr></table>
 </div>
 </div><p>之后可以执行<code>npm config ls</code>来查看是否设置成功了。</p>
-<p>为了方便全局安装的模块能通过命令行来运行，可以将上述设置的两个路径添加到环境变量<code>PATH</code>中。</p>]]></description></item><item><title>Maven问题汇总</title><link>https://lewky.cn/posts/maven-issues/</link><pubDate>Thu, 29 Jul 2021 23:19:56 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/maven-issues/</guid><description><![CDATA[<h2 id="设置阿里云国内镜像">设置阿里云国内镜像</h2>
-<p>从Maven的中央仓库下载jar包速度很慢，可以通过在<code>settings.xml</code>中配置一个国内镜像来提高下载速度，一般用阿里云镜像。<strong>注意，如果你同时有多个配置文件，必须要修改当前用户目录下的<code>~/.m2</code>下的<code>settings.xml</code>才有效。</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;mirrors&gt;</span>  
-    <span class="nt">&lt;mirror&gt;</span>  
-        <span class="nt">&lt;id&gt;</span>alimaven<span class="nt">&lt;/id&gt;</span>  
-        <span class="nt">&lt;name&gt;</span>aliyun maven<span class="nt">&lt;/name&gt;</span>  
-        <span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>  
-        <span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>          
-    <span class="nt">&lt;/mirror&gt;</span>  
-<span class="nt">&lt;/mirrors&gt;</span> 
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p>为了方便全局安装的模块能通过命令行来运行，可以将上述设置的两个路径添加到环境变量<code>PATH</code>中。</p>]]></description></item></channel></rss>
