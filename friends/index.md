@@ -135,6 +135,15 @@ logo="https://cdn.jsdelivr.net/gh/youthlql/lqlp@v1.0.0/blog/avatar.jpg"
 word="主要是Java技术栈的博客，比较偏原理，源码类型的博主"
 >}}
 
+## 【Go】
+
+{{< friend
+name="飞鸟记"
+url="https://blog.aflybird.cn/"
+logo="https://avatars.githubusercontent.com/u/36830265"
+word="记录「技术」与「温度」"
+>}}
+
 ## 【前端】
 
 {{< friend
@@ -152,7 +161,7 @@ word="一个收藏回忆与分享技术的地方！"
 >}}
 
 <!--
-## 站点失联中
+## 站点已关闭
 
 {{< friend
 name="北落师门"
@@ -160,8 +169,6 @@ url="https://www.fm-cslab.com"
 logo="https://www.fm-cslab.com/default/avatar.png"
 word="会者定离，一期一祈"
 >}}
-
-## 站点已关闭
 
 {{< friend
 name="猫猫的小窝"
@@ -190,8 +197,8 @@ border-animation="bln"
 
 {{< friend
 name="雨临Lewis的博客"
-url="lewky.cn"
-logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
+url="https://lewky.cn"
+logo="https://lewky.cn/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 primary-color="linear-green"
 img-animation="auto_rotate_right"
@@ -202,10 +209,10 @@ border-animation="led"
 
 ```html
 name="雨临Lewis的博客"
-url="lewky.cn"
-logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
+url="https://lewky.cn"
+logo="https://lewky.cn/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
-screenshot="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/common/screenshot.jpg"
+screenshot="https://lewky.cn/images/common/screenshot.jpg"
 group="Java"
 ```
 
