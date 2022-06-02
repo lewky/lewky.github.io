@@ -27,13 +27,6 @@ border-animation="borderFlash"
 ## 【大佬们】
 
 {{< friend
-name="阳光派Plus’Blog"
-url="https://www.zyoushuo.cn/"
-logo="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/images/photo.jpg"
-word="聪明的妖怪已经录下了唐僧的紧箍咒"
->}}
-
-{{< friend
 name="BBing's Blog"
 url="https://bbing.com.cn/"
 logo="https://s3.ax1x.com/2021/01/21/s4crsU.png"
@@ -135,6 +128,13 @@ logo="https://cdn.jsdelivr.net/gh/youthlql/lqlp@v1.0.0/blog/avatar.jpg"
 word="主要是Java技术栈的博客，比较偏原理，源码类型的博主"
 >}}
 
+{{< friend
+name="一只会飞的旺旺"
+url="https://www.wangwangit.com/"
+logo="https://www.wangwangit.com/images/head/a.jpg"
+word="爱分享的Java程序猿"
+>}}
+
 ## 【Go】
 
 {{< friend
@@ -161,7 +161,7 @@ word="一个收藏回忆与分享技术的地方！"
 >}}
 
 <!--
-## 站点已关闭
+## 无法访问
 
 {{< friend
 name="北落师门"
@@ -175,6 +175,13 @@ name="猫猫的小窝"
 url="https://maogeblog.top"
 logo="https://cdn.jsdelivr.net/gh/HUC-GMM/maogeblog/ico.png"
 word="万丈高楼平地起，辉煌只能靠自己"
+>}}
+
+{{< friend
+name="阳光派Plus’Blog"
+url="https://www.zyoushuo.cn/"
+logo="https://cdn.jsdelivr.net/gh/zyoushuo/Blog/images/photo.jpg"
+word="聪明的妖怪已经录下了唐僧的紧箍咒"
 >}}
 
 -->
