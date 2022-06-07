@@ -1,4 +1,5 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Jan 2022 09:01:30 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>lombok问题汇总</title><link>https://lewky.cn/posts/lombok-issues/</link><pubDate>Thu, 06 Jan 2022 09:01:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/lombok-issues/</guid><description><![CDATA[<h2 id="eclipse安装lombok插件">Eclipse安装lombok插件</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 07 Jun 2022 23:49:08 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>Postman问题汇总</title><link>https://lewky.cn/posts/postman-issues/</link><pubDate>Tue, 07 Jun 2022 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postman-issues/</guid><description>&lt;h2 id="无法更改请求报文的编码">无法更改请求报文的编码&lt;/h2>
+&lt;p>在测试接口的时候发现，在Header中用ContentType指定编码为GBK也没有效果，服务端收到的报文始终是UTF-8编码的字节数组。在查阅资料后得出结论，就是Postman限制死了请求报文的编码为UTF-8，无法通过配置等方式进行修改，如果需要使用其他编码，要么换其他HTTP工具，要么用Java写一段代码去测试接口。&lt;/p></description></item><item><title>lombok问题汇总</title><link>https://lewky.cn/posts/lombok-issues/</link><pubDate>Thu, 06 Jan 2022 09:01:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/lombok-issues/</guid><description><![CDATA[<h2 id="eclipse安装lombok插件">Eclipse安装lombok插件</h2>
 <h3 id="方式一">方式一</h3>
 <p>使用lombok框架开发可以减少大量重复性的代码，大大提高开发效率，但是Eclipse本身并不支持lombok，会编译报错。除了项目要导入lombok依赖，还需要为Eclipse安装该lombok插件。</p>
 <p>安装方法很简单，找到你导入的lombok的jar包，双击运行该jar包，会出现一个安装界面。或者右键jar包，选择<code>打开方式</code>，接着选择<code>Java (TM) Platform SE binary</code>，会出现安装界面。</p>
@@ -48,18 +49,4 @@
 <p><code>ctrl + o</code> 查看当前类的所有方法</p>
 <p><code>ctrl + e</code> 快速切换编辑器，在打开了非常多的文件时会很便利</p>
 <p><code>ctrl + /</code> 单行注释或多行注释或取消注释</p>]]></description></item><item><title>IDE工具、文本编辑器的列块编辑模式</title><link>https://lewky.cn/posts/f0ce18c5.html/</link><pubDate>Thu, 17 Jan 2019 22:22:14 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f0ce18c5.html/</guid><description>&lt;h2 id="前言">前言&lt;/h2>
-&lt;p>有时候需要对若干列进行一样的操作，比如在前一百行数据的最前边加上一样的字符，这时候可以通过列块编辑模式来快捷地实现这个效果。在列块编辑模式下，被选定的区域内的所有字符会被替换成你之后输入的字符。&lt;/p></description></item><item><title>升级Log4j到Log4j2报错：cannot access org.apache.http.annotation.NotThreadSafe</title><link>https://lewky.cn/posts/55fa957a.html/</link><pubDate>Fri, 28 Dec 2018 01:16:21 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/55fa957a.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
-<p>今天把项目的log4j的依赖改成了log4j2的依赖后，发现使用Maven打包时报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project cbx-core: Compilation failure
-[ERROR] cannot access org.apache.http.annotation.NotThreadSafe
-[ERROR] class file for org.apache.http.annotation.NotThreadSafe not found
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+&lt;p>有时候需要对若干列进行一样的操作，比如在前一百行数据的最前边加上一样的字符，这时候可以通过列块编辑模式来快捷地实现这个效果。在列块编辑模式下，被选定的区域内的所有字符会被替换成你之后输入的字符。&lt;/p></description></item></channel></rss>

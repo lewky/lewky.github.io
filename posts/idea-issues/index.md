@@ -211,6 +211,21 @@ public class ${NAME} {
 
 连续按两下Shift打开搜索框，输入`Show quick documentation on mouse move`，这时候可以看到一个开关，打开这个开关即可。
 
+## Command line is too long.
+
+启动项目时报错如下：
+
+```
+Error running xxx. Command line is too long.
+Shorten the command line via JAR manifest or via a classpath file and rerun.
+```
+
+该报错是因为项目启动时需要打印的环境变量太长，超过了限制，需要缩短命令行来启动项目。
+
+按照报错提示，修改当前项目的配置：
+
+在启动或者Debug图标左侧打开当前项目的配置页面，在`Configuration`页签里的`Shorten command line:`选项里选择`JAR manifest`或者`classpath file`，然后保存并重启项目即可。
+
 ## 参考链接
 
 * [IDEA常用快捷键整理](https://www.cnblogs.com/tangxiaoyuan/p/14257563.html)
@@ -221,3 +236,4 @@ public class ${NAME} {
 * [IntelliJ IDEA高效使用教程，让你的工作效率提升10倍！](https://mp.weixin.qq.com/s/cRWGkDUguX-vPPCVyF7D2Q)
 * [idea编译器光标变为insert状态](https://blog.csdn.net/qingfengmuzhu1993/article/details/79496280)
 * [idea 鼠标变量_IntelliJ IDEA鼠标悬停方法显示Java Doc](https://blog.csdn.net/weixin_39793420/article/details/111805787)
+* [idea2021版本后项目运行报错——Error running xxx : Command line is too long.Shorten command line ..解决方法](https://blog.csdn.net/sinat_21843047/article/details/119331019)
