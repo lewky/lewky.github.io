@@ -11,7 +11,7 @@
 </div>
 </div>]]></description></item><item><title>计算机网络基础</title><link>https://lewky.cn/posts/network/</link><pubDate>Thu, 14 Oct 2021 21:28:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/network/</guid><description><![CDATA[<h2 id="ip地址">IP地址</h2>
 <p>IP地址由网络号（包括子网号）和主机号组成，网络号（包括子网号）相同意味着在同一网段下。在IPv4中，IP地址是一个32位的整数，对应4个字节，通常用x.x.x.x的点式十进制方式来表示。</p>
-<p>**主机号为全0时，代表当前网络地址；主机号为全1时，代表当前网络的广播地址。**当向某个网络的广播地址发送消息时，该网络内的所有主机都能收到该广播消息。</p>]]></description></item><item><title>远程桌面无法复制粘贴</title><link>https://lewky.cn/posts/remote-desktop-issue.html/</link><pubDate>Thu, 04 Feb 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/remote-desktop-issue.html/</guid><description><![CDATA[<h2 id="方法一">方法一</h2>
+<p><strong>主机号为全0时，代表当前网络地址；主机号为全1时，代表当前网络的广播地址。</strong> 当向某个网络的广播地址发送消息时，该网络内的所有主机都能收到该广播消息。</p>]]></description></item><item><title>远程桌面无法复制粘贴</title><link>https://lewky.cn/posts/remote-desktop-issue.html/</link><pubDate>Thu, 04 Feb 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/remote-desktop-issue.html/</guid><description><![CDATA[<h2 id="方法一">方法一</h2>
 <p>可能是<code>rdpclip.exe</code>进程出了问题，在任务管理器中找到该进程，选中后并结束进程。接着重启该进程：</p>
 <ol>
 <li><code>win + R</code>组合键打开运行窗口</li>

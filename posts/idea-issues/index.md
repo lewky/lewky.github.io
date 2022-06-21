@@ -94,9 +94,9 @@
 
 `File` -> `Settings...` -> `Editor` -> `General` -> `Editor Tabs` -> 取消勾选`Show tabs in one row`
 
-### 取消匹配大小写
+### 代码提示、搜索时取消匹配大小写
 
-在代码提示时默认匹配大小写，比如输入`s`是无法提示`String`的，需要取消匹配大小写：
+在代码提示、搜索时默认匹配大小写，比如输入`s`是无法提示`String`的，需要取消匹配大小写：
 
 `File` -> `Settings...` -> `Editor` -> `General` -> `Code completion` -> 取消勾选`Match Case:`
 

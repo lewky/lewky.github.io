@@ -24,6 +24,18 @@ primary-color="blue"
 border-animation="borderFlash"
 >}}
 
+## 【小伙伴】
+
+{{< friend
+name="一只会飞的旺旺"
+url="https://www.wangwangit.com/"
+logo="https://www.wangwangit.com/images/head/a.jpg"
+word="爱分享的Java程序猿"
+primary-color="linear-red"
+img-animation="auto_rotate_left"
+border-animation="led"
+>}}
+
 ## 【大佬们】
 
 {{< friend
@@ -126,13 +138,6 @@ name="Youth的时光录"
 url="https://imlql.cn/"
 logo="https://cdn.jsdelivr.net/gh/youthlql/lqlp@v1.0.0/blog/avatar.jpg"
 word="主要是Java技术栈的博客，比较偏原理，源码类型的博主"
->}}
-
-{{< friend
-name="一只会飞的旺旺"
-url="https://www.wangwangit.com/"
-logo="https://www.wangwangit.com/images/head/a.jpg"
-word="爱分享的Java程序猿"
 >}}
 
 ## 【Go】
