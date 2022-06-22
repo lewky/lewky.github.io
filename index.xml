@@ -1,4 +1,14 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 07 Jun 2022 23:49:08 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Postman问题汇总</title><link>https://lewky.cn/posts/postman-issues/</link><pubDate>Tue, 07 Jun 2022 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postman-issues/</guid><description><![CDATA[<h2 id="无法更改请求报文的编码">无法更改请求报文的编码</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 23 Jun 2022 00:44:25 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux问题汇总</title><link>https://lewky.cn/posts/linux-issues/</link><pubDate>Thu, 23 Jun 2022 00:44:25 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-issues/</guid><description><![CDATA[<h2 id="bad-interpreter-no-such-file-or-directory">bad interpreter: No such file or directory</h2>
+<p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">/bin/sh^M: bad interpreter: No such file or directory
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Postman问题汇总</title><link>https://lewky.cn/posts/postman-issues/</link><pubDate>Tue, 07 Jun 2022 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postman-issues/</guid><description><![CDATA[<h2 id="无法更改请求报文的编码">无法更改请求报文的编码</h2>
 <p>在测试接口的时候发现，在Header中用<code>Content-type</code>指定编码为<code>GBK</code>也没有效果，服务端收到的报文始终是<code>UTF-8</code>编码的字节数组。在查阅资料后得出结论，就是Postman限制死了请求报文的编码为<code>UTF-8</code>，无法通过配置等方式进行修改，如果需要使用其他编码，要么换其他HTTP工具，要么用Java写一段代码去测试接口。</p>]]></description></item><item><title>别了，珈乐</title><link>https://lewky.cn/posts/asoul-jiale/</link><pubDate>Wed, 11 May 2022 23:30:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-jiale/</guid><description><![CDATA[<h2 id="江湖路远有缘再见">江湖路远，有缘再见</h2>
 <p>感谢这一路走来的欢笑与感动，东北的小狼公主提前离开了城堡，皇家骑士们依然守候在身后。</p>
 <p>别了，珈乐。</p>]]></description></item><item><title>桌面窗口管理器占用内存过高</title><link>https://lewky.cn/posts/dwm-issues/</link><pubDate>Tue, 22 Mar 2022 08:20:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/dwm-issues/</guid><description>&lt;h2 id="桌面窗口管理器dwmexe内存泄漏">桌面窗口管理器（dwm.exe）内存泄漏&lt;/h2>
@@ -372,11 +382,4 @@ LoveIt: v0.2.10
 <p>本文基于2021-2版本的IDEA。</p>
 <h2 id="无法搜索或者下载插件">无法搜索或者下载插件</h2>
 <p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>
-<p>点击插件界面里的齿轮图标（在Marketplace、Installed的右边），选择<code>HTTP Proxy Settings...</code>，勾选<code>Auto-detect proxy settings</code>以及<code>Automatic proxy configuration URL:</code>，然后点击最下方的<code>Check connection</code>，在弹出框里输入官方插件网站<code>https://plugins.jetbrains.com/idea</code>，点击<code>OK</code>，一般都是可以连接成功的。之后就可以正常的搜索和下载插件了。</p>]]></description></item><item><title>博客园SimpleMemory皮肤定制化</title><link>https://lewky.cn/posts/cnblogs-skin/</link><pubDate>Thu, 05 Aug 2021 22:44:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cnblogs-skin/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>博客园支持皮肤的高度定制化，本文主要简单介绍下博客园的SimpleMemory皮肤的定制化。感谢皮肤作者以及定制化皮肤的作者！</p>
-<p>个人使用的是<code>BNDong</code>大大开源的基于SimpleMemory原皮的定制化皮肤，下面是相关的一些链接。</p>
-<ul>
-<li>项目地址：https://github.com/BNDong/Cnblogs-Theme-SimpleMemory</li>
-<li>文档地址：https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/</li>
-<li>原作者：https://www.cnblogs.com/bndong/</li>
-</ul>]]></description></item></channel></rss>
+<p>点击插件界面里的齿轮图标（在Marketplace、Installed的右边），选择<code>HTTP Proxy Settings...</code>，勾选<code>Auto-detect proxy settings</code>以及<code>Automatic proxy configuration URL:</code>，然后点击最下方的<code>Check connection</code>，在弹出框里输入官方插件网站<code>https://plugins.jetbrains.com/idea</code>，点击<code>OK</code>，一般都是可以连接成功的。之后就可以正常的搜索和下载插件了。</p>]]></description></item></channel></rss>

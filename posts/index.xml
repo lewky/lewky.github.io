@@ -1,4 +1,14 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 07 Jun 2022 23:49:08 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>Postman问题汇总</title><link>https://lewky.cn/posts/postman-issues/</link><pubDate>Tue, 07 Jun 2022 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postman-issues/</guid><description><![CDATA[<h2 id="无法更改请求报文的编码">无法更改请求报文的编码</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 23 Jun 2022 00:44:25 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>Linux问题汇总</title><link>https://lewky.cn/posts/linux-issues/</link><pubDate>Thu, 23 Jun 2022 00:44:25 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-issues/</guid><description><![CDATA[<h2 id="bad-interpreter-no-such-file-or-directory">bad interpreter: No such file or directory</h2>
+<p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">/bin/sh^M: bad interpreter: No such file or directory
+</code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Postman问题汇总</title><link>https://lewky.cn/posts/postman-issues/</link><pubDate>Tue, 07 Jun 2022 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postman-issues/</guid><description><![CDATA[<h2 id="无法更改请求报文的编码">无法更改请求报文的编码</h2>
 <p>在测试接口的时候发现，在Header中用<code>Content-type</code>指定编码为<code>GBK</code>也没有效果，服务端收到的报文始终是<code>UTF-8</code>编码的字节数组。在查阅资料后得出结论，就是Postman限制死了请求报文的编码为<code>UTF-8</code>，无法通过配置等方式进行修改，如果需要使用其他编码，要么换其他HTTP工具，要么用Java写一段代码去测试接口。</p>]]></description></item><item><title>别了，珈乐</title><link>https://lewky.cn/posts/asoul-jiale/</link><pubDate>Wed, 11 May 2022 23:30:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-jiale/</guid><description><![CDATA[<h2 id="江湖路远有缘再见">江湖路远，有缘再见</h2>
 <p>感谢这一路走来的欢笑与感动，东北的小狼公主提前离开了城堡，皇家骑士们依然守候在身后。</p>
 <p>别了，珈乐。</p>]]></description></item><item><title>桌面窗口管理器占用内存过高</title><link>https://lewky.cn/posts/dwm-issues/</link><pubDate>Tue, 22 Mar 2022 08:20:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/dwm-issues/</guid><description>&lt;h2 id="桌面窗口管理器dwmexe内存泄漏">桌面窗口管理器（dwm.exe）内存泄漏&lt;/h2>
@@ -100,26 +110,6 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
     <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
     <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>Java数值问题汇总</title><link>https://lewky.cn/posts/java-number/</link><pubDate>Mon, 10 Jan 2022 23:03:06 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-number/</guid><description><![CDATA[<h2 id="double转成bigdecimal的精度损失问题">double转成BigDecimal的精度损失问题</h2>
-<p>如果直接用构造方法将double数值转成BigDecimal，可能存在损失精度的问题：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">48</span><span class="o">);</span>
-<span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">BigDecimal</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">48</span><span class="o">);</span>
-<span class="c1">// 0.479999999999999982236431605997495353221893310546875
-</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b1</span><span class="o">);</span>
-<span class="c1">// 0.48
-</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b2</span><span class="o">);</span>
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>
