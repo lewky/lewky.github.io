@@ -2,7 +2,7 @@
 
 ## 主题相关
 
-本站原主题是Hugo-LoveIt，感谢本主题的开发者们！
+本站原主题是`Hugo-LoveIt`，感谢本主题的开发者们！
 
 {{< friend-css >}}
 
@@ -24,7 +24,7 @@ primary-color="blue"
 border-animation="borderFlash"
 >}}
 
-## 【小伙伴】
+## ★小伙伴★
 
 {{< friend
 name="一只会飞的旺旺"
@@ -102,10 +102,13 @@ word="读万卷书，行万里路，赚很多钱"
 >}}
 
 {{< friend
-name="免费v2ray节点"
-url="https://www.v2rayfree.eu.org/"
-logo="https://www.v2rayfree.eu.org/images/avatar.png"
-word="免费v2ray节点订阅自助获取"
+name="Duan1v’s Blog"
+url="https://duan1v.netlify.app/"
+logo="https://duan1v.netlify.app/images/avatar.png"
+word="一步两步是魔鬼的步伐"
+primary-color="default"
+img-animation="rotate"
+border-animation="borderFlash"
 >}}
 
 ## 【网络安全】
@@ -163,6 +166,15 @@ name="小康博客"
 url="https://www.antmoe.com/"
 logo="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/avatar.jpg"
 word="一个收藏回忆与分享技术的地方！"
+>}}
+
+## 【其他】
+
+{{< friend
+name="免费v2ray节点"
+url="https://www.v2rayfree.eu.org/"
+logo="https://www.v2rayfree.eu.org/images/avatar.png"
+word="免费v2ray节点订阅自助获取"
 >}}
 
 <!--
@@ -232,7 +244,7 @@ group="Java"
 
 ## 如何交换友链
 
-请在本页评论区里（也可以通过邮件、或者提交GitHub Issue的方式）添加如下格式，添加友链成功后会通过回复评论的邮件通知进行反馈：
+请在本页评论区里（也可以通过邮件、或者提交`GitHub Issue`的方式）添加如下格式，添加友链成功后会通过回复评论的邮件通知进行反馈：
 
 ```html
 //必填项
