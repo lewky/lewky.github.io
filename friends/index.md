@@ -103,8 +103,8 @@ word="读万卷书，行万里路，赚很多钱"
 
 {{< friend
 name="Duan1v’s Blog"
-url="https://duan1v.netlify.app/"
-logo="https://duan1v.netlify.app/images/avatar.png"
+url="https://duan1v.com/"
+logo="https://duan1v.com/images/avatar.png"
 word="一步两步是魔鬼的步伐"
 primary-color="default"
 img-animation="rotate"
