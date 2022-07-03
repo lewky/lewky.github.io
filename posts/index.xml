@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 23 Jun 2022 00:44:25 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>Linux问题汇总</title><link>https://lewky.cn/posts/linux-issues/</link><pubDate>Thu, 23 Jun 2022 00:44:25 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-issues/</guid><description><![CDATA[<h2 id="bad-interpreter-no-such-file-or-directory">bad interpreter: No such file or directory</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 03 Jul 2022 16:26:14 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>背包英雄：匕首流无尽模式详细攻略</title><link>https://lewky.cn/posts/backpack-hero-dagger/</link><pubDate>Sun, 03 Jul 2022 16:26:14 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/backpack-hero-dagger/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>自从看了老菊的背包英雄视频后，最近几周都痴迷于这款体量虽小但却很精品的肉鸽页游。各种套路组合挺多，机制也有意思，引入了常规肉鸽里不存在的背包空间限制，对于build的构建很有挑战。加上通关后还有个无尽模式，一直在尝试无尽模式能打到多远。今天通关了无尽，记录下攻略，也不算白白浪费了这段时间的努力。</p>
+<p>这是游戏的<a href="https://thejaspel.itch.io/backpack-hero" target="_blank" rel="noopener noreffer">官方地址</a>，官方自带中文翻译，如果访问不了的也可以去<a href="https://www.mhhf.com/game/detail/5739" target="_blank" rel="noopener noreffer">灵动游戏</a>上玩。</p>]]></description></item><item><title>Linux问题汇总</title><link>https://lewky.cn/posts/linux-issues/</link><pubDate>Thu, 23 Jun 2022 00:44:25 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-issues/</guid><description><![CDATA[<h2 id="bad-interpreter-no-such-file-or-directory">bad interpreter: No such file or directory</h2>
 <p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -92,24 +94,4 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
 </code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Java - 字符编码</title><link>https://lewky.cn/posts/java-charset/</link><pubDate>Sun, 13 Feb 2022 10:42:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-charset/</guid><description>&lt;h2 id="字符集">字符集&lt;/h2>
-&lt;p>字符集是一系列字符的集合，将每个收录的字符和数字进行映射。最早的字符集是ASCII，使用一个字节进行存储字符，8位一共可以表示256个字符，而ASCII只使用了其中的128位，即0～127位，这128位里面包括了常用的英文字符以及标点符号。&lt;/p></description></item><item><title>Spring Data Redis问题汇总</title><link>https://lewky.cn/posts/spring-data-redis/</link><pubDate>Thu, 13 Jan 2022 23:10:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-redis/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文基于以下版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--  对应的是3.3.0版本的jedis（redis的java客户端） --&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+&lt;p>字符集是一系列字符的集合，将每个收录的字符和数字进行映射。最早的字符集是ASCII，使用一个字节进行存储字符，8位一共可以表示256个字符，而ASCII只使用了其中的128位，即0～127位，这128位里面包括了常用的英文字符以及标点符号。&lt;/p></description></item></channel></rss>
