@@ -111,6 +111,13 @@ img-animation="rotate"
 border-animation="borderFlash"
 >}}
 
+{{< friend
+name="亲自巡山的大王"
+url="http://ziyue.tech/"
+logo="https://s2.loli.net/2022/07/26/T4VPEMvKFzQ3O1A.jpg"
+word="做一个有趣的人"
+>}}
+
 ## 【网络安全】
 
 {{< friend
