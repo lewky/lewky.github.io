@@ -145,7 +145,9 @@ function le() {
 }
 //var bgmSrc = "https://lewky.coding.me/carnival/audio/Martin%20Jensen%20-%20Fox%20(Loop%20Remix).mp3";
 //var bgmSrc = "https://lewky.coding.me/carnival/audio/zhexue_min.mp3";
-var bgmSrc = "https://cdn.jsdelivr.net/gh/lewky/carnival@master/audio/zhexue_min.mp3";
+//var bgmSrc = "https://cdn.jsdelivr.net/gh/lewky/carnival@master/audio/zhexue_min.mp3";
+var bgmSrc = "https://lewky.cn/audio/zhexue_min.mp3";
 //var cssHref = "https://lewky.coding.me/carnival/css/high.css";     //设置页面动效css地址
-var cssHref = "https://cdn.jsdelivr.net/gh/lewky/carnival@master/css/high.css";     //设置页面动效css地址
+//var cssHref = "https://cdn.jsdelivr.net/gh/lewky/carnival@master/css/high.css";     //设置页面动效css地址
+var cssHref = "https://lewky.cn/css/high.css";     //设置页面动效css地址
 
