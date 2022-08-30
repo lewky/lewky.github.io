@@ -118,6 +118,13 @@ logo="https://s2.loli.net/2022/07/26/T4VPEMvKFzQ3O1A.jpg"
 word="做一个有趣的人"
 >}}
 
+{{< friend
+name="hao同学的技术博客"
+url="https://www.hreshhao.com/"
+logo="https://hreshhao.com/resource/imgs/hresh-logo.png"
+word="一个痴迷于技术的厨艺爱好者"
+>}}
+
 ## 【网络安全】
 
 {{< friend
