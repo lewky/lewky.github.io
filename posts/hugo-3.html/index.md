@@ -831,7 +831,7 @@ border-animation="shadow"
 {{< friend
 name="雨临Lewis的博客"
 url="lewky.cn"
-logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
+logo="/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 primary-color="linear-green"
 img-animation="auto_rotate_right"
@@ -841,7 +841,7 @@ border-animation="led"
 {{< friend
 name="雨临Lewis的博客"
 url="lewky.cn"
-logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
+logo="/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 primary-color="red"
 img-animation="auto_rotate_left"
@@ -851,7 +851,7 @@ border-animation="borderFlash"
 {{< friend
 name="雨临Lewis的博客"
 url="lewky.cn"
-logo="https://cdn.jsdelivr.net/gh/lewky/lewky.github.io@master/images/avatar.jpg"
+logo="/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 >}}
 
