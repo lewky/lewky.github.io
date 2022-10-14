@@ -125,6 +125,20 @@ logo="https://hreshhao.com/resource/imgs/hresh-logo.png"
 word="一个痴迷于技术的厨艺爱好者"
 >}}
 
+{{< friend
+name="FireGuo论坛"
+url="http://www.flweb.tk"
+logo="我的favicon.ico"
+word="FireGuo论坛-一个免费的讨论论坛，尽情发表言论吧！"
+>}}
+
+{{< friend
+name="FireGuo博客"
+url="http://blog.flweb.tk"
+logo="我的favicon.ico"
+word="一个普通初中生的普通博客，为了分享普通的技术知识"
+>}}
+
 ## 【网络安全】
 
 {{< friend

@@ -105,7 +105,16 @@ Quest2的激活相当麻烦，不少新人就是倒在了开头的激活和更�
 
 此时对于笔记本，直接启动一个wifi热点，连接到该热点的设备即可实现魔法上网。
 
-**这里还有个问题，Windows系统版本更新了两个版本后会导致发射的wifi热点出bug而失效，需要回退版本。**
+**这里还有个问题，Windows系统版本在更新了某两个版本（kb5014697和kb5014699）后存在一个bug，会导致发射的魔法上网的wifi热点失效，甚至是造成蓝屏，需要回退到更新之前的版本。**
+
+卸载方法如下：
+
+1. 点击开始菜单 -> 打开设置
+2. 进入设置后点击查看历史更新记录
+3. 点击上方卸载更新
+4. 卸载最近的更新即可。特别是`kb5014697`和`kb5014699`相关的更新。最好把2022-06-10号之后含有KB的更新都卸载了
+
+具体可以参考这篇文章：[Win系统蓝屏&网络问题解决方案](https://www.yuque.com/oculus-helper/start/vrnkk4)
 
 ### wifi支持UDP转发
 
@@ -305,3 +314,4 @@ Quest商城的游戏很贵，没条件购买的可以直接安装个VR87助手�
 * [Oculus开启开发者模式202110月版教程](https://www.bilibili.com/read/cv13707377/)
 * [超详细Oculus Quest2激活使用攻略，手把手带你玩转Quest2](https://zhuanlan.zhihu.com/p/534419576)
 * [转贴：Oculus Quest 解锁+SideQuest安装教程](https://zhuanlan.zhihu.com/p/343966231?ivk_sa=1024320u)
+* [Quest2操作教程](https://www.yuque.com/oculus-helper/start/quick)
