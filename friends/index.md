@@ -36,6 +36,28 @@ img-animation="auto_rotate_left"
 border-animation="led"
 >}}
 
+## 【群大佬】
+
+{{< friend
+name="欲穷三千界的博客"
+url="http://blog.zhogjianhao.top/"
+logo="https://cn.gravatar.com/avatar/3b68d6a28eaaa388e70bb37248c897e3?s=256&d=mm"
+word="十年饮冰，码血难凉的组长，大虎yyds~"
+primary-color="linear-blue"
+img-animation="auto_rotate_left"
+border-animation="borderFlash"
+>}}
+
+{{< friend
+name="琉璃君的日常"
+url="https://www.yeliulee.com/"
+logo="https://www.yeliulee.com/usr/uploads/logo.png"
+word="群龙王名号的长期持有者，兼职群共享女友~"
+primary-color="linear-red"
+img-animation="rotate"
+border-animation="borderFlash"
+>}}
+
 ## 【大佬们】
 
 {{< friend
