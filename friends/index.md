@@ -44,7 +44,7 @@ url="http://blog.zhogjianhao.top/"
 logo="https://cn.gravatar.com/avatar/3b68d6a28eaaa388e70bb37248c897e3?s=256&d=mm"
 word="十年饮冰，码血难凉的组长，大虎yyds~"
 primary-color="linear-blue"
-img-animation="auto_rotate_left"
+img-animation="rotate"
 border-animation="borderFlash"
 >}}
 
@@ -54,6 +54,16 @@ url="https://www.yeliulee.com/"
 logo="https://www.yeliulee.com/usr/uploads/logo.png"
 word="群龙王名号的长期持有者，兼职群共享女友~"
 primary-color="linear-red"
+img-animation="rotate"
+border-animation="borderFlash"
+>}}
+
+{{< friend
+name="想要逆袭の柠檬"
+url="https://blog.yylemon.top/"
+logo="https://blog.yylemon.top/img/avatar/chuyin.JPEG"
+word="不必在意, 勇往直前"
+primary-color="linear-green"
 img-animation="rotate"
 border-animation="borderFlash"
 >}}
