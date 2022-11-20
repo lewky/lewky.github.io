@@ -226,6 +226,15 @@ Shorten the command line via JAR manifest or via a classpath file and rerun.
 
 在启动或者Debug图标左侧打开当前项目的配置页面，在`Configuration`页签里的`Shorten command line:`选项里选择`JAR manifest`或者`classpath file`，然后保存并重启项目即可。
 
+## import语句去掉*
+
+`File` -> `Settings...` -> `Editor` -> `Code Style` -> `Java` -> `Scheme:`选择`Default` -> 选择`Imports`这个tab：
+
+* 找到`General`这一栏，勾选`Use single class import`
+* 将`Class count to use import with '*'`改为较大的值，如99
+* 将`Names count to use static import with '*'`改为较大的值，如99
+* 找到`Package to Use import with '*'`这一栏，将里面勾选的选项全部取消掉
+
 ## 参考链接
 
 * [IDEA常用快捷键整理](https://www.cnblogs.com/tangxiaoyuan/p/14257563.html)
@@ -237,3 +246,4 @@ Shorten the command line via JAR manifest or via a classpath file and rerun.
 * [idea编译器光标变为insert状态](https://blog.csdn.net/qingfengmuzhu1993/article/details/79496280)
 * [idea 鼠标变量_IntelliJ IDEA鼠标悬停方法显示Java Doc](https://blog.csdn.net/weixin_39793420/article/details/111805787)
 * [idea2021版本后项目运行报错——Error running xxx : Command line is too long.Shorten command line ..解决方法](https://blog.csdn.net/sinat_21843047/article/details/119331019)
+* [idea import 去掉*](https://blog.csdn.net/tianzhonghaoqing/article/details/121559128)
