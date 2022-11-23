@@ -171,6 +171,13 @@ logo="我的favicon.ico"
 word="一个普通初中生的普通博客，为了分享普通的技术知识"
 >}}
 
+{{< friend
+name="企鹅小屋"
+url="https://blog.vpstp.com"
+logo="https://cravatar.cn/avatar/2cf805e274570863fa4574d70f32ec4b"
+word="企鹅的小屋"
+>}}
+
 ## 【网络安全】
 
 {{< friend
