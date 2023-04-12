@@ -210,6 +210,13 @@ logo="https://cdn.jsdelivr.net/gh/youthlql/lqlp@v1.0.0/blog/avatar.jpg"
 word="主要是Java技术栈的博客，比较偏原理，源码类型的博主"
 >}}
 
+{{< friend
+name="牛牛技术客栈"
+url="https://www.nnjskz.cn"
+logo="https://www.nnjskz.cn/img/logo3.png"
+word="学习改变命运，分享创造价值"
+>}}
+
 ## 【Go】
 
 {{< friend
