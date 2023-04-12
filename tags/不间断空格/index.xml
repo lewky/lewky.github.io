@@ -2,16 +2,16 @@
 <p>最近遇到个问题，在页面的搜索框输入带有空格的字符串时，总是无法从db中搜索出来对应的数据，于是将db里的空格复制出来，发现其ASCII码值为160，这才知道，原来ASCII码中除了32之外还有160这个特殊的空格。下边是查看字符对应ASCII值的逻辑：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="kt">char</span> <span class="n">c1</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="o">;</span> <span class="c1">//db里的空格
-</span><span class="c1"></span><span class="kd">final</span> <span class="kt">char</span> <span class="n">c2</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="o">;</span> <span class="c1">//手动输入的空格
-</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span><span class="n">c1</span><span class="o">);</span> <span class="c1">//160
-</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span><span class="n">c2</span><span class="o">);</span> <span class="c1">//32
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="kt">char</span> <span class="n">c1</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="o">;</span> <span class="c1">//db里的空格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">final</span> <span class="kt">char</span> <span class="n">c2</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="o">;</span> <span class="c1">//手动输入的空格
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span><span class="n">c1</span><span class="o">);</span> <span class="c1">//160
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span><span class="n">c2</span><span class="o">);</span> <span class="c1">//32
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

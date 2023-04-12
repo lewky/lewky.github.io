@@ -235,6 +235,12 @@ Shorten the command line via JAR manifest or via a classpath file and rerun.
 * 将`Names count to use static import with '*'`改为较大的值，如99
 * 找到`Package to Use import with '*'`这一栏，将里面勾选的选项全部取消掉
 
+## 全局搜索不到真实存在的文件或文本内容
+
+有时候idea无法搜索到一个真实存在的文件或者文本内容，是idea本身的缓存未刷新导致的，解决方法是使旧缓存失效并重启idea，这时候就可以搜索到了：
+
+`File` -> `Invalidate Caches / Restart...`
+
 ## 参考链接
 
 * [IDEA常用快捷键整理](https://www.cnblogs.com/tangxiaoyuan/p/14257563.html)

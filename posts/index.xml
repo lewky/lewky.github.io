@@ -1,4 +1,10 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 20 Nov 2022 23:13:22 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>HttpURLConnection设置host请求头无效</title><link>https://lewky.cn/posts/http-host-header/</link><pubDate>Sun, 20 Nov 2022 23:13:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/http-host-header/</guid><description>&lt;h2 id="host请求头无效">host请求头无效&lt;/h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 12 Apr 2023 22:27:41 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>SmartGit问题汇总</title><link>https://lewky.cn/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
+<p>SmartGit可以免费试用三十天，三十天后可以通过删除配置文件来重复免费试用三十天的过程，不同版本需要删除的文件不同。</p>
+<p><code>win + R</code>组合键打开运行窗口，输入<code>%APPDATA%\syntevo\SmartGit\</code>然后回车会进入到SmartGit的安装路径，进入你当前使用的版本目录，如果是旧版的SmartGit（如17.2版本），删除当前的<code>settings.xml</code>文件，然后重启SmartGit即可。</p>
+<p>如果找不到<code>settings.xml</code>文件，说明是新版本的SmartGit（如21.2版本），此时需要删除下面两个文件：</p>
+<p><code>license</code>和<code>preferences.yml</code>，然后重启SmartGit即可。</p>
+<h2 id="选择秘钥时不支持openssh格式">选择秘钥时不支持OPENSSH格式</h2>
+<p>某天发现用Git Bash生成的SSH key无法被SmartGit识别，提示需要PEM格式，不支持OPENSSH格式。奇怪的是之前也用同样的方法生成的key是可以被识别的，猜测要么是SmartGit版本不同导致无法支持OPENSSH格式，要么是Git Bash版本不同导致默认生成的key格式发生了变化。</p>]]></description></item><item><title>HttpClient问题汇总</title><link>https://lewky.cn/posts/httpclient-issues/</link><pubDate>Sun, 20 Nov 2022 23:13:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/httpclient-issues/</guid><description>&lt;h2 id="httpurlconnection设置host请求头无效">HttpURLConnection设置host请求头无效&lt;/h2>
 &lt;p>由于业务需要在调用第三方SDK时需要设置host请求头为对方的域名，在测试时发现代码设置后依然无法生效。查找资料后发现是从JDK6的6u23版本开始就对HTTP的部分请求头做了限制，如下：&lt;/p></description></item><item><title>Oculus Quest2食用指南</title><link>https://lewky.cn/posts/oculus-quests/</link><pubDate>Thu, 25 Aug 2022 21:20:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/oculus-quests/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>前不久买了Oculus Quest2，从购买到激活再到使用这个过程属实折腾了好一番手脚，这里简单记录下，一方面给其他朋友做个参考，一方面也能以防万一日后重置机器需要重新激活。</p>
 <h2 id="设备本体">设备本体</h2>
@@ -11,11 +17,11 @@
 <p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">/bin/sh^M: bad interpreter: No such file or directory
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/bin/sh^M: bad interpreter: No such file or directory
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Postman问题汇总</title><link>https://lewky.cn/posts/postman-issues/</link><pubDate>Tue, 07 Jun 2022 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postman-issues/</guid><description><![CDATA[<h2 id="无法更改请求报文的编码">无法更改请求报文的编码</h2>
 <p>在测试接口的时候发现，在Header中用<code>Content-type</code>指定编码为<code>GBK</code>也没有效果，服务端收到的报文始终是<code>UTF-8</code>编码的字节数组。在查阅资料后得出结论，就是Postman限制死了请求报文的编码为<code>UTF-8</code>，无法通过配置等方式进行修改，如果需要使用其他编码，要么换其他HTTP工具，要么用Java写一段代码去测试接口。</p>]]></description></item><item><title>别了，珈乐</title><link>https://lewky.cn/posts/asoul-jiale/</link><pubDate>Wed, 11 May 2022 23:30:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-jiale/</guid><description><![CDATA[<h2 id="江湖路远有缘再见">江湖路远，有缘再见</h2>
@@ -24,7 +30,7 @@
 &lt;p>自从某天更新了Intel的核显驱动后，就发现电脑开机一段时间后必然发生卡顿，后来发现每次卡顿都是桌面窗口管理器（dwm.exe）占用内存过高。观察一段时间后发现，该进程内存会无限增加，怀疑发生了内存泄漏。在知乎搜索后发现很多人遇到了同款问题，这里记录下解决方法。&lt;/p></description></item><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky.cn/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -45,47 +51,27 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 创建blog索引，类型是_doc，id是1
-curl -H &#39;Content-Type:application/json&#39; -XPUT http://localhost:9200/blog/_doc/1 -d &#39;
-{
-      &#34;id&#34;: &#34;1&#34;,
-      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
-      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
-      &#34;priority&#34;: 10,
-      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
-}&#39;
-
-// 创建blog索引，类型是_doc，id由ES自己生成
-// 该id长度为20个字符，URL安全，base64编码，GUID，分布式系统并行生成时不可能会发生冲突
-curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blog/_doc/ -d &#39;
-{
-      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
-      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
-      &#34;priority&#34;: 10,
-      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
-}&#39;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 创建blog索引，类型是_doc，id是1
+</span></span><span class="line"><span class="cl">curl -H &#39;Content-Type:application/json&#39; -XPUT http://localhost:9200/blog/_doc/1 -d &#39;
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">      &#34;id&#34;: &#34;1&#34;,
+</span></span><span class="line"><span class="cl">      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
+</span></span><span class="line"><span class="cl">      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
+</span></span><span class="line"><span class="cl">      &#34;priority&#34;: 10,
+</span></span><span class="line"><span class="cl">      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
+</span></span><span class="line"><span class="cl">}&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 创建blog索引，类型是_doc，id由ES自己生成
+</span></span><span class="line"><span class="cl">// 该id长度为20个字符，URL安全，base64编码，GUID，分布式系统并行生成时不可能会发生冲突
+</span></span><span class="line"><span class="cl">curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blog/_doc/ -d &#39;
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
+</span></span><span class="line"><span class="cl">      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
+</span></span><span class="line"><span class="cl">      &#34;priority&#34;: 10,
+</span></span><span class="line"><span class="cl">      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
+</span></span><span class="line"><span class="cl">}&#39;
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>ELK系列(5) - Elasticsearch性能调优</title><link>https://lewky.cn/posts/elk-5/</link><pubDate>Sat, 19 Mar 2022 22:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-5/</guid><description><![CDATA[<h2 id="机器内存分配">机器内存分配</h2>
 <p>官方推荐一个ES节点最好是分配当前机器最大内存的50%，比如机器内存是16g，就分配8g给ES：<code>-Xmx8g</code>。</p>
-<p>剩下的8g内存并不是说就闲置了，ES会拿机器剩余的内存来优化自身的查询效率。也就是说，并不是一味将最大内存设置很大就是最优解。</p>]]></description></item><item><title>MyBatis问题汇总</title><link>https://lewky.cn/posts/mybatis-issues/</link><pubDate>Thu, 03 Mar 2022 23:10:33 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/mybatis-issues/</guid><description><![CDATA[<h2 id="使用domainobjectrenamingrule报错">使用domainObjectRenamingRule报错</h2>
-<p>在使用MyBatis逆向工程时报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">org.mybatis.generator.exception.XMLParserException: XML Parser Error on line 43: 必须声明元素类型 &#34;domainObjectRenamingRule&#34;。
-    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:121)
-    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:82)
-    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:74)
-    at GeneratorSqlmap.generator(GeneratorSqlmap.java:22)
-    at GeneratorSqlmap.main(GeneratorSqlmap.java:32)
-</code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p>剩下的8g内存并不是说就闲置了，ES会拿机器剩余的内存来优化自身的查询效率。也就是说，并不是一味将最大内存设置很大就是最优解。</p>]]></description></item></channel></rss>

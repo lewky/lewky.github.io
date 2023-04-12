@@ -29,6 +29,8 @@ fileformat=dos
 
 ## 判断网络是否连通
 
+### ssh命令
+
 有个通用命令，Windows和Linux都能使用，如下：
 
 ```shell
@@ -60,6 +62,48 @@ debug1: kex_exchange_identification: banner line 1: Content-Type: text/plain; ch
 debug1: kex_exchange_identification: banner line 2: Connection: close
 debug1: kex_exchange_identification: banner line 3:
 kex_exchange_identification: Connection closed by remote host
+```
+
+### nc命令
+
+如果服务器里无法使用ssh命令，可以使用下面的命令：
+
+```shell
+nc -vz -w 2 ip port
+```
+
+`-v`表示可视化，`-z`扫描时不发送数据，`-w`后面跟的数字表示超时几秒。用法如下：
+
+```shell
+// 端口能通
+C:\Users\10191>nc -vz -w 2 1.2.3.70 8888
+1.2.3.70 (1.2.3.70:8888) open
+
+// 端口不能通
+C:\Users\10191>nc -vz -w 2 1.2.3.70 8889
+nc: 1.2.3.70 (1.2.3.70:8889): Operation timed out
+```
+
+## 查看端口是否启用
+
+### lsof命令
+
+该命令用于列出系统已经打开的所有文件，在Linux中任何事物都以文件形式存在，通过文件可以访问常规数据、网络连接和硬件等。但该命令需要访问核心内存和各种文件，因此需要root用户执行。
+
+```shell
+lsof -i:port
+
+// 查39007端口是否启用
+lsof -i:39007
+```
+
+### netstat命令
+
+```shell
+netstat -aptn
+
+// 查39007端口是否启用
+netstat -aptn | grep 39007
 ```
 
 ## 查看和修改Linux的时区
@@ -348,3 +392,4 @@ yacc = yet another compiler compiler
 * [Linux系统查看当前时间的命令](https://blog.csdn.net/evilcry2012/article/details/54315170)
 * [linux下vi操作Found a swap file by the name](http://chenzhou123520.iteye.com/blog/1313585)
 * [非正常关闭vi编辑器时会生成一个.swp文件](https://www.cnblogs.com/quchunhui/p/7513586.html)
+* [Linux怎么查看端口是否启用](https://m.php.cn/article/490780.html)

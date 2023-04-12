@@ -1,31 +1,42 @@
-<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Linux问题汇总 - Yulin Lewis' Blog</title><meta name=keywords content="雨临Lewis,Java,hugo,hexo,博客"><meta name=Description content="不想当写手的码农不是好咸鱼_(xз」∠)_"><meta property="og:title" content="Linux问题汇总"><meta property="og:description" content="bad interpreter: No such file or directory
+<!doctype html><html lang><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Linux问题汇总 - Yulin Lewis' Blog</title><meta name=keywords content="雨临Lewis,Java,hugo,hexo,博客"><meta name=Description content="不想当写手的码农不是好咸鱼_(xз」∠)_"><meta property="og:title" content="Linux问题汇总"><meta property="og:description" content="bad interpreter: No such file or directory
 在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：
 
 
 1
 
 
-/bin/sh^M: bad interpreter: No such file or directory"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/linux-issues/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2022-06-23T00:44:25+08:00"><meta property="article:modified_time" content="2022-06-23T00:44:25+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Linux问题汇总"><meta name=twitter:description content="bad interpreter: No such file or directory
+/bin/sh^M: bad interpreter: No such file or directory
+
+
+"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/linux-issues/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-06-23T00:44:25+08:00"><meta property="article:modified_time" content="2022-12-11T00:44:25+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Linux问题汇总"><meta name=twitter:description content="bad interpreter: No such file or directory
 在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：
 
 
 1
 
 
-/bin/sh^M: bad interpreter: No such file or directory"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky.cn/posts/linux-issues/><link rel=prev href=https://lewky.cn/posts/postman-issues/><link rel=next href=https://lewky.cn/posts/backpack-hero-dagger/><link rel=stylesheet href=https://unpkg.com/normalize.css@8.0.1/normalize.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://unpkg.com/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://unpkg.com/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Linux问题汇总","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/linux-issues\/"},"genre":"posts","keywords":"工作记录, Linux","wordcount":2610,"url":"https:\/\/lewky.cn\/posts\/linux-issues\/","datePublished":"2022-06-23T00:44:25+08:00","dateModified":"2022-06-23T00:44:25+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class="fas fa-fw fa-archive"></i>归档</a><div class="menu-more-content dropdown-content"><a href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a href=/about/><i class="fas fa-fw fa-at"></i>关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class="fas fa-fw fa-link"></i>友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class="fas fa-fw fa-fan fa-spin"></i>趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class="fas fa-fw fa-dizzy"></i>燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class="fas fa-fw fa-music"></i>在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class="fas fa-fw fa-cat"></i>抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class="fas fa-fw fa-atom"></i>站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class="fas fa-fw fa-comment"></i>公告留言 </a><a href=https://seo.chinaz.com target=_blank rel=noopener><i class="fas fa-fw fa-chart-line"></i>SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn target=_blank rel=noopener><i class="fas fa-fw fa-bezier-curve"></i>网站测速 </a><a href=/posts/e62c38c4.html/><i class="fas fa-fw fa-cog fa-spin"></i>建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn"><i class="fas fa-fw fa-book"></i>文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ target=_blank rel=noopener><i class="fas fa-fw fa-star"></i>Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class="fab fa-fw fa-java"></i>Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class="fas fa-fw fa-search"></i>搜索
-</a><span class="menu-item delimiter"></span><a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class="fas fa-fw fa-subway"></i></a><a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class="fas fa-fw fa-inbox"></i></a><a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class="fab fa-fw fa-github"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class="fas fa-fw fa-archive"></i>归档</a><div class="menu-more-content dropdown-content"><a href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a href=/about/><i class="fas fa-fw fa-at"></i>关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class="fas fa-fw fa-link"></i>友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class="fas fa-fw fa-fan fa-spin"></i>趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class="fas fa-fw fa-dizzy"></i>燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class="fas fa-fw fa-music"></i>在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class="fas fa-fw fa-cat"></i>抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class="fas fa-fw fa-atom"></i>站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class="fas fa-fw fa-comment"></i>公告留言 </a><a href=https://seo.chinaz.com target=_blank rel=noopener><i class="fas fa-fw fa-chart-line"></i>SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn target=_blank rel=noopener><i class="fas fa-fw fa-bezier-curve"></i>网站测速 </a><a href=/posts/e62c38c4.html/><i class="fas fa-fw fa-cog fa-spin"></i>建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn"><i class="fas fa-fw fa-book"></i>文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ target=_blank rel=noopener><i class="fas fa-fw fa-star"></i>Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class="fab fa-fw fa-java"></i>Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class="fas fa-fw fa-search"></i>搜索</a>
-<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class="fas fa-fw fa-subway"></i></a><a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class="fas fa-fw fa-inbox"></i></a><a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class="fab fa-fw fa-github"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Linux问题汇总</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/><i class="far fa-folder fa-fw"></i>计算机</a></span></div><div class=post-meta-line><i class="far fa-calendar fa-fw"></i>&nbsp;<time datetime=2022-06-23>2022-06-23</time>&nbsp;<i class="far fa-calendar-plus fa-fw"></i>&nbsp;<time datetime=2022-06-23>2022-06-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2610 字
+/bin/sh^M: bad interpreter: No such file or directory
+
+
+"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky.cn/posts/linux-issues/><link rel=prev href=https://lewky.cn/posts/postman-issues/><link rel=next href=https://lewky.cn/posts/backpack-hero-dagger/><link rel=stylesheet href=https://unpkg.com/normalize.css@8.0.1/normalize.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://unpkg.com/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://unpkg.com/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Linux问题汇总","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/linux-issues\/"},"genre":"posts","keywords":"工作记录, Linux","wordcount":2905,"url":"https:\/\/lewky.cn\/posts\/linux-issues\/","datePublished":"2022-06-23T00:44:25+08:00","dateModified":"2022-12-11T00:44:25+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class='fas fa-fw fa-atom'></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class='fas fa-fw fa-archive'></i> 归档</a><div class="menu-more-content dropdown-content"><a href=/categories/ title><i class='fas fa-fw fa-th'></i> 分类 </a><a href=/tags/ title><i class='fas fa-fw fa-tag'></i> 标签 </a><a href=/about/ title><i class='fas fa-fw fa-at'></i> 关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class='fas fa-fw fa-link'></i> 友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class='fas fa-fw fa-fan fa-spin'></i> 趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class='fas fa-fw fa-dizzy'></i> 燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class='fas fa-fw fa-music'></i> 在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class='fas fa-fw fa-cat'></i> 抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class='fas fa-fw fa-atom'></i> 站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class='fas fa-fw fa-comment'></i> 公告留言 </a><a href=https://seo.chinaz.com title target=_blank rel=noopener><i class='fas fa-fw fa-chart-line'></i> SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn title target=_blank rel=noopener><i class='fas fa-fw fa-bezier-curve'></i> 网站测速 </a><a href=/posts/e62c38c4.html/ title><i class='fas fa-fw fa-cog fa-spin'></i> 建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title><i class='fas fa-fw fa-book'></i> 文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ title target=_blank rel=noopener><i class='fas fa-fw fa-star'></i> Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class='fab fa-fw fa-java'></i> Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class='fas fa-fw fa-search'></i> 搜索
+</a><span class="menu-item delimiter"></span>
+<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class='fas fa-fw fa-subway'></i></a>
+<a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class='fas fa-fw fa-inbox'></i></a>
+<a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class='fab fa-fw fa-github'></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class='fas fa-fw fa-atom'></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class='fas fa-fw fa-archive'></i> 归档</a><div class="menu-more-content dropdown-content"><a href=/categories/ title><i class='fas fa-fw fa-th'></i> 分类 </a><a href=/tags/ title><i class='fas fa-fw fa-tag'></i> 标签 </a><a href=/about/ title><i class='fas fa-fw fa-at'></i> 关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class='fas fa-fw fa-link'></i> 友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class='fas fa-fw fa-fan fa-spin'></i> 趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class='fas fa-fw fa-dizzy'></i> 燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class='fas fa-fw fa-music'></i> 在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class='fas fa-fw fa-cat'></i> 抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class='fas fa-fw fa-atom'></i> 站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class='fas fa-fw fa-comment'></i> 公告留言 </a><a href=https://seo.chinaz.com title target=_blank rel=noopener><i class='fas fa-fw fa-chart-line'></i> SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn title target=_blank rel=noopener><i class='fas fa-fw fa-bezier-curve'></i> 网站测速 </a><a href=/posts/e62c38c4.html/ title><i class='fas fa-fw fa-cog fa-spin'></i> 建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title><i class='fas fa-fw fa-book'></i> 文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ title target=_blank rel=noopener><i class='fas fa-fw fa-star'></i> Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class='fab fa-fw fa-java'></i> Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class='fas fa-fw fa-search'></i> 搜索</a>
+<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class='fas fa-fw fa-subway'></i></a>
+<a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class='fas fa-fw fa-inbox'></i></a>
+<a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class='fab fa-fw fa-github'></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Linux问题汇总</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/><i class="far fa-folder fa-fw"></i>计算机</a></span></div><div class=post-meta-line><i class="far fa-calendar fa-fw"></i>&nbsp;<time datetime=2022-06-23>2022-06-23</time>&nbsp;<i class="far fa-calendar-plus fa-fw"></i>&nbsp;<time datetime=2022-12-11>2022-12-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2905 字
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id=/posts/linux-issues/ class=leancloud_visitors data-flag-title=Linux问题汇总>
 <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
 </span>&nbsp;
 <a href=#comments id=post-meta-vcount title=查看评论><i class="fas fa-comment fa-fw"></i>&nbsp;<span id=/posts/linux-issues/ class=waline-comment-count></span>&nbsp;条评论</a></div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#bad-interpreter-no-such-file-or-directory>bad interpreter: No such file or directory</a></li><li><a href=#判断网络是否连通>判断网络是否连通</a></li><li><a href=#查看和修改linux的时区>查看和修改Linux的时区</a><ol><li><a href=#查看当前时区>查看当前时区</a></li><li><a href=#修改设置linux服务器时区>修改设置Linux服务器时区</a></li><li><a href=#复制相应的时区文件替换系统时区文件或者创建链接文件>复制相应的时区文件，替换系统时区文件；或者创建链接文件</a></li></ol></li><li><a href=#查看和修改linux的时间>查看和修改Linux的时间</a><ol><li><a href=#查看时间和日期>查看时间和日期</a></li><li><a href=#设置时间和日期>设置时间和日期</a></li><li><a href=#将当前时间和日期写入bios避免重启后失效>将当前时间和日期写入BIOS，避免重启后失效</a></li><li><a href=#附注>附注</a></li></ol></li><li><a href=#vivim打开文件提示found-a-swap-file-by-the-name>vi/vim打开文件提示Found a swap file by the name</a><ol><li><a href=#swap文件来源>swap文件来源</a></li><li><a href=#删除swp文件>删除swp文件</a></li><li><a href=#禁止生成swp文件>禁止生成swp文件</a></li><li><a href=#通过swp文件来恢复文件>通过swp文件来恢复文件</a></li></ol></li><li><a href=#linux命令英文全称>Linux命令英文全称</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=bad-interpreter-no-such-file-or-directory>bad interpreter: No such file or directory</h2><p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>/bin/sh^M: bad interpreter: No such file or directory
-</code></pre></td></tr></table></div></div><p>经过查阅资料才知道，这是文件格式导致的问题：使用vi/vim进入该shell文件，按下<code>:</code>进入末行模式，输入<code>set ff</code>查询文件格式，结果如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell><span class=nv>fileformat</span><span class=o>=</span>dos
-</code></pre></td></tr></table></div></div><p>不同的操作系统使用了不同的符号来换行，可以简单参考下下面的表格：</p><table><thead><tr><th align=center>系统</th><th align=center>换行符</th></tr></thead><tbody><tr><td align=center>DOS</td><td align=center>CR/LF</td></tr><tr><td align=center>UNIX</td><td align=center>LF</td></tr><tr><td align=center>MAC</td><td align=center>CR</td></tr></tbody></table><p>如果通过Windows下的Git将文件提交到Linux上的服务器，也会收到换行符将被替换的消息通知。而解决方法也很简单，切换文件格式即可，如下：</p><p>通过vi/vim进入想要修改的文件，按下<code>:</code>进入末行模式，输入<code>set fileformat=unix</code>，接着按下<code>ZZ</code>或者按下<code>shift + z + z</code>或者输入<code>:x</code>或者<code>:wq</code>保存修改即可。</p><h2 id=判断网络是否连通>判断网络是否连通</h2><p>有个通用命令，Windows和Linux都能使用，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>ssh ip -v -p port
-</code></pre></td></tr></table></div></div><p><code>-v</code>表示调试模式，会打印出具体日志。<code>-p</code>表示端口号。如果网络连通则会打印出来连接已建立<code>Connection established</code>。如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#bad-interpreter-no-such-file-or-directory>bad interpreter: No such file or directory</a></li><li><a href=#判断网络是否连通>判断网络是否连通</a><ol><li><a href=#ssh命令>ssh命令</a></li><li><a href=#nc命令>nc命令</a></li></ol></li><li><a href=#查看端口是否启用>查看端口是否启用</a><ol><li><a href=#lsof命令>lsof命令</a></li><li><a href=#netstat命令>netstat命令</a></li></ol></li><li><a href=#查看和修改linux的时区>查看和修改Linux的时区</a><ol><li><a href=#查看当前时区>查看当前时区</a></li><li><a href=#修改设置linux服务器时区>修改设置Linux服务器时区</a></li><li><a href=#复制相应的时区文件替换系统时区文件或者创建链接文件>复制相应的时区文件，替换系统时区文件；或者创建链接文件</a></li></ol></li><li><a href=#查看和修改linux的时间>查看和修改Linux的时间</a><ol><li><a href=#查看时间和日期>查看时间和日期</a></li><li><a href=#设置时间和日期>设置时间和日期</a></li><li><a href=#将当前时间和日期写入bios避免重启后失效>将当前时间和日期写入BIOS，避免重启后失效</a></li><li><a href=#附注>附注</a></li></ol></li><li><a href=#vivim打开文件提示found-a-swap-file-by-the-name>vi/vim打开文件提示Found a swap file by the name</a><ol><li><a href=#swap文件来源>swap文件来源</a></li><li><a href=#删除swp文件>删除swp文件</a></li><li><a href=#禁止生成swp文件>禁止生成swp文件</a></li><li><a href=#通过swp文件来恢复文件>通过swp文件来恢复文件</a></li></ol></li><li><a href=#linux命令英文全称>Linux命令英文全称</a></li><li><a href=#参考链接>参考链接</a></li></ol></nav></div></div><div class=content id=content><h2 id=bad-interpreter-no-such-file-or-directory>bad interpreter: No such file or directory</h2><p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>/bin/sh^M: bad interpreter: No such file or directory
+</span></span></code></pre></td></tr></table></div></div><p>经过查阅资料才知道，这是文件格式导致的问题：使用vi/vim进入该shell文件，按下<code>:</code>进入末行模式，输入<code>set ff</code>查询文件格式，结果如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=nv>fileformat</span><span class=o>=</span>dos
+</span></span></code></pre></td></tr></table></div></div><p>不同的操作系统使用了不同的符号来换行，可以简单参考下下面的表格：</p><table><thead><tr><th style=text-align:center>系统</th><th style=text-align:center>换行符</th></tr></thead><tbody><tr><td style=text-align:center>DOS</td><td style=text-align:center>CR/LF</td></tr><tr><td style=text-align:center>UNIX</td><td style=text-align:center>LF</td></tr><tr><td style=text-align:center>MAC</td><td style=text-align:center>CR</td></tr></tbody></table><p>如果通过Windows下的Git将文件提交到Linux上的服务器，也会收到换行符将被替换的消息通知。而解决方法也很简单，切换文件格式即可，如下：</p><p>通过vi/vim进入想要修改的文件，按下<code>:</code>进入末行模式，输入<code>set fileformat=unix</code>，接着按下<code>ZZ</code>或者按下<code>shift + z + z</code>或者输入<code>:x</code>或者<code>:wq</code>保存修改即可。</p><h2 id=判断网络是否连通>判断网络是否连通</h2><h3 id=ssh命令>ssh命令</h3><p>有个通用命令，Windows和Linux都能使用，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>ssh ip -v -p port
+</span></span></code></pre></td></tr></table></div></div><p><code>-v</code>表示调试模式，会打印出具体日志。<code>-p</code>表示端口号。如果网络连通则会打印出来连接已建立<code>Connection established</code>。如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -47,31 +58,63 @@
 </span><span class=lnt>20
 </span><span class=lnt>21
 </span><span class=lnt>22
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>C:<span class=se>\U</span>sers<span class=se>\1</span>0191&gt;ssh localhost -v -p <span class=m>1313</span>
-OpenSSH_for_Windows_8.1p1, LibreSSL 3.0.2
-debug1: Connecting to localhost <span class=o>[</span>::1<span class=o>]</span> port 1313.
-debug1: connect to address ::1 port 1313: Connection refused
-debug1: Connecting to localhost <span class=o>[</span>127.0.0.1<span class=o>]</span> port 1313.
-debug1: Connection established.
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_rsa <span class=nb>type</span> <span class=m>0</span>
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_rsa-cert <span class=nb>type</span> -1
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_dsa <span class=nb>type</span> -1
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_dsa-cert <span class=nb>type</span> -1
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_ecdsa <span class=nb>type</span> -1
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_ecdsa-cert <span class=nb>type</span> -1
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_ed25519 <span class=nb>type</span> -1
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_ed25519-cert <span class=nb>type</span> -1
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_xmss <span class=nb>type</span> -1
-debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_xmss-cert <span class=nb>type</span> -1
-debug1: Local version string SSH-2.0-OpenSSH_for_Windows_8.1
-debug1: kex_exchange_identification: banner line 0: HTTP/1.1 <span class=m>400</span> Bad Request
-debug1: kex_exchange_identification: banner line 1: Content-Type: text/plain<span class=p>;</span> <span class=nv>charset</span><span class=o>=</span>utf-8
-debug1: kex_exchange_identification: banner line 2: Connection: close
-debug1: kex_exchange_identification: banner line 3:
-kex_exchange_identification: Connection closed by remote host
-</code></pre></td></tr></table></div></div><h2 id=查看和修改linux的时区>查看和修改Linux的时区</h2><h3 id=查看当前时区>查看当前时区</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>date -R
-</code></pre></td></tr></table></div></div><h3 id=修改设置linux服务器时区>修改设置Linux服务器时区</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>C:<span class=se>\U</span>sers<span class=se>\1</span>0191&gt;ssh localhost -v -p <span class=m>1313</span>
+</span></span><span class=line><span class=cl>OpenSSH_for_Windows_8.1p1, LibreSSL 3.0.2
+</span></span><span class=line><span class=cl>debug1: Connecting to localhost <span class=o>[</span>::1<span class=o>]</span> port 1313.
+</span></span><span class=line><span class=cl>debug1: connect to address ::1 port 1313: Connection refused
+</span></span><span class=line><span class=cl>debug1: Connecting to localhost <span class=o>[</span>127.0.0.1<span class=o>]</span> port 1313.
+</span></span><span class=line><span class=cl>debug1: Connection established.
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_rsa <span class=nb>type</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_rsa-cert <span class=nb>type</span> -1
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_dsa <span class=nb>type</span> -1
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_dsa-cert <span class=nb>type</span> -1
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_ecdsa <span class=nb>type</span> -1
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_ecdsa-cert <span class=nb>type</span> -1
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_ed25519 <span class=nb>type</span> -1
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_ed25519-cert <span class=nb>type</span> -1
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_xmss <span class=nb>type</span> -1
+</span></span><span class=line><span class=cl>debug1: identity file C:<span class=se>\\</span>Users<span class=se>\\</span>10191/.ssh/id_xmss-cert <span class=nb>type</span> -1
+</span></span><span class=line><span class=cl>debug1: Local version string SSH-2.0-OpenSSH_for_Windows_8.1
+</span></span><span class=line><span class=cl>debug1: kex_exchange_identification: banner line 0: HTTP/1.1 <span class=m>400</span> Bad Request
+</span></span><span class=line><span class=cl>debug1: kex_exchange_identification: banner line 1: Content-Type: text/plain<span class=p>;</span> <span class=nv>charset</span><span class=o>=</span>utf-8
+</span></span><span class=line><span class=cl>debug1: kex_exchange_identification: banner line 2: Connection: close
+</span></span><span class=line><span class=cl>debug1: kex_exchange_identification: banner line 3:
+</span></span><span class=line><span class=cl>kex_exchange_identification: Connection closed by remote host
+</span></span></code></pre></td></tr></table></div></div><h3 id=nc命令>nc命令</h3><p>如果服务器里无法使用ssh命令，可以使用下面的命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>nc -vz -w <span class=m>2</span> ip port
+</span></span></code></pre></td></tr></table></div></div><p><code>-v</code>表示可视化，<code>-z</code>扫描时不发送数据，<code>-w</code>后面跟的数字表示超时几秒。用法如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>// 端口能通
+</span></span><span class=line><span class=cl>C:<span class=se>\U</span>sers<span class=se>\1</span>0191&gt;nc -vz -w <span class=m>2</span> 1.2.3.70 <span class=m>8888</span>
+</span></span><span class=line><span class=cl>1.2.3.70 <span class=o>(</span>1.2.3.70:8888<span class=o>)</span> open
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// 端口不能通
+</span></span><span class=line><span class=cl>C:<span class=se>\U</span>sers<span class=se>\1</span>0191&gt;nc -vz -w <span class=m>2</span> 1.2.3.70 <span class=m>8889</span>
+</span></span><span class=line><span class=cl>nc: 1.2.3.70 <span class=o>(</span>1.2.3.70:8889<span class=o>)</span>: Operation timed out
+</span></span></code></pre></td></tr></table></div></div><h2 id=查看端口是否启用>查看端口是否启用</h2><h3 id=lsof命令>lsof命令</h3><p>该命令用于列出系统已经打开的所有文件，在Linux中任何事物都以文件形式存在，通过文件可以访问常规数据、网络连接和硬件等。但该命令需要访问核心内存和各种文件，因此需要root用户执行。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>lsof -i:port
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// 查39007端口是否启用
+</span></span><span class=line><span class=cl>lsof -i:39007
+</span></span></code></pre></td></tr></table></div></div><h3 id=netstat命令>netstat命令</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>netstat -aptn
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// 查39007端口是否启用
+</span></span><span class=line><span class=cl>netstat -aptn <span class=p>|</span> grep <span class=m>39007</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=查看和修改linux的时区>查看和修改Linux的时区</h2><h3 id=查看当前时区>查看当前时区</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>date -R
+</span></span></code></pre></td></tr></table></div></div><h3 id=修改设置linux服务器时区>修改设置Linux服务器时区</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -79,51 +122,51 @@ kex_exchange_identification: Connection closed by remote host
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// Linux通用
-tzselect
-
-// 仅限于RedHat Linux 和 CentOS
-timeconfig
-
-// 适用于Debian
-dpkg-reconfigure tzdata
-</code></pre></td></tr></table></div></div><h3 id=复制相应的时区文件替换系统时区文件或者创建链接文件>复制相应的时区文件，替换系统时区文件；或者创建链接文件</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>// Linux通用
+</span></span><span class=line><span class=cl>tzselect
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// 仅限于RedHat Linux 和 CentOS
+</span></span><span class=line><span class=cl>timeconfig
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// 适用于Debian
+</span></span><span class=line><span class=cl>dpkg-reconfigure tzdata
+</span></span></code></pre></td></tr></table></div></div><h3 id=复制相应的时区文件替换系统时区文件或者创建链接文件>复制相应的时区文件，替换系统时区文件；或者创建链接文件</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>cp /usr/share/zoneinfo/$主时区/$次时区 /etc/localtime
-
-// demo：设置中国时区使用亚洲/上海(+8)
-cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-</code></pre></td></tr></table></div></div><h2 id=查看和修改linux的时间>查看和修改Linux的时间</h2><h3 id=查看时间和日期>查看时间和日期</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>date
-</code></pre></td></tr></table></div></div><h3 id=设置时间和日期>设置时间和日期</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// 将系统日期设定成2009年11月3日的命令
-date -s 11/03/2009
-
-// 将系统时间设定成下午5点55分55秒的命令
-date -s 17:55:55
-</code></pre></td></tr></table></div></div><h3 id=将当前时间和日期写入bios避免重启后失效>将当前时间和日期写入BIOS，避免重启后失效</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>hwclock -w
-</code></pre></td></tr></table></div></div><h3 id=附注>附注</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>cp /usr/share/zoneinfo/$主时区/$次时区 /etc/localtime
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// demo：设置中国时区使用亚洲/上海(+8)
+</span></span><span class=line><span class=cl>cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</span></span></code></pre></td></tr></table></div></div><h2 id=查看和修改linux的时间>查看和修改Linux的时间</h2><h3 id=查看时间和日期>查看时间和日期</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>date
+</span></span></code></pre></td></tr></table></div></div><h3 id=设置时间和日期>设置时间和日期</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>// 不加参数可以直接看到当前日期时间
-date
-
-// 不加参数可以直接看到本月月历
-cal
-</code></pre></td></tr></table></div></div><h2 id=vivim打开文件提示found-a-swap-file-by-the-name>vi/vim打开文件提示Found a swap file by the name</h2><h3 id=swap文件来源>swap文件来源</h3><p>在使用vi或vim命令打开一个文件后，就会产生一个.(filename).swp的文件。如果编辑完成之后，正常退出，那么这个swp文件就会被自动删除。但是如果在操作该文件时发生了异常中断(非正常退出)，就会在当前目录下生成了一个对应的<code>swp</code>文件。</p><p>在Linux中，以<code>.</code>开头的文件都是隐藏文件，可以通过使用<code>ll -a</code>或者<code>ls -a</code>来查看。</p><p>而这种swp文件是隐藏文件，有两个作用：</p><ul><li>避免用多个程序编辑同一个文件时，产生两个不同的版本。</li><li>非常规退出时，文件恢复。</li></ul><h3 id=删除swp文件>删除swp文件</h3><p>只要将swp文件删除，就不会再出现这个提示。可以通过<code>rm</code>命令来删除该文件。</p><h3 id=禁止生成swp文件>禁止生成swp文件</h3><p>如果想要禁止生成swp文件，可以通过修改vim的配置文件来实现。新建一个<code>~/.vimrc</code>文件，在文件中添加一行代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>set</span> noswapfile
-</code></pre></td></tr></table></div></div><p>这样该配置就只会对当前用户生效，你也可以直接修改<code>/etc/vimrc</code>文件，效果是一样的。</p><h3 id=通过swp文件来恢复文件>通过swp文件来恢复文件</h3><p>swp文件可以用来恢复文件，假如你有一个swp文件<code>.my.ini.swp</code>，可以通过以下命令来恢复：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>vi -r my.ini
-</code></pre></td></tr></table></div></div><p>恢复文件之后可以把swp文件删除，不然每次打开my.ini文件时都会提示。</p><h2 id=linux命令英文全称>Linux命令英文全称</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>  1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>// 将系统日期设定成2009年11月3日的命令
+</span></span><span class=line><span class=cl>date -s 11/03/2009
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// 将系统时间设定成下午5点55分55秒的命令
+</span></span><span class=line><span class=cl>date -s 17:55:55
+</span></span></code></pre></td></tr></table></div></div><h3 id=将当前时间和日期写入bios避免重启后失效>将当前时间和日期写入BIOS，避免重启后失效</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>hwclock -w
+</span></span></code></pre></td></tr></table></div></div><h3 id=附注>附注</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>// 不加参数可以直接看到当前日期时间
+</span></span><span class=line><span class=cl>date
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// 不加参数可以直接看到本月月历
+</span></span><span class=line><span class=cl>cal
+</span></span></code></pre></td></tr></table></div></div><h2 id=vivim打开文件提示found-a-swap-file-by-the-name>vi/vim打开文件提示Found a swap file by the name</h2><h3 id=swap文件来源>swap文件来源</h3><p>在使用vi或vim命令打开一个文件后，就会产生一个.(filename).swp的文件。如果编辑完成之后，正常退出，那么这个swp文件就会被自动删除。但是如果在操作该文件时发生了异常中断(非正常退出)，就会在当前目录下生成了一个对应的<code>swp</code>文件。</p><p>在Linux中，以<code>.</code>开头的文件都是隐藏文件，可以通过使用<code>ll -a</code>或者<code>ls -a</code>来查看。</p><p>而这种swp文件是隐藏文件，有两个作用：</p><ul><li>避免用多个程序编辑同一个文件时，产生两个不同的版本。</li><li>非常规退出时，文件恢复。</li></ul><h3 id=删除swp文件>删除swp文件</h3><p>只要将swp文件删除，就不会再出现这个提示。可以通过<code>rm</code>命令来删除该文件。</p><h3 id=禁止生成swp文件>禁止生成swp文件</h3><p>如果想要禁止生成swp文件，可以通过修改vim的配置文件来实现。新建一个<code>~/.vimrc</code>文件，在文件中添加一行代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>set</span> noswapfile
+</span></span></code></pre></td></tr></table></div></div><p>这样该配置就只会对当前用户生效，你也可以直接修改<code>/etc/vimrc</code>文件，效果是一样的。</p><h3 id=通过swp文件来恢复文件>通过swp文件来恢复文件</h3><p>swp文件可以用来恢复文件，假如你有一个swp文件<code>.my.ini.swp</code>，可以通过以下命令来恢复：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>vi -r my.ini
+</span></span></code></pre></td></tr></table></div></div><p>恢复文件之后可以把swp文件删除，不然每次打开my.ini文件时都会提示。</p><h2 id=linux命令英文全称>Linux命令英文全称</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
 </span><span class=lnt>  2
 </span><span class=lnt>  3
 </span><span class=lnt>  4
@@ -295,182 +338,185 @@ cal
 </span><span class=lnt>170
 </span><span class=lnt>171
 </span><span class=lnt>172
-</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-fallback data-lang=fallback>su：Swith user  切换用户，切换到root用户
-cat: Concatenate  串联
-uname: Unix name  系统名称
-df: Disk free  空余硬盘
-du: Disk usage 硬盘使用率
-chown: Change owner 改变所有者
-chgrp: Change group 改变用户组
-ps：Process Status  进程状态
-tar：Tape archive 解压文件
-chmod: Change mode 改变模式
-umount: Unmount 卸载
-ldd：List dynamic dependencies 列出动态相依
-insmod：Install module 安装模块
-rmmod：Remove module 删除模块
-lsmod：List module 列表模块
-alias :Create your own name for a command
-bash :GNU Bourne-Again Shell  linux内核 
-grep:global regular expression print
-httpd :Start Apache
-ipcalc :Calculate IP information for a host
-ping :Send ICMP ECHO_Request to network hosts
-reboot: Restart your computer
-sudo:Superuser do
-
-/bin = BINaries 
-/dev = DEVices 
-/etc = ETCetera 
-/lib = LIBrary 
-/proc = PROCesses 
-/sbin = Superuser BINaries 
-/tmp = TeMPorary 
-/usr = Unix Shared Resources 
-/var = VARiable ? 
-FIFO = First In, First Out 
-GRUB = GRand Unified Bootloader 
-IFS = Internal Field Seperators 
-LILO = LInux LOader 
-PS = Prompt String 
-Perl = &#34;Pratical Extraction and Report Language&#34; = &#34;Pathologically Eclectic Rubbish Lister&#34; 
-Tcl = Tool Command Language 
-Tk = ToolKit 
-VT = Video Terminal 
-YaST = Yet Another Setup Tool 
-apt = Advanced Packaging Tool 
-ar = archiver 
-as = assembler 
-bash = Bourne Again SHell 
-bc = Basic (Better) Calculator 
-bg = BackGround 
-cal = CALendar 
-cat = CATenate 
-cd = Change Directory 
-chgrp = CHange GRouP 
-chmod = CHange MODe 
-chown = CHange OWNer 
-chsh = CHange SHell 
-cmp = compare 
-cobra = Common Object Request Broker Architecture 
-comm = common 
-cp = CoPy 
-cpio = CoPy In and Out 
-cpp = C Pre Processor 
-cups = Common Unix Printing System 
-cvs = Current Version System 
-dc = Desk Calculator 
-dd = Disk Dump 
-df = Disk Free 
-diff = DIFFerence 
-dmesg = diagnostic message 
-du = Disk Usage 
-ed = editor 
-egrep = Extended GREP 
-elf = Extensible Linking Format 
-elm = ELectronic Mail 
-emacs = Editor MACroS 
-eval = EVALuate 
-ex = EXtended 
-exec = EXECute 
-fd = file descriptors 
-fg = ForeGround 
-fgrep = Fixed GREP 
-fmt = format 
-fsck = File System ChecK 
-fstab = FileSystem TABle 
-fvwm = F*** Virtual Window Manager 
-gawk = GNU AWK 
-gpg = GNU Privacy Guard 
-groff = GNU troff 
-hal = Hardware Abstraction Layer 
-joe = Joe&#39;s Own Editor 
-ksh = Korn SHell 
-lame = Lame Ain&#39;t an MP3 Encoder 
-lex = LEXical analyser 
-lisp = LISt Processing = Lots of Irritating Superfluous Parentheses 
-ln = LiNk 
-lpr = Line PRint 
-ls = list 
-lsof = LiSt Open Files 
-m4 = Macro processor Version 4 
-man = MANual pages 
-mawk = Mike Brennan&#39;s AWK 
-mc = Midnight Commander 
-mkfs = MaKe FileSystem 
-mknod = MaKe NODe 
-motd = Message of The Day 
-mozilla = MOsaic GodZILLa 
-mtab = Mount TABle 
-mv = MoVe 
-nano = Nano&#39;s ANOther editor 
-nawk = New AWK 
-nl = Number of Lines 
-nm = names 
-nohup = No HangUP 
-nroff = New ROFF 
-od = Octal Dump 
-passwd = PASSWorD 
-pg = pager 
-pico = PIne&#39;s message COmposition editor 
-pine = &#34;Program for Internet News &amp; Email&#34; = &#34;Pine is not Elm&#34; 
-ping =  Packet InterNet Grouper 
-pirntcap = PRINTer CAPability 
-popd = POP Directory 
-pr = pre 
-printf = PRINT Formatted 
-ps = Processes Status 
-pty = pseudo tty 
-pushd = PUSH Directory 
-pwd = Print Working Directory 
-rc = runcom = run command, shell 
-rev = REVerse 
-rm = ReMove 
-rn = Read News 
-roff = RunOFF 
-rpm = RPM Package Manager = RedHat Package Manager 
-rsh, rlogin, = Remote 
-rxvt = ouR XVT 
-sed = Stream EDitor 
-seq = SEQuence 
-shar = SHell ARchive 
-slrn = S-Lang rn 
-ssh = Secure SHell 
-ssl = Secure Sockets Layer 
-stty = Set TTY 
-su = Substitute User 
-svn = SubVersioN 
-tar = Tape ARchive 
-tcsh = TENEX C shell 
-telnet = TEminaL over Network 
-termcap = terminal capability 
-terminfo = terminal information 
-tr = traslate 
-troff = Typesetter new ROFF 
-tsort = Topological SORT 
-tty = TeleTypewriter 
-twm = Tom&#39;s Window Manager 
-tz = TimeZone 
-udev = Userspace DEV 
-ulimit = User&#39;s LIMIT 
-umask = User&#39;s MASK 
-uniq = UNIQue 
-vi = VIsual = Very Inconvenient 
-vim = Vi IMproved 
-wall = write all 
-wc = Word Count 
-wine = WINE Is Not an Emulator 
-xargs = eXtended ARGuments 
-xdm = X Display Manager 
-xlfd = X Logical Font Description 
-xmms = X Multimedia System 
-xrdb = X Resources DataBase 
-xwd = X Window Dump 
-yacc = yet another compiler compiler
-</code></pre></td></tr></table></div></div><h2 id=参考链接>参考链接</h2><ul><li><a href=https://blog.csdn.net/youzhouliu/article/details/79051516 target=_blank rel="noopener noreffer">bash: ./a.sh: /bin/bash^M: bad interpreter: No such file or directory的解决方法</a></li><li><a href=https://www.cnblogs.com/yelongsan/p/10025134.html target=_blank rel="noopener noreffer">DOS、Mac 和 Unix 文件格式+ UltraEdit使用</a></li><li><a href=https://www.cnblogs.com/chengd/p/7809430.html target=_blank rel="noopener noreffer">DOS文件转换成UNIX文件格式详解</a></li><li><a href=https://blog.csdn.net/evilcry2012/article/details/54315170 target=_blank rel="noopener noreffer">Linux系统查看当前时间的命令</a></li><li><a href=http://chenzhou123520.iteye.com/blog/1313585 target=_blank rel="noopener noreffer">linux下vi操作Found a swap file by the name</a></li><li><a href=https://www.cnblogs.com/quchunhui/p/7513586.html target=_blank rel="noopener noreffer">非正常关闭vi编辑器时会生成一个.swp文件</a></li></ul><div class="details admonition note open"><div class="details-summary admonition-title"><i class="icon fas fa-pencil-alt fa-fwnote"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2022-06-23T00:44:25 title="June 23, 2022">June 23, 2022</span>，文中内容可能已过时，请谨慎使用。</div></div></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-v data-lang=v><span class=line><span class=cl><span class=nv>su</span><span class=err>：</span><span class=nc>Swith</span> <span class=nv>user</span>  <span class=err>切换用户，切换到</span><span class=nv>root</span><span class=err>用户</span>
+</span></span><span class=line><span class=cl><span class=nv>cat</span><span class=p>:</span> <span class=nc>Concatenate</span>  <span class=err>串联</span>
+</span></span><span class=line><span class=cl><span class=nv>uname</span><span class=p>:</span> <span class=nc>Unix</span> <span class=nv>name</span>  <span class=err>系统名称</span>
+</span></span><span class=line><span class=cl><span class=nv>df</span><span class=p>:</span> <span class=nc>Disk</span> <span class=nv>free</span>  <span class=err>空余硬盘</span>
+</span></span><span class=line><span class=cl><span class=nv>du</span><span class=p>:</span> <span class=nc>Disk</span> <span class=nv>usage</span> <span class=err>硬盘使用率</span>
+</span></span><span class=line><span class=cl><span class=nv>chown</span><span class=p>:</span> <span class=nc>Change</span> <span class=nv>owner</span> <span class=err>改变所有者</span>
+</span></span><span class=line><span class=cl><span class=nv>chgrp</span><span class=p>:</span> <span class=nc>Change</span> <span class=nv>group</span> <span class=err>改变用户组</span>
+</span></span><span class=line><span class=cl><span class=nv>ps</span><span class=err>：</span><span class=nc>Process</span> <span class=nc>Status</span>  <span class=err>进程状态</span>
+</span></span><span class=line><span class=cl><span class=nv>tar</span><span class=err>：</span><span class=nc>Tape</span> <span class=nv>archive</span> <span class=err>解压文件</span>
+</span></span><span class=line><span class=cl><span class=nv>chmod</span><span class=p>:</span> <span class=nc>Change</span> <span class=nv>mode</span> <span class=err>改变模式</span>
+</span></span><span class=line><span class=cl><span class=nv>umount</span><span class=p>:</span> <span class=nc>Unmount</span> <span class=err>卸载</span>
+</span></span><span class=line><span class=cl><span class=nv>ldd</span><span class=err>：</span><span class=nc>List</span> <span class=nv>dynamic</span> <span class=nv>dependencies</span> <span class=err>列出动态相依</span>
+</span></span><span class=line><span class=cl><span class=nv>insmod</span><span class=err>：</span><span class=nc>Install</span> <span class=kn>module</span> <span class=err>安装模块</span>
+</span></span><span class=line><span class=cl><span class=nv>rmmod</span><span class=err>：</span><span class=nc>Remove</span> <span class=kn>module</span> <span class=err>删除模块</span>
+</span></span><span class=line><span class=cl><span class=nv>lsmod</span><span class=err>：</span><span class=nc>List</span> <span class=kn>module</span> <span class=err>列表模块</span>
+</span></span><span class=line><span class=cl><span class=nv>alias</span> <span class=p>:</span><span class=nc>Create</span> <span class=nv>your</span> <span class=nv>own</span> <span class=nv>name</span> <span class=k>for</span> <span class=nv>a</span> <span class=nv>command</span>
+</span></span><span class=line><span class=cl><span class=nv>bash</span> <span class=p>:</span><span class=nc>GNU</span> <span class=nc>Bourne</span><span class=o>-</span><span class=nc>Again</span> <span class=nc>Shell</span>  <span class=nv>linux</span><span class=err>内核</span> 
+</span></span><span class=line><span class=cl><span class=nv>grep</span><span class=p>:</span><span class=nv>global</span> <span class=nv>regular</span> <span class=nv>expression</span> <span class=nv>print</span>
+</span></span><span class=line><span class=cl><span class=nv>httpd</span> <span class=p>:</span><span class=nc>Start</span> <span class=nc>Apache</span>
+</span></span><span class=line><span class=cl><span class=nv>ipcalc</span> <span class=p>:</span><span class=nc>Calculate</span> <span class=nc>IP</span> <span class=nv>information</span> <span class=k>for</span> <span class=nv>a</span> <span class=nv>host</span>
+</span></span><span class=line><span class=cl><span class=nv>ping</span> <span class=p>:</span><span class=nc>Send</span> <span class=nc>ICMP</span> <span class=nc>ECHO_Request</span> <span class=nv>to</span> <span class=nv>network</span> <span class=nv>hosts</span>
+</span></span><span class=line><span class=cl><span class=nv>reboot</span><span class=p>:</span> <span class=nc>Restart</span> <span class=nv>your</span> <span class=nv>computer</span>
+</span></span><span class=line><span class=cl><span class=nv>sudo</span><span class=p>:</span><span class=nc>Superuser</span> <span class=nv>do</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>/</span><span class=nv>bin</span> <span class=o>=</span> <span class=nc>BINaries</span> 
+</span></span><span class=line><span class=cl><span class=o>/</span><span class=nv>dev</span> <span class=o>=</span> <span class=nc>DEVices</span> 
+</span></span><span class=line><span class=cl><span class=o>/</span><span class=nv>etc</span> <span class=o>=</span> <span class=nc>ETCetera</span> 
+</span></span><span class=line><span class=cl><span class=o>/</span><span class=nv>lib</span> <span class=o>=</span> <span class=nc>LIBrary</span> 
+</span></span><span class=line><span class=cl><span class=o>/</span><span class=nv>proc</span> <span class=o>=</span> <span class=nc>PROCesses</span> 
+</span></span><span class=line><span class=cl><span class=o>/</span><span class=nv>sbin</span> <span class=o>=</span> <span class=nc>Superuser</span> <span class=nc>BINaries</span> 
+</span></span><span class=line><span class=cl><span class=o>/</span><span class=nv>tmp</span> <span class=o>=</span> <span class=nc>TeMPorary</span> 
+</span></span><span class=line><span class=cl><span class=o>/</span><span class=nv>usr</span> <span class=o>=</span> <span class=nc>Unix</span> <span class=nc>Shared</span> <span class=nc>Resources</span> 
+</span></span><span class=line><span class=cl><span class=o>/</span><span class=nv>var</span> <span class=o>=</span> <span class=nc>VARiable</span> <span class=kd>?</span> 
+</span></span><span class=line><span class=cl><span class=nc>FIFO</span> <span class=o>=</span> <span class=nc>First</span> <span class=nc>In</span><span class=p>,</span> <span class=nc>First</span> <span class=nc>Out</span> 
+</span></span><span class=line><span class=cl><span class=nc>GRUB</span> <span class=o>=</span> <span class=nc>GRand</span> <span class=nc>Unified</span> <span class=nc>Bootloader</span> 
+</span></span><span class=line><span class=cl><span class=nc>IFS</span> <span class=o>=</span> <span class=nc>Internal</span> <span class=nc>Field</span> <span class=nc>Seperators</span> 
+</span></span><span class=line><span class=cl><span class=nc>LILO</span> <span class=o>=</span> <span class=nc>LInux</span> <span class=nc>LOader</span> 
+</span></span><span class=line><span class=cl><span class=nc>PS</span> <span class=o>=</span> <span class=nc>Prompt</span> <span class=nc>String</span> 
+</span></span><span class=line><span class=cl><span class=nc>Perl</span> <span class=o>=</span> <span class=s2>&#34;Pratical Extraction and Report Language&#34;</span> <span class=o>=</span> <span class=s2>&#34;Pathologically Eclectic Rubbish Lister&#34;</span> 
+</span></span><span class=line><span class=cl><span class=nc>Tcl</span> <span class=o>=</span> <span class=nc>Tool</span> <span class=nc>Command</span> <span class=nc>Language</span> 
+</span></span><span class=line><span class=cl><span class=nc>Tk</span> <span class=o>=</span> <span class=nc>ToolKit</span> 
+</span></span><span class=line><span class=cl><span class=nc>VT</span> <span class=o>=</span> <span class=nc>Video</span> <span class=nc>Terminal</span> 
+</span></span><span class=line><span class=cl><span class=nc>YaST</span> <span class=o>=</span> <span class=nc>Yet</span> <span class=nc>Another</span> <span class=nc>Setup</span> <span class=nc>Tool</span> 
+</span></span><span class=line><span class=cl><span class=nv>apt</span> <span class=o>=</span> <span class=nc>Advanced</span> <span class=nc>Packaging</span> <span class=nc>Tool</span> 
+</span></span><span class=line><span class=cl><span class=nv>ar</span> <span class=o>=</span> <span class=nv>archiver</span> 
+</span></span><span class=line><span class=cl><span class=k>as</span> <span class=o>=</span> <span class=nv>assembler</span> 
+</span></span><span class=line><span class=cl><span class=nv>bash</span> <span class=o>=</span> <span class=nc>Bourne</span> <span class=nc>Again</span> <span class=nc>SHell</span> 
+</span></span><span class=line><span class=cl><span class=nv>bc</span> <span class=o>=</span> <span class=nc>Basic</span> <span class=p>(</span><span class=nc>Better</span><span class=p>)</span> <span class=nc>Calculator</span> 
+</span></span><span class=line><span class=cl><span class=nv>bg</span> <span class=o>=</span> <span class=nc>BackGround</span> 
+</span></span><span class=line><span class=cl><span class=nv>cal</span> <span class=o>=</span> <span class=nc>CALendar</span> 
+</span></span><span class=line><span class=cl><span class=nv>cat</span> <span class=o>=</span> <span class=nc>CATenate</span> 
+</span></span><span class=line><span class=cl><span class=nv>cd</span> <span class=o>=</span> <span class=nc>Change</span> <span class=nc>Directory</span> 
+</span></span><span class=line><span class=cl><span class=nv>chgrp</span> <span class=o>=</span> <span class=nc>CHange</span> <span class=nc>GRouP</span> 
+</span></span><span class=line><span class=cl><span class=nv>chmod</span> <span class=o>=</span> <span class=nc>CHange</span> <span class=nc>MODe</span> 
+</span></span><span class=line><span class=cl><span class=nv>chown</span> <span class=o>=</span> <span class=nc>CHange</span> <span class=nc>OWNer</span> 
+</span></span><span class=line><span class=cl><span class=nv>chsh</span> <span class=o>=</span> <span class=nc>CHange</span> <span class=nc>SHell</span> 
+</span></span><span class=line><span class=cl><span class=nv>cmp</span> <span class=o>=</span> <span class=nv>compare</span> 
+</span></span><span class=line><span class=cl><span class=nv>cobra</span> <span class=o>=</span> <span class=nc>Common</span> <span class=nc>Object</span> <span class=nc>Request</span> <span class=nc>Broker</span> <span class=nc>Architecture</span> 
+</span></span><span class=line><span class=cl><span class=nv>comm</span> <span class=o>=</span> <span class=nv>common</span> 
+</span></span><span class=line><span class=cl><span class=nv>cp</span> <span class=o>=</span> <span class=nc>CoPy</span> 
+</span></span><span class=line><span class=cl><span class=nv>cpio</span> <span class=o>=</span> <span class=nc>CoPy</span> <span class=nc>In</span> <span class=nv>and</span> <span class=nc>Out</span> 
+</span></span><span class=line><span class=cl><span class=nv>cpp</span> <span class=o>=</span> <span class=nc>C</span> <span class=nc>Pre</span> <span class=nc>Processor</span> 
+</span></span><span class=line><span class=cl><span class=nv>cups</span> <span class=o>=</span> <span class=nc>Common</span> <span class=nc>Unix</span> <span class=nc>Printing</span> <span class=nc>System</span> 
+</span></span><span class=line><span class=cl><span class=nv>cvs</span> <span class=o>=</span> <span class=nc>Current</span> <span class=nc>Version</span> <span class=nc>System</span> 
+</span></span><span class=line><span class=cl><span class=nv>dc</span> <span class=o>=</span> <span class=nc>Desk</span> <span class=nc>Calculator</span> 
+</span></span><span class=line><span class=cl><span class=nv>dd</span> <span class=o>=</span> <span class=nc>Disk</span> <span class=nc>Dump</span> 
+</span></span><span class=line><span class=cl><span class=nv>df</span> <span class=o>=</span> <span class=nc>Disk</span> <span class=nc>Free</span> 
+</span></span><span class=line><span class=cl><span class=nv>diff</span> <span class=o>=</span> <span class=nc>DIFFerence</span> 
+</span></span><span class=line><span class=cl><span class=nv>dmesg</span> <span class=o>=</span> <span class=nv>diagnostic</span> <span class=nv>message</span> 
+</span></span><span class=line><span class=cl><span class=nv>du</span> <span class=o>=</span> <span class=nc>Disk</span> <span class=nc>Usage</span> 
+</span></span><span class=line><span class=cl><span class=nv>ed</span> <span class=o>=</span> <span class=nv>editor</span> 
+</span></span><span class=line><span class=cl><span class=nv>egrep</span> <span class=o>=</span> <span class=nc>Extended</span> <span class=nc>GREP</span> 
+</span></span><span class=line><span class=cl><span class=nv>elf</span> <span class=o>=</span> <span class=nc>Extensible</span> <span class=nc>Linking</span> <span class=nc>Format</span> 
+</span></span><span class=line><span class=cl><span class=nv>elm</span> <span class=o>=</span> <span class=nc>ELectronic</span> <span class=nc>Mail</span> 
+</span></span><span class=line><span class=cl><span class=nv>emacs</span> <span class=o>=</span> <span class=nc>Editor</span> <span class=nc>MACroS</span> 
+</span></span><span class=line><span class=cl><span class=nv>eval</span> <span class=o>=</span> <span class=nc>EVALuate</span> 
+</span></span><span class=line><span class=cl><span class=nv>ex</span> <span class=o>=</span> <span class=nc>EXtended</span> 
+</span></span><span class=line><span class=cl><span class=nv>exec</span> <span class=o>=</span> <span class=nc>EXECute</span> 
+</span></span><span class=line><span class=cl><span class=nv>fd</span> <span class=o>=</span> <span class=nv>file</span> <span class=nv>descriptors</span> 
+</span></span><span class=line><span class=cl><span class=nv>fg</span> <span class=o>=</span> <span class=nc>ForeGround</span> 
+</span></span><span class=line><span class=cl><span class=nv>fgrep</span> <span class=o>=</span> <span class=nc>Fixed</span> <span class=nc>GREP</span> 
+</span></span><span class=line><span class=cl><span class=nv>fmt</span> <span class=o>=</span> <span class=nv>format</span> 
+</span></span><span class=line><span class=cl><span class=nv>fsck</span> <span class=o>=</span> <span class=nc>File</span> <span class=nc>System</span> <span class=nc>ChecK</span> 
+</span></span><span class=line><span class=cl><span class=nv>fstab</span> <span class=o>=</span> <span class=nc>FileSystem</span> <span class=nc>TABle</span> 
+</span></span><span class=line><span class=cl><span class=nv>fvwm</span> <span class=o>=</span> <span class=nc>F</span><span class=o>***</span> <span class=nc>Virtual</span> <span class=nc>Window</span> <span class=nc>Manager</span> 
+</span></span><span class=line><span class=cl><span class=nv>gawk</span> <span class=o>=</span> <span class=nc>GNU</span> <span class=nc>AWK</span> 
+</span></span><span class=line><span class=cl><span class=nv>gpg</span> <span class=o>=</span> <span class=nc>GNU</span> <span class=nc>Privacy</span> <span class=nc>Guard</span> 
+</span></span><span class=line><span class=cl><span class=nv>groff</span> <span class=o>=</span> <span class=nc>GNU</span> <span class=nv>troff</span> 
+</span></span><span class=line><span class=cl><span class=nv>hal</span> <span class=o>=</span> <span class=nc>Hardware</span> <span class=nc>Abstraction</span> <span class=nc>Layer</span> 
+</span></span><span class=line><span class=cl><span class=nv>joe</span> <span class=o>=</span> <span class=nc>Joe</span><span class=s1>&#39;s Own Editor 
+</span></span></span><span class=line><span class=cl><span class=s1>ksh = Korn SHell 
+</span></span></span><span class=line><span class=cl><span class=s1>lame = Lame Ain&#39;</span><span class=nv>t</span> <span class=nv>an</span> <span class=nc>MP3</span> <span class=nc>Encoder</span> 
+</span></span><span class=line><span class=cl><span class=nv>lex</span> <span class=o>=</span> <span class=nc>LEXical</span> <span class=nv>analyser</span> 
+</span></span><span class=line><span class=cl><span class=nv>lisp</span> <span class=o>=</span> <span class=nc>LISt</span> <span class=nc>Processing</span> <span class=o>=</span> <span class=nc>Lots</span> <span class=nv>of</span> <span class=nc>Irritating</span> <span class=nc>Superfluous</span> <span class=nc>Parentheses</span> 
+</span></span><span class=line><span class=cl><span class=nv>ln</span> <span class=o>=</span> <span class=nc>LiNk</span> 
+</span></span><span class=line><span class=cl><span class=nv>lpr</span> <span class=o>=</span> <span class=nc>Line</span> <span class=nc>PRint</span> 
+</span></span><span class=line><span class=cl><span class=nv>ls</span> <span class=o>=</span> <span class=nv>list</span> 
+</span></span><span class=line><span class=cl><span class=nv>lsof</span> <span class=o>=</span> <span class=nc>LiSt</span> <span class=nc>Open</span> <span class=nc>Files</span> 
+</span></span><span class=line><span class=cl><span class=nv>m4</span> <span class=o>=</span> <span class=nc>Macro</span> <span class=nv>processor</span> <span class=nc>Version</span> <span class=mi>4</span> 
+</span></span><span class=line><span class=cl><span class=nv>man</span> <span class=o>=</span> <span class=nc>MANual</span> <span class=nv>pages</span> 
+</span></span><span class=line><span class=cl><span class=nv>mawk</span> <span class=o>=</span> <span class=nc>Mike</span> <span class=nc>Brennan</span><span class=s1>&#39;s AWK 
+</span></span></span><span class=line><span class=cl><span class=s1>mc = Midnight Commander 
+</span></span></span><span class=line><span class=cl><span class=s1>mkfs = MaKe FileSystem 
+</span></span></span><span class=line><span class=cl><span class=s1>mknod = MaKe NODe 
+</span></span></span><span class=line><span class=cl><span class=s1>motd = Message of The Day 
+</span></span></span><span class=line><span class=cl><span class=s1>mozilla = MOsaic GodZILLa 
+</span></span></span><span class=line><span class=cl><span class=s1>mtab = Mount TABle 
+</span></span></span><span class=line><span class=cl><span class=s1>mv = MoVe 
+</span></span></span><span class=line><span class=cl><span class=s1>nano = Nano&#39;</span><span class=nv>s</span> <span class=nc>ANOther</span> <span class=nv>editor</span> 
+</span></span><span class=line><span class=cl><span class=nv>nawk</span> <span class=o>=</span> <span class=nc>New</span> <span class=nc>AWK</span> 
+</span></span><span class=line><span class=cl><span class=nv>nl</span> <span class=o>=</span> <span class=nc>Number</span> <span class=nv>of</span> <span class=nc>Lines</span> 
+</span></span><span class=line><span class=cl><span class=nv>nm</span> <span class=o>=</span> <span class=nv>names</span> 
+</span></span><span class=line><span class=cl><span class=nv>nohup</span> <span class=o>=</span> <span class=nc>No</span> <span class=nc>HangUP</span> 
+</span></span><span class=line><span class=cl><span class=nv>nroff</span> <span class=o>=</span> <span class=nc>New</span> <span class=nc>ROFF</span> 
+</span></span><span class=line><span class=cl><span class=nv>od</span> <span class=o>=</span> <span class=nc>Octal</span> <span class=nc>Dump</span> 
+</span></span><span class=line><span class=cl><span class=nv>passwd</span> <span class=o>=</span> <span class=nc>PASSWorD</span> 
+</span></span><span class=line><span class=cl><span class=nv>pg</span> <span class=o>=</span> <span class=nv>pager</span> 
+</span></span><span class=line><span class=cl><span class=nv>pico</span> <span class=o>=</span> <span class=nc>PIne</span><span class=s1>&#39;s message COmposition editor 
+</span></span></span><span class=line><span class=cl><span class=s1>pine = &#34;Program for Internet News &amp; Email&#34; = &#34;Pine is not Elm&#34; 
+</span></span></span><span class=line><span class=cl><span class=s1>ping =  Packet InterNet Grouper 
+</span></span></span><span class=line><span class=cl><span class=s1>pirntcap = PRINTer CAPability 
+</span></span></span><span class=line><span class=cl><span class=s1>popd = POP Directory 
+</span></span></span><span class=line><span class=cl><span class=s1>pr = pre 
+</span></span></span><span class=line><span class=cl><span class=s1>printf = PRINT Formatted 
+</span></span></span><span class=line><span class=cl><span class=s1>ps = Processes Status 
+</span></span></span><span class=line><span class=cl><span class=s1>pty = pseudo tty 
+</span></span></span><span class=line><span class=cl><span class=s1>pushd = PUSH Directory 
+</span></span></span><span class=line><span class=cl><span class=s1>pwd = Print Working Directory 
+</span></span></span><span class=line><span class=cl><span class=s1>rc = runcom = run command, shell 
+</span></span></span><span class=line><span class=cl><span class=s1>rev = REVerse 
+</span></span></span><span class=line><span class=cl><span class=s1>rm = ReMove 
+</span></span></span><span class=line><span class=cl><span class=s1>rn = Read News 
+</span></span></span><span class=line><span class=cl><span class=s1>roff = RunOFF 
+</span></span></span><span class=line><span class=cl><span class=s1>rpm = RPM Package Manager = RedHat Package Manager 
+</span></span></span><span class=line><span class=cl><span class=s1>rsh, rlogin, = Remote 
+</span></span></span><span class=line><span class=cl><span class=s1>rxvt = ouR XVT 
+</span></span></span><span class=line><span class=cl><span class=s1>sed = Stream EDitor 
+</span></span></span><span class=line><span class=cl><span class=s1>seq = SEQuence 
+</span></span></span><span class=line><span class=cl><span class=s1>shar = SHell ARchive 
+</span></span></span><span class=line><span class=cl><span class=s1>slrn = S-Lang rn 
+</span></span></span><span class=line><span class=cl><span class=s1>ssh = Secure SHell 
+</span></span></span><span class=line><span class=cl><span class=s1>ssl = Secure Sockets Layer 
+</span></span></span><span class=line><span class=cl><span class=s1>stty = Set TTY 
+</span></span></span><span class=line><span class=cl><span class=s1>su = Substitute User 
+</span></span></span><span class=line><span class=cl><span class=s1>svn = SubVersioN 
+</span></span></span><span class=line><span class=cl><span class=s1>tar = Tape ARchive 
+</span></span></span><span class=line><span class=cl><span class=s1>tcsh = TENEX C shell 
+</span></span></span><span class=line><span class=cl><span class=s1>telnet = TEminaL over Network 
+</span></span></span><span class=line><span class=cl><span class=s1>termcap = terminal capability 
+</span></span></span><span class=line><span class=cl><span class=s1>terminfo = terminal information 
+</span></span></span><span class=line><span class=cl><span class=s1>tr = traslate 
+</span></span></span><span class=line><span class=cl><span class=s1>troff = Typesetter new ROFF 
+</span></span></span><span class=line><span class=cl><span class=s1>tsort = Topological SORT 
+</span></span></span><span class=line><span class=cl><span class=s1>tty = TeleTypewriter 
+</span></span></span><span class=line><span class=cl><span class=s1>twm = Tom&#39;</span><span class=nv>s</span> <span class=nc>Window</span> <span class=nc>Manager</span> 
+</span></span><span class=line><span class=cl><span class=nv>tz</span> <span class=o>=</span> <span class=nc>TimeZone</span> 
+</span></span><span class=line><span class=cl><span class=nv>udev</span> <span class=o>=</span> <span class=nc>Userspace</span> <span class=nc>DEV</span> 
+</span></span><span class=line><span class=cl><span class=nv>ulimit</span> <span class=o>=</span> <span class=nc>User</span><span class=s1>&#39;s LIMIT 
+</span></span></span><span class=line><span class=cl><span class=s1>umask = User&#39;</span><span class=nv>s</span> <span class=nc>MASK</span> 
+</span></span><span class=line><span class=cl><span class=nv>uniq</span> <span class=o>=</span> <span class=nc>UNIQue</span> 
+</span></span><span class=line><span class=cl><span class=nv>vi</span> <span class=o>=</span> <span class=nc>VIsual</span> <span class=o>=</span> <span class=nc>Very</span> <span class=nc>Inconvenient</span> 
+</span></span><span class=line><span class=cl><span class=nv>vim</span> <span class=o>=</span> <span class=nc>Vi</span> <span class=nc>IMproved</span> 
+</span></span><span class=line><span class=cl><span class=nv>wall</span> <span class=o>=</span> <span class=nv>write</span> <span class=nv>all</span> 
+</span></span><span class=line><span class=cl><span class=nv>wc</span> <span class=o>=</span> <span class=nc>Word</span> <span class=nc>Count</span> 
+</span></span><span class=line><span class=cl><span class=nv>wine</span> <span class=o>=</span> <span class=nc>WINE</span> <span class=nc>Is</span> <span class=nc>Not</span> <span class=nv>an</span> <span class=nc>Emulator</span> 
+</span></span><span class=line><span class=cl><span class=nv>xargs</span> <span class=o>=</span> <span class=nv>eXtended</span> <span class=nc>ARGuments</span> 
+</span></span><span class=line><span class=cl><span class=nv>xdm</span> <span class=o>=</span> <span class=nc>X</span> <span class=nc>Display</span> <span class=nc>Manager</span> 
+</span></span><span class=line><span class=cl><span class=nv>xlfd</span> <span class=o>=</span> <span class=nc>X</span> <span class=nc>Logical</span> <span class=nc>Font</span> <span class=nc>Description</span> 
+</span></span><span class=line><span class=cl><span class=nv>xmms</span> <span class=o>=</span> <span class=nc>X</span> <span class=nc>Multimedia</span> <span class=nc>System</span> 
+</span></span><span class=line><span class=cl><span class=nv>xrdb</span> <span class=o>=</span> <span class=nc>X</span> <span class=nc>Resources</span> <span class=nc>DataBase</span> 
+</span></span><span class=line><span class=cl><span class=nv>xwd</span> <span class=o>=</span> <span class=nc>X</span> <span class=nc>Window</span> <span class=nc>Dump</span> 
+</span></span><span class=line><span class=cl><span class=nv>yacc</span> <span class=o>=</span> <span class=nv>yet</span> <span class=nv>another</span> <span class=nv>compiler</span> <span class=nv>compiler</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=参考链接>参考链接</h2><ul><li><a href=https://blog.csdn.net/youzhouliu/article/details/79051516 target=_blank rel="noopener noreffer">bash: ./a.sh: /bin/bash^M: bad interpreter: No such file or directory的解决方法</a></li><li><a href=https://www.cnblogs.com/yelongsan/p/10025134.html target=_blank rel="noopener noreffer">DOS、Mac 和 Unix 文件格式+ UltraEdit使用</a></li><li><a href=https://www.cnblogs.com/chengd/p/7809430.html target=_blank rel="noopener noreffer">DOS文件转换成UNIX文件格式详解</a></li><li><a href=https://blog.csdn.net/evilcry2012/article/details/54315170 target=_blank rel="noopener noreffer">Linux系统查看当前时间的命令</a></li><li><a href=http://chenzhou123520.iteye.com/blog/1313585 target=_blank rel="noopener noreffer">linux下vi操作Found a swap file by the name</a></li><li><a href=https://www.cnblogs.com/quchunhui/p/7513586.html target=_blank rel="noopener noreffer">非正常关闭vi编辑器时会生成一个.swp文件</a></li><li><a href=https://m.php.cn/article/490780.html target=_blank rel="noopener noreffer">Linux怎么查看端口是否启用</a></li></ul><div class="details admonition note open"><div class="details-summary admonition-title"><i class="icon fas fa-pencil-alt fa-fwnote"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2022-12-11T00:44:25 title="December 11, 2022">December 11, 2022</span>，文中内容可能已过时，请谨慎使用。</div></div></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
 <label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://lewky.cn/images/reward/wechat.png>
 <span>微信打赏</span></label>
 <label class=qr-code-image for=reward><img class=image src=https://lewky.cn/images/reward/alipay.png>
-<span>支付宝打赏</span></label></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-06-23</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/posts/linux-issues/index.md target=_blank>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/linux-issues/ data-title=Linux问题汇总 data-hashtags=工作记录,Linux><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/linux-issues/ data-hashtag=工作记录><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/linux-issues/ data-title=Linux问题汇总><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/linux-issues/ data-title=Linux问题汇总><i data-svg-src=https://unpkg.com/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/linux-issues/ data-title=Linux问题汇总><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/>工作记录</a>,&nbsp;<a href=/tags/linux/>Linux</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/postman-issues/ class=prev rel=prev title=Postman问题汇总><i class="fas fa-angle-left fa-fw"></i>Postman问题汇总</a>
-<a href=/posts/backpack-hero-dagger/ class=next rel=next title=背包英雄：匕首流无尽模式详细攻略>背包英雄：匕首流无尽模式详细攻略<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=waline></div><script src=/js/Waline.min.js></script><script>new Waline({el:'#waline',meta:["nick","mail","link"],requiredMeta:["nick","mail"],login:"force",placeholder:"为防恶意灌水攻击，评论前需注册并登录，望见谅~",serverURL:"https://comment.lewky.cn/",avatarCDN:"https://cdn.sep.cc/avatar/",pageSize:20,avatar:"retro",lang:"zh-CN",visitor:true,highlight:true,uploadImage:false,emoji:['https:\/\/lewky.cn/images/emoji/嘉然今天吃什么','https:\/\/lewky.cn/images/emoji/大航海嘉然','https:\/\/lewky.cn/images/emoji/向晚大魔王','https:\/\/lewky.cn/images/emoji/贝拉kira','https:\/\/lewky.cn/images/emoji/珈乐Carol','https:\/\/lewky.cn/images/emoji/乃琳Queen','https:\/\/lewky.cn/images/emoji/EveOneCat','https:\/\/lewky.cn/images/emoji/weibo','https:\/\/lewky.cn/images/emoji/滑稽','https:\/\/lewky.cn/images/emoji/default']});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><span id=run-time></span>|
-<a href=http://rssblog.vercel.app/ target=_blank rel=noopener title=RSSBlog><i class="fas fa-fw fa-inbox"></i>&nbsp;RSSBlog</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=sidebar_wo><div id=leimu><img src=https://lewky.cn/images/b2t/leimuA.png alt=雷姆 onmouseover="this.src='https:\/\/lewky.cn/images/b2t/leimuB.png'" onmouseout="this.src='https:\/\/lewky.cn/images/b2t/leimuA.png'" title=回到顶部></div><div class=sidebar_wo id=lamu><img src=https://lewky.cn/images/b2t/lamuA.png alt=雷姆 onmouseover="this.src='https:\/\/lewky.cn/images/b2t/lamuB.png'" onmouseout="this.src='https:\/\/lewky.cn/images/b2t/lamuA.png'" title=回到底部></div></div><link rel=stylesheet href=https://unpkg.com/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://unpkg.com/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://unpkg.com/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://unpkg.com/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://unpkg.com/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://unpkg.com/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://unpkg.com/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":30},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src=https://unpkg.com/jquery@2.1.3/dist/jquery.min.js></script><script type=text/javascript src=https://unpkg.com/jquery-backstretch@2.1.18/jquery.backstretch.min.js></script><script>var $cdnPrefix="https://lewky.cn";</script><script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script></body></html>
+<span>支付宝打赏</span></label></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-12-11</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/posts/linux-issues/index.md target=_blank>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/linux-issues/ data-title=Linux问题汇总 data-hashtags=工作记录,Linux><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/linux-issues/ data-hashtag=工作记录><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/linux-issues/ data-title=Linux问题汇总><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/linux-issues/ data-title=Linux问题汇总><i data-svg-src=https://unpkg.com/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/linux-issues/ data-title=Linux问题汇总><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/>工作记录</a>,&nbsp;<a href=/tags/linux/>Linux</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/postman-issues/ class=prev rel=prev title=Postman问题汇总><i class="fas fa-angle-left fa-fw"></i>Postman问题汇总</a>
+<a href=/posts/backpack-hero-dagger/ class=next rel=next title=背包英雄：匕首流无尽模式详细攻略>背包英雄：匕首流无尽模式详细攻略<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=waline></div><script src=/js/Waline.min.js></script>
+<script>new Waline({el:"#waline",meta:["nick","mail","link"],requiredMeta:["nick","mail"],login:"force",placeholder:"为防恶意灌水攻击，评论前需注册并登录，望见谅~",serverURL:"https://comment.lewky.cn/",avatarCDN:"https://cravatar.cn/avatar/",pageSize:20,avatar:"retro",lang:"zh-CN",visitor:!0,highlight:!0,uploadImage:!1,emoji:["https://lewky.cn/images/emoji/嘉然今天吃什么","https://lewky.cn/images/emoji/大航海嘉然","https://lewky.cn/images/emoji/向晚大魔王","https://lewky.cn/images/emoji/贝拉kira","https://lewky.cn/images/emoji/珈乐Carol","https://lewky.cn/images/emoji/乃琳Queen","https://lewky.cn/images/emoji/EveOneCat","https://lewky.cn/images/emoji/weibo","https://lewky.cn/images/emoji/滑稽","https://lewky.cn/images/emoji/default"]})</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><span id=run-time></span>|
+<a href=http://rssblog.vercel.app/ target=_blank rel=noopener title=RSSBlog><i class='fas fa-fw fa-inbox'></i>&nbsp;RSSBlog</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2023</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=sidebar_wo><div id=leimu><img src=https://lewky.cn/images/b2t/leimuA.png alt=雷姆 onmouseover='this.src="https://lewky.cn/images/b2t/leimuB.png"' onmouseout='this.src="https://lewky.cn/images/b2t/leimuA.png"' title=回到顶部></div><div class=sidebar_wo id=lamu><img src=https://lewky.cn/images/b2t/lamuA.png alt=雷姆 onmouseover='this.src="https://lewky.cn/images/b2t/lamuB.png"' onmouseout='this.src="https://lewky.cn/images/b2t/lamuA.png"' title=回到底部></div></div><link rel=stylesheet href=https://unpkg.com/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://unpkg.com/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://unpkg.com/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://unpkg.com/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://unpkg.com/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://unpkg.com/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://unpkg.com/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:30},comment:{},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0}}</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src=https://unpkg.com/jquery@2.1.3/dist/jquery.min.js></script><script type=text/javascript src=https://unpkg.com/jquery-backstretch@2.1.18/jquery.backstretch.min.js></script><script>var $cdnPrefix="https://lewky.cn"</script>
+<script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script></body></html>

@@ -2,19 +2,19 @@
 <p>启动Logstash时可以指定一些参数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">-w # 指定线程,默认是cpu核数 
--f # 指定配置文件
--r # 启用热加载，可以在运行期间修改配置文件并生效
--t # 测试配置文件是否正常
--b # 执行filter模块之前最大能积累的日志，数值越大性能越好，同时越占内存
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-w # 指定线程,默认是cpu核数 
+</span></span><span class="line"><span class="cl">-f # 指定配置文件
+</span></span><span class="line"><span class="cl">-r # 启用热加载，可以在运行期间修改配置文件并生效
+</span></span><span class="line"><span class="cl">-t # 测试配置文件是否正常
+</span></span><span class="line"><span class="cl">-b # 执行filter模块之前最大能积累的日志，数值越大性能越好，同时越占内存
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>ELK系列(1) - Elasticsearch + Logstash + Kibana + Log4j2快速入门与搭建用例</title><link>https://lewky.cn/posts/elk-1/</link><pubDate>Sat, 11 May 2019 21:14:33 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-1/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>最近公司分了个ELK相关的任务给我，在一边学习一边工作之余，总结下这些天来的学习历程和踩坑记录。</p>

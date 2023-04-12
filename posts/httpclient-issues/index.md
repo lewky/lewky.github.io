@@ -1,6 +1,6 @@
-# HttpURLConnection设置host请求头无效
+# HttpClient问题汇总
 
-## host请求头无效
+## HttpURLConnection设置host请求头无效
 
 由于业务需要在调用第三方SDK时需要设置host请求头为对方的域名，在测试时发现代码设置后依然无法生效。查找资料后发现是从JDK6的6u23版本开始就对HTTP的部分请求头做了限制，如下：<!--more-->
 
@@ -52,6 +52,14 @@ curl -H "Content-Type:application/json" -H "host:api.dingtalk.com" -X POST -d '{
 // 第二种方式，使用proxy代理IP，URL里用的是域名
 curl --proxy "20.1.1.123:80" -H "Content-Type:application/json" -X POST -d '{"appKey":"xxx","appSecret":"xxx"}' "https://api.dingtalk.com/v1.0/oauth2/accessToken"
 ```
+
+## 使用x-www-form-urlencoded发送参数
+
+
+
+## 使用form-data发送文件和参数
+
+
 
 ## 参考链接
 

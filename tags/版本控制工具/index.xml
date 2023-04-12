@@ -2,7 +2,7 @@
 <p>克隆远程库到本地：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -11,20 +11,20 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 默认本地仓库名字与远程库一样
-git clone https://github.com/jquery/jquery.git
-
-// 指定本地库名字为test
-git clone https://github.com/jquery/jquery.git test
-
-// git clone的仓库地址支持多种协议，通常使用最多的是http(s)和ssh协议，比如从GitHub上克隆仓库。
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 默认本地仓库名字与远程库一样
+</span></span><span class="line"><span class="cl">git clone https://github.com/jquery/jquery.git
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 指定本地库名字为test
+</span></span><span class="line"><span class="cl">git clone https://github.com/jquery/jquery.git test
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// git clone的仓库地址支持多种协议，通常使用最多的是http(s)和ssh协议，比如从GitHub上克隆仓库。
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Git问题汇总</title><link>https://lewky.cn/posts/git-issues/</link><pubDate>Sun, 06 Jan 2019 22:57:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/git-issues/</guid><description><![CDATA[<h2 id="初次配置用户名和邮箱">初次配置用户名和邮箱</h2>
 <p>Git在push时需要使用到user.name和user.email，一般通过命令来进行配置或修改。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -37,17 +37,17 @@ git clone https://github.com/jquery/jquery.git test
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">//查看user.name
-git config user.name
-
-//查看user.email
-git config user.email
-
-//配置user.name
-git config --global user.name &#34;your user name&#34;
-
-//配置user.email
-git config --global user.email &#34;your user email&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//查看user.name
+</span></span><span class="line"><span class="cl">git config user.name
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//查看user.email
+</span></span><span class="line"><span class="cl">git config user.email
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//配置user.name
+</span></span><span class="line"><span class="cl">git config --global user.name &#34;your user name&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//配置user.email
+</span></span><span class="line"><span class="cl">git config --global user.email &#34;your user email&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

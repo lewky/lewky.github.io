@@ -2,7 +2,7 @@
 <p>在执行<code>gulp build</code>报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -10,12 +10,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">D:\coding\Resume\Resumes&gt;gulp build
-gulp build[5628]: src\node_contextify.cc:628: Assertion `args[1]-&gt;IsString()&#39; failed.
-
-D:\coding\Resume\Resumes&gt;gulp -v
-[22:00:13] CLI version 2.0.1
-[22:00:13] Local version 3.9.1
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">D:\coding\Resume\Resumes&gt;gulp build
+</span></span><span class="line"><span class="cl">gulp build[5628]: src\node_contextify.cc:628: Assertion `args[1]-&gt;IsString()&#39; failed.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">D:\coding\Resume\Resumes&gt;gulp -v
+</span></span><span class="line"><span class="cl">[22:00:13] CLI version 2.0.1
+</span></span><span class="line"><span class="cl">[22:00:13] Local version 3.9.1
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

@@ -79,32 +79,36 @@ disablePathToLower = true
 ```
 
 这里可以使用的变量如下：
-`:year`：4位数的年份
-`:month`：2位数的月份
-`:monthname`：月份名字
-`:day`：2位数的日期
-`:weekday`：1位数，每周的第几天，星期日对应0
-`:weekdayname`：星期几
-`:yearday`：1到3位数，每年的第几天
-`:section`：当前文章对应的section分类
-`:sections`：当前文章对应的完整的section分类层次
-`:title`：文章的标题
-`:slug`：文章的slug，和title一样是定义在文件头里的属性，当没有定义slug时会使用title作为url
-`:filename`：文章的文件名，不包括文件扩展名。
+
+`:year`：4位数的年份<br>
+`:month`：2位数的月份<br>
+`:monthname`：月份名字<br>
+`:day`：2位数的日期<br>
+`:weekday`：1位数，每周的第几天，星期日对应0<br>
+`:weekdayname`：星期几<br>
+`:yearday`：1到3位数，每年的第几天<br>
+`:section`：当前文章对应的section分类<br>
+`:sections`：当前文章对应的完整的section分类层次<br>
+`:title`：文章的标题<br>
+`:slug`：文章的slug，和title一样是定义在文件头里的属性，当没有定义slug时会使用title作为url<br>
+`:filename`：文章的文件名，不包括文件扩展名。<br>
 
 出于seo考虑，不建议在url里加上年月日之类的，由于标题大多有中文或者特殊字符，所以也不建议直接使用标题作为url的一部分。这里建议使用slug的方式，自己手动给每篇文章提取若干个关键词作为slug，以此作为url的一部分，如下：
+
 ```
 [permalinks]
   posts = "/posts/:slug.html"
 ```
 
-然后文章的slug可以这样配置**（`permalinks`是配置在站点配置文件里的，`slug`是配置在每篇文章的文件头里的）**：
+然后文章的slug可以这样配置 **（`permalinks`是配置在站点配置文件里的，`slug`是配置在每篇文章的文件头里的）** ：
+
 ```
 ---
 title: 建站日志
 slug: e62c38c45
 ---
 ```
+
 我这里是因为文章是从hexo迁移过来的，hexo那边使用了abbrlink插件来生成随机且不重复的名字，为了和之前的文章url对齐就这样配置了。而hugo没有找到类似的插件，所以选择了slug来自定义url，这个功能倒是和博客园的自定义博文的url类似。
 
 另外值得一提的是，默认用的是pretty Url的配置，所有url的末尾都有个`/`，而Hexo那边url末尾是没有这个`/`的，算是一点小小的不同。

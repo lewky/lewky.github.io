@@ -5,11 +5,11 @@
 <p>1、on只能用于连接查询（内连接、外连接、交叉连接），在其他情况下使用on会报错，比如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span><span class="o">*</span> <span class="k">from</span> <span class="n">test</span> <span class="k">on</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">-- 报错，不能在普通查询里使用on，需要使用where
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 报错，不能在普通查询里使用on，需要使用where
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>2、连接查询会产生一张中间表(临时表)，on是在生成中间表时使用的条件；而where是在中间表生成后对中间表进行过滤使用的条件。比如：</p>]]></description></item><item><title>数据库的标识符可以有多长</title><link>https://lewky.cn/posts/d68d7e3a.html/</link><pubDate>Thu, 14 Mar 2019 23:26:10 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/d68d7e3a.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>今天在查看项目代码时发现有这样一个逻辑：在查询数据库时通过代码去拼接一个SQL，这个SQL的某个字段的别名是由多个变量名拼接而成的，于是在拼接该别名时特地限制了其长度为30，如果超过30就只截取前30个字符来作为列别名。</p>
