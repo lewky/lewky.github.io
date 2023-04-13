@@ -4,11 +4,13 @@
 
 由于高版本的node.js导致gulp执行build命令失败，我需要在Windows下卸载掉已有的node.js并安装一个多版本管理工具`nvm-windows`，方便切换不同版本的node.js。
 
-nvm是Linux下常用的一个node.js多版本管理工具，但是nvm不能在Windows下使用，在GitHub上有个项目叫`nvm-windows`，可以让我们在Windows下对node.js进行多版本管理。<!--more-->
+nvm是Linux下常用的一个node.js多版本管理工具，但是nvm不能在Windows下使用，在GitHub上有个项目叫`nvm-windows`，可以让我们在Windows下对node.js进行多版本管理。
+<!--more-->
 
 nvm-windows的下载地址：https://github.com/coreybutler/nvm-windows/releases
 
 根据官方说明：
+
 ```
 It comes with an installer (and uninstaller), because getting it should be easy. Please note, you need to uninstall any existing versions of node.js before installing NVM for Windows. Also delete any existing nodejs installation directories (e.g., "C:\Program Files\nodejs") that might remain. NVM's generated symlink will not overwrite an existing (even empty) installation directory.
 
@@ -32,6 +34,8 @@ You should also delete the existing npm install location (e.g. "C:\Users<user>\A
 ## 安装`nvm-windows`并使用
 
 到GitHub的[项目下载地址](https://github.com/coreybutler/nvm-windows/releases)，选择下载`nvm-setup.zip`，解压后双击使用安装程序即可。
+
+**注意不要改变安装时默认安装的系统软连接路径`NVM_SYMLINK`的值，否则会使用不了nodejs**
 
 ### 查看已安装的nodejs版本
 
@@ -145,6 +149,10 @@ npm config set registry https://registry.npmjs.org
 ```
 
 如果不想每次都重新设置镜像源，也可以使用`nrm`来管理镜像源。
+
+## 添加环境变量
+
+做完上述步骤后已经可以直接在cmd中使用npm命令来安装模块，此时可以将`%NVM_HOME%\npm`添加到系统的`Path`变量中，方便在cmd中使用nvm安装目录下的npm全局安装的模块命令。
 
 ## 参考链接
 

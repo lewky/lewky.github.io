@@ -40,7 +40,7 @@ border-animation="led"
 
 {{< friend
 name="欲穷三千界的博客"
-url="http://blog.zhogjianhao.top/"
+url="http://blog.zhjh.top/"
 logo="https://cn.gravatar.com/avatar/3b68d6a28eaaa388e70bb37248c897e3?s=256&d=mm"
 word="十年饮冰，码血难凉的组长，大虎yyds~"
 primary-color="linear-blue"
@@ -60,8 +60,8 @@ border-animation="borderFlash"
 
 {{< friend
 name="想要逆袭の柠檬"
-url="https://blog.yylemon.top/"
-logo="https://blog.yylemon.top/img/avatar/chuyin.JPEG"
+url="https://yylemon.top/"
+logo="https://s2.loli.net/2023/03/04/aBsd12DAvGUtob9.png"
 word="不必在意, 勇往直前"
 primary-color="linear-green"
 img-animation="rotate"

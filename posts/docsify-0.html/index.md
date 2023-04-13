@@ -8,9 +8,10 @@ docsify特性很多，最吸引我的是全文搜索、主题简洁好看、无�
 <!--more-->
 ## 快速安装
 
-首先需要先安装npm，这个请自行解决。
+首先需要先安装npm，这里简单说下。安装npm之前需要先安装node.js，而博主是Windows系统，可以通过`nvm-windows`来安装node.js，具体可以参考[这篇文章](https://lewky.cn/posts/1908545a.html)
 
 然后用npm来全局安装docsify：
+
 ```
 npm i docsify-cli -g
 ```
