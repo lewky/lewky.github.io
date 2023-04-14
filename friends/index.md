@@ -36,6 +36,16 @@ img-animation="auto_rotate_left"
 border-animation="led"
 >}}
 
+{{< friend
+name="肥子的Web Tools"
+url="https://jiehuifang.github.io/"
+logo="https://cravatar.cn/avatar/2ef6614f0044a219be17cdd314caa1cd?d=retro"
+word="高级搬砖工·肥子"
+primary-color="linear-blue"
+img-animation="auto_rotate_right"
+border-animation="led"
+>}}
+
 ## 【群大佬】
 
 {{< friend
