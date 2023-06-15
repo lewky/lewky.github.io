@@ -64,8 +64,18 @@ UNIQUE KEY `idx_name` (`column_name`) USING BTREE
 UNIQUE KEY `idx_name` USING BTREE (`column_name`)
 ```
 
+## MySQL终止正在执行的SQL语句
+
+`show full processlist`可以查询到MySQL正在执行的SQL语句，找到其中想要终止的慢SQL的id，通过`kill`终止：
+
+```
+--终止id为3222162404的SQL语句
+kill 3222162404
+```
+
 ## 参考链接
 
 * [Mysql JDBC Url参数说明useUnicode=true&characterEncoding=UTF-8](https://www.cnblogs.com/mracale/p/5842572.html)
 * [https://blog.csdn.net/m0_37520980/article/details/80364884](https://blog.csdn.net/m0_37520980/article/details/80364884)
 * [mysql导入数据时提示 USING BTREE 错误解决办法](https://blog.csdn.net/ccfxue/article/details/71118612)
+* [查询及停止MySQL正在执行的SQL语句](https://blog.csdn.net/weixin_47766381/article/details/121542788)

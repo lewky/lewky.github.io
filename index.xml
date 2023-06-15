@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 13 Apr 2023 00:27:01 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>GitHub问题汇总</title><link>https://lewky.cn/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 16 Jun 2023 00:19:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>PGP加解密</title><link>https://lewky.cn/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
+<p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
+<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>GitHub问题汇总</title><link>https://lewky.cn/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
 <p>GitHub在某次更新后改变了支持的秘钥策略，对于新增的RSA格式的SSH秘钥，如果是无密码加密的，会报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -289,25 +291,4 @@
 </span></span><span class="line"><span class="cl">&lt;/dependency&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章</title><link>https://lewky.cn/posts/hugo-3-3/</link><pubDate>Tue, 24 Aug 2021 15:11:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3-3/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">LoveIt: v0.2.10
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
-<p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>
-<ul>
-<li><a href="/posts/hugo-3.html/" rel="">Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</a></li>
-<li><a href="/posts/hugo-3.1.html/" rel="">Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章</a></li>
-<li><a href="/posts/hugo-3.2.html/" rel="">Hugo系列(3.2) - LoveIt主题美化与博客功能增强 · 第三章</a></li>
-<li><a href="/posts/hugo-3-3/" rel="">Hugo系列(3.3) - LoveIt主题美化与博客功能增强 · 第四章</a></li>
-</ul>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>
