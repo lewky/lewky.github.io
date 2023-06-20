@@ -1,4 +1,14 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 16 Jun 2023 00:19:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>PGP加解密</title><link>https://lewky.cn/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 20 Jun 2023 13:11:18 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>SSH命令问题汇总</title><link>https://lewky.cn/posts/ssh-issues/</link><pubDate>Tue, 20 Jun 2023 13:11:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ssh-issues/</guid><description><![CDATA[<h2 id="no-matching-host-key-type-found-their-offer-ssh-dss">no matching host key type found. Their offer: ssh-dss</h2>
+<p>使用SSH登录时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Unable to negotiate with 20.1.1.174 port 22: no matching host key type found. Their offer: ssh-dss
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PGP加解密</title><link>https://lewky.cn/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
 <p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
 <p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>SmartGit问题汇总</title><link>https://lewky.cn/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
 <p>SmartGit可以免费试用三十天，三十天后可以通过删除配置文件来重复免费试用三十天的过程，不同版本需要删除的文件不同。</p>
@@ -49,6 +59,4 @@
 </span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>由Java正则表达式的灾难性回溯引发的高CPU异常：java.util.regex.Pattern$Loop.match</title><link>https://lewky.cn/posts/java-regex-issue/</link><pubDate>Wed, 09 Oct 2019 20:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-regex-issue/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
-<p>某天领导report了一个问题：线上的CPU自从上一个版本迭代后就一直处于居高不下的状况，领导看着这段时间的曲线图判断是有两条线程在不停的死循环。</p>
-<p>接到任务后去查看了AWS的CloudWatch，发现线上CPU确实一直居高不下，使用率基本是之前的两倍；另外发现线程使用率以比之前频繁很多。后来公司的大佬拿到dump后经过分析发现，是由正则表达式造成的CPU持续高使用率的问题。</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>
