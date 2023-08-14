@@ -145,8 +145,8 @@ word="读万卷书，行万里路，赚很多钱"
 
 {{< friend
 name="Duan1v’s Blog"
-url="https://duan1v.com/"
-logo="https://duan1v.com/images/avatar.png"
+url="https://duan1v.top/"
+logo="https://duan1v.top/images/avatar.png"
 word="一步两步是魔鬼的步伐"
 primary-color="default"
 img-animation="rotate"
@@ -259,6 +259,13 @@ name="免费v2ray节点"
 url="https://www.v2rayfree.eu.org/"
 logo="https://www.v2rayfree.eu.org/images/avatar.png"
 word="免费v2ray节点订阅自助获取"
+>}}
+
+{{< friend
+name="免费clash节点"
+url="https://clashgithub.com/"
+logo="https://clashgithub.com/wp-content/themes/modown/static/img/logo.png"
+word="免费公益SSR/V2ray/ Shadowrocket/Clash节点/小火箭订阅链接|科学上网|免费梯子"
 >}}
 
 <!--
