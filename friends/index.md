@@ -252,22 +252,6 @@ logo="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/avatar.jpg"
 word="一个收藏回忆与分享技术的地方！"
 >}}
 
-## 【其他】
-
-{{< friend
-name="免费v2ray节点"
-url="https://www.v2rayfree.eu.org/"
-logo="https://www.v2rayfree.eu.org/images/avatar.png"
-word="免费v2ray节点订阅自助获取"
->}}
-
-{{< friend
-name="免费clash节点"
-url="https://clashgithub.com/"
-logo="https://clashgithub.com/wp-content/themes/modown/static/img/logo.png"
-word="免费公益SSR/V2ray/ Shadowrocket/Clash节点/小火箭订阅链接|科学上网|免费梯子"
->}}
-
 <!--
 ## 无法访问
 
