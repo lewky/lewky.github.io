@@ -150,7 +150,7 @@ private $VAR$ $END$;
 
 `File` -> `Settings...` -> `Editor` -> `File and Code Templates` -> `Includes` -> `File Header`填写文本模板即可。默认提供的`File Header`模板，是在左边的`Files`页面里的Class、Interface等通过`#parse("File Header.java")`引入的。
 
-可以依样画葫芦，自己定义一个模板文件，然后在想要引入的文件里通过``#parse`来引入。需要注意的是，最好在模板文件的最后一行多加一行空白行，不然在创建新类时，可能会报错而创建失败。下面是一个例子：
+可以依样画葫芦，自己定义一个模板文件，然后在想要引入的文件里通过`#parse`来引入。需要注意的是，最好在模板文件的最后一行多加一行空白行，不然在创建新类时，可能会报错而创建失败。下面是一个例子：
 
 新建了一个模板文件`Comment Header`：
 

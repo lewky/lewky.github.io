@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>ELK - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/elk/</link><description>ELK - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 21 Mar 2022 08:38:01 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/elk/" rel="self" type="application/rss+xml"/><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky.cn/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>ELK - 分类 - Yulin Lewis' Blog</title><link>https://lewky233.top/categories/elk/</link><description>ELK - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 21 Mar 2022 08:38:01 +0800</lastBuildDate><atom:link href="https://lewky233.top/categories/elk/" rel="self" type="application/rss+xml"/><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky233.top/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -43,9 +43,9 @@
 </span></span><span class="line"><span class="cl">}&#39;
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>ELK系列(5) - Elasticsearch性能调优</title><link>https://lewky.cn/posts/elk-5/</link><pubDate>Sat, 19 Mar 2022 22:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-5/</guid><description><![CDATA[<h2 id="机器内存分配">机器内存分配</h2>
+</div>]]></description></item><item><title>ELK系列(5) - Elasticsearch性能调优</title><link>https://lewky233.top/posts/elk-5/</link><pubDate>Sat, 19 Mar 2022 22:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/elk-5/</guid><description><![CDATA[<h2 id="机器内存分配">机器内存分配</h2>
 <p>官方推荐一个ES节点最好是分配当前机器最大内存的50%，比如机器内存是16g，就分配8g给ES：<code>-Xmx8g</code>。</p>
-<p>剩下的8g内存并不是说就闲置了，ES会拿机器剩余的内存来优化自身的查询效率。也就是说，并不是一味将最大内存设置很大就是最优解。</p>]]></description></item><item><title>ELK系列(4) - Elasticsearch问题汇总</title><link>https://lewky.cn/posts/elk-4/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-4/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>剩下的8g内存并不是说就闲置了，ES会拿机器剩余的内存来优化自身的查询效率。也就是说，并不是一味将最大内存设置很大就是最优解。</p>]]></description></item><item><title>ELK系列(4) - Elasticsearch问题汇总</title><link>https://lewky233.top/posts/elk-4/</link><pubDate>Wed, 08 Sep 2021 23:44:59 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/elk-4/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文主要基于Elasticsearch 6.5.4版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -63,7 +63,7 @@
 </span></span><span class="line"><span class="cl">&lt;/dependency&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>ELK系列(3) - Logstash问题汇总</title><link>https://lewky.cn/posts/elk-3/</link><pubDate>Sun, 12 May 2019 18:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-3/</guid><description><![CDATA[<h2 id="启动参数">启动参数</h2>
+</div>]]></description></item><item><title>ELK系列(3) - Logstash问题汇总</title><link>https://lewky233.top/posts/elk-3/</link><pubDate>Sun, 12 May 2019 18:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/elk-3/</guid><description><![CDATA[<h2 id="启动参数">启动参数</h2>
 <p>启动Logstash时可以指定一些参数：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -81,7 +81,7 @@
 </span></span><span class="line"><span class="cl">-b # 执行filter模块之前最大能积累的日志，数值越大性能越好，同时越占内存
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>ELK系列(2) - Kibana问题汇总</title><link>https://lewky.cn/posts/elk-2/</link><pubDate>Sun, 12 May 2019 16:48:00 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-2/</guid><description><![CDATA[<h2 id="修改日期格式date-format">修改日期格式Date format</h2>
+</div>]]></description></item><item><title>ELK系列(2) - Kibana问题汇总</title><link>https://lewky233.top/posts/elk-2/</link><pubDate>Sun, 12 May 2019 16:48:00 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/elk-2/</guid><description><![CDATA[<h2 id="修改日期格式date-format">修改日期格式Date format</h2>
 <p>Kibana在创建<code>Index Patterns</code>的时候，可以选择某个date类型的field作为排序字段。之后在<code>Discover</code>里打开对应的index，会发现这个date类型的field的格式显示如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -91,7 +91,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">April 10th 2019, 17:40:32.359
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这是Kibana默认的日期格式，有两种修改的方式。</p>]]></description></item><item><title>ELK系列(1) - Elasticsearch + Logstash + Kibana + Log4j2快速入门与搭建用例</title><link>https://lewky.cn/posts/elk-1/</link><pubDate>Sat, 11 May 2019 21:14:33 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-1/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+</div><p>这是Kibana默认的日期格式，有两种修改的方式。</p>]]></description></item><item><title>ELK系列(1) - Elasticsearch + Logstash + Kibana + Log4j2快速入门与搭建用例</title><link>https://lewky233.top/posts/elk-1/</link><pubDate>Sat, 11 May 2019 21:14:33 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/elk-1/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>最近公司分了个ELK相关的任务给我，在一边学习一边工作之余，总结下这些天来的学习历程和踩坑记录。</p>
 <p>首先介绍下使用ELK的项目背景：在项目的数据库里有个表用来存储消息队列的消费日志，这些日志用于开发者日后的维护。每当客户端生产一条消息并发送到消息队列后，就会插入一条对应的记录到数据库里。当这条消息被消费之后，又会更新数据库里对应的记录的几个column的值，比如status、updated_on这些常用的column。</p>
 <p>由于客户每天生产消费的消息很多，导致数据库里的这个表里的数据很多，长年累月下来，会达到数以亿计。领导决定不再把这些消费日志保存到数据库，而是改为通过Log4j2 + ELK架构把这些日志保存到Elasticsearch里。</p>
