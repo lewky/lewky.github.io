@@ -10,7 +10,8 @@
 </div>
 </div>]]></description></item><item><title>PGP加解密</title><link>https://lewky233.top/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
 <p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
-<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>SmartGit问题汇总</title><link>https://lewky233.top/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
+<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky233.top/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/apollo-issues/</guid><description>&lt;h2 id="apollo简介">Apollo简介&lt;/h2>
+&lt;p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置&lt;/p></description></item><item><title>SmartGit问题汇总</title><link>https://lewky233.top/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
 <p>SmartGit可以免费试用三十天，三十天后可以通过删除配置文件来重复免费试用三十天的过程，不同版本需要删除的文件不同。</p>
 <p><code>win + R</code>组合键打开运行窗口，输入<code>%APPDATA%\syntevo\SmartGit\</code>然后回车会进入到SmartGit的安装路径，进入你当前使用的版本目录，如果是旧版的SmartGit（如17.2版本），删除当前的<code>settings.xml</code>文件，然后重启SmartGit即可。</p>
 <p>如果找不到<code>settings.xml</code>文件，说明是新版本的SmartGit（如21.2版本），此时需要删除下面两个文件：</p>
@@ -31,32 +32,4 @@
 <p>本文基于2021-2版本的IDEA。</p>
 <h2 id="无法搜索或者下载插件">无法搜索或者下载插件</h2>
 <p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>
-<p>点击插件界面里的齿轮图标（在Marketplace、Installed的右边），选择<code>HTTP Proxy Settings...</code>，勾选<code>Auto-detect proxy settings</code>以及<code>Automatic proxy configuration URL:</code>，然后点击最下方的<code>Check connection</code>，在弹出框里输入官方插件网站<code>https://plugins.jetbrains.com/idea</code>，点击<code>OK</code>，一般都是可以连接成功的。之后就可以正常的搜索和下载插件了。</p>]]></description></item><item><title>Swagger问题汇总</title><link>https://lewky233.top/posts/swagger-issues/</link><pubDate>Fri, 09 Jul 2021 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/swagger-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>SpringFox是一个开源的用于生成API文档接口的框架，支持多种API文档的格式。可以用SpringFox来整合Spring和Swagger，本文使用的Swagger和SpringFox版本如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="o">.</span><span class="na">springfox</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">springfox</span><span class="o">-</span><span class="n">swagger2</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">2.9.2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="o">.</span><span class="na">springfox</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">springfox</span><span class="o">-</span><span class="n">swagger</span><span class="o">-</span><span class="n">ui</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">2.9.2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p>点击插件界面里的齿轮图标（在Marketplace、Installed的右边），选择<code>HTTP Proxy Settings...</code>，勾选<code>Auto-detect proxy settings</code>以及<code>Automatic proxy configuration URL:</code>，然后点击最下方的<code>Check connection</code>，在弹出框里输入官方插件网站<code>https://plugins.jetbrains.com/idea</code>，点击<code>OK</code>，一般都是可以连接成功的。之后就可以正常的搜索和下载插件了。</p>]]></description></item></channel></rss>

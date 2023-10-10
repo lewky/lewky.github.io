@@ -11,7 +11,8 @@
 </div>
 </div>]]></description></item><item><title>PGP加解密</title><link>https://lewky233.top/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
 <p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
-<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>GitHub问题汇总</title><link>https://lewky233.top/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
+<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky233.top/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/apollo-issues/</guid><description>&lt;h2 id="apollo简介">Apollo简介&lt;/h2>
+&lt;p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置&lt;/p></description></item><item><title>GitHub问题汇总</title><link>https://lewky233.top/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
 <p>GitHub在某次更新后改变了支持的秘钥策略，对于新增的RSA格式的SSH秘钥，如果是无密码加密的，会报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -260,26 +261,4 @@
 <p>这三种模式修饰符可以搭配使用，如：<code>(?im)</code>，<code>(?is)</code>等。</p>]]></description></item><item><title>MySQL问题汇总</title><link>https://lewky233.top/posts/mysql-issues/</link><pubDate>Tue, 12 Oct 2021 00:04:01 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/mysql-issues/</guid><description><![CDATA[<h2 id="指定字符集编码">指定字符集编码</h2>
 <p>需要在数据库连接中指定两个参数：<code>useUnicode=true&amp;characterEncoding=UTF-8</code>，只有当设置了<code>useUnicode=true</code>时，后续指定的字符集编码才有效。</p>
 <h2 id="mysql-56别名默认不生效问题">MySQL 5.6别名默认不生效问题</h2>
-<p>在数据库连接中指定参数：<code>useOldAliasMetadataBehavior=true</code>。</p>]]></description></item><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky233.top/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>Spring Data除了常用的JPA（Hibernate）关系型数据库的模块外，还有其他用于非关系型数据库的数据交互模块：比如Redis、MongoDB、Elasticsearch等。</p>
-<p>用法和JPA模块类似，都需要定义对应的POJO、Repository，同时也提供了对应的数据库工具模板类：如RedisTemplate、MongoTemplate等。</p>
-<p>本文基于以下版本：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!--  对应的是4.1.1版本的MongoDB --&gt;
-</span></span><span class="line"><span class="cl">&lt;dependency&gt;
-</span></span><span class="line"><span class="cl">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
-</span></span><span class="line"><span class="cl">    &lt;version&gt;2.4.0&lt;/version&gt;
-</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这是MongoDB官网用户手册的翻译文档仓库：<a href="https://github.com/mongodb-china/MongoDB-4.2-Manual" target="_blank" rel="noopener noreffer">MongoDB-4.2-Manual</a></p>]]></description></item></channel></rss>
+<p>在数据库连接中指定参数：<code>useOldAliasMetadataBehavior=true</code>。</p>]]></description></item></channel></rss>
