@@ -51,7 +51,7 @@ border-animation="led"
 {{< friend
 name="欲穷三千界的博客"
 url="http://blog.zhjh.top/"
-logo="https://cn.gravatar.com/avatar/3b68d6a28eaaa388e70bb37248c897e3?s=256&d=mm"
+logo="https://blog.zhjh.top/upload/%E8%87%AA%E5%88%B6%E5%A4%B4%E5%83%8F.jpg"
 word="十年饮冰，码血难凉的组长，大虎yyds~"
 primary-color="linear-blue"
 img-animation="rotate"
@@ -69,10 +69,10 @@ border-animation="borderFlash"
 >}}
 
 {{< friend
-name="想要逆袭の柠檬"
-url="https://yylemon.top/"
-logo="https://s2.loli.net/2023/03/04/aBsd12DAvGUtob9.png"
-word="不必在意, 勇往直前"
+name="夜雨柠檬的博客"
+url="https://blog.yeyulemon.top/"
+logo="https://imgbed.yeyulemon.top/uploads/652404e068dd8.png"
+word="追：追赶、追求、追梦"
 primary-color="linear-green"
 img-animation="rotate"
 border-animation="borderFlash"
@@ -296,8 +296,8 @@ border-animation="bln"
 
 {{< friend
 name="雨临Lewis的博客"
-url="https://lewky.cn"
-logo="https://lewky.cn/images/avatar.jpg"
+url="https://lewky233.top"
+logo="https://lewky233.top/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 primary-color="linear-green"
 img-animation="auto_rotate_right"
@@ -308,10 +308,10 @@ border-animation="led"
 
 ```html
 name="雨临Lewis的博客"
-url="https://lewky.cn"
-logo="https://lewky.cn/images/avatar.jpg"
+url="https://lewky233.top"
+logo="https://lewky233.top/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
-screenshot="https://lewky.cn/images/common/screenshot.jpg"
+screenshot="https://lewky233.top/images/common/screenshot.jpg"
 group="Java"
 ```
 
