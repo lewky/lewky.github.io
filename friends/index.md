@@ -227,6 +227,13 @@ logo="https://www.nnjskz.cn/img/logo3.png"
 word="学习改变命运，分享创造价值"
 >}}
 
+{{< friend
+name="MIO"
+url="https://maling.io/"
+logo="https://maling.io/avatar/mio.webp"
+word="学无止境，宁静致远"
+>}}
+
 ## 【Go】
 
 {{< friend

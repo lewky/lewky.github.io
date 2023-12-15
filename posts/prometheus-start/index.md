@@ -5,7 +5,7 @@
 APM系统即Application Performance Management应用性能管理，目的是对企业的关键业务系统进行实时性能监控和故障管理，主要有以下三个维度：日志聚合Logs、业务指标Metrics、链路跟踪Traces。
 
 在现今很流行的分布式架构微服务系统中，主流的APM系统组件：日志聚合可以使用ELK Stack，业务指标采用Prometheus，链路跟踪使用SkyWalking。比如新时代的银行业务系统需要上云，日志往往采用云服务商提供的日志聚合平台（如阿里云的SLS、腾讯云的CLS）。
-
+<!--more-->
 ## 架构理解
 
 Prometheus基于HTTP的Pull方式采集时序数据，由Go语言编写，其总体架构分为三层：采集层、存储计算层、应用层。
