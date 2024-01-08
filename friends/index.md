@@ -234,6 +234,13 @@ logo="https://maling.io/avatar/mio.webp"
 word="学无止境，宁静致远"
 >}}
 
+{{< friend
+name="Sky's Blog"
+url="https://wanglingyue.com"
+logo="http://cdn.wanglingyue.com/me-1.jpg"
+word="山河浪漫，人间温暖！"
+>}}
+
 ## 【Go】
 
 {{< friend
