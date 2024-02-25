@@ -228,10 +228,10 @@ word="学习改变命运，分享创造价值"
 >}}
 
 {{< friend
-name="MIO"
+name="Ling"
 url="https://maling.io/"
 logo="https://maling.io/avatar/mio.webp"
-word="学无止境，宁静致远"
+word="羽翎轩"
 >}}
 
 {{< friend
@@ -239,6 +239,13 @@ name="Sky's Blog"
 url="https://wanglingyue.com"
 logo="http://cdn.wanglingyue.com/me-1.jpg"
 word="山河浪漫，人间温暖！"
+>}}
+
+{{< friend
+name="〇°"
+url="https://lingdu.love"
+logo="https://lingdu.love/favicon.ico"
+word="今天快乐"
 >}}
 
 ## 【Go】
