@@ -188,6 +188,13 @@ logo="https://cravatar.cn/avatar/2cf805e274570863fa4574d70f32ec4b"
 word="企鹅的小屋"
 >}}
 
+{{< friend
+name="SMallTIAN’s Blog"
+url="https://blog.mcsmalltian.com/"
+logo="https://mcsmalltian.com/frontend/img/avatar.webp"
+word="写我想写的，做我想做的。"
+>}}
+
 ## 【网络安全】
 
 {{< friend
