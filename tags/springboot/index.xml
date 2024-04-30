@@ -1,0 +1,39 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SpringBoot - 标签 - Yulin Lewis' Blog</title><link>https://lewky233.top/tags/springboot/</link><description>SpringBoot - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 20 Aug 2021 08:23:26 +0800</lastBuildDate><atom:link href="https://lewky233.top/tags/springboot/" rel="self" type="application/rss+xml"/><item><title>SpringBoot问题汇总</title><link>https://lewky233.top/posts/springboot-issues/</link><pubDate>Fri, 20 Aug 2021 08:23:26 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/springboot-issues/</guid><description><![CDATA[<h2 id="使用log4j2日志替代默认的logback">使用Log4j2日志替代默认的Logback</h2>
+<p>SpringBoot默认使用Logback打印日志，出于性能考虑想要改用Log4j2，需要修改POM中的依赖，移除默认的Logback依赖：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">    &lt;exclusions&gt;
+</span></span><span class="line"><span class="cl">        &lt;exclusion&gt;
+</span></span><span class="line"><span class="cl">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">            &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">        &lt;/exclusion&gt;
+</span></span><span class="line"><span class="cl">    &lt;/exclusions&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">        &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

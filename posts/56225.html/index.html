@@ -1,0 +1,1342 @@
+<!doctype html><html lang><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Java高并发秒杀API(一)之业务分析与DAO层 - Yulin Lewis' Blog</title><meta name=keywords content="雨临Lewis,Java,hugo,hexo,博客"><meta name=Description content="不想当写手的码农不是好咸鱼_(xз」∠)_"><meta property="og:title" content="Java高并发秒杀API(一)之业务分析与DAO层"><meta property="og:description" content="
+本SSM实战项目使用了Maven进行依赖管理，如果有不清楚Maven是什么的可以参考这篇文章
+
+1. 创建Maven项目和依赖
+1.1 创建项目前需要先安装Maven，并设置好环境变量
+
+Maven下载
+设置环境变量
+"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky233.top/posts/56225.html/"><meta property="og:image" content="https://lewky233.top/logo.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2017-10-04T23:57:03+08:00"><meta property="article:modified_time" content="2017-10-04T23:57:03+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky233.top/logo.png"><meta name=twitter:title content="Java高并发秒杀API(一)之业务分析与DAO层"><meta name=twitter:description content="
+本SSM实战项目使用了Maven进行依赖管理，如果有不清楚Maven是什么的可以参考这篇文章
+
+1. 创建Maven项目和依赖
+1.1 创建项目前需要先安装Maven，并设置好环境变量
+
+Maven下载
+设置环境变量
+"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky233.top/posts/56225.html/><link rel=prev href=https://lewky233.top/posts/65067.html/><link rel=next href=https://lewky233.top/posts/18357.html/><link rel=stylesheet href=https://unpkg.com/normalize.css@8.0.1/normalize.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://unpkg.com/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://unpkg.com/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Java高并发秒杀API(一)之业务分析与DAO层","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky233.top\/posts\/56225.html\/"},"genre":"posts","keywords":"项目笔记, SSM实战项目, 秒杀","wordcount":9837,"url":"https:\/\/lewky233.top\/posts\/56225.html\/","datePublished":"2017-10-04T23:57:03+08:00","dateModified":"2017-10-04T23:57:03+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky233.top\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class='fas fa-fw fa-atom'></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class='fas fa-fw fa-archive'></i> 归档</a><div class="menu-more-content dropdown-content"><a href=/categories/ title><i class='fas fa-fw fa-th'></i> 分类 </a><a href=/tags/ title><i class='fas fa-fw fa-tag'></i> 标签 </a><a href=/about/ title><i class='fas fa-fw fa-at'></i> 关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class='fas fa-fw fa-link'></i> 友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class='fas fa-fw fa-fan fa-spin'></i> 趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class='fas fa-fw fa-dizzy'></i> 燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class='fas fa-fw fa-music'></i> 在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class='fas fa-fw fa-cat'></i> 抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class='fas fa-fw fa-atom'></i> 站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class='fas fa-fw fa-comment'></i> 公告留言 </a><a href=https://seo.chinaz.com title target=_blank rel=noopener><i class='fas fa-fw fa-chart-line'></i> SEO查询 </a><a href=https://www.ping.cn/http/lewky233.top title target=_blank rel=noopener><i class='fas fa-fw fa-bezier-curve'></i> 网站测速 </a><a href=/posts/e62c38c4.html/ title><i class='fas fa-fw fa-cog fa-spin'></i> 建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title><i class='fas fa-fw fa-book'></i> 文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ title target=_blank rel=noopener><i class='fas fa-fw fa-star'></i> Hugo文档 </a><a href=https://javanote.doc.lewky233.top/ title=尚在完善中~ target=_blank rel=noopener><i class='fab fa-fw fa-java'></i> Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class='fas fa-fw fa-search'></i> 搜索
+</a><span class="menu-item delimiter"></span>
+<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class='fas fa-fw fa-subway'></i></a>
+<a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class='fas fa-fw fa-inbox'></i></a>
+<a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class='fab fa-fw fa-github'></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class='fas fa-fw fa-atom'></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class='fas fa-fw fa-archive'></i> 归档</a><div class="menu-more-content dropdown-content"><a href=/categories/ title><i class='fas fa-fw fa-th'></i> 分类 </a><a href=/tags/ title><i class='fas fa-fw fa-tag'></i> 标签 </a><a href=/about/ title><i class='fas fa-fw fa-at'></i> 关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class='fas fa-fw fa-link'></i> 友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class='fas fa-fw fa-fan fa-spin'></i> 趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class='fas fa-fw fa-dizzy'></i> 燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class='fas fa-fw fa-music'></i> 在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class='fas fa-fw fa-cat'></i> 抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class='fas fa-fw fa-atom'></i> 站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class='fas fa-fw fa-comment'></i> 公告留言 </a><a href=https://seo.chinaz.com title target=_blank rel=noopener><i class='fas fa-fw fa-chart-line'></i> SEO查询 </a><a href=https://www.ping.cn/http/lewky233.top title target=_blank rel=noopener><i class='fas fa-fw fa-bezier-curve'></i> 网站测速 </a><a href=/posts/e62c38c4.html/ title><i class='fas fa-fw fa-cog fa-spin'></i> 建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title><i class='fas fa-fw fa-book'></i> 文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ title target=_blank rel=noopener><i class='fas fa-fw fa-star'></i> Hugo文档 </a><a href=https://javanote.doc.lewky233.top/ title=尚在完善中~ target=_blank rel=noopener><i class='fab fa-fw fa-java'></i> Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class='fas fa-fw fa-search'></i> 搜索</a>
+<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class='fas fa-fw fa-subway'></i></a>
+<a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class='fas fa-fw fa-inbox'></i></a>
+<a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class='fab fa-fw fa-github'></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><article class="page single"><h1 class="single-title animated flipInX">Java高并发秒杀API(一)之业务分析与DAO层</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/seckill/><i class="far fa-folder fa-fw"></i>seckill</a></span></div><div class=post-meta-line><i class="far fa-calendar fa-fw"></i>&nbsp;<time datetime=2017-10-04>2017-10-04</time>&nbsp;<i class="far fa-calendar-plus fa-fw"></i>&nbsp;<time datetime=2017-10-04>2017-10-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 9837 字
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 20 分钟&nbsp;<span id=/posts/56225.html/ class=leancloud_visitors data-flag-title=Java高并发秒杀API(一)之业务分析与DAO层>
+<i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+</span>&nbsp;
+<a href=#comments id=post-meta-vcount title=查看评论><i class="fas fa-comment fa-fw"></i>&nbsp;<span id=/posts/56225.html/ class=waline-comment-count></span>&nbsp;条评论</a></div></div><div class=content id=content><blockquote><p>本SSM实战项目使用了Maven进行依赖管理，如果有不清楚Maven是什么的可以参考<a href=http://blog.csdn.net/lewky_liu/article/details/78138381 target=_blank rel="noopener noreffer">这篇文章</a></p></blockquote><h2 id=1-创建maven项目和依赖>1. 创建Maven项目和依赖</h2><h3 id=11-创建项目前需要先安装maven并设置好环境变量>1.1 创建项目前需要先安装Maven，并设置好环境变量</h3><ul><li><a href=http://download.csdn.net/download/lewky_liu/10000144 target=_blank rel="noopener noreffer">Maven下载</a></li><li>设置环境变量</li></ul><ul><li>新建变量<code>MAVEN_HOME</code>，值为Maven的目录<code>X:\XXX\apache-maven-XXX</code><ul><li>将<code>%MAVEN_HOME%\bin</code>添加到<code>Path</code>变量下</li></ul></li><li>运行CMD，输入<code>mvn -v</code>后可以看到Maven的版本信息等则表示安装成功</li></ul><h3 id=12-创建maven项目有两种方式如下>1.2 创建Maven项目有两种方式，如下</h3><p><strong>第一种创建方式：使用命令行手动创建</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>mvn archetype:generate -DgroupId<span class=o>=</span>com.lewis.seckill -DartifactId<span class=o>=</span>seckill -Dpackage<span class=o>=</span>com.lewis.seckill -Dversion<span class=o>=</span>1.0-SNAPSHOT -DarchetypeArtifactId<span class=o>=</span>maven-archetype-webapp
+</span></span></code></pre></td></tr></table></div></div><p>在视频中使用的是<code>archetype:create</code>，该方法已被废弃，请使用<code>archetype:generate</code>来创建。命令行执行后会创建一个<code>maven-archetype-webapp</code>骨架的Maven项目，其中<code>groupId</code>是项目组织唯一的标识符，实际对应JAVA的包的结构；<code>artifactId</code>是项目的唯一的标识符，实际对应项目的名称；<code>package</code>一般是<code>groupId</code>+<code>artifactId</code>，是自动生成的，可以修改</p><p><strong>第二种创建方式：借助IDE工具的Maven插件来创建项目</strong></p><blockquote><p>Eclipse安装Maven插件</p></blockquote><ul><li>不知道怎么Maven插件的请参考<a href=http://blog.csdn.net/wode_dream/article/details/38052639 target=_blank rel="noopener noreffer">该博文</a>，推荐使用link方式手工安装的方式<ul><li>如果是手工安装Maven插件的，可能会缺少pom.xml 图形化编辑工具，请另外添加进去，具体情况请参考<a href=http://www.micmiu.com/software/build/eclipse-m2e-plugins/ target=_blank rel="noopener noreffer">该博文</a></li><li>已经安装了Maven插件的请走下一个步骤</li></ul></li><li><code>File</code>→<code>New</code>→<code>Other...</code>→<code>Maven Project</code>→<code>Next</code>,进入如下界面</li></ul><p><figure><a class=lightgallery href=/images/posts/project/seckill/Maven1.jpg title=Maven1 data-thumbnail=/images/posts/project/seckill/Maven1.jpg data-sub-html="<h2> </h2><p>Maven1</p>"><img class=lazyload src=/svg/loading.min.svg data-src=/images/posts/project/seckill/Maven1.jpg data-srcset="/images/posts/project/seckill/Maven1.jpg, /images/posts/project/seckill/Maven1.jpg 1.5x, /images/posts/project/seckill/Maven1.jpg 2x" data-sizes=auto alt=/images/posts/project/seckill/Maven1.jpg></a><figcaption class=image-caption>Maven1</figcaption></figure></p><ul><li>点击<code>Next</code>，选择要构建的骨架<code>maven-archetype-webapp</code>，如下图</li></ul><p><figure><a class=lightgallery href=/images/posts/project/seckill/Maven2.jpg title=Maven2 data-thumbnail=/images/posts/project/seckill/Maven2.jpg data-sub-html="<h2> </h2><p>Maven2</p>"><img class=lazyload src=/svg/loading.min.svg data-src=/images/posts/project/seckill/Maven2.jpg data-srcset="/images/posts/project/seckill/Maven2.jpg, /images/posts/project/seckill/Maven2.jpg 1.5x, /images/posts/project/seckill/Maven2.jpg 2x" data-sizes=auto alt=/images/posts/project/seckill/Maven2.jpg></a><figcaption class=image-caption>Maven2</figcaption></figure></p><ul><li>点击<code>Next</code>，填写<code>groupId=com.lewis.seckill</code>，<code>DartifactId=seckill</code>，<code>package=com.lewis.seckill</code>（根据实际情况填写），然后<code>Finish</code></li></ul><blockquote><p>如果是第一次使用Eclipse的Maven插件来创建Maven项目的可能会遇到一些问题，可以参考<a href=http://blog.csdn.net/lewky_liu/article/details/78138381 target=_blank rel="noopener noreffer">该博文</a></p></blockquote><h3 id=13-修改pomxml文件>1.3 修改pom.xml文件</h3><p>当创建完Maven项目后会在根目录下有一个pom.xml文件，Maven项目通过pom.xml进行项目依赖的管理，如果没有该xml文件，Eclipse不会将该项目当作一个Maven项目</p><blockquote><p>添加项目需要的jar包依赖</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl>	<span class=nt>&lt;project</span> <span class=na>xmlns=</span><span class=s>&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class=na>xmlns:xsi=</span><span class=s>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class=line><span class=cl>		<span class=na>xsi:schemaLocation=</span><span class=s>&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;modelVersion&gt;</span>4.0.0<span class=nt>&lt;/modelVersion&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;groupId&gt;</span>com.lewis<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;artifactId&gt;</span>seckill<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;packaging&gt;</span>war<span class=nt>&lt;/packaging&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;version&gt;</span>0.0.1-SNAPSHOT<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;name&gt;</span>seckill Maven Webapp<span class=nt>&lt;/name&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;url&gt;</span>http://maven.apache.org<span class=nt>&lt;/url&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;dependencies&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>junit<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>junit<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>4.11<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;scope&gt;</span>test<span class=nt>&lt;/scope&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--补全项目依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--1.日志 java日志有:slf4j,log4j,logback,commons-logging
+</span></span></span><span class=line><span class=cl><span class=c>				slf4j,commons-logging:是规范/接口 日志实现:log4j,logback
+</span></span></span><span class=line><span class=cl><span class=c>				使用:slf4j+logback --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.slf4j<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>slf4j-api<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>1.7.12<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>ch.qos.logback<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>logback-core<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>1.1.1<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--实现slf4j接口并整合 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>ch.qos.logback<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>logback-classic<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>1.1.1<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--2.数据库相关依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>mysql<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>mysql-connector-java<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>5.1.35<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;scope&gt;</span>runtime<span class=nt>&lt;/scope&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>c3p0<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>c3p0<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>0.9.1.1<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--3.dao框架:MyBatis依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.mybatis<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>mybatis<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>3.3.0<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--mybatis自身实现的spring整合依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.mybatis<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>mybatis-spring<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>1.2.3<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--4.Servlet web相关依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>taglibs<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>standard<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>1.1.2<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>jstl<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>jstl<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>1.2<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>com.fasterxml.jackson.core<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>jackson-databind<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>2.5.4<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>javax.servlet<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>javax.servlet-api<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>3.1.0<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--5:spring依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--1)spring核心依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.springframework<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>spring-core<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>4.1.7.RELEASE<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.springframework<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>spring-beans<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>4.1.7.RELEASE<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.springframework<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>spring-context<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>4.1.7.RELEASE<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--2)spring dao层依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.springframework<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>spring-jdbc<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>4.1.7.RELEASE<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.springframework<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>spring-tx<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>4.1.7.RELEASE<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--3)springweb相关依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.springframework<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>spring-web<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>4.1.7.RELEASE<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.springframework<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>spring-webmvc<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>4.1.7.RELEASE<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--4)spring test相关依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>org.springframework<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>spring-test<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>4.1.7.RELEASE<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--添加redis依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>redis.clients<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>jedis<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>2.7.3<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--prostuff序列化依赖 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>com.dyuproject.protostuff<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>protostuff-core<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>1.0.8<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;dependency&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;groupId&gt;</span>com.dyuproject.protostuff<span class=nt>&lt;/groupId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;artifactId&gt;</span>protostuff-runtime<span class=nt>&lt;/artifactId&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;version&gt;</span>1.0.8<span class=nt>&lt;/version&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/dependency&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;/dependencies&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;build&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;finalName&gt;</span>seckill<span class=nt>&lt;/finalName&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;resources&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=c>&lt;!--打包时包含源代码包下的资源文件
+</span></span></span><span class=line><span class=cl><span class=c>					默认情况下只会打包src/main/java下的源代码 --&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;resource&gt;</span>
+</span></span><span class=line><span class=cl>					<span class=nt>&lt;directory&gt;</span>src/main/java<span class=nt>&lt;/directory&gt;</span>
+</span></span><span class=line><span class=cl>					<span class=nt>&lt;includes&gt;</span>
+</span></span><span class=line><span class=cl>						<span class=nt>&lt;include&gt;</span>**/*.xml<span class=nt>&lt;/include&gt;</span>
+</span></span><span class=line><span class=cl>					<span class=nt>&lt;/includes&gt;</span>
+</span></span><span class=line><span class=cl>					<span class=nt>&lt;filtering&gt;</span>false<span class=nt>&lt;/filtering&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;/resource&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;resource&gt;</span>
+</span></span><span class=line><span class=cl>					<span class=nt>&lt;directory&gt;</span>src/main/resources<span class=nt>&lt;/directory&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;/resource&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/resources&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;/build&gt;</span>
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;/project&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>关于maven依赖的简化写法</p></blockquote><p>教学视频中老师写了很多的依赖，但其实这里面有一些是可以省略不写的，因为有些包会自动依赖其它的包（Maven的传递性依赖）。这里面可以省略的依赖有：spring-core;spring-beans（上面这两个spring-context会自动依赖）;spring-context，spring-jdbc（mybatis-spring会依赖）；spring-web（spring-webmvc会依赖）；logback-core（logback-classic会依赖）</p><blockquote><p>有想要了解Maven的依赖范围与传递性依赖的请参考<a href=http://blog.csdn.net/lewky_liu/article/details/78145211 target=_blank rel="noopener noreffer">该博文</a></p></blockquote><h2 id=2-秒杀业务分析>2. 秒杀业务分析</h2><h3 id=21-业务分析>2.1 业务分析</h3><blockquote><p>秒杀业务的核心是对库存的处理，其业务流程如下图</p></blockquote><p><figure><a class=lightgallery href=/images/posts/project/seckill/1.png title=1.png data-thumbnail=/images/posts/project/seckill/1.png data-sub-html="<h2> </h2><p>1.png</p>"><img class=lazyload src=/svg/loading.min.svg data-src=/images/posts/project/seckill/1.png data-srcset="/images/posts/project/seckill/1.png, /images/posts/project/seckill/1.png 1.5x, /images/posts/project/seckill/1.png 2x" data-sizes=auto alt=/images/posts/project/seckill/1.png></a><figcaption class=image-caption>1.png</figcaption></figure></p><blockquote><p>用户针对库存业务分析</p></blockquote><p>当用户执行秒杀成功时，应该发生以下两个操作：</p><ul><li>减库存</li><li>记录购买明细</li></ul><p>这两个操作属于一个完整事务，通过事务来实现数据落地</p><blockquote><p>为什么需要事务？</p></blockquote><ul><li>减库存却没有记录购买明细，会导致商品少卖</li><li>记录购买明细却没有减库存，会导致商品超卖</li></ul><p>在实际中，以上都是很严重的事故，会给商家或买家带来损失，这是不能被允许的。一旦发生这种事故，事故责任很自然的就会去找设计实现业务的程序员</p><blockquote><p>如何实现数据落地？</p></blockquote><p>有<strong>MySQL与NoSQL</strong>两种数据落地的方案</p><ul><li>MySQL属于关系型数据库，而MySQL内置的事务机制来可以准确的帮我们完成减库存和记录购买明细的过程。MySQL有多种存储引擎，但只有InnoDB存储引擎支持事务。InnoDB支持行级锁和表级锁，默认使用行级锁</li><li>NoSQL属于非关系型数据库，近些年来在数据存储方面承担了很大的职责，但是对于事务的支持做的并不是很好，更多追求的是性能、高复用、分布式。</li></ul><p>事务机制依然是目前最可靠的数据落地方案。</p><blockquote><p>数据落地与不数据落地</p></blockquote><ul><li><strong>落地数据</strong>：就是被持久化的数据，这种数据一般放在硬盘或是其他的持久化存储设备里，例如：图片、系统日志、在页面上显示的数据以及保存在关系数据库里的数据等等，落地数据一定会有一个固定的载体，他们不会瞬时消失的。</li><li><strong>不落地数据</strong>：一般指存储在内存或者是网络传输里的数据，这些数据是瞬时，使用完毕就会消失，例如：我们在浏览器发送给服务器的请求；从数据库读取出来的一直到页面展示前的数据等等。</li><li>“不落地”传输能够满足用户在性能上的要求。</li></ul><h3 id=22-使用mysql实现秒杀的难点分析>2.2 使用MySQL实现秒杀的难点分析</h3><blockquote><p>难点问题：如何高效地处理竞争？</p></blockquote><p>当一个用户在执行秒杀某件商品时，其他也想要秒杀该商品的用户就只能等待，直到上一个用户提交或回滚了事务，他才能够得到该商品的锁执行秒杀操作。这里就涉及到了锁的竞争。</p><p><figure><a class=lightgallery href=/images/posts/project/seckill/2.jpg title=2.jpg data-thumbnail=/images/posts/project/seckill/2.jpg data-sub-html="<h2> </h2><p>2.jpg</p>"><img class=lazyload src=/svg/loading.min.svg data-src=/images/posts/project/seckill/2.jpg data-srcset="/images/posts/project/seckill/2.jpg, /images/posts/project/seckill/2.jpg 1.5x, /images/posts/project/seckill/2.jpg 2x" data-sizes=auto alt=/images/posts/project/seckill/2.jpg></a><figcaption class=image-caption>2.jpg</figcaption></figure></p><p>对于MySQL来说，竞争反应到背后的技术是就是事务+行级锁：</p><p>start transaction（开启事务）→ update库存数量 → insert购买明细 → commit（提交事务）</p><p>在秒杀系统中，在同一时刻会有很多用户在秒杀同一件商品，那么如何高效低处理这些竞争？如何高效地提交事务？这些将在<a href=http://blog.csdn.net/lewky_liu/article/details/78166080 target=_blank rel="noopener noreffer">Java高并发秒杀API(四)之高并发优化</a>进行分析总结。</p><blockquote><p>实现哪些秒杀功能？</p></blockquote><p>下面先以天猫的秒杀库存系统为例，如下图</p><p><figure><a class=lightgallery href=/images/posts/project/seckill/2.jpg title=3.jpg data-thumbnail=/images/posts/project/seckill/2.jpg data-sub-html="<h2> </h2><p>3.jpg</p>"><img class=lazyload src=/svg/loading.min.svg data-src=/images/posts/project/seckill/2.jpg data-srcset="/images/posts/project/seckill/2.jpg, /images/posts/project/seckill/2.jpg 1.5x, /images/posts/project/seckill/2.jpg 2x" data-sizes=auto alt=/images/posts/project/seckill/2.jpg></a><figcaption class=image-caption>3.jpg</figcaption></figure></p><p>可以看到，天猫的秒杀库存系统是很复杂的，需要很多工程师共同开发。在这里，我们只实现秒杀相关的功能</p><ul><li>秒杀接口暴露</li><li>执行秒杀</li><li>相关查询</li></ul><blockquote><p>为什么要进行秒杀接口暴露的操作？</p></blockquote><p>现实中有的用户回通过浏览器插件提前知道秒杀接口，填入参数和地址来实现自动秒杀，这对于其他用户来说是不公平的，我们也不希望看到这种情况</p><h2 id=3-dao层设计>3. DAO层设计</h2><h3 id=31-创建数据库>3.1 创建数据库</h3><p>源码里有个sql文件夹，可以给出了sql语句；也可以选择自己手写。数据库一共就两个表：秒杀库存表、秒杀成功明细表。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sql data-lang=sql><span class=line><span class=cl><span class=w>	</span><span class=c1>-- 数据库初始化脚本
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=w>	
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=c1>-- 创建数据库
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=w>	</span><span class=k>CREATE</span><span class=w> </span><span class=k>DATABASE</span><span class=w> </span><span class=n>seckill</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=c1>-- 使用数据库
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=w>	</span><span class=n>use</span><span class=w> </span><span class=n>seckill</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>seckill</span><span class=p>(</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=n>seckill_id</span><span class=o>`</span><span class=w> </span><span class=nb>BIGINT</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NUll</span><span class=w> </span><span class=n>AUTO_INCREMENT</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;商品库存ID&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=n>name</span><span class=o>`</span><span class=w> </span><span class=nb>VARCHAR</span><span class=p>(</span><span class=mi>120</span><span class=p>)</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;商品名称&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=nb>number</span><span class=o>`</span><span class=w> </span><span class=nb>int</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;库存数量&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=n>create_time</span><span class=o>`</span><span class=w> </span><span class=k>TIMESTAMP</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>DEFAULT</span><span class=w> </span><span class=k>CURRENT_TIMESTAMP</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;创建时间&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=n>start_time</span><span class=o>`</span><span class=w> </span><span class=k>TIMESTAMP</span><span class=w>  </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;秒杀开始时间&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=n>end_time</span><span class=o>`</span><span class=w>   </span><span class=k>TIMESTAMP</span><span class=w>   </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;秒杀结束时间&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=k>PRIMARY</span><span class=w> </span><span class=k>KEY</span><span class=w> </span><span class=p>(</span><span class=n>seckill_id</span><span class=p>),</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=k>key</span><span class=w> </span><span class=n>idx_start_time</span><span class=p>(</span><span class=n>start_time</span><span class=p>),</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=k>key</span><span class=w> </span><span class=n>idx_end_time</span><span class=p>(</span><span class=n>end_time</span><span class=p>),</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=k>key</span><span class=w> </span><span class=n>idx_create_time</span><span class=p>(</span><span class=n>create_time</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>)</span><span class=n>ENGINE</span><span class=o>=</span><span class=n>INNODB</span><span class=w> </span><span class=n>AUTO_INCREMENT</span><span class=o>=</span><span class=mi>1000</span><span class=w> </span><span class=k>DEFAULT</span><span class=w> </span><span class=n>CHARSET</span><span class=o>=</span><span class=n>utf8</span><span class=w> </span><span class=k>COMMENT</span><span class=o>=</span><span class=s1>&#39;秒杀库存表&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=c1>-- 初始化数据
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=w>	</span><span class=k>INSERT</span><span class=w> </span><span class=k>into</span><span class=w> </span><span class=n>seckill</span><span class=p>(</span><span class=n>name</span><span class=p>,</span><span class=nb>number</span><span class=p>,</span><span class=n>start_time</span><span class=p>,</span><span class=n>end_time</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=k>VALUES</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=p>(</span><span class=s1>&#39;1000元秒杀iphone6&#39;</span><span class=p>,</span><span class=mi>100</span><span class=p>,</span><span class=s1>&#39;2016-01-01 00:00:00&#39;</span><span class=p>,</span><span class=s1>&#39;2016-01-02 00:00:00&#39;</span><span class=p>),</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=p>(</span><span class=s1>&#39;800元秒杀ipad&#39;</span><span class=p>,</span><span class=mi>200</span><span class=p>,</span><span class=s1>&#39;2016-01-01 00:00:00&#39;</span><span class=p>,</span><span class=s1>&#39;2016-01-02 00:00:00&#39;</span><span class=p>),</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=p>(</span><span class=s1>&#39;6600元秒杀mac book pro&#39;</span><span class=p>,</span><span class=mi>300</span><span class=p>,</span><span class=s1>&#39;2016-01-01 00:00:00&#39;</span><span class=p>,</span><span class=s1>&#39;2016-01-02 00:00:00&#39;</span><span class=p>),</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=p>(</span><span class=s1>&#39;7000元秒杀iMac&#39;</span><span class=p>,</span><span class=mi>400</span><span class=p>,</span><span class=s1>&#39;2016-01-01 00:00:00&#39;</span><span class=p>,</span><span class=s1>&#39;2016-01-02 00:00:00&#39;</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=c1>-- 秒杀成功明细表
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=w>	</span><span class=c1>-- 用户登录认证相关信息(简化为手机号)
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=w>	</span><span class=k>CREATE</span><span class=w> </span><span class=k>TABLE</span><span class=w> </span><span class=n>success_killed</span><span class=p>(</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=n>seckill_id</span><span class=o>`</span><span class=w> </span><span class=nb>BIGINT</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;秒杀商品ID&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=n>user_phone</span><span class=o>`</span><span class=w> </span><span class=nb>BIGINT</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;用户手机号&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=k>state</span><span class=o>`</span><span class=w> </span><span class=n>TINYINT</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>DEFAULT</span><span class=w> </span><span class=o>-</span><span class=mi>1</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;状态标识👎无效 0:成功 1:已付款 2:已发货&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=o>`</span><span class=n>create_time</span><span class=o>`</span><span class=w> </span><span class=k>TIMESTAMP</span><span class=w> </span><span class=k>NOT</span><span class=w> </span><span class=k>NULL</span><span class=w> </span><span class=k>COMMENT</span><span class=w> </span><span class=s1>&#39;创建时间&#39;</span><span class=p>,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=k>PRIMARY</span><span class=w> </span><span class=k>KEY</span><span class=p>(</span><span class=n>seckill_id</span><span class=p>,</span><span class=n>user_phone</span><span class=p>),</span><span class=cm>/*联合主键*/</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	  </span><span class=k>KEY</span><span class=w> </span><span class=n>idx_create_time</span><span class=p>(</span><span class=n>create_time</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>	</span><span class=p>)</span><span class=n>ENGINE</span><span class=o>=</span><span class=n>INNODB</span><span class=w> </span><span class=k>DEFAULT</span><span class=w> </span><span class=n>CHARSET</span><span class=o>=</span><span class=n>utf8</span><span class=w> </span><span class=k>COMMENT</span><span class=o>=</span><span class=s1>&#39;秒杀成功明细表&#39;</span><span class=p>;</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><blockquote><p>秒杀成功明细表为何使用联合主键</p></blockquote><p>之所以使用联合主键，是为了能够过滤重复插入，可以通过<code>insert ignore into</code>语句来避免用户重复秒杀同一件商品。这样当有重复记录就会忽略，语句执行后返回数字0。</p><blockquote><p>可能存在的问题</p></blockquote><p>安装视频里的建表过程，可能会出现建表失败的情况。原因是当你给一个timestamp设置为on update current_timestamp的时候，其他的timestamp字段需要显式设定default值。</p><p>但是如果你有两个timestamp字段，但是只把第一个设定为current_timestamp而第二个没有设定默认值，MySQL也能成功建表,但是反过来就不行。这是mysql5.5版本对timestamp的处理。</p><p>为了解决这个问题，将create_time放到start_time和end_time的前面，还有的mysql版本需要将三个时间戳都设置默认值。</p><h3 id=32-创建数据表对应的实体类>3.2 创建数据表对应的实体类</h3><blockquote><p>在<code>src/main/java</code>包下创建com.lewis.entity包，接着建立<code>Seckill</code>实体类</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl>	<span class=kd>public</span> <span class=kd>class</span> <span class=nc>Seckill</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	    <span class=kd>private</span> <span class=n>Long</span> <span class=n>seckillId</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>private</span> <span class=n>String</span> <span class=n>name</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>private</span> <span class=n>Integer</span> <span class=n>number</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>private</span> <span class=n>Date</span> <span class=n>createTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>private</span> <span class=n>Date</span> <span class=n>startTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>private</span> <span class=n>Date</span> <span class=n>endTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=n>Long</span> <span class=nf>getSeckillId</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>return</span> <span class=n>seckillId</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setSeckillId</span><span class=o>(</span><span class=n>Long</span> <span class=n>seckillId</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>this</span><span class=o>.</span><span class=na>seckillId</span> <span class=o>=</span> <span class=n>seckillId</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=n>String</span> <span class=nf>getName</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>return</span> <span class=n>name</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setName</span><span class=o>(</span><span class=n>String</span> <span class=n>name</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>this</span><span class=o>.</span><span class=na>name</span> <span class=o>=</span> <span class=n>name</span> <span class=o>==</span> <span class=kc>null</span> <span class=o>?</span> <span class=kc>null</span> <span class=o>:</span> <span class=n>name</span><span class=o>.</span><span class=na>trim</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=n>Integer</span> <span class=nf>getNumber</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>return</span> <span class=n>number</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setNumber</span><span class=o>(</span><span class=n>Integer</span> <span class=n>number</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>this</span><span class=o>.</span><span class=na>number</span> <span class=o>=</span> <span class=n>number</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=n>Date</span> <span class=nf>getCreateTime</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>return</span> <span class=n>createTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setCreateTime</span><span class=o>(</span><span class=n>Date</span> <span class=n>createTime</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>this</span><span class=o>.</span><span class=na>createTime</span> <span class=o>=</span> <span class=n>createTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=n>Date</span> <span class=nf>getStartTime</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>return</span> <span class=n>startTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setStartTime</span><span class=o>(</span><span class=n>Date</span> <span class=n>startTime</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>this</span><span class=o>.</span><span class=na>startTime</span> <span class=o>=</span> <span class=n>startTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=n>Date</span> <span class=nf>getEndTime</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>return</span> <span class=n>endTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setEndTime</span><span class=o>(</span><span class=n>Date</span> <span class=n>endTime</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	        <span class=k>this</span><span class=o>.</span><span class=na>endTime</span> <span class=o>=</span> <span class=n>endTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	    <span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=nd>@Override</span>
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=n>String</span> <span class=nf>toString</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=s>&#34;Seckill [seckillId=&#34;</span> <span class=o>+</span> <span class=n>seckillId</span> <span class=o>+</span> <span class=s>&#34;, name=&#34;</span> <span class=o>+</span> <span class=n>name</span> <span class=o>+</span> <span class=s>&#34;, number=&#34;</span> <span class=o>+</span> <span class=n>number</span> <span class=o>+</span> <span class=s>&#34;, createTime=&#34;</span> <span class=o>+</span> <span class=n>createTime</span> <span class=o>+</span> <span class=s>&#34;, startTime=&#34;</span>
+</span></span><span class=line><span class=cl>					<span class=o>+</span> <span class=n>startTime</span> <span class=o>+</span> <span class=s>&#34;, endTime=&#34;</span> <span class=o>+</span> <span class=n>endTime</span> <span class=o>+</span> <span class=s>&#34;]&#34;</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>在com.lewis.entity包下，接着建立<code>SuccessKilled</code>实体类</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl>	<span class=kd>public</span> <span class=kd>class</span> <span class=nc>SuccessKilled</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>		<span class=kd>private</span> <span class=n>Byte</span> <span class=n>state</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>private</span> <span class=n>Date</span> <span class=n>createTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>private</span> <span class=n>Long</span> <span class=n>seckillId</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>private</span> <span class=n>Long</span> <span class=n>userPhone</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=c1>// 多对一,因为一件商品在库存中有很多数量，对应的购买明细也有很多。
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=kd>private</span> <span class=n>Seckill</span> <span class=n>seckill</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=n>Seckill</span> <span class=nf>getSeckill</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=n>seckill</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>setSeckill</span><span class=o>(</span><span class=n>Seckill</span> <span class=n>seckill</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>this</span><span class=o>.</span><span class=na>seckill</span> <span class=o>=</span> <span class=n>seckill</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=n>Long</span> <span class=nf>getSeckillId</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=n>seckillId</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>setSeckillId</span><span class=o>(</span><span class=n>Long</span> <span class=n>seckillId</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>this</span><span class=o>.</span><span class=na>seckillId</span> <span class=o>=</span> <span class=n>seckillId</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=n>Long</span> <span class=nf>getUserPhone</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=n>userPhone</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>setUserPhone</span><span class=o>(</span><span class=n>Long</span> <span class=n>userPhone</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>this</span><span class=o>.</span><span class=na>userPhone</span> <span class=o>=</span> <span class=n>userPhone</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=n>Byte</span> <span class=nf>getState</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=n>state</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>setState</span><span class=o>(</span><span class=n>Byte</span> <span class=n>state</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>this</span><span class=o>.</span><span class=na>state</span> <span class=o>=</span> <span class=n>state</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=n>Date</span> <span class=nf>getCreateTime</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=n>createTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>setCreateTime</span><span class=o>(</span><span class=n>Date</span> <span class=n>createTime</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>this</span><span class=o>.</span><span class=na>createTime</span> <span class=o>=</span> <span class=n>createTime</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=nd>@Override</span>
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=n>String</span> <span class=nf>toString</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=s>&#34;SuccessKilled [state=&#34;</span> <span class=o>+</span> <span class=n>state</span> <span class=o>+</span> <span class=s>&#34;, createTime=&#34;</span> <span class=o>+</span> <span class=n>createTime</span> <span class=o>+</span> <span class=s>&#34;, seckillId=&#34;</span> <span class=o>+</span> <span class=n>seckillId</span>
+</span></span><span class=line><span class=cl>					<span class=o>+</span> <span class=s>&#34;, userPhone=&#34;</span> <span class=o>+</span> <span class=n>userPhone</span> <span class=o>+</span> <span class=s>&#34;]&#34;</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=33-创建实体类对应的dao层接口也就是mapper接口dao针对的是具体实体来操作的实体的增删改查>3.3 创建实体类对应的DAO层接口（也就是Mapper接口，DAO针对的是具体实体来操作的“实体的增删改查”）</h3><blockquote><p>在<code>src/main/java</code>下建立<code>com.lewis.dao</code>包，在包下建立<code>SeckillDao</code>接口</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl>	<span class=kd>public</span> <span class=kd>interface</span> <span class=nc>SeckillDao</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 减库存
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @param seckillId
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @param killTime
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @return 更新的记录行数，如果返回值&lt;1则表示更新失败
+</span></span></span><span class=line><span class=cl><span class=cm>		 */</span>
+</span></span><span class=line><span class=cl>		<span class=kt>int</span> <span class=nf>reduceNumber</span><span class=o>(</span><span class=nd>@Param</span><span class=o>(</span><span class=s>&#34;seckillId&#34;</span><span class=o>)</span> <span class=kt>long</span> <span class=n>seckillId</span><span class=o>,</span> <span class=nd>@Param</span><span class=o>(</span><span class=s>&#34;killTime&#34;</span><span class=o>)</span> <span class=n>Date</span> <span class=n>killTime</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 根据id查询秒杀商品
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @param seckillId
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @return
+</span></span></span><span class=line><span class=cl><span class=cm>		 */</span>
+</span></span><span class=line><span class=cl>		<span class=n>Seckill</span> <span class=nf>queryById</span><span class=o>(</span><span class=kt>long</span> <span class=n>seckillId</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 根据偏移量查询秒杀商品列表
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @param offset
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @param limit
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @return
+</span></span></span><span class=line><span class=cl><span class=cm>		 */</span>
+</span></span><span class=line><span class=cl>		<span class=n>List</span><span class=o>&lt;</span><span class=n>Seckill</span><span class=o>&gt;</span> <span class=nf>queryAll</span><span class=o>(</span><span class=nd>@Param</span><span class=o>(</span><span class=s>&#34;offset&#34;</span><span class=o>)</span> <span class=kt>int</span> <span class=n>offset</span><span class=o>,</span> <span class=nd>@Param</span><span class=o>(</span><span class=s>&#34;limit&#34;</span><span class=o>)</span> <span class=kt>int</span> <span class=n>limit</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>在<code>com.lewis.dao</code>包下建立<code>SuccessKilledDao</code>接口</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl>	<span class=kd>public</span> <span class=kd>interface</span> <span class=nc>SuccessKilledDao</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 插入购买明细，可过滤重复
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @param seckillId
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @param userphone
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @return 插入的行数，如果返回值&lt;1则表示插入失败
+</span></span></span><span class=line><span class=cl><span class=cm>		 */</span>
+</span></span><span class=line><span class=cl>		<span class=kt>int</span> <span class=nf>insertSuccessKilled</span><span class=o>(</span><span class=nd>@Param</span><span class=o>(</span><span class=s>&#34;seckillId&#34;</span><span class=o>)</span> <span class=kt>long</span> <span class=n>seckillId</span><span class=o>,</span> <span class=nd>@Param</span><span class=o>(</span><span class=s>&#34;userPhone&#34;</span><span class=o>)</span> <span class=kt>long</span> <span class=n>userPhone</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 根据id查询SuccessKilled并携带秒杀商品对象实体
+</span></span></span><span class=line><span class=cl><span class=cm>		 * 
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @param seckillId
+</span></span></span><span class=line><span class=cl><span class=cm>		 * @return
+</span></span></span><span class=line><span class=cl><span class=cm>		 */</span>
+</span></span><span class=line><span class=cl>		<span class=n>SuccessKilled</span> <span class=nf>queryByIdWithSeckill</span><span class=o>(</span><span class=nd>@Param</span><span class=o>(</span><span class=s>&#34;seckillId&#34;</span><span class=o>)</span> <span class=kt>long</span> <span class=n>seckillId</span><span class=o>,</span> <span class=nd>@Param</span><span class=o>(</span><span class=s>&#34;userPhone&#34;</span><span class=o>)</span> <span class=kt>long</span> <span class=n>userPhone</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>为什么有的方法形参前有@Param，有的却没有？</p></blockquote><p>从上面的代码可以发现，当方法的形参在两个及两个以上时，需要在参数前加上@Param，如果不加上该注解会在之后的测试运行时报错。这是Sun提供的默认编译器（javac）在编译后的Class文件中会丢失参数的实际名称，方法中的形参会变成无意义的arg0、arg1等，在只有一个参数时就无所谓，但当参数在两个和两个以上时，传入方法的参数就会找不到对应的形参。因为Java形参的问题，所以在多个基本类型参数时需要用@Param注解区分开来。</p><h3 id=34-基于mybatis实现dao接口>3.4 基于MyBatis实现DAO接口</h3><blockquote><p>MyBatis怎么用？SQL写在哪里？</p></blockquote><p>Mybatis有两种提供SQL的方式：XML提供SQL、注解提供SQL（注解是java5.0之后提供的一个新特性）。</p><p>对于实际的使用中建议使用XML文件的方式提供SQL。如果通过注解的方式提供SQL，由于注解本身还是java源码，这对于修改和调整SQL其实是非常不方便的，一样需要重新编译类，当我们写复杂的SQL尤其拼接逻辑时，注解处理起来就会非常繁琐。而XML提供了很多的SQL拼接和处理逻辑的标签，可以非常方便的帮我们去做封装。</p><blockquote><p>如何去实现DAO接口？</p></blockquote><p>Mapper自动实现DAO（也就是DAO只需要设计接口，不需要去写实现类，MyBatis知道我们的参数、返回类型是什么，同时也有SQL文件，它可以自动帮我们生成接口的实现类来帮我们执行参数的封装，执行SQL，把我们的返回结果集封装成我们想要的类型） 。</p><p>第二种是通过API编程方式实现DAO接口（MyBatis通过给我们提供了非常多的API，跟其他的ORM和JDBC很像）</p><p>在实际开发中建议使用Mapper自动实现DAO，这样可以直接只关注SQL如何编写，如何去设计DAO接口，帮我们节省了很多的维护程序，所有的实现都是MyBatis自动完成。</p><blockquote><p>创建一个目录存放Mybatis的SQL映射</p></blockquote><p>按照Maven的规范，SQL映射文件应该放在<code>src/main/resources</code>包下，在该包下建立<code>mapper</code>目录，用来存放映射DAO接口的XML文件。这样Maven在编译时就会自动将<code>src/main/resources</code>下的这些配置文件编译进来。</p><p>我们也可以按照原本的习惯，在<code>src/main/java</code>下建立<code>com.lewis.mapper</code>包，将这些SQL映射存放到这里。由于Maven默认不会编译<code>src/main/java</code>下除源码以外的文件，所以需要在pom.xml中进行额外的配置。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl>	<span class=nt>&lt;build&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;finalName&gt;</span>seckill<span class=nt>&lt;/finalName&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;resources&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--打包时包含源代码包下的资源文件，默认情况下只会打包src/main/java下的源代码 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;resource&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;directory&gt;</span>src/main/java<span class=nt>&lt;/directory&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;includes&gt;</span>
+</span></span><span class=line><span class=cl>					<span class=nt>&lt;include&gt;</span>**/*.xml<span class=nt>&lt;/include&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;/includes&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;filtering&gt;</span>false<span class=nt>&lt;/filtering&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/resource&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;resource&gt;</span>
+</span></span><span class=line><span class=cl>				<span class=nt>&lt;directory&gt;</span>src/main/resources<span class=nt>&lt;/directory&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;/resource&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;/resources&gt;</span>
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;/build&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>在本项目中，我是采用的第二种方式存放Mybatis的SQL映射。（只是将映射DAO的mapper文件放在java包下，其他的关于Spring、MyBatis等的配置文件还是放在resources包下）</p><blockquote><p>在<code>src/main/resources</code>目录下配置mybatis-config.xml（配置MyBatis的全局属性）</p></blockquote><p>打开MyBatis的<a href=http://www.mybatis.org/mybatis-3/zh/index.html target=_blank rel="noopener noreffer">官方文档</a>（MyBatis的官方文档做的非常友好，提供了非常多版本的国际化支持），选择<code>
+入门</code>，找到MyBatis全局配置，里面有XML的规范（XML的标签约束dtd文件），拷入到项目的MyBatis全局配置文件中，开始配置MyBatis，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl>	<span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+</span></span><span class=line><span class=cl>	<span class=cp>&lt;!DOCTYPE configuration
+</span></span></span><span class=line><span class=cl><span class=cp>	        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;
+</span></span></span><span class=line><span class=cl><span class=cp>	        &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;</span>
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;configuration&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=c>&lt;!--配置全局属性 --&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;settings&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--使用jdbc的getGeneratekeys获取自增主键值，默认是false
+</span></span></span><span class=line><span class=cl><span class=c>				当inert一条记录时我们是不插入id的，id是通过自增去赋值的
+</span></span></span><span class=line><span class=cl><span class=c>				当插入完后想得到该插入记录的id时可以调用jdbc的getGeneratekeys --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;setting</span> <span class=na>name=</span><span class=s>&#34;useGeneratedKeys&#34;</span> <span class=na>value=</span><span class=s>&#34;true&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>			
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--使用列别名替换列名 默认值为true（可以不用写出来，这里写出来只是为了讲解该配置的作用）
+</span></span></span><span class=line><span class=cl><span class=c>				select name as title(实体中的属性名是title) form table; 
+</span></span></span><span class=line><span class=cl><span class=c>				开启后mybatis会自动帮我们把表中name的值赋到对应实体的title属性中 --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;setting</span> <span class=na>name=</span><span class=s>&#34;useColumnLabel&#34;</span> <span class=na>value=</span><span class=s>&#34;true&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!--开启驼峰命名转换Table:create_time到 Entity(createTime) --&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=nt>&lt;setting</span> <span class=na>name=</span><span class=s>&#34;mapUnderscoreToCamelCase&#34;</span> <span class=na>value=</span><span class=s>&#34;true&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;/settings&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;/configuration&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>在<code>src/main/java</code>目录下的<code>com.lewis.mapper</code>包里创建SeckillDao.xml</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl>	<span class=cp>&lt;!DOCTYPE mapper
+</span></span></span><span class=line><span class=cl><span class=cp>	        PUBLIC &#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;
+</span></span></span><span class=line><span class=cl><span class=cp>	        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>
+</span></span><span class=line><span class=cl>	<span class=c>&lt;!-- namespace:指定为哪个接口提供配置 --&gt;</span> 
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;mapper</span> <span class=na>namespace=</span><span class=s>&#34;com.lewis.dao.SeckillDao&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=c>&lt;!--目的:为dao接口方法提供sql语句配置， 即针对dao接口中的方法编写我们的sql语句 --&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=c>&lt;!-- int reduceNumber(long seckillId, Date killTime);--&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=c>&lt;!-- 这里id必须和对应的DAO接口的方法名一样 --&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;update</span> <span class=na>id=</span><span class=s>&#34;reduceNumber&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>			UPDATE seckill
+</span></span><span class=line><span class=cl>			SET number = number-1
+</span></span><span class=line><span class=cl>			WHERE seckill_id=#{seckillId}
+</span></span><span class=line><span class=cl>			AND start_time <span class=cp>&lt;![CDATA[ &lt;= ]]&gt;</span>
+</span></span><span class=line><span class=cl>			#{killTime}
+</span></span><span class=line><span class=cl>			AND end_time &gt;= #{killTime}
+</span></span><span class=line><span class=cl>			AND number &gt; 0;
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;/update&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		 <span class=c>&lt;!-- parameterType:使用到的参数类型
+</span></span></span><span class=line><span class=cl><span class=c>			正常情况java表示一个类型的包名+类名，这直接写类名，因为后面有一个配置可以简化写包名的过程 --&gt;</span>
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;select</span> <span class=na>id=</span><span class=s>&#34;queryById&#34;</span> <span class=na>resultType=</span><span class=s>&#34;Seckill&#34;</span> <span class=na>parameterType=</span><span class=s>&#34;long&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>			<span class=c>&lt;!-- 可以通过别名的方式列明到java名的转换，如果开启了驼峰命名法就可以不用这么写了 
+</span></span></span><span class=line><span class=cl><span class=c>	       		 select seckill_id as seckillId
+</span></span></span><span class=line><span class=cl><span class=c>	        --&gt;</span>
+</span></span><span class=line><span class=cl>			SELECT seckill_id,name,number,create_time,start_time,end_time
+</span></span><span class=line><span class=cl>			FROM seckill
+</span></span><span class=line><span class=cl>			WHERE seckill_id=#{seckillId}
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;/select&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;select</span> <span class=na>id=</span><span class=s>&#34;queryAll&#34;</span> <span class=na>resultType=</span><span class=s>&#34;Seckill&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>			SELECT *
+</span></span><span class=line><span class=cl>			FROM seckill
+</span></span><span class=line><span class=cl>			ORDER BY create_time DESC
+</span></span><span class=line><span class=cl>			limit #{offset},#{limit}
+</span></span><span class=line><span class=cl>		<span class=nt>&lt;/select&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;/mapper&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>在<code>src/main/java</code>目录下的<code>com.lewis.mapper</code>包里创建SuccessKilledDao.xml</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl>	<span class=cp>&lt;!DOCTYPE mapper
+</span></span></span><span class=line><span class=cl><span class=cp>	        PUBLIC &#34;-//mybatis.org//DTD Mapper 3.0//EN&#34;
+</span></span></span><span class=line><span class=cl><span class=cp>	        &#34;http://mybatis.org/dtd/mybatis-3-mapper.dtd&#34;&gt;</span>
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;mapper</span> <span class=na>namespace=</span><span class=s>&#34;com.lewis.dao.SuccessKilledDao&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;insert</span> <span class=na>id=</span><span class=s>&#34;insertSuccessKilled&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--当出现主键冲突时(即重复秒杀时)，会报错;不想让程序报错，加入ignore--&gt;</span>
+</span></span><span class=line><span class=cl>	        INSERT ignore INTO success_killed(seckill_id,user_phone,state)
+</span></span><span class=line><span class=cl>	        VALUES (#{seckillId},#{userPhone},0)
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;/insert&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;select</span> <span class=na>id=</span><span class=s>&#34;queryByIdWithSeckill&#34;</span> <span class=na>resultType=</span><span class=s>&#34;SuccessKilled&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--根据seckillId查询SuccessKilled对象，并携带Seckill对象--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--如何告诉mybatis把结果映射到SuccessKill属性同时映射到Seckill属性--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--可以自由控制SQL语句--&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	        SELECT
+</span></span><span class=line><span class=cl>	            sk.seckill_id,
+</span></span><span class=line><span class=cl>	            sk.user_phone,
+</span></span><span class=line><span class=cl>	            sk.create_time,
+</span></span><span class=line><span class=cl>	            sk.state,
+</span></span><span class=line><span class=cl>	            s.seckill_id &#34;seckill.seckill_id&#34;,
+</span></span><span class=line><span class=cl>	            s.name &#34;seckill.name&#34;,
+</span></span><span class=line><span class=cl>	            s.number &#34;seckill.number&#34;,
+</span></span><span class=line><span class=cl>	            s.start_time &#34;seckill.start_time&#34;,
+</span></span><span class=line><span class=cl>	            s.end_time &#34;seckill.end_time&#34;,
+</span></span><span class=line><span class=cl>	            s.create_time &#34;seckill.create_time&#34;
+</span></span><span class=line><span class=cl>	        FROM success_killed sk
+</span></span><span class=line><span class=cl>	        INNER JOIN seckill s ON sk.seckill_id=s.seckill_id
+</span></span><span class=line><span class=cl>	        WHERE sk.seckill_id=#{seckillId} and sk.user_phone=#{userPhone}
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;/select&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;/mapper&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><p>注：上面的s.seckill_id “seckill.seckill_id”表示s.seckill_id这一列的数据是Success_killed实体类里的seckill属性里的seckill_id属性，是一个级联的过程，使用的就是别名只是忽略了as关键字，别名要加上双引号。</p><blockquote><p>为什么要用<code>&lt;![CDATA[]]></code>把<code>&lt;=</code>给包起来</p></blockquote><p>CDATA指的是不应由 XML 解析器进行解析的文本数据，在XML元素中，<code>&lt;</code>和<code>&</code>是非法的：</p><ul><li><code>&lt;</code>会产生错误，因为解析器会把该字符解释为新元素的开始。</li><li><code>&</code>也会产生错误，因为解析器会把该字符解释为字符实体的开始。（字符实体：比如<code>&amp;nbsp;</code>表示一个空格）</li></ul><p>所以在这里我们需要使用<code>&lt;![CDATA[ &lt;= ]]></code>来告诉XML<code>&lt;=</code>不是XML的语言。</p><h3 id=35-整合spring和mybatis>3.5 整合Spring和MyBatis</h3><p>在<code>resources</code>目录下创建一个新的目录<code>spring</code>(存放所有Spring相关的配置)</p><blockquote><p>在resources包下创建jdbc.properties，用于配置数据库的连接信息</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>	driver=com.mysql.jdbc.Driver
+</span></span><span class=line><span class=cl>	url=jdbc:mysql://localhost:3306/seckill?useUnicode=true&amp;characterEncoding=utf-8
+</span></span><span class=line><span class=cl>	jdbc.username=root
+</span></span><span class=line><span class=cl>	password=123
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>在<code>resources/spring</code>目录下创建Spring关于DAO层的配置文件spring-dao.xml</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-xml data-lang=xml><span class=line><span class=cl>	<span class=cp>&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;beans</span> <span class=na>xmlns=</span><span class=s>&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span class=line><span class=cl>	       <span class=na>xmlns:xsi=</span><span class=s>&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span class=line><span class=cl>	       <span class=na>xmlns:context=</span><span class=s>&#34;http://www.springframework.org/schema/context&#34;</span>
+</span></span><span class=line><span class=cl>	       <span class=na>xsi:schemaLocation=</span><span class=s>&#34;http://www.springframework.org/schema/beans
+</span></span></span><span class=line><span class=cl><span class=s>	        http://www.springframework.org/schema/beans/spring-beans.xsd
+</span></span></span><span class=line><span class=cl><span class=s>	        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=c>&lt;!--配置整合mybatis过程
+</span></span></span><span class=line><span class=cl><span class=c>	    1.配置数据库相关参数--&gt;</span>
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;context:property-placeholder</span> <span class=na>location=</span><span class=s>&#34;classpath:jdbc.properties&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=c>&lt;!--2.数据库连接池--&gt;</span>
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;bean</span> <span class=na>id=</span><span class=s>&#34;dataSource&#34;</span> <span class=na>class=</span><span class=s>&#34;com.mchange.v2.c3p0.ComboPooledDataSource&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--配置连接池属性--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;driverClass&#34;</span> <span class=na>value=</span><span class=s>&#34;${driver}&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!-- 基本属性 url、user、password --&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;jdbcUrl&#34;</span> <span class=na>value=</span><span class=s>&#34;${url}&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;user&#34;</span> <span class=na>value=</span><span class=s>&#34;${jdbc.username}&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;password&#34;</span> <span class=na>value=</span><span class=s>&#34;${password}&#34;</span> <span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--c3p0私有属性--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;maxPoolSize&#34;</span> <span class=na>value=</span><span class=s>&#34;30&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;minPoolSize&#34;</span> <span class=na>value=</span><span class=s>&#34;10&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--关闭连接后不自动commit--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;autoCommitOnClose&#34;</span> <span class=na>value=</span><span class=s>&#34;false&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--获取连接超时时间--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;checkoutTimeout&#34;</span> <span class=na>value=</span><span class=s>&#34;1000&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--当获取连接失败重试次数--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;acquireRetryAttempts&#34;</span> <span class=na>value=</span><span class=s>&#34;2&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;/bean&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=c>&lt;!--约定大于配置--&gt;</span>
+</span></span><span class=line><span class=cl>	    <span class=c>&lt;!--３.配置SqlSessionFactory对象--&gt;</span>
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;bean</span> <span class=na>id=</span><span class=s>&#34;sqlSessionFactory&#34;</span> <span class=na>class=</span><span class=s>&#34;org.mybatis.spring.SqlSessionFactoryBean&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--往下才是mybatis和spring真正整合的配置--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--注入数据库连接池--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;dataSource&#34;</span> <span class=na>ref=</span><span class=s>&#34;dataSource&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--配置mybatis全局配置文件:mybatis-config.xml--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;configLocation&#34;</span> <span class=na>value=</span><span class=s>&#34;classpath:mybatis-config.xml&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--扫描entity包,使用别名,多个用;隔开--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;typeAliasesPackage&#34;</span> <span class=na>value=</span><span class=s>&#34;com.lewis.entity&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--扫描sql配置文件:mapper需要的xml文件--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;mapperLocations&#34;</span> <span class=na>value=</span><span class=s>&#34;classpath:com/lewis/mapper/*.xml&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;/bean&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=c>&lt;!--４:配置扫描Dao接口包,动态实现DAO接口,注入到spring容器--&gt;</span>
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;bean</span> <span class=na>class=</span><span class=s>&#34;org.mybatis.spring.mapper.MapperScannerConfigurer&#34;</span><span class=nt>&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!--注入SqlSessionFactory--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;sqlSessionFactoryBeanName&#34;</span> <span class=na>value=</span><span class=s>&#34;sqlSessionFactory&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=c>&lt;!-- 给出需要扫描的Dao接口--&gt;</span>
+</span></span><span class=line><span class=cl>	        <span class=nt>&lt;property</span> <span class=na>name=</span><span class=s>&#34;basePackage&#34;</span> <span class=na>value=</span><span class=s>&#34;com.lewis.dao&#34;</span><span class=nt>/&gt;</span>
+</span></span><span class=line><span class=cl>	    <span class=nt>&lt;/bean&gt;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	    <span class=c>&lt;!--redisDao--&gt;</span>
+</span></span><span class=line><span class=cl>	   <span class=c>&lt;!--  &lt;bean id=&#34;redisDao&#34; class=&#34;com.lewis.dao.cache.RedisDao&#34;&gt;
+</span></span></span><span class=line><span class=cl><span class=c>	        &lt;constructor-arg index=&#34;0&#34; value=&#34;localhost&#34;/&gt;
+</span></span></span><span class=line><span class=cl><span class=c>	        &lt;constructor-arg index=&#34;1&#34; value=&#34;6379&#34;/&gt;
+</span></span></span><span class=line><span class=cl><span class=c>	    &lt;/bean&gt; --&gt;</span>
+</span></span><span class=line><span class=cl>	<span class=nt>&lt;/beans&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>关于数据库连接池的配置可能出现的问题</p></blockquote><p>在jdbc.properties里使用的是<code>jdbc.username</code>，而不是<code>username</code>或者<code>name</code>，这是因为后两个属性名可能会与全局变量冲突，导致连接的数据库用户名变成了电脑的用户名，所以使用了<code>jdbc.username</code>。</p><blockquote><p>相关链接</p></blockquote><p>关于Spring的XML配置文件的头部文件的说明可以参考<a href=http://blog.csdn.net/lewky_liu/article/details/78157747 target=_blank rel="noopener noreffer">这篇文章</a></p><h3 id=36-dao层单元测试>3.6 DAO层单元测试</h3><p>有不知道Eclipse如何直接进行生成快速的测试单元的，可以看看<a href=http://blog.csdn.net/jj_nan/article/details/64134781 target=_blank rel="noopener noreffer">这篇文章</a></p><p>使用Eclipse工具直接生成测试单元，这些测试代码按照Maven规范放到<code>src/test/java</code>包下。在生成的测试代码里测试我们的方法，测试的具体代码如下：</p><blockquote><p><code>SeckillDaoTest.java</code></p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl>	<span class=kn>package</span> <span class=nn>com.lewis.dao</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kn>import static</span> <span class=nn>org.junit.Assert.*</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>java.util.Date</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>java.util.List</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>javax.annotation.Resource</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>org.junit.Test</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>org.junit.runner.RunWith</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>org.springframework.test.context.ContextConfiguration</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>org.springframework.test.context.junit4.SpringJUnit4ClassRunner</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>com.lewis.entity.Seckill</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm>	 * 配置Spring和Junit整合,junit启动时加载springIOC容器 spring-test,junit
+</span></span></span><span class=line><span class=cl><span class=cm>	 */</span>
+</span></span><span class=line><span class=cl>	<span class=nd>@RunWith</span><span class=o>(</span><span class=n>SpringJUnit4ClassRunner</span><span class=o>.</span><span class=na>class</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// 告诉junit spring的配置文件
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nd>@ContextConfiguration</span><span class=o>({</span> <span class=s>&#34;classpath:spring/spring-dao.xml&#34;</span> <span class=o>})</span>
+</span></span><span class=line><span class=cl>	<span class=kd>public</span> <span class=kd>class</span> <span class=nc>SeckillDaoTest</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=c1>// 注入Dao实现类依赖
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=nd>@Resource</span>
+</span></span><span class=line><span class=cl>		<span class=kd>private</span> <span class=n>SeckillDao</span> <span class=n>seckillDao</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=nd>@Test</span>
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>testQueryById</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=kt>long</span> <span class=n>seckillId</span> <span class=o>=</span> <span class=mi>1000</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>Seckill</span> <span class=n>seckill</span> <span class=o>=</span> <span class=n>seckillDao</span><span class=o>.</span><span class=na>queryById</span><span class=o>(</span><span class=n>seckillId</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>seckill</span><span class=o>.</span><span class=na>getName</span><span class=o>());</span>
+</span></span><span class=line><span class=cl>			<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>seckill</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=nd>@Test</span>
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>testQueryAll</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=n>List</span><span class=o>&lt;</span><span class=n>Seckill</span><span class=o>&gt;</span> <span class=n>seckills</span> <span class=o>=</span> <span class=n>seckillDao</span><span class=o>.</span><span class=na>queryAll</span><span class=o>(</span><span class=mi>0</span><span class=o>,</span> <span class=mi>100</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>			<span class=k>for</span> <span class=o>(</span><span class=n>Seckill</span> <span class=n>seckill</span> <span class=o>:</span> <span class=n>seckills</span><span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>				<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>seckill</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>			<span class=o>}</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=nd>@Test</span>
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>testReduceNumber</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=kt>long</span> <span class=n>seckillId</span> <span class=o>=</span> <span class=mi>1000</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>Date</span> <span class=n>date</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Date</span><span class=o>();</span>
+</span></span><span class=line><span class=cl>			<span class=kt>int</span> <span class=n>updateCount</span> <span class=o>=</span> <span class=n>seckillDao</span><span class=o>.</span><span class=na>reduceNumber</span><span class=o>(</span><span class=n>seckillId</span><span class=o>,</span> <span class=n>date</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>updateCount</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>测试说明</p></blockquote><p>先左键单击要测试的那个方法名，再右键点击选择<code>Debug As</code>可以单独对该方法进行单元测试。三个方法都测试通过，但是对于最后一个方法会发现数据库中该商品数量并没有减少，这是因为我们设置了秒杀时间，当前时间不满足秒杀时间，所以不会秒杀成功减少数量。</p><p>如果之前没有在DAO接口的多参数方法里在形参前加上@Param注解，那么在这里进行单元测试时，MyBatis会报绑定参数失败的错误，因为无法找到参数。这是因为Java没有保存行参的记录，Java在运行的时候会把<code>queryAll(int offset,int limit)</code>中的参数变成这样<code>queryAll(int arg0,int arg1)</code>，导致MyBatis无法识别这两个参数。</p><blockquote><p><code>SuccessKilledDaoTest.java</code></p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=line><span class=cl>	<span class=kn>package</span> <span class=nn>com.lewis.dao</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kn>import static</span> <span class=nn>org.junit.Assert.*</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>javax.annotation.Resource</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>org.junit.Test</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>org.junit.runner.RunWith</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>org.springframework.test.context.ContextConfiguration</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>org.springframework.test.context.junit4.SpringJUnit4ClassRunner</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kn>import</span> <span class=nn>com.lewis.entity.SuccessKilled</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=nd>@RunWith</span><span class=o>(</span><span class=n>SpringJUnit4ClassRunner</span><span class=o>.</span><span class=na>class</span><span class=o>)</span>
+</span></span><span class=line><span class=cl>	<span class=c1>// 告诉junit spring的配置文件
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=nd>@ContextConfiguration</span><span class=o>({</span> <span class=s>&#34;classpath:spring/spring-dao.xml&#34;</span> <span class=o>})</span>
+</span></span><span class=line><span class=cl>	<span class=kd>public</span> <span class=kd>class</span> <span class=nc>SuccessKilledDaoTest</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=nd>@Resource</span>
+</span></span><span class=line><span class=cl>		<span class=kd>private</span> <span class=n>SuccessKilledDao</span> <span class=n>successKilledDao</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=nd>@Test</span>
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>testInsertSuccessKilled</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=kt>long</span> <span class=n>seckillId</span> <span class=o>=</span> <span class=mi>1000L</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>			<span class=kt>long</span> <span class=n>userPhone</span> <span class=o>=</span> <span class=mi>13476191877L</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>			<span class=kt>int</span> <span class=n>insertCount</span> <span class=o>=</span> <span class=n>successKilledDao</span><span class=o>.</span><span class=na>insertSuccessKilled</span><span class=o>(</span><span class=n>seckillId</span><span class=o>,</span> <span class=n>userPhone</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;insertCount=&#34;</span> <span class=o>+</span> <span class=n>insertCount</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>		<span class=nd>@Test</span>
+</span></span><span class=line><span class=cl>		<span class=kd>public</span> <span class=kt>void</span> <span class=nf>testQueryByIdWithSeckill</span><span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>			<span class=kt>long</span> <span class=n>seckillId</span> <span class=o>=</span> <span class=mi>1000L</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>			<span class=kt>long</span> <span class=n>userPhone</span> <span class=o>=</span> <span class=mi>13476191877L</span><span class=o>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>SuccessKilled</span> <span class=n>successKilled</span> <span class=o>=</span> <span class=n>successKilledDao</span><span class=o>.</span><span class=na>queryByIdWithSeckill</span><span class=o>(</span><span class=n>seckillId</span><span class=o>,</span> <span class=n>userPhone</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>successKilled</span><span class=o>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=n>successKilled</span><span class=o>.</span><span class=na>getSeckill</span><span class=o>());</span>
+</span></span><span class=line><span class=cl>		<span class=o>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=o>}</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>测试说明</p></blockquote><p>测试方法同上，测试结果通过，另外由于我们使用了联合主键，在insert时使用了ignore关键字，所以对于<code>testInsertSuccessKilled()</code>重复插入同一条数据是无效的，会被过滤掉，确保了一个用户不能重复秒杀同一件商品。</p><blockquote><p>本节结语</p></blockquote><p>至此，关于Java高并发秒杀API的DAO层的开发与测试已经完成，接下来进行Service层的开发、测试，详情可以参考<a href=http://blog.csdn.net/lewky_liu/article/details/78162149 target=_blank rel="noopener noreffer">Java高并发秒杀API(二)之Service层</a>。</p><div class="details admonition warning open"><div class="details-summary admonition-title"><i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2017-10-04T23:57:03 title="October 4, 2017">October 4, 2017</span>，文中内容可能已过时，请谨慎使用。</div></div></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://lewky233.top/images/reward/wechat.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=https://lewky233.top/images/reward/alipay.png>
+<span>支付宝打赏</span></label></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2017-10-04</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/posts/56225.html/index.md target=_blank>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky233.top/posts/56225.html/ data-title=Java高并发秒杀API(一)之业务分析与DAO层 data-hashtags=项目笔记,SSM实战项目,秒杀><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky233.top/posts/56225.html/ data-hashtag=项目笔记><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky233.top/posts/56225.html/ data-title=Java高并发秒杀API(一)之业务分析与DAO层><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky233.top/posts/56225.html/ data-title=Java高并发秒杀API(一)之业务分析与DAO层><i data-svg-src=https://unpkg.com/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky233.top/posts/56225.html/ data-title=Java高并发秒杀API(一)之业务分析与DAO层><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/>项目笔记</a>,&nbsp;<a href=/tags/ssm%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/>SSM实战项目</a>,&nbsp;<a href=/tags/%E7%A7%92%E6%9D%80/>秒杀</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/65067.html/ class=prev rel=prev title="SSM实战项目 - Java高并发秒杀API"><i class="fas fa-angle-left fa-fw"></i>SSM实战项目 - Java高并发秒杀API</a>
+<a href=/posts/18357.html/ class=next rel=next title=Java高并发秒杀API(二)之Service层>Java高并发秒杀API(二)之Service层<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=waline></div><script src=/js/Waline.min.js></script>
+<script>new Waline({el:"#waline",meta:["nick","mail","link"],requiredMeta:["nick","mail"],login:"force",placeholder:"为防恶意灌水攻击，评论前需注册并登录，望见谅~",serverURL:"https://comment.lewky233.top/",avatarCDN:"https://cravatar.cn/avatar/",pageSize:20,avatar:"retro",lang:"zh-CN",visitor:!0,highlight:!0,uploadImage:!1,emoji:["https://lewky233.top/images/emoji/嘉然今天吃什么","https://lewky233.top/images/emoji/大航海嘉然","https://lewky233.top/images/emoji/向晚大魔王","https://lewky233.top/images/emoji/贝拉kira","https://lewky233.top/images/emoji/珈乐Carol","https://lewky233.top/images/emoji/乃琳Queen","https://lewky233.top/images/emoji/EveOneCat","https://lewky233.top/images/emoji/weibo","https://lewky233.top/images/emoji/滑稽","https://lewky233.top/images/emoji/default"]})</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><span id=run-time></span>|
+<a href=http://rssblog.vercel.app/ target=_blank rel=noopener title=RSSBlog><i class='fas fa-fw fa-inbox'></i>&nbsp;RSSBlog</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2024</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=sidebar_wo><div id=leimu><img src=https://lewky233.top/images/b2t/leimuA.png alt=雷姆 onmouseover='this.src="https://lewky233.top/images/b2t/leimuB.png"' onmouseout='this.src="https://lewky233.top/images/b2t/leimuA.png"' title=回到顶部></div><div class=sidebar_wo id=lamu><img src=https://lewky233.top/images/b2t/lamuA.png alt=雷姆 onmouseover='this.src="https://lewky233.top/images/b2t/lamuB.png"' onmouseout='this.src="https://lewky233.top/images/b2t/lamuA.png"' title=回到底部></div></div><link rel=stylesheet href=https://unpkg.com/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://unpkg.com/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://unpkg.com/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://unpkg.com/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://unpkg.com/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://unpkg.com/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://unpkg.com/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:30},comment:{},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0}}</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src=https://unpkg.com/jquery@2.1.3/dist/jquery.min.js></script><script type=text/javascript src=https://unpkg.com/jquery-backstretch@2.1.18/jquery.backstretch.min.js></script><script>var $cdnPrefix="https://lewky233.top"</script>
+<script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script></body></html>

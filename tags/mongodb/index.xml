@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MongoDB - 标签 - Yulin Lewis' Blog</title><link>https://lewky233.top/tags/mongodb/</link><description>MongoDB - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Sep 2021 23:27:22 +0800</lastBuildDate><atom:link href="https://lewky233.top/tags/mongodb/" rel="self" type="application/rss+xml"/><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky233.top/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>Spring Data除了常用的JPA（Hibernate）关系型数据库的模块外，还有其他用于非关系型数据库的数据交互模块：比如Redis、MongoDB、Elasticsearch等。</p>
+<p>用法和JPA模块类似，都需要定义对应的POJO、Repository，同时也提供了对应的数据库工具模板类：如RedisTemplate、MongoTemplate等。</p>
+<p>本文基于以下版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!--  对应的是4.1.1版本的MongoDB --&gt;
+</span></span><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">    &lt;version&gt;2.4.0&lt;/version&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是MongoDB官网用户手册的翻译文档仓库：<a href="https://github.com/mongodb-china/MongoDB-4.2-Manual" target="_blank" rel="noopener noreffer">MongoDB-4.2-Manual</a></p>]]></description></item></channel></rss>

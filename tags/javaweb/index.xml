@@ -1,0 +1,30 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>JavaWeb - 标签 - Yulin Lewis' Blog</title><link>https://lewky233.top/tags/javaweb/</link><description>JavaWeb - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 20 Nov 2022 23:13:22 +0800</lastBuildDate><atom:link href="https://lewky233.top/tags/javaweb/" rel="self" type="application/rss+xml"/><item><title>HttpClient问题汇总</title><link>https://lewky233.top/posts/httpclient-issues/</link><pubDate>Sun, 20 Nov 2022 23:13:22 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/httpclient-issues/</guid><description>&lt;h2 id="httpurlconnection设置host请求头无效">HttpURLConnection设置host请求头无效&lt;/h2>
+&lt;p>由于业务需要在调用第三方SDK时需要设置host请求头为对方的域名，在测试时发现代码设置后依然无法生效。查找资料后发现是从JDK6的6u23版本开始就对HTTP的部分请求头做了限制，如下：&lt;/p></description></item><item><title>Java Servlet问题汇总</title><link>https://lewky233.top/posts/javaweb-servlet-issues/</link><pubDate>Sat, 01 Jan 2022 23:16:47 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/javaweb-servlet-issues/</guid><description><![CDATA[<h2 id="cannot-forward-after-response-has-been-committe">Cannot forward after response has been committe</h2>
+<p>之前在使用Servlet的时候，总是在 doGet()/doPost() 的最后一行才使用请求转发或者重定向。如果需要根据条件来判断进行不同的请求转发或者重定向，代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="kd">final</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="kd">final</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">AttrConsts</span><span class="o">.</span><span class="na">LOGIN_USER</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">LOGIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>服务器时间和数据库时间的校验</title><link>https://lewky233.top/posts/663a514f.html/</link><pubDate>Wed, 22 Aug 2018 00:15:59 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/663a514f.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>今天在公司进行Sanity Test(可用性测试)时发现服务器启动失败，查找log后发现在启动时发生了异常导致了服务器启动失败。</p>
+<p>由于公司的服务器和数据库分别部署在不同的主机，所以会在启动时进行时间上的校验，如果两台主机的时间差超过600s就会抛出异常、启动失败。这个设定的时间差被存储在数据库中，以方便日后修改。</p>]]></description></item></channel></rss>

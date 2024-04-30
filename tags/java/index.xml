@@ -1,0 +1,117 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Java - 标签 - Yulin Lewis' Blog</title><link>https://lewky233.top/tags/java/</link><description>Java - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Feb 2022 10:42:08 +0800</lastBuildDate><atom:link href="https://lewky233.top/tags/java/" rel="self" type="application/rss+xml"/><item><title>Java - 字符编码</title><link>https://lewky233.top/posts/java-charset/</link><pubDate>Sun, 13 Feb 2022 10:42:08 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-charset/</guid><description>&lt;h2 id="字符集">字符集&lt;/h2>
+&lt;p>字符集是一系列字符的集合，将每个收录的字符和数字进行映射。最早的字符集是ASCII，使用一个字节进行存储字符，8位一共可以表示256个字符，而ASCII只使用了其中的128位，即0～127位，这128位里面包括了常用的英文字符以及标点符号。&lt;/p></description></item><item><title>Java数值问题汇总</title><link>https://lewky233.top/posts/java-number/</link><pubDate>Mon, 10 Jan 2022 23:03:06 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-number/</guid><description><![CDATA[<h2 id="double转成bigdecimal的精度损失问题">double转成BigDecimal的精度损失问题</h2>
+<p>如果直接用构造方法将double数值转成BigDecimal，可能存在损失精度的问题：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="mf">0.48</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">BigDecimal</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mf">0.48</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 0.479999999999999982236431605997495353221893310546875
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 0.48
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b2</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Java正则表达式问题汇总</title><link>https://lewky233.top/posts/java-regex-issues/</link><pubDate>Thu, 14 Oct 2021 21:26:47 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-regex-issues/</guid><description><![CDATA[<h2 id="正则表达式的模式修饰符">正则表达式的模式修饰符</h2>
+<p>在正则表达式前面可以加上<code>(?i)</code>，<code>(?s)</code>和<code>(?m)</code>这三种模式修饰符，用以改变正则表达式的匹配模式。</p>
+<p><code>(?i)</code>表示匹配时不区分大小写。</p>
+<p><code>(?s)</code>表示Singleline（单行模式），匹配时会改变<code>.</code>的含义，使其能与换行符（\r或者\n，如果是\r\n需要用两个<code>.</code>）匹配。</p>
+<p><code>(?m)</code>表示Multiline（多行模式），匹配时会改变<code>^</code>和<code>$</code>的含义，使其分别在任意一行的行首和行尾匹配，而不仅仅在整个字符串的开头和结尾匹配。</p>
+<p>这三种模式修饰符可以搭配使用，如：<code>(?im)</code>，<code>(?is)</code>等。</p>]]></description></item><item><title>Java - 数据结构之树</title><link>https://lewky233.top/posts/java-tree.html/</link><pubDate>Tue, 01 Jun 2021 23:30:42 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-tree.html/</guid><description><![CDATA[<h2 id="基本概念">基本概念</h2>
+<p>树（Tree）不是线性表，而是一种描述非线性层次关系的数据结构，描述的是一对多的数据结构。</p>
+<p>● 结点：Node，有的资料也叫做节点。<br>
+● 根结点（Root）：没有父结点的结点，一棵树只能有一个根结点。<br>
+● 兄弟结点（Siblings）：拥有同一个父结点的结点，它们是父结点的子结点。<br>
+● 孩子、双亲（Child、Parent）：结点的子树的根称为该结点的孩子，相应地，该结点称为孩子的双亲。<br>
+● 结点的度（Degree）：一个结点所包含的子树的数量，即子结点的数量。<br>
+● 树的度：该树所有结点中最大的度。<br>
+● 叶子结点（Leaf）：树中度为零的结点，也叫终端结点。<br>
+● 分支（Branch）：至少有一个孩子的结点，也叫非终端结点。<br>
+● 祖先（Ancestor）：结点的祖先是从根到该结点所经分支上的所有结点。<br>
+● 后代（Descendant）：以某结点为根的子树中的任一结点都称为该结点的后代。<br>
+● 边（Edge）：一个结点和另一个结点之间的连接被称为边。<br>
+● 路径（Path）：连接结点和其后代的结点之间的（结点，边）的序列<br>
+● 层次（Level）：从根结点开始算，根结点是第一层，依次往下。（也可以把根结点作为第0层）<br>
+● 结点的高度（Height of node）：该结点和某个叶子之间存在的最长路径上的边的个数。<br>
+● 树的高度（Height of tree）：树的高度是其根结点的高度。<br>
+● 结点的深度（Depth of node）：从树的根结点到该结点的边的个数。<strong>和高度的区别在于，深度是从根结点开始往下到自身结点；高度是从自身结点往下到叶子结点。</strong><br>
+● 树的深度（Depth of tree）：树中结点的最大层次。树的高度等于树的深度。<br>
+● 无序树：树中任意结点的子结点之间没有顺序关系，这种树称为无序树，也称为自由树。<br>
+● 有序树：树中各结点的子结点之间从左到右按一定次序排列的树。<br>
+● 森林：n(n&gt;=0)棵互不相交的树的集合。</p>]]></description></item><item><title>Java - 泛型</title><link>https://lewky233.top/posts/java-generic.html/</link><pubDate>Mon, 24 May 2021 23:35:36 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-generic.html/</guid><description><![CDATA[<h2 id="泛型generic">泛型（Generic）</h2>
+<p>泛型：把类型明确的工作推迟到创建对象或调用方法时再明确的特殊类型。</p>
+<p>参数化类型：把类型当作参数来传递，这意味着参数化类型不能是基本数据类型，需要用对应的包装类来代替。</p>
+<p>相关概念：</p>]]></description></item><item><title>Java日期问题汇总</title><link>https://lewky233.top/posts/java-date-issues.html/</link><pubDate>Mon, 25 Jan 2021 23:43:02 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-date-issues.html/</guid><description><![CDATA[<h2 id="日期格式化的跨年问题">日期格式化的跨年问题</h2>
+<p>通常格式化日期时，都是使用的<code>YYYY/MM/dd</code>来格式化日期，但是在遇到跨年日期时，就会遇到很神奇的现象，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">Calendar</span> <span class="n">calendar</span> <span class="o">=</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 2020-12-26
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">2020</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">26</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">Date</span> <span class="n">date1226</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">getTime</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 2020-12-27
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">calendar</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">2020</span><span class="o">,</span> <span class="mi">11</span><span class="o">,</span> <span class="mi">27</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">Date</span> <span class="n">date1227</span> <span class="o">=</span> <span class="n">calendar</span><span class="o">.</span><span class="na">getTime</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// YYYY
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">final</span> <span class="n">DateFormat</span> <span class="n">Y</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleDateFormat</span><span class="o">(</span><span class="s">&#34;YYYY/MM/dd&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-26用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1226</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;2020-12-27用YYYY/MM/dd表示:&#34;</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="n">date1227</span><span class="o">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Java的远程调试Remote Debug</title><link>https://lewky233.top/posts/java-remote-debug.html/</link><pubDate>Tue, 17 Mar 2020 23:30:40 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-remote-debug.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>一般开发项目时可以直接本地借助IDE工具进行debug调试，但对于线上的项目，则需要借助Java提供的远程debug功能来进行调试。可以在启动项目前通过配置对应的JVM参数来启用远程debug，也可以把参数添加到Tomcat或者Jetty之类的启动脚本里。</p>
+<h2 id="配置jvm参数">配置JVM参数</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=4000,server=y,suspend=n
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参数说明：</p>]]></description></item><item><title>JDK自带的那些好用的工具</title><link>https://lewky233.top/posts/jdk-tools.html/</link><pubDate>Fri, 03 Jan 2020 14:59:39 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/jdk-tools.html/</guid><description>将中文转换为ASCII码的工具 在jdk的安装目录下，有一个bin文件夹，这里隐藏了一个将中文转换为ASCII码的工具：native2ascii.exe。双击运行该程序，输入要转换的中文，按下Enter，就可以得到相应的ASCII码了。 接下来要如何将该ASCII码复制到文本上？ 右键cmd窗口，选择编辑菜单里的标记，选定了要复制的内容后按下Enter就自动复制到</description></item><item><title>由Java正则表达式的灾难性回溯引发的高CPU异常：java.util.regex.Pattern$Loop.match</title><link>https://lewky233.top/posts/java-regex-issue/</link><pubDate>Wed, 09 Oct 2019 20:11:45 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-regex-issue/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>某天领导report了一个问题：线上的CPU自从上一个版本迭代后就一直处于居高不下的状况，领导看着这段时间的曲线图判断是有两条线程在不停的死循环。</p>
+<p>接到任务后去查看了AWS的CloudWatch，发现线上CPU确实一直居高不下，使用率基本是之前的两倍；另外发现线程使用率以比之前频繁很多。后来公司的大佬拿到dump后经过分析发现，是由正则表达式造成的CPU持续高使用率的问题。</p>]]></description></item><item><title>Java - 一道关于整型和字符类型相加的题目</title><link>https://lewky233.top/posts/a34ffc44.html/</link><pubDate>Sat, 11 May 2019 00:25:58 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/a34ffc44.html/</guid><description><![CDATA[<h2 id="题目">题目</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">final</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">final</span> <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">20</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="sc">&#39;+&#39;</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="sc">&#39;=&#39;</span> <span class="o">+</span> <span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">));</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

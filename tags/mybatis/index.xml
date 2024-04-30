@@ -1,0 +1,21 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MyBatis - 标签 - Yulin Lewis' Blog</title><link>https://lewky233.top/tags/mybatis/</link><description>MyBatis - 标签 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 03 Mar 2022 23:10:33 +0800</lastBuildDate><atom:link href="https://lewky233.top/tags/mybatis/" rel="self" type="application/rss+xml"/><item><title>MyBatis问题汇总</title><link>https://lewky233.top/posts/mybatis-issues/</link><pubDate>Thu, 03 Mar 2022 23:10:33 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/mybatis-issues/</guid><description><![CDATA[<h2 id="使用domainobjectrenamingrule报错">使用domainObjectRenamingRule报错</h2>
+<p>在使用MyBatis逆向工程时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">org.mybatis.generator.exception.XMLParserException: XML Parser Error on line 43: 必须声明元素类型 &#34;domainObjectRenamingRule&#34;。
+</span></span><span class="line"><span class="cl">    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:121)
+</span></span><span class="line"><span class="cl">    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:82)
+</span></span><span class="line"><span class="cl">    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:74)
+</span></span><span class="line"><span class="cl">    at GeneratorSqlmap.generator(GeneratorSqlmap.java:22)
+</span></span><span class="line"><span class="cl">    at GeneratorSqlmap.main(GeneratorSqlmap.java:32)
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>

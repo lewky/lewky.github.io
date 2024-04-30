@@ -1,0 +1,52 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky233.top/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 Apr 2024 23:51:27 +0800</lastBuildDate><atom:link href="https://lewky233.top/posts/" rel="self" type="application/rss+xml"/><item><title>别了，向晚</title><link>https://lewky233.top/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
+<p>耳边似乎还回响着水母之歌的旋律，笨拙的水母退场离开了舞台，顶碗人也不会忘记深海里曾经的那一束白月光。</p>
+<p>别了，向晚。</p>]]></description></item><item><title>Prometheus简易入门</title><link>https://lewky233.top/posts/prometheus-start/</link><pubDate>Mon, 06 Nov 2023 23:13:18 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/prometheus-start/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>APM系统即Application Performance Management应用性能管理，目的是对企业的关键业务系统进行实时性能监控和故障管理，主要有以下三个维度：日志聚合Logs、业务指标Metrics、链路跟踪Traces。</p>
+<p>在现今很流行的分布式架构微服务系统中，主流的APM系统组件：日志聚合可以使用ELK Stack，业务指标采用Prometheus，链路跟踪使用SkyWalking。比如新时代的银行业务系统需要上云，日志往往采用云服务商提供的日志聚合平台（如阿里云的SLS、腾讯云的CLS）。</p>]]></description></item><item><title>Chrome问题汇总</title><link>https://lewky233.top/posts/chrome-issues/</link><pubDate>Tue, 25 Jul 2023 21:18:37 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/chrome-issues/</guid><description>&lt;h2 id="无法保存密码">无法保存密码&lt;/h2>
+&lt;p>在升级Chrome后原本正常的保存密码功能忽然失效，此时就算手动添加、导入密码都无法成功保存密码，暂不清楚原因，但有以下方式可以解决该问题：&lt;/p></description></item><item><title>SSH命令问题汇总</title><link>https://lewky233.top/posts/ssh-issues/</link><pubDate>Tue, 20 Jun 2023 13:11:18 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/ssh-issues/</guid><description><![CDATA[<h2 id="no-matching-host-key-type-found-their-offer-ssh-dss">no matching host key type found. Their offer: ssh-dss</h2>
+<p>使用SSH登录时报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Unable to negotiate with 20.1.1.174 port 22: no matching host key type found. Their offer: ssh-dss
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>PGP加解密</title><link>https://lewky233.top/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
+<p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
+<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky233.top/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/apollo-issues/</guid><description>&lt;h2 id="apollo简介">Apollo简介&lt;/h2>
+&lt;p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置&lt;/p></description></item><item><title>GitHub问题汇总</title><link>https://lewky233.top/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
+<p>GitHub在某次更新后改变了支持的秘钥策略，对于新增的RSA格式的SSH秘钥，如果是无密码加密的，会报错如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">You&#39;re using an RSA key with SHA-1, which is no longer allowed. Please use a
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>GitHub的改动详情可以参考如下页面：https://github.blog/2021-09-01-improving-git-protocol-security-github/</p>
+<blockquote>
+<p>We’re changing which keys are supported in SSH and removing unencrypted Git protocol. Specifically we are:</p>
+<ul>
+<li>Removing support for all DSA keys</li>
+<li>Adding requirements for newly added RSA keys</li>
+<li>Removing some legacy SSH algorithms (HMAC-SHA-1 and CBC ciphers)</li>
+<li>Adding ECDSA and Ed25519 host keys for SSH</li>
+<li>Turning off the unencrypted Git protocol</li>
+</ul>
+</blockquote>]]></description></item><item><title>SmartGit问题汇总</title><link>https://lewky233.top/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
+<p>SmartGit可以免费试用三十天，三十天后可以通过删除配置文件来重复免费试用三十天的过程，不同版本需要删除的文件不同。</p>
+<p><code>win + R</code>组合键打开运行窗口，输入<code>%APPDATA%\syntevo\SmartGit\</code>然后回车会进入到SmartGit的安装路径，进入你当前使用的版本目录，如果是旧版的SmartGit（如17.2版本），删除当前的<code>settings.xml</code>文件，然后重启SmartGit即可。</p>
+<p>如果找不到<code>settings.xml</code>文件，说明是新版本的SmartGit（如21.2版本），此时需要删除下面两个文件：</p>
+<p><code>license</code>和<code>preferences.yml</code>，然后重启SmartGit即可。</p>
+<h2 id="选择秘钥时不支持openssh格式">选择秘钥时不支持OPENSSH格式</h2>
+<p>某天发现用Git Bash生成的SSH key无法被SmartGit识别，提示需要PEM格式，不支持OPENSSH格式。奇怪的是之前也用同样的方法生成的key是可以被识别的，猜测要么是SmartGit版本不同导致无法支持OPENSSH格式，要么是Git Bash版本不同导致默认生成的key格式发生了变化。</p>]]></description></item><item><title>HttpClient问题汇总</title><link>https://lewky233.top/posts/httpclient-issues/</link><pubDate>Sun, 20 Nov 2022 23:13:22 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/httpclient-issues/</guid><description>&lt;h2 id="httpurlconnection设置host请求头无效">HttpURLConnection设置host请求头无效&lt;/h2>
+&lt;p>由于业务需要在调用第三方SDK时需要设置host请求头为对方的域名，在测试时发现代码设置后依然无法生效。查找资料后发现是从JDK6的6u23版本开始就对HTTP的部分请求头做了限制，如下：&lt;/p></description></item><item><title>Oculus Quest2食用指南</title><link>https://lewky233.top/posts/oculus-quests/</link><pubDate>Thu, 25 Aug 2022 21:20:01 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/oculus-quests/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>前不久买了Oculus Quest2，从购买到激活再到使用这个过程属实折腾了好一番手脚，这里简单记录下，一方面给其他朋友做个参考，一方面也能以防万一日后重置机器需要重新激活。</p>
+<h2 id="设备本体">设备本体</h2>
+<p>Oculus Quest2目前分为两种配置，一种内存128G，一种内存256G，通常128G就够用了，一般玩过的游戏、看过的电影删了就行，基本不会内存不够用。当然土豪也可以直接上256G。</p>
+<p>Quest2从2022年8月起涨价了几百块，但总体来说依然性价比极高，且买后激活的15天内会免费赠送节奏光剑游戏（原价40美金），需要在Oculus app的邮箱通知里领取，过期作废，别忘记领取了。</p>
+<p>推荐从京东国际网购，并不会比亚马逊贵多少，并且发货速度比亚马逊快起码半个月时间。需要注意的是，Quest2的质保针对的是头显，并不包括手柄，如果手柄坏了只能找客服付费维修。</p>
+<p>头戴有配套的充电器充电，手柄则是使用的七号电池，设备开箱后按照说明书去掉一些保护膜即可使用，建议到手后立刻充电。</p>]]></description></item></channel></rss>
