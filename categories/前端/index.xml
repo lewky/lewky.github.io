@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>前端 - 分类 - Yulin Lewis' Blog</title><link>https://lewky233.top/categories/%E5%89%8D%E7%AB%AF/</link><description>前端 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 04 Aug 2021 22:51:39 +0800</lastBuildDate><atom:link href="https://lewky233.top/categories/%E5%89%8D%E7%AB%AF/" rel="self" type="application/rss+xml"/><item><title>npm问题汇总</title><link>https://lewky233.top/posts/npm-issues/</link><pubDate>Wed, 04 Aug 2021 22:51:39 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/npm-issues/</guid><description><![CDATA[<h2 id="修改npm全局安装的路径">修改npm全局安装的路径</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>前端 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%89%8D%E7%AB%AF/</link><description>前端 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 04 Aug 2021 22:51:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%89%8D%E7%AB%AF/" rel="self" type="application/rss+xml"/><item><title>npm问题汇总</title><link>https://lewky.cn/posts/npm-issues/</link><pubDate>Wed, 04 Aug 2021 22:51:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/npm-issues/</guid><description><![CDATA[<h2 id="修改npm全局安装的路径">修改npm全局安装的路径</h2>
 <p>在cmd输入命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -11,7 +11,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>之后可以执行<code>npm config ls</code>来查看是否设置成功了。</p>
-<p>为了方便全局安装的模块能通过命令行来运行，可以将上述设置的两个路径添加到环境变量<code>PATH</code>中。</p>]]></description></item><item><title>分享一些有趣的前端图形和页面</title><link>https://lewky233.top/posts/front-end-funny.html/</link><pubDate>Thu, 18 Feb 2021 22:50:58 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/front-end-funny.html/</guid><description><![CDATA[<h2 id="css绘制三角形">css绘制三角形</h2>
+<p>为了方便全局安装的模块能通过命令行来运行，可以将上述设置的两个路径添加到环境变量<code>PATH</code>中。</p>]]></description></item><item><title>分享一些有趣的前端图形和页面</title><link>https://lewky.cn/posts/front-end-funny.html/</link><pubDate>Thu, 18 Feb 2021 22:50:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/front-end-funny.html/</guid><description><![CDATA[<h2 id="css绘制三角形">css绘制三角形</h2>
 <p>在盒子模型中border也占据了宽高，对于下面的样式：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -33,7 +33,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>$("body").animate({"scrollTop":top})无效的问题</title><link>https://lewky233.top/posts/fb7443fc.html/</link><pubDate>Fri, 03 May 2019 00:03:27 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/fb7443fc.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+</div>]]></description></item><item><title>$("body").animate({"scrollTop":top})无效的问题</title><link>https://lewky.cn/posts/fb7443fc.html/</link><pubDate>Fri, 03 May 2019 00:03:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/fb7443fc.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
 <p>我在<a href="https://lewky.cn" target="_blank" rel="noopener noreffer">个人站点的左下角和右下角</a>各自使用了如下代码来将页面滚动到顶部和底部：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -47,11 +47,11 @@
 </span></span><span class="line"><span class="cl"><span class="nx">$</span><span class="p">(</span><span class="s2">&#34;body&#34;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="nx">scrollTop</span><span class="o">:</span><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">height</span><span class="p">()},</span><span class="mi">800</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>快速删除node_modules文件夹</title><link>https://lewky233.top/posts/e873a12.html/</link><pubDate>Wed, 27 Feb 2019 00:30:46 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/e873a12.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+</div>]]></description></item><item><title>快速删除node_modules文件夹</title><link>https://lewky.cn/posts/e873a12.html/</link><pubDate>Wed, 27 Feb 2019 00:30:46 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/e873a12.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>当安装了较多模块后，node_modules目录下的文件会很多，直接删除整个目录会很慢，下面介绍些快速删除node_modules目录的方法。</p>
-<h2 id="方法一使用rimraf模块的命令">方法一：使用rimraf模块的命令</h2>]]></description></item><item><title>Windows下完全卸载node.js并安装node.js的多版本管理工具nvm-windows</title><link>https://lewky233.top/posts/1908545a.html/</link><pubDate>Tue, 26 Feb 2019 23:45:56 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/1908545a.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<h2 id="方法一使用rimraf模块的命令">方法一：使用rimraf模块的命令</h2>]]></description></item><item><title>Windows下完全卸载node.js并安装node.js的多版本管理工具nvm-windows</title><link>https://lewky.cn/posts/1908545a.html/</link><pubDate>Tue, 26 Feb 2019 23:45:56 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/1908545a.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>由于高版本的node.js导致gulp执行build命令失败，我需要在Windows下卸载掉已有的node.js并安装一个多版本管理工具<code>nvm-windows</code>，方便切换不同版本的node.js。</p>
-<p>nvm是Linux下常用的一个node.js多版本管理工具，但是nvm不能在Windows下使用，在GitHub上有个项目叫<code>nvm-windows</code>，可以让我们在Windows下对node.js进行多版本管理。</p>]]></description></item><item><title>执行gulp build报错</title><link>https://lewky233.top/posts/9af9bb6b.html/</link><pubDate>Tue, 26 Feb 2019 23:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/9af9bb6b.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
+<p>nvm是Linux下常用的一个node.js多版本管理工具，但是nvm不能在Windows下使用，在GitHub上有个项目叫<code>nvm-windows</code>，可以让我们在Windows下对node.js进行多版本管理。</p>]]></description></item><item><title>执行gulp build报错</title><link>https://lewky.cn/posts/9af9bb6b.html/</link><pubDate>Tue, 26 Feb 2019 23:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/9af9bb6b.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
 <p>在执行<code>gulp build</code>报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -71,14 +71,14 @@
 </span></span><span class="line"><span class="cl">[22:00:13] Local version 3.9.1
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>页面的背景音乐加载很慢</title><link>https://lewky233.top/posts/eee6409f.html/</link><pubDate>Wed, 19 Dec 2018 22:35:58 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/eee6409f.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
-<p>由于我在页面中使用了<code>&lt;audio&gt;</code>标签来播放一首背景音乐，该音频是一首大小为2.7MB的MP3文件。在第一次加载该页面时，需要花费相当长的一段时间去加载音频。</p>]]></description></item><item><title>AngularJS - 入门小Demo</title><link>https://lewky233.top/posts/69c71fa6.html/</link><pubDate>Mon, 22 Oct 2018 23:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/69c71fa6.html/</guid><description><![CDATA[<h2 id="angularjs四大特效">AngularJS四大特效</h2>
+</div>]]></description></item><item><title>页面的背景音乐加载很慢</title><link>https://lewky.cn/posts/eee6409f.html/</link><pubDate>Wed, 19 Dec 2018 22:35:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eee6409f.html/</guid><description><![CDATA[<h2 id="问题">问题</h2>
+<p>由于我在页面中使用了<code>&lt;audio&gt;</code>标签来播放一首背景音乐，该音频是一首大小为2.7MB的MP3文件。在第一次加载该页面时，需要花费相当长的一段时间去加载音频。</p>]]></description></item><item><title>AngularJS - 入门小Demo</title><link>https://lewky.cn/posts/69c71fa6.html/</link><pubDate>Mon, 22 Oct 2018 23:24:07 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/69c71fa6.html/</guid><description><![CDATA[<h2 id="angularjs四大特效">AngularJS四大特效</h2>
 <p>MVC模式、模块化设计、自动化双向数据绑定、依赖注入</p>
 <p>如果了解了后端开发知识，想必对这些词汇不会陌生，AngularJS融合了后端开发的一些思想，虽然身为前端框架，但与jQuery框架却是完全不相同的东西。</p>
 <p>AngularJS分为几个模块，需要使用哪个模块的功能，就直接引入对应的模块，这种模块化设计具备高内聚、低耦合的特点。
 官方提供的模块有：ng、ngRoute、ngAnimate
 用户也可以自定义模块：angular.module(&lsquo;模块名&rsquo;, [])
-这里的ng是引擎engine的缩写，类似于Nginx的Ngin也是engine的缩写(谐音？)</p>]]></description></item><item><title>前端问题汇总</title><link>https://lewky233.top/posts/4d6b513d.html/</link><pubDate>Sun, 02 Sep 2018 22:49:52 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/4d6b513d.html/</guid><description><![CDATA[<h2 id="如何让input文本框和图片对齐">如何让input文本框和图片对齐</h2>
+这里的ng是引擎engine的缩写，类似于Nginx的Ngin也是engine的缩写(谐音？)</p>]]></description></item><item><title>前端问题汇总</title><link>https://lewky.cn/posts/4d6b513d.html/</link><pubDate>Sun, 02 Sep 2018 22:49:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/4d6b513d.html/</guid><description><![CDATA[<h2 id="如何让input文本框和图片对齐">如何让input文本框和图片对齐</h2>
 <p>在默认情况下，input文本框和图片无法自然对齐，总会有所偏差，文本框往往会比图片要往下边一点，只要给元素添加<code>vertical-align:bottom</code>即可令两者底部水平对齐，代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -90,7 +90,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src </span><span class="o">=</span> <span class="s">&#34;images/露琪亚.jpg&#34;</span> <span class="na">width </span><span class="o">=</span> <span class="s">&#34;50%&#34;</span> <span class="na">height </span><span class="o">=</span> <span class="s">&#34;50%&#34;</span> <span class="na">alt </span><span class="o">=</span> <span class="s">&#34;露琪亚&#34;</span> <span class="na">title </span><span class="o">=</span> <span class="s">&#34;死神里的露琪亚&#34;</span>  <span class="na">style</span><span class="o">=</span><span class="s">&#34;vertical-align:bottom&#34;</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>js、css外部文件的相对路径问题</title><link>https://lewky233.top/posts/29169.html/</link><pubDate>Wed, 02 May 2018 10:21:16 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/29169.html/</guid><description><![CDATA[<p>如果js、css外部文件有使用到相对路径时，需要注意其相对路径的基准是不一样的。</p>
+</div>]]></description></item><item><title>js、css外部文件的相对路径问题</title><link>https://lewky.cn/posts/29169.html/</link><pubDate>Wed, 02 May 2018 10:21:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/29169.html/</guid><description><![CDATA[<p>如果js、css外部文件有使用到相对路径时，需要注意其相对路径的基准是不一样的。</p>
 <p>比如说，在index.html中引用到了外部的js和css文件，这两个文件都通过相对路径引用了某一张图片；这些文件所在的目录如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

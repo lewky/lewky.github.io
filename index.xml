@@ -1,9 +1,24 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky233.top/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 Apr 2024 23:51:27 +0800</lastBuildDate><atom:link href="https://lewky233.top/index.xml" rel="self" type="application/rss+xml"/><item><title>别了，向晚</title><link>https://lewky233.top/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 Apr 2024 23:51:27 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
 <p>耳边似乎还回响着水母之歌的旋律，笨拙的水母退场离开了舞台，顶碗人也不会忘记深海里曾经的那一束白月光。</p>
-<p>别了，向晚。</p>]]></description></item><item><title>Prometheus简易入门</title><link>https://lewky233.top/posts/prometheus-start/</link><pubDate>Mon, 06 Nov 2023 23:13:18 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/prometheus-start/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>别了，向晚。</p>]]></description></item><item><title>必胜客自助餐</title><link>https://lewky.cn/posts/bishengke/</link><pubDate>Sun, 24 Mar 2024 12:42:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bishengke/</guid><description><![CDATA[<h2 id="攻略">攻略</h2>
+<ol>
+<li>可以提前说不要配菜</li>
+<li>披萨可以论角上，口味还可以，推荐榴莲披萨、乳酪大会、超级至尊。</li>
+<li>意面之类的，类似于热干面换成了意面</li>
+<li>惠灵顿牛排，份量挺大的，没体验过的可以点一份多人一起吃</li>
+<li>雪糕黑天使、草莓天使，其实就是可乐上面加奶油和冰淇淋</li>
+<li>肋眼、西冷牛排，肋眼口感更好，适合点来冲单价，不过品质一般，不太推荐。牛排可以提前说不要配菜。</li>
+<li>鸡块，相当于大号鸡米花，可以点</li>
+<li>凤尾虾，必点</li>
+<li>雪域，奶油蛋糕，还有抹茶口味，招牌甜品，喜欢甜品的必点</li>
+<li>鱿鱼圈，一般</li>
+<li>小龙虾麻辣口味优于咸蛋黄口味，要注意有没有开背，没开背不建议点。另外小龙虾底下会有通心粉，可以提前说不要加通心粉。好吃可点。</li>
+<li>脆皮虾，好吃可点。</li>
+<li>卡曼橘，饮品，还行。</li>
+</ol>]]></description></item><item><title>Prometheus简易入门</title><link>https://lewky.cn/posts/prometheus-start/</link><pubDate>Mon, 06 Nov 2023 23:13:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/prometheus-start/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>APM系统即Application Performance Management应用性能管理，目的是对企业的关键业务系统进行实时性能监控和故障管理，主要有以下三个维度：日志聚合Logs、业务指标Metrics、链路跟踪Traces。</p>
-<p>在现今很流行的分布式架构微服务系统中，主流的APM系统组件：日志聚合可以使用ELK Stack，业务指标采用Prometheus，链路跟踪使用SkyWalking。比如新时代的银行业务系统需要上云，日志往往采用云服务商提供的日志聚合平台（如阿里云的SLS、腾讯云的CLS）。</p>]]></description></item><item><title>Chrome问题汇总</title><link>https://lewky233.top/posts/chrome-issues/</link><pubDate>Tue, 25 Jul 2023 21:18:37 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/chrome-issues/</guid><description>&lt;h2 id="无法保存密码">无法保存密码&lt;/h2>
-&lt;p>在升级Chrome后原本正常的保存密码功能忽然失效，此时就算手动添加、导入密码都无法成功保存密码，暂不清楚原因，但有以下方式可以解决该问题：&lt;/p></description></item><item><title>SSH命令问题汇总</title><link>https://lewky233.top/posts/ssh-issues/</link><pubDate>Tue, 20 Jun 2023 13:11:18 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/ssh-issues/</guid><description><![CDATA[<h2 id="no-matching-host-key-type-found-their-offer-ssh-dss">no matching host key type found. Their offer: ssh-dss</h2>
+<p>在现今很流行的分布式架构微服务系统中，主流的APM系统组件：日志聚合可以使用ELK Stack，业务指标采用Prometheus，链路跟踪使用SkyWalking。比如新时代的银行业务系统需要上云，日志往往采用云服务商提供的日志聚合平台（如阿里云的SLS、腾讯云的CLS）。</p>]]></description></item><item><title>Chrome问题汇总</title><link>https://lewky.cn/posts/chrome-issues/</link><pubDate>Tue, 25 Jul 2023 21:18:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/chrome-issues/</guid><description>&lt;h2 id="无法保存密码">无法保存密码&lt;/h2>
+&lt;p>在升级Chrome后原本正常的保存密码功能忽然失效，此时就算手动添加、导入密码都无法成功保存密码，暂不清楚原因，但有以下方式可以解决该问题：&lt;/p></description></item><item><title>SSH命令问题汇总</title><link>https://lewky.cn/posts/ssh-issues/</link><pubDate>Tue, 20 Jun 2023 13:11:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ssh-issues/</guid><description><![CDATA[<h2 id="no-matching-host-key-type-found-their-offer-ssh-dss">no matching host key type found. Their offer: ssh-dss</h2>
 <p>使用SSH登录时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -13,10 +28,10 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Unable to negotiate with 20.1.1.174 port 22: no matching host key type found. Their offer: ssh-dss
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>PGP加解密</title><link>https://lewky233.top/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
+</div>]]></description></item><item><title>PGP加解密</title><link>https://lewky.cn/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
 <p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
-<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky233.top/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/apollo-issues/</guid><description>&lt;h2 id="apollo简介">Apollo简介&lt;/h2>
-&lt;p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置&lt;/p></description></item><item><title>GitHub问题汇总</title><link>https://lewky233.top/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
+<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky.cn/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/apollo-issues/</guid><description>&lt;h2 id="apollo简介">Apollo简介&lt;/h2>
+&lt;p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置&lt;/p></description></item><item><title>GitHub问题汇总</title><link>https://lewky.cn/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
 <p>GitHub在某次更新后改变了支持的秘钥策略，对于新增的RSA格式的SSH秘钥，如果是无密码加密的，会报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -36,22 +51,22 @@
 <li>Adding ECDSA and Ed25519 host keys for SSH</li>
 <li>Turning off the unencrypted Git protocol</li>
 </ul>
-</blockquote>]]></description></item><item><title>SmartGit问题汇总</title><link>https://lewky233.top/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
+</blockquote>]]></description></item><item><title>SmartGit问题汇总</title><link>https://lewky.cn/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
 <p>SmartGit可以免费试用三十天，三十天后可以通过删除配置文件来重复免费试用三十天的过程，不同版本需要删除的文件不同。</p>
 <p><code>win + R</code>组合键打开运行窗口，输入<code>%APPDATA%\syntevo\SmartGit\</code>然后回车会进入到SmartGit的安装路径，进入你当前使用的版本目录，如果是旧版的SmartGit（如17.2版本），删除当前的<code>settings.xml</code>文件，然后重启SmartGit即可。</p>
 <p>如果找不到<code>settings.xml</code>文件，说明是新版本的SmartGit（如21.2版本），此时需要删除下面两个文件：</p>
 <p><code>license</code>和<code>preferences.yml</code>，然后重启SmartGit即可。</p>
 <h2 id="选择秘钥时不支持openssh格式">选择秘钥时不支持OPENSSH格式</h2>
-<p>某天发现用Git Bash生成的SSH key无法被SmartGit识别，提示需要PEM格式，不支持OPENSSH格式。奇怪的是之前也用同样的方法生成的key是可以被识别的，猜测要么是SmartGit版本不同导致无法支持OPENSSH格式，要么是Git Bash版本不同导致默认生成的key格式发生了变化。</p>]]></description></item><item><title>HttpClient问题汇总</title><link>https://lewky233.top/posts/httpclient-issues/</link><pubDate>Sun, 20 Nov 2022 23:13:22 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/httpclient-issues/</guid><description>&lt;h2 id="httpurlconnection设置host请求头无效">HttpURLConnection设置host请求头无效&lt;/h2>
-&lt;p>由于业务需要在调用第三方SDK时需要设置host请求头为对方的域名，在测试时发现代码设置后依然无法生效。查找资料后发现是从JDK6的6u23版本开始就对HTTP的部分请求头做了限制，如下：&lt;/p></description></item><item><title>Oculus Quest2食用指南</title><link>https://lewky233.top/posts/oculus-quests/</link><pubDate>Thu, 25 Aug 2022 21:20:01 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/oculus-quests/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>某天发现用Git Bash生成的SSH key无法被SmartGit识别，提示需要PEM格式，不支持OPENSSH格式。奇怪的是之前也用同样的方法生成的key是可以被识别的，猜测要么是SmartGit版本不同导致无法支持OPENSSH格式，要么是Git Bash版本不同导致默认生成的key格式发生了变化。</p>]]></description></item><item><title>HttpClient问题汇总</title><link>https://lewky.cn/posts/httpclient-issues/</link><pubDate>Sun, 20 Nov 2022 23:13:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/httpclient-issues/</guid><description>&lt;h2 id="httpurlconnection设置host请求头无效">HttpURLConnection设置host请求头无效&lt;/h2>
+&lt;p>由于业务需要在调用第三方SDK时需要设置host请求头为对方的域名，在测试时发现代码设置后依然无法生效。查找资料后发现是从JDK6的6u23版本开始就对HTTP的部分请求头做了限制，如下：&lt;/p></description></item><item><title>Oculus Quest2食用指南</title><link>https://lewky.cn/posts/oculus-quests/</link><pubDate>Thu, 25 Aug 2022 21:20:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/oculus-quests/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>前不久买了Oculus Quest2，从购买到激活再到使用这个过程属实折腾了好一番手脚，这里简单记录下，一方面给其他朋友做个参考，一方面也能以防万一日后重置机器需要重新激活。</p>
 <h2 id="设备本体">设备本体</h2>
 <p>Oculus Quest2目前分为两种配置，一种内存128G，一种内存256G，通常128G就够用了，一般玩过的游戏、看过的电影删了就行，基本不会内存不够用。当然土豪也可以直接上256G。</p>
 <p>Quest2从2022年8月起涨价了几百块，但总体来说依然性价比极高，且买后激活的15天内会免费赠送节奏光剑游戏（原价40美金），需要在Oculus app的邮箱通知里领取，过期作废，别忘记领取了。</p>
 <p>推荐从京东国际网购，并不会比亚马逊贵多少，并且发货速度比亚马逊快起码半个月时间。需要注意的是，Quest2的质保针对的是头显，并不包括手柄，如果手柄坏了只能找客服付费维修。</p>
-<p>头戴有配套的充电器充电，手柄则是使用的七号电池，设备开箱后按照说明书去掉一些保护膜即可使用，建议到手后立刻充电。</p>]]></description></item><item><title>背包英雄：匕首流无尽模式详细攻略</title><link>https://lewky233.top/posts/backpack-hero-dagger/</link><pubDate>Sun, 03 Jul 2022 16:26:14 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/backpack-hero-dagger/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>头戴有配套的充电器充电，手柄则是使用的七号电池，设备开箱后按照说明书去掉一些保护膜即可使用，建议到手后立刻充电。</p>]]></description></item><item><title>背包英雄：匕首流无尽模式详细攻略</title><link>https://lewky.cn/posts/backpack-hero-dagger/</link><pubDate>Sun, 03 Jul 2022 16:26:14 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/backpack-hero-dagger/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>自从看了老菊的背包英雄视频后，最近几周都痴迷于这款体量虽小但却很精品的肉鸽页游。各种套路组合挺多，机制也有意思，引入了常规肉鸽里不存在的背包空间限制，对于build的构建很有挑战。加上通关后还有个无尽模式，一直在尝试无尽模式能打到多远。今天通关了无尽，记录下攻略，也不算白白浪费了这段时间的努力。</p>
-<p>这是游戏的<a href="https://thejaspel.itch.io/backpack-hero" target="_blank" rel="noopener noreffer">官方地址</a>，官方自带中文翻译，如果访问不了的也可以去<a href="https://www.mhhf.com/game/detail/5739" target="_blank" rel="noopener noreffer">灵动游戏</a>上玩。</p>]]></description></item><item><title>Linux问题汇总</title><link>https://lewky233.top/posts/linux-issues/</link><pubDate>Thu, 23 Jun 2022 00:44:25 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/linux-issues/</guid><description><![CDATA[<h2 id="bad-interpreter-no-such-file-or-directory">bad interpreter: No such file or directory</h2>
+<p>这是游戏的<a href="https://thejaspel.itch.io/backpack-hero" target="_blank" rel="noopener noreffer">官方地址</a>，官方自带中文翻译，如果访问不了的也可以去<a href="https://www.mhhf.com/game/detail/5739" target="_blank" rel="noopener noreffer">灵动游戏</a>上玩。</p>]]></description></item><item><title>Linux问题汇总</title><link>https://lewky.cn/posts/linux-issues/</link><pubDate>Thu, 23 Jun 2022 00:44:25 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-issues/</guid><description><![CDATA[<h2 id="bad-interpreter-no-such-file-or-directory">bad interpreter: No such file or directory</h2>
 <p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -61,11 +76,11 @@
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/bin/sh^M: bad interpreter: No such file or directory
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Postman问题汇总</title><link>https://lewky233.top/posts/postman-issues/</link><pubDate>Tue, 07 Jun 2022 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/postman-issues/</guid><description><![CDATA[<h2 id="无法更改请求报文的编码">无法更改请求报文的编码</h2>
-<p>在测试接口的时候发现，在Header中用<code>Content-type</code>指定编码为<code>GBK</code>也没有效果，服务端收到的报文始终是<code>UTF-8</code>编码的字节数组。在查阅资料后得出结论，就是Postman限制死了请求报文的编码为<code>UTF-8</code>，无法通过配置等方式进行修改，如果需要使用其他编码，要么换其他HTTP工具，要么用Java写一段代码去测试接口。</p>]]></description></item><item><title>别了，珈乐</title><link>https://lewky233.top/posts/asoul-jiale/</link><pubDate>Wed, 11 May 2022 23:30:34 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/asoul-jiale/</guid><description><![CDATA[<h2 id="江湖路远有缘再见">江湖路远，有缘再见</h2>
+</div>]]></description></item><item><title>Postman问题汇总</title><link>https://lewky.cn/posts/postman-issues/</link><pubDate>Tue, 07 Jun 2022 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postman-issues/</guid><description><![CDATA[<h2 id="无法更改请求报文的编码">无法更改请求报文的编码</h2>
+<p>在测试接口的时候发现，在Header中用<code>Content-type</code>指定编码为<code>GBK</code>也没有效果，服务端收到的报文始终是<code>UTF-8</code>编码的字节数组。在查阅资料后得出结论，就是Postman限制死了请求报文的编码为<code>UTF-8</code>，无法通过配置等方式进行修改，如果需要使用其他编码，要么换其他HTTP工具，要么用Java写一段代码去测试接口。</p>]]></description></item><item><title>别了，珈乐</title><link>https://lewky.cn/posts/asoul-jiale/</link><pubDate>Wed, 11 May 2022 23:30:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-jiale/</guid><description><![CDATA[<h2 id="江湖路远有缘再见">江湖路远，有缘再见</h2>
 <p>感谢这一路走来的欢笑与感动，东北的小狼公主提前离开了城堡，皇家骑士们依然守候在身后。</p>
-<p>别了，珈乐。</p>]]></description></item><item><title>桌面窗口管理器占用内存过高</title><link>https://lewky233.top/posts/dwm-issues/</link><pubDate>Tue, 22 Mar 2022 08:20:42 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/dwm-issues/</guid><description>&lt;h2 id="桌面窗口管理器dwmexe内存泄漏">桌面窗口管理器（dwm.exe）内存泄漏&lt;/h2>
-&lt;p>自从某天更新了Intel的核显驱动后，就发现电脑开机一段时间后必然发生卡顿，后来发现每次卡顿都是桌面窗口管理器（dwm.exe）占用内存过高。观察一段时间后发现，该进程内存会无限增加，怀疑发生了内存泄漏。在知乎搜索后发现很多人遇到了同款问题，这里记录下解决方法。&lt;/p></description></item><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky233.top/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
+<p>别了，珈乐。</p>]]></description></item><item><title>桌面窗口管理器占用内存过高</title><link>https://lewky.cn/posts/dwm-issues/</link><pubDate>Tue, 22 Mar 2022 08:20:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/dwm-issues/</guid><description>&lt;h2 id="桌面窗口管理器dwmexe内存泄漏">桌面窗口管理器（dwm.exe）内存泄漏&lt;/h2>
+&lt;p>自从某天更新了Intel的核显驱动后，就发现电脑开机一段时间后必然发生卡顿，后来发现每次卡顿都是桌面窗口管理器（dwm.exe）占用内存过高。观察一段时间后发现，该进程内存会无限增加，怀疑发生了内存泄漏。在知乎搜索后发现很多人遇到了同款问题，这里记录下解决方法。&lt;/p></description></item><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky.cn/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -110,9 +125,9 @@
 </span></span><span class="line"><span class="cl">}&#39;
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>ELK系列(5) - Elasticsearch性能调优</title><link>https://lewky233.top/posts/elk-5/</link><pubDate>Sat, 19 Mar 2022 22:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/elk-5/</guid><description><![CDATA[<h2 id="机器内存分配">机器内存分配</h2>
+</div>]]></description></item><item><title>ELK系列(5) - Elasticsearch性能调优</title><link>https://lewky.cn/posts/elk-5/</link><pubDate>Sat, 19 Mar 2022 22:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-5/</guid><description><![CDATA[<h2 id="机器内存分配">机器内存分配</h2>
 <p>官方推荐一个ES节点最好是分配当前机器最大内存的50%，比如机器内存是16g，就分配8g给ES：<code>-Xmx8g</code>。</p>
-<p>剩下的8g内存并不是说就闲置了，ES会拿机器剩余的内存来优化自身的查询效率。也就是说，并不是一味将最大内存设置很大就是最优解。</p>]]></description></item><item><title>MyBatis问题汇总</title><link>https://lewky233.top/posts/mybatis-issues/</link><pubDate>Thu, 03 Mar 2022 23:10:33 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/mybatis-issues/</guid><description><![CDATA[<h2 id="使用domainobjectrenamingrule报错">使用domainObjectRenamingRule报错</h2>
+<p>剩下的8g内存并不是说就闲置了，ES会拿机器剩余的内存来优化自身的查询效率。也就是说，并不是一味将最大内存设置很大就是最优解。</p>]]></description></item><item><title>MyBatis问题汇总</title><link>https://lewky.cn/posts/mybatis-issues/</link><pubDate>Thu, 03 Mar 2022 23:10:33 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/mybatis-issues/</guid><description><![CDATA[<h2 id="使用domainobjectrenamingrule报错">使用domainObjectRenamingRule报错</h2>
 <p>在使用MyBatis逆向工程时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -132,7 +147,7 @@
 </span></span><span class="line"><span class="cl">    at GeneratorSqlmap.main(GeneratorSqlmap.java:32)
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>PostgreSQL - SQL调优方案</title><link>https://lewky233.top/posts/postgresql-sql-tuning/</link><pubDate>Thu, 03 Mar 2022 08:09:26 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/postgresql-sql-tuning/</guid><description><![CDATA[<h2 id="查询执行很长时间的sql慢sql">查询执行很长时间的SQL（慢SQL）</h2>
+</div>]]></description></item><item><title>PostgreSQL - SQL调优方案</title><link>https://lewky.cn/posts/postgresql-sql-tuning/</link><pubDate>Thu, 03 Mar 2022 08:09:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-sql-tuning/</guid><description><![CDATA[<h2 id="查询执行很长时间的sql慢sql">查询执行很长时间的SQL（慢SQL）</h2>
 <p>可以通过查询系统表来找到目前处于活跃状态的SQL：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -144,8 +159,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">and</span><span class="w"> </span><span class="n">client_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;发起查询的IP地址&#39;</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">state_change</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Java - 字符编码</title><link>https://lewky233.top/posts/java-charset/</link><pubDate>Sun, 13 Feb 2022 10:42:08 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-charset/</guid><description>&lt;h2 id="字符集">字符集&lt;/h2>
-&lt;p>字符集是一系列字符的集合，将每个收录的字符和数字进行映射。最早的字符集是ASCII，使用一个字节进行存储字符，8位一共可以表示256个字符，而ASCII只使用了其中的128位，即0～127位，这128位里面包括了常用的英文字符以及标点符号。&lt;/p></description></item><item><title>Spring Data Redis问题汇总</title><link>https://lewky233.top/posts/spring-data-redis/</link><pubDate>Thu, 13 Jan 2022 23:10:42 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/spring-data-redis/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+</div>]]></description></item><item><title>Java - 字符编码</title><link>https://lewky.cn/posts/java-charset/</link><pubDate>Sun, 13 Feb 2022 10:42:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-charset/</guid><description>&lt;h2 id="字符集">字符集&lt;/h2>
+&lt;p>字符集是一系列字符的集合，将每个收录的字符和数字进行映射。最早的字符集是ASCII，使用一个字节进行存储字符，8位一共可以表示256个字符，而ASCII只使用了其中的128位，即0～127位，这128位里面包括了常用的英文字符以及标点符号。&lt;/p></description></item><item><title>Spring Data Redis问题汇总</title><link>https://lewky.cn/posts/spring-data-redis/</link><pubDate>Thu, 13 Jan 2022 23:10:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-redis/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文基于以下版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -165,7 +180,7 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Java数值问题汇总</title><link>https://lewky233.top/posts/java-number/</link><pubDate>Mon, 10 Jan 2022 23:03:06 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/java-number/</guid><description><![CDATA[<h2 id="double转成bigdecimal的精度损失问题">double转成BigDecimal的精度损失问题</h2>
+</div>]]></description></item><item><title>Java数值问题汇总</title><link>https://lewky.cn/posts/java-number/</link><pubDate>Mon, 10 Jan 2022 23:03:06 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-number/</guid><description><![CDATA[<h2 id="double转成bigdecimal的精度损失问题">double转成BigDecimal的精度损失问题</h2>
 <p>如果直接用构造方法将double数值转成BigDecimal，可能存在损失精度的问题：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -185,15 +200,15 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b2</span><span class="o">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>lombok问题汇总</title><link>https://lewky233.top/posts/lombok-issues/</link><pubDate>Thu, 06 Jan 2022 09:01:30 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/lombok-issues/</guid><description><![CDATA[<h2 id="eclipse安装lombok插件">Eclipse安装lombok插件</h2>
+</div>]]></description></item><item><title>lombok问题汇总</title><link>https://lewky.cn/posts/lombok-issues/</link><pubDate>Thu, 06 Jan 2022 09:01:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/lombok-issues/</guid><description><![CDATA[<h2 id="eclipse安装lombok插件">Eclipse安装lombok插件</h2>
 <h3 id="方式一">方式一</h3>
 <p>使用lombok框架开发可以减少大量重复性的代码，大大提高开发效率，但是Eclipse本身并不支持lombok，会编译报错。除了项目要导入lombok依赖，还需要为Eclipse安装该lombok插件。</p>
 <p>安装方法很简单，找到你导入的lombok的jar包，双击运行该jar包，会出现一个安装界面。或者右键jar包，选择<code>打开方式</code>，接着选择<code>Java (TM) Platform SE binary</code>，会出现安装界面。</p>
 <p>在安装界面选择当前的Eclipse进程，或者点击左下角的<code>Specify location...</code>选择你要安装插件的Eclipse，接着点右下角的<code>Install / Update</code>，很快就安装完毕，点击<code>Quit Installer</code>。</p>
-<p>lombok的下载地址：https://projectlombok.org/downloads/lombok.jar</p>]]></description></item><item><title>Jackson问题汇总</title><link>https://lewky233.top/posts/jackson-issues/</link><pubDate>Tue, 04 Jan 2022 23:45:42 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/jackson-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>lombok的下载地址：https://projectlombok.org/downloads/lombok.jar</p>]]></description></item><item><title>Jackson问题汇总</title><link>https://lewky.cn/posts/jackson-issues/</link><pubDate>Tue, 04 Jan 2022 23:45:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jackson-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>常见的json框架有：Jackson，FasJson（阿里的，万年没更新，积累了大量issue），Gson（谷歌的）。其中Jackson效率最高，性能最好，最为常用。本文基于<code>2.11.3</code>版本的Jackson。</p>
 <p>Jackson在1.x版本使用的包名是<code>codehaus</code>，后来升级到2.x版本时，为了和旧版本区分开来，采用了新的包名<code>fasterxml</code>。有这种类似操作的还有Log4j和Log4j2，在使用时需要注意引入的包名，避免混用版本或误用版本。</p>
-<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>Java Servlet问题汇总</title><link>https://lewky233.top/posts/javaweb-servlet-issues/</link><pubDate>Sat, 01 Jan 2022 23:16:47 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/javaweb-servlet-issues/</guid><description><![CDATA[<h2 id="cannot-forward-after-response-has-been-committe">Cannot forward after response has been committe</h2>
+<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>Java Servlet问题汇总</title><link>https://lewky.cn/posts/javaweb-servlet-issues/</link><pubDate>Sat, 01 Jan 2022 23:16:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/javaweb-servlet-issues/</guid><description><![CDATA[<h2 id="cannot-forward-after-response-has-been-committe">Cannot forward after response has been committe</h2>
 <p>之前在使用Servlet的时候，总是在 doGet()/doPost() 的最后一行才使用请求转发或者重定向。如果需要根据条件来判断进行不同的请求转发或者重定向，代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -219,7 +234,7 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Windows查询被占用的端口</title><link>https://lewky233.top/posts/windows-netstat/</link><pubDate>Sat, 25 Dec 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/windows-netstat/</guid><description><![CDATA[<h2 id="查询被占用的端口">查询被占用的端口</h2>
+</div>]]></description></item><item><title>Windows查询被占用的端口</title><link>https://lewky.cn/posts/windows-netstat/</link><pubDate>Sat, 25 Dec 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/windows-netstat/</guid><description><![CDATA[<h2 id="查询被占用的端口">查询被占用的端口</h2>
 <p>假如被占用的是61613端口号（activemq的），在cmd窗口中执行如下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -229,11 +244,11 @@
 <pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">netstat -aon<span class="p">|</span>findstr <span class="s2">&#34;61613&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky233.top/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
+</div>]]></description></item><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky.cn/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
 <h3 id="do关键字">DO关键字</h3>
-<p>pl/pgsql即Procedural Language/ Postgres SQL(过程化sql语言)，是Postgresql数据库对sql语句的扩展，可以在pl/pgsql代码块内定义多条sql语句，每条语句以分号结束，代码块由begin开始，end结束，代码块的最后一个end可以不加分号。</p>]]></description></item><item><title>Navicat使用汇总</title><link>https://lewky233.top/posts/navicat/</link><pubDate>Sat, 20 Nov 2021 23:26:48 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/navicat/</guid><description><![CDATA[<h2 id="快捷键hot-key">快捷键hot key</h2>
+<p>pl/pgsql即Procedural Language/ Postgres SQL(过程化sql语言)，是Postgresql数据库对sql语句的扩展，可以在pl/pgsql代码块内定义多条sql语句，每条语句以分号结束，代码块由begin开始，end结束，代码块的最后一个end可以不加分号。</p>]]></description></item><item><title>Navicat使用汇总</title><link>https://lewky.cn/posts/navicat/</link><pubDate>Sat, 20 Nov 2021 23:26:48 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/navicat/</guid><description><![CDATA[<h2 id="快捷键hot-key">快捷键hot key</h2>
 <p><code>ctrl + r</code> 执行全部sql（就算用了分号也会一起被执行）</p>
-<p><code>ctrl + shift + r</code> 运行选中的sql</p>]]></description></item><item><title>Git常用命令</title><link>https://lewky233.top/posts/git-commands/</link><pubDate>Tue, 02 Nov 2021 23:31:23 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/git-commands/</guid><description><![CDATA[<h2 id="git-clone">git clone</h2>
+<p><code>ctrl + shift + r</code> 运行选中的sql</p>]]></description></item><item><title>Git常用命令</title><link>https://lewky.cn/posts/git-commands/</link><pubDate>Tue, 02 Nov 2021 23:31:23 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/git-commands/</guid><description><![CDATA[<h2 id="git-clone">git clone</h2>
 <p>克隆远程库到本地：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -255,6 +270,4 @@
 </span></span><span class="line"><span class="cl">// git clone的仓库地址支持多种协议，通常使用最多的是http(s)和ssh协议，比如从GitHub上克隆仓库。
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>计算机网络基础</title><link>https://lewky233.top/posts/network/</link><pubDate>Thu, 14 Oct 2021 21:28:37 +0800</pubDate><author>文章作者</author><guid>https://lewky233.top/posts/network/</guid><description><![CDATA[<h2 id="ip地址">IP地址</h2>
-<p>IP地址由网络号（包括子网号）和主机号组成，网络号（包括子网号）相同意味着在同一网段下。在IPv4中，IP地址是一个32位的整数，对应4个字节，通常用x.x.x.x的点式十进制方式来表示。</p>
-<p><strong>主机号为全0时，代表当前网络地址；主机号为全1时，代表当前网络的广播地址。</strong> 当向某个网络的广播地址发送消息时，该网络内的所有主机都能收到该广播消息。</p>]]></description></item></channel></rss>
+</div>]]></description></item></channel></rss>

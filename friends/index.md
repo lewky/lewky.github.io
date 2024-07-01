@@ -195,6 +195,13 @@ logo="https://mcsmalltian.com/frontend/img/avatar.webp"
 word="写我想写的，做我想做的。"
 >}}
 
+{{< friend
+name="滑翔闪 Blog"
+url="https://blog.huaxiangshan.com"
+logo="https://avatars.githubusercontent.com/u/79459902?v=4"
+word="试图衡量有趣和深度的天平座"
+>}}
+
 ## 【网络安全】
 
 {{< friend
