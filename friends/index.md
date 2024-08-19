@@ -202,6 +202,20 @@ logo="https://avatars.githubusercontent.com/u/79459902?v=4"
 word="试图衡量有趣和深度的天平座"
 >}}
 
+{{< friend
+name="Rick’s Web Site"
+url="https://as183789043.github.io"
+logo="https://as183789043.github.io/images/avatar.png"
+word="路遙知碼力，日久練成精"
+>}}
+
+{{< friend
+name="LS-Shandong"
+url="https://ls-shandong.github.io"
+logo="https://ls-shandong.github.io/images/avatar.png"
+word="LS-Shandong 的博客网站"
+>}}
+
 ## 【网络安全】
 
 {{< friend
