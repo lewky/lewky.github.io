@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 19 Apr 2024 23:51:27 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Oct 2024 21:28:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux常用命令</title><link>https://lewky.cn/posts/linux-commands/</link><pubDate>Sun, 13 Oct 2024 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
 <p>耳边似乎还回响着水母之歌的旋律，笨拙的水母退场离开了舞台，顶碗人也不会忘记深海里曾经的那一束白月光。</p>
 <p>别了，向晚。</p>]]></description></item><item><title>必胜客自助餐</title><link>https://lewky.cn/posts/bishengke/</link><pubDate>Sun, 24 Mar 2024 12:42:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bishengke/</guid><description><![CDATA[<h2 id="攻略">攻略</h2>
 <ol>
@@ -248,26 +248,4 @@
 <h3 id="do关键字">DO关键字</h3>
 <p>pl/pgsql即Procedural Language/ Postgres SQL(过程化sql语言)，是Postgresql数据库对sql语句的扩展，可以在pl/pgsql代码块内定义多条sql语句，每条语句以分号结束，代码块由begin开始，end结束，代码块的最后一个end可以不加分号。</p>]]></description></item><item><title>Navicat使用汇总</title><link>https://lewky.cn/posts/navicat/</link><pubDate>Sat, 20 Nov 2021 23:26:48 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/navicat/</guid><description><![CDATA[<h2 id="快捷键hot-key">快捷键hot key</h2>
 <p><code>ctrl + r</code> 执行全部sql（就算用了分号也会一起被执行）</p>
-<p><code>ctrl + shift + r</code> 运行选中的sql</p>]]></description></item><item><title>Git常用命令</title><link>https://lewky.cn/posts/git-commands/</link><pubDate>Tue, 02 Nov 2021 23:31:23 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/git-commands/</guid><description><![CDATA[<h2 id="git-clone">git clone</h2>
-<p>克隆远程库到本地：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 默认本地仓库名字与远程库一样
-</span></span><span class="line"><span class="cl">git clone https://github.com/jquery/jquery.git
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">// 指定本地库名字为test
-</span></span><span class="line"><span class="cl">git clone https://github.com/jquery/jquery.git test
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">// git clone的仓库地址支持多种协议，通常使用最多的是http(s)和ssh协议，比如从GitHub上克隆仓库。
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item></channel></rss>
+<p><code>ctrl + shift + r</code> 运行选中的sql</p>]]></description></item></channel></rss>
