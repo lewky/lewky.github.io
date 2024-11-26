@@ -216,6 +216,13 @@ logo="https://ls-shandong.github.io/images/avatar.png"
 word="LS-Shandong 的博客网站"
 >}}
 
+{{< friend
+name="LogDict"
+url="https://www.logdict.com"
+logo="https://www.logdict.com/avatar"
+word="一个专注于记录, 分享, 学习的网站"
+>}}
+
 ## 【网络安全】
 
 {{< friend
