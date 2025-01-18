@@ -130,13 +130,6 @@ word="Sukun的博客，记录学习历程！"
 >}}
 
 {{< friend
-name="Barney’s Blog"
-url="https://hugo.bnblogs.cc/"
-logo="https://gitee.com/Barneys/myfiles/raw/master/img/1625052486520.png"
-word="All the truth is simple"
->}}
-
-{{< friend
 name="低调小熊猫"
 url="https://ilovey.live"
 logo="https://uss.ilovey.live/img/avatar.jpg"
@@ -352,8 +345,8 @@ border-animation="bln"
 
 {{< friend
 name="雨临Lewis的博客"
-url="https://lewky233.top"
-logo="https://lewky233.top/images/avatar.jpg"
+url="https://lewky.cn"
+logo="https://lewky.cn/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
 primary-color="linear-green"
 img-animation="auto_rotate_right"
@@ -364,10 +357,10 @@ border-animation="led"
 
 ```html
 name="雨临Lewis的博客"
-url="https://lewky233.top"
-logo="https://lewky233.top/images/avatar.jpg"
+url="https://lewky.cn"
+logo="https://lewky.cn/images/avatar.jpg"
 word="不想当写手的码农不是好咸鱼_(xз」∠)_"
-screenshot="https://lewky233.top/images/common/screenshot.jpg"
+screenshot="https://lewky.cn/images/common/screenshot.jpg"
 group="Java"
 ```
 
