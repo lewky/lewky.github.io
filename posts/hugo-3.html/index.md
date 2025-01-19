@@ -43,7 +43,7 @@ Hugo在渲染页面时优先读取站点根目录下的同名字的目录和文�
 
 LoveIt主题并没有提供一个文件来让我们自定义JavaScript，所以需要自己创建一个js文件来自定义JavaScript。
 
-首先在站点根目录下创建一个自定义的JavaScript文件：`\static\js\custom.js`。这个文件需要在body的闭合标签之前引入，并且要在`theme.min.js`的引入顺序之后。这样可以防止样式被其他文件覆盖，并且不会因为JavaScript文件假装太久导致页面长时间的空白。
+首先在站点根目录下创建一个自定义的JavaScript文件：`\static\js\custom.js`。这个文件需要在body的闭合标签之前引入，并且要在`theme.min.js`的引入顺序之后。这样可以防止样式被其他文件覆盖，并且不会因为JavaScript文件加载太久导致页面长时间的空白。
 
 对于LoveIt主题，`custom.js`添加在`\themes\LoveIt\layouts\partials\assets.html`里。
 
