@@ -2,7 +2,7 @@
 <p>SpringFox是一个开源的用于生成API文档接口的框架，支持多种API文档的格式。可以用SpringFox来整合Spring和Swagger，本文使用的Swagger和SpringFox版本如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -14,16 +14,16 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="o">.</span><span class="na">springfox</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">springfox</span><span class="o">-</span><span class="n">swagger2</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">2.9.2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="o">.</span><span class="na">springfox</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">springfox</span><span class="o">-</span><span class="n">swagger</span><span class="o">-</span><span class="n">ui</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="mf">2.9.2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="o">.</span><span class="na">springfox</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">springfox</span><span class="o">-</span><span class="n">swagger2</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">2</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="o">.</span><span class="na">springfox</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">springfox</span><span class="o">-</span><span class="n">swagger</span><span class="o">-</span><span class="n">ui</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">2</span><span class="o">.</span><span class="na">9</span><span class="o">.</span><span class="na">2</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

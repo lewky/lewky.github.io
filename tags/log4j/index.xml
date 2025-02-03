@@ -2,15 +2,15 @@
 <p>查看公司项目的代码，发现在打印日志的时候会先进行一次判断，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">(</span><span class="n">LOGGER</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">LOGGER</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Search parameters: &#34;</span> <span class="o">+</span> <span class="n">searchParams</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">LOGGER</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+    <span class="n">LOGGER</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Search parameters: &#34;</span> <span class="o">+</span> <span class="n">searchParams</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Log4j2 - 动态生成Appender</title><link>https://lewky.cn/posts/8dc44b45.html/</link><pubDate>Thu, 03 Jan 2019 21:39:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8dc44b45.html/</guid><description><![CDATA[<h2 id="功能需求">功能需求</h2>
 <p>项目里将User分成了各个区域(domain)，这些domain有个标志domainId，现在要求在打印日志的时候，不仅将所有User的日志都打印到日志文件<code>logs/CNTCore.log</code>中，还需要另外再打印到对应domain的日志文件<code>logs/{domainId}/CNTCore.log</code>。</p>

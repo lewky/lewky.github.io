@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>cmd - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/cmd/</link><description>cmd - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Dec 2018 00:38:08 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/cmd/" rel="self" type="application/rss+xml"/><item><title>解读ping -n 4 127.1 >nul 2>nul</title><link>https://lewky.cn/posts/cf676a21.html/</link><pubDate>Thu, 06 Dec 2018 00:38:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cf676a21.html/</guid><description><![CDATA[<h2 id="命令解读">命令解读</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>cmd - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/cmd/</link><description>cmd - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Feb 2025 21:28:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/cmd/" rel="self" type="application/rss+xml"/><item><title>cmd - 常用命令</title><link>https://lewky.cn/posts/cmd-commands/</link><pubDate>Mon, 03 Feb 2025 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>解读ping -n 4 127.1 >nul 2>nul</title><link>https://lewky.cn/posts/cf676a21.html/</link><pubDate>Thu, 06 Dec 2018 00:38:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cf676a21.html/</guid><description><![CDATA[<h2 id="命令解读">命令解读</h2>
 <p>ping是Windows、Unix和Linux系统下的一个命令。ping也属于一个通信协议，是TCP/IP协议的一部分。利用“ping”命令可以检查网络是否连通，可以很好地帮助我们分析和判定网络故障。应用格式是ping空格ip地址，可以附带参数，可以直接在cmd中输入<code>ping</code>然后回车来得到具体的帮助信息。</p>
 <p>127.1是127.0.0.1，通常被称为本地回环地址(Loop back address)，不属于任何一个有类别地址类。它代表设备的本地虚拟接口，所以默认被看作是永远不会宕掉的接口。在windows操作系统中也有相似的定义，所以通常在安装网卡前就可以ping通这个本地回环地址。一般都会用来检查本地网络协议、基本数据接口等是否正常的。</p>]]></description></item><item><title>cmd,bat和dos的区别</title><link>https://lewky.cn/posts/97f9f429.html/</link><pubDate>Thu, 06 Dec 2018 00:35:25 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/97f9f429.html/</guid><description><![CDATA[<h2 id="区别">区别</h2>
 <p>dos是磁盘操作系统(Disk Operating System)，是个人计算机上的一类操作系统。</p>
@@ -11,19 +11,19 @@
 <p><strong>a.bat</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@echo off
-</span></span><span class="line"><span class="cl">echo I am a.bat...
-</span></span><span class="line"><span class="cl">echo now run the b.bat
-</span></span><span class="line"><span class="cl">call b.bat
-</span></span><span class="line"><span class="cl">echo over
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">@echo off
+echo I am a.bat...
+echo now run the b.bat
+call b.bat
+echo over
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>cmd - bat文件如何关闭回显</title><link>https://lewky.cn/posts/cmd-echo.html/</link><pubDate>Fri, 10 Nov 2017 20:37:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-echo.html/</guid><description><![CDATA[<h2 id="echo命令">echo命令</h2>
 <blockquote>

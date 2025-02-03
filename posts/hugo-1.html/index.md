@@ -293,6 +293,29 @@ git push origin master
 
 此后只需要`git push origin master`就可以同时推送到多个远程库。
 
+## 个人技巧
+
+部署时使用的是public目录下的文件，如果不想把原本整个项目仓库对外暴露，可以新建一个单独的项目仓库用来部署，通过一个脚本来自动本地构建public文件，并拷贝到用以部署的另一个项目仓库。
+
+比如我个人使用的站点仓库是`lewky-hugo`，用来部署的仓库是`hugo-deploy`，cmd脚本内容如下：
+```bat
+@echo off
+rd /s /q D:\projects\lewky-hugo\public
+
+hugo
+
+::删除hugo-deploy下的文件
+del /q D:\projects\hugo-deploy
+
+for /d %%i in (D:\projects\hugo-deploy\*) do (
+	::因为不会遍历到隐藏文件夹.git，所以会删掉.git以外的文件夹
+	rd /s /q %%i
+)
+
+xcopy .\public D:\projects\hugo-deploy /e /y /h /q
+
+pause
+```
 
 ## 参考链接
 

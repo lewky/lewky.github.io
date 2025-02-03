@@ -2,7 +2,7 @@
 <p>从Maven的中央仓库下载jar包速度很慢，可以通过在<code>settings.xml</code>中配置一个国内镜像来提高下载速度，一般用阿里云镜像。<strong>注意，如果你同时有多个配置文件，必须要修改当前用户目录下的<code>~/.m2</code>下的<code>settings.xml</code>才有效。</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -12,15 +12,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;mirrors&gt;</span>  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;mirror&gt;</span>  
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;id&gt;</span>alimaven<span class="nt">&lt;/id&gt;</span>  
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;name&gt;</span>aliyun maven<span class="nt">&lt;/name&gt;</span>  
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>  
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>          
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/mirror&gt;</span>  
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;/mirrors&gt;</span> 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;mirrors&gt;</span>  
+    <span class="nt">&lt;mirror&gt;</span>  
+        <span class="nt">&lt;id&gt;</span>alimaven<span class="nt">&lt;/id&gt;</span>  
+        <span class="nt">&lt;name&gt;</span>aliyun maven<span class="nt">&lt;/name&gt;</span>  
+        <span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>  
+        <span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>          
+    <span class="nt">&lt;/mirror&gt;</span>  
+<span class="nt">&lt;/mirrors&gt;</span> 
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Maven - 依赖范围和传递性依赖</title><link>https://lewky.cn/posts/a658ba27.html/</link><pubDate>Sat, 30 Sep 2017 20:45:19 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/a658ba27.html/</guid><description><![CDATA[<h2 id="maven的依赖范围">Maven的依赖范围</h2>
 <p>在pom.xml文件中，有个节点是scope，用来表示依赖的范围。之所以会有依赖范围，是因为Maven在编译、测试和运行项目时会各自使用一套classpath，依赖范围就是用来控制这三种classpath的。</p>

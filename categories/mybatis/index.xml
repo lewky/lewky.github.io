@@ -2,7 +2,7 @@
 <p>在使用MyBatis逆向工程时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -10,12 +10,12 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">org.mybatis.generator.exception.XMLParserException: XML Parser Error on line 43: 必须声明元素类型 &#34;domainObjectRenamingRule&#34;。
-</span></span><span class="line"><span class="cl">    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:121)
-</span></span><span class="line"><span class="cl">    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:82)
-</span></span><span class="line"><span class="cl">    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:74)
-</span></span><span class="line"><span class="cl">    at GeneratorSqlmap.generator(GeneratorSqlmap.java:22)
-</span></span><span class="line"><span class="cl">    at GeneratorSqlmap.main(GeneratorSqlmap.java:32)
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">org.mybatis.generator.exception.XMLParserException: XML Parser Error on line 43: 必须声明元素类型 &#34;domainObjectRenamingRule&#34;。
+    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:121)
+    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:82)
+    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:74)
+    at GeneratorSqlmap.generator(GeneratorSqlmap.java:22)
+    at GeneratorSqlmap.main(GeneratorSqlmap.java:32)
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

@@ -2,7 +2,7 @@
 <p>SpringBoot默认使用Logback打印日志，出于性能考虑想要改用Log4j2，需要修改POM中的依赖，移除默认的Logback依赖：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -19,21 +19,21 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;dependency&gt;
-</span></span><span class="line"><span class="cl">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-</span></span><span class="line"><span class="cl">    &lt;exclusions&gt;
-</span></span><span class="line"><span class="cl">        &lt;exclusion&gt;
-</span></span><span class="line"><span class="cl">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-</span></span><span class="line"><span class="cl">            &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
-</span></span><span class="line"><span class="cl">        &lt;/exclusion&gt;
-</span></span><span class="line"><span class="cl">    &lt;/exclusions&gt;
-</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">&lt;dependency&gt;
-</span></span><span class="line"><span class="cl">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-</span></span><span class="line"><span class="cl">        &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
-</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;
+ 
+&lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

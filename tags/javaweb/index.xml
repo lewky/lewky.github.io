@@ -3,7 +3,7 @@
 <p>之前在使用Servlet的时候，总是在 doGet()/doPost() 的最后一行才使用请求转发或者重定向。如果需要根据条件来判断进行不同的请求转发或者重定向，代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -14,16 +14,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Override</span>
-</span></span><span class="line"><span class="cl"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="kd">final</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="kd">final</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl">        <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">AttrConsts</span><span class="o">.</span><span class="na">LOGIN_USER</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">LOGIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl">    <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="kd">final</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="kd">final</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
+        <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">AttrConsts</span><span class="o">.</span><span class="na">LOGIN_USER</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">LOGIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>服务器时间和数据库时间的校验</title><link>https://lewky.cn/posts/663a514f.html/</link><pubDate>Wed, 22 Aug 2018 00:15:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/663a514f.html/</guid><description><![CDATA[<h2 id="问题与分析">问题与分析</h2>
 <p>今天在公司进行Sanity Test(可用性测试)时发现服务器启动失败，查找log后发现在启动时发生了异常导致了服务器启动失败。</p>

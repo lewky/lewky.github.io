@@ -1,112 +1,27 @@
-<!doctype html><html lang><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hexo系列(1) - 简单搭建教程与远程部署 - Yulin Lewis' Blog</title><meta name=keywords content="雨临Lewis,Java,hugo,hexo,博客"><meta name=Description content="不想当写手的码农不是好咸鱼_(xз」∠)_"><meta property="og:title" content="Hexo系列(1) - 简单搭建教程与远程部署"><meta property="og:description" content="前言
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><meta http-equiv=x-ua-compatible content="IE=edge, chrome=1"><title>Hexo系列(1) - 简单搭建教程与远程部署 - Yulin Lewis' Blog</title><meta name=keywords content="雨临Lewis,Java,hugo,hexo,博客"><meta name=Description content="不想当写手的码农不是好咸鱼_(xз」∠)_"><meta property="og:title" content="Hexo系列(1) - 简单搭建教程与远程部署"><meta property="og:description" content="前言
 搭建个人博客一般有两种选择，一个是使用WordPress，但是需要将博客搭建在服务器上，不过搭建好后写文章方便，适合没有程序基础的人使用。另一个是使用Hexo，相对简洁高效，不需要服务器，既可以部署在本地，也可以将博客部署到GitHub Pages上，支持Markdown语法，缺点是需要有Git基础，写文章比WordPress麻烦点。
-初次使用Hexo来搭建个人博客，确实比较手忙脚乱，这里记录一下流程，希望对大家能有所帮助。"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/hexo-1.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-04-24T22:06:44+08:00"><meta property="article:modified_time" content="2018-04-24T22:06:44+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hexo系列(1) - 简单搭建教程与远程部署"><meta name=twitter:description content="前言
+初次使用Hexo来搭建个人博客，确实比较手忙脚乱，这里记录一下流程，希望对大家能有所帮助。"><meta property="og:type" content="article"><meta property="og:url" content="https://lewky.cn/posts/hexo-1.html/"><meta property="og:image" content="https://lewky.cn/logo.png"><meta property="article:published_time" content="2018-04-24T22:06:44+08:00"><meta property="article:modified_time" content="2018-04-24T22:06:44+08:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://lewky.cn/logo.png"><meta name=twitter:title content="Hexo系列(1) - 简单搭建教程与远程部署"><meta name=twitter:description content="前言
 搭建个人博客一般有两种选择，一个是使用WordPress，但是需要将博客搭建在服务器上，不过搭建好后写文章方便，适合没有程序基础的人使用。另一个是使用Hexo，相对简洁高效，不需要服务器，既可以部署在本地，也可以将博客部署到GitHub Pages上，支持Markdown语法，缺点是需要有Git基础，写文章比WordPress麻烦点。
-初次使用Hexo来搭建个人博客，确实比较手忙脚乱，这里记录一下流程，希望对大家能有所帮助。"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5916478302479037" crossorigin=anonymous></script>
-<link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky.cn/posts/hexo-1.html/><link rel=prev href=https://lewky.cn/posts/d65a1577.html/><link rel=next href=https://lewky.cn/posts/29169.html/><link rel=stylesheet href=https://unpkg.com/normalize.css@8.0.1/normalize.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://unpkg.com/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://unpkg.com/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hexo系列(1) - 简单搭建教程与远程部署","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hexo-1.html\/"},"genre":"posts","keywords":"Hexo, NexT主题, 搭建教程, 远程部署","wordcount":6072,"url":"https:\/\/lewky.cn\/posts\/hexo-1.html\/","datePublished":"2018-04-24T22:06:44+08:00","dateModified":"2018-04-24T22:06:44+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":"auto"==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:"auto"==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4l13.9-13.8C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class='fas fa-fw fa-atom'></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class='fas fa-fw fa-archive'></i> 归档</a><div class="menu-more-content dropdown-content"><a href=/categories/ title><i class='fas fa-fw fa-th'></i> 分类 </a><a href=/tags/ title><i class='fas fa-fw fa-tag'></i> 标签 </a><a href=/about/ title><i class='fas fa-fw fa-at'></i> 关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class='fas fa-fw fa-link'></i> 友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class='fas fa-fw fa-fan fa-spin'></i> 趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class='fas fa-fw fa-dizzy'></i> 燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class='fas fa-fw fa-music'></i> 在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class='fas fa-fw fa-cat'></i> 抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class='fas fa-fw fa-atom'></i> 站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class='fas fa-fw fa-comment'></i> 公告留言 </a><a href=https://seo.chinaz.com title target=_blank rel=noopener><i class='fas fa-fw fa-chart-line'></i> SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn title target=_blank rel=noopener><i class='fas fa-fw fa-bezier-curve'></i> 网站测速 </a><a href=/posts/e62c38c4.html/ title><i class='fas fa-fw fa-cog fa-spin'></i> 建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title><i class='fas fa-fw fa-book'></i> 文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ title target=_blank rel=noopener><i class='fas fa-fw fa-star'></i> Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class='fab fa-fw fa-java'></i> Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class='fas fa-fw fa-search'></i> 搜索
-</a><span class="menu-item delimiter"></span>
-<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class='fas fa-fw fa-subway'></i></a>
-<a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class='fas fa-fw fa-inbox'></i></a>
-<a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class='fab fa-fw fa-github'></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class='fas fa-fw fa-atom'></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class='fas fa-fw fa-archive'></i> 归档</a><div class="menu-more-content dropdown-content"><a href=/categories/ title><i class='fas fa-fw fa-th'></i> 分类 </a><a href=/tags/ title><i class='fas fa-fw fa-tag'></i> 标签 </a><a href=/about/ title><i class='fas fa-fw fa-at'></i> 关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class='fas fa-fw fa-link'></i> 友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class='fas fa-fw fa-fan fa-spin'></i> 趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class='fas fa-fw fa-dizzy'></i> 燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class='fas fa-fw fa-music'></i> 在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class='fas fa-fw fa-cat'></i> 抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class='fas fa-fw fa-atom'></i> 站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class='fas fa-fw fa-comment'></i> 公告留言 </a><a href=https://seo.chinaz.com title target=_blank rel=noopener><i class='fas fa-fw fa-chart-line'></i> SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn title target=_blank rel=noopener><i class='fas fa-fw fa-bezier-curve'></i> 网站测速 </a><a href=/posts/e62c38c4.html/ title><i class='fas fa-fw fa-cog fa-spin'></i> 建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title><i class='fas fa-fw fa-book'></i> 文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ title target=_blank rel=noopener><i class='fas fa-fw fa-star'></i> Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class='fab fa-fw fa-java'></i> Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class='fas fa-fw fa-search'></i> 搜索</a>
-<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class='fas fa-fw fa-subway'></i></a>
-<a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class='fas fa-fw fa-inbox'></i></a>
-<a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class='fab fa-fw fa-github'></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hexo系列(1) - 简单搭建教程与远程部署</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hexo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hexo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar fa-fw"></i>&nbsp;<time datetime=2018-04-24>2018-04-24</time>&nbsp;<i class="far fa-calendar-plus fa-fw"></i>&nbsp;<time datetime=2018-04-24>2018-04-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6072 字
+初次使用Hexo来搭建个人博客，确实比较手忙脚乱，这里记录一下流程，希望对大家能有所帮助。"><meta name=application-name content="雨临Lewis的博客"><meta name=apple-mobile-web-app-title content="雨临Lewis的博客"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5916478302479037" crossorigin=anonymous></script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://lewky.cn/posts/hexo-1.html/><link rel=prev href=https://lewky.cn/posts/d65a1577.html/><link rel=next href=https://lewky.cn/posts/29169.html/><link rel=stylesheet href=https://unpkg.com/normalize.css@8.0.1/normalize.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=https://unpkg.com/@fortawesome/fontawesome-free@5.13.0/css/all.min.css><link rel=stylesheet href=https://unpkg.com/animate.css@3.7.2/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hexo系列(1) - 简单搭建教程与远程部署","inLanguage":"","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/lewky.cn\/posts\/hexo-1.html\/"},"genre":"posts","keywords":"Hexo, NexT主题, 搭建教程, 远程部署","wordcount":6072,"url":"https:\/\/lewky.cn\/posts\/hexo-1.html\/","datePublished":"2018-04-24T22:06:44+08:00","dateModified":"2018-04-24T22:06:44+08:00","license":"This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher":{"@type":"Organization","name":"雨临Lewis","logo":"https:\/\/lewky.cn\/images\/avatar.jpg"},"author":{"@type":"Person","name":"雨临Lewis"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':('auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark'))&&document.body.setAttribute('theme','dark');</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><a href=https://github.com/lewky class=github-corner target=_blank title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="3.5rem" height="3.5rem" viewBox="0 0 250 250" style="fill:#70b7fd;color:#fff;position:absolute;top:0;border:0;left:0;transform:scale(-1,1)" aria-hidden="true"><path d="M0 0 115 115h15l12 27L250 250V0z"/><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentcolor" style="transform-origin:130px 106px" class="octo-arm"/><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8z" fill="currentcolor" class="octo-body"/></svg></a><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu><div class=menu-inner><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class="fas fa-fw fa-archive"></i>归档</a><div class="menu-more-content dropdown-content"><a href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a href=/about/><i class="fas fa-fw fa-at"></i>关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class="fas fa-fw fa-link"></i>友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class="fas fa-fw fa-fan fa-spin"></i>趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class="fas fa-fw fa-dizzy"></i>燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class="fas fa-fw fa-music"></i>在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class="fas fa-fw fa-cat"></i>抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class="fas fa-fw fa-atom"></i>站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class="fas fa-fw fa-comment"></i>公告留言 </a><a href=https://seo.chinaz.com target=_blank rel=noopener><i class="fas fa-fw fa-chart-line"></i>SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn target=_blank rel=noopener><i class="fas fa-fw fa-bezier-curve"></i>网站测速 </a><a href=/posts/e62c38c4.html/><i class="fas fa-fw fa-cog fa-spin"></i>建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn"><i class="fas fa-fw fa-book"></i>文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ target=_blank rel=noopener><i class="fas fa-fw fa-star"></i>Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class="fab fa-fw fa-java"></i>Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class="fas fa-fw fa-search"></i>搜索
+</a><span class="menu-item delimiter"></span><a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class="fas fa-fw fa-subway"></i></a><a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class="fas fa-fw fa-inbox"></i></a><a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class="fab fa-fw fa-github"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Yulin Lewis' Blog"><span class=header-title-pre><i class="fas fa-fw fa-atom"></i></span>雨临Lewis</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=dropdown><a href=/posts/ class="menu-item menu-more dropbtn" title=点击查看所有文章><i class="fas fa-fw fa-archive"></i>归档</a><div class="menu-more-content dropdown-content"><a href=/categories/><i class="fas fa-fw fa-th"></i>分类 </a><a href=/tags/><i class="fas fa-fw fa-tag"></i>标签 </a><a href=/about/><i class="fas fa-fw fa-at"></i>关于</a></div></div><a class=menu-item href=/friends/ title=欢迎申请友链><i class="fas fa-fw fa-link"></i>友链</a><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn" title=一些有意思的东东~><i class="fas fa-fw fa-fan fa-spin"></i>趣味</a><div class="menu-more-content dropdown-content"><a href=/funny/high/ title="前方高能♂ 小心外放！" target=_blank rel=noopener><i class="fas fa-fw fa-dizzy"></i>燥起来！ </a><a href=/funny/mikutap/ title=初音未来音乐游戏 target=_blank rel=noopener><i class="fas fa-fw fa-music"></i>在线打碟 </a><a href=/funny/catch-the-cat/ title=逮住那只猫!><i class="fas fa-fw fa-cat"></i>抓住猫咪</a></div></div><div class=dropdown><a href=/ class="menu-item menu-more dropbtn" title=回到首页><i class="fas fa-fw fa-atom"></i>站点</a><div class="menu-more-content dropdown-content"><a href=/bbs/ title=来留言吧~><i class="fas fa-fw fa-comment"></i>公告留言 </a><a href=https://seo.chinaz.com target=_blank rel=noopener><i class="fas fa-fw fa-chart-line"></i>SEO查询 </a><a href=https://www.ping.cn/http/lewky.cn target=_blank rel=noopener><i class="fas fa-fw fa-bezier-curve"></i>网站测速 </a><a href=/posts/e62c38c4.html/><i class="fas fa-fw fa-cog fa-spin"></i>建站日志</a></div></div><div class=dropdown><a href=javascript:void(0); class="menu-item menu-more dropbtn"><i class="fas fa-fw fa-book"></i>文档</a><div class="menu-more-content dropdown-content"><a href=https://gohugo.io/documentation/ target=_blank rel=noopener><i class="fas fa-fw fa-star"></i>Hugo文档 </a><a href=https://javanote.doc.lewky.cn/ title=尚在完善中~ target=_blank rel=noopener><i class="fab fa-fw fa-java"></i>Java 笔记</a></div></div><a class=menu-item href=/search/ title=渲染搜索结果需要等待几秒钟~><i class="fas fa-fw fa-search"></i>搜索</a>
+<a href=https://travellings.link target=_blank class=menu-item rel=noopener title=开往-友链接力><i class="fas fa-fw fa-subway"></i></a><a href=https://rssblog.vercel.app/ class=menu-item target=_blank rel=noopener title=RSSBlog><i class="fas fa-fw fa-inbox"></i></a><a href=https://github.com/lewky class=menu-item target=_blank rel=noopener title=GitHub><i class="fab fa-fw fa-github"></i></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>目录</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animated flipInX">Hexo系列(1) - 简单搭建教程与远程部署</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=/ title=Author rel=author class=author><i class="fas fa-user-circle fa-fw"></i>雨临Lewis</a></span>&nbsp;<span class=post-category>收录于 <a href=/categories/hexo%E7%B3%BB%E5%88%97/><i class="far fa-folder fa-fw"></i>Hexo系列</a></span></div><div class=post-meta-line><i class="far fa-calendar fa-fw"></i>&nbsp;<time datetime=2018-04-24>2018-04-24</time>&nbsp;<i class="far fa-calendar-plus fa-fw"></i>&nbsp;<time datetime=2018-04-24>2018-04-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 6072 字
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 13 分钟&nbsp;<span id=/posts/hexo-1.html/ class=leancloud_visitors data-flag-title="Hexo系列(1) - 简单搭建教程与远程部署">
 <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
 </span>&nbsp;
 <a href=#comments id=post-meta-vcount title=查看评论><i class="fas fa-comment fa-fw"></i>&nbsp;<span id=/posts/hexo-1.html/ class=waline-comment-count></span>&nbsp;条评论</a></div></div><div class="details toc" id=toc-static kept><div class="details-summary toc-title"><span>目录</span>
-<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#how-to-play>How to play</a></li><li><a href=#安装环境>安装环境</a><ol><li><a href=#安装nodejs>安装Node.js</a></li><li><a href=#安装git>安装Git</a></li><li><a href=#安装hexo>安装Hexo</a></li></ol></li><li><a href=#开始搭建个人博客>开始搭建个人博客</a><ol><li><a href=#初始化hexo项目>初始化Hexo项目</a></li><li><a href=#生成静态页面文件>生成静态页面文件</a></li><li><a href=#本地启动hexo服务器>本地启动Hexo服务器</a></li><li><a href=#关闭hexo服务器>关闭Hexo服务器</a></li></ol></li><li><a href=#常用的命令>常用的命令</a><ol><li><a href=#本地调试三连>本地调试三连</a></li><li><a href=#远程部署三连>远程部署三连</a></li></ol></li><li><a href=#撰写第一篇博文>撰写第一篇博文</a><ol><li><a href=#第一篇文章>第一篇文章</a></li><li><a href=#第一篇草稿>第一篇草稿</a></li></ol></li><li><a href=#博客的简单个性化配置>博客的简单个性化配置</a><ol><li><a href=#language>language</a></li><li><a href=#timezone>timezone</a></li></ol></li><li><a href=#安装新主题>安装新主题</a><ol><li><a href=#下载-next-主题>下载 NexT 主题</a></li><li><a href=#启用-next-主题>启用 NexT 主题</a></li><li><a href=#选择对应主题的外观-scheme>选择对应主题的外观 Scheme</a></li><li><a href=#验证新主题>验证新主题</a></li></ol></li><li><a href=#修改-next-主题配置>修改 NexT 主题配置</a><ol><li><a href=#31-头像设置>3.1 头像设置</a></li><li><a href=#网站图标>网站图标</a></li><li><a href=#菜单设置>菜单设置</a></li><li><a href=#标签分类>标签分类</a></li><li><a href=#社交链接>社交链接</a></li></ol></li><li><a href=#安装-hexo-deployer-git-插件>安装 <code>hexo-deployer-git</code> 插件</a></li><li><a href=#github上创建一个仓库>GitHub上创建一个仓库</a></li><li><a href=#修改本地的项目配置文件>修改本地的项目配置文件</a></li><li><a href=#ssh-key的创建与配置>SSH key的创建与配置</a><ol><li><a href=#生成rsa密钥对>生成RSA密钥对</a></li><li><a href=#在-github-上配置ssh-key>在 GitHub 上配置SSH key</a></li><li><a href=#验证ssh连接>验证ssh连接</a></li><li><a href=#部署到-github-pages>部署到 GitHub Pages</a></li></ol></li></ol></nav></div></div><div class=content id=content><h2 id=前言>前言</h2><p>搭建个人博客一般有两种选择，一个是使用WordPress，但是需要将博客搭建在服务器上，不过搭建好后写文章方便，适合没有程序基础的人使用。另一个是使用Hexo，相对简洁高效，不需要服务器，既可以部署在本地，也可以将博客部署到GitHub Pages上，支持Markdown语法，缺点是需要有Git基础，写文章比WordPress麻烦点。</p><p>初次使用Hexo来搭建个人博客，确实比较手忙脚乱，这里记录一下流程，希望对大家能有所帮助。</p><p>（注：本文是只针对Windows平台的搭建教程）</p><p>有兴趣的可以戳下<a href=https://lewky.cn/ target=_blank rel="noopener noreffer">这里</a>看看我的个人博客。</p><h2 id=how-to-play>How to play</h2><p>本搭建教程一共分为3部分：</p><ul><li>安装环境和本地搭建</li><li>博客的简单个性化配置</li><li>将博客部署到 GitHub Pages</li></ul><p>请根据自身需要选择章节，以节省时间。</p><h2 id=安装环境>安装环境</h2><ul><li>安装Node.js</li><li>安装Git</li><li>安装Hexo</li></ul><h3 id=安装nodejs>安装Node.js</h3><p>Hexo是一个基于Node.js的快速、简洁且高效的静态站点生成框架，想要安装Hexo，需要先安装Node.js，官网的安装包有两种，一种是安装程序.msi文件，一种是.zip压缩包，这里选择.msi文件，安装后会自动配置好环境变量。</p><blockquote><p><a href=https://nodejs.org/en/download/ target=_blank rel="noopener noreffer">下载链接</a></p></blockquote><h3 id=安装git>安装Git</h3><p>Git就不多说了，作为开发者或多或少都会接触过吧，直接前往官网下载安装包即可。操作教程网上也是一堆，这里就不赘述了。</p><blockquote><p><a href=https://git-scm.com/ target=_blank rel="noopener noreffer">下载链接</a></p></blockquote><p>如果Git和Node.js的环境变量都配置好了，可以通过在cmd中确认安装结果。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ol><li><a href=#前言>前言</a></li><li><a href=#how-to-play>How to play</a></li><li><a href=#安装环境>安装环境</a><ol><li><a href=#安装nodejs>安装Node.js</a></li><li><a href=#安装git>安装Git</a></li><li><a href=#安装hexo>安装Hexo</a></li></ol></li><li><a href=#开始搭建个人博客>开始搭建个人博客</a><ol><li><a href=#初始化hexo项目>初始化Hexo项目</a></li><li><a href=#生成静态页面文件>生成静态页面文件</a></li><li><a href=#本地启动hexo服务器>本地启动Hexo服务器</a></li><li><a href=#关闭hexo服务器>关闭Hexo服务器</a></li></ol></li><li><a href=#常用的命令>常用的命令</a><ol><li><a href=#本地调试三连>本地调试三连</a></li><li><a href=#远程部署三连>远程部署三连</a></li></ol></li><li><a href=#撰写第一篇博文>撰写第一篇博文</a><ol><li><a href=#第一篇文章>第一篇文章</a></li><li><a href=#第一篇草稿>第一篇草稿</a></li></ol></li><li><a href=#博客的简单个性化配置>博客的简单个性化配置</a><ol><li><a href=#language>language</a></li><li><a href=#timezone>timezone</a></li></ol></li><li><a href=#安装新主题>安装新主题</a><ol><li><a href=#下载-next-主题>下载 NexT 主题</a></li><li><a href=#启用-next-主题>启用 NexT 主题</a></li><li><a href=#选择对应主题的外观-scheme>选择对应主题的外观 Scheme</a></li><li><a href=#验证新主题>验证新主题</a></li></ol></li><li><a href=#修改-next-主题配置>修改 NexT 主题配置</a><ol><li><a href=#31-头像设置>3.1 头像设置</a></li><li><a href=#网站图标>网站图标</a></li><li><a href=#菜单设置>菜单设置</a></li><li><a href=#标签分类>标签分类</a></li><li><a href=#社交链接>社交链接</a></li></ol></li><li><a href=#安装-hexo-deployer-git-插件>安装 <code>hexo-deployer-git</code> 插件</a></li><li><a href=#github上创建一个仓库>GitHub上创建一个仓库</a></li><li><a href=#修改本地的项目配置文件>修改本地的项目配置文件</a></li><li><a href=#ssh-key的创建与配置>SSH key的创建与配置</a><ol><li><a href=#生成rsa密钥对>生成RSA密钥对</a></li><li><a href=#在-github-上配置ssh-key>在 GitHub 上配置SSH key</a></li><li><a href=#验证ssh连接>验证ssh连接</a></li><li><a href=#部署到-github-pages>部署到 GitHub Pages</a></li></ol></li></ol></nav></div></div><div class=content id=content><h2 id=前言>前言</h2><p>搭建个人博客一般有两种选择，一个是使用WordPress，但是需要将博客搭建在服务器上，不过搭建好后写文章方便，适合没有程序基础的人使用。另一个是使用Hexo，相对简洁高效，不需要服务器，既可以部署在本地，也可以将博客部署到GitHub Pages上，支持Markdown语法，缺点是需要有Git基础，写文章比WordPress麻烦点。</p><p>初次使用Hexo来搭建个人博客，确实比较手忙脚乱，这里记录一下流程，希望对大家能有所帮助。</p><p>（注：本文是只针对Windows平台的搭建教程）</p><p>有兴趣的可以戳下<a href=https://lewky.cn/ target=_blank rel="noopener noreffer">这里</a>看看我的个人博客。</p><h2 id=how-to-play>How to play</h2><p>本搭建教程一共分为3部分：</p><ul><li>安装环境和本地搭建</li><li>博客的简单个性化配置</li><li>将博客部署到 GitHub Pages</li></ul><p>请根据自身需要选择章节，以节省时间。</p><h2 id=安装环境>安装环境</h2><ul><li>安装Node.js</li><li>安装Git</li><li>安装Hexo</li></ul><h3 id=安装nodejs>安装Node.js</h3><p>Hexo是一个基于Node.js的快速、简洁且高效的静态站点生成框架，想要安装Hexo，需要先安装Node.js，官网的安装包有两种，一种是安装程序.msi文件，一种是.zip压缩包，这里选择.msi文件，安装后会自动配置好环境变量。</p><blockquote><p><a href=https://nodejs.org/en/download/ target=_blank rel="noopener noreffer">下载链接</a></p></blockquote><h3 id=安装git>安装Git</h3><p>Git就不多说了，作为开发者或多或少都会接触过吧，直接前往官网下载安装包即可。操作教程网上也是一堆，这里就不赘述了。</p><blockquote><p><a href=https://git-scm.com/ target=_blank rel="noopener noreffer">下载链接</a></p></blockquote><p>如果Git和Node.js的环境变量都配置好了，可以通过在cmd中确认安装结果。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=line><span class=cl>git --version
-</span></span><span class=line><span class=cl>node -v
-</span></span></code></pre></td></tr></table></div></div><h3 id=安装hexo>安装Hexo</h3><p>安装好Node.js，就可以使用npm来安装Hexo</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=line><span class=cl>npm install -g hexo-cli
-</span></span></code></pre></td></tr></table></div></div><p>安装完毕后，可以通过<code>hexo version</code>来确认是否安装成功。</p><h2 id=开始搭建个人博客>开始搭建个人博客</h2><p>千里之行，始于足下，在安装好所有的环境之后，我们终于可以开始搭建博客的第一步了。</p><h3 id=初始化hexo项目>初始化Hexo项目</h3><p>首先是选择一个文件夹，用来给我们我们的个人博客的存放各种文件。接着进入该文件夹的路径，打开cmd命令窗口，这里有两种打开方式：</p><ol><li>按住Shift，同时点击鼠标右键，选择<code>在此处打开命令窗口</code>。</li><li>在上方的地址栏里输入<code>cmd</code>，接着回车即可快速打开命令窗口。</li></ol><p>当然，你也可以直接<code>Win+R</code>然后输入<code>cmd</code>来打开命令窗口，不过需要再通过cd命令将路径切换到你指定的文件夹。</p><p>接着输入指令来初始化你的博客</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=line><span class=cl>hexo init
-</span></span></code></pre></td></tr></table></div></div><p>初始化成功后，你会看到</p><blockquote><p>Start blogging with Hexo!</p></blockquote><h3 id=生成静态页面文件>生成静态页面文件</h3><p>接下来，执行命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=line><span class=cl>hexo g
-</span></span></code></pre></td></tr></table></div></div><p>该命令用来生成静态页面文件到public目录，Hexo会将 source 文件夹中除 posts 文件夹之外，以下划线<code>_</code>开头命名的文件或文件夹、以及隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件夹会被拷贝过去。</p><p>最后，我们只要启动Hexo服务器就行了。</p><h3 id=本地启动hexo服务器>本地启动Hexo服务器</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=line><span class=cl>hexo s --debug
-</span></span></code></pre></td></tr></table></div></div><p>Hexo启动服务器的速度非常快，很快你就可以看到</p><blockquote><p>Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</p></blockquote><p>恭喜你，你的个人博客已经搭建成功了，接下来只要在浏览器输入<code>http://localhost:4000/</code>就可以在本地访问你的博客了。</p><p>这里使用<code>hexo s</code>也可以启动服务器，只不过加上<code>--debug </code>参数，如果运行中出错可以看到错误信息。</p><h3 id=关闭hexo服务器>关闭Hexo服务器</h3><p>要想关闭服务器，只需要在命令窗口按下<code>Ctrl+C</code>就可以了，这个组合键不仅仅用于关闭服务器，事实上你在cmd窗口中任何执行中的命令都可以用这个组合键来结束命令，只要连按两次该组合键就可以连输入Y或者N都不用。</p><h2 id=常用的命令>常用的命令</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=line><span class=cl>hexo new <span class=s2>&#34;postName&#34;</span>  <span class=c1>#新建文章</span>
-</span></span><span class=line><span class=cl>hexo new page <span class=s2>&#34;pageName&#34;</span> <span class=c1># 新建页面</span>
-</span></span><span class=line><span class=cl>hexo generate <span class=c1># 生成静态页面至public目录</span>
-</span></span><span class=line><span class=cl>hexo server <span class=c1># 启动服务器(默认端口4000，&#39;ctrl+c&#39;关闭server)</span>
-</span></span><span class=line><span class=cl>hexo deploy <span class=c1># 项目部署</span>
-</span></span><span class=line><span class=cl>hexo <span class=nb>help</span> <span class=c1># 查看帮助</span>
-</span></span><span class=line><span class=cl>hexo version <span class=c1># 查看Hexo的版本</span>
-</span></span><span class=line><span class=cl>hexo clean <span class=c1># 清除Hexo的缓存</span>
-</span></span></code></pre></td></tr></table></div></div><p>上边的一些命令可以使用简写</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=line><span class=cl>hexo n
-</span></span><span class=line><span class=cl>hexo g
-</span></span><span class=line><span class=cl>hexo d
-</span></span><span class=line><span class=cl>hexo s
-</span></span></code></pre></td></tr></table></div></div><h3 id=本地调试三连>本地调试三连</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hexo clean
-</span></span><span class=line><span class=cl>hexo g
-</span></span><span class=line><span class=cl>hexo s --debug
-</span></span></code></pre></td></tr></table></div></div><h3 id=远程部署三连>远程部署三连</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hexo clean
-</span></span><span class=line><span class=cl>hexo g
-</span></span><span class=line><span class=cl>hexo d
-</span></span></code></pre></td></tr></table></div></div><p>注：在使用部署命令时，需要先用npm安装 hexo-deployer-git 插件：</p><pre><code>npm install hexo-deployer-git --save
-</code></pre><h2 id=撰写第一篇博文>撰写第一篇博文</h2><p>Hexo撰写博文也不难，分为 post 和 draft 两种，其中 post 存放在 source/_posts 目录下，draft 存放在 source/_drafts 目录下。</p><p>post 和 draft 的区别在于前者会被发布到博客，而后者不会被发布。</p><h3 id=第一篇文章>第一篇文章</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hexo n post <span class=s2>&#34;my-first-post&#34;</span>
-</span></span></code></pre></td></tr></table></div></div><p>Hexo会自动在 source/_posts 目录下新建一个名为 my-first-post 的 .md 文件；打开该文件，可以看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>title: my-first-post
-</span></span><span class=line><span class=cl>date: 2018-04-21 23:11:30
-</span></span><span class=line><span class=cl>tags:
-</span></span><span class=line><span class=cl>---
-</span></span></code></pre></td></tr></table></div></div><p>这是 post 模板自动生成的 YAML 文件头，title 是这篇 post 的标题，可以将其改为 My First Post；date 是创建的日期；tags 是该 post 的标签，可以添加自定义的标签：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>title: My First Post
-</span></span><span class=line><span class=cl>date: 2018-04-21 23:11:30
-</span></span><span class=line><span class=cl>tags:
-</span></span><span class=line><span class=cl>	- demo
-</span></span><span class=line><span class=cl>	- first-post
-</span></span><span class=line><span class=cl>---
-</span></span></code></pre></td></tr></table></div></div><p>接着再进行本地调试三连，就可以看到刚刚写好的博文了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hexo clean
-</span></span><span class=line><span class=cl>hexo g
-</span></span><span class=line><span class=cl>hexo s --debug
-</span></span></code></pre></td></tr></table></div></div><h3 id=第一篇草稿>第一篇草稿</h3><p>创建命令和前边类似：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hexo n draft <span class=s2>&#34;my-first-draft&#34;</span>
-</span></span></code></pre></td></tr></table></div></div><p>另外草稿的头文件是没有日期的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>title: my-first-draft
-</span></span><span class=line><span class=cl>tags:
-</span></span><span class=line><span class=cl>---
-</span></span></code></pre></td></tr></table></div></div><p>草稿文件是不会被 <code>hexo g</code> 命令生成到public目录下的，也就是说这些草稿文件是无法在启动站点时被看见，你也可以直接在一篇不想要被展示的文章里加上<code>draft: true</code>到文件头里，以此避免被Hexo渲染到站点里。</p><p>接下来讲下博客的简单个性化配置，譬如站点的基本配置（语言、头像、站点图标等）、安装新的Hexo主题（NexT主题）以及主题的配置。</p><h2 id=博客的简单个性化配置>博客的简单个性化配置</h2><p>打开站点配置文件 ，找到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Bash data-lang=Bash>git --version
+node -v
+</code></pre></td></tr></table></div></div><h3 id=安装hexo>安装Hexo</h3><p>安装好Node.js，就可以使用npm来安装Hexo</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Bash data-lang=Bash>npm install -g hexo-cli
+</code></pre></td></tr></table></div></div><p>安装完毕后，可以通过<code>hexo version</code>来确认是否安装成功。</p><h2 id=开始搭建个人博客>开始搭建个人博客</h2><p>千里之行，始于足下，在安装好所有的环境之后，我们终于可以开始搭建博客的第一步了。</p><h3 id=初始化hexo项目>初始化Hexo项目</h3><p>首先是选择一个文件夹，用来给我们我们的个人博客的存放各种文件。接着进入该文件夹的路径，打开cmd命令窗口，这里有两种打开方式：</p><ol><li>按住Shift，同时点击鼠标右键，选择<code>在此处打开命令窗口</code>。</li><li>在上方的地址栏里输入<code>cmd</code>，接着回车即可快速打开命令窗口。</li></ol><p>当然，你也可以直接<code>Win+R</code>然后输入<code>cmd</code>来打开命令窗口，不过需要再通过cd命令将路径切换到你指定的文件夹。</p><p>接着输入指令来初始化你的博客</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Bash data-lang=Bash>hexo init
+</code></pre></td></tr></table></div></div><p>初始化成功后，你会看到</p><blockquote><p>Start blogging with Hexo!</p></blockquote><h3 id=生成静态页面文件>生成静态页面文件</h3><p>接下来，执行命令</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Bash data-lang=Bash>hexo g
+</code></pre></td></tr></table></div></div><p>该命令用来生成静态页面文件到public目录，Hexo会将 source 文件夹中除 posts 文件夹之外，以下划线<code>_</code>开头命名的文件或文件夹、以及隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件夹会被拷贝过去。</p><p>最后，我们只要启动Hexo服务器就行了。</p><h3 id=本地启动hexo服务器>本地启动Hexo服务器</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Bash data-lang=Bash>hexo s --debug
+</code></pre></td></tr></table></div></div><p>Hexo启动服务器的速度非常快，很快你就可以看到</p><blockquote><p>Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</p></blockquote><p>恭喜你，你的个人博客已经搭建成功了，接下来只要在浏览器输入<code>http://localhost:4000/</code>就可以在本地访问你的博客了。</p><p>这里使用<code>hexo s</code>也可以启动服务器，只不过加上<code>--debug </code>参数，如果运行中出错可以看到错误信息。</p><h3 id=关闭hexo服务器>关闭Hexo服务器</h3><p>要想关闭服务器，只需要在命令窗口按下<code>Ctrl+C</code>就可以了，这个组合键不仅仅用于关闭服务器，事实上你在cmd窗口中任何执行中的命令都可以用这个组合键来结束命令，只要连按两次该组合键就可以连输入Y或者N都不用。</p><h2 id=常用的命令>常用的命令</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -114,15 +29,94 @@
 </span><span class=lnt>6
 </span><span class=lnt>7
 </span><span class=lnt>8
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># Site
-</span></span><span class=line><span class=cl>title: Hexo
-</span></span><span class=line><span class=cl>subtitle:
-</span></span><span class=line><span class=cl>description:
-</span></span><span class=line><span class=cl>keywords:
-</span></span><span class=line><span class=cl>author: John Doe
-</span></span><span class=line><span class=cl>language:
-</span></span><span class=line><span class=cl>timezone:
-</span></span></code></pre></td></tr></table></div></div><p>根据自己的需要去修改上边的配置，这些配置的注释如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Bash data-lang=Bash>hexo new <span class=s2>&#34;postName&#34;</span>  <span class=c1>#新建文章</span>
+hexo new page <span class=s2>&#34;pageName&#34;</span> <span class=c1># 新建页面</span>
+hexo generate <span class=c1># 生成静态页面至public目录</span>
+hexo server <span class=c1># 启动服务器(默认端口4000，&#39;ctrl+c&#39;关闭server)</span>
+hexo deploy <span class=c1># 项目部署</span>
+hexo <span class=nb>help</span> <span class=c1># 查看帮助</span>
+hexo version <span class=c1># 查看Hexo的版本</span>
+hexo clean <span class=c1># 清除Hexo的缓存</span>
+</code></pre></td></tr></table></div></div><p>上边的一些命令可以使用简写</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Bash data-lang=Bash>hexo n
+hexo g
+hexo d
+hexo s
+</code></pre></td></tr></table></div></div><h3 id=本地调试三连>本地调试三连</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo clean
+hexo g
+hexo s --debug
+</code></pre></td></tr></table></div></div><h3 id=远程部署三连>远程部署三连</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo clean
+hexo g
+hexo d
+</code></pre></td></tr></table></div></div><p>注：在使用部署命令时，需要先用npm安装 hexo-deployer-git 插件：</p><pre><code>npm install hexo-deployer-git --save
+</code></pre><h2 id=撰写第一篇博文>撰写第一篇博文</h2><p>Hexo撰写博文也不难，分为 post 和 draft 两种，其中 post 存放在 source/_posts 目录下，draft 存放在 source/_drafts 目录下。</p><p>post 和 draft 的区别在于前者会被发布到博客，而后者不会被发布。</p><h3 id=第一篇文章>第一篇文章</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo n post <span class=s2>&#34;my-first-post&#34;</span>
+</code></pre></td></tr></table></div></div><p>Hexo会自动在 source/_posts 目录下新建一个名为 my-first-post 的 .md 文件；打开该文件，可以看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>---
+title: my-first-post
+date: 2018-04-21 23:11:30
+tags:
+---
+</code></pre></td></tr></table></div></div><p>这是 post 模板自动生成的 YAML 文件头，title 是这篇 post 的标题，可以将其改为 My First Post；date 是创建的日期；tags 是该 post 的标签，可以添加自定义的标签：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>---
+title: My First Post
+date: 2018-04-21 23:11:30
+tags:
+	- demo
+	- first-post
+---
+</code></pre></td></tr></table></div></div><p>接着再进行本地调试三连，就可以看到刚刚写好的博文了。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo clean
+hexo g
+hexo s --debug
+</code></pre></td></tr></table></div></div><h3 id=第一篇草稿>第一篇草稿</h3><p>创建命令和前边类似：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo n draft <span class=s2>&#34;my-first-draft&#34;</span>
+</code></pre></td></tr></table></div></div><p>另外草稿的头文件是没有日期的：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>---
+title: my-first-draft
+tags:
+---
+</code></pre></td></tr></table></div></div><p>草稿文件是不会被 <code>hexo g</code> 命令生成到public目录下的，也就是说这些草稿文件是无法在启动站点时被看见，你也可以直接在一篇不想要被展示的文章里加上<code>draft: true</code>到文件头里，以此避免被Hexo渲染到站点里。</p><p>接下来讲下博客的简单个性化配置，譬如站点的基本配置（语言、头像、站点图标等）、安装新的Hexo主题（NexT主题）以及主题的配置。</p><h2 id=博客的简单个性化配置>博客的简单个性化配置</h2><p>打开站点配置文件 ，找到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Site
+title: Hexo
+subtitle:
+description:
+keywords:
+author: John Doe
+language:
+timezone:
+</code></pre></td></tr></table></div></div><p>根据自己的需要去修改上边的配置，这些配置的注释如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -137,53 +131,35 @@
 </span><span class=lnt>13
 </span><span class=lnt>14
 </span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># Site
-</span></span><span class=line><span class=cl># 站点标题
-</span></span><span class=line><span class=cl>title: Hexo
-</span></span><span class=line><span class=cl># 站点副标题
-</span></span><span class=line><span class=cl>subtitle:
-</span></span><span class=line><span class=cl># 站点描述
-</span></span><span class=line><span class=cl>description:
-</span></span><span class=line><span class=cl># 站点关键词
-</span></span><span class=line><span class=cl>keywords:
-</span></span><span class=line><span class=cl># 站点主人
-</span></span><span class=line><span class=cl>author: John Doe
-</span></span><span class=line><span class=cl># 站点语言
-</span></span><span class=line><span class=cl>language:
-</span></span><span class=line><span class=cl># 站点时区
-</span></span><span class=line><span class=cl>timezone:
-</span></span></code></pre></td></tr></table></div></div><h3 id=language>language</h3><p>目前 NexT 支持的语言如下：</p><table><thead><tr><th>语言</th><th>language</th></tr></thead><tbody><tr><td>English</td><td>en</td></tr><tr><td>简体中文</td><td>zh-Hans</td></tr><tr><td>Français</td><td>fr-FR</td></tr><tr><td>Português</td><td>pt或者pt-BR</td></tr><tr><td>繁體中文</td><td>zh-hk或者zh-tw</td></tr><tr><td>Русский язык</td><td>ru</td></tr><tr><td>Deutsch</td><td>de</td></tr><tr><td>日本語</td><td>ja</td></tr><tr><td>Indonesian</td><td>id</td></tr><tr><td>Korean</td><td>ko</td></tr></tbody></table><h3 id=timezone>timezone</h3><p>Hexo 默认使用电脑的时区，也可以自己配置，比如：</p><pre><code>UTC+8
-</code></pre><h2 id=安装新主题>安装新主题</h2><p>Hexo有很多大佬开发的主题，很多人使用的是NexT主题，该主题也确实挺简洁好看的，新版本的NexT主题还可以选择四个主题。</p><p>那么怎么安装新的Hexo主题呢？</p><p>在我们的Hexo项目路径下，可以看到有个 themes 文件夹，这个文件夹就是用于存放主题文件的。</p><h3 id=下载-next-主题>下载 NexT 主题</h3><p>首先在Hexo项目的路径下打开命令窗口，如果你没有配置好Git的环境变量，请使用Git Bash。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git clone https://github.com/iissnan/hexo-theme-NexT themes/NexT
-</span></span></code></pre></td></tr></table></div></div><p>注意，当前路径是你的Hexo项目根目录，使用上边的命令才能正确地将 NexT 主题clone到themes文件夹下的NexT文件夹里。</p><p>接下来你会看到 themes 下多了个 NexT 文件夹，点进去你会看到个<code>.git</code>文件夹，将该文件夹删掉，否则到时候你无法将整个完整的Hexo项目push到GitHub上。</p><h3 id=启用-next-主题>启用 NexT 主题</h3><p>在Hexo项目中，有两个重要的配置文件 <code>_config.yml</code>；这两个配置文件一个在项目根目录下，一个在主题目录下。</p><p>前者是站点配置文件，后者是主题配置文件，顾名思义，一个是Hexo项目的配置选项，一个是主题文件的配置选项。</p><p>打开站点配置文件，用Windows自带的笔记本是无法打开该文件的，请使用其他的编辑器来打开，常见的编辑器有Notepad++，UltraEdit，EditPlus等。</p><p>在站点配置文件中，找到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Site
+# 站点标题
+title: Hexo
+# 站点副标题
+subtitle:
+# 站点描述
+description:
+# 站点关键词
+keywords:
+# 站点主人
+author: John Doe
+# 站点语言
+language:
+# 站点时区
+timezone:
+</code></pre></td></tr></table></div></div><h3 id=language>language</h3><p>目前 NexT 支持的语言如下：</p><table><thead><tr><th>语言</th><th>language</th></tr></thead><tbody><tr><td>English</td><td>en</td></tr><tr><td>简体中文</td><td>zh-Hans</td></tr><tr><td>Français</td><td>fr-FR</td></tr><tr><td>Português</td><td>pt或者pt-BR</td></tr><tr><td>繁體中文</td><td>zh-hk或者zh-tw</td></tr><tr><td>Русский язык</td><td>ru</td></tr><tr><td>Deutsch</td><td>de</td></tr><tr><td>日本語</td><td>ja</td></tr><tr><td>Indonesian</td><td>id</td></tr><tr><td>Korean</td><td>ko</td></tr></tbody></table><h3 id=timezone>timezone</h3><p>Hexo 默认使用电脑的时区，也可以自己配置，比如：</p><pre><code>UTC+8
+</code></pre><h2 id=安装新主题>安装新主题</h2><p>Hexo有很多大佬开发的主题，很多人使用的是NexT主题，该主题也确实挺简洁好看的，新版本的NexT主题还可以选择四个主题。</p><p>那么怎么安装新的Hexo主题呢？</p><p>在我们的Hexo项目路径下，可以看到有个 themes 文件夹，这个文件夹就是用于存放主题文件的。</p><h3 id=下载-next-主题>下载 NexT 主题</h3><p>首先在Hexo项目的路径下打开命令窗口，如果你没有配置好Git的环境变量，请使用Git Bash。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>git clone https://github.com/iissnan/hexo-theme-NexT themes/NexT
+</code></pre></td></tr></table></div></div><p>注意，当前路径是你的Hexo项目根目录，使用上边的命令才能正确地将 NexT 主题clone到themes文件夹下的NexT文件夹里。</p><p>接下来你会看到 themes 下多了个 NexT 文件夹，点进去你会看到个<code>.git</code>文件夹，将该文件夹删掉，否则到时候你无法将整个完整的Hexo项目push到GitHub上。</p><h3 id=启用-next-主题>启用 NexT 主题</h3><p>在Hexo项目中，有两个重要的配置文件 <code>_config.yml</code>；这两个配置文件一个在项目根目录下，一个在主题目录下。</p><p>前者是站点配置文件，后者是主题配置文件，顾名思义，一个是Hexo项目的配置选项，一个是主题文件的配置选项。</p><p>打开站点配置文件，用Windows自带的笔记本是无法打开该文件的，请使用其他的编辑器来打开，常见的编辑器有Notepad++，UltraEdit，EditPlus等。</p><p>在站点配置文件中，找到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># Extensions
-</span></span><span class=line><span class=cl>## Plugins: https://hexo.io/plugins/
-</span></span><span class=line><span class=cl>## Themes: https://hexo.io/themes/
-</span></span><span class=line><span class=cl>theme: landscape
-</span></span></code></pre></td></tr></table></div></div><p>默认的博客主题就是这个，我们将其修改为NexT；这里的主题是指在 themes 文件夹下的对应主题的文件夹名字。</p><p><font color=red>**注意</font>，在配置文件中所有的属性的值，都必须和前边的 <code>:</code> 之间留一个空格。**比如下边的写法就是错误的，不加上空格的话会出错。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>theme:landscape
-</span></span></code></pre></td></tr></table></div></div><h3 id=选择对应主题的外观-scheme>选择对应主题的外观 Scheme</h3><p>打开主题配置文件，找到下边的选项：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span><span class=lnt>4
-</span><span class=lnt>5
-</span><span class=lnt>6
-</span><span class=lnt>7
-</span><span class=lnt>8
-</span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># ---------------------------------------------------------------
-</span></span><span class=line><span class=cl># Scheme Settings
-</span></span><span class=line><span class=cl># ---------------------------------------------------------------
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl># Schemes
-</span></span><span class=line><span class=cl>scheme: Muse
-</span></span><span class=line><span class=cl>#scheme: Mist
-</span></span><span class=line><span class=cl>#scheme: Pisces
-</span></span><span class=line><span class=cl>#scheme: Gemini
-</span></span></code></pre></td></tr></table></div></div><p>默认会使用Muse作为NexT主题的外观，通过将某个scheme前边的<code>#</code>去掉来启动某个外观，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: landscape
+</code></pre></td></tr></table></div></div><p>默认的博客主题就是这个，我们将其修改为NexT；这里的主题是指在 themes 文件夹下的对应主题的文件夹名字。</p><p><font color=red>**注意</font>，在配置文件中所有的属性的值，都必须和前边的 <code>:</code> 之间留一个空格。**比如下边的写法就是错误的，不加上空格的话会出错。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>theme:landscape
+</code></pre></td></tr></table></div></div><h3 id=选择对应主题的外观-scheme>选择对应主题的外观 Scheme</h3><p>打开主题配置文件，找到下边的选项：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
@@ -192,30 +168,48 @@
 </span><span class=lnt>7
 </span><span class=lnt>8
 </span><span class=lnt>9
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># ---------------------------------------------------------------
-</span></span><span class=line><span class=cl># Scheme Settings
-</span></span><span class=line><span class=cl># ---------------------------------------------------------------
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl># Schemes
-</span></span><span class=line><span class=cl>#scheme: Muse
-</span></span><span class=line><span class=cl>#scheme: Mist
-</span></span><span class=line><span class=cl>#scheme: Pisces
-</span></span><span class=line><span class=cl>scheme: Gemini
-</span></span></code></pre></td></tr></table></div></div><h3 id=验证新主题>验证新主题</h3><p>依然是老操作——启动调试模式服务器：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-Bash data-lang=Bash><span class=line><span class=cl>hexo s --debug
-</span></span></code></pre></td></tr></table></div></div><p>启动成功后，使用浏览器访问<a href=http://localhost:4000/ target=_blank rel="noopener noreffer"><code>http://localhost:4000/</code></a>，看看博客能否访问成功。</p><h2 id=修改-next-主题配置>修改 NexT 主题配置</h2><p>主题配置文件 <code>_config.yml</code> 位于 <code>themes\NexT</code> 之下。</p><h3 id=31-头像设置>3.1 头像设置</h3><p>打开主题配置文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># ---------------------------------------------------------------
+# Scheme Settings
+# ---------------------------------------------------------------
+
+# Schemes
+scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+#scheme: Gemini
+</code></pre></td></tr></table></div></div><p>默认会使用Muse作为NexT主题的外观，通过将某个scheme前边的<code>#</code>去掉来启动某个外观，如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># 侧边栏头像
-</span></span><span class=line><span class=cl># Sidebar Avatar
-</span></span><span class=line><span class=cl># in theme directory(source/images): /images/avatar.gif
-</span></span><span class=line><span class=cl># in site  directory(source/uploads): /uploads/avatar.gif
-</span></span><span class=line><span class=cl># 头像的路径可以放在主题对应文件夹的source里，也可以放在站点根目录的source里，建议放在站点路径上
-</span></span><span class=line><span class=cl>#avatar: /images/avatar.gif
-</span></span></code></pre></td></tr></table></div></div><p>将avatar前边的#去掉，接着配置图片的路径即可。</p><h3 id=网站图标>网站图标</h3><p>打开主题配置文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># ---------------------------------------------------------------
+# Scheme Settings
+# ---------------------------------------------------------------
+
+# Schemes
+#scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+scheme: Gemini
+</code></pre></td></tr></table></div></div><h3 id=验证新主题>验证新主题</h3><p>依然是老操作——启动调试模式服务器：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-Bash data-lang=Bash>hexo s --debug
+</code></pre></td></tr></table></div></div><p>启动成功后，使用浏览器访问<a href=http://localhost:4000/ target=_blank rel="noopener noreffer"><code>http://localhost:4000/</code></a>，看看博客能否访问成功。</p><h2 id=修改-next-主题配置>修改 NexT 主题配置</h2><p>主题配置文件 <code>_config.yml</code> 位于 <code>themes\NexT</code> 之下。</p><h3 id=31-头像设置>3.1 头像设置</h3><p>打开主题配置文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># 侧边栏头像
+# Sidebar Avatar
+# in theme directory(source/images): /images/avatar.gif
+# in site  directory(source/uploads): /uploads/avatar.gif
+# 头像的路径可以放在主题对应文件夹的source里，也可以放在站点根目录的source里，建议放在站点路径上
+#avatar: /images/avatar.gif
+</code></pre></td></tr></table></div></div><p>将avatar前边的#去掉，接着配置图片的路径即可。</p><h3 id=网站图标>网站图标</h3><p>打开主题配置文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -226,18 +220,18 @@
 </span><span class=lnt> 9
 </span><span class=lnt>10
 </span><span class=lnt>11
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># 将你的网站图标放到`{站点根目录}/source/` (推荐）或者`hexo-site/themes/NexT/source/images/`目录下
-</span></span><span class=line><span class=cl># 默认的NexT主题的网站图标放在`{站点根目录}/themes/NexT/source/images/`目录下
-</span></span><span class=line><span class=cl># 如果你想将自己的网站图标放到`{站点根目录}/source/`根目录下，必须将`/images`从路径中去掉
-</span></span><span class=line><span class=cl># 如果你将网站图标放到了`{站点根目录}/source/images`路径下，需要令网站图标的名字和`{站点根目录}/themes/NexT/source/images/`路径下的网站图标不同，否则网站图标会使用后者的同名图标
-</span></span><span class=line><span class=cl>favicon:
-</span></span><span class=line><span class=cl>  small: /images/favicon-16x16-NexT.png
-</span></span><span class=line><span class=cl>  medium: /images/favicon-32x32-NexT.png
-</span></span><span class=line><span class=cl>  apple_touch_icon: /images/apple-touch-icon-NexT.png
-</span></span><span class=line><span class=cl>  safari_pinned_tab: /images/logo.svg
-</span></span><span class=line><span class=cl>  #android_manifest: /images/manifest.json
-</span></span><span class=line><span class=cl>  #ms_browserconfig: /images/browserconfig.xml
-</span></span></code></pre></td></tr></table></div></div><p>这里需要注意的是，网站图标一般是.ico或者.gif的类型，而且图标的大小一般只有几k而已，可以使用下边的网站制作个人的网站图标，建议先将原本的图标弄成正方形的。</p><blockquote><p><a href=http://www.bitbug.net/ target=_blank rel="noopener noreffer">在线制作ico图标</a></p></blockquote><h3 id=菜单设置>菜单设置</h3><p>打开主题配置文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># 将你的网站图标放到`{站点根目录}/source/` (推荐）或者`hexo-site/themes/NexT/source/images/`目录下
+# 默认的NexT主题的网站图标放在`{站点根目录}/themes/NexT/source/images/`目录下
+# 如果你想将自己的网站图标放到`{站点根目录}/source/`根目录下，必须将`/images`从路径中去掉
+# 如果你将网站图标放到了`{站点根目录}/source/images`路径下，需要令网站图标的名字和`{站点根目录}/themes/NexT/source/images/`路径下的网站图标不同，否则网站图标会使用后者的同名图标
+favicon:
+  small: /images/favicon-16x16-NexT.png
+  medium: /images/favicon-32x32-NexT.png
+  apple_touch_icon: /images/apple-touch-icon-NexT.png
+  safari_pinned_tab: /images/logo.svg
+  #android_manifest: /images/manifest.json
+  #ms_browserconfig: /images/browserconfig.xml
+</code></pre></td></tr></table></div></div><p>这里需要注意的是，网站图标一般是.ico或者.gif的类型，而且图标的大小一般只有几k而已，可以使用下边的网站制作个人的网站图标，建议先将原本的图标弄成正方形的。</p><blockquote><p><a href=http://www.bitbug.net/ target=_blank rel="noopener noreffer">在线制作ico图标</a></p></blockquote><h3 id=菜单设置>菜单设置</h3><p>打开主题配置文件，找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -252,28 +246,28 @@
 </span><span class=lnt>13
 </span><span class=lnt>14
 </span><span class=lnt>15
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># 如果该站点是运行在子目录之下（比如：domain.tld/blog；这里的blog就是指我们的博客，前边的是上一级的域名），需要将路径前的斜杠去掉（/archives -&gt; archives；即是将原本的绝对路径改成了相对路径）。
-</span></span><span class=line><span class=cl># 用法：`Key：/link/ || 菜单图标`
-</span></span><span class=line><span class=cl># Key就是菜单名，如果对该菜单名进行了国际化，即将其翻译放到对应的languages文件夹中，将会根据你设置的语言进行加载对应的菜单名翻译；如果没有设置翻译，则会使用这里的Key作为菜单名。这里的Key是大小写敏感的。
-</span></span><span class=line><span class=cl># 在`||`分隔符之前的值是该菜单对应的路径
-</span></span><span class=line><span class=cl># 在`||`分隔符之后的值是FontAwesome的图标（不懂的请百度什么是FontAwesome以及其用法），如果不指定图标，将会自动使用question这个图标。
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>menu:
-</span></span><span class=line><span class=cl>  home: / || home
-</span></span><span class=line><span class=cl>  #about: /about/ || user
-</span></span><span class=line><span class=cl>  #tags: /tags/ || tags
-</span></span><span class=line><span class=cl>  #categories: /categories/ || th
-</span></span><span class=line><span class=cl>  archives: /archives/ || archive
-</span></span><span class=line><span class=cl>  #schedule: /schedule/ || calendar
-</span></span><span class=line><span class=cl>  #sitemap: /sitemap.xml || sitemap
-</span></span><span class=line><span class=cl>  #commonweal: /404/ || heartbeat
-</span></span></code></pre></td></tr></table></div></div><p>使用方法很简单，依然是将需要展示的菜单的前边的#去掉就行，更加具体的操作信息我已经在上边的注释中给出了。</p><h3 id=标签分类>标签分类</h3><p>首先我们需要新建页面，在站点根目录打开命令窗口，分别输入命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># 如果该站点是运行在子目录之下（比如：domain.tld/blog；这里的blog就是指我们的博客，前边的是上一级的域名），需要将路径前的斜杠去掉（/archives -&gt; archives；即是将原本的绝对路径改成了相对路径）。
+# 用法：`Key：/link/ || 菜单图标`
+# Key就是菜单名，如果对该菜单名进行了国际化，即将其翻译放到对应的languages文件夹中，将会根据你设置的语言进行加载对应的菜单名翻译；如果没有设置翻译，则会使用这里的Key作为菜单名。这里的Key是大小写敏感的。
+# 在`||`分隔符之前的值是该菜单对应的路径
+# 在`||`分隔符之后的值是FontAwesome的图标（不懂的请百度什么是FontAwesome以及其用法），如果不指定图标，将会自动使用question这个图标。
+
+menu:
+  home: / || home
+  #about: /about/ || user
+  #tags: /tags/ || tags
+  #categories: /categories/ || th
+  archives: /archives/ || archive
+  #schedule: /schedule/ || calendar
+  #sitemap: /sitemap.xml || sitemap
+  #commonweal: /404/ || heartbeat
+</code></pre></td></tr></table></div></div><p>使用方法很简单，依然是将需要展示的菜单的前边的#去掉就行，更加具体的操作信息我已经在上边的注释中给出了。</p><h3 id=标签分类>标签分类</h3><p>首先我们需要新建页面，在站点根目录打开命令窗口，分别输入命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hexo n page <span class=s2>&#34;categories&#34;</span>
-</span></span><span class=line><span class=cl>hexo n page <span class=s2>&#34;tags&#34;</span>
-</span></span><span class=line><span class=cl>hexo n page <span class=s2>&#34;about&#34;</span>
-</span></span></code></pre></td></tr></table></div></div><p>接着你会发现在根目录的 source 目录下多出了上边的三个文件夹，里面各自有一个 index.md 文件。如果之前我们将menu里的categories，tags，about三个菜单解开了封印，那么在创建好这三个页面后就可以成功访问到，否则会报404请求错误。</p><h3 id=社交链接>社交链接</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo n page <span class=s2>&#34;categories&#34;</span>
+hexo n page <span class=s2>&#34;tags&#34;</span>
+hexo n page <span class=s2>&#34;about&#34;</span>
+</code></pre></td></tr></table></div></div><p>接着你会发现在根目录的 source 目录下多出了上边的三个文件夹，里面各自有一个 index.md 文件。如果之前我们将menu里的categories，tags，about三个菜单解开了封印，那么在创建好这三个页面后就可以成功访问到，否则会报404请求错误。</p><h3 id=社交链接>社交链接</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -285,98 +279,95 @@
 </span><span class=lnt>10
 </span><span class=lnt>11
 </span><span class=lnt>12
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># 如果不指定图标，会默认使用globe图标
-</span></span><span class=line><span class=cl>#social:
-</span></span><span class=line><span class=cl>  #GitHub: https://github.com/yourname || github
-</span></span><span class=line><span class=cl>  #E-Mail: mailto:yourname@gmail.com || envelope
-</span></span><span class=line><span class=cl>  #Google: https://plus.google.com/yourname || google
-</span></span><span class=line><span class=cl>  #Twitter: https://twitter.com/yourname || twitter
-</span></span><span class=line><span class=cl>  #FB Page: https://www.facebook.com/yourname || facebook
-</span></span><span class=line><span class=cl>  #VK Group: https://vk.com/yourname || vk
-</span></span><span class=line><span class=cl>  #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
-</span></span><span class=line><span class=cl>  #YouTube: https://youtube.com/yourname || youtube
-</span></span><span class=line><span class=cl>  #Instagram: https://instagram.com/yourname || instagram
-</span></span><span class=line><span class=cl>  #Skype: skype:yourname?call|chat || skype
-</span></span></code></pre></td></tr></table></div></div><p>老规矩，去掉#注释就可以启动。最后介绍下如何将本地的个人项目远程部署到 GitHub Pages，涉及到GitHub的项目仓库、Git的使用，以及Hexo的远程部署等。</p><h2 id=安装-hexo-deployer-git-插件>安装 <code>hexo-deployer-git</code> 插件</h2><p>想要将Hexo项目部署到 GitHub上，需要先安装一个插件。在Hexo项目的根目录打开命令窗口，输入：</p><pre><code>npm install hexo-deployer-git --save
-</code></pre><h2 id=github上创建一个仓库>GitHub上创建一个仓库</h2><p>仓库的名字可以随便起，不过这个仓库是作为我们的博客仓库的，所以尽量将名字以 {username}.github.io 的形式来起。</p><p>比如，我的GitHub用户名是lewky，我就会把这个仓库命名为lewky.github.io。（为什么要这样起名，后面会说明）</p><h2 id=修改本地的项目配置文件>修改本地的项目配置文件</h2><p>在 _config.yml 找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># 如果不指定图标，会默认使用globe图标
+#social:
+  #GitHub: https://github.com/yourname || github
+  #E-Mail: mailto:yourname@gmail.com || envelope
+  #Google: https://plus.google.com/yourname || google
+  #Twitter: https://twitter.com/yourname || twitter
+  #FB Page: https://www.facebook.com/yourname || facebook
+  #VK Group: https://vk.com/yourname || vk
+  #StackOverflow: https://stackoverflow.com/yourname || stack-overflow
+  #YouTube: https://youtube.com/yourname || youtube
+  #Instagram: https://instagram.com/yourname || instagram
+  #Skype: skype:yourname?call|chat || skype
+</code></pre></td></tr></table></div></div><p>老规矩，去掉#注释就可以启动。最后介绍下如何将本地的个人项目远程部署到 GitHub Pages，涉及到GitHub的项目仓库、Git的使用，以及Hexo的远程部署等。</p><h2 id=安装-hexo-deployer-git-插件>安装 <code>hexo-deployer-git</code> 插件</h2><p>想要将Hexo项目部署到 GitHub上，需要先安装一个插件。在Hexo项目的根目录打开命令窗口，输入：</p><pre><code>npm install hexo-deployer-git --save
+</code></pre><h2 id=github上创建一个仓库>GitHub上创建一个仓库</h2><p>仓库的名字可以随便起，不过这个仓库是作为我们的博客仓库的，所以尽量将名字以 {username}.github.io 的形式来起。</p><p>比如，我的GitHub用户名是lewky，我就会把这个仓库命名为lewky.github.io。（为什么要这样起名，后面会说明）</p><h2 id=修改本地的项目配置文件>修改本地的项目配置文件</h2><p>在 _config.yml 找到如下：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># Deployment
-</span></span><span class=line><span class=cl>## Docs: https://hexo.io/docs/deployment.html
-</span></span><span class=line><span class=cl>deploy:
-</span></span><span class=line><span class=cl>  type:
-</span></span></code></pre></td></tr></table></div></div><p>把刚刚我们新建的GitHub仓库链接配置进来：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type:
+</code></pre></td></tr></table></div></div><p>把刚刚我们新建的GitHub仓库链接配置进来：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
 </span><span class=lnt>4
 </span><span class=lnt>5
 </span><span class=lnt>6
 </span><span class=lnt>7
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl># Deployment
-</span></span><span class=line><span class=cl>## Docs: https://hexo.io/docs/deployment.html
-</span></span><span class=line><span class=cl>deploy:
-</span></span><span class=line><span class=cl>  type: git
-</span></span><span class=line><span class=cl>  repo: git@github.com:/{user}/{repository}.git
-</span></span><span class=line><span class=cl>  branch: master
-</span></span><span class=line><span class=cl>  message:
-</span></span></code></pre></td></tr></table></div></div><p>请注意，这里的仓库地址如果写成：<code>https://github.com/{user}/{repository}.git</code>可能会在后边的部署时无法成功，需要将<code>https://github.com</code>改成如下格式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>git@github.com:
-</span></span></code></pre></td></tr></table></div></div><p>另外这里的branch和message可以不填，branch会默认是master分支，message会默认用下边的格式模板：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>Site updated: {{ now(&#39;YYYY-MM-DD HH:mm:ss&#39;) }}
-</span></span></code></pre></td></tr></table></div></div><h2 id=ssh-key的创建与配置>SSH key的创建与配置</h2><p>最关键的一步来了，我们需要生成一对密钥对，然后将公钥配置到GitHub账号上。</p><h3 id=生成rsa密钥对>生成RSA密钥对</h3><p>首先使用 Git Bash 输入：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=nb>cd</span> ~/.ssh
-</span></span></code></pre></td></tr></table></div></div><p><code>~</code> 指的是当前用户的根目录，即 <code>C:\Users\{user}\</code>；而 <code>.ssh</code> 目录下一般存放着公开的SSH key文件：</p><ul><li>id_dsa.pub</li><li>id_ecdsa.pub</li><li>id_ed25519.pub</li><li>id_rsa.pub</li></ul><p>此外还有个 <code>known_hosts</code> 文件，SSH会把我们每个访问过的计算机的公钥(public key)都记录在里面。</p><p>如果在使用了 <code>cd ~/.ssh</code> 后能找到路径，那就把该目录下的 id_rsa.pub 文件里的内容复制到剪切板。如果找不到路径，就执行命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
-</span></span></code></pre></td></tr></table></div></div><p>该命令会生成新的SSH key，这里的参数含义：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:/{user}/{repository}.git
+  branch: master
+  message:
+</code></pre></td></tr></table></div></div><p>请注意，这里的仓库地址如果写成：<code>https://github.com/{user}/{repository}.git</code>可能会在后边的部署时无法成功，需要将<code>https://github.com</code>改成如下格式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>git@github.com:
+</code></pre></td></tr></table></div></div><p>另外这里的branch和message可以不填，branch会默认是master分支，message会默认用下边的格式模板：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>Site updated: {{ now(&#39;YYYY-MM-DD HH:mm:ss&#39;) }}
+</code></pre></td></tr></table></div></div><h2 id=ssh-key的创建与配置>SSH key的创建与配置</h2><p>最关键的一步来了，我们需要生成一对密钥对，然后将公钥配置到GitHub账号上。</p><h3 id=生成rsa密钥对>生成RSA密钥对</h3><p>首先使用 Git Bash 输入：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash><span class=nb>cd</span> ~/.ssh
+</code></pre></td></tr></table></div></div><p><code>~</code> 指的是当前用户的根目录，即 <code>C:\Users\{user}\</code>；而 <code>.ssh</code> 目录下一般存放着公开的SSH key文件：</p><ul><li>id_dsa.pub</li><li>id_ecdsa.pub</li><li>id_ed25519.pub</li><li>id_rsa.pub</li></ul><p>此外还有个 <code>known_hosts</code> 文件，SSH会把我们每个访问过的计算机的公钥(public key)都记录在里面。</p><p>如果在使用了 <code>cd ~/.ssh</code> 后能找到路径，那就把该目录下的 id_rsa.pub 文件里的内容复制到剪切板。如果找不到路径，就执行命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>ssh-keygen -t rsa -b <span class=m>4096</span> -C <span class=s2>&#34;your_email@example.com&#34;</span>
+</code></pre></td></tr></table></div></div><p>该命令会生成新的SSH key，这里的参数含义：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>-t: type，生成的密钥类型
-</span></span><span class=line><span class=cl>-b: bits，指定密钥长度，对于RSA密钥，最小要求768位，默认是2048位。DSA密钥必须恰好是1024位，一般越长越安全。
-</span></span><span class=line><span class=cl>-C: comment，提供一个新注释
-</span></span></code></pre></td></tr></table></div></div><p>接着会看到如下提示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Enter file in which to save the key <span class=o>(</span>/c/Users/123/.ssh/id_rsa<span class=o>)</span>:
-</span></span></code></pre></td></tr></table></div></div><p>这里按下回车，表示将SSH key保存到默认地址，即：<code>C:\Users\{user}\</code></p><p>如果本身已经存在一个RSA私钥了，会提示你：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>-t: type，生成的密钥类型
+-b: bits，指定密钥长度，对于RSA密钥，最小要求768位，默认是2048位。DSA密钥必须恰好是1024位，一般越长越安全。
+-C: comment，提供一个新注释
+</code></pre></td></tr></table></div></div><p>接着会看到如下提示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>Enter file in which to save the key <span class=o>(</span>/c/Users/123/.ssh/id_rsa<span class=o>)</span>:
+</code></pre></td></tr></table></div></div><p>这里按下回车，表示将SSH key保存到默认地址，即：<code>C:\Users\{user}\</code></p><p>如果本身已经存在一个RSA私钥了，会提示你：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>/c/Users/123/.ssh/id_rsa already exists.
-</span></span><span class=line><span class=cl>Overwrite <span class=o>(</span>y/n<span class=o>)</span>?
-</span></span></code></pre></td></tr></table></div></div><p>这里输入 y 可以重新生成RSA密钥对；然后就会看到如下提示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Enter passphrase <span class=o>(</span>empty <span class=k>for</span> no passphrase<span class=o>)</span>:
-</span></span></code></pre></td></tr></table></div></div><p>这里按下回车，表示不设置密码；接着会再提示你输入重复密码，依然是按下回车。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Enter same passphrase again:
-</span></span></code></pre></td></tr></table></div></div><p>这时候我们的SSH key就生成好了，去 <code>~/.ssh</code> 目录下将里边的 id_rsa.pub 文件里的内容复制到剪切板。</p><h3 id=在-github-上配置ssh-key>在 GitHub 上配置SSH key</h3><p>接着登陆我们的 GitHub 账号：</p><ul><li>进入 Settings 页面</li><li>选择 SSH and GPG keys</li><li>点击 New SSH key</li><li>填写 Title（用来给公钥起一个名字，以便和其他的公钥区分开来）</li><li>然后在 Key 里将我们刚刚复制的公钥复制进去</li><li>最后点击 Add SSH key，这时候 GitHub 会要你输入账号密码进行确认。</li></ul><h3 id=验证ssh连接>验证ssh连接</h3><p>使用 Git Bash 输入：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ssh -T git@github.com
-</span></span></code></pre></td></tr></table></div></div><p>接着会看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>The authenticity of host <span class=s1>&#39;github.com (192.30.253.112)&#39;</span> can<span class=err>&#39;</span>t be established.
-</span></span><span class=line><span class=cl>RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-</span></span><span class=line><span class=cl>Are you sure you want to <span class=k>continue</span> connecting <span class=o>(</span>yes/no<span class=o>)</span>?
-</span></span></code></pre></td></tr></table></div></div><p>输入 yes，会看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Warning: Permanently added <span class=s1>&#39;github.com,192.30.253.112&#39;</span> <span class=o>(</span>RSA<span class=o>)</span> to the list of known hosts.
-</span></span><span class=line><span class=cl>Hi lewky! You<span class=err>&#39;</span>ve successfully authenticated, but GitHub does not provide shell access.
-</span></span></code></pre></td></tr></table></div></div><p>这时候 github.com的公钥被保存到known_hosts文件里，如果我们再执行一次<code>ssh -T git@github.com</code>，就不需要输入yes了，会直接看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Hi lewky! You<span class=err>&#39;</span>ve successfully authenticated, but GitHub does not provide shell access.
-</span></span></code></pre></td></tr></table></div></div><h3 id=部署到-github-pages>部署到 GitHub Pages</h3><p>输入命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>/c/Users/123/.ssh/id_rsa already exists.
+Overwrite <span class=o>(</span>y/n<span class=o>)</span>?
+</code></pre></td></tr></table></div></div><p>这里输入 y 可以重新生成RSA密钥对；然后就会看到如下提示：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>Enter passphrase <span class=o>(</span>empty <span class=k>for</span> no passphrase<span class=o>)</span>:
+</code></pre></td></tr></table></div></div><p>这里按下回车，表示不设置密码；接着会再提示你输入重复密码，依然是按下回车。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>Enter same passphrase again:
+</code></pre></td></tr></table></div></div><p>这时候我们的SSH key就生成好了，去 <code>~/.ssh</code> 目录下将里边的 id_rsa.pub 文件里的内容复制到剪切板。</p><h3 id=在-github-上配置ssh-key>在 GitHub 上配置SSH key</h3><p>接着登陆我们的 GitHub 账号：</p><ul><li>进入 Settings 页面</li><li>选择 SSH and GPG keys</li><li>点击 New SSH key</li><li>填写 Title（用来给公钥起一个名字，以便和其他的公钥区分开来）</li><li>然后在 Key 里将我们刚刚复制的公钥复制进去</li><li>最后点击 Add SSH key，这时候 GitHub 会要你输入账号密码进行确认。</li></ul><h3 id=验证ssh连接>验证ssh连接</h3><p>使用 Git Bash 输入：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>ssh -T git@github.com
+</code></pre></td></tr></table></div></div><p>接着会看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
 </span><span class=lnt>3
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>hexo d
-</span></span><span class=line><span class=cl>或者
-</span></span><span class=line><span class=cl>hexo g -d
-</span></span></code></pre></td></tr></table></div></div><p>后一条命令表示生成静态页面并部署到远处仓库，第一次部署会久一点，部署成功后会看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>The authenticity of host <span class=s1>&#39;github.com (192.30.253.112)&#39;</span> can<span class=err>&#39;</span>t be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to <span class=k>continue</span> connecting <span class=o>(</span>yes/no<span class=o>)</span>?
+</code></pre></td></tr></table></div></div><p>输入 yes，会看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
 </span><span class=lnt>2
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> * <span class=o>[</span>new branch<span class=o>]</span>      HEAD -&gt; master
-</span></span><span class=line><span class=cl>INFO  Deploy <span class=k>done</span>: git
-</span></span></code></pre></td></tr></table></div></div><p>接着登陆 GitHub 并进入我们的项目仓库，可以看到已经多出了很多文件，且其 message 都是默认的格式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl>Site updated: {{ now(&#39;YYYY-MM-DD HH:mm:ss&#39;) }}
-</span></span></code></pre></td></tr></table></div></div><p>接下来点击 Settings 进入该仓库的设置页面，找到 Github Pages 这一项，选择以 Master 分支作为 source，然后保存；接下来这个仓库就会被部署到 https://{username}.github.io/{仓库名}。</p><p>如果你希望直接通过 https://{username}.github.io/ 来访问你的博客，可以将仓库名改为 {username}.github.io；这样就不需要在url后边添加上仓库名来访问了。</p><p>接下来，开始享受你的个人博客吧 :)</p><div class="details admonition warning open"><div class="details-summary admonition-title"><i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2018-04-24T22:06:44 title="April 24, 2018">April 24, 2018</span>，文中内容可能已过时，请谨慎使用。</div></div></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>Warning: Permanently added <span class=s1>&#39;github.com,192.30.253.112&#39;</span> <span class=o>(</span>RSA<span class=o>)</span> to the list of known hosts.
+Hi lewky! You<span class=err>&#39;</span>ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre></td></tr></table></div></div><p>这时候 github.com的公钥被保存到known_hosts文件里，如果我们再执行一次<code>ssh -T git@github.com</code>，就不需要输入yes了，会直接看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>Hi lewky! You<span class=err>&#39;</span>ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre></td></tr></table></div></div><h3 id=部署到-github-pages>部署到 GitHub Pages</h3><p>输入命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash>hexo d
+或者
+hexo g -d
+</code></pre></td></tr></table></div></div><p>后一条命令表示生成静态页面并部署到远处仓库，第一次部署会久一点，部署成功后会看到：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-bash data-lang=bash> * <span class=o>[</span>new branch<span class=o>]</span>      HEAD -&gt; master
+INFO  Deploy <span class=k>done</span>: git
+</code></pre></td></tr></table></div></div><p>接着登陆 GitHub 并进入我们的项目仓库，可以看到已经多出了很多文件，且其 message 都是默认的格式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-html data-lang=html>Site updated: {{ now(&#39;YYYY-MM-DD HH:mm:ss&#39;) }}
+</code></pre></td></tr></table></div></div><p>接下来点击 Settings 进入该仓库的设置页面，找到 Github Pages 这一项，选择以 Master 分支作为 source，然后保存；接下来这个仓库就会被部署到 https://{username}.github.io/{仓库名}。</p><p>如果你希望直接通过 https://{username}.github.io/ 来访问你的博客，可以将仓库名改为 {username}.github.io；这样就不需要在url后边添加上仓库名来访问了。</p><p>接下来，开始享受你的个人博客吧 :)</p><div class="details admonition warning open"><div class="details-summary admonition-title"><i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2018-04-24T22:06:44 title="April 24, 2018">April 24, 2018</span>，文中内容可能已过时，请谨慎使用。</div></div></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
 <label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=https://lewky.cn/images/reward/wechat.png>
 <span>微信打赏</span></label>
 <label class=qr-code-image for=reward><img class=image src=https://lewky.cn/images/reward/alipay.png>
-<span>支付宝打赏</span></label></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2018-04-24</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/posts/hexo-1.html/index.md target=_blank>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/hexo-1.html/ data-title="Hexo系列(1) - 简单搭建教程与远程部署" data-hashtags=Hexo,NexT主题,搭建教程,远程部署><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/hexo-1.html/ data-hashtag=Hexo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/hexo-1.html/ data-title="Hexo系列(1) - 简单搭建教程与远程部署"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/hexo-1.html/ data-title="Hexo系列(1) - 简单搭建教程与远程部署"><i data-svg-src=https://unpkg.com/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/hexo-1.html/ data-title="Hexo系列(1) - 简单搭建教程与远程部署"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hexo/>Hexo</a>,&nbsp;<a href=/tags/next%E4%B8%BB%E9%A2%98/>NexT主题</a>,&nbsp;<a href=/tags/%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/>搭建教程</a>,&nbsp;<a href=/tags/%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2/>远程部署</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/d65a1577.html/ class=prev rel=prev title=随笔><i class="fas fa-angle-left fa-fw"></i>随笔</a>
-<a href=/posts/29169.html/ class=next rel=next title=js、css外部文件的相对路径问题>js、css外部文件的相对路径问题<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=waline></div><script src=/js/Waline.min.js></script>
-<script>new Waline({el:"#waline",meta:["nick","mail","link"],requiredMeta:["nick","mail"],login:"force",placeholder:"为防恶意灌水攻击，评论前需注册并登录，望见谅~",serverURL:"https://comment.lewky.cn/",avatarCDN:"https://cravatar.cn/avatar/",pageSize:20,avatar:"retro",lang:"zh-CN",visitor:!0,highlight:!0,uploadImage:!1,emoji:["https://lewky.cn/images/emoji/嘉然今天吃什么","https://lewky.cn/images/emoji/大航海嘉然","https://lewky.cn/images/emoji/向晚大魔王","https://lewky.cn/images/emoji/贝拉kira","https://lewky.cn/images/emoji/珈乐Carol","https://lewky.cn/images/emoji/乃琳Queen","https://lewky.cn/images/emoji/EveOneCat","https://lewky.cn/images/emoji/weibo","https://lewky.cn/images/emoji/滑稽","https://lewky.cn/images/emoji/default"]})</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><span id=run-time></span>|
-<a href=http://rssblog.vercel.app/ target=_blank rel=noopener title=RSSBlog><i class='fas fa-fw fa-inbox'></i>&nbsp;RSSBlog</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2025</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
-</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=sidebar_wo><div id=leimu><img src=https://lewky.cn/images/b2t/leimuA.png alt=雷姆 onmouseover='this.src="https://lewky.cn/images/b2t/leimuB.png"' onmouseout='this.src="https://lewky.cn/images/b2t/leimuA.png"' title=回到顶部></div><div class=sidebar_wo id=lamu><img src=https://lewky.cn/images/b2t/lamuA.png alt=雷姆 onmouseover='this.src="https://lewky.cn/images/b2t/lamuB.png"' onmouseout='this.src="https://lewky.cn/images/b2t/lamuA.png"' title=回到底部></div></div><link rel=stylesheet href=https://unpkg.com/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://unpkg.com/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://unpkg.com/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://unpkg.com/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://unpkg.com/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://unpkg.com/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://unpkg.com/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:30},comment:{},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0}}</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src=https://unpkg.com/jquery@2.1.3/dist/jquery.min.js></script><script type=text/javascript src=https://unpkg.com/jquery-backstretch@2.1.18/jquery.backstretch.min.js></script><script>var $cdnPrefix="https://lewky.cn"</script>
-<script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var e,t=document.createElement("script");t.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432",e=document.getElementsByTagName("script")[0],e.parentNode.insertBefore(t,e)})()</script></body></html>
+<span>支付宝打赏</span></label></div></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2018-04-24</span></div><div class=post-info-license><span><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-markdown href=/posts/hexo-1.html/index.md target=_blank>阅读原始文档</a></span></div><div class=post-info-share><span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=https://lewky.cn/posts/hexo-1.html/ data-title="Hexo系列(1) - 简单搭建教程与远程部署" data-hashtags=Hexo,NexT主题,搭建教程,远程部署><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=https://lewky.cn/posts/hexo-1.html/ data-hashtag=Hexo><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 Hacker News" data-sharer=hackernews data-url=https://lewky.cn/posts/hexo-1.html/ data-title="Hexo系列(1) - 简单搭建教程与远程部署"><i class="fab fa-hacker-news fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=https://lewky.cn/posts/hexo-1.html/ data-title="Hexo系列(1) - 简单搭建教程与远程部署"><i data-svg-src=https://unpkg.com/simple-icons@2.14.0/icons/line.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=https://lewky.cn/posts/hexo-1.html/ data-title="Hexo系列(1) - 简单搭建教程与远程部署"><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hexo/>Hexo</a>,&nbsp;<a href=/tags/next%E4%B8%BB%E9%A2%98/>NexT主题</a>,&nbsp;<a href=/tags/%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/>搭建教程</a>,&nbsp;<a href=/tags/%E8%BF%9C%E7%A8%8B%E9%83%A8%E7%BD%B2/>远程部署</a></section><section><span><a href=javascript:void(0); onclick=window.history.back();>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/d65a1577.html/ class=prev rel=prev title=随笔><i class="fas fa-angle-left fa-fw"></i>随笔</a>
+<a href=/posts/29169.html/ class=next rel=next title=js、css外部文件的相对路径问题>js、css外部文件的相对路径问题<i class="fas fa-angle-right fa-fw"></i></a></div></div><div id=comments><div id=waline></div><script src=/js/Waline.min.js></script><script>new Waline({el:'#waline',meta:["nick","mail","link"],requiredMeta:["nick","mail"],login:"force",placeholder:"为防恶意灌水攻击，评论前需注册并登录，望见谅~",serverURL:"https://comment.lewky.cn/",avatarCDN:"https://cravatar.cn/avatar/",pageSize:20,avatar:"retro",lang:"zh-CN",visitor:true,highlight:true,uploadImage:false,emoji:['https:\/\/lewky.cn/images/emoji/嘉然今天吃什么','https:\/\/lewky.cn/images/emoji/大航海嘉然','https:\/\/lewky.cn/images/emoji/向晚大魔王','https:\/\/lewky.cn/images/emoji/贝拉kira','https:\/\/lewky.cn/images/emoji/珈乐Carol','https:\/\/lewky.cn/images/emoji/乃琳Queen','https:\/\/lewky.cn/images/emoji/EveOneCat','https:\/\/lewky.cn/images/emoji/weibo','https:\/\/lewky.cn/images/emoji/滑稽','https:\/\/lewky.cn/images/emoji/default']});</script></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line><span id=run-time></span>|
+<a href=http://rssblog.vercel.app/ target=_blank rel=noopener title=RSSBlog><i class="fas fa-fw fa-inbox"></i>&nbsp;RSSBlog</a></div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2018 - 2025</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=/ target=_blank>雨临Lewis</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span><span class=icp-splitter>&nbsp;|&nbsp;</span><br class=icp-br><span class=icp><a target=_blank href=http://www.beian.miit.gov.cn/ style=font-weight:700>粤ICP备19103822</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i></a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=sidebar_wo><div id=leimu><img src=https://lewky.cn/images/b2t/leimuA.png alt=雷姆 onmouseover="this.src='https:\/\/lewky.cn/images/b2t/leimuB.png'" onmouseout="this.src='https:\/\/lewky.cn/images/b2t/leimuA.png'" title=回到顶部></div><div class=sidebar_wo id=lamu><img src=https://lewky.cn/images/b2t/lamuA.png alt=雷姆 onmouseover="this.src='https:\/\/lewky.cn/images/b2t/lamuB.png'" onmouseout="this.src='https:\/\/lewky.cn/images/b2t/lamuA.png'" title=回到底部></div></div><link rel=stylesheet href=https://unpkg.com/lightgallery.js@1.2.0/dist/css/lightgallery.min.css><script type=text/javascript src=https://unpkg.com/smooth-scroll@16.1.3/dist/smooth-scroll.min.js></script><script type=text/javascript src=https://unpkg.com/lazysizes@5.2.2/lazysizes.min.js></script><script type=text/javascript src=https://unpkg.com/lightgallery.js@1.2.0/dist/js/lightgallery.min.js></script><script type=text/javascript src=https://unpkg.com/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js></script><script type=text/javascript src=https://unpkg.com/lg-zoom.js@1.2.0/dist/lg-zoom.min.js></script><script type=text/javascript src=https://unpkg.com/clipboard@2.0.6/dist/clipboard.min.js></script><script type=text/javascript src=https://unpkg.com/sharer.js@0.4.0/sharer.min.js></script><script type=text/javascript>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":30},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true}};</script><script type=text/javascript src=/js/theme.min.js></script><script type=text/javascript src=https://unpkg.com/jquery@2.1.3/dist/jquery.min.js></script><script type=text/javascript src=https://unpkg.com/jquery-backstretch@2.1.18/jquery.backstretch.min.js></script><script>var $cdnPrefix="https://lewky.cn";</script><script type=text/javascript src=/js/custom.js></script><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?6f278ed0fdb01edb3b1e7398379e5432";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script></body></html>

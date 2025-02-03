@@ -2,11 +2,11 @@
 <p>Kibana在创建<code>Index Patterns</code>的时候，可以选择某个date类型的field作为排序字段。之后在<code>Discover</code>里打开对应的index，会发现这个date类型的field的格式显示如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">April 10th 2019, 17:40:32.359
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">April 10th 2019, 17:40:32.359
+</code></pre></td></tr></table>
 </div>
 </div><p>这是Kibana默认的日期格式，有两种修改的方式。</p>]]></description></item><item><title>ELK系列(1) - Elasticsearch + Logstash + Kibana + Log4j2快速入门与搭建用例</title><link>https://lewky.cn/posts/elk-1/</link><pubDate>Sat, 11 May 2019 21:14:33 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-1/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>最近公司分了个ELK相关的任务给我，在一边学习一边工作之余，总结下这些天来的学习历程和踩坑记录。</p>

@@ -3,11 +3,11 @@
 <p>GitHub在某次更新后改变了支持的秘钥策略，对于新增的RSA格式的SSH秘钥，如果是无密码加密的，会报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">You&#39;re using an RSA key with SHA-1, which is no longer allowed. Please use a
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">You&#39;re using an RSA key with SHA-1, which is no longer allowed. Please use a
+</code></pre></td></tr></table>
 </div>
 </div><p>GitHub的改动详情可以参考如下页面：https://github.blog/2021-09-01-improving-git-protocol-security-github/</p>
 <blockquote>
@@ -25,7 +25,7 @@
 <p>有些网站需要加载谷歌字体，由于网络问题或者某些问题，<code>fonts.googleapis.com</code>访问太慢会导致站点加载很慢。虽然最后能看到网站，但实际上谷歌字体依然加载失败了，这个体验就非常差劲了。</p>]]></description></item><item><title>分享一些有趣的代码注释</title><link>https://lewky.cn/posts/program-comment-funny.html/</link><pubDate>Fri, 19 Feb 2021 10:55:45 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/program-comment-funny.html/</guid><description><![CDATA[<h2 id="代马">代马</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -47,27 +47,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">                               _(\_/) 
-</span></span><span class="line"><span class="cl">                             ,((((^`\
-</span></span><span class="line"><span class="cl">                            ((((  (6 \ 
-</span></span><span class="line"><span class="cl">                          ,((((( ,    \
-</span></span><span class="line"><span class="cl">      ,,,_              ,(((((  /&#34;._  ,`,
-</span></span><span class="line"><span class="cl">     ((((\\ ,...       ,((((   /    `-.-&#39;
-</span></span><span class="line"><span class="cl">     )))  ;&#39;    `&#34;&#39;&#34;&#39;&#34;&#34;((((   (      
-</span></span><span class="line"><span class="cl">    (((  /            (((      \
-</span></span><span class="line"><span class="cl">     )) |                      |
-</span></span><span class="line"><span class="cl">    ((  |        .       &#39;     |
-</span></span><span class="line"><span class="cl">    ))  \     _ &#39;      `t   ,.&#39;)
-</span></span><span class="line"><span class="cl">    (   |   y;- -,-&#34;&#34;&#39;&#34;-.\   \/  
-</span></span><span class="line"><span class="cl">    )   / ./  ) /         `\  \
-</span></span><span class="line"><span class="cl">       |./   ( (           / /&#39;
-</span></span><span class="line"><span class="cl">       ||     \\          //&#39;|
-</span></span><span class="line"><span class="cl">       ||      \\       _//&#39;||
-</span></span><span class="line"><span class="cl">       ||       ))     |_/  ||
-</span></span><span class="line"><span class="cl">       \_\     |_/          ||
-</span></span><span class="line"><span class="cl">       `&#39;&#34;                  \_\
-</span></span><span class="line"><span class="cl">                            `&#39;&#34; 
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">                               _(\_/) 
+                             ,((((^`\
+                            ((((  (6 \ 
+                          ,((((( ,    \
+      ,,,_              ,(((((  /&#34;._  ,`,
+     ((((\\ ,...       ,((((   /    `-.-&#39;
+     )))  ;&#39;    `&#34;&#39;&#34;&#39;&#34;&#34;((((   (      
+    (((  /            (((      \
+     )) |                      |
+    ((  |        .       &#39;     |
+    ))  \     _ &#39;      `t   ,.&#39;)
+    (   |   y;- -,-&#34;&#34;&#39;&#34;-.\   \/  
+    )   / ./  ) /         `\  \
+       |./   ( (           / /&#39;
+       ||     \\          //&#39;|
+       ||      \\       _//&#39;||
+       ||       ))     |_/  ||
+       \_\     |_/          ||
+       `&#39;&#34;                  \_\
+                            `&#39;&#34; 
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>GitHub使用技巧</title><link>https://lewky.cn/posts/github-skills/</link><pubDate>Sun, 02 Dec 2018 23:49:58 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/github-skills/</guid><description><![CDATA[<h2 id="github仓库怎么添加协议">GitHub仓库怎么添加协议</h2>
 <p>如果一开始在GitHub上创建仓库时没有添加协议，可以用以下方式来重新添加相关的协议：</p>

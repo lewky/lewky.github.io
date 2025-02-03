@@ -2,12 +2,12 @@
 <p>Hugo本身可以通过修改站点配置文件来完成页面的部分定制，如按钮、多语言等功能。本文基于<code>LoveIt</code>主题【v0.2.10】，且所使用的Hugo版本如下，不同版本且不同主题可能无法适用某些属性：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="p">&gt;</span>hugo version
-</span></span><span class="line"><span class="cl">Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-cmd" data-lang="cmd"><span class="p">&gt;</span>hugo version
+Hugo Static Site Generator v0.74.2/extended windows/amd64 BuildDate: unknown
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

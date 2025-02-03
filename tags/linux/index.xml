@@ -2,10 +2,10 @@
 <p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/bin/sh^M: bad interpreter: No such file or directory
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-shell" data-lang="shell">/bin/sh^M: bad interpreter: No such file or directory
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

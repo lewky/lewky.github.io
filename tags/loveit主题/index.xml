@@ -2,15 +2,15 @@
 <p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">LoveIt: v0.2.10
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
 <p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>
@@ -23,15 +23,15 @@
 <p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">LoveIt: v0.2.10
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
 <p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>
@@ -44,15 +44,15 @@
 <p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">LoveIt: v0.2.10
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
 <p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>
@@ -65,33 +65,33 @@
 <p>本文主要记录从Hexo迁移至Hugo所遇到的一些坑，以及Hugo的LoveIt主题的一些bug之类的应对方案。下面是涉及到的Hexo、Hugo以及LoveIt各自的版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hexo: 3.8.0
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">LoveIt: v0.2.10
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hexo: 3.8.0
+
+hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Hugo系列(3.0) - LoveIt主题美化与博客功能增强 · 第一章</title><link>https://lewky.cn/posts/hugo-3.html/</link><pubDate>Sun, 11 Oct 2020 13:11:16 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-3.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本博客使用的是Hugo的LoveIt主题，本文也是基于该主题而写的，不过Hugo的美化步骤应该大同小异，版本如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">LoveIt: v0.2.10
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">hugo: v0.74.2/extended windows/amd64 BuildDate: unknown
+
+LoveIt: v0.2.10
+</code></pre></td></tr></table>
 </div>
 </div><p><strong>请注意，本文的所有功能都离不开两个新增加的文件：<code>_custom.scss</code>和<code>custom.js</code>，部分功能还需要<code>jquery</code>，在第一章中会提及如何引入。</strong></p>
 <p>另外本文篇幅太长，阅读体验不好，将其进行分章如下：</p>

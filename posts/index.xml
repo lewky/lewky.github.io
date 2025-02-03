@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 13 Oct 2024 21:28:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>Linux常用命令</title><link>https://lewky.cn/posts/linux-commands/</link><pubDate>Sun, 13 Oct 2024 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Yulin Lewis' Blog</title><link>https://lewky.cn/posts/</link><description>所有文章 | Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Feb 2025 21:28:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/posts/" rel="self" type="application/rss+xml"/><item><title>cmd - 常用命令</title><link>https://lewky.cn/posts/cmd-commands/</link><pubDate>Mon, 03 Feb 2025 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>Hugo系列(1) - 简单搭建教程与远程部署</title><link>https://lewky.cn/posts/hugo-1.html/</link><pubDate>Mon, 03 Feb 2025 21:10:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
+<p>使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。</p>
+<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item><item><title>Linux常用命令</title><link>https://lewky.cn/posts/linux-commands/</link><pubDate>Sun, 13 Oct 2024 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
 <p>耳边似乎还回响着水母之歌的旋律，笨拙的水母退场离开了舞台，顶碗人也不会忘记深海里曾经的那一束白月光。</p>
 <p>别了，向晚。</p>]]></description></item><item><title>必胜客自助餐</title><link>https://lewky.cn/posts/bishengke/</link><pubDate>Sun, 24 Mar 2024 12:42:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bishengke/</guid><description><![CDATA[<h2 id="攻略">攻略</h2>
 <ol>
@@ -22,39 +24,13 @@
 <p>使用SSH登录时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Unable to negotiate with 20.1.1.174 port 22: no matching host key type found. Their offer: ssh-dss
-</span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Unable to negotiate with 20.1.1.174 port 22: no matching host key type found. Their offer: ssh-dss
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PGP加解密</title><link>https://lewky.cn/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
 <p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
 <p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky.cn/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/apollo-issues/</guid><description>&lt;h2 id="apollo简介">Apollo简介&lt;/h2>
-&lt;p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置&lt;/p></description></item><item><title>GitHub问题汇总</title><link>https://lewky.cn/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
-<p>GitHub在某次更新后改变了支持的秘钥策略，对于新增的RSA格式的SSH秘钥，如果是无密码加密的，会报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">You&#39;re using an RSA key with SHA-1, which is no longer allowed. Please use a
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>GitHub的改动详情可以参考如下页面：https://github.blog/2021-09-01-improving-git-protocol-security-github/</p>
-<blockquote>
-<p>We’re changing which keys are supported in SSH and removing unencrypted Git protocol. Specifically we are:</p>
-<ul>
-<li>Removing support for all DSA keys</li>
-<li>Adding requirements for newly added RSA keys</li>
-<li>Removing some legacy SSH algorithms (HMAC-SHA-1 and CBC ciphers)</li>
-<li>Adding ECDSA and Ed25519 host keys for SSH</li>
-<li>Turning off the unencrypted Git protocol</li>
-</ul>
-</blockquote>]]></description></item><item><title>SmartGit问题汇总</title><link>https://lewky.cn/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
-<p>SmartGit可以免费试用三十天，三十天后可以通过删除配置文件来重复免费试用三十天的过程，不同版本需要删除的文件不同。</p>
-<p><code>win + R</code>组合键打开运行窗口，输入<code>%APPDATA%\syntevo\SmartGit\</code>然后回车会进入到SmartGit的安装路径，进入你当前使用的版本目录，如果是旧版的SmartGit（如17.2版本），删除当前的<code>settings.xml</code>文件，然后重启SmartGit即可。</p>
-<p>如果找不到<code>settings.xml</code>文件，说明是新版本的SmartGit（如21.2版本），此时需要删除下面两个文件：</p>
-<p><code>license</code>和<code>preferences.yml</code>，然后重启SmartGit即可。</p>
-<h2 id="选择秘钥时不支持openssh格式">选择秘钥时不支持OPENSSH格式</h2>
-<p>某天发现用Git Bash生成的SSH key无法被SmartGit识别，提示需要PEM格式，不支持OPENSSH格式。奇怪的是之前也用同样的方法生成的key是可以被识别的，猜测要么是SmartGit版本不同导致无法支持OPENSSH格式，要么是Git Bash版本不同导致默认生成的key格式发生了变化。</p>]]></description></item></channel></rss>
+&lt;p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置&lt;/p></description></item></channel></rss>

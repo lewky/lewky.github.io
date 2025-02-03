@@ -2,13 +2,13 @@
 <p>可以通过查询系统表来找到目前处于活跃状态的SQL：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">datname</span><span class="o">=</span><span class="s1">&#39;数据库名&#39;</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">and</span><span class="w"> </span><span class="n">client_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;发起查询的IP地址&#39;</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">state_change</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">pg_stat_activity</span> <span class="k">WHERE</span> <span class="n">datname</span><span class="o">=</span><span class="s1">&#39;数据库名&#39;</span> 
+<span class="k">and</span> <span class="n">client_addr</span> <span class="o">=</span> <span class="s1">&#39;发起查询的IP地址&#39;</span> <span class="k">order</span> <span class="k">by</span> <span class="n">state_change</span> <span class="k">desc</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky.cn/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
 <h3 id="do关键字">DO关键字</h3>
@@ -18,37 +18,37 @@
 <p><code>||</code>是字符串连接操作符，在拼接字符串时要求前两个操作数至少有一个是字符串类型，不然会报错。如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">44</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">--Error
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">select</span> <span class="mi">2</span> <span class="o">||</span> <span class="mi">44</span> <span class="o">||</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">--Error
+</span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - 模糊查询</title><link>https://lewky.cn/posts/8fd6368.html/</link><pubDate>Thu, 28 Feb 2019 21:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8fd6368.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>like、not like在SQL中用于模糊查询，<code>%</code>表示任意个字符，<code>_</code>表示单个任意字符，如果需要在模糊查询中查询这两个通配符，需要用<code>ESCAPE</code>进行转义，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">like</span><span class="w"> </span><span class="s1">&#39;张/_小%&#39;</span><span class="w"> </span><span class="k">escape</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="k">table</span> <span class="k">where</span> <span class="n">name</span> <span class="k">like</span> <span class="s1">&#39;张/_小%&#39;</span> <span class="k">escape</span> <span class="s1">&#39;/&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - 日期函数汇总</title><link>https://lewky.cn/posts/postgresql-date/</link><pubDate>Wed, 19 Dec 2018 22:34:12 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-date/</guid><description><![CDATA[<h2 id="比较两个日期之间的时间差超过n个小时">比较两个日期之间的时间差超过N个小时</h2>
 <p>在PostgreSQL中，两个时间戳相减会得到一个<code>interval</code>类型的结果，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="n">now</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;2021-03-28 15:47:07&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">--0 years 0 mons 2 days 0 hours 1 mins 15.081206 secs
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="s1">&#39;2021-03-28 15:47:07&#39;</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">now</span><span class="p">();</span><span class="w"> </span><span class="c1">--0 years 0 mons -2 days 0 hours -3 mins -17.692835 secs
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="s1">&#39;2021-03-28 15:47:07&#39;</span><span class="p">;</span> <span class="c1">--0 years 0 mons 2 days 0 hours 1 mins 15.081206 secs
+</span><span class="c1"></span><span class="k">select</span> <span class="s1">&#39;2021-03-28 15:47:07&#39;</span> <span class="o">-</span> <span class="n">now</span><span class="p">();</span> <span class="c1">--0 years 0 mons -2 days 0 hours -3 mins -17.692835 secs
+</span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - 怎么转换数据类型</title><link>https://lewky.cn/posts/f20deee6.html/</link><pubDate>Tue, 18 Dec 2018 23:55:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/f20deee6.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>对于<code>select 233;</code>这个sql，得到的结果是<code>int4</code>类型，如果我们希望将结果转换成其他的数据类型，有以下方法(下边的<code>{数据类型}</code>表示占位符，要替换成数据库中的某一种数据类型)：</p>
@@ -65,20 +65,20 @@
 <p>推荐使用psql来连接数据库进行备份和恢复db，同样大小的db，使用psql来restore会比pgAdmin快上数倍！</p>]]></description></item><item><title>PostgreSQL - DDL操作汇总</title><link>https://lewky.cn/posts/postgresql-ddl.html/</link><pubDate>Fri, 23 Feb 2018 17:12:19 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-ddl.html/</guid><description><![CDATA[<h2 id="重命名数据库">重命名数据库</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">db_1</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">db_2</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">ALTER</span> <span class="k">DATABASE</span> <span class="n">db_1</span> <span class="k">RENAME</span> <span class="k">TO</span> <span class="n">db_2</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>也可以用下面的SQL：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">UPDATE</span><span class="w"> </span><span class="n">pg_database</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">datname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;db_2&#39;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">datname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;db_1&#39;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="n">pg_database</span> <span class="k">SET</span> <span class="n">datname</span> <span class="o">=</span> <span class="s1">&#39;db_2&#39;</span> <span class="k">WHERE</span> <span class="n">datname</span> <span class="o">=</span> <span class="s1">&#39;db_1&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - 开窗函数汇总</title><link>https://lewky.cn/posts/postgresql-window-function/</link><pubDate>Mon, 22 Jan 2018 23:50:03 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-window-function/</guid><description><![CDATA[<h2 id="和聚合函数的区别">和聚合函数的区别</h2>
 <p>开窗函数，也叫窗口函数，一般可以用开窗函数来做一些排行之类的统计操作。开窗函数必须搭配<code>over()</code>子句作为查询的条件，否则会报错。over()子句可以用<code>partition by</code>进行分组，以及用<code>order by</code>排序。</p>
