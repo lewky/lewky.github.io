@@ -2,7 +2,7 @@
 <p>本文基于以下版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -10,13 +10,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--  对应的是3.3.0版本的jedis（redis的java客户端） --&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!--  对应的是3.3.0版本的jedis（redis的java客户端） --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Spring Data MongoDB问题汇总</title><link>https://lewky.cn/posts/spring-data-mongodb/</link><pubDate>Mon, 27 Sep 2021 23:27:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-mongodb/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>Spring Data除了常用的JPA（Hibernate）关系型数据库的模块外，还有其他用于非关系型数据库的数据交互模块：比如Redis、MongoDB、Elasticsearch等。</p>
@@ -24,7 +24,7 @@
 <p>本文基于以下版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -32,19 +32,19 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!--  对应的是4.1.1版本的MongoDB --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
-    &lt;version&gt;2.4.0&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;!--  对应的是4.1.1版本的MongoDB --&gt;
+</span></span><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">    &lt;version&gt;2.4.0&lt;/version&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这是MongoDB官网用户手册的翻译文档仓库：<a href="https://github.com/mongodb-china/MongoDB-4.2-Manual" target="_blank" rel="noopener noreffer">MongoDB-4.2-Manual</a></p>]]></description></item><item><title>SpringBoot问题汇总</title><link>https://lewky.cn/posts/springboot-issues/</link><pubDate>Fri, 20 Aug 2021 08:23:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/springboot-issues/</guid><description><![CDATA[<h2 id="使用log4j2日志替代默认的logback">使用Log4j2日志替代默认的Logback</h2>
 <p>SpringBoot默认使用Logback打印日志，出于性能考虑想要改用Log4j2，需要修改POM中的依赖，移除默认的Logback依赖：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -61,28 +61,28 @@
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;exclusions&gt;
-        &lt;exclusion&gt;
-            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-            &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
-        &lt;/exclusion&gt;
-    &lt;/exclusions&gt;
-&lt;/dependency&gt;
- 
-&lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">    &lt;exclusions&gt;
+</span></span><span class="line"><span class="cl">        &lt;exclusion&gt;
+</span></span><span class="line"><span class="cl">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">            &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">        &lt;/exclusion&gt;
+</span></span><span class="line"><span class="cl">    &lt;/exclusions&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">&lt;dependency&gt;
+</span></span><span class="line"><span class="cl">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+</span></span><span class="line"><span class="cl">        &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
+</span></span><span class="line"><span class="cl">&lt;/dependency&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Spring问题汇总</title><link>https://lewky.cn/posts/spring-issues/</link><pubDate>Mon, 09 Aug 2021 23:06:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-issues/</guid><description><![CDATA[<h2 id="spelevaluationexception-el1030e">SpelEvaluationException: EL1030E</h2>
 <p>运行Spring项目时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -101,30 +101,30 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">SpelEvaluationException</span><span class="o">:</span> <span class="n">EL1030E</span><span class="o">:</span> <span class="n">The</span> <span class="n">operator</span> <span class="err">&#39;</span><span class="n">ADD</span><span class="err">&#39;</span> <span class="n">is</span> <span class="n">not</span> <span class="n">supported</span> <span class="n">between</span> <span class="n">objects</span> <span class="n">of</span> <span class="n">type</span> <span class="err">&#39;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="err">&#39;</span> <span class="n">and</span> <span class="err">&#39;</span><span class="kc">null</span><span class="err">&#39;</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ExpressionState</span><span class="o">.</span><span class="na">operate</span><span class="o">(</span><span class="n">ExpressionState</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">240</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">80</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">85</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">83</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">SpelNodeImpl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">SpelNodeImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">109</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">standard</span><span class="o">.</span><span class="na">SpelExpression</span><span class="o">.</span><span class="na">getValue</span>
-<span class="o">....</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">NioEndpoint$SocketProcessor</span><span class="o">.</span><span class="na">doRun</span><span class="o">(</span><span class="n">NioEndpoint</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1415</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">SocketProcessorBase</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">SocketProcessorBase</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">49</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.</span><span class="na">ThreadPoolExecutor</span><span class="o">.</span><span class="na">runWorker</span><span class="o">(</span><span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">1142</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.</span><span class="na">ThreadPoolExecutor$Worker</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">617</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">threads</span><span class="o">.</span><span class="na">TaskThread$WrappingRunnable</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TaskThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">61</span><span class="o">)</span>
-	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Thread</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="n">745</span><span class="o">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">SpelEvaluationException</span><span class="o">:</span> <span class="n">EL1030E</span><span class="o">:</span> <span class="n">The</span> <span class="n">operator</span> <span class="err">&#39;</span><span class="n">ADD</span><span class="err">&#39;</span> <span class="n">is</span> <span class="n">not</span> <span class="n">supported</span> <span class="n">between</span> <span class="n">objects</span> <span class="n">of</span> <span class="n">type</span> <span class="err">&#39;</span><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">String</span><span class="err">&#39;</span> <span class="n">and</span> <span class="err">&#39;</span><span class="kc">null</span><span class="err">&#39;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ExpressionState</span><span class="o">.</span><span class="na">operate</span><span class="o">(</span><span class="n">ExpressionState</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">240</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">80</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">85</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">83</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">83</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">83</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">OpPlus</span><span class="o">.</span><span class="na">getValueInternal</span><span class="o">(</span><span class="n">OpPlus</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">83</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">ast</span><span class="o">.</span><span class="na">SpelNodeImpl</span><span class="o">.</span><span class="na">getValue</span><span class="o">(</span><span class="n">SpelNodeImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">109</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">expression</span><span class="o">.</span><span class="na">spel</span><span class="o">.</span><span class="na">standard</span><span class="o">.</span><span class="na">SpelExpression</span><span class="o">.</span><span class="na">getValue</span>
+</span></span><span class="line"><span class="cl"><span class="o">....</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">NioEndpoint$SocketProcessor</span><span class="o">.</span><span class="na">doRun</span><span class="o">(</span><span class="n">NioEndpoint</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1415</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">net</span><span class="o">.</span><span class="na">SocketProcessorBase</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">SocketProcessorBase</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">49</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.</span><span class="na">ThreadPoolExecutor</span><span class="o">.</span><span class="na">runWorker</span><span class="o">(</span><span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1142</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">concurrent</span><span class="o">.</span><span class="na">ThreadPoolExecutor$Worker</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">617</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">tomcat</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">threads</span><span class="o">.</span><span class="na">TaskThread$WrappingRunnable</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TaskThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">61</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">	<span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">Thread</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">745</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Spring Data JPA/Hibernate问题汇总</title><link>https://lewky.cn/posts/spring-data-jpa-hibernate/</link><pubDate>Thu, 01 Apr 2021 00:07:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-jpa-hibernate/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文基于如下版本的JPA和Hibernate：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -137,17 +137,17 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-
-<span class="nt">&lt;dependency&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>hibernate-core<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>5.4.23.Final<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;artifactId&gt;</span>hibernate-core<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;version&gt;</span>5.4.23.Final<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>JPA本身提供的Repository功能比较简单，遇到一些复杂的查询无法胜任，这时可以使用第三方的增强库，比如Jinq或者QueryDSL。</p>]]></description></item></channel></rss>

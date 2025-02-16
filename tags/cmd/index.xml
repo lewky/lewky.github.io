@@ -11,19 +11,19 @@
 <p><strong>a.bat</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">@echo off
-echo I am a.bat...
-echo now run the b.bat
-call b.bat
-echo over
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@echo off
+</span></span><span class="line"><span class="cl">echo I am a.bat...
+</span></span><span class="line"><span class="cl">echo now run the b.bat
+</span></span><span class="line"><span class="cl">call b.bat
+</span></span><span class="line"><span class="cl">echo over
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>cmd - bat文件如何关闭回显</title><link>https://lewky.cn/posts/cmd-echo.html/</link><pubDate>Fri, 10 Nov 2017 20:37:02 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-echo.html/</guid><description><![CDATA[<h2 id="echo命令">echo命令</h2>
 <blockquote>

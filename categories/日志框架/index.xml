@@ -4,15 +4,15 @@
 <p>查看公司项目的代码，发现在打印日志的时候会先进行一次判断，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">LOGGER</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
-    <span class="n">LOGGER</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Search parameters: &#34;</span> <span class="o">+</span> <span class="n">searchParams</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span> <span class="o">(</span><span class="n">LOGGER</span><span class="o">.</span><span class="na">isDebugEnabled</span><span class="o">())</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">LOGGER</span><span class="o">.</span><span class="na">debug</span><span class="o">(</span><span class="s">&#34;Search parameters: &#34;</span> <span class="o">+</span> <span class="n">searchParams</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Log4j2 - 动态生成Appender</title><link>https://lewky.cn/posts/8dc44b45.html/</link><pubDate>Thu, 03 Jan 2019 21:39:59 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/8dc44b45.html/</guid><description><![CDATA[<h2 id="功能需求">功能需求</h2>
 <p>项目里将User分成了各个区域(domain)，这些domain有个标志domainId，现在要求在打印日志的时候，不仅将所有User的日志都打印到日志文件<code>logs/CNTCore.log</code>中，还需要另外再打印到对应domain的日志文件<code>logs/{domainId}/CNTCore.log</code>。</p>
@@ -23,11 +23,11 @@
 <p>在log4j2中，LevelRangeFilter的minLevel，maxLevel的配置是和log4j 1.x相反的；minLevel需要配置的是高级别，maxLevel配置的是低级别，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;LevelRangeFilter</span> <span class="na">minLevel=</span><span class="s">&#34;fatal&#34;</span> <span class="na">maxLevel=</span><span class="s">&#34;info&#34;</span> <span class="na">onMatch=</span><span class="s">&#34;ACCEPT&#34;</span> <span class="na">onMismatch=</span><span class="s">&#34;DENY&#34;</span><span class="nt">/&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;LevelRangeFilter</span> <span class="na">minLevel=</span><span class="s">&#34;fatal&#34;</span> <span class="na">maxLevel=</span><span class="s">&#34;info&#34;</span> <span class="na">onMatch=</span><span class="s">&#34;ACCEPT&#34;</span> <span class="na">onMismatch=</span><span class="s">&#34;DENY&#34;</span><span class="nt">/&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如上边的配置，是打印info到fatal级别的log，<strong>如果配置反过来，则不会输出任何log。</strong></p>
 <p>如果不配置minLevel、maxLevel、onMatch和onMismatch的值，则会为其设置默认值，在LevelRangeFilter中的源码实现如下：</p>]]></description></item><item><title>Log4j.xml中Filter的用法</title><link>https://lewky.cn/posts/ec168d9b.html/</link><pubDate>Thu, 20 Dec 2018 22:33:54 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ec168d9b.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
