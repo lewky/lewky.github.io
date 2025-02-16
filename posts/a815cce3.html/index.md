@@ -58,6 +58,12 @@ DBeaver默认的连接和脚本（Connections和Scripts）都保存在`General`�
 
 直接把`.dbeaver-data-sources.xml`拷贝到另一个DBeaver的对应的project目录下即可。如果有多个project，可以在DBeaver里的`Database Navigator`进行切换：选择倒三角图标 -> `Active Project` -> 选择要切换的project，默认是用的General
 
+## MySQL支持多重查询
+
+对于MySQL，默认情况下只能在一个窗口页面里进行查询，如果想要多开页面查询数据，需要修改参数：
+
+选定数据库 -> 编辑连接 -> 驱动属性 -> 选择`allowMultiQueries`，把后面的值改成true
+
 ## 参考链接
 
 * [dbeaver: how can I export connection configuration?](https://stackoverflow.com/questions/56561439/dbeaver-how-can-i-export-connection-configuration)

@@ -681,6 +681,18 @@ SpringBoot项目默认使用commons-logging + Logback，可以用下面的方式
 </dependency>
 ```
 
+## 路由日志引发的OOM
+
+生产上在分配了2g最大内存的机器上发生了OOM，分析dump后推测可能跟log4j2内存泄漏有关。由于项目使用了路由日志，将每笔交易日志自动路由到对应的日志中，如果发生了一百笔不同的交易，则会生成一百个不同的交易日志文件。在GitHub上找到相关的一个[内存泄漏issue](https://github.com/apache/logging-log4j2/discussions/2255) ，其中提及`Log4j Core 2.17.1`和更早以前的版本存在内存泄漏的问题，只要运行时间足够久，迟早引发OOM，解决方案是升级到`2.20.0`版本。
+
+因为项目中使用的SpringBoot和异步打印，因此需要升级两个依赖为如下版本：
+```xml
+<log4j2.version>2.20.0</log4j2.version>
+<com.lmax.disruptor.version>3.4.2</com.lmax.disruptor.version>
+```
+
+如果不想升级版本，那就只能扩大内存，并放弃使用路由日志了。另外提一嘴，交易量大的时候，由于需要同时处理大量的路由日志文件，线程池的线程会频繁地切换上下文导致CPU飙升，同时线程内部的ThreadLocal缓存也占用了大量内存，在升级到新版本后该问题得以改善。
+
 ## 参考链接
 
 * [Java日志框架中真的需要判断log.isDebugEnabled()吗？](https://blog.csdn.net/neosmith/article/details/50100061)

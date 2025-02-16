@@ -1,6 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Feb 2025 21:28:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>cmd - 常用命令</title><link>https://lewky.cn/posts/cmd-commands/</link><pubDate>Mon, 03 Feb 2025 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>Hugo系列(1) - 简单搭建教程与远程部署</title><link>https://lewky.cn/posts/hugo-1.html/</link><pubDate>Mon, 03 Feb 2025 21:10:47 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/hugo-1.html/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>使用Hexo搭建个人博客也有两年多时间了，当文章数量达到上百篇之后，开始发现Hexo生成文章的效率越来越慢，直到每次生成都需要至少五分钟的时间。我发现生成效率和文章涉及到的分类和标签有很大关系，由于文章数量多，每篇文章又都关联了若干个分类和标签，再加上我使用了压缩样式的插件，最终导致极其低下的生成效率。</p>
-<p>在经过一段时间的考量后，决定将Hexo博客迁移到Hugo。Hugo是用go语言开发的，在用法上和Hexo类似，可以简单地把Hugo当成go语言版的Hexo，但是它拥有更快的生成效率。下面是官网的原话：</p>]]></description></item><item><title>Linux常用命令</title><link>https://lewky.cn/posts/linux-commands/</link><pubDate>Sun, 13 Oct 2024 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Feb 2025 21:28:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>cmd - 常用命令</title><link>https://lewky.cn/posts/cmd-commands/</link><pubDate>Mon, 03 Feb 2025 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>Linux常用命令</title><link>https://lewky.cn/posts/linux-commands/</link><pubDate>Sun, 13 Oct 2024 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
 <p>耳边似乎还回响着水母之歌的旋律，笨拙的水母退场离开了舞台，顶碗人也不会忘记深海里曾经的那一束白月光。</p>
 <p>别了，向晚。</p>]]></description></item><item><title>必胜客自助餐</title><link>https://lewky.cn/posts/bishengke/</link><pubDate>Sun, 24 Mar 2024 12:42:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bishengke/</guid><description><![CDATA[<h2 id="攻略">攻略</h2>
 <ol>
@@ -24,24 +22,25 @@
 <p>使用SSH登录时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Unable to negotiate with 20.1.1.174 port 22: no matching host key type found. Their offer: ssh-dss
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Unable to negotiate with 20.1.1.174 port 22: no matching host key type found. Their offer: ssh-dss
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PGP加解密</title><link>https://lewky.cn/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
 <p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
-<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky.cn/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/apollo-issues/</guid><description>&lt;h2 id="apollo简介">Apollo简介&lt;/h2>
-&lt;p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置&lt;/p></description></item><item><title>GitHub问题汇总</title><link>https://lewky.cn/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
+<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky.cn/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/apollo-issues/</guid><description><![CDATA[<h2 id="apollo简介">Apollo简介</h2>
+<p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置。</p>
+<p>Apollo涉及到3个进程，启动时需要按照configservice、adminservice、portal的顺序。</p>]]></description></item><item><title>GitHub问题汇总</title><link>https://lewky.cn/posts/github-issues/</link><pubDate>Thu, 13 Apr 2023 00:27:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/github-issues/</guid><description><![CDATA[<h2 id="推送时报错秘钥格式不支持">推送时报错秘钥格式不支持</h2>
 <p>GitHub在某次更新后改变了支持的秘钥策略，对于新增的RSA格式的SSH秘钥，如果是无密码加密的，会报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">You&#39;re using an RSA key with SHA-1, which is no longer allowed. Please use a
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">You&#39;re using an RSA key with SHA-1, which is no longer allowed. Please use a
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>GitHub的改动详情可以参考如下页面：https://github.blog/2021-09-01-improving-git-protocol-security-github/</p>
 <blockquote>
@@ -72,11 +71,11 @@
 <p>在Windows环境下用Notepad++写了个shell脚本，上传到Linux平台后运行报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">/bin/sh^M: bad interpreter: No such file or directory
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/bin/sh^M: bad interpreter: No such file or directory
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Postman问题汇总</title><link>https://lewky.cn/posts/postman-issues/</link><pubDate>Tue, 07 Jun 2022 23:49:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postman-issues/</guid><description><![CDATA[<h2 id="无法更改请求报文的编码">无法更改请求报文的编码</h2>
 <p>在测试接口的时候发现，在Header中用<code>Content-type</code>指定编码为<code>GBK</code>也没有效果，服务端收到的报文始终是<code>UTF-8</code>编码的字节数组。在查阅资料后得出结论，就是Postman限制死了请求报文的编码为<code>UTF-8</code>，无法通过配置等方式进行修改，如果需要使用其他编码，要么换其他HTTP工具，要么用Java写一段代码去测试接口。</p>]]></description></item><item><title>别了，珈乐</title><link>https://lewky.cn/posts/asoul-jiale/</link><pubDate>Wed, 11 May 2022 23:30:34 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-jiale/</guid><description><![CDATA[<h2 id="江湖路远有缘再见">江湖路远，有缘再见</h2>
@@ -85,7 +84,7 @@
 &lt;p>自从某天更新了Intel的核显驱动后，就发现电脑开机一段时间后必然发生卡顿，后来发现每次卡顿都是桌面窗口管理器（dwm.exe）占用内存过高。观察一段时间后发现，该进程内存会无限增加，怀疑发生了内存泄漏。在知乎搜索后发现很多人遇到了同款问题，这里记录下解决方法。&lt;/p></description></item><item><title>ELK系列(6) - Elasticsearch常用接口</title><link>https://lewky.cn/posts/elk-6/</link><pubDate>Mon, 21 Mar 2022 08:38:01 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-6/</guid><description><![CDATA[<h2 id="创建索引">创建索引</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -106,26 +105,26 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">// 创建blog索引，类型是_doc，id是1
-curl -H &#39;Content-Type:application/json&#39; -XPUT http://localhost:9200/blog/_doc/1 -d &#39;
-{
-      &#34;id&#34;: &#34;1&#34;,
-      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
-      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
-      &#34;priority&#34;: 10,
-      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
-}&#39;
-
-// 创建blog索引，类型是_doc，id由ES自己生成
-// 该id长度为20个字符，URL安全，base64编码，GUID，分布式系统并行生成时不可能会发生冲突
-curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blog/_doc/ -d &#39;
-{
-      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
-      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
-      &#34;priority&#34;: 10,
-      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
-}&#39;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// 创建blog索引，类型是_doc，id是1
+</span></span><span class="line"><span class="cl">curl -H &#39;Content-Type:application/json&#39; -XPUT http://localhost:9200/blog/_doc/1 -d &#39;
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">      &#34;id&#34;: &#34;1&#34;,
+</span></span><span class="line"><span class="cl">      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
+</span></span><span class="line"><span class="cl">      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
+</span></span><span class="line"><span class="cl">      &#34;priority&#34;: 10,
+</span></span><span class="line"><span class="cl">      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
+</span></span><span class="line"><span class="cl">}&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 创建blog索引，类型是_doc，id由ES自己生成
+</span></span><span class="line"><span class="cl">// 该id长度为20个字符，URL安全，base64编码，GUID，分布式系统并行生成时不可能会发生冲突
+</span></span><span class="line"><span class="cl">curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blog/_doc/ -d &#39;
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">      &#34;title&#34;: &#34;New version of Elasticsearch released!&#34;,
+</span></span><span class="line"><span class="cl">      &#34;content&#34;: &#34;Version 1.0 released today!&#34;,
+</span></span><span class="line"><span class="cl">      &#34;priority&#34;: 10,
+</span></span><span class="line"><span class="cl">      &#34;tags&#34;: [&#34;announce&#34;, &#34;elasticsearch&#34;, &#34;release&#34;]
+</span></span><span class="line"><span class="cl">}&#39;
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>ELK系列(5) - Elasticsearch性能调优</title><link>https://lewky.cn/posts/elk-5/</link><pubDate>Sat, 19 Mar 2022 22:27:05 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/elk-5/</guid><description><![CDATA[<h2 id="机器内存分配">机器内存分配</h2>
 <p>官方推荐一个ES节点最好是分配当前机器最大内存的50%，比如机器内存是16g，就分配8g给ES：<code>-Xmx8g</code>。</p>
@@ -133,7 +132,7 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
 <p>在使用MyBatis逆向工程时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -141,32 +140,32 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">org.mybatis.generator.exception.XMLParserException: XML Parser Error on line 43: 必须声明元素类型 &#34;domainObjectRenamingRule&#34;。
-    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:121)
-    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:82)
-    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:74)
-    at GeneratorSqlmap.generator(GeneratorSqlmap.java:22)
-    at GeneratorSqlmap.main(GeneratorSqlmap.java:32)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">org.mybatis.generator.exception.XMLParserException: XML Parser Error on line 43: 必须声明元素类型 &#34;domainObjectRenamingRule&#34;。
+</span></span><span class="line"><span class="cl">    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:121)
+</span></span><span class="line"><span class="cl">    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:82)
+</span></span><span class="line"><span class="cl">    at org.mybatis.generator.config.xml.ConfigurationParser.parseConfiguration(ConfigurationParser.java:74)
+</span></span><span class="line"><span class="cl">    at GeneratorSqlmap.generator(GeneratorSqlmap.java:22)
+</span></span><span class="line"><span class="cl">    at GeneratorSqlmap.main(GeneratorSqlmap.java:32)
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>PostgreSQL - SQL调优方案</title><link>https://lewky.cn/posts/postgresql-sql-tuning/</link><pubDate>Thu, 03 Mar 2022 08:09:26 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-sql-tuning/</guid><description><![CDATA[<h2 id="查询执行很长时间的sql慢sql">查询执行很长时间的SQL（慢SQL）</h2>
 <p>可以通过查询系统表来找到目前处于活跃状态的SQL：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">pg_stat_activity</span> <span class="k">WHERE</span> <span class="n">datname</span><span class="o">=</span><span class="s1">&#39;数据库名&#39;</span> 
-<span class="k">and</span> <span class="n">client_addr</span> <span class="o">=</span> <span class="s1">&#39;发起查询的IP地址&#39;</span> <span class="k">order</span> <span class="k">by</span> <span class="n">state_change</span> <span class="k">desc</span><span class="p">;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">pg_stat_activity</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">datname</span><span class="o">=</span><span class="s1">&#39;数据库名&#39;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">and</span><span class="w"> </span><span class="n">client_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;发起查询的IP地址&#39;</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">state_change</span><span class="w"> </span><span class="k">desc</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Java - 字符编码</title><link>https://lewky.cn/posts/java-charset/</link><pubDate>Sun, 13 Feb 2022 10:42:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-charset/</guid><description>&lt;h2 id="字符集">字符集&lt;/h2>
 &lt;p>字符集是一系列字符的集合，将每个收录的字符和数字进行映射。最早的字符集是ASCII，使用一个字节进行存储字符，8位一共可以表示256个字符，而ASCII只使用了其中的128位，即0～127位，这128位里面包括了常用的英文字符以及标点符号。&lt;/p></description></item><item><title>Spring Data Redis问题汇总</title><link>https://lewky.cn/posts/spring-data-redis/</link><pubDate>Thu, 13 Jan 2022 23:10:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/spring-data-redis/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>本文基于以下版本：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -174,19 +173,19 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--  对应的是3.3.0版本的jedis（redis的java客户端） --&gt;</span>
-<span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="c">&lt;!--  对应的是3.3.0版本的jedis（redis的java客户端） --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>2.4.0<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Java数值问题汇总</title><link>https://lewky.cn/posts/java-number/</link><pubDate>Mon, 10 Jan 2022 23:03:06 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/java-number/</guid><description><![CDATA[<h2 id="double转成bigdecimal的精度损失问题">double转成BigDecimal的精度损失问题</h2>
 <p>如果直接用构造方法将double数值转成BigDecimal，可能存在损失精度的问题：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -194,13 +193,13 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">48</span><span class="o">);</span>
-<span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">BigDecimal</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">0</span><span class="o">.</span><span class="na">48</span><span class="o">);</span>
-<span class="c1">// 0.479999999999999982236431605997495353221893310546875
-</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b1</span><span class="o">);</span>
-<span class="c1">// 0.48
-</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b2</span><span class="o">);</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigDecimal</span><span class="o">(</span><span class="mf">0.48</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">final</span> <span class="n">BigDecimal</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">BigDecimal</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="mf">0.48</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 0.479999999999999982236431605997495353221893310546875
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b1</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 0.48
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">b2</span><span class="o">);</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>lombok问题汇总</title><link>https://lewky.cn/posts/lombok-issues/</link><pubDate>Thu, 06 Jan 2022 09:01:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/lombok-issues/</guid><description><![CDATA[<h2 id="eclipse安装lombok插件">Eclipse安装lombok插件</h2>
 <h3 id="方式一">方式一</h3>
@@ -214,7 +213,7 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
 <p>之前在使用Servlet的时候，总是在 doGet()/doPost() 的最后一行才使用请求转发或者重定向。如果需要根据条件来判断进行不同的请求转发或者重定向，代码如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -225,25 +224,27 @@ curl -H &#39;Content-Type:application/json&#39; -XPOST http://localhost:9200/blo
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="kd">final</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="kd">final</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
-        <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
-
-    <span class="k">if</span> <span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">AttrConsts</span><span class="o">.</span><span class="na">LOGIN_USER</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">LOGIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Override</span>
+</span></span><span class="line"><span class="cl"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span><span class="kd">final</span> <span class="n">HttpServletRequest</span> <span class="n">req</span><span class="o">,</span> <span class="kd">final</span> <span class="n">HttpServletResponse</span> <span class="n">resp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">req</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">AttrConsts</span><span class="o">.</span><span class="na">LOGIN_USER</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">LOGIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item><item><title>Windows查询被占用的端口</title><link>https://lewky.cn/posts/windows-netstat/</link><pubDate>Sat, 25 Dec 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/windows-netstat/</guid><description><![CDATA[<h2 id="查询被占用的端口">查询被占用的端口</h2>
 <p>假如被占用的是61613端口号（activemq的），在cmd窗口中执行如下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-cmd" data-lang="cmd">netstat -aon<span class="p">|</span>findstr <span class="s2">&#34;61613&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">netstat -aon<span class="p">|</span>findstr <span class="s2">&#34;61613&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item></channel></rss>
+</div>]]></description></item><item><title>PostgreSQL - DML操作汇总</title><link>https://lewky.cn/posts/postgresql-dml/</link><pubDate>Tue, 07 Dec 2021 23:43:17 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/postgresql-dml/</guid><description><![CDATA[<h2 id="匿名函数">匿名函数</h2>
+<h3 id="do关键字">DO关键字</h3>
+<p>pl/pgsql即Procedural Language/ Postgres SQL(过程化sql语言)，是Postgresql数据库对sql语句的扩展，可以在pl/pgsql代码块内定义多条sql语句，每条语句以分号结束，代码块由begin开始，end结束，代码块的最后一个end可以不加分号。</p>]]></description></item></channel></rss>

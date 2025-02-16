@@ -10,8 +10,9 @@
 </div>
 </div>]]></description></item><item><title>PGP加解密</title><link>https://lewky.cn/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
 <p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
-<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky.cn/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/apollo-issues/</guid><description>&lt;h2 id="apollo简介">Apollo简介&lt;/h2>
-&lt;p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置&lt;/p></description></item><item><title>SmartGit问题汇总</title><link>https://lewky.cn/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
+<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item><item><title>Apollo问题汇总</title><link>https://lewky.cn/posts/apollo-issues/</link><pubDate>Tue, 09 May 2023 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/apollo-issues/</guid><description><![CDATA[<h2 id="apollo简介">Apollo简介</h2>
+<p>Apollo作为分布式配置中心，主要分为三个部分：客户端Client、服务端Server、管理门户Portal。Portal提供Web界面供用户管理配置。</p>
+<p>Apollo涉及到3个进程，启动时需要按照configservice、adminservice、portal的顺序。</p>]]></description></item><item><title>SmartGit问题汇总</title><link>https://lewky.cn/posts/smartgit-issues/</link><pubDate>Wed, 12 Apr 2023 22:27:41 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/smartgit-issues/</guid><description><![CDATA[<h2 id="30天试用期到期解决方法">30天试用期到期解决方法</h2>
 <p>SmartGit可以免费试用三十天，三十天后可以通过删除配置文件来重复免费试用三十天的过程，不同版本需要删除的文件不同。</p>
 <p><code>win + R</code>组合键打开运行窗口，输入<code>%APPDATA%\syntevo\SmartGit\</code>然后回车会进入到SmartGit的安装路径，进入你当前使用的版本目录，如果是旧版的SmartGit（如17.2版本），删除当前的<code>settings.xml</code>文件，然后重启SmartGit即可。</p>
 <p>如果找不到<code>settings.xml</code>文件，说明是新版本的SmartGit（如21.2版本），此时需要删除下面两个文件：</p>

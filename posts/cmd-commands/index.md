@@ -2,6 +2,7 @@
 
 ## 常用命令
 <!--more-->
+```bat
 # 删除目录下的所有文件（无法删除文件夹）
 del /q D:\projects\lewky\hugo-deploy
 

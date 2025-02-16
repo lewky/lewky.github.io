@@ -456,6 +456,16 @@ public class Test {
 }
 ```
 
+## 连接超时的3个参数
+
+在使用HttpClient时会涉及到3个超时参数：ConnectTimeout、SocketTimeout、ConnectionRequestTimeout。
+
+ConnectTimeout是建立数据库连接的超时时间，此时如果超时报错就是连接超时，意味着三次握手失败了。
+
+SocketTimeout是数据读取超时，超过设定的时间则会连接断开，一般用这个参数来控制一次连接的最长时间，比如某笔重要交易服务端返回的数据量会很巨大，需要大量时间来返回和读取，那么就要给它设置一个比较大的值，避免读取到的响应不完整。
+
+ConnectionRequestTimeout是从连接池中获取连接的超时时间，如果设置的连接池数量太少，而当前的TPS比较高，大量交易在排队等着从连接池获取连接，如果业务处理不过来则会报错连接池获取连接超时。这个参数不建议设置太高，3秒足矣，太高会影响整个交易的业务超时时间，对于上述的例子，正确做法是增加连接池里的连接数量。
+
 ## 参考链接
 
 * [HttpURLConnection 设置Host 头部无效](http://t.zoukankan.com/skyaccross-p-2828986.html)
