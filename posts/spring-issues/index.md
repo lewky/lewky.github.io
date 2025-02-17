@@ -193,8 +193,22 @@ System.out.println("解密后明文：" + decrypt);
 解密后明文：test123
 ```
 
+## 查看类文件是加载的哪个jar包
+
+通过jdk提供的接口可以打印出来类文件的加载路径：
+
+```java
+ProtectionDomain pd = Test.class.getProtectionDomain();
+CodeSource codeSource = pd.getCodesource();
+URL location = codeSource.getLocation();
+System.out.println(location);
+```
+
+但是这个api对于系统类加载器加载的类会获取不到，报错NPE，比如String.class，对于这些类可以通过添加启动参数`-verbose`，在启动项目时打印出来所有被系统类加载器加载的类文件路径。
+
 ## 参考链接
 
 * [8. Spring 表达式语言 (SpEL)](http://itmyhome.com/spring/expressions.html#expressions-operator-safe-navigation)
 * [Spring MVC @PathVariable with dot (.) is getting truncated](https://stackoverflow.com/questions/16332092/spring-mvc-pathvariable-with-dot-is-getting-truncated)
 * [java -cp jasypt_SpringBoot使用jasypt加解密密码的实现方法](https://blog.csdn.net/weixin_42364640/article/details/114707534)
+* [查看java类是从哪个包加载，并找出包所在路径](https://blog.csdn.net/u013818525/article/details/78890258)

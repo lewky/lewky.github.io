@@ -68,9 +68,41 @@ UNIQUE KEY `idx_name` USING BTREE (`column_name`)
 
 `show full processlist`可以查询到MySQL正在执行的SQL语句，找到其中想要终止的慢SQL的id，通过`kill`终止：
 
-```
---终止id为3222162404的SQL语句
+```sql
+-- 终止id为3222162404的SQL语句
 kill 3222162404
+```
+
+## 查询时区分大小写
+
+MySQL默认处理文本时是大小写不敏感并且移除前后空格（trim）的，比如查询时（模糊查询、group by等也一样），查询` DOUBLE `和查询`double`是一样的结果，原因是建表时字符串字段的排序规则默认使用的`utf8_general_ci`。
+
+```sql
+-- 查询表里字段的各项属性，排序规则看其中的collation
+show full columns from 表名;
+
+-- 本例中查询meta_data表里DATA_TYPE字段的部分查询结果如下：
+|Field       |Type        |Collation        |
+|DATA_TYPE   |varchar(10) |utf8_general_ci  |
+```
+
+如果想要区分大小写并且不被trim，有两种方式：
+
+### 使用binary关键字
+
+```sql
+select DATA_TYPE from meta_data group by binary DATA_TYPE;
+select * from meta_data where DATA_TYPE binary = ' DOUBLE ';
+select * from meta_data where DATA_TYPE like binary '%DOUBLE%';
+```
+
+### 修改字段的排序规则
+
+将字符串字段的collation改为`utf8_bin`。
+
+```sql
+-- 将meta data表的DATA_TYPE字段改为大小写敏感
+alter table meta_data change column DATA_TYPE DATA_TYPE varchar(10) collate utf8_bin;
 ```
 
 ## 参考链接
@@ -79,3 +111,4 @@ kill 3222162404
 * [https://blog.csdn.net/m0_37520980/article/details/80364884](https://blog.csdn.net/m0_37520980/article/details/80364884)
 * [mysql导入数据时提示 USING BTREE 错误解决办法](https://blog.csdn.net/ccfxue/article/details/71118612)
 * [查询及停止MySQL正在执行的SQL语句](https://blog.csdn.net/weixin_47766381/article/details/121542788)
+* [探讨MySQL中的GROUP BY语句大小写敏感性](https://blog.csdn.net/qq_29752857/article/details/142493234)

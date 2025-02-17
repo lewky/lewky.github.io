@@ -165,5 +165,14 @@ vi 90-nproc.conf
 *       soft    nproc   4096
 root    soft    nproc   unlimited
 
+# 改密码，需要root
+passwd
+# 指定修改emsp用户的密码
+passwd emsp
+
+# 在根目录查看环境变量脚本（隐藏文件）
+ls -lrta .bash_profile
+# 设置环境变量
+. .bash_profile
 ```
 
