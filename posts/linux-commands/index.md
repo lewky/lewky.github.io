@@ -20,6 +20,7 @@ date -s 17:55:55
 
 # 查当前用户
 whoami
+
 # 切root用户，需要root用户密码
 su - root
 # 提升为root权限，需要输入当前用户的密码
@@ -69,12 +70,18 @@ put -r deploy deploy // 将deploy目录的所有文件都传输到远程机器�
 get xx // 下载远程机器的xx文件到本地
 exit // 退出sftp
 
+# scp上传文件
+scp test123.xml tempusr@9.9.9.9:/home/tempusr/test/
+
 # 移动文件，可用于重命名
 mv source target
 
 # 删除文件
 rm xx
 rm -rf xx // 递归删除，慎用
+
+# 复制
+cp source target
 
 # 搜索文本关键字
 grep -rn apollo.token /home/test/apps/config/config.properties // 搜索到的关键字所在行会回显在控制台
@@ -107,10 +114,13 @@ yum remove perl
 # 查看安装软件
 yum list installed|grep perl
 
-# curl
+# curl，模拟HTTP发送请求
 curl -H "Content-Type: application/json" -X GET -d '{"body":"test123"}' "http://localhost:1234/test"
 curl -H "Content-Type: application/json" -X POST -d '{"body":"test123"}' "http://localhost:1234/test"
 curl -H "Content-Type: application/json" -X POST -d @test.json "http://localhost:1234/test" // 读取指定文件内容作为body
+
+# telnet，可模拟TCP发送报文
+telnet ip port
 
 # 实时日志
 tail -f -n 50 xx.log
