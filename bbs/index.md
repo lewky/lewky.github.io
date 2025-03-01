@@ -14,7 +14,7 @@
 <!--more-->
 
 <!-- 引用 artitalk -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/artitalk@3.2.2/dist/js/artitalk.min.js"></script>
+<script type="text/javascript" src="/js/artitalk.min.js"></script>
 <script>
 new Artitalk({
     appId: '1OiMg9cMz7owGf7apX4mTQs3-gzGzoHsz', // Your LeanCloud appId

@@ -105,6 +105,34 @@ select * from meta_data where DATA_TYPE like binary '%DOUBLE%';
 alter table meta_data change column DATA_TYPE DATA_TYPE varchar(10) collate utf8_bin;
 ```
 
+## MySQL分区
+
+当数据量大时可以进行分表、分区，这样在操作数据时可以提高性能。常见分区有range、hash等，通常用range分区（比如基于日期）。
+
+数据分区之后会按照分区条件自动分区，删除分区时会直接删掉该分区中的数据，新增分区时只能基于最新的分区去新增，比如基于日期新增range分区，最新的分区条件是`20241018`，那么新增的分区必须比`20241018`大才能新增成功。
+
+分区需要维护，通常用定时任务来新增、删除分区。
+
+```sql
+-- 普通表转为分区表，例子中的分区条件是日期字段TRANSDATE
+alter table service_flow_record PARTITION BY RANGE (TO_DAYS (TRANSDATE))
+( PARTITION P20241017 VALUES LESS THAN (739541) ENGINE = InnoDB,
+PARTITION p20241018 VALUES LESS THAN (739542) ENGINE = InnoDB);
+
+-- 分区表转为普通表
+alter table service_flow_record remove partitioning;
+
+-- 查询分区，例子中查询了report_db库的分区表service_flow_record的分区情况
+select * from information_schema.PARTITIONS where TABLE_SCHEMA='report_db' and TABLE_NAME='service_flow_record'
+ORDER BY partition_ordinal_position;
+
+-- 新增分区，例子中是新增p20250207分区，当表中插入的数据日期小于20250207则会自动分到该分区
+alter table service_flow_record add partition (partition p20250207 values less than(to days(20250207)));
+
+-- 删除分区
+alter table service_flow_record drop partition p20250207;
+```
+
 ## 参考链接
 
 * [Mysql JDBC Url参数说明useUnicode=true&characterEncoding=UTF-8](https://www.cnblogs.com/mracale/p/5842572.html)
@@ -112,3 +140,4 @@ alter table meta_data change column DATA_TYPE DATA_TYPE varchar(10) collate utf8
 * [mysql导入数据时提示 USING BTREE 错误解决办法](https://blog.csdn.net/ccfxue/article/details/71118612)
 * [查询及停止MySQL正在执行的SQL语句](https://blog.csdn.net/weixin_47766381/article/details/121542788)
 * [探讨MySQL中的GROUP BY语句大小写敏感性](https://blog.csdn.net/qq_29752857/article/details/142493234)
+* [MySql分区简单说明](https://blog.csdn.net/htydowd/article/details/126852861)
