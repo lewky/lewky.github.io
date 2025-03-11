@@ -1,4 +1,15 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 20 Jun 2023 13:11:18 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>SSH命令问题汇总</title><link>https://lewky.cn/posts/ssh-issues/</link><pubDate>Tue, 20 Jun 2023 13:11:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ssh-issues/</guid><description><![CDATA[<h2 id="no-matching-host-key-type-found-their-offer-ssh-dss">no matching host key type found. Their offer: ssh-dss</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>工作记录 - 分类 - Yulin Lewis' Blog</title><link>https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/</link><description>工作记录 - 分类 - Yulin Lewis' Blog</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Mar 2025 23:52:35 +0800</lastBuildDate><atom:link href="https://lewky.cn/categories/%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95/" rel="self" type="application/rss+xml"/><item><title>cron表达式</title><link>https://lewky.cn/posts/cron/</link><pubDate>Thu, 06 Mar 2025 23:52:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cron/</guid><description><![CDATA[<h2 id="cron表达式">cron表达式</h2>
+<p>包含6或7个参数，代表不同的时间单位和取值范围：</p>
+<ul>
+<li>秒（0-59）</li>
+<li>分（0-59）</li>
+<li>时（0-23）</li>
+<li>日（1-31)</li>
+<li>月（1-12 或 JAN-DEC）</li>
+<li>星期几（0-6 或 SUN-SAT）</li>
+<li>年（可选，1970-2099）</li>
+</ul>
+<p>其中日和星期几一般不同时指定值，因为可能会冲突，一个指定值后另一个会用<code>?</code>来表示忽略，即不指定具体值。</p>]]></description></item><item><title>SSH命令问题汇总</title><link>https://lewky.cn/posts/ssh-issues/</link><pubDate>Tue, 20 Jun 2023 13:11:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ssh-issues/</guid><description><![CDATA[<h2 id="no-matching-host-key-type-found-their-offer-ssh-dss">no matching host key type found. Their offer: ssh-dss</h2>
 <p>使用SSH登录时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -29,8 +40,4 @@
 <p>常见的json框架有：Jackson，FasJson（阿里的，万年没更新，积累了大量issue），Gson（谷歌的）。其中Jackson效率最高，性能最好，最为常用。本文基于<code>2.11.3</code>版本的Jackson。</p>
 <p>Jackson在1.x版本使用的包名是<code>codehaus</code>，后来升级到2.x版本时，为了和旧版本区分开来，采用了新的包名<code>fasterxml</code>。有这种类似操作的还有Log4j和Log4j2，在使用时需要注意引入的包名，避免混用版本或误用版本。</p>
 <p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
-&lt;p>最近需要用到iReport报表工具，但是在启动客户端时却发现会闪退，无法正常启动。查找了资料，发现是因为iReport无法支持jdk 1.8，必须要修改配置文件，将java版本指定为1.7或之前的版本。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。&lt;/p></description></item><item><title>IDEA问题汇总</title><link>https://lewky.cn/posts/idea-issues/</link><pubDate>Fri, 06 Aug 2021 22:41:57 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/idea-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>本文基于2021-2版本的IDEA。</p>
-<h2 id="无法搜索或者下载插件">无法搜索或者下载插件</h2>
-<p><code>File</code> -&gt; <code>Settings...</code> -&gt; <code>Plugins</code>可以打开插件市场，搜索想要下载的插件，但是可能由于网络问题而无法成功搜索或者下载插件。此时需要设置代理来解决。</p>
-<p>点击插件界面里的齿轮图标（在Marketplace、Installed的右边），选择<code>HTTP Proxy Settings...</code>，勾选<code>Auto-detect proxy settings</code>以及<code>Automatic proxy configuration URL:</code>，然后点击最下方的<code>Check connection</code>，在弹出框里输入官方插件网站<code>https://plugins.jetbrains.com/idea</code>，点击<code>OK</code>，一般都是可以连接成功的。之后就可以正常的搜索和下载插件了。</p>]]></description></item></channel></rss>
+&lt;p>最近需要用到iReport报表工具，但是在启动客户端时却发现会闪退，无法正常启动。查找了资料，发现是因为iReport无法支持jdk 1.8，必须要修改配置文件，将java版本指定为1.7或之前的版本。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。&lt;/p></description></item></channel></rss>

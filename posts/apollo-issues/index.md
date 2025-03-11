@@ -36,7 +36,9 @@ public static ApolloOpenApiClient getApolloPortalClient() {
 
 在下发数据到Apollo时报错ApolloOpenApiException，错误信息显示`value too long. length limit:2000000`，这个是因为下发的value数据（一个xml字符串）太大，超过了默认的长度。
 
-Apollo数据库`apolloconfig`的`serverconfig`表有个属性控制了value长度，将`item.value.length.limit值改成更大的长度，再重启Apollo进程即可。这里还有另一个属性`item.key.length.limit`用于控制key的长度，改动生效也同理。
+Apollo数据库`apolloconfig`的`serverconfig`表有个属性控制了value长度，将`item.value.length.limit`值改成更大的长度，再重启Apollo进程即可。
+
+这里还有另一个属性`item.key.length.limit`用于控制key的长度，改动生效也同理。
 
 ## 参考链接
 

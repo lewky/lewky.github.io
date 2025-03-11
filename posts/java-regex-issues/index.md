@@ -40,7 +40,6 @@ while (matcher.find()) {
 1: a
 A
 
-
 // Demo#2
 final String test = "a\nA";
 final Pattern pattern = Pattern.compile("(?im)^a$");
@@ -53,6 +52,21 @@ while (matcher.find()) {
 // 结果如下：
 1: a
 2: A
+
+// Demo#3
+String p1 = "^.+";
+String p2 = "(?m)^.+";
+String p3 = "(?s)^.+";
+String str = "Hello\nWorld!";
+// 匹配结果如下:
+// 默认模式：匹配到一个结果
+// 1: Hello
+// 多行模式：匹配到两个结果（换行符没有被.字符匹配，但是会继续匹配下一行字符串）
+// 1: Hello
+// 2: World!
+// 单行模式：匹配到一个结果（换行符被.字符匹配到了）
+// 1: Hello
+// World!
 ```
 
 ## `matches()`和`find()`区别

@@ -1,4 +1,15 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Feb 2025 21:28:39 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>cmd - 常用命令</title><link>https://lewky.cn/posts/cmd-commands/</link><pubDate>Mon, 03 Feb 2025 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>shell脚本常用语法</title><link>https://lewky.cn/posts/shell/</link><pubDate>Mon, 25 Nov 2024 00:09:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/shell/</guid><description>&lt;h2 id="常用语法">常用语法&lt;/h2></description></item><item><title>Linux常用命令</title><link>https://lewky.cn/posts/linux-commands/</link><pubDate>Sun, 13 Oct 2024 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Yulin Lewis' Blog</title><link>https://lewky.cn/</link><description>不想当写手的码农不是好咸鱼_(xз」∠)_</description><generator>Hugo -- gohugo.io</generator><managingEditor>1019175915@qq.com (雨临Lewis)</managingEditor><webMaster>1019175915@qq.com (雨临Lewis)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 06 Mar 2025 23:52:35 +0800</lastBuildDate><atom:link href="https://lewky.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>cron表达式</title><link>https://lewky.cn/posts/cron/</link><pubDate>Thu, 06 Mar 2025 23:52:35 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cron/</guid><description><![CDATA[<h2 id="cron表达式">cron表达式</h2>
+<p>包含6或7个参数，代表不同的时间单位和取值范围：</p>
+<ul>
+<li>秒（0-59）</li>
+<li>分（0-59）</li>
+<li>时（0-23）</li>
+<li>日（1-31)</li>
+<li>月（1-12 或 JAN-DEC）</li>
+<li>星期几（0-6 或 SUN-SAT）</li>
+<li>年（可选，1970-2099）</li>
+</ul>
+<p>其中日和星期几一般不同时指定值，因为可能会冲突，一个指定值后另一个会用<code>?</code>来表示忽略，即不指定具体值。</p>]]></description></item><item><title>cmd - 常用命令</title><link>https://lewky.cn/posts/cmd-commands/</link><pubDate>Mon, 03 Feb 2025 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>shell脚本常用语法</title><link>https://lewky.cn/posts/shell/</link><pubDate>Mon, 25 Nov 2024 00:09:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/shell/</guid><description>&lt;h2 id="常用语法">常用语法&lt;/h2></description></item><item><title>Linux常用命令</title><link>https://lewky.cn/posts/linux-commands/</link><pubDate>Sun, 13 Oct 2024 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
 <p>耳边似乎还回响着水母之歌的旋律，笨拙的水母退场离开了舞台，顶碗人也不会忘记深海里曾经的那一束白月光。</p>
 <p>别了，向晚。</p>]]></description></item><item><title>必胜客自助餐</title><link>https://lewky.cn/posts/bishengke/</link><pubDate>Sun, 24 Mar 2024 12:42:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bishengke/</guid><description><![CDATA[<h2 id="攻略">攻略</h2>
 <ol>
@@ -233,16 +244,6 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="n">req</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">PathConsts</span><span class="o">.</span><span class="na">PATH_PREFIX</span> <span class="o">+</span> <span class="n">PathConsts</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">resp</span><span class="o">);</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>Windows查询被占用的端口</title><link>https://lewky.cn/posts/windows-netstat/</link><pubDate>Sat, 25 Dec 2021 00:26:15 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/windows-netstat/</guid><description><![CDATA[<h2 id="查询被占用的端口">查询被占用的端口</h2>
-<p>假如被占用的是61613端口号（activemq的），在cmd窗口中执行如下命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">netstat -aon<span class="p">|</span>findstr <span class="s2">&#34;61613&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description></item></channel></rss>

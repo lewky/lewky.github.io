@@ -184,5 +184,20 @@ passwd emsp
 ls -lrta .bash_profile
 # 设置环境变量
 . .bash_profile
+
+# 移除前后空格
+echo " 12 3 " | awk '$1=$1'
+
+# 由jdk提供的命令，可以查询当前用户的Java进程
+jps
+
+# 查看用户登录记录，以及系统的重启记录
+last
+last -x reboot
+
+# 把文本打印到控制台
+# 有个特殊用途，使用终端远程Linux机器时窗口一段时间不操作会过期
+# 这时候可以用cat然后回车来将窗口持续挂起，这样就不会自动退出登录了
+cat
 ```
 

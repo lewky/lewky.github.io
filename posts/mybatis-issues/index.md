@@ -102,8 +102,45 @@ mybatis-plus:
 </insert>
 ```
 
+## in的用法
+
+### 用法一：接收前端的字符串传参
+
+对于前端传递的字符串，比如用`,`分隔的参数，后端用String类型接收该字段。
+
+```java
+private String ecodes;
+```
+
+```xml
+<if test="vo.ecodes != null and vo.ecodes != ''">
+	AND ecode in
+	<foreach item="voEode" collection="vo.ecodes.split(',')" open="(" separator="," close=")">
+    	#{voEode}
+    </foreach>
+</if>
+```
+
+### 用法二：接收前端的list传参
+
+对于前端传递的list，后端用List类型接收该字段。
+
+```java
+private List<String> ecodeLists;
+```
+
+```xml
+<if test="vo.ecodeLists != null and vo.ecodeLists.size > 0">
+	AND ecode in
+    <foreach collection="vo.ecodeLists" item="voEode" index="index" open="(" close=")" separator=",">
+    	#{voEode}
+	</foreach>
+</if>
+```
+
 ## 参考链接
 
 * [mybatis.generator 1.3.6中添加的domainObjectRenamingRule说明](https://blog.csdn.net/sShadow_Hunter/article/details/79743910)
 * [springboot 项目mybatis plus 设置 jdbcTypeForNull （oracle数据库需配置JdbcType.NULL, 默认是Other）](https://cloud.tencent.com/developer/article/1157332)
 * [oracle: jdbcTypeForNull configuration property. Cause: java.sql.SQLException: 无效的列类型: 1111](https://www.cnblogs.com/achengmu/p/11171555.html)
+* [Mybatis xml中in的用法](https://www.cnblogs.com/marchxd/p/17761750.html)

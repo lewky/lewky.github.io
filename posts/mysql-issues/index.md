@@ -66,11 +66,35 @@ UNIQUE KEY `idx_name` USING BTREE (`column_name`)
 
 ## MySQL终止正在执行的SQL语句
 
-`show full processlist`可以查询到MySQL正在执行的SQL语句，找到其中想要终止的慢SQL的id，通过`kill`终止：
+`show processlist`或者`show full processlist`可以查询到MySQL正在执行的SQL语句，找到其中想要终止的慢SQL的id，通过`kill`终止：
 
 ```sql
 -- 终止id为3222162404的SQL语句
 kill 3222162404
+```
+
+## 生成UUID
+
+```sql
+select replace (UUID(), '-', '');
+```
+
+## 字符串的拼接处理
+
+```sql
+-- 拼接字符串
+select concat('host',':','port');
+
+-- 按列拼接字符串，distinct去重，order by排序，separator拼接符
+select group_concat (distinct IDENTIFY_VALUE order by IDENTIFY_VALUE separator ',')
+from service_identify;
+
+-- group_concat拼接的字段有默认长度限制，超过1024会被截断
+-- 查询长度限制
+show variables like 'group_concat_max_len';
+-- 修改长度限制
+SET GLOBAL group_concat_max_len = 4294967295;
+SET SESSION group_concat_max_len = 4294967295;
 ```
 
 ## 查询时区分大小写
@@ -123,11 +147,13 @@ PARTITION p20241018 VALUES LESS THAN (739542) ENGINE = InnoDB);
 alter table service_flow_record remove partitioning;
 
 -- 查询分区，例子中查询了report_db库的分区表service_flow_record的分区情况
-select * from information_schema.PARTITIONS where TABLE_SCHEMA='report_db' and TABLE_NAME='service_flow_record'
+select * from information_schema.PARTITIONS
+where TABLE_SCHEMA='report_db' and TABLE_NAME='service_flow_record'
 ORDER BY partition_ordinal_position;
 
 -- 新增分区，例子中是新增p20250207分区，当表中插入的数据日期小于20250207则会自动分到该分区
-alter table service_flow_record add partition (partition p20250207 values less than(to days(20250207)));
+alter table service_flow_record add partition
+(partition p20250207 values less than(to days(20250207)));
 
 -- 删除分区
 alter table service_flow_record drop partition p20250207;
@@ -141,3 +167,4 @@ alter table service_flow_record drop partition p20250207;
 * [查询及停止MySQL正在执行的SQL语句](https://blog.csdn.net/weixin_47766381/article/details/121542788)
 * [探讨MySQL中的GROUP BY语句大小写敏感性](https://blog.csdn.net/qq_29752857/article/details/142493234)
 * [MySql分区简单说明](https://blog.csdn.net/htydowd/article/details/126852861)
+* [MySql GROUP_CONCAT踩坑记录](https://blog.csdn.net/weixin_38361347/article/details/121942300)
