@@ -9,7 +9,15 @@
 <li>星期几（0-6 或 SUN-SAT）</li>
 <li>年（可选，1970-2099）</li>
 </ul>
-<p>其中日和星期几一般不同时指定值，因为可能会冲突，一个指定值后另一个会用<code>?</code>来表示忽略，即不指定具体值。</p>]]></description></item><item><title>cmd - 常用命令</title><link>https://lewky.cn/posts/cmd-commands/</link><pubDate>Mon, 03 Feb 2025 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>shell脚本常用语法</title><link>https://lewky.cn/posts/shell/</link><pubDate>Mon, 25 Nov 2024 00:09:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/shell/</guid><description>&lt;h2 id="常用语法">常用语法&lt;/h2></description></item><item><title>Linux常用命令</title><link>https://lewky.cn/posts/linux-commands/</link><pubDate>Sun, 13 Oct 2024 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
+<p>其中日和星期几一般不同时指定值，因为可能会冲突，一个指定值后另一个会用<code>?</code>来表示忽略，即不指定具体值。</p>]]></description></item><item><title>cmd - 常用命令</title><link>https://lewky.cn/posts/cmd-commands/</link><pubDate>Mon, 03 Feb 2025 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/cmd-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>Eureka问题汇总</title><link>https://lewky.cn/posts/eureka-issues/</link><pubDate>Thu, 09 Jan 2025 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eureka-issues/</guid><description><![CDATA[<h2 id="eureka心跳续约一直失败">Eureka心跳续约一直失败</h2>
+<p>由于服务端配置了30s无心跳则剔除注册的服务，当客户端由于网络波动等原因在一定时间内一直心跳失败时，就会出现一种很奇怪的现象：</p>
+<p>服务端上注册的服务状态一直在上线、下线之间跳动，并且该服务一会消失、一会出现，此时客户端直接执行注册、上线、下线脚本都是正常的，观察日志会发现只有心跳一直失败，且心跳由最初配置的10s一次变成了100s一次，这个客户端服务在服务端的注册状态一直处于不稳定状态。</p>]]></description></item><item><title>Excel常见用法</title><link>https://lewky.cn/posts/excel-skill/</link><pubDate>Mon, 16 Dec 2024 23:04:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/excel-skill/</guid><description><![CDATA[<h2 id="函数公式使用技巧">函数（公式）使用技巧</h2>
+<ul>
+<li>可以在单元格的上方输入<code>=</code>来使用函数完成一些特殊的操作，比如用<code>&amp;</code>拼接字符串、运算、调用Exce1提供的函数等。</li>
+<li>用<code>&amp;</code>和<code>CHAR(10)</code>可以拼接换行符：<code>=A1 &amp; CHAR(10) &amp; &quot;HelloWorld&quot;</code>。</li>
+<li>单元格的公式在输入完毕后即可生效，可以通过拖动右下角来快速复制公式到其他单元格，但是在拖动的时候公式里的数据范国会自适应变动，如果不希望变动，可以通过<code>$</code>固定范围，将原本的相对引用切换为绝对引用。<code>$A</code>表示固定第A列，<code>$1</code>表示固定第1行，<code>$A$1</code>表示固定第A列1行。</li>
+<li>按<code>Ctrl + Shift + ↓</code>会直接选中当前单元格到下一个空白格之前的单元格，可以用来快速选定一列数据，再按两次该组合健会继续向下选中同一列的后续单元格。</li>
+</ul>]]></description></item><item><title>shell脚本常用语法</title><link>https://lewky.cn/posts/shell/</link><pubDate>Mon, 25 Nov 2024 00:09:52 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/shell/</guid><description>&lt;h2 id="常用语法">常用语法&lt;/h2></description></item><item><title>Linux常用命令</title><link>https://lewky.cn/posts/linux-commands/</link><pubDate>Sun, 13 Oct 2024 21:28:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/linux-commands/</guid><description>&lt;h2 id="常用命令">常用命令&lt;/h2></description></item><item><title>别了，向晚</title><link>https://lewky.cn/posts/asoul-ava/</link><pubDate>Fri, 19 Apr 2024 23:51:27 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/asoul-ava/</guid><description><![CDATA[<h2 id="深海与月光">深海与月光</h2>
 <p>耳边似乎还回响着水母之歌的旋律，笨拙的水母退场离开了舞台，顶碗人也不会忘记深海里曾经的那一束白月光。</p>
 <p>别了，向晚。</p>]]></description></item><item><title>必胜客自助餐</title><link>https://lewky.cn/posts/bishengke/</link><pubDate>Sun, 24 Mar 2024 12:42:30 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/bishengke/</guid><description><![CDATA[<h2 id="攻略">攻略</h2>
 <ol>
@@ -29,16 +37,4 @@
 </ol>]]></description></item><item><title>Prometheus简易入门</title><link>https://lewky.cn/posts/prometheus-start/</link><pubDate>Mon, 06 Nov 2023 23:13:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/prometheus-start/</guid><description><![CDATA[<h2 id="前言">前言</h2>
 <p>APM系统即Application Performance Management应用性能管理，目的是对企业的关键业务系统进行实时性能监控和故障管理，主要有以下三个维度：日志聚合Logs、业务指标Metrics、链路跟踪Traces。</p>
 <p>在现今很流行的分布式架构微服务系统中，主流的APM系统组件：日志聚合可以使用ELK Stack，业务指标采用Prometheus，链路跟踪使用SkyWalking。比如新时代的银行业务系统需要上云，日志往往采用云服务商提供的日志聚合平台（如阿里云的SLS、腾讯云的CLS）。</p>]]></description></item><item><title>Chrome问题汇总</title><link>https://lewky.cn/posts/chrome-issues/</link><pubDate>Tue, 25 Jul 2023 21:18:37 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/chrome-issues/</guid><description>&lt;h2 id="无法保存密码">无法保存密码&lt;/h2>
-&lt;p>在升级Chrome后原本正常的保存密码功能忽然失效，此时就算手动添加、导入密码都无法成功保存密码，暂不清楚原因，但有以下方式可以解决该问题：&lt;/p></description></item><item><title>SSH命令问题汇总</title><link>https://lewky.cn/posts/ssh-issues/</link><pubDate>Tue, 20 Jun 2023 13:11:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ssh-issues/</guid><description><![CDATA[<h2 id="no-matching-host-key-type-found-their-offer-ssh-dss">no matching host key type found. Their offer: ssh-dss</h2>
-<p>使用SSH登录时报错如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Unable to negotiate with 20.1.1.174 port 22: no matching host key type found. Their offer: ssh-dss
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description></item><item><title>PGP加解密</title><link>https://lewky.cn/posts/pgp/</link><pubDate>Fri, 16 Jun 2023 00:19:39 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/pgp/</guid><description><![CDATA[<h2 id="pgp和gpg">PGP和GPG</h2>
-<p>对接客户需求时对方使用PGP对文件进行加解密，但PGP是商用的非对称加解密方式，可以改用Apache基金会推出的开源的GPG，两者的加解密可以无缝对接。</p>
-<p>Linux通常自带GPG命令，可以直接使用。</p>]]></description></item></channel></rss>
+&lt;p>在升级Chrome后原本正常的保存密码功能忽然失效，此时就算手动添加、导入密码都无法成功保存密码，暂不清楚原因，但有以下方式可以解决该问题：&lt;/p></description></item></channel></rss>

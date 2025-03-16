@@ -9,7 +9,15 @@
 <li>星期几（0-6 或 SUN-SAT）</li>
 <li>年（可选，1970-2099）</li>
 </ul>
-<p>其中日和星期几一般不同时指定值，因为可能会冲突，一个指定值后另一个会用<code>?</code>来表示忽略，即不指定具体值。</p>]]></description></item><item><title>SSH命令问题汇总</title><link>https://lewky.cn/posts/ssh-issues/</link><pubDate>Tue, 20 Jun 2023 13:11:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ssh-issues/</guid><description><![CDATA[<h2 id="no-matching-host-key-type-found-their-offer-ssh-dss">no matching host key type found. Their offer: ssh-dss</h2>
+<p>其中日和星期几一般不同时指定值，因为可能会冲突，一个指定值后另一个会用<code>?</code>来表示忽略，即不指定具体值。</p>]]></description></item><item><title>Eureka问题汇总</title><link>https://lewky.cn/posts/eureka-issues/</link><pubDate>Thu, 09 Jan 2025 17:29:20 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/eureka-issues/</guid><description><![CDATA[<h2 id="eureka心跳续约一直失败">Eureka心跳续约一直失败</h2>
+<p>由于服务端配置了30s无心跳则剔除注册的服务，当客户端由于网络波动等原因在一定时间内一直心跳失败时，就会出现一种很奇怪的现象：</p>
+<p>服务端上注册的服务状态一直在上线、下线之间跳动，并且该服务一会消失、一会出现，此时客户端直接执行注册、上线、下线脚本都是正常的，观察日志会发现只有心跳一直失败，且心跳由最初配置的10s一次变成了100s一次，这个客户端服务在服务端的注册状态一直处于不稳定状态。</p>]]></description></item><item><title>Excel常见用法</title><link>https://lewky.cn/posts/excel-skill/</link><pubDate>Mon, 16 Dec 2024 23:04:22 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/excel-skill/</guid><description><![CDATA[<h2 id="函数公式使用技巧">函数（公式）使用技巧</h2>
+<ul>
+<li>可以在单元格的上方输入<code>=</code>来使用函数完成一些特殊的操作，比如用<code>&amp;</code>拼接字符串、运算、调用Exce1提供的函数等。</li>
+<li>用<code>&amp;</code>和<code>CHAR(10)</code>可以拼接换行符：<code>=A1 &amp; CHAR(10) &amp; &quot;HelloWorld&quot;</code>。</li>
+<li>单元格的公式在输入完毕后即可生效，可以通过拖动右下角来快速复制公式到其他单元格，但是在拖动的时候公式里的数据范国会自适应变动，如果不希望变动，可以通过<code>$</code>固定范围，将原本的相对引用切换为绝对引用。<code>$A</code>表示固定第A列，<code>$1</code>表示固定第1行，<code>$A$1</code>表示固定第A列1行。</li>
+<li>按<code>Ctrl + Shift + ↓</code>会直接选中当前单元格到下一个空白格之前的单元格，可以用来快速选定一列数据，再按两次该组合健会继续向下选中同一列的后续单元格。</li>
+</ul>]]></description></item><item><title>SSH命令问题汇总</title><link>https://lewky.cn/posts/ssh-issues/</link><pubDate>Tue, 20 Jun 2023 13:11:18 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ssh-issues/</guid><description><![CDATA[<h2 id="no-matching-host-key-type-found-their-offer-ssh-dss">no matching host key type found. Their offer: ssh-dss</h2>
 <p>使用SSH登录时报错如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -36,8 +44,4 @@
 <p>使用lombok框架开发可以减少大量重复性的代码，大大提高开发效率，但是Eclipse本身并不支持lombok，会编译报错。除了项目要导入lombok依赖，还需要为Eclipse安装该lombok插件。</p>
 <p>安装方法很简单，找到你导入的lombok的jar包，双击运行该jar包，会出现一个安装界面。或者右键jar包，选择<code>打开方式</code>，接着选择<code>Java (TM) Platform SE binary</code>，会出现安装界面。</p>
 <p>在安装界面选择当前的Eclipse进程，或者点击左下角的<code>Specify location...</code>选择你要安装插件的Eclipse，接着点右下角的<code>Install / Update</code>，很快就安装完毕，点击<code>Quit Installer</code>。</p>
-<p>lombok的下载地址：https://projectlombok.org/downloads/lombok.jar</p>]]></description></item><item><title>Jackson问题汇总</title><link>https://lewky.cn/posts/jackson-issues/</link><pubDate>Tue, 04 Jan 2022 23:45:42 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/jackson-issues/</guid><description><![CDATA[<h2 id="前言">前言</h2>
-<p>常见的json框架有：Jackson，FasJson（阿里的，万年没更新，积累了大量issue），Gson（谷歌的）。其中Jackson效率最高，性能最好，最为常用。本文基于<code>2.11.3</code>版本的Jackson。</p>
-<p>Jackson在1.x版本使用的包名是<code>codehaus</code>，后来升级到2.x版本时，为了和旧版本区分开来，采用了新的包名<code>fasterxml</code>。有这种类似操作的还有Log4j和Log4j2，在使用时需要注意引入的包名，避免混用版本或误用版本。</p>
-<p>Jackson可以轻松的将Java对象转换成json对象和xml文档（即序列化），同样也可以将json、xml转换成Java对象（即反序列化）。</p>]]></description></item><item><title>iReport问题汇总</title><link>https://lewky.cn/posts/ireport-issues/</link><pubDate>Sun, 08 Aug 2021 21:46:08 +0800</pubDate><author>文章作者</author><guid>https://lewky.cn/posts/ireport-issues/</guid><description>&lt;h2 id="ireport无法正常启动">iReport无法正常启动&lt;/h2>
-&lt;p>最近需要用到iReport报表工具，但是在启动客户端时却发现会闪退，无法正常启动。查找了资料，发现是因为iReport无法支持jdk 1.8，必须要修改配置文件，将java版本指定为1.7或之前的版本。目前官网最新的版本是5.6.0，据说有外国大神说是下个版本将会支持jdk 1.8。&lt;/p></description></item></channel></rss>
+<p>lombok的下载地址：https://projectlombok.org/downloads/lombok.jar</p>]]></description></item></channel></rss>
