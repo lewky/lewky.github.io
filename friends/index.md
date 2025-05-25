@@ -216,6 +216,13 @@ logo="https://www.logdict.com/avatar"
 word="一个专注于记录, 分享, 学习的网站"
 >}}
 
+{{< friend
+name="划水"
+url="https://www.hsuii.com/"
+logo="https://www.hsuii.com/images/1747640853300.png"
+word="上班划划水提升自己"
+>}}
+
 ## 【网络安全】
 
 {{< friend

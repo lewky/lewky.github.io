@@ -159,6 +159,23 @@ alter table service_flow_record add partition
 alter table service_flow_record drop partition p20250207;
 ```
 
+## 匹配中文字符
+
+中文字符范围在`\u4E00`到`\u9FFF`之间，这其中不只是汉字，还有中文的标点符号。
+
+由于正则表达式的`[]`会对其中的字符进行转义，所以没办法直接在`[]`里使用Unicode写法，但是可以直接写入对应的字符，如下:
+
+```sql
+-- 这里的一其实就是字符\u4E00
+select remark from interface_form where remark regexp '[一-鿿]';
+```
+
+如果想精确到汉字，不包括其他的中文标点符号，可以反向匹配：
+
+```sql
+select remark from interface_form where remark regexp '[^A-z，、“”]';
+```
+
 ## 参考链接
 
 * [Mysql JDBC Url参数说明useUnicode=true&characterEncoding=UTF-8](https://www.cnblogs.com/mracale/p/5842572.html)

@@ -106,16 +106,18 @@ mybatis-plus:
 
 ### 用法一：接收前端的字符串传参
 
-对于前端传递的字符串，比如用`,`分隔的参数，后端用String类型接收该字段。
+对于前端传递的字符串，比如用`,`分隔的参数，后端用String类型接收该字段，mapper的方法形参要用`@Param`注解指定sql里的参数名，否则会报错找不到参数。
 
 ```java
 private String ecodes;
+
+List<Vo> getByCodesIn(@Param(value = "ecodes") String str)
 ```
 
 ```xml
-<if test="vo.ecodes != null and vo.ecodes != ''">
+<if test="ecodes != null and ecodes != ''">
 	AND ecode in
-	<foreach item="voEode" collection="vo.ecodes.split(',')" open="(" separator="," close=")">
+	<foreach item="voEode" collection="ecodes.split(',')" open="(" separator="," close=")">
     	#{voEode}
     </foreach>
 </if>
@@ -127,12 +129,14 @@ private String ecodes;
 
 ```java
 private List<String> ecodeLists;
+
+List<Vo> getByCodesIn(@Param(value = "ecodeLists") List<String> list)
 ```
 
 ```xml
-<if test="vo.ecodeLists != null and vo.ecodeLists.size > 0">
+<if test="ecodeLists != null and ecodeLists.size > 0">
 	AND ecode in
-    <foreach collection="vo.ecodeLists" item="voEode" index="index" open="(" close=")" separator=",">
+    <foreach collection="ecodeLists" item="voEode" index="index" open="(" close=")" separator=",">
     	#{voEode}
 	</foreach>
 </if>
