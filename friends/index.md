@@ -223,6 +223,16 @@ logo="https://www.hsuii.com/images/1747640853300.png"
 word="上班划划水提升自己"
 >}}
 
+{{< friend
+name="liangbm3’s blog"
+url="https://liangbm3.top/"
+logo="https://liangbm3.top/_astro/avatar.CP7u_NN-_115Ywv.webp"
+word="总有人间一两风，填我十万八千梦！"
+primary-color="default"
+img-animation="auto_rotate_left"
+border-animation="bln"
+>}}
+
 ## 【网络安全】
 
 {{< friend
